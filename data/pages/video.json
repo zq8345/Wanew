@@ -2,21 +2,25 @@
   "video.page-header-subtitle.1": {
     "en": "Product demos and setup guides.",
     "pt-BR": "Demonstrações de produtos e guias de instalação.",
-    "es-MX": "Demostraciones de productos y guías de instalación."
+    "es-MX": "Demostraciones de productos y guías de instalación.",
+    "zh": "产品演示与设置指南。"
   },
   "video.alt.1": {
     "en": "Factory showcase - wanew video",
     "pt-BR": "Apresentação da fábrica - vídeo wanew",
-    "es-MX": "Presentación de la fábrica - video wanew"
+    "es-MX": "Presentación de la fábrica - video wanew",
+    "zh": "工厂展示 - wanew 视频"
   },
   "video.a.1": {
     "en": "Factory showcase",
     "pt-BR": "Apresentação da fábrica",
-    "es-MX": "Presentación de la fábrica"
+    "es-MX": "Presentación de la fábrica",
+    "zh": "工厂展示"
   },
   "video.meta.title": {
     "en": "Video-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": "Vídeos - Wanew | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
-    "es-MX": "Videos - Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía"
+    "es-MX": "Videos - Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía",
+    "zh": "视频-Wanew | 优质 Starlink 配件、支架与电源解决方案"
   }
 }

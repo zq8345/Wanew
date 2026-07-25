@@ -4,21 +4,25 @@
   "list.banner.model": {
     "en": "Starlink {model} Accessories",
     "pt-BR": "Acessórios para Starlink {model}",
-    "es-MX": "Accesorios para Starlink {model}"
+    "es-MX": "Accesorios para Starlink {model}",
+    "zh": "Starlink {model} 配件"
   },
   "list.filter.model": {
     "en": "Model",
     "pt-BR": "Modelo",
-    "es-MX": "Modelo"
+    "es-MX": "Modelo",
+    "zh": "型号"
   },
   "list.filter.type": {
     "en": "Type",
     "pt-BR": "Tipo",
-    "es-MX": "Tipo"
+    "es-MX": "Tipo",
+    "zh": "类型"
   },
   "list.chip.all": {
     "en": "All",
     "pt-BR": "Todos",
-    "es-MX": "Todos"
+    "es-MX": "Todos",
+    "zh": "全部"
   }
 }

@@ -2,301 +2,361 @@
   "shared.professional_equipment": {
     "en": "Professional Equipment",
     "pt-BR": "Equipamentos profissionais",
-    "es-MX": "Equipo profesional"
+    "es-MX": "Equipo profesional",
+    "zh": "专业设备"
   },
   "shared.fcc": {
     "en": "FCC",
     "pt-BR": "FCC",
-    "es-MX": "FCC"
+    "es-MX": "FCC",
+    "zh": "FCC"
   },
   "shared.ce": {
     "en": "CE",
     "pt-BR": "CE",
-    "es-MX": "CE"
+    "es-MX": "CE",
+    "zh": "CE"
   },
   "shared.rohs": {
     "en": "RoHS",
     "pt-BR": "RoHS",
-    "es-MX": "RoHS"
+    "es-MX": "RoHS",
+    "zh": "RoHS"
   },
   "shared.wanew_is_a_leading_third_party_manufactu": {
     "en": "Wanew is a leading third-party manufacturer of Starlink-compatible accessories, mounts, power adapters, cables and protective cases. Independent from SpaceX or Starlink.",
     "pt-BR": "A Wanew é uma fabricante terceirizada líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Independente da SpaceX e da Starlink.",
-    "es-MX": "Wanew es un fabricante independiente líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches de protección. Sin relación con SpaceX ni con Starlink."
+    "es-MX": "Wanew es un fabricante independiente líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches de protección. Sin relación con SpaceX ni con Starlink.",
+    "zh": "Wanew 是领先的第三方制造商，提供 Starlink 兼容配件、支架、电源适配器、线缆及防护外壳。独立于 SpaceX 及 Starlink。"
   },
   "shared.starlink_compatible_accessories": {
     "en": "Starlink-compatible accessories",
     "pt-BR": "acessórios compatíveis com Starlink",
-    "es-MX": "accesorios compatibles con Starlink"
+    "es-MX": "accesorios compatibles con Starlink",
+    "zh": "Starlink 兼容配件"
   },
   "shared.satellite_internet_accessories": {
     "en": "satellite internet accessories",
     "pt-BR": "acessórios para internet via satélite",
-    "es-MX": "accesorios para internet vía satélite"
+    "es-MX": "accesorios para internet vía satélite",
+    "zh": "卫星互联网配件"
   },
   "shared.rv_connectivity": {
     "en": "RV connectivity",
     "pt-BR": "conectividade em motorhome",
-    "es-MX": "conectividad en casa rodante"
+    "es-MX": "conectividad en casa rodante",
+    "zh": "房车联网"
   },
   "shared.off_grid_power": {
     "en": "off-grid power",
     "pt-BR": "energia off-grid",
-    "es-MX": "energía sin red eléctrica"
+    "es-MX": "energía sin red eléctrica",
+    "zh": "离网供电"
   },
   "shared.mounting_systems": {
     "en": "mounting systems",
     "pt-BR": "sistemas de fixação",
-    "es-MX": "sistemas de montaje"
+    "es-MX": "sistemas de montaje",
+    "zh": "安装支架系统"
   },
   "shared.certified": {
     "en": "✅ Certified",
     "pt-BR": "✅ Certificado",
-    "es-MX": "✅ Certificado"
+    "es-MX": "✅ Certificado",
+    "zh": "✅ 已认证"
   },
   "shared.starlink_mini": {
     "en": "Starlink Mini",
     "pt-BR": "Starlink Mini",
-    "es-MX": "Starlink Mini"
+    "es-MX": "Starlink Mini",
+    "zh": "Starlink Mini"
   },
   "shared.performance": {
     "en": "Performance",
     "pt-BR": "Performance",
-    "es-MX": "Performance"
+    "es-MX": "Performance",
+    "zh": "Performance"
   },
   "shared.compatibility": {
     "en": "Compatibility",
     "pt-BR": "Compatibilidade",
-    "es-MX": "Compatibilidad"
+    "es-MX": "Compatibilidad",
+    "zh": "兼容性"
   },
   "shared.industry": {
     "en": "Industry",
     "pt-BR": "Setores",
-    "es-MX": "Sectores"
+    "es-MX": "Sectores",
+    "zh": "行业"
   },
   "shared.jul_4_2026": {
     "en": "Jul 4, 2026",
     "pt-BR": "4 de jul. de 2026",
-    "es-MX": "4 de jul. de 2026"
+    "es-MX": "4 de jul. de 2026",
+    "zh": "2026 年 7 月 4 日"
   },
   "shared.starlink_compatible_power_adapters_buyer": {
     "en": "Starlink-Compatible Power Adapters Buyer Guide: 12V DC vs AC vs USB-C",
     "pt-BR": "Guia de compra de adaptadores de energia compatíveis com Starlink: 12V DC vs AC vs USB-C",
-    "es-MX": "Guía de compra de adaptadores de energía compatibles con Starlink: 12V CC vs CA vs USB-C"
+    "es-MX": "Guía de compra de adaptadores de energía compatibles con Starlink: 12V CC vs CA vs USB-C",
+    "zh": "Starlink 兼容电源适配器选购指南：12V DC、AC 与 USB-C 对比"
   },
   "shared.read_more": {
     "en": "Read more",
     "pt-BR": "Leia mais",
-    "es-MX": "Leer más"
+    "es-MX": "Leer más",
+    "zh": "阅读更多"
   },
   "shared.wanew_pipe_mount_vs_wall_mount_vs_flat_r": {
     "en": "Wanew Pipe Mount vs Wall Mount vs Flat Roof Mount: Which One Is Right for You?",
     "pt-BR": "Suporte de tubo vs suporte de parede vs suporte para telhado plano da Wanew: qual é o ideal para você?",
-    "es-MX": "Soporte de tubo vs soporte de pared vs soporte para techo plano de Wanew: ¿cuál es el ideal para ti?"
+    "es-MX": "Soporte de tubo vs soporte de pared vs soporte para techo plano de Wanew: ¿cuál es el ideal para ti?",
+    "zh": "Wanew 管式支架、壁挂支架与平屋顶支架对比：哪一款适合您？"
   },
   "shared.shipping_and_logistics_how_wanew_deliver": {
     "en": "Shipping and Logistics: How Wanew Delivers Worldwide",
     "pt-BR": "Envio e logística: como a Wanew entrega no mundo todo",
-    "es-MX": "Envíos y logística: cómo Wanew entrega en todo el mundo"
+    "es-MX": "Envíos y logística: cómo Wanew entrega en todo el mundo",
+    "zh": "运输与物流：Wanew 如何实现全球交付"
   },
   "shared.common.more": {
     "en": "More",
     "pt-BR": "Leia mais",
-    "es-MX": "Más"
+    "es-MX": "Más",
+    "zh": "更多"
   },
   "shared.quality_control_standards_for_starlink_c": {
     "en": "Quality Control Standards for Starlink-Compatible Accessories",
     "pt-BR": "Padrões de controle de qualidade para acessórios compatíveis com Starlink",
-    "es-MX": "Estándares de control de calidad para accesorios compatibles con Starlink"
+    "es-MX": "Estándares de control de calidad para accesorios compatibles con Starlink",
+    "zh": "Starlink 兼容配件的质量管控标准"
   },
   "shared.service": {
     "en": "Service",
     "pt-BR": "Guias",
-    "es-MX": "Guías"
+    "es-MX": "Guías",
+    "zh": "服务"
   },
   "shared.must_have_starlink_marine_accessories_fo": {
     "en": "Must-Have Starlink Marine Accessories for Reliable Yacht Internet Connectivity",
     "pt-BR": "Acessórios náuticos Starlink indispensáveis para uma conexão de internet confiável em iates",
-    "es-MX": "Accesorios marítimos Starlink indispensables para una conexión de internet confiable en yates"
+    "es-MX": "Accesorios marítimos Starlink indispensables para una conexión de internet confiable en yates",
+    "zh": "游艇稳定联网必备的 Starlink 船舶配件"
   },
   "shared.discover_the_must_have_starlink_marine_a": {
     "en": "Discover the must-have Starlink Marine Accessories for yachts and boats. Learn how reliable marine satellite internet enhances navigation, communication, and entertainment at sea.",
     "pt-BR": "Conheça os acessórios náuticos Starlink indispensáveis para iates e barcos. Veja como a internet via satélite marítima confiável melhora a navegação, a comunicação e o entretenimento no mar.",
-    "es-MX": "Conoce los accesorios marítimos Starlink indispensables para yates y botes. Descubre cómo el internet marítimo vía satélite confiable mejora la navegación, la comunicación y el entretenimiento en el mar."
+    "es-MX": "Conoce los accesorios marítimos Starlink indispensables para yates y botes. Descubre cómo el internet marítimo vía satélite confiable mejora la navegación, la comunicación y el entretenimiento en el mar.",
+    "zh": "了解游艇与船舶必备的 Starlink 船舶配件。看可靠的船舶卫星互联网如何提升海上导航、通信与娱乐体验。"
   },
   "shared.how_to_choose_the_right_starlink_marine_": {
     "en": "How to Choose the Right Starlink Marine Accessories for Reliable Offshore Internet",
     "pt-BR": "Como escolher os acessórios náuticos Starlink certos para uma internet offshore confiável",
-    "es-MX": "Cómo elegir los accesorios marítimos Starlink correctos para tener internet confiable en altamar"
+    "es-MX": "Cómo elegir los accesorios marítimos Starlink correctos para tener internet confiable en altamar",
+    "zh": "如何选择合适的 Starlink 船舶配件，实现稳定的离岸联网"
   },
   "shared.essential_starlink_marine_accessories_fo": {
     "en": "Essential Starlink Marine Accessories for Fishing Boats: Your Complete Connectivity Kit",
     "pt-BR": "Acessórios náuticos Starlink essenciais para barcos de pesca: seu kit completo de conectividade",
-    "es-MX": "Accesorios marítimos Starlink esenciales para botes de pesca: tu kit completo de conectividad"
+    "es-MX": "Accesorios marítimos Starlink esenciales para botes de pesca: tu kit completo de conectividad",
+    "zh": "渔船必备的 Starlink 船舶配件：您的完整联网套件"
   },
   "shared.2026_04_30": {
     "en": "2026-04-30",
     "pt-BR": "30 de abr. de 2026",
-    "es-MX": "30 de abr. de 2026"
+    "es-MX": "30 de abr. de 2026",
+    "zh": "2026-04-30"
   },
   "shared.2026_04_29": {
     "en": "2026-04-29",
     "pt-BR": "29 de abr. de 2026",
-    "es-MX": "29 de abr. de 2026"
+    "es-MX": "29 de abr. de 2026",
+    "zh": "2026-04-29"
   },
   "shared.comprehensive_comparison_of_wanew_pipe_m": {
     "en": "Comprehensive comparison of Wanew pipe mount, wall mount, and flat roof mount for Starlink. Decision matrix, real-world scenarios, and FAQs to help you choose the right mounting solution.",
     "pt-BR": "Comparação completa entre os suportes de tubo, de parede e para telhado plano da Wanew para Starlink. Matriz de decisão, cenários reais e perguntas frequentes para ajudar você a escolher a solução de fixação certa.",
-    "es-MX": "Comparación completa entre los soportes de tubo, de pared y para techo plano de Wanew para Starlink. Matriz de decisión, escenarios reales y preguntas frecuentes para ayudarte a elegir la solución de montaje correcta."
+    "es-MX": "Comparación completa entre los soportes de tubo, de pared y para techo plano de Wanew para Starlink. Matriz de decisión, escenarios reales y preguntas frecuentes para ayudarte a elegir la solución de montaje correcta.",
+    "zh": "Wanew 管式支架、壁挂支架与平屋顶支架的全面对比。决策矩阵、真实场景与常见问题，助您选择合适的安装方案。"
   },
   "shared.how_to_install_a_starlink_mount_without_": {
     "en": "How to Install a Starlink Mount Without Drilling: Non-Permanent Solutions",
     "pt-BR": "Como instalar um suporte Starlink sem furar: soluções não permanentes",
-    "es-MX": "Cómo instalar un soporte Starlink sin perforar: soluciones no permanentes"
+    "es-MX": "Cómo instalar un soporte Starlink sin perforar: soluciones no permanentes",
+    "zh": "如何免打孔安装 Starlink 支架：非永久性方案"
   },
   "shared.starlink_wall_mount_vs_roof_mount_pros_a": {
     "en": "Starlink Wall Mount vs Roof Mount: Pros and Cons for Home Users",
     "pt-BR": "Suporte de parede vs suporte de telhado para Starlink: prós e contras para uso residencial",
-    "es-MX": "Soporte de pared vs soporte de techo para Starlink: ventajas y desventajas para uso residencial"
+    "es-MX": "Soporte de pared vs soporte de techo para Starlink: ventajas y desventajas para uso residencial",
+    "zh": "Starlink 壁挂支架与屋顶支架对比：家庭用户的利弊分析"
   },
   "shared.2026_07_04": {
     "en": "2026-07-04",
     "pt-BR": "4 de jul. de 2026",
-    "es-MX": "4 de jul. de 2026"
+    "es-MX": "4 de jul. de 2026",
+    "zh": "2026-07-04"
   },
   "shared.how_to_choose_a_starlink_mini_12v_power_": {
     "en": "How to Choose a Starlink Mini 12V Power Adapter for Your Setup",
     "pt-BR": "Como escolher um adaptador de energia 12V para a Starlink Mini na sua configuração",
-    "es-MX": "Cómo elegir un adaptador de energía de 12V para la Starlink Mini en tu instalación"
+    "es-MX": "Cómo elegir un adaptador de energía de 12V para la Starlink Mini en tu instalación",
+    "zh": "如何为您的方案选择 Starlink Mini 12V 电源适配器"
   },
   "shared.2026_06_28": {
     "en": "2026-06-28",
     "pt-BR": "28 de jun. de 2026",
-    "es-MX": "28 de jun. de 2026"
+    "es-MX": "28 de jun. de 2026",
+    "zh": "2026-06-28"
   },
   "shared.wanew_starlink_mini_power_guide_12v_adap": {
     "en": "Wanew Starlink Mini Power Guide - 12V Adapters & DC Cables",
     "pt-BR": "Guia de energia Wanew para Starlink Mini — adaptadores 12V e cabos DC",
-    "es-MX": "Guía de energía Wanew para Starlink Mini - adaptadores de 12V y cables CC"
+    "es-MX": "Guía de energía Wanew para Starlink Mini - adaptadores de 12V y cables CC",
+    "zh": "Wanew Starlink Mini 供电指南——12V 适配器与 DC 线缆"
   },
   "shared.2026_02_06": {
     "en": "2026-02-06",
     "pt-BR": "6 de fev. de 2026",
-    "es-MX": "6 de feb. de 2026"
+    "es-MX": "6 de feb. de 2026",
+    "zh": "2026-02-06"
   },
   "shared.winterizing_your_starlink_mini_cold_weat": {
     "en": "Winterizing Your Starlink Mini: Cold Weather Accessories Guide",
     "pt-BR": "Preparando sua Starlink Mini para o inverno: guia de acessórios para frio intenso",
-    "es-MX": "Prepara tu Starlink Mini para el invierno: guía de accesorios para clima frío"
+    "es-MX": "Prepara tu Starlink Mini para el invierno: guía de accesorios para clima frío",
+    "zh": "Starlink Mini 冬季防护：寒冷天气配件指南"
   },
   "shared.best_starlink_mini_cable_management_for_": {
     "en": "Best Starlink Mini Cable Management for RV Roof Mounts: Complete Guide",
     "pt-BR": "Melhor gestão de cabos para Starlink Mini para suportes de teto em motorhome: guia completo",
-    "es-MX": "La mejor gestión de cables de la Starlink Mini para soportes de techo en casa rodante: guía completa"
+    "es-MX": "La mejor gestión de cables de la Starlink Mini para soportes de techo en casa rodante: guía completa",
+    "zh": "房车屋顶支架的最佳 Starlink Mini 走线管理：完整指南"
   },
   "shared.complete_range_of_wanew_accessories_comp": {
     "en": "Complete range of Wanew accessories compatible with Mini, Standard, Performance and Enterprise Starlink terminals. Mounts, power, cables & cases.",
     "pt-BR": "Linha completa de acessórios Wanew compatíveis com os terminais Starlink Mini, Standard, Performance e Enterprise. Suportes, energia, cabos e cases.",
-    "es-MX": "Línea completa de accesorios Wanew compatibles con los terminales Starlink Mini, Standard, Performance y Enterprise. Soportes, energía, cables y estuches."
+    "es-MX": "Línea completa de accesorios Wanew compatibles con los terminales Starlink Mini, Standard, Performance y Enterprise. Soportes, energía, cables y estuches.",
+    "zh": "适配 Mini、Standard、Performance 与 Enterprise Starlink 终端的完整 Wanew 配件系列。支架、电源、线缆与外壳。"
   },
   "shared.wanew_is_a_leading_manufacturer_of_starl": {
     "en": "Wanew is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
     "pt-BR": "A Wanew é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não é afiliada à SpaceX.",
-    "es-MX": "Wanew es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de experiencia, más de 200 patentes. OEM/ODM disponible. No afiliada a SpaceX."
+    "es-MX": "Wanew es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de experiencia, más de 200 patentes. OEM/ODM disponible. No afiliada a SpaceX.",
+    "zh": "Wanew 是领先的 Starlink 兼容配件制造商，产品包括支架、电源适配器、线缆及防护外壳。15+ 年经验，200+ 项专利。可提供 OEM/ODM。与 SpaceX 无隶属关系。"
   },
   "shared.how_to_set_up_starlink_mini_for_rv_campi": {
     "en": "How to Set Up Starlink Mini for RV Camping: Complete Guide",
     "pt-BR": "Como instalar a Starlink Mini para camping em motorhome: guia completo",
-    "es-MX": "Cómo instalar la Starlink Mini para acampar en casa rodante: guía completa"
+    "es-MX": "Cómo instalar la Starlink Mini para acampar en casa rodante: guía completa",
+    "zh": "如何为房车露营设置 Starlink Mini：完整指南"
   },
   "shared.global_shipping_and_logistics_guide_for_": {
     "en": "Global shipping and logistics guide for Wanew. Express, air, sea freight options. US warehouse DDP service, customs clearance, transit times, packaging standards, and shipping cost estimation.",
     "pt-BR": "Guia global de envio e logística da Wanew. Opções de frete expresso, aéreo e marítimo. Serviço DDP com armazém nos EUA, desembaraço aduaneiro, prazos de trânsito, padrões de embalagem e estimativa de custos de envio.",
-    "es-MX": "Guía global de envío y logística de Wanew. Opciones de flete exprés, aéreo y marítimo. Servicio DDP con almacén en Estados Unidos, despacho aduanal, tiempos de tránsito, estándares de empaque y estimación de costos de envío."
+    "es-MX": "Guía global de envío y logística de Wanew. Opciones de flete exprés, aéreo y marítimo. Servicio DDP con almacén en Estados Unidos, despacho aduanal, tiempos de tránsito, estándares de empaque y estimación de costos de envío.",
+    "zh": "Wanew 全球运输与物流指南。快递、空运、海运选项。美国仓库 DDP 服务、清关、运输时效、包装标准与运费估算。"
   },
   "shared.complete_quality_control_standards_for_t": {
     "en": "Complete quality control standards for Wanew Starlink accessories. ISO 9001 certified 4-stage QC process, product testing protocols, defect classification, and certification compliance.",
     "pt-BR": "Padrões completos de controle de qualidade para os acessórios Starlink da Wanew. Processo de QC em 4 etapas com certificação ISO 9001, protocolos de teste de produto, classificação de defeitos e conformidade com certificações.",
-    "es-MX": "Estándares completos de control de calidad para los accesorios Starlink de Wanew. Proceso de control de calidad en 4 etapas con certificación ISO 9001, protocolos de prueba de producto, clasificación de defectos y cumplimiento de certificaciones."
+    "es-MX": "Estándares completos de control de calidad para los accesorios Starlink de Wanew. Proceso de control de calidad en 4 etapas con certificación ISO 9001, protocolos de prueba de producto, clasificación de defectos y cumplimiento de certificaciones.",
+    "zh": "Wanew Starlink 配件的完整质量管控标准。ISO 9001 认证的四阶段 QC 流程、产品测试规程、缺陷分级与认证合规。"
   },
   "shared.custom_starlink_accessory_manufacturing_": {
     "en": "Custom Starlink Accessory Manufacturing: From Prototype to Production",
     "pt-BR": "Fabricação de acessórios Starlink sob medida: do protótipo à produção",
-    "es-MX": "Fabricación de accesorios Starlink personalizados: del prototipo a la producción"
+    "es-MX": "Fabricación de accesorios Starlink personalizados: del prototipo a la producción",
+    "zh": "Starlink 配件定制制造：从样品到量产"
   },
   "shared.oem_odm_manufacturing_guide_for_starlink": {
     "en": "OEM/ODM manufacturing guide for Starlink-compatible accessories. Customization options, development process, tooling costs, quality assurance, and case studies from a 15-year manufacturer.",
     "pt-BR": "Guia de fabricação OEM/ODM para acessórios compatíveis com Starlink. Opções de personalização, processo de desenvolvimento, custos de ferramental, garantia de qualidade e estudos de caso de uma fabricante com 15 anos de experiência.",
-    "es-MX": "Guía de fabricación OEM/ODM para accesorios compatibles con Starlink. Opciones de personalización, proceso de desarrollo, costos de herramentales, aseguramiento de calidad y casos de estudio de un fabricante con 15 años de experiencia."
+    "es-MX": "Guía de fabricación OEM/ODM para accesorios compatibles con Starlink. Opciones de personalización, proceso de desarrollo, costos de herramentales, aseguramiento de calidad y casos de estudio de un fabricante con 15 años de experiencia.",
+    "zh": "Starlink 兼容配件的 OEM/ODM 制造指南。来自一家 15 年制造商的定制选项、开发流程、模具成本、质量保证与案例研究。"
   },
   "shared.bulk_ordering_guide_moq_lead_time_and_pr": {
     "en": "Bulk Ordering Guide: MOQ, Lead Time, and Pricing for Starlink Mounts",
     "pt-BR": "Guia de pedidos em grande volume: MOQ, prazo de entrega e preços para suportes Starlink",
-    "es-MX": "Guía de pedidos al mayoreo: MOQ, tiempo de entrega y precios para soportes Starlink"
+    "es-MX": "Guía de pedidos al mayoreo: MOQ, tiempo de entrega y precios para soportes Starlink",
+    "zh": "批量订购指南：Starlink 支架的 MOQ、交期与定价"
   },
   "shared.complete_bulk_ordering_guide_for_wanew_s": {
     "en": "Complete bulk ordering guide for Wanew Starlink accessories. MOQ by product, lead times, pricing tiers, ordering process, sample policy, and payment terms for distributors and resellers.",
     "pt-BR": "Guia completo de pedidos em grande volume dos acessórios Starlink da Wanew. MOQ por produto, prazos de entrega, faixas de preço, processo de pedido, política de amostras e condições de pagamento para distribuidores e revendedores.",
-    "es-MX": "Guía completa de pedidos al mayoreo de los accesorios Starlink de Wanew. MOQ por producto, tiempos de entrega, niveles de precio, proceso de pedido, política de muestras y condiciones de pago para distribuidores y revendedores."
+    "es-MX": "Guía completa de pedidos al mayoreo de los accesorios Starlink de Wanew. MOQ por producto, tiempos de entrega, niveles de precio, proceso de pedido, política de muestras y condiciones de pago para distribuidores y revendedores.",
+    "zh": "Wanew Starlink 配件的完整批量订购指南。各产品 MOQ、交期、价格梯度、订购流程、样品政策及面向经销商与分销商的付款条款。"
   },
   "shared.news": {
     "en": "News",
     "pt-BR": "Notícias",
-    "es-MX": "Noticias"
+    "es-MX": "Noticias",
+    "zh": "新闻"
   },
   "shared.safety_compliance_standards_for_starlink": {
     "en": "Safety Compliance Standards for Starlink Marine Accessories | Complete Certification & Safety Guidelines",
     "pt-BR": "Normas de conformidade e segurança para acessórios Starlink Marine: guia completo de certificação e diretrizes de segurança.",
-    "es-MX": "Normas de cumplimiento y seguridad para accesorios marítimos Starlink | Guía completa de certificación y lineamientos de seguridad"
+    "es-MX": "Normas de cumplimiento y seguridad para accesorios marítimos Starlink | Guía completa de certificación y lineamientos de seguridad",
+    "zh": "Starlink 船舶配件的安全合规标准 | 完整认证与安全指引"
   },
   "shared.starlink_junction_box_installation_for_o": {
     "en": "Starlink Junction Box Installation for Outdoor Cable Management",
     "pt-BR": "Instalação da caixa de junção Starlink para gerenciamento de cabos em ambientes externos",
-    "es-MX": "Instalación de la caja de conexiones Starlink para el manejo de cables en exteriores"
+    "es-MX": "Instalación de la caja de conexiones Starlink para el manejo de cables en exteriores",
+    "zh": "户外走线管理的 Starlink 接线盒安装"
   },
   "shared.installation_guide_for_wanew_outdoor_jun": {
     "en": "Installation guide for Wanew Outdoor Junction Box. IP66 weatherproof enclosure for Starlink cable splices, 12V adapter housing, and outdoor cable management.",
     "pt-BR": "Guia de instalação da caixa de junção externa da Wanew. Invólucro à prova de intempéries IP66 para emendas de cabos Starlink, alojamento do adaptador 12V e gerenciamento de cabos em ambientes externos.",
-    "es-MX": "Guía de instalación de la caja de conexiones para exteriores de Wanew. Caja IP66 resistente a la intemperie para empalmes de cable Starlink, alojamiento del adaptador de 12V y manejo de cables en exteriores."
+    "es-MX": "Guía de instalación de la caja de conexiones para exteriores de Wanew. Caja IP66 resistente a la intemperie para empalmes de cable Starlink, alojamiento del adaptador de 12V y manejo de cables en exteriores.",
+    "zh": "Wanew 户外接线盒安装指南。IP66 防水外壳，适用于 Starlink 线缆接头、12V 适配器收纳及户外走线管理。"
   },
   "shared.guide_to_installing_starlink_without_dri": {
     "en": "Guide to installing Starlink without drilling. No-drill methods for renters: railing mounts, window sill mounts, weighted bases, tripods, and cable routing without wall penetration.",
     "pt-BR": "Guia para instalar a Starlink sem furar. Métodos sem furos para quem aluga: suportes para guarda-corpo, suportes para peitoril de janela, bases com peso, tripés e passagem de cabos sem perfurar a parede.",
-    "es-MX": "Guía para instalar Starlink sin taladrar. Métodos sin perforación para quienes rentan: soportes para barandal, soportes para repisa de ventana, bases con contrapeso, trípodes y paso de cables sin perforar la pared."
+    "es-MX": "Guía para instalar Starlink sin taladrar. Métodos sin perforación para quienes rentan: soportes para barandal, soportes para repisa de ventana, bases con contrapeso, trípodes y paso de cables sin perforar la pared.",
+    "zh": "免打孔安装 Starlink 指南。面向租户的免打孔方案：栏杆支架、窗台支架、配重底座、三脚架，以及无需穿墙的走线方式。"
   },
   "shared.comprehensive_comparison_of_starlink_wal": {
     "en": "Comprehensive comparison of Starlink wall mount vs roof mount for home users. Pros and cons, decision guide, case studies, and FAQ for choosing the right residential mounting solution.",
     "pt-BR": "Comparação completa entre suporte de parede e suporte de telhado para Starlink em uso residencial. Prós e contras, guia de decisão, estudos de caso e perguntas frequentes para escolher a solução de fixação residencial certa.",
-    "es-MX": "Comparación completa entre el soporte de pared y el soporte de techo para Starlink para uso doméstico. Ventajas y desventajas, guía de decisión, casos de estudio y preguntas frecuentes para elegir la solución de montaje residencial ideal."
+    "es-MX": "Comparación completa entre el soporte de pared y el soporte de techo para Starlink para uso doméstico. Ventajas y desventajas, guía de decisión, casos de estudio y preguntas frecuentes para elegir la solución de montaje residencial ideal.",
+    "zh": "面向家庭用户的 Starlink 壁挂支架与屋顶支架全面对比。利弊分析、决策指南、案例研究与常见问题，助您选择合适的家用安装方案。"
   },
   "shared.buyer_guide_for_starlink_power_adapters_": {
     "en": "Buyer guide for Starlink power adapters. Compare 12V DC, stock AC, and USB-C PD options. Recommendations by use case: RV, off-grid, home, and vehicle installations.",
     "pt-BR": "Guia de compra de adaptadores de energia para Starlink. Compare as opções 12V DC, AC original e USB-C PD. Recomendações por caso de uso: motorhome, off-grid, residência e instalações em veículos.",
-    "es-MX": "Guía de compra de adaptadores de energía para Starlink. Compara las opciones de 12V CC, CA original y USB-C PD. Recomendaciones por caso de uso: casa rodante, sin red eléctrica, hogar e instalaciones en vehículos."
+    "es-MX": "Guía de compra de adaptadores de energía para Starlink. Compara las opciones de 12V CC, CA original y USB-C PD. Recomendaciones por caso de uso: casa rodante, sin red eléctrica, hogar e instalaciones en vehículos.",
+    "zh": "Starlink 电源适配器选购指南。对比 12V DC、原装 AC 与 USB-C PD 方案。按使用场景给出推荐：房车、离网、家用与车载安装。"
   },
   "shared.complete_step_by_step_guide_to_setting_u": {
     "en": "Complete step-by-step guide to setting up Starlink Mini for RV camping. Equipment checklist, mounting, power, cable routing, and troubleshooting for reliable internet at any campsite.",
     "pt-BR": "Guia passo a passo completo para instalar a Starlink Mini no camping em motorhome. Checklist de equipamentos, fixação, energia, passagem de cabos e solução de problemas para internet confiável em qualquer acampamento.",
-    "es-MX": "Guía completa paso a paso para instalar la Starlink Mini para acampar en casa rodante. Lista de equipo, montaje, alimentación, paso de cables y solución de problemas para tener internet confiable en cualquier campamento."
+    "es-MX": "Guía completa paso a paso para instalar la Starlink Mini para acampar en casa rodante. Lista de equipo, montaje, alimentación, paso de cables y solución de problemas para tener internet confiable en cualquier campamento.",
+    "zh": "为房车露营设置 Starlink Mini 的完整分步指南。设备清单、支架安装、供电、走线与故障排查，让您在任何营地都能稳定联网。"
   },
   "shared.monthly_output_units": {
     "en": "400,000–600,000",
     "pt-BR": "400.000–600.000",
-    "es-MX": "400,000–600,000"
+    "es-MX": "400,000–600,000",
+    "zh": "400,000–600,000"
   },
   "shared.units_per_month": {
     "en": "Units per month",
     "pt-BR": "Unidades por mês",
-    "es-MX": "Unidades por mes"
+    "es-MX": "Unidades por mes",
+    "zh": "件/月"
   },
   "shared.us_warehouse": {
     "en": "US warehouse",
     "pt-BR": "Armazém nos EUA",
-    "es-MX": "Almacén en EE. UU."
+    "es-MX": "Almacén en EE. UU.",
+    "zh": "美国仓"
   },
   "shared.local_stock_ddp": {
     "en": "Local stock &amp; DDP",
     "pt-BR": "Estoque local e DDP",
-    "es-MX": "Inventario local y DDP"
+    "es-MX": "Inventario local y DDP",
+    "zh": "本地库存 & DDP"
   }
 }

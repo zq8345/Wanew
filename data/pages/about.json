@@ -3,213 +3,255 @@
     "en": "About Us",
     "pt-BR": "Sobre Nós",
     "es-MX": "Acerca de nosotros",
-    "reason.dupe": "页面标题/面包屑/eyebrow 三处「About Us」,pt 各自不同(Sobre Nós/Sobre/Sobre a Wanew)对应不同位置。同词不同位,显式共存不合并。"
+    "reason.dupe": "页面标题/面包屑/eyebrow 三处「About Us」,pt 各自不同(Sobre Nós/Sobre/Sobre a Wanew)对应不同位置。同词不同位,显式共存不合并。",
+    "zh": "关于我们"
   },
   "about.page-header-subtitle.1": {
     "en": "Engineering-led manufacturing since 2010.",
     "pt-BR": "Fabricação guiada pela engenharia desde 2010.",
-    "es-MX": "Fabricación con enfoque en ingeniería desde 2010."
+    "es-MX": "Fabricación con enfoque en ingeniería desde 2010.",
+    "zh": "自 2010 年起，以工程驱动制造。"
   },
   "about.p.1": {
     "en": "Wanew Starlink Accessories is an engineering-led manufacturer of Starlink-compatible accessories, based in the Guangdong–Hong Kong–Macao Greater Bay Area. Under one integrated R&amp;D, production and sales operation, we design and build a full range of peripherals for Starlink terminals — waterproof network and power cables, mounts and brackets, power adapters, protective cases, and signal-expansion hardware.",
     "pt-BR": "A Wanew Starlink Accessories é uma fabricante de acessórios compatíveis com Starlink guiada pela engenharia, sediada na Grande Baía Guangdong–Hong Kong–Macau. Sob uma operação integrada de P&amp;D, produção e vendas, projetamos e fabricamos uma linha completa de periféricos para terminais Starlink — cabos de rede e de energia à prova d'água, suportes e fixações, adaptadores de energia, cases de proteção e hardware de expansão de sinal.",
-    "es-MX": "Wanew Starlink Accessories es un fabricante de accesorios compatibles con Starlink con enfoque en ingeniería, con sede en la Gran Área de la Bahía Guangdong–Hong Kong–Macao. Bajo una operación integrada de I+D, producción y ventas, diseñamos y fabricamos una línea completa de periféricos para terminales Starlink — cables de red y de alimentación impermeables, soportes y bases, adaptadores de energía, estuches protectores y hardware de expansión de señal."
+    "es-MX": "Wanew Starlink Accessories es un fabricante de accesorios compatibles con Starlink con enfoque en ingeniería, con sede en la Gran Área de la Bahía Guangdong–Hong Kong–Macao. Bajo una operación integrada de I+D, producción y ventas, diseñamos y fabricamos una línea completa de periféricos para terminales Starlink — cables de red y de alimentación impermeables, soportes y bases, adaptadores de energía, estuches protectores y hardware de expansión de señal.",
+    "zh": "Wanew Starlink Accessories 是一家以工程驱动的 Starlink 兼容配件制造商，位于粤港澳大湾区。在集研发、生产、销售于一体的运营体系下，我们为 Starlink 终端设计并制造全系列周边配件——防水网络线与电源线、支架与安装座、电源适配器、防护外壳及信号扩展硬件。"
   },
   "about.p.2": {
     "en": "Every product is engineered to meet the weather-resistance and outdoor demands of Starlink Mini, Standard, and Performance (Gen 1/2/3) terminals, giving global buyers a stable, durable, and precisely fitted one-stop supply. Wanew is an independent, third-party manufacturer and is",
     "pt-BR": "Cada produto é projetado para atender às exigências de resistência às intempéries e de uso ao ar livre dos terminais Starlink Mini, Standard e Performance (Gen 1/2/3), oferecendo aos compradores do mundo todo um fornecimento estável, durável e com encaixe preciso, tudo em um só lugar. A Wanew é uma fabricante independente e terceirizada e",
-    "es-MX": "Cada producto está diseñado para cumplir con las exigencias de resistencia a la intemperie y de uso en exteriores de los terminales Starlink Mini, Standard y Performance (Gen 1/2/3), y les da a los compradores de todo el mundo un suministro estable, duradero y de ajuste preciso, todo en un solo lugar. Wanew es un fabricante independiente y externo, y"
+    "es-MX": "Cada producto está diseñado para cumplir con las exigencias de resistencia a la intemperie y de uso en exteriores de los terminales Starlink Mini, Standard y Performance (Gen 1/2/3), y les da a los compradores de todo el mundo un suministro estable, duradero y de ajuste preciso, todo en un solo lugar. Wanew es un fabricante independiente y externo, y",
+    "zh": "每件产品均针对 Starlink Mini、Standard 及 Performance (Gen 1/2/3) 终端的耐候性与户外需求进行工程设计，为全球采购商提供稳定、耐用、精准适配的一站式供应。Wanew 是独立的第三方制造商，"
   },
   "about.strong.1": {
     "en": "not affiliated with SpaceX or Starlink",
     "pt-BR": "não é afiliada à SpaceX nem à Starlink",
-    "es-MX": "no está afiliado a SpaceX ni a Starlink"
+    "es-MX": "no está afiliado a SpaceX ni a Starlink",
+    "zh": "与 SpaceX 及 Starlink 无隶属关系"
   },
   "about.alt.1": {
     "en": "Wanew manufacturing facility",
     "pt-BR": "Fábrica de fabricação da Wanew",
-    "es-MX": "Planta de fabricación de Wanew"
+    "es-MX": "Planta de fabricación de Wanew",
+    "zh": "Wanew 生产工厂"
   },
   "about.tj-kick.1": {
     "en": "At a glance",
     "pt-BR": "Em resumo",
-    "es-MX": "De un vistazo"
+    "es-MX": "De un vistazo",
+    "zh": "概览"
   },
   "about.tj-h2.1": {
     "en": "Wanew by the Numbers",
     "pt-BR": "A Wanew em números",
-    "es-MX": "Wanew en números"
+    "es-MX": "Wanew en números",
+    "zh": "数字里的 Wanew"
   },
   "about.tj-sub.1": {
     "en": "Fifteen years of manufacturing focused on Starlink-compatible accessories.",
     "pt-BR": "Quinze anos de fabricação focada em acessórios compatíveis com Starlink.",
-    "es-MX": "Quince años de fabricación enfocada en accesorios compatibles con Starlink."
+    "es-MX": "Quince años de fabricación enfocada en accesorios compatibles con Starlink.",
+    "zh": "十五年专注于 Starlink 兼容配件的制造。"
   },
   "about.xlc-stat-label.1": {
     "en": "Years Experience",
     "pt-BR": "Anos de experiência",
-    "es-MX": "Años de experiencia"
+    "es-MX": "Años de experiencia",
+    "zh": "年经验"
   },
   "about.xlc-stat-label.3": {
     "en": "Skilled Staff",
     "pt-BR": "Técnicos qualificados",
-    "es-MX": "Personal calificado"
+    "es-MX": "Personal calificado",
+    "zh": "熟练员工"
   },
   "about.xlc-stat-label.4": {
     "en": "Patents",
     "pt-BR": "Patentes",
-    "es-MX": "Patentes"
+    "es-MX": "Patentes",
+    "zh": "专利"
   },
   "about.tj-kick.2": {
     "en": "Production",
     "pt-BR": "Produção",
-    "es-MX": "Producción"
+    "es-MX": "Producción",
+    "zh": "生产"
   },
   "about.tj-h2.2": {
     "en": "Manufacturing Capability",
     "pt-BR": "Capacidade de fabricação",
-    "es-MX": "Capacidad de fabricación"
+    "es-MX": "Capacidad de fabricación",
+    "zh": "制造能力"
   },
   "about.tj-sub.2": {
     "en": "Scaled, automated production with in-house quality control.",
     "pt-BR": "Produção automatizada em escala com controle de qualidade interno.",
-    "es-MX": "Producción automatizada a gran escala con control de calidad interno."
+    "es-MX": "Producción automatizada a gran escala con control de calidad interno.",
+    "zh": "规模化、自动化生产，配备自有质量管控。"
   },
   "about.p.3": {
     "en": "From a 5,000 m² standardized production facility, Wanew runs modern automated production lines and professional testing equipment, with a monthly output of 400,000–600,000 units. In-house quality control checks every batch against specification — so buyers get scale, consistency, and reliable lead times.",
     "pt-BR": "A partir de uma fábrica padronizada de 5.000 m², a Wanew opera linhas de produção automatizadas modernas e equipamentos de teste profissionais, com produção mensal de 400.000 a 600.000 unidades. O controle de qualidade interno inspeciona cada lote conforme a especificação — assim os compradores ganham escala, consistência e prazos de entrega confiáveis.",
-    "es-MX": "Desde una planta de producción estandarizada de 5,000 m², Wanew opera modernas líneas de producción automatizadas y equipo de prueba profesional, con una producción mensual de 400,000–600,000 unidades. El control de calidad interno revisa cada lote conforme a la especificación — así los compradores obtienen escala, consistencia y tiempos de entrega confiables."
+    "es-MX": "Desde una planta de producción estandarizada de 5,000 m², Wanew opera modernas líneas de producción automatizadas y equipo de prueba profesional, con una producción mensual de 400,000–600,000 unidades. El control de calidad interno revisa cada lote conforme a la especificación — así los compradores obtienen escala, consistencia y tiempos de entrega confiables.",
+    "zh": "Wanew 拥有 5,000 m² 标准化生产厂房，运行现代化自动化生产线与专业测试设备，月产能达 400,000–600,000 件。自有质量管控对每一批次逐一按规格检验——让采购商获得规模、一致性与可靠的交期。"
   },
   "about.about-caps-k.1": {
     "en": "5,000 m²",
     "pt-BR": "5.000 m²",
-    "es-MX": "5,000 m²"
+    "es-MX": "5,000 m²",
+    "zh": "5,000 m²"
   },
   "about.about-caps-v.1": {
     "en": "Standardized production facility",
     "pt-BR": "Fábrica padronizada",
-    "es-MX": "Planta de producción estandarizada"
+    "es-MX": "Planta de producción estandarizada",
+    "zh": "标准化生产厂房"
   },
   "about.about-caps-k.3": {
     "en": "Automated",
     "pt-BR": "Automatizadas",
-    "es-MX": "Automatizadas"
+    "es-MX": "Automatizadas",
+    "zh": "自动化"
   },
   "about.about-caps-v.3": {
     "en": "Production &amp; testing lines",
     "pt-BR": "Linhas de produção e teste",
-    "es-MX": "Líneas de producción y pruebas"
+    "es-MX": "Líneas de producción y pruebas",
+    "zh": "生产与测试产线"
   },
   "about.about-caps-k.4": {
     "en": "In-house QC",
     "pt-BR": "QC interno",
-    "es-MX": "QC interno"
+    "es-MX": "QC interno",
+    "zh": "自有质检"
   },
   "about.about-caps-v.4": {
     "en": "Every batch checked to spec",
     "pt-BR": "Cada lote inspecionado conforme a especificação",
-    "es-MX": "Cada lote revisado conforme a la especificación"
+    "es-MX": "Cada lote revisado conforme a la especificación",
+    "zh": "每批次按规格检验"
   },
   "about.alt.2": {
     "en": "Wanew production facility",
     "pt-BR": "Fábrica de produção da Wanew",
-    "es-MX": "Planta de producción de Wanew"
+    "es-MX": "Planta de producción de Wanew",
+    "zh": "Wanew 生产工厂"
   },
   "about.tj-kick.3": {
     "en": "Compliance",
     "pt-BR": "Conformidade",
-    "es-MX": "Cumplimiento"
+    "es-MX": "Cumplimiento",
+    "zh": "合规"
   },
   "about.tj-h2.3": {
     "en": "Certifications &amp; Testing",
     "pt-BR": "Certificações e Testes",
-    "es-MX": "Certificaciones y pruebas"
+    "es-MX": "Certificaciones y pruebas",
+    "zh": "认证与测试"
   },
   "about.tj-sub.3": {
     "en": "Products tested to international standards.",
     "pt-BR": "Produtos testados segundo padrões internacionais.",
-    "es-MX": "Productos probados conforme a normas internacionales."
+    "es-MX": "Productos probados conforme a normas internacionales.",
+    "zh": "产品通过国际标准测试。"
   },
   "about.a.1": {
     "en": "View certifications, testing &amp; quality &rarr;",
     "pt-BR": "Ver certificações, testes e qualidade &rarr;",
-    "es-MX": "Ver certificaciones, pruebas y calidad &rarr;"
+    "es-MX": "Ver certificaciones, pruebas y calidad &rarr;",
+    "zh": "查看认证、测试与质量 &rarr;"
   },
   "about.tj-kick.4": {
     "en": "Worldwide",
     "pt-BR": "No mundo todo",
-    "es-MX": "En todo el mundo"
+    "es-MX": "En todo el mundo",
+    "zh": "全球"
   },
   "about.tj-h2.4": {
     "en": "Global Reach",
     "pt-BR": "Alcance global",
-    "es-MX": "Alcance global"
+    "es-MX": "Alcance global",
+    "zh": "全球覆盖"
   },
   "about.tj-sub.4": {
     "en": "Exported to multiple countries and regions, with US warehousing and DDP delivery for consistent, reliable supply.",
     "pt-BR": "Exportado para diversos países e regiões, com armazenagem nos EUA e entrega DDP para um fornecimento consistente e confiável.",
-    "es-MX": "Exportamos a múltiples países y regiones, con almacenamiento en EE. UU. y entrega DDP para un suministro constante y confiable."
+    "es-MX": "Exportamos a múltiples países y regiones, con almacenamiento en EE. UU. y entrega DDP para un suministro constante y confiable.",
+    "zh": "出口至多个国家和地区，配备美国仓储与 DDP 交付，供应稳定可靠。"
   },
   "about.tj-v.1": {
     "en": "$20&ndash;30M",
     "pt-BR": "US$ 20&ndash;30M",
-    "es-MX": "USD 20&ndash;30M"
+    "es-MX": "USD 20&ndash;30M",
+    "zh": "$20&ndash;30M"
   },
   "about.tj-l.1": {
     "en": "Annual export revenue",
     "pt-BR": "Faturamento anual de exportação",
-    "es-MX": "Ingresos anuales por exportación"
+    "es-MX": "Ingresos anuales por exportación",
+    "zh": "年出口营收"
   },
   "about.tj-v.3": {
     "en": "DHL &middot; FedEx",
     "pt-BR": "DHL &middot; FedEx",
-    "es-MX": "DHL &middot; FedEx"
+    "es-MX": "DHL &middot; FedEx",
+    "zh": "DHL &middot; FedEx"
   },
   "about.tj-l.3": {
     "en": "Worldwide delivery",
     "pt-BR": "Entrega no mundo todo",
-    "es-MX": "Entrega a todo el mundo"
+    "es-MX": "Entrega a todo el mundo",
+    "zh": "全球配送"
   },
   "about.tj-v.4": {
     "en": "Multiple regions",
     "pt-BR": "Várias regiões",
-    "es-MX": "Múltiples regiones"
+    "es-MX": "Múltiples regiones",
+    "zh": "多个地区"
   },
   "about.tj-l.4": {
     "en": "Countries served",
     "pt-BR": "Países atendidos",
-    "es-MX": "Países atendidos"
+    "es-MX": "Países atendidos",
+    "zh": "服务国家数"
   },
   "about.h3.1": {
     "en": "Partner With Wanew",
     "pt-BR": "Seja parceiro da Wanew",
-    "es-MX": "Asóciate con Wanew"
+    "es-MX": "Asóciate con Wanew",
+    "zh": "与 Wanew 合作"
   },
   "about.p.4": {
     "en": "Contact our sales team for product inquiries, OEM/ODM projects, or distribution partnerships.",
     "pt-BR": "Entre em contato com nossa equipe de vendas para dúvidas sobre produtos, projetos OEM/ODM ou parcerias de distribuição.",
-    "es-MX": "Contacta a nuestro equipo de ventas para dudas sobre productos, proyectos OEM/ODM o alianzas de distribución."
+    "es-MX": "Contacta a nuestro equipo de ventas para dudas sobre productos, proyectos OEM/ODM o alianzas de distribución.",
+    "zh": "如需产品咨询、OEM/ODM 项目或分销合作，请联系我们的销售团队。"
   },
   "about.span.1": {
     "en": "Contact Us",
     "pt-BR": "Fale conosco",
     "es-MX": "Contáctanos",
-    "reason.dupe": "页面标题/面包屑/内联三处「Contact Us」,同词不同位置,显式共存不合并。"
+    "reason.dupe": "页面标题/面包屑/内联三处「Contact Us」,同词不同位置,显式共存不合并。",
+    "zh": "联系我们"
   },
   "about.meta.title": {
     "en": "About Us-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": "Sobre Nós - Wanew | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
-    "es-MX": "Acerca de nosotros - Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía"
+    "es-MX": "Acerca de nosotros - Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía",
+    "zh": "关于我们-Wanew | 优质 Starlink 配件、支架与电源解决方案"
   },
   "about.meta.desc": {
     "en": "Wanew is an independent, third-party manufacturer of Starlink-compatible accessories — mounts, power adapters, cables, and protective cases. 15+ years of engineering-led manufacturing, 200+ patents, OEM/ODM available. Not affiliated with SpaceX or Starlink.",
     "pt-BR": "A Wanew é uma fabricante independente e terceirizada de acessórios compatíveis com Starlink — suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de fabricação guiada pela engenharia, 200+ patentes, OEM/ODM disponível. Não afiliada à SpaceX nem à Starlink.",
-    "es-MX": "Wanew es un fabricante independiente y externo de accesorios compatibles con Starlink — soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de fabricación con enfoque en ingeniería, más de 200 patentes, OEM/ODM disponible. No afiliada a SpaceX ni a Starlink."
+    "es-MX": "Wanew es un fabricante independiente y externo de accesorios compatibles con Starlink — soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de fabricación con enfoque en ingeniería, más de 200 patentes, OEM/ODM disponible. No afiliada a SpaceX ni a Starlink.",
+    "zh": "Wanew 是一家独立的第三方 Starlink 兼容配件制造商——支架、电源适配器、线缆及防护外壳。15+ 年工程驱动制造经验，200+ 项专利，可提供 OEM/ODM。与 SpaceX 及 Starlink 无隶属关系。"
   },
   "about.ld.name.3": {
     "en": "About Us",
     "pt-BR": "Sobre",
     "es-MX": "Acerca de nosotros",
-    "reason.dupe": "页面标题/面包屑/eyebrow 三处「About Us」,pt 各自不同(Sobre Nós/Sobre/Sobre a Wanew)对应不同位置。同词不同位,显式共存不合并。"
+    "reason.dupe": "页面标题/面包屑/eyebrow 三处「About Us」,pt 各自不同(Sobre Nós/Sobre/Sobre a Wanew)对应不同位置。同词不同位,显式共存不合并。",
+    "zh": "关于我们"
   }
 }

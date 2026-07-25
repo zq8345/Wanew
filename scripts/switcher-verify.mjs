@@ -24,8 +24,11 @@ import fs from "fs";
 import { localeDirs } from "./locale-dirs.mjs";
 
 const locales = JSON.parse(fs.readFileSync("data/locales.json", "utf8"));
-const DIR = localeDirs(locales);                       // { en:"", "pt-BR":"pt", "es-MX":"es" }
+const DIR = localeDirs(locales);                       // { en:"", "pt-BR":"pt", "es-MX":"es", zh:"zh" }
 const ENABLED = locales.enabled;
+// 切换器语种集 = enabled ∪ render_extra(内部/no-SEO 语种如 zh 也在菜单里,总工 B 拍板)。
+// chrome.js 的切换器用的正是这个集,所以门也用它 —— 否则会对着【输出正确】的 zh 菜单项报红。
+const SWITCHER = [...locales.enabled, ...(locales.render_extra || [])];
 
 // 页面路径 -> 它是哪门语种。最长目录前缀命中,谁都不命中就是默认语种。
 const localeOf = (p) => {
@@ -67,7 +70,7 @@ for (const p of walk(".").map((f) => f.replace("./", ""))) {
   // 不存在→该语种首页兜底(总工规格③)。存在性只决定 href,不再决定条目有无。
   // 当前语种在菜单里是 <span aria-current>(不是 <a>),LINK_RE 天然不匹配 → got 里出现即为 bug。
   const want = new Map();
-  for (const loc of ENABLED) {
+  for (const loc of SWITCHER) {
     if (loc === own) continue;
     want.set(loc, fs.existsSync(fileFor(route, loc)) ? urlFor(route, loc) : (DIR[loc] ? `/${DIR[loc]}/` : "/"));
   }
@@ -81,12 +84,12 @@ for (const p of walk(".").map((f) => f.replace("./", ""))) {
   }
   for (const [loc] of got) {
     if (loc === own) { issues.push(`② 当前语种出现为链接(该是 aria-current 的 span):hreflang=${loc}`); continue; }
-    if (!ENABLED.includes(loc)) issues.push(`② hreflang=${loc} 不在 enabled 里`);
+    if (!SWITCHER.includes(loc)) issues.push(`② hreflang=${loc} 不在 enabled∪render_extra 里`);
   }
   checked++;
   if (issues.length) fails.push(`${p}\n     ${issues.join("\n     ")}`);
 }
-console.log(`switcher-verify  语种 ${ENABLED.join(",")} | 有切换器的页 ${checked} | 无切换器 ${none}(W2d 后菜单恒在——无切换器=无 chrome 的独立页才合法)`);
+console.log(`switcher-verify  语种 ${SWITCHER.join(",")}(含 render_extra) | 有切换器的页 ${checked} | 无切换器 ${none}(W2d 后菜单恒在——无切换器=无 chrome 的独立页才合法)`);
 console.log(`  ① 其他每一门语种恒在菜单(对应页,缺页→该语种首页兜底) · ② 当前语种非链接且 hreflang 合法:  ${checked - fails.length} / ${checked}  ${fails.length ? "🔴" : "✅"}`);
 if (fails.length) { console.log(`\n🔴 ${fails.length} 个页:`); fails.slice(0, 10).forEach((f) => console.log(`   ${f}`)); }
 process.exit(fails.length ? 1 : 0);

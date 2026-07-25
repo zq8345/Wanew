@@ -5,6 +5,13 @@
     "pt-BR",
     "es-MX"
   ],
+  "_render_extra_doc": "render_extra = 仅渲染、不进 SEO 的内部 locale(Joe/团队自读)。zh 属此类:出 /zh/ 页 + 进语言切换器,但【不在 enabled】→ 不被 en/pt/es 的 hreflang 引用、不进 sitemap(chrome-sync 显式过滤 internal_noindex 目录)。internal_noindex = 强制 <meta robots=noindex> 的 render_extra 子集。范围(总工 2026-07-25):zh 只驱 chrome + 首页 + 信息/列表页;【不】force 产品详情页(products-zh 未接,zh 导航链产品页走 urlOf 回落英文 URL)。",
+  "render_extra": [
+    "zh"
+  ],
+  "internal_noindex": [
+    "zh"
+  ],
   "default": "en",
   "_fallback_doc": [
     "`fallback` = strings allowed to stay in the default locale. This is the ONLY escape hatch that silences the guard, so it is governed:",

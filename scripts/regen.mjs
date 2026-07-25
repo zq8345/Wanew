@@ -25,7 +25,11 @@ const catalog = JSON.parse(fs.readFileSync(path.join(REPO, "data", "chrome.json"
 const categoriesJson = JSON.parse(fs.readFileSync(path.join(REPO, "data", "categories.json"), "utf8"));
 const CATMAP_DATA = catmapOf(categoriesJson);
 const MODEL = locales.model_display;
-const LOCALES = locales.enabled;
+const LOCALES = locales.enabled;                               // SEO 语种:驱产品详情页 + manifest + hreflang
+const RENDER_EXTRA = locales.render_extra || [];               // 内部/no-SEO 语种(zh):只驱 chrome+信息/列表/首页
+const RENDER_SET = [...LOCALES, ...RENDER_EXTRA];              // 渲染集
+const INTERNAL = locales.internal_noindex || [];              // 强制 noindex 的内部语种
+const isExtra = (loc) => RENDER_EXTRA.includes(loc);
 const DEFAULT = locales.default;
 const LOC_DIR = localeDirs(locales);                           // pt-BR -> pt / es-MX -> es(唯一真源)
 const dirOf = (loc) => LOC_DIR[loc] ?? "";
@@ -115,15 +119,44 @@ const LIST_PAGES = [
 ];
 // 列表页的 banner/筛选栏标签 catalog(data/pages/list.json)—— 和 shared 一样并进来
 const listCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "list.json"), "utf8"));
+
+// 内部语种(zh)的 list 页是从默认语种页 copy 来的 —— regenListPage/setList* 只改 body/banner/title,
+// 【不碰 <head>】。所以 copy 带来的是默认语种的 head(canonical/hreflang/lang、且无 noindex)。必须把 head
+// 本地化成内部 locale 的规则,和 renderPage 对信息页做的一致:lang=该语种、canonical 自指 /dir/route/、
+// 【零 hreflang】(内部 no-SEO)、加 noindex —— 否则 zh list 页会向 Google 声明成 en 页副本且可索引(SEO 红线)。
+// 幂等:重复跑结果不变。只对 render_extra 语种调用。
+function localizeInternalHead(html, rel, locale) {
+  const dir = dirOf(locale);
+  const route = "/" + rel.replace(/index\.html$/, "").replace(/\.html$/, "");   // "/standard-actuated/" | "/products/"
+  html = html.replace(/(<html lang=")[^"]*(")/, `$1${locale}$2`);
+  html = html.replace(/(<link rel="canonical" href=")[^"]*(")/, `$1https://wanew.com/${dir}${route}$2`);
+  html = html.replace(/\s*<!-- hreflang alternates[^>]*-->/g, "");
+  html = html.replace(/\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*"\s*\/?>/g, "");
+  if (!/name="robots"\s+content="noindex/.test(html))
+    html = html.replace(/(<link rel="canonical"[^>]*>)/, `$1\n<meta name="robots" content="noindex, follow" />`);
+  return html;
+}
+
 let lists = 0;
 for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
- for (const locale of LOCALES) {
+ for (const locale of RENDER_SET) {
   const p = pageOf(locale, rel);
-  if (!fs.existsSync(p)) continue;
+  if (!fs.existsSync(p)) {
+    // enabled 语种没有这个页 → 不创建(站点地图是另一个决定)。
+    // 内部语种(zh) → 从默认语种页【播种】:copy 后由下面的 regen 三步本地化(标题/机型 banner/筛选栏
+    // 走 catalog zh;卡片走 manifest=英文;chrome 由 chrome-sync 烘 zh)。⚠️ 产品卡标题与
+    // /products/ 的 banner 散文本轮保持英文(products-zh 未接、非 catalog 渲染)——内部 noindex 页,已知残留。
+    if (!isExtra(locale)) continue;
+    const seed = pageOf(DEFAULT, rel);
+    if (!fs.existsSync(seed)) continue;
+    fs.mkdirSync(path.dirname(p), { recursive: true });
+    fs.copyFileSync(seed, p);
+  }
   const h0 = fs.readFileSync(p, "utf8");
   let h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf });
   h1 = setListTitle(h1, name, locale, catalog);
   h1 = setListLabels(h1, { locale, catalog: listCat, model: bannerModel });
+  if (isExtra(locale)) h1 = localizeInternalHead(h1, rel, locale);   // zh list 页:head 本地化+noindex+零 hreflang
   if (h1 !== h0) { fs.writeFileSync(p, h1); lists++; }
  }
 }
@@ -148,15 +181,18 @@ const homeFeaturedPath = path.join(REPO, "data", "pages", "home-featured.json");
 const homeFeatured = fs.existsSync(homeFeaturedPath) ? (JSON.parse(fs.readFileSync(homeFeaturedPath, "utf8")).ids || null) : null;
 const pageExists = (p, loc) => { const d = dirOf(loc); return !d || fs.existsSync(path.join(REPO, `${d}${p}index.html`)); };
 let homes = 0;
-for (const locale of LOCALES) {
+for (const locale of RENDER_SET) {
   const p = pageOf(locale, "index.html");
-  if (!fs.existsSync(p)) continue;
-  const h0 = fs.readFileSync(p, "utf8");
+  if (!fs.existsSync(p) && !isExtra(locale)) continue;   // enabled 缺页不创建;zh 从模板播种
+  const h0 = fs.existsSync(p) ? fs.readFileSync(p, "utf8") : "";
   // 全 chrome + shared + home 键(和 page 模板 158 行一致)—— home 要能引 chrome/shared key,
   // 去重才能把它存的 chrome 副本(meta.title / More / …)重定向到真源。card.alt.category 本就在 chrome。
+  // enabled: LOCALES(hreflang 只三语);internal_noindex: INTERNAL(zh 首页出 noindex、零 hreflang)。
+  // 机型格子按存在性过滤——list 循环已先播种 /zh/{model}/,故 zh 首页格子显示并链到 /zh/。
   const h1 = renderHome(homeTpl, { locale, catalog: { ...catalog, ...shared, ...homeCat },
-    tiles: homeTiles, modelDisplay: MODEL, urlOf, exists: pageExists, dirOf, enabled: LOCALES, products: entries, featured: homeFeatured });
-  if (h1 !== h0) { fs.writeFileSync(p, h1); homes++; }
+    tiles: homeTiles, modelDisplay: MODEL, urlOf, exists: pageExists, dirOf, enabled: LOCALES,
+    products: entries, featured: homeFeatured, internal_noindex: INTERNAL });
+  if (h1 !== h0) { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, h1); homes++; }
 }
 console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.json)`);
 
@@ -169,17 +205,18 @@ for (const f of fs.readdirSync(tdir).filter((x) => /^page-.+\.html$/.test(x))) {
   const slug = f.replace(/^page-|\.html$/g, "");
   const pcat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", `${slug}.json`), "utf8"));
   const ptpl = fs.readFileSync(path.join(tdir, f), "utf8");
-  for (const locale of LOCALES) {
+  for (const locale of RENDER_SET) {
     const p = pageOf(locale, path.join(slug, "index.html"));
-    if (!fs.existsSync(p)) continue;                       // regen 渲内容,不决定站点地图
-    const h0 = fs.readFileSync(p, "utf8");
+    if (!fs.existsSync(p) && !isExtra(locale)) continue;   // enabled 缺页不创建;zh 从模板播种
+    const h0 = fs.existsSync(p) ? fs.readFileSync(p, "utf8") : "";
     // chrome 整个并进来,不是逐个把需要的 key 挑出来 —— `{...pcat, "card.lang_badge": ...}`
     // 是下一张"记得加"的清单,而清单本身就是那个 bug(这周第五次)。
     // 页面 key 覆盖同名 chrome key(pcat 在后),所以并入不会改变任何现有页面的输出。
     // ⭐ 这是 pages 去重的前提:429 条复印件里有 18 组的值【已经在 chrome.json 里】,
     // 页面目录存了第二份 —— 模板要能直接引 chrome key,那第二份才删得掉。
-    const h1 = renderPage(ptpl, { locale, catalog: { ...catalog, ...shared, ...pcat }, urlOf, path: `/${slug}/`, dirOf, enabled: LOCALES });
-    if (h1 !== h0) { fs.writeFileSync(p, h1); pages++; }
+    // internal_noindex: INTERNAL → zh 信息页出 noindex、零 hreflang(enabled 仍只三语驱 hreflang)。
+    const h1 = renderPage(ptpl, { locale, catalog: { ...catalog, ...shared, ...pcat }, urlOf, path: `/${slug}/`, dirOf, enabled: LOCALES, internal_noindex: INTERNAL });
+    if (h1 !== h0) { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, h1); pages++; }
   }
 }
 console.log(`templated pages: ${pages} regenerated (data/templates/page-*.html)`);

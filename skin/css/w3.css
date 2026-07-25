@@ -42,7 +42,8 @@ body {
   margin: 0;
   background: var(--w3-bg);
   color: var(--w3-text);
-  font-family: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* CJK 兜底尾链:zh(内部 locale)在中英混排时用系统中文字体,拉丁字形仍优先 Inter。纯拉丁页不受影响。 */
+  font-family: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;

@@ -2,36 +2,43 @@
   "power.page-header-subtitle.1": {
     "en": "Power adapters and cabling for Starlink.",
     "pt-BR": "Adaptadores de energia e cabeamento para Starlink.",
-    "es-MX": "Adaptadores de energía y cableado para Starlink."
+    "es-MX": "Adaptadores de energía y cableado para Starlink.",
+    "zh": "适用于 Starlink 的电源适配器与线缆。"
   },
   "power.blog-sidebar-text.2": {
     "en": "How to choose the right Starlink Mini 12V power adapter. 12V setup guide for RV, vehicle, and off-grid Starlink Mini configurations.",
     "pt-BR": "Como escolher o adaptador de energia 12V certo para a Starlink Mini. Guia de configuração 12V para motorhome, veículo e uso off-grid da Starlink Mini.",
-    "es-MX": "Cómo elegir el adaptador de energía de 12V correcto para la Starlink Mini. Guía de instalación de 12V para configuraciones de Starlink Mini en casa rodante, vehículo y sin red eléctrica."
+    "es-MX": "Cómo elegir el adaptador de energía de 12V correcto para la Starlink Mini. Guía de instalación de 12V para configuraciones de Starlink Mini en casa rodante, vehículo y sin red eléctrica.",
+    "zh": "如何选择合适的 Starlink Mini 12V 电源适配器。适用于房车、车载及离网 Starlink Mini 配置的 12V 设置指南。"
   },
   "power.blog-sidebar-text.3": {
     "en": "Complete guide to Wanew Starlink Mini power solutions: 12V adapters, DC cables for RV, camping, and off-grid use.",
     "pt-BR": "Guia completo das soluções de energia Wanew para Starlink Mini: adaptadores 12V e cabos DC para motorhome, camping e uso off-grid.",
-    "es-MX": "Guía completa de las soluciones de energía Wanew para Starlink Mini: adaptadores de 12V y cables CC para casa rodante, camping y uso sin red eléctrica."
+    "es-MX": "Guía completa de las soluciones de energía Wanew para Starlink Mini: adaptadores de 12V y cables CC para casa rodante, camping y uso sin red eléctrica.",
+    "zh": "Wanew Starlink Mini 供电方案完全指南：涵盖用于房车、露营及离网使用的 12V 适配器与 DC 线缆。"
   },
   "power.a.7": {
     "en": "Power Supply Options in Starlink RV Accessories Explained",
     "pt-BR": "Opções de fonte de energia nos acessórios Starlink para motorhome, explicadas",
-    "es-MX": "Opciones de alimentación en los accesorios Starlink para casa rodante, explicadas"
+    "es-MX": "Opciones de alimentación en los accesorios Starlink para casa rodante, explicadas",
+    "zh": "详解 Starlink 房车配件中的供电选项"
   },
   "power.blog-sidebar-text.4": {
     "en": "Power supply options in Starlink RV accessories can be quite confusing. With multiple choices available, it can be challenging to know what works best while on the road. Many RV users struggle to maintain connectivity due to improper power ···",
     "pt-BR": "As opções de fonte de energia nos acessórios Starlink para motorhome podem gerar bastante confusão. Com várias alternativas disponíveis, pode ser difícil saber o que funciona melhor na estrada. Muitos usuários de motorhome têm dificuldade para manter a conexão por causa de uma alimentação inadequada ···",
-    "es-MX": "Las opciones de alimentación en los accesorios Starlink para casa rodante pueden ser bastante confusas. Con varias alternativas disponibles, puede ser difícil saber qué funciona mejor en la carretera. Muchos usuarios de casa rodante tienen dificultades para mantener la conexión por una alimentación inadecuada ···"
+    "es-MX": "Las opciones de alimentación en los accesorios Starlink para casa rodante pueden ser bastante confusas. Con varias alternativas disponibles, puede ser difícil saber qué funciona mejor en la carretera. Muchos usuarios de casa rodante tienen dificultades para mantener la conexión por una alimentación inadecuada ···",
+    "zh": "Starlink 房车配件中的供电选项可能相当令人困惑。面对众多可选方案，很难判断哪种在旅途中最为适用。许多房车用户因供电不当而难以维持网络连接，···"
   },
   "power.meta.title": {
     "en": "Power-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": "Energia - Wanew | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
-    "es-MX": "Energía-Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía"
+    "es-MX": "Energía-Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía",
+    "zh": "电源-Wanew | 优质 Starlink 配件、支架与电源解决方案"
   },
   "power.meta.desc": {
     "en": "Power adapters, 12V DC solutions, solar power, cable management",
     "pt-BR": "Adaptadores de energia, soluções 12V DC, energia solar e gerenciamento de cabos para Starlink.",
-    "es-MX": "Adaptadores de energía, soluciones de 12V CC, energía solar, organización de cables"
+    "es-MX": "Adaptadores de energía, soluciones de 12V CC, energía solar, organización de cables",
+    "zh": "电源适配器、12V DC 方案、太阳能供电、线缆管理"
   }
 }

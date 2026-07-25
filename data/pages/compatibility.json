@@ -2,96 +2,115 @@
   "compatibility.page-header-title.1": {
     "en": "Wanew Starlink Accessories Compatibility Guide",
     "pt-BR": "Guia de Compatibilidade dos Acessórios Wanew para Starlink",
-    "es-MX": "Guía de Compatibilidad de Accesorios Wanew para Starlink"
+    "es-MX": "Guía de Compatibilidad de Accesorios Wanew para Starlink",
+    "zh": "Wanew Starlink 配件兼容性指南"
   },
   "compatibility.page-header-subtitle.1": {
     "en": "Which Starlink terminals our accessories fit.",
     "pt-BR": "Com quais terminais Starlink os nossos acessórios são compatíveis.",
-    "es-MX": "Con qué terminales Starlink son compatibles nuestros accesorios."
+    "es-MX": "Con qué terminales Starlink son compatibles nuestros accesorios.",
+    "zh": "我们的配件适配哪些 Starlink 终端。"
   },
   "compatibility.h2.1": {
     "en": "Which Wanew Accessories Work With Your Starlink Terminal?",
     "pt-BR": "Quais acessórios Wanew funcionam com o seu terminal Starlink?",
-    "es-MX": "¿Qué accesorios Wanew funcionan con tu terminal Starlink?"
+    "es-MX": "¿Qué accesorios Wanew funcionan con tu terminal Starlink?",
+    "zh": "哪些 Wanew 配件适配您的 Starlink 终端？"
   },
   "compatibility.p.1": {
     "en": "This compatibility guide helps you find the right Wanew accessories for your Starlink terminal model. All Wanew products are designed and tested for compatibility with genuine Starlink hardware.",
     "pt-BR": "Este guia de compatibilidade ajuda você a encontrar os acessórios Wanew certos para o modelo do seu terminal Starlink. Todos os produtos Wanew são projetados e testados para compatibilidade com o hardware Starlink original.",
-    "es-MX": "Esta guía de compatibilidad te ayuda a encontrar los accesorios Wanew adecuados para el modelo de tu terminal Starlink. Todos los productos Wanew están diseñados y probados para ser compatibles con hardware Starlink original."
+    "es-MX": "Esta guía de compatibilidad te ayuda a encontrar los accesorios Wanew adecuados para el modelo de tu terminal Starlink. Todos los productos Wanew están diseñados y probados para ser compatibles con hardware Starlink original.",
+    "zh": "本兼容性指南帮助您为自己的 Starlink 终端型号找到合适的 Wanew 配件。所有 Wanew 产品均针对与正品 Starlink 硬件的兼容性进行设计与测试。"
   },
   "compatibility.strong.1": {
     "en": "Note:",
     "pt-BR": "Observação:",
-    "es-MX": "Nota:"
+    "es-MX": "Nota:",
+    "zh": "注意："
   },
   "compatibility.strong.2": {
     "en": "Wanew products are third-party accessories compatible with Starlink terminals. We are not affiliated with SpaceX or Starlink.",
     "pt-BR": "os produtos Wanew são acessórios de terceiros compatíveis com terminais Starlink. Não somos afiliados à SpaceX nem à Starlink.",
-    "es-MX": "Los productos Wanew son accesorios de terceros compatibles con terminales Starlink. No estamos afiliados a SpaceX ni a Starlink."
+    "es-MX": "Los productos Wanew son accesorios de terceros compatibles con terminales Starlink. No estamos afiliados a SpaceX ni a Starlink.",
+    "zh": "Wanew 产品为与 Starlink 终端兼容的第三方配件。我们与 SpaceX 及 Starlink 无隶属关系。"
   },
   "compatibility.h2.2": {
     "en": "Compatibility Matrix",
     "pt-BR": "Matriz de Compatibilidade",
-    "es-MX": "Matriz de compatibilidad"
+    "es-MX": "Matriz de compatibilidad",
+    "zh": "兼容性对照表"
   },
   "compatibility.th.1": {
     "en": "Product Category",
     "pt-BR": "Categoria de Produto",
-    "es-MX": "Categoría de producto"
+    "es-MX": "Categoría de producto",
+    "zh": "产品类别"
   },
   "compatibility.td.1": {
     "en": "Pipe Mounts",
     "pt-BR": "Suportes de Tubo",
-    "es-MX": "Soportes de tubo"
+    "es-MX": "Soportes de tubo",
+    "zh": "管式支架"
   },
   "compatibility.td.2": {
     "en": "Wall Mounts",
     "pt-BR": "Suportes de Parede",
-    "es-MX": "Soportes de pared"
+    "es-MX": "Soportes de pared",
+    "zh": "壁挂支架"
   },
   "compatibility.td.3": {
     "en": "Roof Mounts",
     "pt-BR": "Suportes para Telhado",
-    "es-MX": "Soportes de techo"
+    "es-MX": "Soportes de techo",
+    "zh": "屋顶支架"
   },
   "compatibility.td.4": {
     "en": "12V Power Adapters",
     "pt-BR": "Adaptadores de Energia 12V",
-    "es-MX": "Adaptadores de energía 12V"
+    "es-MX": "Adaptadores de energía 12V",
+    "zh": "12V 电源适配器"
   },
   "compatibility.td.5": {
     "en": "DC Power Cables",
     "pt-BR": "Cabos de Energia DC",
-    "es-MX": "Cables de alimentación CC"
+    "es-MX": "Cables de alimentación CC",
+    "zh": "DC 电源线"
   },
   "compatibility.td.6": {
     "en": "Ethernet Cables",
     "pt-BR": "Cabos Ethernet",
-    "es-MX": "Cables Ethernet"
+    "es-MX": "Cables Ethernet",
+    "zh": "以太网线缆"
   },
   "compatibility.td.7": {
     "en": "Protective Cases",
     "pt-BR": "Cases de Proteção",
-    "es-MX": "Estuches protectores"
+    "es-MX": "Estuches protectores",
+    "zh": "防护外壳"
   },
   "compatibility.h2.3": {
     "en": "Need Help Choosing?",
     "pt-BR": "Precisa de ajuda para escolher?",
-    "es-MX": "¿Necesitas ayuda para elegir?"
+    "es-MX": "¿Necesitas ayuda para elegir?",
+    "zh": "需要选型帮助？"
   },
   "compatibility.p.2": {
     "en": "Contact our support team with your terminal model and installation scenario for the right accessories.",
     "pt-BR": "Entre em contato com a nossa equipe de suporte informando o modelo do seu terminal e o cenário de instalação para receber os acessórios ideais.",
-    "es-MX": "Contacta a nuestro equipo de ayuda con el modelo de tu terminal y tu escenario de instalación para recibir los accesorios adecuados."
+    "es-MX": "Contacta a nuestro equipo de ayuda con el modelo de tu terminal y tu escenario de instalación para recibir los accesorios adecuados.",
+    "zh": "请将您的终端型号与安装场景告知我们的支持团队，以获取合适的配件。"
   },
   "compatibility.meta.title": {
     "en": "Wanew Starlink Accessories Compatibility Guide-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": "Guia de Compatibilidade dos Acessórios Wanew para Starlink-Wanew | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
-    "es-MX": "Guía de Compatibilidad de Accesorios Wanew para Starlink-Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía"
+    "es-MX": "Guía de Compatibilidad de Accesorios Wanew para Starlink-Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía",
+    "zh": "Wanew Starlink 配件兼容性指南-Wanew | 优质 Starlink 配件、支架与电源解决方案"
   },
   "compatibility.meta.desc": {
     "en": "Complete Wanew Starlink accessories compatibility guide. Find compatible mounts, cables, and power adapters for Mini, Standard, Performance and Enterprise terminals.",
     "pt-BR": "Guia completo de compatibilidade dos acessórios Wanew para Starlink. Encontre suportes, cabos e adaptadores de energia compatíveis com terminais Mini, Standard, Performance e Enterprise.",
-    "es-MX": "Guía completa de compatibilidad de accesorios Wanew para Starlink. Encuentra soportes, cables y adaptadores de energía compatibles con terminales Mini, Standard, Performance y Enterprise."
+    "es-MX": "Guía completa de compatibilidad de accesorios Wanew para Starlink. Encuentra soportes, cables y adaptadores de energía compatibles con terminales Mini, Standard, Performance y Enterprise.",
+    "zh": "完整的 Wanew Starlink 配件兼容性指南。为 Mini、Standard、Performance 与 Enterprise 终端查找兼容的支架、线缆与电源适配器。"
   }
 }

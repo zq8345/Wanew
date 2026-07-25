@@ -2,141 +2,169 @@
   "patents-manufacturing.page-header-title.1": {
     "en": "Wanew Patents & Manufacturing Capacity - 200+ Patents",
     "pt-BR": "Patentes e Capacidade Fabril da Wanew - Mais de 200 Patentes",
-    "es-MX": "Patentes y Capacidad de Fabricación de Wanew - Más de 200 Patentes"
+    "es-MX": "Patentes y Capacidad de Fabricación de Wanew - Más de 200 Patentes",
+    "zh": "Wanew 专利与制造产能 - 200 多项专利"
   },
   "patents-manufacturing.page-header-subtitle.1": {
     "en": "200+ patents and scaled in-house production.",
     "pt-BR": "Mais de 200 patentes e produção interna em larga escala.",
-    "es-MX": "Más de 200 patentes y producción propia a gran escala."
+    "es-MX": "Más de 200 patentes y producción propia a gran escala.",
+    "zh": "200 多项专利，规模化自有工厂生产。"
   },
   "patents-manufacturing.h2.1": {
     "en": "Engineering Excellence Backed by Patents",
     "pt-BR": "Excelência em engenharia respaldada por patentes",
-    "es-MX": "Excelencia en ingeniería respaldada por patentes"
+    "es-MX": "Excelencia en ingeniería respaldada por patentes",
+    "zh": "以专利为支撑的工程实力"
   },
   "patents-manufacturing.p.1": {
     "en": "Wanew holds over",
     "pt-BR": "A Wanew detém mais de",
-    "es-MX": "Wanew cuenta con más de"
+    "es-MX": "Wanew cuenta con más de",
+    "zh": "Wanew 拥有超过"
   },
   "patents-manufacturing.strong.1": {
     "en": "200 patents",
     "pt-BR": "200 patentes",
-    "es-MX": "200 patentes"
+    "es-MX": "200 patentes",
+    "zh": "200 项专利"
   },
   "patents-manufacturing.strong.2": {
     "en": "covering mounting systems, cable connectors, power adapters, and protective enclosures.",
     "pt-BR": "que cobrem sistemas de fixação, conectores de cabo, adaptadores de energia e cases de proteção.",
-    "es-MX": "que cubren sistemas de montaje, conectores de cable, adaptadores de energía y carcasas de protección."
+    "es-MX": "que cubren sistemas de montaje, conectores de cable, adaptadores de energía y carcasas de protección.",
+    "zh": "涵盖安装系统、线缆连接器、电源适配器及防护外壳。"
   },
   "patents-manufacturing.h2.2": {
     "en": "Patent Portfolio",
     "pt-BR": "Portfólio de patentes",
-    "es-MX": "Portafolio de patentes"
+    "es-MX": "Portafolio de patentes",
+    "zh": "专利组合"
   },
   "patents-manufacturing.th.1": {
     "en": "Category",
     "pt-BR": "Categoria",
-    "es-MX": "Categoría"
+    "es-MX": "Categoría",
+    "zh": "类别"
   },
   "patents-manufacturing.th.2": {
     "en": "Count",
     "pt-BR": "Quantidade",
-    "es-MX": "Cantidad"
+    "es-MX": "Cantidad",
+    "zh": "数量"
   },
   "patents-manufacturing.th.3": {
     "en": "Focus",
     "pt-BR": "Foco",
-    "es-MX": "Enfoque"
+    "es-MX": "Enfoque",
+    "zh": "重点方向"
   },
   "patents-manufacturing.td.1": {
     "en": "Invention Patents",
     "pt-BR": "Patentes de invenção",
-    "es-MX": "Patentes de invención"
+    "es-MX": "Patentes de invención",
+    "zh": "发明专利"
   },
   "patents-manufacturing.td.2": {
     "en": "Connector design, mounting mechanisms",
     "pt-BR": "Projeto de conectores, mecanismos de fixação",
-    "es-MX": "Diseño de conectores, mecanismos de montaje"
+    "es-MX": "Diseño de conectores, mecanismos de montaje",
+    "zh": "连接器设计、安装机构"
   },
   "patents-manufacturing.td.3": {
     "en": "Utility Patents",
     "pt-BR": "Patentes de modelo de utilidade",
-    "es-MX": "Patentes de modelo de utilidad"
+    "es-MX": "Patentes de modelo de utilidad",
+    "zh": "实用新型专利"
   },
   "patents-manufacturing.td.4": {
     "en": "Structural improvements, weatherproofing",
     "pt-BR": "Melhorias estruturais, resistência às intempéries",
-    "es-MX": "Mejoras estructurales, resistencia a la intemperie"
+    "es-MX": "Mejoras estructurales, resistencia a la intemperie",
+    "zh": "结构改进、防水耐候"
   },
   "patents-manufacturing.td.5": {
     "en": "Design Patents",
     "pt-BR": "Patentes de design",
-    "es-MX": "Patentes de diseño"
+    "es-MX": "Patentes de diseño",
+    "zh": "外观设计专利"
   },
   "patents-manufacturing.td.6": {
     "en": "Product appearance, packaging",
     "pt-BR": "Aparência do produto, embalagem",
-    "es-MX": "Apariencia del producto, empaque"
+    "es-MX": "Apariencia del producto, empaque",
+    "zh": "产品外观、包装"
   },
   "patents-manufacturing.h2.3": {
     "en": "Manufacturing Capacity",
     "pt-BR": "Capacidade fabril",
-    "es-MX": "Capacidad de fabricación"
+    "es-MX": "Capacidad de fabricación",
+    "zh": "制造产能"
   },
   "patents-manufacturing.li.1": {
     "en": "5,000 sqm production plant",
     "pt-BR": "Fábrica de produção de 5.000 m²",
-    "es-MX": "Planta de producción de 5,000 m²"
+    "es-MX": "Planta de producción de 5,000 m²",
+    "zh": "5,000 平方米生产厂房"
   },
   "patents-manufacturing.li.2": {
     "en": "100+ production and testing equipment units",
     "pt-BR": "Mais de 100 equipamentos de produção e testes",
-    "es-MX": "Más de 100 equipos de producción y pruebas"
+    "es-MX": "Más de 100 equipos de producción y pruebas",
+    "zh": "100 多台（套）生产与测试设备"
   },
   "patents-manufacturing.strong.3": {
     "en": "Monthly Output:",
     "pt-BR": "Produção mensal:",
-    "es-MX": "Producción mensual:"
+    "es-MX": "Producción mensual:",
+    "zh": "月产量："
   },
   "patents-manufacturing.strong.4": {
     "en": "400,000-600,000 units",
     "pt-BR": "400.000 a 600.000 unidades",
-    "es-MX": "400,000-600,000 unidades"
+    "es-MX": "400,000-600,000 unidades",
+    "zh": "400,000-600,000 件"
   },
   "patents-manufacturing.strong.5": {
     "en": "Annual Export:",
     "pt-BR": "Exportação anual:",
-    "es-MX": "Exportación anual:"
+    "es-MX": "Exportación anual:",
+    "zh": "年出口额："
   },
   "patents-manufacturing.strong.6": {
     "en": "$20-30M USD",
     "pt-BR": "US$ 20 a 30 milhões",
-    "es-MX": "$20-30 millones USD"
+    "es-MX": "$20-30 millones USD",
+    "zh": "$20-30M USD"
   },
   "patents-manufacturing.strong.7": {
     "en": "Team:",
     "pt-BR": "Equipe:",
-    "es-MX": "Equipo:"
+    "es-MX": "Equipo:",
+    "zh": "团队："
   },
   "patents-manufacturing.strong.8": {
     "en": "150+ employees, 20+ R&D engineers",
     "pt-BR": "mais de 150 colaboradores, mais de 20 engenheiros de P&amp;D",
-    "es-MX": "más de 150 empleados, más de 20 ingenieros de I+D"
+    "es-MX": "más de 150 empleados, más de 20 ingenieros de I+D",
+    "zh": "150 多名员工，20 多名 R&D 工程师"
   },
   "patents-manufacturing.meta.title": {
     "en": "Wanew | Patents & Manufacturing Capacity - 200+ Patents-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": "Wanew | Patentes e Capacidade Fabril - Mais de 200 Patentes - Wanew | Acessórios Premium para Starlink",
-    "es-MX": "Wanew | Patentes y Capacidad de Fabricación - Más de 200 Patentes-Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía"
+    "es-MX": "Wanew | Patentes y Capacidad de Fabricación - Más de 200 Patentes-Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía",
+    "zh": "Wanew | 专利与制造产能 - 200 多项专利-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions"
   },
   "patents-manufacturing.meta.desc": {
     "en": "Wanew manufacturing: 200+ patents, 400K-600K monthly capacity, 150+ employees, 15+ years of experience in Starlink-compatible accessory manufacturing.",
     "pt-BR": "Fabricação Wanew: mais de 200 patentes, capacidade mensal de 400 mil a 600 mil unidades, mais de 150 colaboradores e 15+ anos de experiência na fabricação de acessórios compatíveis com Starlink.",
-    "es-MX": "Fabricación Wanew: más de 200 patentes, capacidad mensual de 400 mil a 600 mil unidades, más de 150 empleados y más de 15 años de experiencia fabricando accesorios compatibles con Starlink."
+    "es-MX": "Fabricación Wanew: más de 200 patentes, capacidad mensual de 400 mil a 600 mil unidades, más de 150 empleados y más de 15 años de experiencia fabricando accesorios compatibles con Starlink.",
+    "zh": "Wanew 制造实力：200 多项专利，月产能 40 万至 60 万件，150 多名员工，15 年以上 Starlink 兼容配件制造经验。"
   },
   "patents-manufacturing.ld.name.3": {
     "en": "Patents & Manufacturing",
     "pt-BR": "Patentes e Capacidade Fabril",
-    "es-MX": "Patentes y Fabricación"
+    "es-MX": "Patentes y Fabricación",
+    "zh": "专利与制造"
   }
 }

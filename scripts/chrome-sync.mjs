@@ -74,7 +74,14 @@ if (WRITE) {
   // URL 规则 = canonical 规则：index.html→目录斜杠；其余去 .html 扩展（与 render 的 CANONICAL 一致）。
   // lastmod：无真值，整字段省略（不造假时间戳——总工裁定）。
   const EXCLUDE = new Set(["404.html"]);   // 错误页不进 sitemap
-  const urls = list.filter((p) => !EXCLUDE.has(p)).map((p) =>
+  // internal/no-SEO locale(如 zh):渲染但【不进 sitemap】(SEO 红线)。目录从 locales.internal_noindex
+  // 派生(单真源),仍保留在上面的 pages-list.json 里(切换器/admin 的 pageExists 需要它)。
+  // ⚠️ sitemap 是 walk(".") 扫全 FS 得来的,不读 enabled —— 所以 zh 必须在这里显式过滤,否则会漏进去。
+  const INTERNAL_DIRS = (locales.internal_noindex || [])
+    .map((loc) => localeDirs(locales)[loc]).filter(Boolean);
+  const isInternal = (p) => INTERNAL_DIRS.some((d) => p === `${d}/` || p.startsWith(`${d}/`));
+  const publishable = (p) => !EXCLUDE.has(p) && !isInternal(p);
+  const urls = list.filter(publishable).map((p) =>
     "https://wanew.com/" + p.replace(/index\.html$/, "").replace(/\.html$/, ""));
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
     + urls.map((u) => `  <url><loc>${u}</loc></url>`).join("\n") + "\n</urlset>\n";
@@ -82,9 +89,9 @@ if (WRITE) {
   // 自检（总工点名）：sitemap 条目数必须==清单可发布页数。同源派生下它防的是上面 filter/map 的
   // 静默丢页——不匹配当场炸，绝不带着缺页的 sitemap 出门。
   const emitted = (fs.readFileSync("sitemap.xml", "utf8").match(/<loc>/g) || []).length;
-  const expected = list.length - [...EXCLUDE].filter((e) => list.includes(e)).length;
+  const expected = list.filter(publishable).length;   // 同一 publishable 谓词 → 防 filter/map 静默丢页
   if (emitted !== expected) { console.error(`🔴 sitemap 自检 FAIL: 条目 ${emitted} != 可发布页 ${expected}`); process.exit(1); }
-  console.log(`sitemap.xml 重生成: ${emitted} 条（pages-list ${list.length} − 排除 ${list.length - expected}）`);
+  console.log(`sitemap.xml 重生成: ${emitted} 条（pages-list ${list.length} − 排除 ${list.length - expected}：404 + internal/${INTERNAL_DIRS.join(",") || "无"}）`);
 }
 
 console.log(`chrome-sync [${WRITE ? "WRITE" : "dry"}]  页面 ${pages.length}  |  字节不变 ${identical}  |  变更 ${changed}(其中纯空白 ${wsOnly})`);

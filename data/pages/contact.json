@@ -3,87 +3,104 @@
     "en": "Contact Us",
     "pt-BR": "Contato",
     "es-MX": "Contáctanos",
-    "reason.dupe": "页面标题/面包屑/内联三处「Contact Us」,同词不同位置,显式共存不合并。"
+    "reason.dupe": "页面标题/面包屑/内联三处「Contact Us」,同词不同位置,显式共存不合并。",
+    "zh": "联系我们"
   },
   "contact.page-header-subtitle.1": {
     "en": "OEM/ODM inquiries welcome.",
     "pt-BR": "Consultas OEM/ODM são bem-vindas.",
-    "es-MX": "Consultas OEM/ODM bienvenidas."
+    "es-MX": "Consultas OEM/ODM bienvenidas.",
+    "zh": "欢迎咨询 OEM/ODM。"
   },
   "contact.section-title-tagline.1": {
     "en": "Reach the Wanew team",
     "pt-BR": "Fale com a equipe Wanew",
-    "es-MX": "Habla con el equipo de Wanew"
+    "es-MX": "Habla con el equipo de Wanew",
+    "zh": "联系 Wanew 团队"
   },
   "contact.section-title-title.1": {
     "en": "Contact Information",
     "pt-BR": "Informações de Contato",
-    "es-MX": "Información de contacto"
+    "es-MX": "Información de contacto",
+    "zh": "联系信息"
   },
   "contact.contact-info-card-intro.1": {
     "en": "Independent manufacturer of Starlink-compatible mounts, power adapters, cables and protective cases. OEM/ODM and wholesale inquiries welcome.",
     "pt-BR": "Fabricante independente de suportes, adaptadores de energia, cabos e cases de proteção compatíveis com Starlink. Consultas OEM/ODM e de atacado são bem-vindas.",
-    "es-MX": "Fabricante independiente de soportes, adaptadores de energía, cables y estuches de protección compatibles con Starlink. Consultas OEM/ODM y de mayoreo bienvenidas."
+    "es-MX": "Fabricante independiente de soportes, adaptadores de energía, cables y estuches de protección compatibles con Starlink. Consultas OEM/ODM y de mayoreo bienvenidas.",
+    "zh": "Starlink 兼容支架、电源适配器、线缆及防护外壳的独立制造商。欢迎咨询 OEM/ODM 与批发业务。"
   },
   "contact.contact-info-list-label.2": {
     "en": "Headquarters",
     "pt-BR": "Sede",
-    "es-MX": "Oficinas centrales"
+    "es-MX": "Oficinas centrales",
+    "zh": "总部"
   },
   "contact.contact-info-list-value.2": {
     "en": "No. 62, Baotian 1st Road, Xixiang Street, Bao'an District, Shenzhen, Guangdong, China",
     "pt-BR": "No. 62, Baotian 1st Road, Xixiang Street, Distrito de Bao'an, Shenzhen, Guangdong, China",
-    "es-MX": "No. 62, Baotian 1st Road, Xixiang Street, Distrito de Bao'an, Shenzhen, Guangdong, China"
+    "es-MX": "No. 62, Baotian 1st Road, Xixiang Street, Distrito de Bao'an, Shenzhen, Guangdong, China",
+    "zh": "中国广东省深圳市宝安区西乡街道宝田一路 62 号"
   },
   "contact.contact-info-list-label.3": {
     "en": "Response time",
     "pt-BR": "Tempo de resposta",
-    "es-MX": "Tiempo de respuesta"
+    "es-MX": "Tiempo de respuesta",
+    "zh": "响应时间"
   },
   "contact.contact-info-list-value.3": {
     "en": "We typically reply within 1 business day.",
     "pt-BR": "Normalmente respondemos em até 1 dia útil.",
-    "es-MX": "Normalmente respondemos en 1 día hábil."
+    "es-MX": "Normalmente respondemos en 1 día hábil.",
+    "zh": "我们通常在 1 个工作日内回复。"
   },
   "contact.contact-info-card-note.1": {
     "en": "For OEM/ODM or bulk orders, tell us the target Starlink model and quantity — we'll come back with specifications and pricing.",
     "pt-BR": "Para pedidos OEM/ODM ou compras em grande volume, informe o modelo Starlink desejado e a quantidade — retornaremos com especificações e preços.",
-    "es-MX": "Para pedidos OEM/ODM o de gran volumen, dinos el modelo Starlink que buscas y la cantidad — te respondemos con especificaciones y precios."
+    "es-MX": "Para pedidos OEM/ODM o de gran volumen, dinos el modelo Starlink que buscas y la cantidad — te respondemos con especificaciones y precios.",
+    "zh": "如需 OEM/ODM 或批量订单，请告知目标 Starlink 型号与数量——我们将回复规格与报价。"
   },
   "contact.section-title-tagline.2": {
     "en": "Please feel free to contact us if you have any questions",
     "pt-BR": "Fique à vontade para entrar em contato se tiver qualquer dúvida",
-    "es-MX": "Escríbenos con toda confianza si tienes cualquier duda"
+    "es-MX": "Escríbenos con toda confianza si tienes cualquier duda",
+    "zh": "如有任何问题，欢迎随时与我们联系"
   },
   "contact.section-title-title.2": {
     "en": "Leave a Message Online",
     "pt-BR": "Deixe uma mensagem online",
-    "es-MX": "Déjanos un mensaje en línea"
+    "es-MX": "Déjanos un mensaje en línea",
+    "zh": "在线留言"
   },
   "contact.placeholder.3": {
     "en": "Your Phone Number",
     "pt-BR": "Seu telefone",
-    "es-MX": "Tu teléfono"
+    "es-MX": "Tu teléfono",
+    "zh": "您的电话号码"
   },
   "contact.placeholder.4": {
     "en": "Your Email Address",
     "pt-BR": "Seu e-mail",
-    "es-MX": "Tu correo electrónico"
+    "es-MX": "Tu correo electrónico",
+    "zh": "您的电子邮箱"
   },
   "contact.meta.title": {
     "en": "Contact Us-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": "Contato - Wanew | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
-    "es-MX": "Contáctanos - Wanew | Accesorios premium para Starlink, soportes y soluciones de energía"
+    "es-MX": "Contáctanos - Wanew | Accesorios premium para Starlink, soportes y soluciones de energía",
+    "zh": "联系我们-Wanew | 优质 Starlink 配件、支架与电源解决方案"
   },
   "contact.meta.desc": {
     "en": "Contact Wanew for OEM/ODM Starlink-compatible accessories — mounts, power adapters, cables and cases. Email hello@wanew.com; we typically reply within one business day.",
     "pt-BR": "Entre em contato com a Wanew para acessórios OEM/ODM compatíveis com Starlink — suportes, adaptadores de energia, cabos e cases. E-mail hello@wanew.com; normalmente respondemos em até 1 dia útil.",
-    "es-MX": "Contacta a Wanew para accesorios OEM/ODM compatibles con Starlink — soportes, adaptadores de energía, cables y estuches. Correo electrónico hello@wanew.com; normalmente respondemos en un día hábil."
+    "es-MX": "Contacta a Wanew para accesorios OEM/ODM compatibles con Starlink — soportes, adaptadores de energía, cables y estuches. Correo electrónico hello@wanew.com; normalmente respondemos en un día hábil.",
+    "zh": "就 OEM/ODM Starlink 兼容配件——支架、电源适配器、线缆及外壳——联系 Wanew。邮箱 hello@wanew.com；我们通常在一个工作日内回复。"
   },
   "contact.ld.name.3": {
     "en": "Contact Us",
     "pt-BR": "Contato",
     "es-MX": "Contáctanos",
-    "reason.dupe": "页面标题/面包屑/内联三处「Contact Us」,同词不同位置,显式共存不合并。"
+    "reason.dupe": "页面标题/面包屑/内联三处「Contact Us」,同词不同位置,显式共存不合并。",
+    "zh": "联系我们"
   }
 }
