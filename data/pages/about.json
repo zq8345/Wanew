@@ -374,36 +374,6 @@
     "es-MX": "Transición fluida del prototipo a la producción en volumen",
     "zh": "从样机到量产无缝衔接"
   },
-  "oem-odm-manufacturing.h2.4": {
-    "en": "Why Wanew?",
-    "pt-BR": "Por que a Wanew?",
-    "es-MX": "¿Por qué Wanew?",
-    "zh": "为什么选择 Wanew？"
-  },
-  "oem-odm-manufacturing.li.1": {
-    "en": "600,000+ units monthly capacity",
-    "pt-BR": "Capacidade mensal de 600.000+ unidades",
-    "es-MX": "Capacidad mensual de 600,000+ unidades",
-    "zh": "月产能 600,000+ 件"
-  },
-  "oem-odm-manufacturing.li.2": {
-    "en": "20+ engineers, 200+ patents",
-    "pt-BR": "Mais de 20 engenheiros e 200+ patentes",
-    "es-MX": "Más de 20 ingenieros y 200+ patentes",
-    "zh": "20 多名工程师，200 多项专利"
-  },
-  "oem-odm-manufacturing.li.3": {
-    "en": "ISO 9001, RoHS, CE, FCC certified",
-    "pt-BR": "Certificações ISO 9001, RoHS, CE e FCC",
-    "es-MX": "Certificaciones ISO 9001, RoHS, CE y FCC",
-    "zh": "通过 ISO 9001、RoHS、CE、FCC 认证"
-  },
-  "oem-odm-manufacturing.li.4": {
-    "en": "US warehousing, worldwide DDP shipping",
-    "pt-BR": "Armazenagem nos EUA e envio DDP para o mundo todo",
-    "es-MX": "Almacenamiento en EE. UU. y envíos DDP a todo el mundo",
-    "zh": "美国仓储，全球 DDP 发货"
-  },
   "oem-odm-manufacturing.meta.title": {
     "en": "OEM/ODM Starlink-Compatible Accessories Manufacturing-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": "Fabricação OEM/ODM de Acessórios Compatíveis com Starlink-Wanew | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
@@ -458,24 +428,6 @@
     "es-MX": "Portafolio de patentes",
     "zh": "专利组合"
   },
-  "patents-manufacturing.th.1": {
-    "en": "Category",
-    "pt-BR": "Categoria",
-    "es-MX": "Categoría",
-    "zh": "类别"
-  },
-  "patents-manufacturing.th.2": {
-    "en": "Count",
-    "pt-BR": "Quantidade",
-    "es-MX": "Cantidad",
-    "zh": "数量"
-  },
-  "patents-manufacturing.th.3": {
-    "en": "Focus",
-    "pt-BR": "Foco",
-    "es-MX": "Enfoque",
-    "zh": "重点方向"
-  },
   "patents-manufacturing.td.1": {
     "en": "Invention Patents",
     "pt-BR": "Patentes de invenção",
@@ -511,60 +463,6 @@
     "pt-BR": "Aparência do produto, embalagem",
     "es-MX": "Apariencia del producto, empaque",
     "zh": "产品外观、包装"
-  },
-  "patents-manufacturing.h2.3": {
-    "en": "Manufacturing Capacity",
-    "pt-BR": "Capacidade fabril",
-    "es-MX": "Capacidad de fabricación",
-    "zh": "制造产能"
-  },
-  "patents-manufacturing.li.1": {
-    "en": "5,000 sqm production plant",
-    "pt-BR": "Fábrica de produção de 5.000 m²",
-    "es-MX": "Planta de producción de 5,000 m²",
-    "zh": "5,000 平方米生产厂房"
-  },
-  "patents-manufacturing.li.2": {
-    "en": "100+ production and testing equipment units",
-    "pt-BR": "Mais de 100 equipamentos de produção e testes",
-    "es-MX": "Más de 100 equipos de producción y pruebas",
-    "zh": "100 多台（套）生产与测试设备"
-  },
-  "patents-manufacturing.strong.3": {
-    "en": "Monthly Output:",
-    "pt-BR": "Produção mensal:",
-    "es-MX": "Producción mensual:",
-    "zh": "月产量："
-  },
-  "patents-manufacturing.strong.4": {
-    "en": "600,000+ units",
-    "pt-BR": "600.000+ unidades",
-    "es-MX": "600,000+ unidades",
-    "zh": "600,000+ 件"
-  },
-  "patents-manufacturing.strong.5": {
-    "en": "Annual Export:",
-    "pt-BR": "Exportação anual:",
-    "es-MX": "Exportación anual:",
-    "zh": "年出口额："
-  },
-  "patents-manufacturing.strong.6": {
-    "en": "$20-30M USD",
-    "pt-BR": "US$ 20 a 30 milhões",
-    "es-MX": "$20-30 millones USD",
-    "zh": "$20-30M USD"
-  },
-  "patents-manufacturing.strong.7": {
-    "en": "Team:",
-    "pt-BR": "Equipe:",
-    "es-MX": "Equipo:",
-    "zh": "团队："
-  },
-  "patents-manufacturing.strong.8": {
-    "en": "150+ employees, 20+ R&D engineers",
-    "pt-BR": "mais de 150 colaboradores, mais de 20 engenheiros de P&amp;D",
-    "es-MX": "más de 150 empleados, más de 20 ingenieros de I+D",
-    "zh": "150 多名员工，20 多名 R&D 工程师"
   },
   "patents-manufacturing.meta.title": {
     "en": "Wanew | Patents & Manufacturing Capacity - 200+ Patents-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
@@ -607,66 +505,6 @@
     "pt-BR": "Na Wanew, a qualidade está incorporada ao nosso processo de fabricação. Cada produto passa por testes rigorosos para atender aos padrões internacionais.",
     "es-MX": "En Wanew, la calidad está integrada en nuestro proceso de fabricación. Cada producto pasa por pruebas rigurosas para cumplir con las normas internacionales.",
     "zh": "在 Wanew，品质贯穿于我们的整个制造流程。每一件产品都经过严格检测，以符合国际标准。"
-  },
-  "certifications-testing.h2.2": {
-    "en": "Certifications & Standards",
-    "pt-BR": "Certificações e padrões",
-    "es-MX": "Certificaciones y normas",
-    "zh": "认证与标准"
-  },
-  "certifications-testing.th.1": {
-    "en": "Certification",
-    "pt-BR": "Certificação",
-    "es-MX": "Certificación",
-    "zh": "认证"
-  },
-  "certifications-testing.th.2": {
-    "en": "Scope",
-    "pt-BR": "Escopo",
-    "es-MX": "Alcance",
-    "zh": "适用范围"
-  },
-  "certifications-testing.th.3": {
-    "en": "Status",
-    "pt-BR": "Status",
-    "es-MX": "Estado",
-    "zh": "状态"
-  },
-  "certifications-testing.td.1": {
-    "en": "ISO 9001",
-    "pt-BR": "ISO 9001",
-    "es-MX": "ISO 9001",
-    "zh": "ISO 9001"
-  },
-  "certifications-testing.td.2": {
-    "en": "Quality Management System",
-    "pt-BR": "Sistema de gestão da qualidade",
-    "es-MX": "Sistema de gestión de la calidad",
-    "zh": "质量管理体系"
-  },
-  "certifications-testing.td.5": {
-    "en": "Restriction of Hazardous Substances",
-    "pt-BR": "Restrição de substâncias perigosas",
-    "es-MX": "Restricción de sustancias peligrosas",
-    "zh": "有害物质限制"
-  },
-  "certifications-testing.td.6": {
-    "en": "✅ Compliant",
-    "pt-BR": "✅ Em conformidade",
-    "es-MX": "✅ En conformidad",
-    "zh": "✅ 符合"
-  },
-  "certifications-testing.td.8": {
-    "en": "European Standards",
-    "pt-BR": "Padrões europeus",
-    "es-MX": "Normas europeas",
-    "zh": "欧洲标准"
-  },
-  "certifications-testing.td.11": {
-    "en": "US Emission Standards",
-    "pt-BR": "Padrões de emissão dos EUA",
-    "es-MX": "Normas de emisiones de EE. UU.",
-    "zh": "美国辐射发射标准"
   },
   "certifications-testing.h2.3": {
     "en": "Quality Process",
