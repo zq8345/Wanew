@@ -1,4 +1,4 @@
 {
-  "img_base": "https://img.tejoy.com/",
-  "_note": "R2:图存 tejoy-images,经 img.tejoy.com 出;产品 JSON images[].key 前缀不动。native /static/upload/ 图不受影响。"
+  "img_base": "https://img.wanew.com/",
+  "_note": "R2:图存 R2 桶,经 img.wanew.com 出(W3 上线随 img_base 切换,原 img.tejoy.com 已停用于新站);产品 JSON images[].key 前缀不动。native /static/upload/ 图不受影响。"
 }
