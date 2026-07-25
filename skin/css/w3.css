@@ -523,6 +523,25 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-whycard h3 { font-size: 16px; font-weight: 650; letter-spacing: -0.01em; line-height: 1.35; }
 .w3-whycard p { font-size: 13.5px; color: var(--w3-text2); line-height: 1.65; }
 
+/* About #oem-odm double-column (sample): left = OEM numbered cards (reuse whycard),
+   right = ODM numbered stepper. NO icons — DESIGN.md §卡片 review#1 bans icon+few-word cards;
+   numbered index (accent)领起. .about-oemodm prefix raises specificity over the global
+   `.xlc-section h3 {17px}` so card/step headings keep their own scale. */
+.about-oemodm { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: start; margin: 28px 0 8px; }
+.about-oemodm__head { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; color: var(--w3-text3); margin: 0 0 18px; }
+.about-oemodm .oem-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.about-oemodm .oem-cards .w3-whycard { padding: 22px 20px; }
+.about-oemodm .odm-steps { list-style: none; margin: 0; padding: 0; }
+.about-oemodm .odm-step { position: relative; padding: 0 0 26px 46px; }
+.about-oemodm .odm-step:last-child { padding-bottom: 0; }
+.about-oemodm .odm-step::before { content: ""; position: absolute; left: 15px; top: 34px; bottom: 0; width: 1px; background: var(--w3-line); }
+.about-oemodm .odm-step:last-child::before { display: none; }
+.about-oemodm .odm-step__num { position: absolute; left: 0; top: 0; width: 32px; height: 32px; border-radius: 999px; border: 1px solid var(--w3-line2); background: var(--w3-panel); color: var(--w3-accent); display: grid; place-items: center; font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.about-oemodm .w3-whycard h3, .about-oemodm .odm-step h3 { font-size: 15px; font-weight: 650; color: var(--w3-text); letter-spacing: -0.01em; line-height: 1.35; margin: 0; }
+.about-oemodm .odm-step p { font-size: 13.5px; color: var(--w3-text2); line-height: 1.65; margin: 5px 0 0; }
+@media (max-width: 860px) { .about-oemodm { grid-template-columns: 1fr; gap: 32px; } }
+@media (max-width: 460px) { .about-oemodm .oem-cards { grid-template-columns: 1fr; } }
+
 /* certification evidence strip (real cert badges, foot of Why section) */
 .w3-certstrip {
   display: flex; align-items: center; flex-wrap: wrap; gap: 16px 24px;
