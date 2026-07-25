@@ -139,7 +139,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=1" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=2" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -179,8 +179,24 @@
     </div>
   </div>
 
-  <!-- Shop by Starlink model -->
+  <!-- Product showcase (real product photography) -->
   <section class="w3-section">
+    <div class="w3-container">
+      <div class="w3-sechead w3-sechead--row" data-w3-reveal>
+        <div>
+          <span class="w3-eyebrow">{{t.home.products.kick}}</span>
+          <h2 class="w3-h2">{{t.home.products.h2}}</h2>
+        </div>
+        <a class="w3-link-arrow" href="{{url./products/}}">{{t.header.all_products}}</a>
+      </div>
+      <div class="w3-pstrip" data-w3-reveal="2">
+        {{PRODUCT_STRIP}}
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop by Starlink model -->
+  <section class="w3-section w3-hairline-top">
     <div class="w3-container">
       <div class="w3-sechead" data-w3-reveal>
         <span class="w3-eyebrow">{{t.home.kick.1}}</span>
@@ -201,22 +217,56 @@
     </div>
   </section>
 
-  <!-- Field-proven band (solutions / scenarios) -->
-  <section class="w3-field">
-    <div class="w3-field__bg" style="background-image: url(/static/upload/image/20260507/1778150186553168.webp);"></div>
+  <!-- Field-proven: full-bleed scenario carousel -->
+  <section class="w3-fieldcar w3-hairline-top">
     <div class="w3-container">
-      <div class="w3-field__inner">
-        <div class="w3-sechead" data-w3-reveal>
-          <span class="w3-eyebrow">{{t.header.solutions}}</span>
-          <h2 class="w3-h2">{{t.home.field.h2}}</h2>
-          <p class="w3-sub">{{t.home.field.sub}}</p>
+      <div class="w3-sechead" data-w3-reveal>
+        <span class="w3-eyebrow">{{t.header.solutions}}</span>
+        <h2 class="w3-h2">{{t.home.field.h2}}</h2>
+        <p class="w3-sub">{{t.home.field.sub}}</p>
+      </div>
+    </div>
+    <div class="w3-carousel" data-w3-carousel data-w3-reveal="2" aria-roledescription="carousel">
+      <div class="w3-carousel__track">
+        <a class="w3-carousel__slide is-active" href="{{url./rv-off-grid/}}" style="background-image: url(/static/upload/image/20260507/1778150530392387.webp);">
+          <div class="w3-carousel__cap"><span class="w3-eyebrow">{{t.home.scene.rv}}{{badge./rv-off-grid/}}</span><p class="w3-carousel__line">{{t.home.scene.rv.line}}</p><span class="w3-link-arrow">{{t.shared.read_more}}</span></div>
+        </a>
+        <a class="w3-carousel__slide" href="{{url./marine/}}" style="background-image: url(/static/upload/image/20260507/1778150549229990.webp);">
+          <div class="w3-carousel__cap"><span class="w3-eyebrow">{{t.header.marine}}{{badge./marine/}}</span><p class="w3-carousel__line">{{t.home.scene.marine.line}}</p><span class="w3-link-arrow">{{t.shared.read_more}}</span></div>
+        </a>
+        <a class="w3-carousel__slide" href="{{url./mounts/}}" style="background-image: url(/static/upload/image/20260507/1778150152627003.webp);">
+          <div class="w3-carousel__cap"><span class="w3-eyebrow">{{t.home.scene.home_roof}}{{badge./mounts/}}</span><p class="w3-carousel__line">{{t.home.scene.home_roof.line}}</p><span class="w3-link-arrow">{{t.shared.read_more}}</span></div>
+        </a>
+        <a class="w3-carousel__slide" href="{{url./power/}}" style="background-image: url(/static/upload/image/20260507/1778150186553168.webp);">
+          <div class="w3-carousel__cap"><span class="w3-eyebrow">{{t.home.scene.offgrid}}{{badge./power/}}</span><p class="w3-carousel__line">{{t.home.scene.offgrid.line}}</p><span class="w3-link-arrow">{{t.shared.read_more}}</span></div>
+        </a>
+        <a class="w3-carousel__slide" href="{{url./industrial/}}" style="background-image: url(/static/upload/image/20260507/1778150284268926.webp);">
+          <div class="w3-carousel__cap"><span class="w3-eyebrow">{{t.home.scene.business}}{{badge./industrial/}}</span><p class="w3-carousel__line">{{t.home.scene.business.line}}</p><span class="w3-link-arrow">{{t.shared.read_more}}</span></div>
+        </a>
+      </div>
+      <button type="button" class="w3-carousel__nav w3-carousel__nav--prev" data-w3-car-prev aria-label="{{t.body.gallery.prev}}"></button>
+      <button type="button" class="w3-carousel__nav w3-carousel__nav--next" data-w3-car-next aria-label="{{t.body.gallery.next}}"></button>
+      <div class="w3-carousel__dots" data-w3-car-dots></div>
+    </div>
+  </section>
+
+  <!-- About / manufacturing -->
+  <section class="w3-section w3-hairline-top" id="ind4">
+    <div class="w3-container">
+      <div class="w3-about">
+        <div class="w3-about__body" data-w3-reveal>
+          <span class="w3-eyebrow">{{t.home.about.eyebrow}}</span>
+          <p class="w3-sub">{{t.home.p.5}}</p>
+          <div class="w3-stats">
+            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.1}}</span><span class="w3-stat__k">{{t.home.stat.text.1}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.2}}</span><span class="w3-stat__k">{{t.shared.professional_equipment}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.3}}</span><span class="w3-stat__k">{{t.home.stat.text.3}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.4}}</span><span class="w3-stat__k">{{t.home.stat.text.4}}</span></div>
+          </div>
+          <a href="{{url./about/}}" class="w3-link-arrow">{{t.home.about.cta}}</a>
         </div>
-        <div class="w3-scenes" data-w3-reveal="2">
-          <a class="w3-scene" href="{{url./rv-off-grid/}}">{{t.home.scene.rv}}{{badge./rv-off-grid/}}</a>
-          <a class="w3-scene" href="{{url./marine/}}">{{t.header.marine}}{{badge./marine/}}</a>
-          <a class="w3-scene" href="{{url./mounts/}}">{{t.home.scene.home_roof}}{{badge./mounts/}}</a>
-          <a class="w3-scene" href="{{url./power/}}">{{t.home.scene.offgrid}}{{badge./power/}}</a>
-          <a class="w3-scene" href="{{url./industrial/}}">{{t.home.scene.business}}{{badge./industrial/}}</a>
+        <div class="w3-about__media" data-w3-reveal="2">
+          <img src="/static/upload/image/tejoy-company-wall.png" alt="" loading="lazy"/>
         </div>
       </div>
     </div>
@@ -250,28 +300,6 @@
           <div class="w3-whycard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0M4 13v4a2 2 0 0 0 2 2M20 13v3a2 2 0 0 1-2 2h-4"/></svg></div>
           <h3>{{t.home.h3.4}}</h3>
           <p>{{t.home.p.4}}</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About / manufacturing -->
-  <section class="w3-section w3-hairline-top" id="ind4">
-    <div class="w3-container">
-      <div class="w3-about">
-        <div class="w3-about__body" data-w3-reveal>
-          <span class="w3-eyebrow">{{t.home.about.eyebrow}}</span>
-          <p class="w3-sub">{{t.home.p.5}}</p>
-          <div class="w3-stats">
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.1}}</span><span class="w3-stat__k">{{t.home.stat.text.1}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.2}}</span><span class="w3-stat__k">{{t.shared.professional_equipment}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.3}}</span><span class="w3-stat__k">{{t.home.stat.text.3}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.4}}</span><span class="w3-stat__k">{{t.home.stat.text.4}}</span></div>
-          </div>
-          <a href="{{url./about/}}" class="w3-link-arrow">{{t.home.about.cta}}</a>
-        </div>
-        <div class="w3-about__media" data-w3-reveal="2">
-          <img src="/static/upload/image/tejoy-company-wall.png" alt="" loading="lazy"/>
         </div>
       </div>
     </div>
@@ -320,7 +348,7 @@
 
   <!-- CTA band -->
   <section class="w3-ctaband">
-    <div class="w3-ctaband__bg" style="background-image: url(/static/upload/image/20260507/1778150549229990.webp);"></div>
+    <div class="w3-ctaband__bg" style="background-image: url(/static/upload/image/20260507/1778150245270907.webp);"></div>
     <div class="w3-container">
       <div class="w3-ctaband__inner">
         <span class="w3-eyebrow">{{t.header.contact}}</span>
@@ -378,6 +406,6 @@
 </div>
 <div class="mobile-nav__wrapper"></div>
 <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
-<script src="/skin/js/w3.js?v=1" defer></script>
+<script src="/skin/js/w3.js?v=2" defer></script>
 </body>
 </html>

@@ -249,5 +249,40 @@
     "en": "Not sure which Starlink you have? Check the compatibility guide",
     "pt-BR": "Não sabe qual Starlink você tem? Veja o guia de compatibilidade",
     "es-MX": "¿No sabes cuál Starlink tienes? Consulta la guía de compatibilidad"
+  },
+  "home.products.kick": {
+    "en": "Featured",
+    "pt-BR": "Em destaque",
+    "es-MX": "Destacados"
+  },
+  "home.products.h2": {
+    "en": "Popular products",
+    "pt-BR": "Produtos populares",
+    "es-MX": "Productos populares"
+  },
+  "home.scene.rv.line": {
+    "en": "Reliable internet on every road trip.",
+    "pt-BR": "Internet confiável em cada viagem de estrada.",
+    "es-MX": "Internet confiable en cada viaje por carretera."
+  },
+  "home.scene.marine.line": {
+    "en": "Stay connected offshore and at anchor.",
+    "pt-BR": "Fique conectado no mar e ao ancorar.",
+    "es-MX": "Mantente conectado en altamar y al anclar."
+  },
+  "home.scene.home_roof.line": {
+    "en": "Whole-home coverage, cleanly installed.",
+    "pt-BR": "Cobertura para toda a casa, instalação limpa.",
+    "es-MX": "Cobertura para todo el hogar, instalación limpia."
+  },
+  "home.scene.offgrid.line": {
+    "en": "Power and signal where the grid ends.",
+    "pt-BR": "Energia e sinal onde a rede acaba.",
+    "es-MX": "Energía y señal donde termina la red."
+  },
+  "home.scene.business.line": {
+    "en": "Enterprise-grade uptime for every site.",
+    "pt-BR": "Disponibilidade empresarial para cada local.",
+    "es-MX": "Disponibilidad empresarial para cada sitio."
   }
 }

@@ -152,7 +152,7 @@ for (const locale of LOCALES) {
   // 全 chrome + shared + home 键(和 page 模板 158 行一致)—— home 要能引 chrome/shared key,
   // 去重才能把它存的 chrome 副本(meta.title / More / …)重定向到真源。card.alt.category 本就在 chrome。
   const h1 = renderHome(homeTpl, { locale, catalog: { ...catalog, ...shared, ...homeCat },
-    tiles: homeTiles, modelDisplay: MODEL, urlOf, exists: pageExists, dirOf, enabled: LOCALES });
+    tiles: homeTiles, modelDisplay: MODEL, urlOf, exists: pageExists, dirOf, enabled: LOCALES, products: entries });
   if (h1 !== h0) { fs.writeFileSync(p, h1); homes++; }
 }
 console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.json)`);
