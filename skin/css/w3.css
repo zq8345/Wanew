@@ -560,8 +560,13 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 /* ============================================================================
    LIST PAGE (/products/ shells) — chips + grid markup are machinery, keep names
    ========================================================================== */
-.page-header { position: relative; padding: calc(var(--w3-header-h) + 84px) 0 56px; overflow: hidden; }
-.page-header-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+/* Info-page hero band: height tracks the image aspect (~2.5:1 in the 1200–1500px
+   range, capped so ultra-wide is a ~3.2:1 compromise, floored for tablet/mobile).
+   Was padding-only (~280px tall at desktop) which cover-cropped the 2.6:1 heroes to
+   a ~38% sliver (Joe's page-by-page finding). Title anchored to the bottom like the
+   home hero. Homepage .w3-hero is separately/deliberately full-viewport — untouched. */
+.page-header { position: relative; min-height: clamp(320px, 40vw, 600px); display: flex; flex-direction: column; justify-content: flex-end; padding: calc(var(--w3-header-h) + 48px) 0 48px; overflow: hidden; }
+.page-header-bg { position: absolute; inset: 0; background-size: cover; background-position: center 42%; }
 /* aligned with home hero (.w3-hero__bg::after): light top so the transparent nav floats over
    the bright hero image, bright mid-window, darker only near the title, + left scrim for text. */
 .page-header-bg::after { content: ""; position: absolute; inset: 0; background:
