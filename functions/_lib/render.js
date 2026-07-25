@@ -453,9 +453,26 @@ export function setListLabels(html, { locale, catalog, model }) {
   let n = 0;
   out = out.replace(/(<span class="product-chiprow__label">)[^<]*(<\/span>)/g,
     (m, a, b) => a + t(n++ === 0 ? "list.filter.model" : "list.filter.type") + b);
-  // 两条轴各有一个 "All" chip,同一个词。只认 href 指向该轴全集的那一个,
-  // 不按文本 "All" 认 —— 型号 chip 里将来若出现同名值,按文本认会误伤。
+  // 形态轴类目名(Mounts&Brackets…)+ 两轴的 "All" 一起本地化,全走 catalog 且与 nav/首页类目卡
+  // 【同一套 chrome 键】—— 保证全站 es/pt/zh 类目名单一口径。此前 setListLabels 假设"形态 chip 在
+  // chrome 里已经有主了"、根本不碰它们 —— 但 chip 标签是【就地烘进 list 页 body 的】,该假设不成立:
+  // /es/products/ 的 Tipo chip 全留了英文(审计 M-a),/zh/ 同样留英文;pt 恰好持久化对了、掩盖了根。
+  // 机型 chip(Mini/Standard…)是 model_display 型号名,不在下表 → 不翻。
+  // chip 有两种载体:<button>(就地筛选,data-filter) 与 <a>(机型导航跳转,href,无 data-filter)。
   const ALL = t("list.chip.all");
+  const FORM_LABEL_KEY = {
+    mounts: "header.mounts_brackets", power: "header.power_charging", cables: "header.cables",
+    networking: "header.networking", cases: "header.cases_protection",
+  };
+  // (1) <button> 筛选 chip:两轴 All → 本地化;形态类目 → 本地化;机型名(不在表)原样。
+  out = out.replace(
+    /(<button\b[^>]*\bdata-filter="([a-z-]+)"[^>]*>)([^<]*?)( <span class="product-chip__n">)/g,
+    (m, open, filter, label, tail) => {
+      if (filter === "all") return open + ALL + tail;
+      const key = FORM_LABEL_KEY[filter];
+      return key ? open + t(key) + tail : m;
+    });
+  // (2) 机型导航行里的 <a> "All" 锚(href 指向全集):只认 "All"/已本地化值,型号名锚不动。
   out = out.replace(/(<a class="product-chip[^"]*" href="[^"]*"(?: data-filter="all")?>)([^<]*?)( <span class="product-chip__n">)/g,
     (m, a, label, b) => (label === "All" || label === ALL ? a + ALL + b : m));
   return out;

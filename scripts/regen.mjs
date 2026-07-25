@@ -155,7 +155,9 @@ for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
   const h0 = fs.readFileSync(p, "utf8");
   let h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf });
   h1 = setListTitle(h1, name, locale, catalog);
-  h1 = setListLabels(h1, { locale, catalog: listCat, model: bannerModel });
+  // setListLabels 现在也本地化形态 chip 类目名(header.* 键在 chrome.json=catalog)+ All(list.* 键在 listCat)
+  // —— 两个 catalog 合并传入(键空间不重叠:header.* vs list.*)。
+  h1 = setListLabels(h1, { locale, catalog: { ...catalog, ...listCat }, model: bannerModel });
   if (isExtra(locale)) h1 = localizeInternalHead(h1, rel, locale);   // zh list 页:head 本地化+noindex+零 hreflang
   if (h1 !== h0) { fs.writeFileSync(p, h1); lists++; }
  }
