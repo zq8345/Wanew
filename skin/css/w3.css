@@ -629,6 +629,12 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-pdp__crumb { margin-bottom: 26px; display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--w3-text3); }
 .w3-pdp__crumb a { color: var(--w3-text2); transition: color 0.15s; }
 .w3-pdp__crumb a:hover { color: var(--w3-text); }
+/* breadcrumb doubles as the back-to-list affordance (总工/Joe: return via crumb, no separate button).
+   The Products link is a pill-styled "← Products" so returning is one obvious click. */
+.w3-pdp__back { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px 5px 10px; border: 1px solid var(--w3-line2); border-radius: 999px; color: var(--w3-text) !important; font-weight: 550; }
+.w3-pdp__back:hover { border-color: rgba(255,255,255,.38); background: var(--w3-panel); }
+.w3-pdp__back-arw { font-size: 14px; line-height: 1; transition: transform 0.15s var(--w3-ease); }
+.w3-pdp__back:hover .w3-pdp__back-arw { transform: translateX(-2px); }
 .w3-pdp__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
 @media (max-width: 900px) { .w3-pdp__grid { grid-template-columns: 1fr; } }
 
