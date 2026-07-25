@@ -594,7 +594,9 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   position: sticky; top: var(--w3-header-h); z-index: 60;
   background: rgba(10, 12, 15, 0.88);
   -webkit-backdrop-filter: saturate(140%) blur(14px); backdrop-filter: saturate(140%) blur(14px);
-  border-top: 1px solid var(--w3-line); border-bottom: 1px solid var(--w3-line);
+  /* ⑬ no hard divider rule (site-wide policy) — the near-opaque bg + soft shadow
+     separate the sticky bar from the hero above and content scrolling beneath. */
+  box-shadow: 0 12px 28px -14px rgba(0, 0, 0, 0.55);
   padding: 12px 0;
 }
 .product-chiprow { display: flex; align-items: baseline; gap: 14px; padding: 4px 0; }
