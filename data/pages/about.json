@@ -253,5 +253,587 @@
     "es-MX": "Acerca de nosotros",
     "reason.dupe": "页面标题/面包屑/eyebrow 三处「About Us」,pt 各自不同(Sobre Nós/Sobre/Sobre a Wanew)对应不同位置。同词不同位,显式共存不合并。",
     "zh": "关于我们"
+  },
+  "oem-odm-manufacturing.page-header-title.1": {
+    "en": "OEM/ODM Starlink-Compatible Accessories Manufacturing",
+    "pt-BR": "Fabricação OEM/ODM de Acessórios Compatíveis com Starlink",
+    "es-MX": "Fabricación OEM/ODM de accesorios compatibles con Starlink",
+    "zh": "OEM/ODM Starlink 兼容配件代工制造"
+  },
+  "oem-odm-manufacturing.page-header-subtitle.1": {
+    "en": "Custom manufacturing for Starlink accessory brands.",
+    "pt-BR": "Fabricação sob medida para marcas de acessórios Starlink.",
+    "es-MX": "Fabricación personalizada para marcas de accesorios Starlink.",
+    "zh": "为 Starlink 配件品牌提供定制化制造。"
+  },
+  "oem-odm-manufacturing.h2.1": {
+    "en": "Your Partner in Starlink Accessory Manufacturing",
+    "pt-BR": "Seu parceiro na fabricação de acessórios Starlink",
+    "es-MX": "Tu aliado en la fabricación de accesorios Starlink",
+    "zh": "您在 Starlink 配件制造领域的合作伙伴"
+  },
+  "oem-odm-manufacturing.p.1": {
+    "en": "Wanew offers comprehensive OEM and ODM manufacturing services for Starlink-compatible accessories. 15+ years experience, 200+ patents.",
+    "pt-BR": "A Wanew oferece serviços completos de fabricação OEM e ODM para acessórios compatíveis com Starlink. Mais de 15 anos de experiência e 200+ patentes.",
+    "es-MX": "Wanew ofrece servicios completos de fabricación OEM y ODM para accesorios compatibles con Starlink. Más de 15 años de experiencia y 200+ patentes.",
+    "zh": "Wanew 为 Starlink 兼容配件提供全面的 OEM 与 ODM 制造服务。15 年以上经验，200 多项专利。"
+  },
+  "oem-odm-manufacturing.h2.2": {
+    "en": "OEM Services",
+    "pt-BR": "Serviços OEM",
+    "es-MX": "Servicios OEM",
+    "zh": "OEM 服务"
+  },
+  "oem-odm-manufacturing.strong.1": {
+    "en": "Custom Dimensions",
+    "pt-BR": "Dimensões personalizadas",
+    "es-MX": "Medidas personalizadas",
+    "zh": "尺寸定制"
+  },
+  "oem-odm-manufacturing.strong.2": {
+    "en": "— Adjust cable length, connector types, bracket sizes",
+    "pt-BR": "— Ajuste o comprimento dos cabos, os tipos de conector e os tamanhos dos suportes",
+    "es-MX": "— Ajusta el largo del cable, los tipos de conector y el tamaño de las bases",
+    "zh": "——可调整线缆长度、连接器类型、支架尺寸"
+  },
+  "oem-odm-manufacturing.strong.3": {
+    "en": "Custom Packaging",
+    "pt-BR": "Embalagem personalizada",
+    "es-MX": "Empaque personalizado",
+    "zh": "包装定制"
+  },
+  "oem-odm-manufacturing.strong.4": {
+    "en": "— Retail-ready with your branding",
+    "pt-BR": "— Pronta para o varejo, com a sua marca",
+    "es-MX": "— Listo para venta al menudeo, con tu marca",
+    "zh": "——零售就绪，可印制您的品牌"
+  },
+  "oem-odm-manufacturing.strong.5": {
+    "en": "Specification Tuning",
+    "pt-BR": "Ajuste de especificações",
+    "es-MX": "Ajuste de especificaciones",
+    "zh": "规格调校"
+  },
+  "oem-odm-manufacturing.strong.6": {
+    "en": "— Materials, colors, performance parameters",
+    "pt-BR": "— Materiais, cores e parâmetros de desempenho",
+    "es-MX": "— Materiales, colores y parámetros de desempeño",
+    "zh": "——材料、颜色、性能参数"
+  },
+  "oem-odm-manufacturing.strong.7": {
+    "en": "Quality Testing",
+    "pt-BR": "Testes de qualidade",
+    "es-MX": "Pruebas de calidad",
+    "zh": "品质检测"
+  },
+  "oem-odm-manufacturing.strong.8": {
+    "en": "— Full standard testing process",
+    "pt-BR": "— Processo completo de testes padronizados",
+    "es-MX": "— Proceso completo de pruebas estandarizadas",
+    "zh": "——完整的标准测试流程"
+  },
+  "oem-odm-manufacturing.h2.3": {
+    "en": "ODM Services",
+    "pt-BR": "Serviços ODM",
+    "es-MX": "Servicios ODM",
+    "zh": "ODM 服务"
+  },
+  "oem-odm-manufacturing.strong.9": {
+    "en": "Concept Development",
+    "pt-BR": "Desenvolvimento de conceito",
+    "es-MX": "Desarrollo de concepto",
+    "zh": "概念开发"
+  },
+  "oem-odm-manufacturing.strong.10": {
+    "en": "— Our R&D team handles design from your idea",
+    "pt-BR": "— Nossa equipe de P&amp;D cuida do projeto a partir da sua ideia",
+    "es-MX": "— Nuestro equipo de I+D se encarga del diseño a partir de tu idea",
+    "zh": "——由我们的 R&D 团队将您的构想落地为设计"
+  },
+  "oem-odm-manufacturing.strong.11": {
+    "en": "Prototyping",
+    "pt-BR": "Prototipagem",
+    "es-MX": "Prototipado",
+    "zh": "样机打样"
+  },
+  "oem-odm-manufacturing.strong.12": {
+    "en": "— Rapid prototypes for functional testing",
+    "pt-BR": "— Protótipos rápidos para testes funcionais",
+    "es-MX": "— Prototipos rápidos para pruebas funcionales",
+    "zh": "——快速打样以进行功能测试"
+  },
+  "oem-odm-manufacturing.strong.13": {
+    "en": "Mass Production",
+    "pt-BR": "Produção em larga escala",
+    "es-MX": "Producción en masa",
+    "zh": "批量生产"
+  },
+  "oem-odm-manufacturing.strong.14": {
+    "en": "— Seamless prototype to volume manufacturing",
+    "pt-BR": "— Transição perfeita do protótipo à produção em volume",
+    "es-MX": "— Transición fluida del prototipo a la producción en volumen",
+    "zh": "——从样机到量产无缝衔接"
+  },
+  "oem-odm-manufacturing.h2.4": {
+    "en": "Why Wanew?",
+    "pt-BR": "Por que a Wanew?",
+    "es-MX": "¿Por qué Wanew?",
+    "zh": "为什么选择 Wanew？"
+  },
+  "oem-odm-manufacturing.li.1": {
+    "en": "600,000+ units monthly capacity",
+    "pt-BR": "Capacidade mensal de 600.000+ unidades",
+    "es-MX": "Capacidad mensual de 600,000+ unidades",
+    "zh": "月产能 600,000+ 件"
+  },
+  "oem-odm-manufacturing.li.2": {
+    "en": "20+ engineers, 200+ patents",
+    "pt-BR": "Mais de 20 engenheiros e 200+ patentes",
+    "es-MX": "Más de 20 ingenieros y 200+ patentes",
+    "zh": "20 多名工程师，200 多项专利"
+  },
+  "oem-odm-manufacturing.li.3": {
+    "en": "ISO 9001, RoHS, CE, FCC certified",
+    "pt-BR": "Certificações ISO 9001, RoHS, CE e FCC",
+    "es-MX": "Certificaciones ISO 9001, RoHS, CE y FCC",
+    "zh": "通过 ISO 9001、RoHS、CE、FCC 认证"
+  },
+  "oem-odm-manufacturing.li.4": {
+    "en": "US warehousing, worldwide DDP shipping",
+    "pt-BR": "Armazenagem nos EUA e envio DDP para o mundo todo",
+    "es-MX": "Almacenamiento en EE. UU. y envíos DDP a todo el mundo",
+    "zh": "美国仓储，全球 DDP 发货"
+  },
+  "oem-odm-manufacturing.meta.title": {
+    "en": "OEM/ODM Starlink-Compatible Accessories Manufacturing-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "Fabricação OEM/ODM de Acessórios Compatíveis com Starlink-Wanew | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
+    "es-MX": "Fabricación OEM/ODM de Accesorios Compatibles con Starlink-Wanew | Accesorios Premium para Starlink: Soportes y Soluciones de Energía",
+    "zh": "OEM/ODM Starlink 兼容配件代工制造-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions"
+  },
+  "oem-odm-manufacturing.meta.desc": {
+    "en": "Wanew OEM/ODM manufacturing services for Starlink-compatible accessories. Custom branding, packaging, and specifications. MOQ 100+ pieces.",
+    "pt-BR": "Serviços de fabricação OEM/ODM da Wanew para acessórios compatíveis com Starlink. Marca, embalagem e especificações personalizadas. MOQ a partir de 100 peças.",
+    "es-MX": "Servicios de fabricación OEM/ODM de Wanew para accesorios compatibles con Starlink. Marca, empaque y especificaciones personalizadas. MOQ desde 100 piezas.",
+    "zh": "Wanew 为 Starlink 兼容配件提供 OEM/ODM 制造服务。定制品牌、包装与规格。起订量 100 件起。"
+  },
+  "patents-manufacturing.page-header-title.1": {
+    "en": "Wanew Patents & Manufacturing Capacity - 200+ Patents",
+    "pt-BR": "Patentes e Capacidade Fabril da Wanew - Mais de 200 Patentes",
+    "es-MX": "Patentes y Capacidad de Fabricación de Wanew - Más de 200 Patentes",
+    "zh": "Wanew 专利与制造产能 - 200 多项专利"
+  },
+  "patents-manufacturing.page-header-subtitle.1": {
+    "en": "200+ patents and scaled in-house production.",
+    "pt-BR": "Mais de 200 patentes e produção interna em larga escala.",
+    "es-MX": "Más de 200 patentes y producción propia a gran escala.",
+    "zh": "200 多项专利，规模化自有工厂生产。"
+  },
+  "patents-manufacturing.h2.1": {
+    "en": "Engineering Excellence Backed by Patents",
+    "pt-BR": "Excelência em engenharia respaldada por patentes",
+    "es-MX": "Excelencia en ingeniería respaldada por patentes",
+    "zh": "以专利为支撑的工程实力"
+  },
+  "patents-manufacturing.p.1": {
+    "en": "Wanew holds over",
+    "pt-BR": "A Wanew detém mais de",
+    "es-MX": "Wanew cuenta con más de",
+    "zh": "Wanew 拥有超过"
+  },
+  "patents-manufacturing.strong.1": {
+    "en": "200 patents",
+    "pt-BR": "200 patentes",
+    "es-MX": "200 patentes",
+    "zh": "200 项专利"
+  },
+  "patents-manufacturing.strong.2": {
+    "en": "covering mounting systems, cable connectors, power adapters, and protective enclosures.",
+    "pt-BR": "que cobrem sistemas de fixação, conectores de cabo, adaptadores de energia e cases de proteção.",
+    "es-MX": "que cubren sistemas de montaje, conectores de cable, adaptadores de energía y carcasas de protección.",
+    "zh": "涵盖安装系统、线缆连接器、电源适配器及防护外壳。"
+  },
+  "patents-manufacturing.h2.2": {
+    "en": "Patent Portfolio",
+    "pt-BR": "Portfólio de patentes",
+    "es-MX": "Portafolio de patentes",
+    "zh": "专利组合"
+  },
+  "patents-manufacturing.th.1": {
+    "en": "Category",
+    "pt-BR": "Categoria",
+    "es-MX": "Categoría",
+    "zh": "类别"
+  },
+  "patents-manufacturing.th.2": {
+    "en": "Count",
+    "pt-BR": "Quantidade",
+    "es-MX": "Cantidad",
+    "zh": "数量"
+  },
+  "patents-manufacturing.th.3": {
+    "en": "Focus",
+    "pt-BR": "Foco",
+    "es-MX": "Enfoque",
+    "zh": "重点方向"
+  },
+  "patents-manufacturing.td.1": {
+    "en": "Invention Patents",
+    "pt-BR": "Patentes de invenção",
+    "es-MX": "Patentes de invención",
+    "zh": "发明专利"
+  },
+  "patents-manufacturing.td.2": {
+    "en": "Connector design, mounting mechanisms",
+    "pt-BR": "Projeto de conectores, mecanismos de fixação",
+    "es-MX": "Diseño de conectores, mecanismos de montaje",
+    "zh": "连接器设计、安装机构"
+  },
+  "patents-manufacturing.td.3": {
+    "en": "Utility Patents",
+    "pt-BR": "Patentes de modelo de utilidade",
+    "es-MX": "Patentes de modelo de utilidad",
+    "zh": "实用新型专利"
+  },
+  "patents-manufacturing.td.4": {
+    "en": "Structural improvements, weatherproofing",
+    "pt-BR": "Melhorias estruturais, resistência às intempéries",
+    "es-MX": "Mejoras estructurales, resistencia a la intemperie",
+    "zh": "结构改进、防水耐候"
+  },
+  "patents-manufacturing.td.5": {
+    "en": "Design Patents",
+    "pt-BR": "Patentes de design",
+    "es-MX": "Patentes de diseño",
+    "zh": "外观设计专利"
+  },
+  "patents-manufacturing.td.6": {
+    "en": "Product appearance, packaging",
+    "pt-BR": "Aparência do produto, embalagem",
+    "es-MX": "Apariencia del producto, empaque",
+    "zh": "产品外观、包装"
+  },
+  "patents-manufacturing.h2.3": {
+    "en": "Manufacturing Capacity",
+    "pt-BR": "Capacidade fabril",
+    "es-MX": "Capacidad de fabricación",
+    "zh": "制造产能"
+  },
+  "patents-manufacturing.li.1": {
+    "en": "5,000 sqm production plant",
+    "pt-BR": "Fábrica de produção de 5.000 m²",
+    "es-MX": "Planta de producción de 5,000 m²",
+    "zh": "5,000 平方米生产厂房"
+  },
+  "patents-manufacturing.li.2": {
+    "en": "100+ production and testing equipment units",
+    "pt-BR": "Mais de 100 equipamentos de produção e testes",
+    "es-MX": "Más de 100 equipos de producción y pruebas",
+    "zh": "100 多台（套）生产与测试设备"
+  },
+  "patents-manufacturing.strong.3": {
+    "en": "Monthly Output:",
+    "pt-BR": "Produção mensal:",
+    "es-MX": "Producción mensual:",
+    "zh": "月产量："
+  },
+  "patents-manufacturing.strong.4": {
+    "en": "600,000+ units",
+    "pt-BR": "600.000+ unidades",
+    "es-MX": "600,000+ unidades",
+    "zh": "600,000+ 件"
+  },
+  "patents-manufacturing.strong.5": {
+    "en": "Annual Export:",
+    "pt-BR": "Exportação anual:",
+    "es-MX": "Exportación anual:",
+    "zh": "年出口额："
+  },
+  "patents-manufacturing.strong.6": {
+    "en": "$20-30M USD",
+    "pt-BR": "US$ 20 a 30 milhões",
+    "es-MX": "$20-30 millones USD",
+    "zh": "$20-30M USD"
+  },
+  "patents-manufacturing.strong.7": {
+    "en": "Team:",
+    "pt-BR": "Equipe:",
+    "es-MX": "Equipo:",
+    "zh": "团队："
+  },
+  "patents-manufacturing.strong.8": {
+    "en": "150+ employees, 20+ R&D engineers",
+    "pt-BR": "mais de 150 colaboradores, mais de 20 engenheiros de P&amp;D",
+    "es-MX": "más de 150 empleados, más de 20 ingenieros de I+D",
+    "zh": "150 多名员工，20 多名 R&D 工程师"
+  },
+  "patents-manufacturing.meta.title": {
+    "en": "Wanew | Patents & Manufacturing Capacity - 200+ Patents-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "Wanew | Patentes e Capacidade Fabril - Mais de 200 Patentes - Wanew | Acessórios Premium para Starlink",
+    "es-MX": "Wanew | Patentes y Capacidad de Fabricación - Más de 200 Patentes-Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía",
+    "zh": "Wanew | 专利与制造产能 - 200 多项专利-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions"
+  },
+  "patents-manufacturing.meta.desc": {
+    "en": "Wanew manufacturing: 200+ patents, 400K-600K monthly capacity, 150+ employees, 15+ years of experience in Starlink-compatible accessory manufacturing.",
+    "pt-BR": "Fabricação Wanew: mais de 200 patentes, capacidade mensal de 400 mil a 600 mil unidades, mais de 150 colaboradores e 15+ anos de experiência na fabricação de acessórios compatíveis com Starlink.",
+    "es-MX": "Fabricación Wanew: más de 200 patentes, capacidad mensual de 400 mil a 600 mil unidades, más de 150 empleados y más de 15 años de experiencia fabricando accesorios compatibles con Starlink.",
+    "zh": "Wanew 制造实力：200 多项专利，月产能 40 万至 60 万件，150 多名员工，15 年以上 Starlink 兼容配件制造经验。"
+  },
+  "patents-manufacturing.ld.name.3": {
+    "en": "Patents & Manufacturing",
+    "pt-BR": "Patentes e Capacidade Fabril",
+    "es-MX": "Patentes y Fabricación",
+    "zh": "专利与制造"
+  },
+  "certifications-testing.page-header-title.1": {
+    "en": "Wanew Certifications, Testing & Manufacturing Quality",
+    "pt-BR": "Certificações, Testes e Qualidade de Fabricação Wanew",
+    "es-MX": "Certificaciones, Pruebas y Calidad de Fabricación Wanew",
+    "zh": "Wanew 认证、检测与制造品质"
+  },
+  "certifications-testing.page-header-subtitle.1": {
+    "en": "FCC, CE and RoHS tested; in-house manufacturing.",
+    "pt-BR": "Testado segundo FCC, CE e RoHS; fabricação própria.",
+    "es-MX": "Probado bajo FCC, CE y RoHS; fabricación propia.",
+    "zh": "通过 FCC、CE 与 RoHS 检测；自有工厂生产。"
+  },
+  "certifications-testing.h2.1": {
+    "en": "Our Commitment to Quality",
+    "pt-BR": "Nosso compromisso com a qualidade",
+    "es-MX": "Nuestro compromiso con la calidad",
+    "zh": "我们对品质的承诺"
+  },
+  "certifications-testing.p.1": {
+    "en": "At Wanew, quality is embedded in our manufacturing process. Every product undergoes rigorous testing to meet international standards.",
+    "pt-BR": "Na Wanew, a qualidade está incorporada ao nosso processo de fabricação. Cada produto passa por testes rigorosos para atender aos padrões internacionais.",
+    "es-MX": "En Wanew, la calidad está integrada en nuestro proceso de fabricación. Cada producto pasa por pruebas rigurosas para cumplir con las normas internacionales.",
+    "zh": "在 Wanew，品质贯穿于我们的整个制造流程。每一件产品都经过严格检测，以符合国际标准。"
+  },
+  "certifications-testing.h2.2": {
+    "en": "Certifications & Standards",
+    "pt-BR": "Certificações e padrões",
+    "es-MX": "Certificaciones y normas",
+    "zh": "认证与标准"
+  },
+  "certifications-testing.th.1": {
+    "en": "Certification",
+    "pt-BR": "Certificação",
+    "es-MX": "Certificación",
+    "zh": "认证"
+  },
+  "certifications-testing.th.2": {
+    "en": "Scope",
+    "pt-BR": "Escopo",
+    "es-MX": "Alcance",
+    "zh": "适用范围"
+  },
+  "certifications-testing.th.3": {
+    "en": "Status",
+    "pt-BR": "Status",
+    "es-MX": "Estado",
+    "zh": "状态"
+  },
+  "certifications-testing.td.1": {
+    "en": "ISO 9001",
+    "pt-BR": "ISO 9001",
+    "es-MX": "ISO 9001",
+    "zh": "ISO 9001"
+  },
+  "certifications-testing.td.2": {
+    "en": "Quality Management System",
+    "pt-BR": "Sistema de gestão da qualidade",
+    "es-MX": "Sistema de gestión de la calidad",
+    "zh": "质量管理体系"
+  },
+  "certifications-testing.td.5": {
+    "en": "Restriction of Hazardous Substances",
+    "pt-BR": "Restrição de substâncias perigosas",
+    "es-MX": "Restricción de sustancias peligrosas",
+    "zh": "有害物质限制"
+  },
+  "certifications-testing.td.6": {
+    "en": "✅ Compliant",
+    "pt-BR": "✅ Em conformidade",
+    "es-MX": "✅ En conformidad",
+    "zh": "✅ 符合"
+  },
+  "certifications-testing.td.8": {
+    "en": "European Standards",
+    "pt-BR": "Padrões europeus",
+    "es-MX": "Normas europeas",
+    "zh": "欧洲标准"
+  },
+  "certifications-testing.td.11": {
+    "en": "US Emission Standards",
+    "pt-BR": "Padrões de emissão dos EUA",
+    "es-MX": "Normas de emisiones de EE. UU.",
+    "zh": "美国辐射发射标准"
+  },
+  "certifications-testing.h2.3": {
+    "en": "Quality Process",
+    "pt-BR": "Processo de qualidade",
+    "es-MX": "Proceso de calidad",
+    "zh": "品质管控流程"
+  },
+  "certifications-testing.h3.1": {
+    "en": "1. Incoming Material Inspection",
+    "pt-BR": "1. Inspeção de materiais recebidos",
+    "es-MX": "1. Inspección de materiales recibidos",
+    "zh": "1. 来料检验"
+  },
+  "certifications-testing.p.2": {
+    "en": "All raw materials verified against specification with full traceability.",
+    "pt-BR": "Todas as matérias-primas são verificadas conforme a especificação, com rastreabilidade completa.",
+    "es-MX": "Todas las materias primas se verifican contra la especificación, con trazabilidad completa.",
+    "zh": "所有原材料均按规格进行核验，并实现全程可追溯。"
+  },
+  "certifications-testing.h3.2": {
+    "en": "2. In-Process QC",
+    "pt-BR": "2. Controle de qualidade em processo",
+    "es-MX": "2. Control de calidad en proceso",
+    "zh": "2. 制程品管（In-Process QC）"
+  },
+  "certifications-testing.p.3": {
+    "en": "Inspection checkpoints at each manufacturing stage.",
+    "pt-BR": "Pontos de inspeção em cada etapa da fabricação.",
+    "es-MX": "Puntos de inspección en cada etapa de la fabricación.",
+    "zh": "在每一制造工序设置检验节点。"
+  },
+  "certifications-testing.h3.3": {
+    "en": "3. Final Testing",
+    "pt-BR": "3. Teste final",
+    "es-MX": "3. Prueba final",
+    "zh": "3. 成品测试"
+  },
+  "certifications-testing.p.4": {
+    "en": "Every product tested with real Starlink terminals before packaging.",
+    "pt-BR": "Cada produto é testado com terminais Starlink reais antes da embalagem.",
+    "es-MX": "Cada producto se prueba con terminales Starlink reales antes de empacarlo.",
+    "zh": "每件产品在包装前均使用真实的 Starlink 终端进行测试。"
+  },
+  "certifications-testing.h3.4": {
+    "en": "4. Environmental Testing",
+    "pt-BR": "4. Testes ambientais",
+    "es-MX": "4. Pruebas ambientales",
+    "zh": "4. 环境测试"
+  },
+  "certifications-testing.p.5": {
+    "en": "Temperature, UV, and waterproofing tests for outdoor products.",
+    "pt-BR": "Testes de temperatura, UV e impermeabilização para produtos de uso externo.",
+    "es-MX": "Pruebas de temperatura, UV e impermeabilidad para productos de uso exterior.",
+    "zh": "针对户外产品进行温度、UV 及防水测试。"
+  },
+  "certifications-testing.h3.5": {
+    "en": "5. Mechanical Stress Testing",
+    "pt-BR": "5. Teste de estresse mecânico",
+    "es-MX": "5. Pruebas de esfuerzo mecánico",
+    "zh": "5. 机械应力测试"
+  },
+  "certifications-testing.p.6": {
+    "en": "Load rating and reliability verification for mounts and structural components.",
+    "pt-BR": "Verificação da capacidade de carga e da confiabilidade de suportes e componentes estruturais.",
+    "es-MX": "Verificación de la capacidad de carga y la confiabilidad de soportes y componentes estructurales.",
+    "zh": "对支架及结构件进行承载额定值与可靠性验证。"
+  },
+  "certifications-testing.meta.title": {
+    "en": "Wanew Certifications, Testing & Manufacturing Quality-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "Certificações, Testes e Qualidade de Fabricação Wanew-Wanew | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
+    "es-MX": "Certificaciones, Pruebas y Calidad de Fabricación Wanew-Wanew | Accesorios premium para Starlink, soportes y soluciones de Energía",
+    "zh": "Wanew 认证、检测与制造品质-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions"
+  },
+  "certifications-testing.meta.desc": {
+    "en": "Wanew certifications: FCC, CE, RoHS compliance. Multi-stage testing for durability, weather resistance, and compatibility with Starlink terminals.",
+    "pt-BR": "Certificações da Wanew: conformidade FCC, CE e RoHS. Testes em várias etapas para durabilidade, resistência às intempéries e compatibilidade com terminais Starlink.",
+    "es-MX": "Certificaciones de Wanew: conformidad con FCC, CE y RoHS. Pruebas en varias etapas de durabilidad, resistencia a la intemperie y compatibilidad con terminales Starlink.",
+    "zh": "Wanew 认证：符合 FCC、CE、RoHS。多阶段测试确保耐用性、耐候性以及与 Starlink 终端的兼容性。"
+  },
+  "brand-affiliation-faq.page-header-title.1": {
+    "en": "Is Wanew Affiliated with Starlink or SpaceX?",
+    "pt-BR": "A Wanew é afiliada à Starlink ou à SpaceX?",
+    "es-MX": "¿Wanew está afiliada a Starlink o a SpaceX?",
+    "zh": "Wanew 与 Starlink 或 SpaceX 有关联吗？"
+  },
+  "brand-affiliation-faq.page-header-subtitle.1": {
+    "en": "Our independent, third-party relationship — explained.",
+    "pt-BR": "Nossa relação independente, de terceiro — explicada.",
+    "es-MX": "Nuestra relación independiente, como tercero — explicada.",
+    "zh": "解读我们作为独立第三方的关系。"
+  },
+  "brand-affiliation-faq.h2.1": {
+    "en": "Is Wanew affiliated with Starlink or SpaceX?",
+    "pt-BR": "A Wanew é afiliada à Starlink ou à SpaceX?",
+    "es-MX": "¿Wanew está afiliada a Starlink o a SpaceX?",
+    "zh": "Wanew 与 Starlink 或 SpaceX 有关联吗？"
+  },
+  "brand-affiliation-faq.strong.1": {
+    "en": "No.",
+    "pt-BR": "Não.",
+    "es-MX": "No.",
+    "zh": "没有。"
+  },
+  "brand-affiliation-faq.strong.2": {
+    "en": "Wanew is an independent third-party manufacturer. We are not affiliated with, sponsored by, or endorsed by SpaceX or Starlink.",
+    "pt-BR": "A Wanew é uma fabricante independente e de terceiros. Não somos afiliados, patrocinados nem endossados pela SpaceX ou pela Starlink.",
+    "es-MX": "Wanew es un fabricante independiente y externo. No estamos afiliados a SpaceX ni a Starlink, ni contamos con su patrocinio o respaldo.",
+    "zh": "Wanew 是一家独立的第三方制造商。我们与 SpaceX 或 Starlink 没有任何关联，亦未获得其赞助或背书。"
+  },
+  "brand-affiliation-faq.blockquote.1": {
+    "en": "Wanew manufactures third-party Starlink-compatible accessories. \"Starlink\" is a trademark of SpaceX. References on this website indicate compatibility.",
+    "pt-BR": "A Wanew fabrica acessórios de terceiros compatíveis com Starlink. \"Starlink\" é uma marca registrada da SpaceX. As referências neste site indicam compatibilidade.",
+    "es-MX": "Wanew fabrica accesorios de terceros compatibles con Starlink. \"Starlink\" es una marca registrada de SpaceX. Las referencias en este sitio web indican compatibilidad.",
+    "zh": "Wanew 生产第三方 Starlink 兼容配件。“Starlink”是 SpaceX 的商标。本网站中的相关表述仅用于说明兼容性。"
+  },
+  "brand-affiliation-faq.h3.1": {
+    "en": "Are Wanew products official Starlink accessories?",
+    "pt-BR": "Os produtos da Wanew são acessórios oficiais da Starlink?",
+    "es-MX": "¿Los productos Wanew son accesorios oficiales de Starlink?",
+    "zh": "Wanew 产品是官方 Starlink 配件吗？"
+  },
+  "brand-affiliation-faq.p.1": {
+    "en": "No. They are independently designed and tested for compatibility.",
+    "pt-BR": "Não. Eles são projetados e testados de forma independente para garantir a compatibilidade.",
+    "es-MX": "No. Se diseñan y prueban de forma independiente para garantizar la compatibilidad.",
+    "zh": "不是。它们由我们独立设计，并经过兼容性测试。"
+  },
+  "brand-affiliation-faq.h3.2": {
+    "en": "Will using Wanew void my Starlink warranty?",
+    "pt-BR": "Usar produtos Wanew anula a garantia da minha Starlink?",
+    "es-MX": "¿Usar productos Wanew anula la garantía de mi Starlink?",
+    "zh": "使用 Wanew 产品会导致我的 Starlink 保修失效吗？"
+  },
+  "brand-affiliation-faq.p.2": {
+    "en": "Third-party accessories do not automatically void warranty. Damage caused by accessories may not be covered.",
+    "pt-BR": "Acessórios de terceiros não anulam automaticamente a garantia. Danos causados pelos acessórios podem não ser cobertos.",
+    "es-MX": "Los accesorios de terceros no anulan la garantía por sí solos. Los daños causados por los accesorios pueden no estar cubiertos.",
+    "zh": "使用第三方配件本身不会自动导致保修失效。但因配件所造成的损坏可能不在保修范围之内。"
+  },
+  "brand-affiliation-faq.h3.3": {
+    "en": "Does SpaceX recommend Wanew?",
+    "pt-BR": "A SpaceX recomenda a Wanew?",
+    "es-MX": "¿SpaceX recomienda a Wanew?",
+    "zh": "SpaceX 推荐 Wanew 吗？"
+  },
+  "brand-affiliation-faq.p.3": {
+    "en": "SpaceX does not endorse any third-party accessory manufacturer.",
+    "pt-BR": "A SpaceX não endossa nenhum fabricante de acessórios de terceiros.",
+    "es-MX": "SpaceX no respalda a ningún fabricante de accesorios de terceros.",
+    "zh": "SpaceX 不对任何第三方配件制造商作出背书。"
+  },
+  "brand-affiliation-faq.meta.title": {
+    "en": "Is Wanew Affiliated with Starlink or SpaceX?-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
+    "pt-BR": "A Wanew é afiliada à Starlink ou à SpaceX?-Wanew | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
+    "es-MX": "¿Wanew está afiliada a Starlink o a SpaceX?-Wanew | Accesorios premium para Starlink, soportes y soluciones de energía",
+    "zh": "Wanew 与 Starlink 或 SpaceX 有关联吗？-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions"
+  },
+  "brand-affiliation-faq.meta.desc": {
+    "en": "Clear answer: Wanew is an independent third-party manufacturer of Starlink-compatible accessories. NOT affiliated with SpaceX or Starlink.",
+    "pt-BR": "Resposta clara: a Wanew é uma fabricante independente e de terceiros de acessórios compatíveis com Starlink. NÃO é afiliada à SpaceX nem à Starlink.",
+    "es-MX": "Respuesta clara: Wanew es un fabricante independiente y externo de accesorios compatibles con Starlink. NO está afiliada a SpaceX ni a Starlink.",
+    "zh": "明确答复：Wanew 是一家独立的 Starlink 兼容配件第三方制造商。与 SpaceX 或 Starlink 无任何关联。"
+  },
+  "brand-affiliation-faq.ld.name.3": {
+    "en": "Brand Affiliation FAQ",
+    "pt-BR": "Marca e Afiliação (FAQ)",
+    "es-MX": "Preguntas frecuentes sobre la marca y la afiliación",
+    "zh": "品牌关联常见问题"
   }
 }
