@@ -419,6 +419,34 @@
     "reason": "同形词：国际语言代码",
     "zh": "ES"
   },
+  "switcher.native.en": {
+    "en": "English",
+    "pt-BR": "English",
+    "es-MX": "English",
+    "reason": "endonym（母语自称）—— 每种语言在下拉里用它自己的写法，与读者页面语言无关，四列同值",
+    "zh": "English"
+  },
+  "switcher.native.pt": {
+    "en": "Português",
+    "pt-BR": "Português",
+    "es-MX": "Português",
+    "reason": "endonym（母语自称），四列同值",
+    "zh": "Português"
+  },
+  "switcher.native.es": {
+    "en": "Español",
+    "pt-BR": "Español",
+    "es-MX": "Español",
+    "reason": "endonym（母语自称），四列同值",
+    "zh": "Español"
+  },
+  "switcher.native.zh": {
+    "en": "简体中文",
+    "pt-BR": "简体中文",
+    "es-MX": "简体中文",
+    "reason": "endonym（母语自称），四列同值",
+    "zh": "简体中文"
+  },
   "card.alt.suffix": {
     "en": "- wanew Products",
     "pt-BR": "- Produtos Wanew",

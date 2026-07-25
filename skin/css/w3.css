@@ -229,7 +229,7 @@ body.w3-nav-locked { overflow: hidden; }
 .lang-switch__caret { transition: transform 0.2s var(--w3-ease); }
 .lang-switch.is-open .lang-switch__caret { transform: rotate(180deg); }
 .lang-switch__menu {
-  position: absolute; top: calc(100% + 10px); right: 0; min-width: 120px;
+  position: absolute; top: calc(100% + 10px); right: 0; min-width: 152px;
   padding: 6px; border-radius: 12px;
   background: rgba(16, 19, 23, 0.96);
   -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
@@ -240,9 +240,17 @@ body.w3-nav-locked { overflow: hidden; }
 .lang-switch.is-open .lang-switch__menu, .lang-switch:hover .lang-switch__menu, .lang-switch:focus-within .lang-switch__menu {
   opacity: 1; visibility: visible; transform: none;
 }
-.lang-switch__link { display: block; padding: 8px 12px; border-radius: 8px; font-size: 13px; color: #c9d1d9; }
+.lang-switch__link { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 8px 12px; border-radius: 8px; font-size: 13px; color: #c9d1d9; }
 a.lang-switch__link:hover { background: rgba(255, 255, 255, 0.07); color: #fff; }
-.lang-switch__link.is-current { color: var(--w3-text3); cursor: default; }
+/* selected language: wanew accent + ✓ tick (NOT the reference green) */
+.lang-switch__link.is-current { color: var(--w3-accent); cursor: default; font-weight: 600; }
+.lang-switch__link.is-current::after { content: "✓"; font-size: 12px; line-height: 1; }
+/* mobile: switcher collapses to the globe icon only (hide code text + caret) */
+@media (max-width: 1080px) {
+  .lang-switch__btn > span { display: none; }
+  .lang-switch__caret { display: none; }
+  .lang-switch__btn { padding: 9px; gap: 0; }
+}
 
 /* mobile toggler (fa icon font is not loaded — draw the hamburger in CSS) */
 .mobile-nav__toggler {
