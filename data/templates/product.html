@@ -116,7 +116,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=8" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=9" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -142,7 +142,6 @@
         <div class="w3-pdp__info">
           <span class="product-category-tag">{{t.body.category_label}}{{CATEGORY}}</span>
           <h1 class="title-product">{{TITLE}}</h1>
-          {{SUMMARY_BLOCK}}
           <div class="item-inputs">
             <a class="w3-btn w3-btn--primary" href="#inquiry" id="contact-now-btn">{{t.body.request_quote}} <span class="w3-arw">→</span></a>
           </div>
@@ -154,6 +153,7 @@
   <section class="w3-desc">
     <div class="w3-container">
       <div class="w3-desc__panel">
+        {{SUMMARY_BLOCK}}
         <div class="explain adminbuy_cn">{{DESCRIPTION}}</div>
       </div>
     </div>
