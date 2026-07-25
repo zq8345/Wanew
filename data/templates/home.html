@@ -139,7 +139,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=3" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=4" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -192,6 +192,16 @@
       <div class="w3-pstrip" data-w3-reveal="2">
         {{PRODUCT_STRIP}}
       </div>
+      <div class="w3-bycat" data-w3-reveal="3">
+        <span class="w3-eyebrow">{{t.home.products.bycat}}</span>
+        <div class="w3-typerail">
+          <a class="w3-typecard" href="{{url./type/mounts/}}"><span>{{t.header.mounts_brackets}}{{badge./type/mounts/}}</span></a>
+          <a class="w3-typecard" href="{{url./type/power/}}"><span>{{t.header.power_charging}}{{badge./type/power/}}</span></a>
+          <a class="w3-typecard" href="{{url./type/cables/}}"><span>{{t.header.cables}}{{badge./type/cables/}}</span></a>
+          <a class="w3-typecard" href="{{url./type/networking/}}"><span>{{t.header.networking}}{{badge./type/networking/}}</span></a>
+          <a class="w3-typecard" href="{{url./type/cases/}}"><span>{{t.header.cases_protection}}{{badge./type/cases/}}</span></a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -205,13 +215,6 @@
       </div>
       <div class="product-grid-full" data-w3-reveal="2">
         {{TILES}}
-      </div>
-      <div class="w3-typerail" data-w3-reveal="3">
-        <a class="w3-typecard" href="{{url./type/mounts/}}"><span>{{t.header.mounts_brackets}}{{badge./type/mounts/}}</span></a>
-        <a class="w3-typecard" href="{{url./type/power/}}"><span>{{t.header.power_charging}}{{badge./type/power/}}</span></a>
-        <a class="w3-typecard" href="{{url./type/cables/}}"><span>{{t.header.cables}}{{badge./type/cables/}}</span></a>
-        <a class="w3-typecard" href="{{url./type/networking/}}"><span>{{t.header.networking}}{{badge./type/networking/}}</span></a>
-        <a class="w3-typecard" href="{{url./type/cases/}}"><span>{{t.header.cases_protection}}{{badge./type/cases/}}</span></a>
       </div>
       <div class="w3-viewall" data-w3-reveal><a class="w3-link-arrow" href="{{url./compatibility/}}">{{t.home.entry.compat}}{{badge./compatibility/}}</a></div>
     </div>

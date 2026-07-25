@@ -284,5 +284,10 @@
     "en": "Certified & tested",
     "pt-BR": "Certificado e testado",
     "es-MX": "Certificado y probado"
+  },
+  "home.products.bycat": {
+    "en": "Browse by category",
+    "pt-BR": "Navegue por categoria",
+    "es-MX": "Explora por categoría"
   }
 }
