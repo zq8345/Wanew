@@ -333,12 +333,16 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   display: flex; align-items: flex-end;
   overflow: hidden;
 }
-.w3-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center 38%; transform: scale(1.02); }
+/* scaleX(-1): dish is baked at image-left (Joe); mirror moves it to the right so it no longer
+   collides with the left-aligned copy (风景镜像无违和 — no text/logo in the frame).
+   The ::after scrim mirrors together with the image, so the horizontal component is authored at
+   260deg (=360-100) which renders dark-right pre-flip -> dark-left (text side) post-flip. */
+.w3-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center 38%; transform: scaleX(-1) scale(1.02); }
 .w3-hero__bg::after {
   content: ""; position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(10, 12, 15, 0.42) 0%, rgba(10, 12, 15, 0.12) 34%, rgba(10, 12, 15, 0.55) 72%, var(--w3-bg) 100%),
-    linear-gradient(100deg, rgba(10, 12, 15, 0.55) 0%, rgba(10, 12, 15, 0.05) 55%);
+    linear-gradient(180deg, rgba(10, 12, 15, 0.50) 0%, rgba(10, 12, 15, 0.18) 28%, rgba(10, 12, 15, 0.56) 50%, rgba(10, 12, 15, 0.76) 74%, var(--w3-bg) 100%),
+    linear-gradient(260deg, rgba(10, 12, 15, 0.72) 0%, rgba(10, 12, 15, 0.08) 60%);
 }
 .w3-hero__inner { position: relative; width: 100%; padding: 140px 0 96px; }
 .w3-hero__content { max-width: 760px; display: grid; gap: 22px; }
@@ -428,7 +432,13 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 }
 .w3-scenetab:hover { color: var(--w3-text); border-color: rgba(255,255,255,.38); }
 .w3-scenetab.is-active { background: #fff; color: #0b0d10; border-color: #fff; }
-.w3-scenestage { position: relative; height: clamp(420px, 58vh, 600px); }
+/* contained content-width card (not full-bleed): DESIGN.md rhythm reserves full-bleed for the
+   hero + closing CTA bookends only; mid-page panels align to the same content max-width. Wrapped
+   in .w3-container in home.html; the rounded/overflow-hidden card clips the panels. */
+.w3-scenestage {
+  position: relative; height: clamp(400px, 52vh, 560px);
+  border-radius: var(--w3-radius); overflow: hidden; border: 1px solid var(--w3-line);
+}
 .w3-scene-panel {
   position: absolute; inset: 0; display: flex; align-items: flex-end;
   background-size: cover; background-position: center;
@@ -441,8 +451,8 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
               linear-gradient(90deg, rgba(10,12,15,.65) 0%, rgba(10,12,15,.05) 55%);
 }
 .w3-scene-panel__cap {
-  position: relative; z-index: 2; width: 100%; max-width: var(--w3-maxw);
-  margin: 0 auto; padding: 0 24px 48px; display: grid; gap: 14px; justify-items: start;
+  position: relative; z-index: 2; width: 100%;
+  padding: 0 clamp(24px, 4vw, 44px) 40px; display: grid; gap: 14px; justify-items: start;
 }
 .w3-scene-panel__cap .w3-eyebrow { color: #cdd6df; }
 .w3-scene-panel__line { font-size: clamp(1.5rem, 3.2vw, 2.4rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; max-width: 18ch; text-wrap: balance; color: #fff; }
@@ -533,7 +543,12 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-ctaband__bg { position: absolute; inset: 0; background-size: cover; background-position: center 42%; }
 @media (max-width: 900px) { .w3-ctaband__bg { background-position: center 32%; } }
 @media (max-width: 560px) { .w3-ctaband__bg { background-position: 50% 28%; } }
-.w3-ctaband__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, var(--w3-bg) 0%, rgba(10, 12, 15, 0.25) 40%, rgba(10, 12, 15, 0.55) 100%); }
+/* white copy over a bright sky/roof shot was unreadable (Joe): white text MUST sit on a dark base.
+   Vertical blend to bg at top + a central radial scrim so the centered heading/sub/buttons land on
+   a dark zone regardless of how bright the underlying photo is (DESIGN.md: text-on-image needs scrim). */
+.w3-ctaband__bg::after { content: ""; position: absolute; inset: 0; background:
+  linear-gradient(180deg, var(--w3-bg) 0%, rgba(10, 12, 15, 0.56) 32%, rgba(10, 12, 15, 0.60) 68%, rgba(10, 12, 15, 0.80) 100%),
+  radial-gradient(115% 85% at 50% 52%, rgba(10, 12, 15, 0.58) 0%, rgba(10, 12, 15, 0.16) 68%); }
 .w3-ctaband__inner { position: relative; padding: 140px 0; display: grid; gap: 18px; justify-items: center; text-align: center; }
 .w3-ctaband__inner .w3-h2 { max-width: 22ch; text-wrap: balance; }
 .w3-ctaband__inner .w3-sub { text-align: center; }
@@ -748,6 +763,9 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   .w3-section { padding: 68px 0; }
   .w3-hero__inner { padding: 120px 0 72px; }
   .w3-field__inner, .w3-ctaband__inner { padding: 96px 0; }
+  /* narrow crop drops the sides; bias to source-left (the dish) so after scaleX(-1) it stays
+     in frame on the visual right — Joe reported the dish was nearly invisible on mobile. */
+  .w3-hero__bg { background-position: 18% 44%; }
 }
 
 /* ============================================================================
