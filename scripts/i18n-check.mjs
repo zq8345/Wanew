@@ -29,7 +29,12 @@ const MODE = process.argv.includes("--strict") ? "strict" : "report";
 //    名字」—— 同构,反义。分得开的是【角色】:配置源 vs 检查对象。
 //    (而且那 8 条永远修不好 —— 你没法给 enabled 一个 pt-BR 译文。它会一直红,直到把人训练到
 //     略过告警为止 —— 那句话是我自己写的。)
-const CONFIG_SOURCES = ["data/locales.json"];
+// [0] 必须是 locales.json —— 下一行按 [0] 读它。其余项仅供 line 61 的角色放行判定。
+// ⭐ contact-info.json = 语言无关联系配置(单值 phone/email/address/map_link,无 en/pt/es 键;
+//    自带 _schema 明示 "language-agnostic values … Consumed as {{cfg.KEY}}, NOT via the i18n catalog")。
+//    角色=配置源(同 locales.json,由 renderPage 的 config 参数消费),不是文案目录 → 角色优先放行。
+//    核过其形状:14 个键全是标量字符串,零 { en/pt-BR/es-MX } 结构。此前落 unknown 报红是白名单漏登记。
+const CONFIG_SOURCES = ["data/locales.json", "data/contact-info.json"];
 const locales = JSON.parse(fs.readFileSync(CONFIG_SOURCES[0], "utf8"));
 const enabled = locales.enabled;
 
