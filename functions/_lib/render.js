@@ -245,6 +245,25 @@ export function renderHome(tpl, { locale, catalog, tiles, modelDisplay, urlOf, e
     }).join("\n          ");
     out = out.split("{{PRODUCT_STRIP}}").join(strip);
   }
+  // W3 "browse by type" 卡片:专属 /type/X/ 页目前只有 en。对没有本地化 /type/ 页的语种,
+  // 原来是「链英文 /type/ + 挂 en inglés 标注」—— 对母语用户像"站没做完"。但同一批产品在
+  // 本地化 /products/ 页的「Tipo」筛选里【存在】(w3.js 的 hash 深链会激活对应 chip)。
+  // 规则(存在性派生,零特例,和机型卡/badge 同一条):typecard 目标 = 该语种【有】本地化
+  //   /type/X/ 就用它;【没有】则回落到本地化 /products/#X(而不是英文页+标注)。
+  //   en 天然有 /type/X/ → 永远走 /type/(它们是 en 自己的收录落地页、且是首页给它们的唯一
+  //   内链,绝不能改成 /products/ 把它们变孤儿);es/pt 无 /type/ 但有 /products/ → 走筛选视图。
+  //   /type/ 将来若本地化,`dedicated!==` 自动改回本地化 /type/ 页,无需再动这里。
+  const typeRedirect = {};
+  out = out.replace(/\{\{url\.\/type\/([a-z-]+)\/\}\}/g, (m, slug) => {
+    const dedicated = urlOf(`/type/${slug}/`, locale);        // 本地化 /type/ 存在则返回它,否则原样
+    if (dedicated !== `/type/${slug}/`) return dedicated;     // 该语种有专属页 → 用它
+    // urlOf 不处理 hash(查 `es/products/#x.html` 必不存在),所以对 /products/ 本身查存在性再拼 #slug。
+    const base = urlOf(`/products/`, locale);                 // "/es/products/" | "/pt/products/" | "/products/"
+    if (base !== `/products/`) { typeRedirect[slug] = true; return `${base}#${slug}`; }
+    return dedicated;                                         // en / 无本地化替代 → 英文 /type/
+  });
+  // 改走本地化 products 视图的卡不再需要语言标注;其余(en)交给通用 badge 处理(它对 en 返回空)。
+  out = out.replace(/\{\{badge\.\/type\/([a-z-]+)\/\}\}/g, (m, slug) => (typeRedirect[slug] ? "" : m));
   return renderPage(out, { locale, catalog, urlOf, dirOf, enabled, internal_noindex });
 }
 
