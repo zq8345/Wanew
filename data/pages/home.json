@@ -347,5 +347,17 @@
     "pt-BR": "Navegue por categoria",
     "es-MX": "Explora por categoría",
     "zh": "按类目浏览"
+  },
+  "home.scene.portable": {
+    "en": "Portable",
+    "pt-BR": "Portátil",
+    "es-MX": "Portátil",
+    "zh": "便携"
+  },
+  "home.scene.portable.line": {
+    "en": "Grab-and-go connectivity — Starlink Mini, powered anywhere.",
+    "pt-BR": "Conectividade para levar — Starlink Mini, com energia em qualquer lugar.",
+    "es-MX": "Conectividad para llevar — Starlink Mini, con energía donde sea.",
+    "zh": "随身即走的连接——Starlink Mini,随处供电。"
   }
 }
