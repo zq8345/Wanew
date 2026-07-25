@@ -370,8 +370,8 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-hero__bg::after {
   content: ""; position: absolute; inset: 0;
   background:
-    linear-gradient(to top right, rgba(10, 12, 15, 0.88) 0%, rgba(10, 12, 15, 0.52) 26%, rgba(10, 12, 15, 0.14) 52%, rgba(10, 12, 15, 0) 72%),
-    linear-gradient(180deg, rgba(10, 12, 15, 0) 60%, rgba(10, 12, 15, 0.42) 84%, rgba(10, 12, 15, 0.66) 100%);
+    linear-gradient(to top right, rgba(10, 12, 15, 0.93) 0%, rgba(10, 12, 15, 0.62) 27%, rgba(10, 12, 15, 0.22) 54%, rgba(10, 12, 15, 0) 73%),
+    linear-gradient(180deg, rgba(10, 12, 15, 0) 58%, rgba(10, 12, 15, 0.52) 83%, rgba(10, 12, 15, 0.74) 100%);
 }
 .w3-hero__inner { position: relative; width: 100%; padding: 88px 0 150px; }  /* centered-upper, clear of the bottom trust bar */
 .w3-hero__content { max-width: 760px; display: grid; gap: 22px; }
@@ -381,7 +381,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 
 /* ⑫ Q2.5: thin translucent trust bar living ON the hero image bottom (no divider —
    Q2.4). Restrained, small-caps, white over the image's dark foreground. */
-.w3-trust { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; background: rgba(10, 12, 15, 0.30); -webkit-backdrop-filter: blur(7px); backdrop-filter: blur(7px); }
+.w3-trust { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; background: rgba(10, 12, 15, 0.46); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 .w3-trust__grid { display: grid; grid-template-columns: repeat(5, 1fr); }
 .w3-trust__item { padding: 12px 16px; border-left: 1px solid rgba(255, 255, 255, 0.12); display: grid; gap: 2px; }
 .w3-trust__item:first-child { border-left: 0; padding-left: 0; }
@@ -700,7 +700,8 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   flex: 0 0 100%; scroll-snap-align: center; aspect-ratio: 1 / 1;
   background: var(--w3-tile); display: flex; align-items: center; justify-content: center;
 }
-.product_feature_img_slider_2 .swiper-slide img { max-width: 88%; max-height: 88%; width: auto; height: auto; object-fit: contain; }
+/* #4 PDP main image fills its 1:1 white container (was inset 88% contain) — matches ⑨. */
+.product_feature_img_slider_2 .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
 .swiper-button-prev, .swiper-button-next {
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
   width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(11, 13, 16, 0.12);
@@ -728,7 +729,8 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   transition: border-color 0.2s;
 }
 .product_thumb_slider_2 .swiper-slide.is-active { border-color: var(--w3-accent); }
-.product_thumb_slider_2 .swiper-slide img { max-width: 86%; max-height: 86%; width: auto; height: auto; object-fit: contain; }
+/* #4 PDP thumbnail fills its 1:1 white container too. */
+.product_thumb_slider_2 .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
 .w3-gallery--single .product_thumb_slider_2 { display: none; }
 
 /* info column */
@@ -927,7 +929,10 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   overflow: hidden; transition: transform 0.3s var(--w3-ease), border-color 0.3s;
 }
 .water-sport-item:hover { transform: translateY(-4px); border-color: var(--w3-line2) !important; }
-.sport-thumb { margin: 0; overflow: hidden; aspect-ratio: 16/10; background: var(--w3-tile); }
+/* #3 use-case photo cards: dark placeholder (was near-white --w3-tile, which flashed
+   a white box while the lazy below-fold images loaded on the dark page — Joe's
+   "white frame"). These are photos, not white-bg products, so a dark tile is correct. */
+.sport-thumb { margin: 0; overflow: hidden; aspect-ratio: 16/10; background: var(--w3-panel2); }
 .sport-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .sport-info { padding: 20px 22px !important; }
 .sport-info .title { font-size: 16px; font-weight: 650; line-height: 1.35; margin: 0 0 8px; }
