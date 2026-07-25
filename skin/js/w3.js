@@ -94,11 +94,10 @@
     var btn = wrap.querySelector(".w3-channel--wc");
     var pop = wrap.querySelector(".w3-wechat-pop");
     if (!btn || !pop) return;
-    function close() { pop.hidden = true; btn.setAttribute("aria-expanded", "false"); }
+    function close() { pop.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); }
     btn.addEventListener("click", function (e) {
       e.stopPropagation();
-      var open = pop.hidden;
-      pop.hidden = !open;
+      var open = pop.classList.toggle("is-open");
       btn.setAttribute("aria-expanded", open ? "true" : "false");
     });
     d.addEventListener("click", function (e) { if (!wrap.contains(e.target)) close(); });

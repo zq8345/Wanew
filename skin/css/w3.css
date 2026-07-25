@@ -614,7 +614,9 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
    in a touch to create crop room, then anchor right so the worker pulls toward center. */
 .page-header-bg--about { background-position: center 50%; }
 @media (min-width: 1024px) {
-  .page-header-bg--about { background-size: 118%; background-position: 66% center; }
+  /* 118% keeps the horizontal crop room (worker pulled off the right edge); y=24% lifts
+     the vertical window up so the worker's head is in-frame (was cut in the top ~10%). */
+  .page-header-bg--about { background-size: 118%; background-position: 66% 24%; }
 }
 /* aligned with home hero (.w3-hero__bg::after): light top so the transparent nav floats over
    the bright hero image, bright mid-window, darker only near the title, + left scrim for text. */
@@ -1036,7 +1038,11 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-channel--wa { background: #1faa53; border-color: #1faa53; color: #fff; }
 .w3-channel--wa:hover { background: #1a9449; border-color: #1a9449; }
 .w3-channel-wechat { position: relative; }
-.w3-wechat-pop { position: absolute; bottom: calc(100% + 12px); left: 0; z-index: 20; width: 224px; padding: 16px; border-radius: 14px; background: rgba(16, 19, 23, 0.98); border: 1px solid var(--w3-line); box-shadow: var(--w3-shadow); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); display: grid; gap: 10px; justify-items: center; text-align: center; }
+/* default hidden — a class selector's display would beat the [hidden] attribute, so
+   set display:none here and reveal via .is-open (click) or desktop hover/focus. */
+.w3-wechat-pop { position: absolute; bottom: calc(100% + 12px); left: 0; z-index: 30; width: 224px; padding: 16px; border-radius: 14px; background: rgba(16, 19, 23, 0.98); border: 1px solid var(--w3-line); box-shadow: var(--w3-shadow); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); display: none; gap: 10px; justify-items: center; text-align: center; }
+.w3-wechat-pop.is-open { display: grid; }
+@media (hover: hover) { .w3-channel-wechat:hover .w3-wechat-pop, .w3-channel-wechat:focus-within .w3-wechat-pop { display: grid; } }
 .w3-wechat-pop__qr { width: 180px; height: auto; border-radius: 8px; background: #fff; }
 .w3-wechat-pop__scan { font-size: 12.5px; color: var(--w3-text2); margin: 0; }
 .w3-wechat-pop__copy { font-size: 12px; font-weight: 600; color: var(--w3-text); background: var(--w3-panel2); border: 1px solid var(--w3-line); border-radius: 8px; padding: 7px 12px; cursor: pointer; width: 100%; }
