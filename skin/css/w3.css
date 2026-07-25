@@ -463,7 +463,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 @media (max-width: 980px) { .w3-typerail { grid-template-columns: 1fr 1fr; } }
 
 /* field-proven: user-controlled scenario tabs (no auto-rotate) */
-.w3-fieldcar { padding: 96px 0 0; }
+.w3-fieldcar { padding: 96px 0 96px; }   /* #5(留白): bottom padding so Field-proven doesn't death-hug About below */
 .w3-fieldcar .w3-sechead { margin-bottom: 28px; }
 .w3-scenetabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
 .w3-scenetab {
@@ -500,7 +500,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-scene-panel__line { font-size: clamp(1.5rem, 3.2vw, 2.4rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; max-width: 18ch; text-wrap: balance; color: #fff; }
 .w3-scene-panel__cap .w3-link-arrow { color: #fff; }
 @media (max-width: 640px) {
-  .w3-fieldcar { padding: 68px 0 0; }
+  .w3-fieldcar { padding: 68px 0 68px; }
   .w3-scenetabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
   .w3-scenetabs::-webkit-scrollbar { display: none; }
   .w3-scenetab { flex: 0 0 auto; }
@@ -1022,6 +1022,8 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-contact__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
 @media (max-width: 900px) { .w3-contact__grid { grid-template-columns: minmax(0, 1fr); } }
 .w3-contact__aside { display: grid; gap: 22px; }
+/* both columns sit in surface cards so the content reads as panels, not floating on black */
+.w3-contact__card { background: var(--w3-panel); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); padding: clamp(22px, 2.6vw, 34px); align-self: start; }
 /* icon info rows */
 .w3-cinfo { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 2px; }
 .w3-cinfo__row { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--w3-line); }
@@ -1050,6 +1052,8 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-wechat-pop__copy.is-copied { color: var(--w3-accent); border-color: var(--w3-accent); }
 /* trust strip */
 .w3-ctrust { list-style: none; margin: 0; padding: 16px 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; border-top: 1px solid var(--w3-line); border-bottom: 1px solid var(--w3-line); }
+.w3-ctrust--wide { margin-top: clamp(28px, 4vw, 44px); }
+@media (max-width: 560px) { .w3-ctrust { grid-template-columns: repeat(2, 1fr); gap: 16px 8px; } }
 .w3-ctrust li { display: grid; gap: 2px; text-align: center; }
 .w3-ctrust__v { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; color: var(--w3-text); }
 .w3-ctrust__k { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--w3-text3); }

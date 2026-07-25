@@ -136,7 +136,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=23" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=24" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 {{HREFLANG}}
@@ -227,7 +227,7 @@
       <div class="w3-contact__grid">
 
         <!-- LEFT: reach us -->
-        <aside class="w3-contact__aside">
+        <aside class="w3-contact__aside w3-contact__card">
           <div class="section-title">
             <span class="section-title__tagline">{{t.contact.section-title-tagline.1}}</span>
             <h2 class="section-title__title">{{t.contact.section-title-title.1}}</h2>
@@ -281,14 +281,6 @@
             </a>
           </div>
 
-          <!-- trust strip (same figures as home) -->
-          <ul class="w3-ctrust">
-            <li><span class="w3-ctrust__v">{{t.contact.trust.years.v}}</span><span class="w3-ctrust__k">{{t.contact.trust.years.k}}</span></li>
-            <li><span class="w3-ctrust__v">{{t.contact.trust.patents.v}}</span><span class="w3-ctrust__k">{{t.contact.trust.patents.k}}</span></li>
-            <li><span class="w3-ctrust__v">{{t.contact.trust.cert.v}}</span><span class="w3-ctrust__k">{{t.contact.trust.cert.k}}</span></li>
-            <li><span class="w3-ctrust__v">{{t.contact.trust.wh.v}}</span><span class="w3-ctrust__k">{{t.contact.trust.wh.k}}</span></li>
-          </ul>
-
           <!-- static, privacy-safe map card (no third-party request on load) -->
           <a class="w3-cmap" href="{{cfg.map_link}}" target="_blank" rel="noopener">
             <span class="w3-cmap__pin" aria-hidden="true">📍</span>
@@ -301,7 +293,7 @@
         </aside>
 
         <!-- RIGHT: message form (Web3Forms POST unchanged) -->
-        <div class="w3-contact__form">
+        <div class="w3-contact__form w3-contact__card">
           <div class="section-title"><span class="section-title__tagline">{{t.contact.section-title-tagline.2}}</span>
             <h2 class="section-title__title">{{t.contact.section-title-title.2}}</h2>
           </div>
@@ -351,6 +343,13 @@
         </div>
 
       </div>
+
+      <ul class="w3-ctrust w3-ctrust--wide">
+        <li><span class="w3-ctrust__v">{{t.contact.trust.years.v}}</span><span class="w3-ctrust__k">{{t.contact.trust.years.k}}</span></li>
+        <li><span class="w3-ctrust__v">{{t.contact.trust.patents.v}}</span><span class="w3-ctrust__k">{{t.contact.trust.patents.k}}</span></li>
+        <li><span class="w3-ctrust__v">{{t.contact.trust.cert.v}}</span><span class="w3-ctrust__k">{{t.contact.trust.cert.k}}</span></li>
+        <li><span class="w3-ctrust__v">{{t.contact.trust.wh.v}}</span><span class="w3-ctrust__k">{{t.contact.trust.wh.k}}</span></li>
+      </ul>
     </div>
   </section>
   <footer class="site-footer">
