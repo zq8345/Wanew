@@ -70,26 +70,6 @@
     "pt-BR": "Seu e-mail",
     "es-MX": "Tu correo electrónico"
   },
-  "contact.js.1": {
-    "en": "Sending…",
-    "pt-BR": "Enviando…",
-    "es-MX": "Enviando…"
-  },
-  "contact.js.2": {
-    "en": "Thank you — we'll reply within 1 business day.",
-    "pt-BR": "Obrigado — responderemos em até 1 dia útil.",
-    "es-MX": "Gracias — te respondemos en 1 día hábil."
-  },
-  "contact.js.3": {
-    "en": "Sorry — we couldn't send your message just now. Please email hello@wanew.com and we'll reply right away.",
-    "pt-BR": "Desculpe — não foi possível enviar sua mensagem agora. Envie um e-mail para hello@wanew.com e responderemos imediatamente.",
-    "es-MX": "Lo sentimos — no pudimos enviar tu mensaje en este momento. Escríbenos por correo electrónico a hello@wanew.com y te respondemos de inmediato."
-  },
-  "contact.js.4": {
-    "en": "Network error — please email hello@wanew.com and we'll get right back to you.",
-    "pt-BR": "Erro de rede — envie um e-mail para hello@wanew.com e retornaremos imediatamente.",
-    "es-MX": "Error de red — escríbenos por correo electrónico a hello@wanew.com y te respondemos de inmediato."
-  },
   "contact.meta.title": {
     "en": "Contact Us-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
     "pt-BR": "Contato - Wanew | Acessórios Premium para Starlink: Suportes e Soluções de Energia",

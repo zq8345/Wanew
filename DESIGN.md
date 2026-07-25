@@ -120,8 +120,10 @@
 ### 3.2 卡片
 - **产品卡** = 机器产出 DOM(`.blog-one__single`,cardHtml 发出,**类名载重不可改**):面板底+发丝边+16 圆角;内部图台 `--w3-tile` 1:1 圆角 10 外距 10;标题 14px 两行截断;摘要 12.5px `--w3-text3` 两行截断。hover:浮 4px + 边 `--w3-line2` + 底 `--w3-panel2` + 图 zoom。
 - **机型瓦片**(`.product-grid-*`,renderHome 发出,类名载重):同族样式,文字行右侧 `→` hover 右移。
-- **信息卡**(`.w3-whycard`/`.tj-gcard`):面板底+发丝边+16 圆角+浮起;图标 40px 细线 SVG(stroke 1.5–1.6,`--w3-accent`)。
-- ⛔ 禁止:第二种卡片底色、卡片投影、无 hover 卡片。
+- **优势卡**(`.w3-whycard`):面板底+发丝边+16 圆角+浮起;**用编号索引 `.w3-whycard__idx`(01–04,accent 色+下发丝线)领起,不用图标**(总工 review #1:真实证据/编号 > 图标堆砌;图标+三词卡=廉价模板感,禁用);标题 16px + B2B 实质正文(不截断,SEO 需要)。
+- **引导卡**(`.tj-gcard`):面板底+发丝边+16 圆角+浮起;封面区细线 SVG 图标仅作氛围(非信息)。
+- **证据条** `.w3-certstrip`(优势区脚):真实认证徽标 `.w3-certbadge`(FCC/CE/RoHS)+ 标签 + 认证页链接——真实证据优先于装饰。
+- ⛔ 禁止:第二种卡片底色、卡片投影、无 hover 卡片、**用图标+三词卡填充版面**。
 
 ### 3.3 导航(chrome 单咽喉,DOM 由 `_chrome.html` 发出)
 - 顶栏固定 68px:透明起步,滚动 >12px(`html.w3-scrolled`)或 `body.w3-solid-header` 时落玻璃底+发丝下边。
@@ -144,7 +146,8 @@
 - **chip/过滤**(`.product-chip`,机器锚点):胶囊 12.5px,静态=发丝边弱字;hover=亮;`.is-active`=**白底黑字**;计数 `.product-chip__n` 11px tabular。过滤条 `.w3-filterbar` 吸顶(top=header-h)玻璃底。
 - **信任栏** `.w3-trust`:5 格,格间发丝竖线,值 16.5px w650 + 标签 micro 全大写。
 - **数据格** `.w3-stats`:1px 发丝网格拼接,数字 21px w700。
-- **场景 chip** `.w3-scene`:照片上玻璃胶囊,13.5px w550。
+- **产品策展条** `.w3-pstrip`(首页,机型瓦片之上):**6–8 件人工精选爆款 + 好图**(总工 review #2:策展非目录堆砌;图差不上首页),id 列表在 `data/pages/home-featured.json`,renderHome 优先读它、缺省回落形态多样性挑选;卡=浅色图台真实产品照+两行标题;空列表=module 隐藏。⚠️ 产品首图多为带烤字营销拼图,只收干净纯产品图。
+- **场景切换 tabs** `.w3-scenetabs`/`.w3-scene-panel`(Field-proven):**用户可控 tab 切换,绝不 auto-rotate**(总工 review #3:自动轮播是过时反模式,漏内容+伤转化+伤可达);tab=胶囊(is-active 白底黑字),面板=全幅场景照+一句话+入口链,0.5s 透明度切换,方向键可达,尊重 reduced-motion。~~旧 `.w3-scene` chip / `.w3-carousel` 已废弃~~。
 - **画廊**(`.swiper-*` 类名载重,实现是 CSS scroll-snap + w3.js,无 swiper 库):主台 1:1 `--w3-tile` 16 圆角;箭头=白圆钮 42px 悬停现身;缩略图 72px,选中 = `--w3-accent` 2px 边。
 - **回顶钮** `.scroll-to-target`:44px 圆钮,滚动后现身。
 

@@ -463,17 +463,17 @@ A Wanew fabrica acessórios de terceiros compatíveis com Starlink. Não é afil
   var btn = form.querySelector('button[type="submit"]');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (status) { status.hidden = false; status.className = 'wanew-form-status is-pending'; status.textContent = 'Sending…'; }
+    if (status) { status.hidden = false; status.className = 'wanew-form-status is-pending'; status.textContent = "Enviando…"; }
     if (btn) { btn.disabled = true; }
     var data = new FormData(form);
     data.append('product_page', document.title + ' | ' + location.href);
     fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
       .then(function (res) { return res.json().then(function (j) { return { ok: res.ok, j: j }; }); })
       .then(function (r) {
-        if (r.ok && r.j.success) { form.reset(); if (status) { status.className = 'wanew-form-status is-success'; status.textContent = "Thank you — we'll reply within 1 business day."; } }
-        else { if (status) { status.className = 'wanew-form-status is-error'; status.textContent = "Sorry — we couldn't send your message. Please email hello@wanew.com."; } }
+        if (r.ok && r.j.success) { form.reset(); if (status) { status.className = 'wanew-form-status is-success'; status.textContent = "Obrigado — responderemos em até 1 dia útil."; } }
+        else { if (status) { status.className = 'wanew-form-status is-error'; status.textContent = "Desculpe — não foi possível enviar sua mensagem agora. Envie um e-mail para hello@wanew.com e responderemos imediatamente."; } }
       })
-      .catch(function () { if (status) { status.className = 'wanew-form-status is-error'; status.textContent = "Network error — please email hello@wanew.com."; } })
+      .catch(function () { if (status) { status.className = 'wanew-form-status is-error'; status.textContent = "Erro de rede — envie um e-mail para hello@wanew.com e retornaremos imediatamente."; } })
       .then(function () { if (btn) { btn.disabled = false; } });
   });
 })();

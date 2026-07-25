@@ -219,7 +219,7 @@ export function setTileAlts(html, locale, catalog, modelDisplay) {
 // 机型卡按【存在性】过滤,不是按一张写死的清单:一张卡只在它指向的页面于该语种存在时才出现。
 // 这不是我发明的规则 —— 它精确预测了 pt 首页的现状(7 张,正好是有 pt 页的 7 个分类)。en 8 张。
 // 好处是它自己会长:等 /pt/performance-gen-2/ 建出来,pt 首页自动就有第 8 张,没人需要记得。
-export function renderHome(tpl, { locale, catalog, tiles, modelDisplay, urlOf, exists, dirOf, enabled, products }) {
+export function renderHome(tpl, { locale, catalog, tiles, modelDisplay, urlOf, exists, dirOf, enabled, products, featured }) {
   const sfx = catalog["card.alt.category"];
   const suffix = sfx[locale] ?? sfx.en;
   const cards = tiles
@@ -236,7 +236,7 @@ export function renderHome(tpl, { locale, catalog, tiles, modelDisplay, urlOf, e
   // 按【形态多样性】轮询的一组(至多 8 件,每件带真实缩略图+本地化标题+详情链接),不写死 id,
   // 产品增删自动跟随。en 侧不发前缀,pt/es 侧存在则前缀(urlOf 复用),alt 派生(entryTitle+altOf)。
   if (out.includes("{{PRODUCT_STRIP}}")) {
-    const strip = pickHomeProducts(products || []).map((e) => {
+    const strip = pickHomeProducts(products || [], 8, featured).map((e) => {
       const title = entryTitle(e, locale);
       const href = urlOf(`/${e.category}/${e.id}`, locale);
       return `<a class="w3-pstrip__card" href="${href}">\n` +
@@ -248,10 +248,16 @@ export function renderHome(tpl, { locale, catalog, tiles, modelDisplay, urlOf, e
   return renderPage(out, { locale, catalog, urlOf, dirOf, enabled });
 }
 
-// Diversity-first pick for the home product strip: round-robin across form factors so the strip
-// shows variety, not 8 cables. Deterministic (manifest order within each form), capped at 8, and
-// only products carrying a real thumb qualify. Not a hardcoded id list — new products slot in.
-export function pickHomeProducts(entries, cap = 8) {
+// Home product strip = a CURATED shortlist (总工: 6–8 hand-picked heroes with good photos, never a
+// catalog dump). If data/pages/home-featured.json supplies ids, use exactly those in order (that is
+// the curation, made against real photo quality). Only when no curated list is wired does it fall
+// back to the diversity round-robin below. `featured` is the id array (or null) passed by the caller.
+export function pickHomeProducts(entries, cap = 8, featured = null) {
+  if (Array.isArray(featured) && featured.length) {
+    const byId = new Map(entries.filter((e) => e.thumb).map((e) => [e.id, e]));
+    const picked = featured.map((id) => byId.get(Number(id))).filter(Boolean);
+    if (picked.length) return picked.slice(0, cap);
+  }
   const byForm = new Map();
   for (const e of entries) {
     if (!e.thumb) continue;

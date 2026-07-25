@@ -217,7 +217,7 @@
     </div>
   </section>
 
-  <!-- Field-proven: full-bleed scenario carousel -->
+  <!-- Field-proven: user-controlled scenario tabs (no auto-rotate) -->
   <section class="w3-fieldcar w3-hairline-top">
     <div class="w3-container">
       <div class="w3-sechead" data-w3-reveal>
@@ -225,28 +225,30 @@
         <h2 class="w3-h2">{{t.home.field.h2}}</h2>
         <p class="w3-sub">{{t.home.field.sub}}</p>
       </div>
-    </div>
-    <div class="w3-carousel" data-w3-carousel data-w3-reveal="2" aria-roledescription="carousel">
-      <div class="w3-carousel__track">
-        <a class="w3-carousel__slide is-active" href="{{url./rv-off-grid/}}" style="background-image: url(/static/upload/image/20260507/1778150530392387.webp);">
-          <div class="w3-carousel__cap"><span class="w3-eyebrow">{{t.home.scene.rv}}{{badge./rv-off-grid/}}</span><p class="w3-carousel__line">{{t.home.scene.rv.line}}</p><span class="w3-link-arrow">{{t.shared.read_more}}</span></div>
-        </a>
-        <a class="w3-carousel__slide" href="{{url./marine/}}" style="background-image: url(/static/upload/image/20260507/1778150549229990.webp);">
-          <div class="w3-carousel__cap"><span class="w3-eyebrow">{{t.header.marine}}{{badge./marine/}}</span><p class="w3-carousel__line">{{t.home.scene.marine.line}}</p><span class="w3-link-arrow">{{t.shared.read_more}}</span></div>
-        </a>
-        <a class="w3-carousel__slide" href="{{url./mounts/}}" style="background-image: url(/static/upload/image/20260507/1778150152627003.webp);">
-          <div class="w3-carousel__cap"><span class="w3-eyebrow">{{t.home.scene.home_roof}}{{badge./mounts/}}</span><p class="w3-carousel__line">{{t.home.scene.home_roof.line}}</p><span class="w3-link-arrow">{{t.shared.read_more}}</span></div>
-        </a>
-        <a class="w3-carousel__slide" href="{{url./power/}}" style="background-image: url(/static/upload/image/20260507/1778150186553168.webp);">
-          <div class="w3-carousel__cap"><span class="w3-eyebrow">{{t.home.scene.offgrid}}{{badge./power/}}</span><p class="w3-carousel__line">{{t.home.scene.offgrid.line}}</p><span class="w3-link-arrow">{{t.shared.read_more}}</span></div>
-        </a>
-        <a class="w3-carousel__slide" href="{{url./industrial/}}" style="background-image: url(/static/upload/image/20260507/1778150284268926.webp);">
-          <div class="w3-carousel__cap"><span class="w3-eyebrow">{{t.home.scene.business}}{{badge./industrial/}}</span><p class="w3-carousel__line">{{t.home.scene.business.line}}</p><span class="w3-link-arrow">{{t.shared.read_more}}</span></div>
-        </a>
+      <div class="w3-scenetabs" role="tablist" aria-label="{{t.header.solutions}}" data-w3-scenes data-w3-reveal="2">
+        <button type="button" class="w3-scenetab is-active" role="tab" aria-selected="true" data-scene="0">{{t.home.scene.rv}}</button>
+        <button type="button" class="w3-scenetab" role="tab" aria-selected="false" data-scene="1">{{t.header.marine}}</button>
+        <button type="button" class="w3-scenetab" role="tab" aria-selected="false" data-scene="2">{{t.home.scene.home_roof}}</button>
+        <button type="button" class="w3-scenetab" role="tab" aria-selected="false" data-scene="3">{{t.home.scene.offgrid}}</button>
+        <button type="button" class="w3-scenetab" role="tab" aria-selected="false" data-scene="4">{{t.home.scene.business}}</button>
       </div>
-      <button type="button" class="w3-carousel__nav w3-carousel__nav--prev" data-w3-car-prev aria-label="{{t.body.gallery.prev}}"></button>
-      <button type="button" class="w3-carousel__nav w3-carousel__nav--next" data-w3-car-next aria-label="{{t.body.gallery.next}}"></button>
-      <div class="w3-carousel__dots" data-w3-car-dots></div>
+    </div>
+    <div class="w3-scenestage" data-w3-scenes-stage data-w3-reveal="2">
+      <a class="w3-scene-panel is-active" data-scene="0" href="{{url./rv-off-grid/}}" style="background-image: url(/static/upload/image/20260507/1778150530392387.webp);">
+        <div class="w3-scene-panel__cap"><span class="w3-eyebrow">{{t.home.scene.rv}}{{badge./rv-off-grid/}}</span><p class="w3-scene-panel__line">{{t.home.scene.rv.line}}</p><span class="w3-link-arrow">{{t.shared.read_more}}</span></div>
+      </a>
+      <a class="w3-scene-panel" data-scene="1" href="{{url./marine/}}" style="background-image: url(/static/upload/image/20260507/1778150549229990.webp);">
+        <div class="w3-scene-panel__cap"><span class="w3-eyebrow">{{t.header.marine}}{{badge./marine/}}</span><p class="w3-scene-panel__line">{{t.home.scene.marine.line}}</p><span class="w3-link-arrow">{{t.shared.read_more}}</span></div>
+      </a>
+      <a class="w3-scene-panel" data-scene="2" href="{{url./mounts/}}" style="background-image: url(/static/upload/image/20260507/1778150152627003.webp);">
+        <div class="w3-scene-panel__cap"><span class="w3-eyebrow">{{t.home.scene.home_roof}}{{badge./mounts/}}</span><p class="w3-scene-panel__line">{{t.home.scene.home_roof.line}}</p><span class="w3-link-arrow">{{t.shared.read_more}}</span></div>
+      </a>
+      <a class="w3-scene-panel" data-scene="3" href="{{url./power/}}" style="background-image: url(/static/upload/image/20260507/1778150186553168.webp);">
+        <div class="w3-scene-panel__cap"><span class="w3-eyebrow">{{t.home.scene.offgrid}}{{badge./power/}}</span><p class="w3-scene-panel__line">{{t.home.scene.offgrid.line}}</p><span class="w3-link-arrow">{{t.shared.read_more}}</span></div>
+      </a>
+      <a class="w3-scene-panel" data-scene="4" href="{{url./industrial/}}" style="background-image: url(/static/upload/image/20260507/1778150284268926.webp);">
+        <div class="w3-scene-panel__cap"><span class="w3-eyebrow">{{t.home.scene.business}}{{badge./industrial/}}</span><p class="w3-scene-panel__line">{{t.home.scene.business.line}}</p><span class="w3-link-arrow">{{t.shared.read_more}}</span></div>
+      </a>
     </div>
   </section>
 
@@ -282,25 +284,34 @@
       </div>
       <div class="w3-why">
         <div class="w3-whycard" data-w3-reveal>
-          <div class="w3-whycard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 1 4 10.5c-.7.7-1 1.2-1 2.5H9c0-1.3-.3-1.8-1-2.5A6 6 0 0 1 12 3Z"/></svg></div>
+          <span class="w3-whycard__idx">01</span>
           <h3>{{t.home.h3.1}}</h3>
           <p>{{t.home.p.1}}</p>
         </div>
         <div class="w3-whycard" data-w3-reveal="2">
-          <div class="w3-whycard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2.4" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="2.4" fill="currentColor" stroke="none"/><circle cx="8" cy="18" r="2.4" fill="currentColor" stroke="none"/></svg></div>
+          <span class="w3-whycard__idx">02</span>
           <h3>{{t.home.h3.2}}</h3>
           <p>{{t.home.p.2}}</p>
         </div>
         <div class="w3-whycard" data-w3-reveal="3">
-          <div class="w3-whycard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <span class="w3-whycard__idx">03</span>
           <h3>{{t.home.h3.3}}</h3>
           <p>{{t.home.p.3}}</p>
         </div>
         <div class="w3-whycard" data-w3-reveal="4">
-          <div class="w3-whycard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0M4 13v4a2 2 0 0 0 2 2M20 13v3a2 2 0 0 1-2 2h-4"/></svg></div>
+          <span class="w3-whycard__idx">04</span>
           <h3>{{t.home.h3.4}}</h3>
           <p>{{t.home.p.4}}</p>
         </div>
+      </div>
+      <div class="w3-certstrip" data-w3-reveal>
+        <span class="w3-certstrip__label">{{t.home.cert.label}}</span>
+        <div class="w3-certstrip__badges">
+          <span class="w3-certbadge">{{t.shared.fcc}}</span>
+          <span class="w3-certbadge">{{t.shared.ce}}</span>
+          <span class="w3-certbadge">{{t.shared.rohs}}</span>
+        </div>
+        <a class="w3-link-arrow" href="{{url./certifications-testing/}}">{{t.header.certifications_testing}}</a>
       </div>
     </div>
   </section>
