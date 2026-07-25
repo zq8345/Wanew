@@ -541,7 +541,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 @media (max-width: 980px) { .w3-guides { grid-template-columns: 1fr; } }
 
 /* CTA band */
-.w3-ctaband { position: relative; overflow: hidden; border-top: 1px solid var(--w3-line); }
+.w3-ctaband { position: relative; overflow: hidden; }
 /* bg-position keeps the Starlink device in the safe zone across breakpoints (Joe review #5).
    Wide screens crop height (dish sits upper-center -> 42%); narrow screens crop width so pull
    the focal point up and centered to keep the device on-canvas on low-res/mobile. */
