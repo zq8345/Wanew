@@ -136,7 +136,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=28" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=29" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 <!-- hreflang alternates (derived from locales.json + page existence) -->
@@ -397,13 +397,10 @@
         <h2>Engineering Excellence Backed by Patents</h2>
 <p>Wanew holds over <strong>200 patents</strong> covering mounting systems, cable connectors, power adapters, and protective enclosures.</p>
 <h2>Patent Portfolio</h2>
-<div class="table-responsive">
-<table class="table table-bordered">
-<tr><th>Category</th><th>Count</th><th>Focus</th></tr>
-<tr><td>Invention Patents</td><td>80+</td><td>Connector design, mounting mechanisms</td></tr>
-<tr><td>Utility Patents</td><td>120+</td><td>Structural improvements, weatherproofing</td></tr>
-<tr><td>Design Patents</td><td>20+</td><td>Product appearance, packaging</td></tr>
-</table>
+<div class="patent-cards">
+  <div class="patent-card"><span class="patent-card__n">80+</span><h3>Invention Patents</h3><p>Connector design, mounting mechanisms</p></div>
+  <div class="patent-card"><span class="patent-card__n">120+</span><h3>Utility Patents</h3><p>Structural improvements, weatherproofing</p></div>
+  <div class="patent-card"><span class="patent-card__n">20+</span><h3>Design Patents</h3><p>Product appearance, packaging</p></div>
 </div>
       </div>
     </div>
@@ -416,16 +413,13 @@
         <h2>Our Commitment to Quality</h2>
 <p>At Wanew, quality is embedded in our manufacturing process. Every product undergoes rigorous testing to meet international standards.</p>
 <h2>Quality Process</h2>
-<h3>1. Incoming Material Inspection</h3>
-<p>All raw materials verified against specification with full traceability.</p>
-<h3>2. In-Process QC</h3>
-<p>Inspection checkpoints at each manufacturing stage.</p>
-<h3>3. Final Testing</h3>
-<p>Every product tested with real Starlink terminals before packaging.</p>
-<h3>4. Environmental Testing</h3>
-<p>Temperature, UV, and waterproofing tests for outdoor products.</p>
-<h3>5. Mechanical Stress Testing</h3>
-<p>Load rating and reliability verification for mounts and structural components.</p>
+<ol class="odm-steps">
+  <li class="odm-step"><span class="odm-step__num">1</span><h3>Incoming Material Inspection</h3><p>All raw materials verified against specification with full traceability.</p></li>
+  <li class="odm-step"><span class="odm-step__num">2</span><h3>In-Process QC</h3><p>Inspection checkpoints at each manufacturing stage.</p></li>
+  <li class="odm-step"><span class="odm-step__num">3</span><h3>Final Testing</h3><p>Every product tested with real Starlink terminals before packaging.</p></li>
+  <li class="odm-step"><span class="odm-step__num">4</span><h3>Environmental Testing</h3><p>Temperature, UV, and waterproofing tests for outdoor products.</p></li>
+  <li class="odm-step"><span class="odm-step__num">5</span><h3>Mechanical Stress Testing</h3><p>Load rating and reliability verification for mounts and structural components.</p></li>
+</ol>
       </div>
     </div>
   </section>
@@ -438,12 +432,11 @@
 <p><strong>No.</strong> Wanew is an independent third-party manufacturer. We are not affiliated with, sponsored by, or endorsed by SpaceX or Starlink.</p>
 <blockquote>Wanew manufactures third-party Starlink-compatible accessories. "Starlink" is a trademark of SpaceX. References on this website indicate compatibility.</blockquote>
 <h2>FAQ</h2>
-<h3>Are Wanew products official Starlink accessories?</h3>
-<p>No. They are independently designed and tested for compatibility.</p>
-<h3>Will using Wanew void my Starlink warranty?</h3>
-<p>Third-party accessories do not automatically void warranty. Damage caused by accessories may not be covered.</p>
-<h3>Does SpaceX recommend Wanew?</h3>
-<p>SpaceX does not endorse any third-party accessory manufacturer.</p>
+<div class="faq-accordion">
+  <details class="faq-item"><summary class="faq-q"><h3>Are Wanew products official Starlink accessories?</h3><span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-a"><p>No. They are independently designed and tested for compatibility.</p></div></details>
+  <details class="faq-item"><summary class="faq-q"><h3>Will using Wanew void my Starlink warranty?</h3><span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-a"><p>Third-party accessories do not automatically void warranty. Damage caused by accessories may not be covered.</p></div></details>
+  <details class="faq-item"><summary class="faq-q"><h3>Does SpaceX recommend Wanew?</h3><span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-a"><p>SpaceX does not endorse any third-party accessory manufacturer.</p></div></details>
+</div>
       </div>
     </div>
   </section>

@@ -136,7 +136,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=28" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=29" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 {{HREFLANG}}
@@ -393,13 +393,10 @@
         <h2>{{t.patents-manufacturing.h2.1}}</h2>
 <p>{{t.patents-manufacturing.p.1}} <strong>{{t.patents-manufacturing.strong.1}}</strong> {{t.patents-manufacturing.strong.2}}</p>
 <h2>{{t.patents-manufacturing.h2.2}}</h2>
-<div class="table-responsive">
-<table class="table table-bordered">
-<tr><th>{{t.patents-manufacturing.th.1}}</th><th>{{t.patents-manufacturing.th.2}}</th><th>{{t.patents-manufacturing.th.3}}</th></tr>
-<tr><td>{{t.patents-manufacturing.td.1}}</td><td>80+</td><td>{{t.patents-manufacturing.td.2}}</td></tr>
-<tr><td>{{t.patents-manufacturing.td.3}}</td><td>120+</td><td>{{t.patents-manufacturing.td.4}}</td></tr>
-<tr><td>{{t.patents-manufacturing.td.5}}</td><td>20+</td><td>{{t.patents-manufacturing.td.6}}</td></tr>
-</table>
+<div class="patent-cards">
+  <div class="patent-card"><span class="patent-card__n">80+</span><h3>{{t.patents-manufacturing.td.1}}</h3><p>{{t.patents-manufacturing.td.2}}</p></div>
+  <div class="patent-card"><span class="patent-card__n">120+</span><h3>{{t.patents-manufacturing.td.3}}</h3><p>{{t.patents-manufacturing.td.4}}</p></div>
+  <div class="patent-card"><span class="patent-card__n">20+</span><h3>{{t.patents-manufacturing.td.5}}</h3><p>{{t.patents-manufacturing.td.6}}</p></div>
 </div>
       </div>
     </div>
@@ -412,16 +409,13 @@
         <h2>{{t.certifications-testing.h2.1}}</h2>
 <p>{{t.certifications-testing.p.1}}</p>
 <h2>{{t.certifications-testing.h2.3}}</h2>
-<h3>{{t.certifications-testing.h3.1}}</h3>
-<p>{{t.certifications-testing.p.2}}</p>
-<h3>{{t.certifications-testing.h3.2}}</h3>
-<p>{{t.certifications-testing.p.3}}</p>
-<h3>{{t.certifications-testing.h3.3}}</h3>
-<p>{{t.certifications-testing.p.4}}</p>
-<h3>{{t.certifications-testing.h3.4}}</h3>
-<p>{{t.certifications-testing.p.5}}</p>
-<h3>{{t.certifications-testing.h3.5}}</h3>
-<p>{{t.certifications-testing.p.6}}</p>
+<ol class="odm-steps">
+  <li class="odm-step"><span class="odm-step__num">1</span><h3>{{t.certifications-testing.h3.1}}</h3><p>{{t.certifications-testing.p.2}}</p></li>
+  <li class="odm-step"><span class="odm-step__num">2</span><h3>{{t.certifications-testing.h3.2}}</h3><p>{{t.certifications-testing.p.3}}</p></li>
+  <li class="odm-step"><span class="odm-step__num">3</span><h3>{{t.certifications-testing.h3.3}}</h3><p>{{t.certifications-testing.p.4}}</p></li>
+  <li class="odm-step"><span class="odm-step__num">4</span><h3>{{t.certifications-testing.h3.4}}</h3><p>{{t.certifications-testing.p.5}}</p></li>
+  <li class="odm-step"><span class="odm-step__num">5</span><h3>{{t.certifications-testing.h3.5}}</h3><p>{{t.certifications-testing.p.6}}</p></li>
+</ol>
       </div>
     </div>
   </section>
@@ -434,12 +428,11 @@
 <p><strong>{{t.brand-affiliation-faq.strong.1}}</strong> {{t.brand-affiliation-faq.strong.2}}</p>
 <blockquote>{{t.brand-affiliation-faq.blockquote.1}}</blockquote>
 <h2>{{t.header.faq}}</h2>
-<h3>{{t.brand-affiliation-faq.h3.1}}</h3>
-<p>{{t.brand-affiliation-faq.p.1}}</p>
-<h3>{{t.brand-affiliation-faq.h3.2}}</h3>
-<p>{{t.brand-affiliation-faq.p.2}}</p>
-<h3>{{t.brand-affiliation-faq.h3.3}}</h3>
-<p>{{t.brand-affiliation-faq.p.3}}</p>
+<div class="faq-accordion">
+  <details class="faq-item"><summary class="faq-q"><h3>{{t.brand-affiliation-faq.h3.1}}</h3><span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-a"><p>{{t.brand-affiliation-faq.p.1}}</p></div></details>
+  <details class="faq-item"><summary class="faq-q"><h3>{{t.brand-affiliation-faq.h3.2}}</h3><span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-a"><p>{{t.brand-affiliation-faq.p.2}}</p></div></details>
+  <details class="faq-item"><summary class="faq-q"><h3>{{t.brand-affiliation-faq.h3.3}}</h3><span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-a"><p>{{t.brand-affiliation-faq.p.3}}</p></div></details>
+</div>
       </div>
     </div>
   </section>

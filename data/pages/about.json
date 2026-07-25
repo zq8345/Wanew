@@ -675,10 +675,10 @@
     "zh": "品质管控流程"
   },
   "certifications-testing.h3.1": {
-    "en": "1. Incoming Material Inspection",
-    "pt-BR": "1. Inspeção de materiais recebidos",
-    "es-MX": "1. Inspección de materiales recibidos",
-    "zh": "1. 来料检验"
+    "en": "Incoming Material Inspection",
+    "pt-BR": "Inspeção de materiais recebidos",
+    "es-MX": "Inspección de materiales recibidos",
+    "zh": "来料检验"
   },
   "certifications-testing.p.2": {
     "en": "All raw materials verified against specification with full traceability.",
@@ -687,10 +687,10 @@
     "zh": "所有原材料均按规格进行核验，并实现全程可追溯。"
   },
   "certifications-testing.h3.2": {
-    "en": "2. In-Process QC",
-    "pt-BR": "2. Controle de qualidade em processo",
-    "es-MX": "2. Control de calidad en proceso",
-    "zh": "2. 制程品管（In-Process QC）"
+    "en": "In-Process QC",
+    "pt-BR": "Controle de qualidade em processo",
+    "es-MX": "Control de calidad en proceso",
+    "zh": "制程品管（In-Process QC）"
   },
   "certifications-testing.p.3": {
     "en": "Inspection checkpoints at each manufacturing stage.",
@@ -699,10 +699,10 @@
     "zh": "在每一制造工序设置检验节点。"
   },
   "certifications-testing.h3.3": {
-    "en": "3. Final Testing",
-    "pt-BR": "3. Teste final",
-    "es-MX": "3. Prueba final",
-    "zh": "3. 成品测试"
+    "en": "Final Testing",
+    "pt-BR": "Teste final",
+    "es-MX": "Prueba final",
+    "zh": "成品测试"
   },
   "certifications-testing.p.4": {
     "en": "Every product tested with real Starlink terminals before packaging.",
@@ -711,10 +711,10 @@
     "zh": "每件产品在包装前均使用真实的 Starlink 终端进行测试。"
   },
   "certifications-testing.h3.4": {
-    "en": "4. Environmental Testing",
-    "pt-BR": "4. Testes ambientais",
-    "es-MX": "4. Pruebas ambientales",
-    "zh": "4. 环境测试"
+    "en": "Environmental Testing",
+    "pt-BR": "Testes ambientais",
+    "es-MX": "Pruebas ambientales",
+    "zh": "环境测试"
   },
   "certifications-testing.p.5": {
     "en": "Temperature, UV, and waterproofing tests for outdoor products.",
@@ -723,10 +723,10 @@
     "zh": "针对户外产品进行温度、UV 及防水测试。"
   },
   "certifications-testing.h3.5": {
-    "en": "5. Mechanical Stress Testing",
-    "pt-BR": "5. Teste de estresse mecânico",
-    "es-MX": "5. Pruebas de esfuerzo mecánico",
-    "zh": "5. 机械应力测试"
+    "en": "Mechanical Stress Testing",
+    "pt-BR": "Teste de estresse mecânico",
+    "es-MX": "Pruebas de esfuerzo mecánico",
+    "zh": "机械应力测试"
   },
   "certifications-testing.p.6": {
     "en": "Load rating and reliability verification for mounts and structural components.",
