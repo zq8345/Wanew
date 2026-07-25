@@ -601,35 +601,27 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 /* ============================================================================
    LIST PAGE (/products/ shells) — chips + grid markup are machinery, keep names
    ========================================================================== */
-/* Info-page hero band: height tracks the image aspect (~2.5:1 in the 1200–1500px
-   range, capped so ultra-wide is a ~3.2:1 compromise, floored for tablet/mobile).
-   Was padding-only (~280px tall at desktop) which cover-cropped the 2.6:1 heroes to
-   a ~38% sliver (Joe's page-by-page finding). Title anchored to the bottom like the
-   home hero. Homepage .w3-hero is separately/deliberately full-viewport — untouched. */
-.page-header { position: relative; min-height: clamp(320px, 40vw, 600px); display: flex; flex-direction: column; justify-content: flex-end; padding: calc(var(--w3-header-h) + 48px) 0 48px; overflow: hidden; }
-.page-header-bg { position: absolute; inset: 0; background-size: cover; background-position: center 42%; }
-/* /about/ art-direction: this 2.33:1 image ~matches the band ratio, so on wide screens
-   there's no horizontal crop room and the (center-right) worker sits glued right with a
-   big dark-left void. Narrow/tablet crop already centers it — leave those. On wide, zoom
-   in a touch to create crop room, then anchor right so the worker pulls toward center. */
-.page-header-bg--about { background-position: center 50%; }
-@media (min-width: 1024px) {
-  /* 118% keeps the horizontal crop room (worker pulled off the right edge); y=24% lifts
-     the vertical window up so the worker's head is in-frame (was cut in the top ~10%). */
-  .page-header-bg--about { background-size: 118%; background-position: 66% 24%; }
-}
-/* Products/Industry/Service heroes: the Starlink dish/subject sits far right and gets
-   edge-cut on wide. Same technique as --about: zoom to make horizontal crop room, then
-   anchor right so the subject pulls toward the (1240) content column. First-pass values
-   grounded in each source PNG's subject position — final framing = Joe's eye. */
-.page-header-bg--hangye { background-position: center 50%; }
-.page-header-bg--service { background-position: center 82%; }
-.page-header-bg--products { background-position: center 42%; }
-@media (min-width: 1024px) {
-  .page-header-bg--hangye { background-size: 112%; background-position: 72% 52%; }   /* plateau roof+panel ~58% x */
-  .page-header-bg--service { background-size: 112%; background-position: 76% 74%; }  /* tent+dish lower-right */
-  .page-header-bg--products { background-size: 118%; background-position: 84% 46%; } /* house+dish ~68% x */
-}
+/* Info-page hero band: BAND RATIO drives the crop. Source heroes are ~2.6:1; the fix
+   is to keep the band ratio ≈ 2.6 across widths so cover shows the (near-)full image
+   instead of slicing sky+ground on wide screens. height = 100/2.6 vw ≈ 38.5vw, floored
+   420 (tablet/mobile), capped 900 (Joe's real 2560 viewport → band ~2.83:1 → crop ≤10%).
+   Earlier "move the device to centre / shift bg-position-x" was a misdiagnosis — once the
+   full image shows, the subject already lands inside the content column. Homepage .w3-hero
+   is separately/deliberately full-viewport — untouched. */
+.page-header { position: relative; height: clamp(420px, 38.5vw, 900px); display: flex; flex-direction: column; justify-content: flex-end; padding: calc(var(--w3-header-h) + 48px) 0 48px; overflow: hidden; }
+.page-header-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+/* /about/ art-direction: source is 2.333:1 (narrower ratio than the ~2.6 band), so cover
+   fills width and crops only top+bottom — the worker (head y≈20%, feet y≈63%, x≈62%) stays
+   fully in frame at centre across 1440→2560 (widest crops ~10.6% each edge → head at ~12%).
+   The dark left third sits under the bottom-left title = good text legibility. No zoom/anchor
+   needed with the corrected band ratio; inherits base centre. (Old 118%/66% 24% hack removed
+   — it was compensating for the old wrong-ratio band.) */
+.page-header-bg--about { background-position: center; }
+/* Products/Industry/Service heroes: source images are ~2.6:1 like the band, so with the
+   band-ratio fix above cover shows the (near-)full image on every width and the subject
+   already sits inside the content column — no zoom/x-shift needed. They inherit the base
+   .page-header-bg { background-position: center }. (Earlier per-page zoom+anchor hacks
+   removed — they were compensating for the old wrong-ratio band.) */
 /* aligned with home hero (.w3-hero__bg::after): light top so the transparent nav floats over
    the bright hero image, bright mid-window, darker only near the title, + left scrim for text. */
 .page-header-bg::after { content: ""; position: absolute; inset: 0; background:
