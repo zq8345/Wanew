@@ -1,23 +1,7 @@
 <!doctype html>
 <html lang="{{HTML_LANG}}">
 <head>
-<style>
-/* XLC-Style Generic Page — full-width hero + clean content */
-.xlc-section{padding:60px 0}
-.xlc-body{max-width:960px;margin:0 auto;font-size:16px;line-height:1.8;color:#444}
-.xlc-body h2{font-size:26px;font-weight:700;color:#17161a;margin:36px 0 14px;padding-bottom:10px;border-bottom:2px solid #e3e3e3}
-.xlc-body h3{font-size:20px;font-weight:600;color:#17161a;margin:24px 0 10px}
-.xlc-body p{margin:0 0 14px}
-.xlc-body ul{margin:0 0 18px;padding-left:24px}
-.xlc-body li{margin-bottom:6px}
-.xlc-body table{width:100%;margin:18px 0;border-collapse:collapse}
-.xlc-body table th{background:#2b3aa1;color:#fff;padding:10px 14px;font-weight:600}
-.xlc-body table td{padding:10px 14px;border:1px solid #e3e3e3}
-.xlc-body blockquote{margin:20px 0;padding:16px 22px;background:#f0f2fa;border-left:4px solid #2b3aa1;border-radius:6px;font-size:15px;color:#333}
-.xlc-body img{max-width:100%;height:auto;border-radius:8px;margin:16px 0}
-.xlc-body .table-responsive{overflow-x:auto}
-</style>
-  <meta charset="utf-8">
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>{{t.certifications-testing.meta.title}}</title>
@@ -149,20 +133,10 @@
 <meta name="twitter:image" content="/static/wanew-logo-black.png" />
 
 
-<link rel="preload" href="/skin/css/mibooz.css" as="style" />
-<link rel="preload" href="/skin/fonts/fa-solid-900-full.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/skin/fonts/icomoon.woff" as="font" type="font/woff" crossorigin />
-<link rel="stylesheet" href="/skin/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/skin/css/all.min.css" />
-<link rel="stylesheet" href="/skin/css/swiper.min.css" />
-<link rel="stylesheet" href="/skin/css/pro.css" />
-<link rel="stylesheet" href="/skin/css/jquery.magnific-popup.css" />
-<link rel="stylesheet" href="/skin/css/mibooz.css?v=5" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-<link rel="stylesheet" href="/skin/css/mibooz-responsive.css?v=5" />
-<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=57" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=3" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -406,13 +380,6 @@ Wanew manufactures third-party Starlink-compatible accessories. Not affiliated w
   <!-- /.mobile-nav__content --> 
 </div>
 <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a> 
-<script src="/skin/js/jquery-3.6.0.min.js"></script> 
-<script src="/skin/js/bootstrap.bundle.min.js" defer></script>
-<script src="/skin/js/jquery.magnific-popup.min.js" defer></script>
-<script src="/skin/js/wow.js" defer></script>
-<script src="/skin/js/swiper.min.js"></script>
-<script src="/skin/js/mibooz.js?v=6" defer></script>
-
 <script>
 // 幻灯片CSS背景图WebP替换 — 使CSS background-image也享受WebP压缩
 // CSS背景图不经过<img>标签，已有的WebP替换JS对它们无效
@@ -458,27 +425,6 @@ Wanew manufactures third-party Starlink-compatible accessories. Not affiliated w
 })();
 </script>
 
-<script>
-$(function() {
-     $(document).on('click', '.yvzhonga', function(e) {
-        e.preventDefault();
-        $('.yvul').toggle();   // 直接切换所有匹配元素
-    });
-	// 悬浮窗口
-	$(".yb_conct").hover(function() {
-		$(".yb_conct").css("right", "5px");
-		$(".yb_bar .yb_ercode").css('height', '200px');
-	}, function() {
-		$(".yb_conct").css("right", "-127px");
-		$(".yb_bar .yb_ercode").css('height', '53px');
-	});
-	// 返回顶部
-	$(".yb_top").click(function() {
-		$("html,body").animate({
-			'scrollTop': '0px'
-		}, 300)
-	});
-});
-</script>
+<script src="/skin/js/w3.js?v=2" defer></script>
 </body>
 </html>

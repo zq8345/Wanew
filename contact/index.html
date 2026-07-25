@@ -133,20 +133,10 @@
 <meta name="twitter:image" content="/static/wanew-logo-black.png" />
 
 
-<link rel="preload" href="/skin/css/mibooz.css" as="style" />
-<link rel="preload" href="/skin/fonts/fa-solid-900-full.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/skin/fonts/icomoon.woff" as="font" type="font/woff" crossorigin />
-<link rel="stylesheet" href="/skin/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/skin/css/all.min.css" />
-<link rel="stylesheet" href="/skin/css/swiper.min.css" />
-<link rel="stylesheet" href="/skin/css/pro.css" />
-<link rel="stylesheet" href="/skin/css/jquery.magnific-popup.css" />
-<link rel="stylesheet" href="/skin/css/mibooz.css?v=5" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-<link rel="stylesheet" href="/skin/css/mibooz-responsive.css?v=5" />
-<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=57" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=3" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 <!-- hreflang alternates (derived from locales.json + page existence) -->
@@ -442,13 +432,6 @@ Wanew manufactures third-party Starlink-compatible accessories. Not affiliated w
   <!-- /.mobile-nav__content --> 
 </div>
 <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a> 
-<script src="/skin/js/jquery-3.6.0.min.js"></script> 
-<script src="/skin/js/bootstrap.bundle.min.js" defer></script>
-<script src="/skin/js/jquery.magnific-popup.min.js" defer></script>
-<script src="/skin/js/wow.js" defer></script>
-<script src="/skin/js/swiper.min.js"></script>
-<script src="/skin/js/mibooz.js?v=6" defer></script>
-
 <script>
 // 幻灯片CSS背景图WebP替换 — 使CSS background-image也享受WebP压缩
 // CSS背景图不经过<img>标签，已有的WebP替换JS对它们无效
@@ -494,29 +477,6 @@ Wanew manufactures third-party Starlink-compatible accessories. Not affiliated w
 })();
 </script>
 
-<script>
-$(function() {
-     $(document).on('click', '.yvzhonga', function(e) {
-        e.preventDefault();
-        $('.yvul').toggle();   // 直接切换所有匹配元素
-    });
-	// 悬浮窗口
-	$(".yb_conct").hover(function() {
-		$(".yb_conct").css("right", "5px");
-		$(".yb_bar .yb_ercode").css('height', '200px');
-	}, function() {
-		$(".yb_conct").css("right", "-127px");
-		$(".yb_bar .yb_ercode").css('height', '53px');
-	});
-	// 返回顶部
-	$(".yb_top").click(function() {
-		$("html,body").animate({
-			'scrollTop': '0px'
-		}, 300)
-	});
-});
-</script>
-
 <!-- Web3Forms AJAX submit — inline success/error, no page redirect -->
 <script>
 (function () {
@@ -550,5 +510,6 @@ $(function() {
 })();
 </script>
 
+<script src="/skin/js/w3.js?v=2" defer></script>
 </body>
 </html>

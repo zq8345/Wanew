@@ -138,20 +138,10 @@
 <meta name="twitter:image" content="/static/wanew-logo-black.png" />
 
 
-<link rel="preload" href="/skin/css/mibooz.css" as="style" />
-<link rel="preload" href="/skin/fonts/fa-solid-900-full.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/skin/fonts/icomoon.woff" as="font" type="font/woff" crossorigin />
-<link rel="stylesheet" href="/skin/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/skin/css/all.min.css" />
-<link rel="stylesheet" href="/skin/css/swiper.min.css" />
-<link rel="stylesheet" href="/skin/css/pro.css" />
-<link rel="stylesheet" href="/skin/css/jquery.magnific-popup.css" />
-<link rel="stylesheet" href="/skin/css/mibooz.css?v=5" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-<link rel="stylesheet" href="/skin/css/mibooz-responsive.css?v=5" />
-<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=57" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=3" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -250,76 +240,6 @@
           <div class="blog-sidebar__left">
           
 
-
-<style>
-/* FAQ 手风琴样式（默认全部展开 + 可点击收缩 + 展开显示分隔线） */
-.faq-list {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-.faq-item {
-  background: #f7f7f7;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  overflow: hidden;
-}
-/* 标题样式（深色加粗） */
-.faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 22px 25px;
-  font-weight: 600;
-  color: #111;
-  font-size: 16px;
-  cursor: pointer;
-  user-select: none;
-}
-/* 箭头图标 */
-.faq-icon {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #222;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  transition: transform 0.3s ease;
-  transform: rotate(180deg);
-}
-/* 展开时显示的分隔线 */
-.faq-line {
-  height: 1px;
-  background: #e0e0e0;
-  margin: 0 25px;
-  display: block;
-}
-/* 内容样式（浅色） */
-.faq-answer {
-  padding: 20px 25px 25px;
-  color: #666;
-  line-height: 1.7;
-  font-size: 15px;
-  max-height: 999px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-/* 收缩状态 */
-.faq-answer.close {
-  max-height: 0;
-  padding: 0 25px;
-}
-.faq-icon.close {
-  transform: rotate(0deg);
-}
-.faq-line.close {
-  display: none;
-}
-</style>
 
 <div class="blog-sidebar__content">
   <div class="faq-list">
@@ -744,13 +664,6 @@ A Wanew fabrica acessórios de terceiros compatíveis com Starlink. Não é afil
   <!-- /.mobile-nav__content --> 
 </div>
 <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a> 
-<script src="/skin/js/jquery-3.6.0.min.js"></script> 
-<script src="/skin/js/bootstrap.bundle.min.js" defer></script>
-<script src="/skin/js/jquery.magnific-popup.min.js" defer></script>
-<script src="/skin/js/wow.js" defer></script>
-<script src="/skin/js/swiper.min.js"></script>
-<script src="/skin/js/mibooz.js?v=6" defer></script>
-
 <script>
 // 幻灯片CSS背景图WebP替换 — 使CSS background-image也享受WebP压缩
 // CSS背景图不经过<img>标签，已有的WebP替换JS对它们无效
@@ -796,27 +709,6 @@ A Wanew fabrica acessórios de terceiros compatíveis com Starlink. Não é afil
 })();
 </script>
 
-<script>
-$(function() {
-     $(document).on('click', '.yvzhonga', function(e) {
-        e.preventDefault();
-        $('.yvul').toggle();   // 直接切换所有匹配元素
-    });
-	// 悬浮窗口
-	$(".yb_conct").hover(function() {
-		$(".yb_conct").css("right", "5px");
-		$(".yb_bar .yb_ercode").css('height', '200px');
-	}, function() {
-		$(".yb_conct").css("right", "-127px");
-		$(".yb_bar .yb_ercode").css('height', '53px');
-	});
-	// 返回顶部
-	$(".yb_top").click(function() {
-		$("html,body").animate({
-			'scrollTop': '0px'
-		}, 300)
-	});
-});
-</script>
+<script src="/skin/js/w3.js?v=2" defer></script>
 </body>
 </html>
