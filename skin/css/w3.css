@@ -318,6 +318,9 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .site-footer__middle-inner > .row { display: grid; grid-template-columns: minmax(260px, 1.15fr) 2fr; gap: 48px; }
 .site-footer .pcblock > .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .footer-widget__title { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--w3-text); margin-bottom: 16px; }
+/* Joe: footer col-1 leads with the white wordmark, company info left-aligned below it */
+.footer-widget__logo { display: inline-block; margin-bottom: 18px; }
+.footer-widget__logo img { height: 30px; width: auto; display: block; }
 .footer-widget__newsletter .text { color: var(--w3-text3); font-size: 13.5px; line-height: 1.8; }
 .footer-widget__links-list li { margin: 0 0 9px; }
 .footer-widget__links-list a { color: var(--w3-text3); font-size: 13.5px; transition: color 0.15s; }
@@ -399,7 +402,9 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 }
 .w3-pstrip__card:hover { transform: translateY(-4px); border-color: var(--w3-line2); background: var(--w3-panel2); }
 .w3-pstrip__img { background: var(--w3-tile); aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; overflow: hidden; margin: 10px; border-radius: 10px; }
-.w3-pstrip__img img { max-width: 84%; max-height: 84%; width: auto; height: auto; object-fit: contain; transition: transform 0.45s var(--w3-ease); }
+/* Joe: product image fills the white 1:1 inner frame edge-to-edge (for the 1:1 white-bg
+   masters he'll upload). cover = exact fill for 1:1, crops legacy non-1:1 gracefully. */
+.w3-pstrip__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.45s var(--w3-ease); }
 .w3-pstrip__card:hover .w3-pstrip__img img { transform: scale(1.05); }
 .w3-pstrip__title {
   padding: 4px 16px 18px; font-size: 13.5px; font-weight: 550; line-height: 1.45; color: var(--w3-text2);
@@ -619,7 +624,8 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .blog-one__single:hover { transform: translateY(-4px); border-color: var(--w3-line2); background: var(--w3-panel2); }
 .blog-one__single > a { display: flex; flex-direction: column; height: 100%; }
 .blog-one__img { background: var(--w3-tile); aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; overflow: hidden; margin: 10px; border-radius: 10px; }
-.blog-one__img img { max-width: 84%; max-height: 84%; width: auto; height: auto; object-fit: contain; transition: transform 0.45s var(--w3-ease); }
+/* Joe: product image fills the white 1:1 inner frame edge-to-edge (see .w3-pstrip__img). */
+.blog-one__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.45s var(--w3-ease); }
 .blog-one__single:hover .blog-one__img img { transform: scale(1.05); }
 .blog-content { padding: 6px 16px 18px; display: grid; gap: 6px; }
 .blog-one__title {
