@@ -146,6 +146,17 @@ body.w3-nav-locked { overflow: hidden; }
   backdrop-filter: saturate(140%) blur(14px);
   border-bottom-color: var(--w3-line);
 }
+/* ⑰ top scrim: transparent nav floats over the hero; on bright skies (home golden
+   sky, ⑫ top-right release) the light logo/menu lost contrast. A restrained top-down
+   gradient guarantees readability on ANY hero without killing the bright ambiance.
+   Sits behind the nav content (z-index:-1 within the fixed header's stacking context,
+   still above the hero). Fades out once the solid scrolled header takes over. */
+.main-header::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 128px; z-index: -1;
+  pointer-events: none; transition: opacity 0.35s;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0.14) 46%, rgba(0, 0, 0, 0) 100%);
+}
+.w3-scrolled .main-header::before, .w3-solid-header .main-header::before { opacity: 0; }
 .main-menu { width: 100%; display: flex; }
 .main-menu-wrapper {
   width: 100%; max-width: var(--w3-maxw); margin: 0 auto; padding: 0 24px;
@@ -166,6 +177,13 @@ body.w3-nav-locked { overflow: hidden; }
   transition: color 0.2s, background 0.2s;
 }
 .main-menu__list > li:hover > a, .main-menu__list > li:focus-within > a { color: #fff; background: rgba(255, 255, 255, 0.06); }
+/* ⑱ active section (JS adds .is-active by current path — chrome stays byte-identical):
+   current item goes full white + a short accent underline; other items already muted. */
+.main-menu__list > li.is-active > a { color: #fff; font-weight: 600; }
+.main-menu__list > li.is-active::after {
+  content: ""; position: absolute; left: 13px; right: 13px; bottom: 3px; height: 2px;
+  border-radius: 2px; background: var(--w3-accent); pointer-events: none;
+}
 /* caret only on items that actually have a dropdown */
 .main-menu__list > li > a + ul { }
 .main-menu__list > li:has(> ul) > a::after {
@@ -271,6 +289,8 @@ a.lang-switch__link:hover { background: rgba(255, 255, 255, 0.07); color: #fff; 
 .mobile-nav__container li li > a { font-size: 13.5px; color: var(--w3-text2); padding: 10px 2px 10px 16px; }
 .mobile-nav__container li ul { display: none; border-top: 1px solid var(--w3-line); padding-bottom: 6px; }
 .mobile-nav__container li.w3-open > ul { display: block; }
+/* ⑱ active section in mobile menu (JS marks the top-level li) */
+.mobile-nav__container li.is-active > a { color: #fff; font-weight: 600; box-shadow: inset 2px 0 0 var(--w3-accent); }
 .mobile-nav__container li ul li:last-child { border-bottom: 0; }
 .w3-subnav-btn {
   background: none; border: 1px solid var(--w3-line); border-radius: 8px;

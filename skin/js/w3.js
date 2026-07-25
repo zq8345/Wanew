@@ -55,6 +55,33 @@
     });
   });
 
+  /* ---- active nav section (runtime; baked chrome stays byte-identical for
+     chrome-verify). Map current path's first segment -> a top-level nav href,
+     then flag the matching <li> in both the desktop and mobile lists. ---- */
+  (function () {
+    var p = location.pathname;
+    if (!/\/$/.test(p)) p += "/";
+    p = p.replace(/^\/(pt|es|zh)\//, "/");              // strip locale dir
+    var seg = (p.match(/^\/([^/]*)\//) || ["", ""])[1];
+    var PRODUCTS = ["products", "standard", "standard-actuated", "standard-circular", "mini",
+      "performance-gen-1", "performance-gen-2", "performance-gen-3", "enterprise", "type",
+      "starlink-compatible-accessories"];
+    var GUIDES = ["service", "mounts", "marine", "rv-off-grid", "power", "industrial", "faq", "video", "compatibility"];
+    var SOLUTIONS = ["hangye", "solutions"];
+    var target = PRODUCTS.indexOf(seg) >= 0 ? "/products/"
+      : SOLUTIONS.indexOf(seg) >= 0 ? "/hangye/"
+      : GUIDES.indexOf(seg) >= 0 ? "/service/"
+      : seg === "about" ? "/about/"
+      : seg === "contact" ? "/contact/" : null;
+    if (!target) return;                                // home / unknown -> no active item
+    d.querySelectorAll(".main-menu__list > li, .mobile-nav__list > li").forEach(function (li) {
+      var a = li.querySelector(":scope > a");
+      if (!a) return;
+      var href = (a.getAttribute("href") || "").replace(/^https?:\/\/[^/]+/, "").replace(/^\/(pt|es|zh)\//, "/");
+      if (href === target) li.classList.add("is-active");
+    });
+  })();
+
   /* ---- scroll-to-top (chrome element) ---- */
   var toTop = d.querySelector(".scroll-to-top");
   if (toTop) toTop.addEventListener("click", function (e) {
