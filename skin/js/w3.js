@@ -78,26 +78,43 @@
     }
   }
 
-  /* ---- scenario tabs (home) — user-controlled, no auto-rotate (Joe review #3) ---- */
+  /* ---- scenario tabs (home) — auto-rotate w/ crossfade (CSS 0.8s), pause on hover
+     /focus, manual click/arrow re-arms the dwell, honors prefers-reduced-motion.
+     Dwell is a single constant for easy tuning (Joe). ---- */
   d.querySelectorAll("[data-w3-scenes]").forEach(function (tabsWrap) {
     var tabs = Array.prototype.slice.call(tabsWrap.querySelectorAll(".w3-scenetab"));
     var stage = d.querySelector("[data-w3-scenes-stage]");
     if (!tabs.length || !stage) return;
     var panels = Array.prototype.slice.call(stage.querySelectorAll(".w3-scene-panel"));
+    var DWELL_MS = 4000;   // ⏱ per-scene dwell — tune here (crossfade duration is 0.8s in w3.css)
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var cur = 0, timer = null;
     function activate(n) {
+      cur = n;
       tabs.forEach(function (t, k) { t.classList.toggle("is-active", k === n); t.setAttribute("aria-selected", k === n ? "true" : "false"); });
       panels.forEach(function (p, k) { p.classList.toggle("is-active", k === n); });
     }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function start() { if (reduce || timer || tabs.length < 2) return; timer = setInterval(function () { activate((cur + 1) % tabs.length); }, DWELL_MS); }
+    function restart() { stop(); start(); }   // manual interaction: show it, then re-arm the dwell
     tabs.forEach(function (t, n) {
-      t.addEventListener("click", function () { activate(n); });
+      t.addEventListener("click", function () { activate(n); restart(); });
       t.addEventListener("keydown", function (e) {
         var dir = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
         if (!dir) return;
         e.preventDefault();
         var m = (n + dir + tabs.length) % tabs.length;
-        tabs[m].focus(); activate(m);
+        tabs[m].focus(); activate(m); restart();
       });
     });
+    // pause while the user is reading/aiming; resume on leave (start() no-ops under reduced-motion)
+    [stage, tabsWrap].forEach(function (el) {
+      el.addEventListener("mouseenter", stop);
+      el.addEventListener("mouseleave", start);
+    });
+    tabsWrap.addEventListener("focusin", stop);
+    tabsWrap.addEventListener("focusout", start);
+    start();
   });
 
   /* ---- list-page filter (products / category / type shells) ----

@@ -683,9 +683,9 @@
   "header.scene.offgrid": {
     "en": "Off-Grid",
     "pt-BR": "Off-grid",
-    "es-MX": "Off-grid",
+    "es-MX": "Fuera de red",
     "zh": "离网",
-    "reason": "scene nav label — byte-identical to home.scene.* (homepage tab = Solutions nav, 总工 canonical 6)"
+    "reason": "scene nav label. es-MX 'Fuera de red' = idiomatic short off-grid for tab (总工 拍板; 'sin red eléctrica' too long for a tab)"
   },
   "header.scene.portable": {
     "en": "Portable",

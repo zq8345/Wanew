@@ -335,7 +335,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
    ========================================================================== */
 .w3-hero {
   position: relative; min-height: max(620px, 92svh);
-  display: flex; align-items: flex-end;
+  display: flex; align-items: center;   /* Joe: lift the title block off the bottom into upper-middle */
   overflow: hidden;
 }
 /* hero-home.webp: 设备已朝正(总工 v4)——【不再镜像】(旧 hero-montana 需 scaleX(-1),现移除)。水平 scrim 正常 100deg
@@ -347,7 +347,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
     linear-gradient(180deg, rgba(10, 12, 15, 0.50) 0%, rgba(10, 12, 15, 0.18) 28%, rgba(10, 12, 15, 0.56) 50%, rgba(10, 12, 15, 0.76) 74%, var(--w3-bg) 100%),
     linear-gradient(100deg, rgba(10, 12, 15, 0.72) 0%, rgba(10, 12, 15, 0.08) 60%);
 }
-.w3-hero__inner { position: relative; width: 100%; padding: 140px 0 96px; }
+.w3-hero__inner { position: relative; width: 100%; padding: 96px 0 220px; }  /* extra bottom padding biases the centered block upward (中上) */
 .w3-hero__content { max-width: 760px; display: grid; gap: 22px; }
 .w3-hero__title { text-wrap: balance; }
 .w3-hero__sub { color: #c3ccd5; font-size: clamp(15.5px, 1.5vw, 17.5px); max-width: 58ch; }
@@ -445,7 +445,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-scene-panel {
   position: absolute; inset: 0; display: flex; align-items: flex-end;
   background-size: cover; background-position: center;
-  opacity: 0; visibility: hidden; transition: opacity 0.5s var(--w3-ease), visibility 0.5s;
+  opacity: 0; visibility: hidden; transition: opacity 0.8s var(--w3-ease), visibility 0.8s;
 }
 .w3-scene-panel.is-active { opacity: 1; visibility: visible; }
 .w3-scene-panel::after {
@@ -543,9 +543,11 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 /* bg-position keeps the Starlink device in the safe zone across breakpoints (Joe review #5).
    Wide screens crop height (dish sits upper-center -> 42%); narrow screens crop width so pull
    the focal point up and centered to keep the device on-canvas on low-res/mobile. */
-.w3-ctaband__bg { position: absolute; inset: 0; background-size: cover; background-position: center 42%; }
-@media (max-width: 900px) { .w3-ctaband__bg { background-position: center 32%; } }
-@media (max-width: 560px) { .w3-ctaband__bg { background-position: 50% 28%; } }
+/* cta-band-bluehour: the Starlink dish sits small in the lower-right — anchor the
+   crop bottom-right so it survives this wide/short band at every width. */
+.w3-ctaband__bg { position: absolute; inset: 0; background-size: cover; background-position: 85% 85%; }
+@media (max-width: 900px) { .w3-ctaband__bg { background-position: 82% 90%; } }
+@media (max-width: 560px) { .w3-ctaband__bg { background-position: 80% 96%; } }
 /* white copy over a bright sky/roof shot was unreadable (Joe): white text MUST sit on a dark base.
    Vertical blend to bg at top + a central radial scrim so the centered heading/sub/buttons land on
    a dark zone regardless of how bright the underlying photo is (DESIGN.md: text-on-image needs scrim). */
