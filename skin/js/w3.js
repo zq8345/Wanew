@@ -89,6 +89,29 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
+  /* ---- contact: WeChat QR popover + copy id ---- */
+  d.querySelectorAll("[data-wechat]").forEach(function (wrap) {
+    var btn = wrap.querySelector(".w3-channel--wc");
+    var pop = wrap.querySelector(".w3-wechat-pop");
+    if (!btn || !pop) return;
+    function close() { pop.hidden = true; btn.setAttribute("aria-expanded", "false"); }
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = pop.hidden;
+      pop.hidden = !open;
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    d.addEventListener("click", function (e) { if (!wrap.contains(e.target)) close(); });
+    d.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+    var copyBtn = pop.querySelector("[data-wechat-copy]");
+    if (copyBtn) copyBtn.addEventListener("click", function () {
+      var id = copyBtn.getAttribute("data-id") || "";
+      var done = function () { copyBtn.classList.add("is-copied"); setTimeout(function () { copyBtn.classList.remove("is-copied"); }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(id).then(done, done);
+      else { var t = d.createElement("textarea"); t.value = id; d.body.appendChild(t); t.select(); try { d.execCommand("copy"); } catch (x) {} d.body.removeChild(t); done(); }
+    });
+  });
+
   /* ---- reveal on scroll ---- */
   var revealEls = d.querySelectorAll("[data-w3-reveal]");
   if (revealEls.length) {

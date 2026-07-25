@@ -30,36 +30,6 @@
     "es-MX": "Fabricante independiente de soportes, adaptadores de energía, cables y estuches de protección compatibles con Starlink. Consultas OEM/ODM y de mayoreo bienvenidas.",
     "zh": "Starlink 兼容支架、电源适配器、线缆及防护外壳的独立制造商。欢迎咨询 OEM/ODM 与批发业务。"
   },
-  "contact.contact-info-list-label.2": {
-    "en": "Headquarters",
-    "pt-BR": "Sede",
-    "es-MX": "Oficinas centrales",
-    "zh": "总部"
-  },
-  "contact.contact-info-list-value.2": {
-    "en": "No. 62, Baotian 1st Road, Xixiang Street, Bao'an District, Shenzhen, Guangdong, China",
-    "pt-BR": "No. 62, Baotian 1st Road, Xixiang Street, Distrito de Bao'an, Shenzhen, Guangdong, China",
-    "es-MX": "No. 62, Baotian 1st Road, Xixiang Street, Distrito de Bao'an, Shenzhen, Guangdong, China",
-    "zh": "中国广东省深圳市宝安区西乡街道宝田一路 62 号"
-  },
-  "contact.contact-info-list-label.3": {
-    "en": "Response time",
-    "pt-BR": "Tempo de resposta",
-    "es-MX": "Tiempo de respuesta",
-    "zh": "响应时间"
-  },
-  "contact.contact-info-list-value.3": {
-    "en": "We typically reply within 1 business day.",
-    "pt-BR": "Normalmente respondemos em até 1 dia útil.",
-    "es-MX": "Normalmente respondemos en 1 día hábil.",
-    "zh": "我们通常在 1 个工作日内回复。"
-  },
-  "contact.contact-info-card-note.1": {
-    "en": "For OEM/ODM or bulk orders, tell us the target Starlink model and quantity — we'll come back with specifications and pricing.",
-    "pt-BR": "Para pedidos OEM/ODM ou compras em grande volume, informe o modelo Starlink desejado e a quantidade — retornaremos com especificações e preços.",
-    "es-MX": "Para pedidos OEM/ODM o de gran volumen, dinos el modelo Starlink que buscas y la cantidad — te respondemos con especificaciones y precios.",
-    "zh": "如需 OEM/ODM 或批量订单，请告知目标 Starlink 型号与数量——我们将回复规格与报价。"
-  },
   "contact.section-title-tagline.2": {
     "en": "Please feel free to contact us if you have any questions",
     "pt-BR": "Fique à vontade para entrar em contato se tiver qualquer dúvida",
@@ -102,5 +72,27 @@
     "es-MX": "Contáctanos",
     "reason.dupe": "页面标题/面包屑/内联三处「Contact Us」,同词不同位置,显式共存不合并。",
     "zh": "联系我们"
-  }
+  },
+  "contact.label.address": { "en": "Address", "pt-BR": "Endereço", "es-MX": "Dirección", "zh": "地址" },
+  "contact.label.hours": { "en": "Business hours", "pt-BR": "Horário de atendimento", "es-MX": "Horario de atención", "zh": "工作时间" },
+  "contact.label.response": { "en": "Response time", "pt-BR": "Tempo de resposta", "es-MX": "Tiempo de respuesta", "zh": "响应时间" },
+  "contact.channel.whatsapp": { "en": "WhatsApp", "pt-BR": "WhatsApp", "es-MX": "WhatsApp", "zh": "WhatsApp" },
+  "contact.channel.wechat": { "en": "WeChat", "pt-BR": "WeChat", "es-MX": "WeChat", "zh": "微信" },
+  "contact.wechat.scan": { "en": "Scan to add on WeChat", "pt-BR": "Escaneie para adicionar no WeChat", "es-MX": "Escanea para agregarnos en WeChat", "zh": "扫码添加微信" },
+  "contact.wechat.copy": { "en": "Copy WeChat ID", "pt-BR": "Copiar ID do WeChat", "es-MX": "Copiar ID de WeChat", "zh": "复制微信号" },
+  "contact.trust.years.v": { "en": "15+", "pt-BR": "15+", "es-MX": "15+", "zh": "15+" },
+  "contact.trust.years.k": { "en": "Years", "pt-BR": "Anos", "es-MX": "Años", "zh": "年" },
+  "contact.trust.patents.v": { "en": "200+", "pt-BR": "200+", "es-MX": "200+", "zh": "200+" },
+  "contact.trust.patents.k": { "en": "Patents held", "pt-BR": "Patentes registradas", "es-MX": "Patentes registradas", "zh": "项专利" },
+  "contact.trust.cert.v": { "en": "FCC/CE/RoHS", "pt-BR": "FCC/CE/RoHS", "es-MX": "FCC/CE/RoHS", "zh": "FCC/CE/RoHS" },
+  "contact.trust.cert.k": { "en": "Certified", "pt-BR": "Certificado", "es-MX": "Certificado", "zh": "认证" },
+  "contact.trust.wh.v": { "en": "US", "pt-BR": "EUA", "es-MX": "EE. UU.", "zh": "美国" },
+  "contact.trust.wh.k": { "en": "Warehouse", "pt-BR": "Armazém", "es-MX": "Almacén", "zh": "仓库" },
+  "contact.map.hq": { "en": "Shenzhen HQ", "pt-BR": "Sede em Shenzhen", "es-MX": "Sede en Shenzhen", "zh": "深圳总部" },
+  "contact.map.view": { "en": "View on Google Maps", "pt-BR": "Ver no Google Maps", "es-MX": "Ver en Google Maps", "zh": "在 Google 地图查看" },
+  "contact.inquiry.label": { "en": "Inquiry type", "pt-BR": "Tipo de consulta", "es-MX": "Tipo de consulta", "zh": "咨询类型" },
+  "contact.inquiry.oem": { "en": "OEM / ODM", "pt-BR": "OEM / ODM", "es-MX": "OEM / ODM", "zh": "OEM / ODM" },
+  "contact.inquiry.wholesale": { "en": "Wholesale", "pt-BR": "Atacado", "es-MX": "Mayoreo", "zh": "批发" },
+  "contact.inquiry.samples": { "en": "Samples", "pt-BR": "Amostras", "es-MX": "Muestras", "zh": "样品" },
+  "contact.inquiry.support": { "en": "Technical support", "pt-BR": "Suporte técnico", "es-MX": "Soporte técnico", "zh": "技术支持" }
 }

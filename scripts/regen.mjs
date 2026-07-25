@@ -201,6 +201,10 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
 // register them. Same contract as everything else — regen emits content, chrome-sync owns chrome.
 let pages = 0;
 const tdir = path.join(REPO, "data", "templates");
+// standalone contact config (language-agnostic values) — templates read it via {{cfg.KEY}}.
+// Passed to every page; pages without cfg tokens ignore it (Contact is the only consumer).
+const contactCfg = fs.existsSync(path.join(REPO, "data", "contact-info.json"))
+  ? JSON.parse(fs.readFileSync(path.join(REPO, "data", "contact-info.json"), "utf8")) : {};
 for (const f of fs.readdirSync(tdir).filter((x) => /^page-.+\.html$/.test(x))) {
   const slug = f.replace(/^page-|\.html$/g, "");
   const pcat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", `${slug}.json`), "utf8"));
@@ -215,7 +219,7 @@ for (const f of fs.readdirSync(tdir).filter((x) => /^page-.+\.html$/.test(x))) {
     // ⭐ 这是 pages 去重的前提:429 条复印件里有 18 组的值【已经在 chrome.json 里】,
     // 页面目录存了第二份 —— 模板要能直接引 chrome key,那第二份才删得掉。
     // internal_noindex: INTERNAL → zh 信息页出 noindex、零 hreflang(enabled 仍只三语驱 hreflang)。
-    const h1 = renderPage(ptpl, { locale, catalog: { ...catalog, ...shared, ...pcat }, urlOf, path: `/${slug}/`, dirOf, enabled: LOCALES, internal_noindex: INTERNAL });
+    const h1 = renderPage(ptpl, { locale, catalog: { ...catalog, ...shared, ...pcat }, urlOf, path: `/${slug}/`, dirOf, enabled: LOCALES, internal_noindex: INTERNAL, config: contactCfg });
     if (h1 !== h0) { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, h1); pages++; }
   }
 }

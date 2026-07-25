@@ -1,0 +1,14 @@
+{
+  "_schema": "Standalone contact config (language-agnostic values). Labels stay in i18n (data/pages/contact.json). Consumed by templates as {{cfg.KEY}} (resolved in functions/_lib/render.js renderPage, NOT via the i18n catalog — so these values never hit catalog-dupe). Admin edits this file and republishes via the same CMS write-back as the Hero copy. Stage B: back-office editor targets these keys.",
+  "phone_display": "+86 186 8116 0111",
+  "phone_tel": "+8618681160111",
+  "whatsapp": "8618681160111",
+  "whatsapp_link": "https://wa.me/8618681160111",
+  "wechat_id": "18681160111",
+  "wechat_qr": "/static/upload/image/20260725/wechat-qr-v1.webp",
+  "email": "hello@wanew.com",
+  "address": "No. 62, Baotian 1st Road, Xixiang Street, Bao'an District, Shenzhen, Guangdong, China",
+  "hours": "Mon–Fri 9:00–18:00 (GMT+8)",
+  "response": "within 1 business day",
+  "map_link": "https://www.google.com/maps/search/?api=1&query=No.%2062%2C%20Baotian%201st%20Road%2C%20Xixiang%20Street%2C%20Bao%27an%20District%2C%20Shenzhen"
+}

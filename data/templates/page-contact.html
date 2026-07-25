@@ -136,7 +136,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=21" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=22" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 {{HREFLANG}}
@@ -222,77 +222,134 @@
     </div>
   </section>
   
-  <section class="contact-page">
+  <section class="contact-page w3-contact">
     <div class="container">
-      <div class="row">
-        <div class="col-xl-6">
-          <div class="section-title ">
+      <div class="w3-contact__grid">
+
+        <!-- LEFT: reach us -->
+        <aside class="w3-contact__aside">
+          <div class="section-title">
             <span class="section-title__tagline">{{t.contact.section-title-tagline.1}}</span>
             <h2 class="section-title__title">{{t.contact.section-title-title.1}}</h2>
           </div>
-          <div class="contact-info-card">
-            <h3 class="contact-info-card__name">{{t.footer.wanew_starlink_accessories_limited}}</h3>
-            <p class="contact-info-card__intro">{{t.contact.contact-info-card-intro.1}}</p>
-            <ul class="contact-info-list">
-              <li class="contact-info-list__item">
-                <span class="contact-info-list__label">{{t.body.form.email}}</span>
-                <a class="contact-info-list__value" href="mailto:hello@wanew.com">{{t.mobilenav.hello_wanew_com}}</a>
-              </li>
-              <li class="contact-info-list__item">
-                <span class="contact-info-list__label">{{t.contact.contact-info-list-label.2}}</span>
-                <span class="contact-info-list__value">{{t.contact.contact-info-list-value.2}}</span>
-              </li>
-              <li class="contact-info-list__item">
-                <span class="contact-info-list__label">{{t.contact.contact-info-list-label.3}}</span>
-                <span class="contact-info-list__value">{{t.contact.contact-info-list-value.3}}</span>
-              </li>
-            </ul>
-            <p class="contact-info-card__note">{{t.contact.contact-info-card-note.1}}</p>
+
+          <ul class="w3-cinfo">
+            <li class="w3-cinfo__row">
+              <span class="w3-cinfo__ic" aria-hidden="true">📍</span>
+              <span class="w3-cinfo__body"><span class="w3-cinfo__k">{{t.contact.label.address}}</span><span class="w3-cinfo__v">{{cfg.address}}</span></span>
+            </li>
+            <li class="w3-cinfo__row">
+              <span class="w3-cinfo__ic" aria-hidden="true">✉️</span>
+              <span class="w3-cinfo__body"><span class="w3-cinfo__k">{{t.body.form.email}}</span><a class="w3-cinfo__v w3-cinfo__link" href="mailto:{{cfg.email}}">{{cfg.email}}</a></span>
+            </li>
+            <li class="w3-cinfo__row">
+              <span class="w3-cinfo__ic" aria-hidden="true">🕐</span>
+              <span class="w3-cinfo__body"><span class="w3-cinfo__k">{{t.contact.label.hours}}</span><span class="w3-cinfo__v">{{cfg.hours}}</span></span>
+            </li>
+            <li class="w3-cinfo__row">
+              <span class="w3-cinfo__ic" aria-hidden="true">⏱️</span>
+              <span class="w3-cinfo__body"><span class="w3-cinfo__k">{{t.contact.label.response}}</span><span class="w3-cinfo__v">{{cfg.response}}</span></span>
+            </li>
+          </ul>
+
+          <!-- instant channels -->
+          <div class="w3-channels">
+            <a class="w3-channel w3-channel--wa" href="{{cfg.whatsapp_link}}" target="_blank" rel="noopener">
+              <span class="w3-channel__ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.16 8.16 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.25 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42l-.48-.01c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+              </span>
+              <span class="w3-channel__t">{{t.contact.channel.whatsapp}}</span>
+            </a>
+            <div class="w3-channel-wechat" data-wechat>
+              <button type="button" class="w3-channel w3-channel--wc" aria-haspopup="true" aria-expanded="false">
+                <span class="w3-channel__ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8.7 4.2C4.9 4.2 1.8 6.8 1.8 10c0 1.83 1.02 3.46 2.62 4.55l-.5 1.55 1.83-.94c.65.18 1.28.31 1.95.31.17 0 .35-.01.52-.02a4.7 4.7 0 0 1-.2-1.34c0-2.86 2.71-5.14 6.05-5.14.2 0 .4.01.6.03C14.13 6.2 11.7 4.2 8.7 4.2Zm-2.3 3.3a.86.86 0 1 1 0 1.72.86.86 0 0 1 0-1.72Zm4.55 0a.86.86 0 1 1 0 1.72.86.86 0 0 1 0-1.72Zm4.71 2.55c-2.86 0-5.19 1.95-5.19 4.37 0 2.43 2.33 4.38 5.19 4.38.6 0 1.17-.1 1.71-.26l1.56.86-.43-1.42c1.28-.94 2.09-2.32 2.09-3.56 0-2.42-2.33-4.37-5.19-4.37Zm-1.72 2.2a.72.72 0 1 1 0 1.44.72.72 0 0 1 0-1.44Zm3.44 0a.72.72 0 1 1 0 1.44.72.72 0 0 1 0-1.44Z"/></svg>
+                </span>
+                <span class="w3-channel__t">{{t.contact.channel.wechat}}</span>
+              </button>
+              <div class="w3-wechat-pop" hidden>
+                <img class="w3-wechat-pop__qr" src="{{cfg.wechat_qr}}" alt="{{t.contact.wechat.scan}}" width="180" height="229" loading="lazy">
+                <p class="w3-wechat-pop__scan">{{t.contact.wechat.scan}}</p>
+                <button type="button" class="w3-wechat-pop__copy" data-wechat-copy data-id="{{cfg.wechat_id}}">{{t.contact.wechat.copy}} · {{cfg.wechat_id}}</button>
+              </div>
+            </div>
+            <a class="w3-channel w3-channel--tel" href="tel:{{cfg.phone_tel}}">
+              <span class="w3-channel__ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/></svg>
+              </span>
+              <span class="w3-channel__t">{{cfg.phone_display}}</span>
+            </a>
           </div>
-        </div>
-        <div class="col-xl-6">
-          <div class="section-title "> <span class="section-title__tagline">{{t.contact.section-title-tagline.2}}</span>
+
+          <!-- trust strip (same figures as home) -->
+          <ul class="w3-ctrust">
+            <li><span class="w3-ctrust__v">{{t.contact.trust.years.v}}</span><span class="w3-ctrust__k">{{t.contact.trust.years.k}}</span></li>
+            <li><span class="w3-ctrust__v">{{t.contact.trust.patents.v}}</span><span class="w3-ctrust__k">{{t.contact.trust.patents.k}}</span></li>
+            <li><span class="w3-ctrust__v">{{t.contact.trust.cert.v}}</span><span class="w3-ctrust__k">{{t.contact.trust.cert.k}}</span></li>
+            <li><span class="w3-ctrust__v">{{t.contact.trust.wh.v}}</span><span class="w3-ctrust__k">{{t.contact.trust.wh.k}}</span></li>
+          </ul>
+
+          <!-- static, privacy-safe map card (no third-party request on load) -->
+          <a class="w3-cmap" href="{{cfg.map_link}}" target="_blank" rel="noopener">
+            <span class="w3-cmap__pin" aria-hidden="true">📍</span>
+            <span class="w3-cmap__body">
+              <span class="w3-cmap__hq">{{t.contact.map.hq}}</span>
+              <span class="w3-cmap__addr">{{cfg.address}}</span>
+              <span class="w3-cmap__cta">{{t.contact.map.view}} <span aria-hidden="true">→</span></span>
+            </span>
+          </a>
+        </aside>
+
+        <!-- RIGHT: message form (Web3Forms POST unchanged) -->
+        <div class="w3-contact__form">
+          <div class="section-title"><span class="section-title__tagline">{{t.contact.section-title-tagline.2}}</span>
             <h2 class="section-title__title">{{t.contact.section-title-title.2}}</h2>
           </div>
-          <div class="products-details-content" >
-            <div class="add-comments">
-                  <form id="wanew-contact-form" action="https://api.web3forms.com/submit" method="POST" class="inner-add-comments form-contact-2">
-                    <!-- Web3Forms wiring — public access key (client-side by design; inquiries land in the Web3Forms account inbox) -->
-                    <input type="hidden" name="access_key" value="680a6a34-0ed7-4c91-96a2-708d6d8a78f2">
-                    <input type="hidden" name="subject" value="New inquiry from Wanew.com">
-                    <input type="hidden" name="from_name" value="Wanew.com Contact Form">
-                    <!-- honeypot: real visitors leave this empty; bots tick it -->
-                    <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
-                    <div class="row gutters-20">
-                      <div class="col-md-6 inner-add-comments-box">
-                        <label for="company" class="sr-only">{{t.body.form.company}}</label>
-                        <input type="text" name="company" id="company" value="" class="form-control" placeholder="{{t.body.form.company}}" />
-                      </div>
-                      <div class="col-md-6 inner-add-comments-box">
-                        <label for="name" class="sr-only">{{t.body.form.name}}</label>
-                        <input type="text" name="name" id="name" value="" class="form-control" placeholder="{{t.body.ph.name}}" required />
-                      </div>
-                      <div class="col-md-6 inner-add-comments-box">
-                        <label for="phone" class="sr-only">{{t.body.form.phone}}</label>
-                        <input type="tel" name="phone" id="phone" value="" class="form-control" placeholder="{{t.contact.placeholder.3}}" />
-                      </div>
-                      <div class="col-md-6 inner-add-comments-box">
-                        <label for="email" class="sr-only">{{t.body.form.email}}</label>
-                        <input type="email" name="email" id="email" value="" class="form-control" placeholder="{{t.contact.placeholder.4}}" required />
-                      </div>
-                      <div class="col-md-12 inner-add-comments-box">
-                        <label for="message" class="sr-only">{{t.body.form.message}}</label>
-                        <textarea class="form-control" id="message" name="message" placeholder="{{t.body.ph.message}}" required></textarea>
-                      </div>
-                      <div class="col-12 form-group mb-0 pt-2">
-                        <button type="submit" class="btn-1 btn-3 submit" id="adminbuy_ly"><span>{{t.body.form.submit}}</span></button>
-                      </div>
-                    </div>
-                    <p id="wanew-form-status" class="wanew-form-status" role="status" aria-live="polite" hidden></p>
-                  </form>
-                </div>
-          </div>
+          <form id="wanew-contact-form" action="https://api.web3forms.com/submit" method="POST" class="w3-form">
+            <!-- Web3Forms wiring — public access key (client-side by design; inquiries land in the Web3Forms account inbox) -->
+            <input type="hidden" name="access_key" value="680a6a34-0ed7-4c91-96a2-708d6d8a78f2">
+            <input type="hidden" name="subject" value="New inquiry from Wanew.com">
+            <input type="hidden" name="from_name" value="Wanew.com Contact Form">
+            <!-- honeypot: real visitors leave this empty; bots tick it -->
+            <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="w3-form__grid">
+              <div class="w3-field w3-field--half">
+                <label for="company">{{t.body.form.company}}</label>
+                <input type="text" name="company" id="company" class="w3-input" placeholder="{{t.body.form.company}}">
+              </div>
+              <div class="w3-field w3-field--half">
+                <label for="name">{{t.body.form.name}}</label>
+                <input type="text" name="name" id="name" class="w3-input" placeholder="{{t.body.ph.name}}" required>
+              </div>
+              <div class="w3-field w3-field--half">
+                <label for="email">{{t.body.form.email}}</label>
+                <input type="email" name="email" id="email" class="w3-input" placeholder="{{t.contact.placeholder.4}}" required>
+              </div>
+              <div class="w3-field w3-field--half">
+                <label for="phone">{{t.body.form.phone}}</label>
+                <input type="tel" name="phone" id="phone" class="w3-input" placeholder="{{t.contact.placeholder.3}}">
+              </div>
+              <div class="w3-field w3-field--full">
+                <label for="inquiry_type">{{t.contact.inquiry.label}}</label>
+                <select name="inquiry_type" id="inquiry_type" class="w3-input w3-select">
+                  <option value="OEM / ODM">{{t.contact.inquiry.oem}}</option>
+                  <option value="Wholesale">{{t.contact.inquiry.wholesale}}</option>
+                  <option value="Samples">{{t.contact.inquiry.samples}}</option>
+                  <option value="Support">{{t.contact.inquiry.support}}</option>
+                </select>
+              </div>
+              <div class="w3-field w3-field--full">
+                <label for="message">{{t.body.form.message}}</label>
+                <textarea class="w3-input" id="message" name="message" placeholder="{{t.body.ph.message}}" required></textarea>
+              </div>
+              <div class="w3-field w3-field--full">
+                <button type="submit" class="w3-btn w3-btn--primary w3-form__submit"><span>{{t.body.form.submit}}</span></button>
+              </div>
+            </div>
+            <p id="wanew-form-status" class="wanew-form-status" role="status" aria-live="polite" hidden></p>
+          </form>
         </div>
+
       </div>
     </div>
   </section>
@@ -501,6 +558,6 @@ Wanew manufactures third-party Starlink-compatible accessories. Not affiliated w
 })();
 </script>
 
-<script src="/skin/js/w3.js?v=4" defer></script>
+<script src="/skin/js/w3.js?v=5" defer></script>
 </body>
 </html>
