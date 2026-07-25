@@ -87,7 +87,11 @@ body.w3-nav-locked { overflow: hidden; }
 
 .w3-section { padding: 96px 0; }
 .w3-section--tight { padding: 72px 0; }
-.w3-hairline-top { border-top: 1px solid var(--w3-line); }
+/* 板块分隔 = 空间 + 色调,禁 hairline rule(总工/Joe 定,世界级做法 Apple/Linear)。
+   旧的 `.w3-hairline-top` 细线全站移除;分段靠充足纵向留白(.w3-section 96px)+ 相邻板块极微妙
+   色调交替(base --w3-bg #0a0c0f ↔ surface --w3-bg2 #0e1114,靠色块边界读分段)。见 DESIGN.md §板块分隔。 */
+.w3-hairline-top { border-top: 0; }
+.w3-band--alt { background: var(--w3-bg2); }
 
 /* ---- buttons ----------------------------------------------------------- */
 .w3-btn {
@@ -793,7 +797,12 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
    ========================================================================== */
 
 /* --- generic content-page scaffolding --- */
-.blog-sidebar, .contact-page, .about-page, .xlc-section, .video-page { padding: 56px 0 96px; }
+/* ⚠️ `.about-page` 是 <body> 类,不能进这条"内容区上下留白"规则 —— 它会给 body 加 padding-top:56,
+   把整个 page-wrapper(含 .page-header hero)下推到固定 nav 下方,透明 nav 上方露出深色页底 =
+   Joe 三次看到的"信息页 nav 黑带"根因(不是渐变、不是 stricky-header,是 body 顶 padding)。
+   信息页 hero 靠自身 `.page-header` 的 top padding 避开 nav、内容区 .xlc-section 自带留白,body 无需顶 padding。
+   其余 16 信息页 <body> 无类本就 flush、正确。约束:新信息页 body 别加带顶 padding 的类。 */
+.blog-sidebar, .contact-page, .xlc-section, .video-page { padding: 56px 0 96px; }
 .blog-sidebar .container > .row, .contact-page .container > .row { display: grid; grid-template-columns: minmax(0,1fr); gap: clamp(28px,4vw,48px); }
 .blog-sidebar .container > .row { grid-template-columns: minmax(0, 2.6fr) minmax(240px, 1fr); }
 @media (max-width: 900px) { .blog-sidebar .container > .row { grid-template-columns: 1fr; } }

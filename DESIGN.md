@@ -131,6 +131,15 @@
 - 段落 15.5px/1.8 `--w3-text2`;表格强制 `width:100%`+横向滚动(旧 markup 有 `width="1400"` 会撑破);图 `max-width:100%`+12 圆角。
 - **迁移器** `scripts/skin-migrate.mjs`(幂等):换头 CSS/JS 全家桶→w3.css+w3.js、剥 h2 内联 style、平衡删侧栏 col、删 footer 重复 Organization JSON-LD(head 已有主的=L4)。加新长文页照此规范。
 
+### 3.2c 板块分隔 = 空间 + 色调(⛔ 禁 hairline rule)
+- 板块之间**不用细线**(总工/Joe 定,世界级做法 Apple/Linear=靠空间+色块,不靠线)。旧 `.w3-hairline-top` 已置 `border-top:0`。
+- 分段两招:**(a)** 充足统一纵向留白(`.w3-section` 96px / 移动 68px,成节奏);**(b)** 相邻板块极微妙色调交替 —— base `--w3-bg #0a0c0f` ↔ surface `--w3-bg2 #0e1114`,交替板块加 `.w3-band--alt`(=surface 底),靠色块边界读分段。
+- **⛔ 禁**:板块间 `border`/`hr`/细线分隔。
+
+### 3.2d 信息页 hero(`.page-header`)必须铺到最顶、延伸到 nav 背后
+- nav 是 `position:fixed` 透明 overlay(滚动才出玻璃底)——信息页 hero 要像首页一样**从视口 y=0 起、延伸到 nav 背后**,nav 透明浮其上。
+- 机制:hero `.page-header` 靠**自身 top padding**(`calc(--w3-header-h + 84px)`)让标题避开 nav;内容区 `.xlc-section` 自带上下留白。**⛔ 禁给 `<body>` 加顶 padding**(那会把整个 page-wrapper 下推到 nav 下方,透明 nav 上方露深色页底 = "nav 黑带" bug,踩过三次;根因是 body 顶 padding,不是 hero 渐变/不是 stricky-header)。新信息页 body 别挂带顶 padding 的类。
+
 ### 3.3 导航(chrome 单咽喉,DOM 由 `_chrome.html` 发出)
 - 顶栏固定 68px:透明起步,滚动 >12px(`html.w3-scrolled`)或 `body.w3-solid-header` 时落玻璃底+发丝下边。
 - 一级项 13.5px w500;hover/焦点 白字+微白底;**有下拉才有 caret**(CSS `:has` 自动)。
