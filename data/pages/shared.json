@@ -278,5 +278,25 @@
     "en": "Complete step-by-step guide to setting up Starlink Mini for RV camping. Equipment checklist, mounting, power, cable routing, and troubleshooting for reliable internet at any campsite.",
     "pt-BR": "Guia passo a passo completo para instalar a Starlink Mini no camping em motorhome. Checklist de equipamentos, fixação, energia, passagem de cabos e solução de problemas para internet confiável em qualquer acampamento.",
     "es-MX": "Guía completa paso a paso para instalar la Starlink Mini para acampar en casa rodante. Lista de equipo, montaje, alimentación, paso de cables y solución de problemas para tener internet confiable en cualquier campamento."
+  },
+  "shared.monthly_output_units": {
+    "en": "400,000–600,000",
+    "pt-BR": "400.000–600.000",
+    "es-MX": "400,000–600,000"
+  },
+  "shared.units_per_month": {
+    "en": "Units per month",
+    "pt-BR": "Unidades por mês",
+    "es-MX": "Unidades por mes"
+  },
+  "shared.us_warehouse": {
+    "en": "US warehouse",
+    "pt-BR": "Armazém nos EUA",
+    "es-MX": "Almacén en EE. UU."
+  },
+  "shared.local_stock_ddp": {
+    "en": "Local stock &amp; DDP",
+    "pt-BR": "Estoque local e DDP",
+    "es-MX": "Inventario local y DDP"
   }
 }

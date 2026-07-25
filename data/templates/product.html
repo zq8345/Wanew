@@ -1,94 +1,6 @@
 <!doctype html>
 <html lang="{{HTML_LANG}}">
 <head>
-<style>
-.sidebar__category-list li {
-  padding: 0px 0px;
-  margin-bottom: 0px;
-  border-radius: 0px;
-  transition: all 0.2s ease;
-.sidebar__category-list li.active-cat {
-  background-color: #2b3aa1 !important;
-  color: #fff !important;
-.sidebar__category-list li.active-cat a {
-  color: #fff !important;
-.single-blog-nav {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  margin-top: 50px !important;
-  padding: 20px 0 !important;
-  border-top: 1px solid #eee !important;
-  position: relative !important;
-  min-height: 160px !important;
-.blog-nav-prev {
-  display: flex !important;
-  align-items: center !important;
-  gap: 15px !important;
-  text-decoration: none !important;
-  color: #333 !important;
-.blog-nav-next {
-  display: flex !important;
-  align-items: center !important;
-  gap: 15px !important;
-  flex-direction: row-reverse !important;
-  text-decoration: none !important;
-  color: #333 !important;
-  position: absolute !important;
-  right: 0 !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  pointer-events: auto !important;
-.blog-nav-next .text-box {
-  text-align: right !important;
-.blog-nav-img {
-  width: 200px !important;
-  height: 150px !important;
-  object-fit: cover !important;
-  border-radius: 4px !important;
-  flex-shrink: 0 !important;
-.blog-nav-prev .text-box,
-.blog-nav-next .text-box {
-  display: flex !important;
-  flex-direction: column !important;
-.blog-nav-prev .subtitle,
-.blog-nav-next .subtitle {
-  font-size: 13px !important;
-  color: #666 !important;
-  margin-bottom: 5px !important;
-.blog-nav-prev .title,
-.blog-nav-next .title {
-  font-size: 15px !important;
-  font-weight: 500 !important;
-  color: #333 !important;
-.blog-nav-prev:hover,
-.blog-nav-next:hover {
-  color: #2b3aa1 !important;
-.blog-nav-prev:hover .title,
-.blog-nav-next:hover .title {
-  color: #2b3aa1 !important;
-.blog-nav-prev:hover .subtitle,
-.blog-nav-next:hover .subtitle {
-  color: #2b3aa1 !important;
-.product-category-tag {
-  font-size: 24px !important;
-  font-weight: bold !important;
-  color: #333 !important;
-  margin: 0 0 15px 0 !important;
-  display: block !important;
-  line-height: 1.4 !important;
-.swiper-button-next,
-.swiper-button-prev {
-  width: 40px !important;
-  height: 40px !important;
-  background: rgba(0,0,0,0.5) !important;
-  border-radius: 50% !important;
-  color: #fff !important;
-  z-index: 99 !important;
-.swiper-button-next:after,
-.swiper-button-prev:after {
-  font-size: 16px !important;
-</style>
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -201,917 +113,111 @@
 <meta name="twitter:description" content="{{META_DESC}}" />
 <meta name="twitter:image" content="/static/wanew-logo-black.png" />
 
-
-<link rel="preload" href="/skin/css/mibooz.css" as="style" />
-<link rel="preload" href="/skin/fonts/fa-solid-900-full.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/skin/fonts/icomoon.woff" as="font" type="font/woff" crossorigin />
-<link rel="stylesheet" href="/skin/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/skin/css/all.min.css" />
-<link rel="stylesheet" href="/skin/css/swiper.min.css" />
-<link rel="stylesheet" href="/skin/css/pro.css" />
-<link rel="stylesheet" href="/skin/css/jquery.magnific-popup.css" />
-<link rel="stylesheet" href="/skin/css/mibooz.css?v=5" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-<link rel="stylesheet" href="/skin/css/mibooz-responsive.css?v=5" />
-<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=57" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=2" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
-<body>
+<body class="w3-solid-header">
 <div class="page-wrapper">
 
-<header class="main-header clearfix">
-    <nav class="main-menu clearfix">
-      <div class="main-menu-wrapper">
-        <div class="main-menu-wrapper__logo"> <a href="/"><img src="/static/wanew-logo-white.png" alt="Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions"></a> </div>
-        
-        
-        <div class="main-menu-wrapper__main-menu"> <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
-          <ul class="main-menu__list">
-            <li><a href="/">Home</a></li>
+<header class="main-header clearfix"></header>
 
-            <li><a href="/products/" title="Products">Products</a>
-              <ul class="nav-dd-products">
-                <li><a href="/products/#mounts">Mounts &amp; Brackets <span class="nav-dd__n">19</span></a></li>
-                <li><a href="/products/#power">Power &amp; Charging <span class="nav-dd__n">5</span></a></li>
-                <li><a href="/products/#cables">Cables <span class="nav-dd__n">33</span></a></li>
-                <li><a href="/products/#networking">Networking <span class="nav-dd__n">4</span></a></li>
-                <li><a href="/products/#cases">Cases &amp; Protection <span class="nav-dd__n">3</span></a></li>
-                <li class="nav-dd__sep"><a href="/products/">All products <span class="nav-dd__n">64</span></a></li>
-                <li><a href="/products/">Shop by Starlink model <span class="nav-dd__n">&rarr;</span></a></li>
-              </ul>
-            </li>
-
-            <li><a href="/service/" title="Guides">Guides</a>
-              <ul>
-                <li><a href="/marine/">Marine</a></li>
-                <li><a href="/rv-off-grid/">RV / Off-Grid</a></li>
-                <li><a href="/mounts/">Mounts</a></li>
-                <li><a href="/industrial/">Industrial</a></li>
-                <li><a href="/power/">Power</a></li>
-                <li><a href="/hangye/">Industry Hub</a></li>
-              </ul>
-            </li>
-
-            <li><a href="/faq/" title="Support">Support</a>
-              <ul>
-                <li><a href="/faq/">FAQ</a></li>
-                <li><a href="/video/">Video</a></li>
-                <li><a href="/compatibility/">Compatibility Guide</a></li>
-              </ul>
-            </li>
-
-            <li><a href="/about/" title="Company">Company</a>
-              <ul>
-                <li><a href="/about/">About</a></li>
-                <li><a href="/contact/">Contact</a></li>
-                <li><a href="/certifications-testing/">Certifications & Testing</a></li>
-                <li><a href="/oem-odm-manufacturing/">OEM/ODM Manufacturing</a></li>
-                <li><a href="/patents-manufacturing/">Patents & Manufacturing Capacity</a></li>
-                <li><a href="/brand-affiliation-faq/">Brand & Affiliation FAQ</a></li>
-              </ul>
-            </li>
-          </ul>
-                     <div class="main-menu-wrapper__call">
-            
+  <section class="w3-pdp">
+    <div class="w3-container">
+      <nav class="w3-pdp__crumb"><a href="../products/">{{t.body.banner.title}}</a><span>/</span><span>{{CATEGORY}}</span></nav>
+      <div class="w3-pdp__grid">
+        <div class="w3-gallery">
+          <div class="product_feature_img_slider_2">
+            <div class="swiper-wrapper">{{GALLERY_MAIN}}</div>
+            <button type="button" class="swiper-button-prev" aria-label="{{t.body.gallery.prev}}"></button>
+            <button type="button" class="swiper-button-next" aria-label="{{t.body.gallery.next}}"></button>
+          </div>
+          <div class="product_thumb_slider_2">
+            <div class="swiper-wrapper">{{GALLERY_THUMB}}</div>
           </div>
         </div>
-      </div>
-    </nav>
-  </header>
-
-  <div class="stricky-header stricked-menu main-menu">
-    <div class="sticky-header__content"></div>
-  </div>
-  
-  <section class="page-header">
-    <div class="page-header-bg" style="background-image: url(/static/upload/image/20260507/1778150530392387.webp)"> </div>
-    <div class="container">
-      <div class="page-header__inner left">
-        <p class="page-header__title">{{t.body.banner.title}}</p>
-        <p class="page-header__subtitle">{{t.body.banner.subtitle}}</p>
-      </div>
-    </div>
-  </section>
-  
-  <section class="products-details huibg py-100-70">
-    <div class="container">
-      <div class="products-details-content">
-        <div class="row">
-          <div class="col-md-5">
-            <div class="product_view_slider pe-5">
-              <div class="product_feature_img_slider_2 swiper">
-                <div class="swiper-wrapper">{{GALLERY_MAIN}}</div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-              </div>
-              <div class="product_thumb_slider_2 swiper mt-3">
-                <div class="swiper-wrapper">{{GALLERY_THUMB}}</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-7">
-            <div class="text-box">
-              <span class="product-category-tag">{{t.body.category_label}}{{CATEGORY}}</span>
-              <h1 class="title-product">{{TITLE}}</h1>
-              {{SUMMARY_BLOCK}}
-              <div class="item-inputs">
-                <a class="thm-btn" href="#inquiry" id="contact-now-btn"><span>{{t.body.contact_now}}</span></a>
-                <a class="thm-btn is-secondary" href="javascript:history.back(-1)"><span>{{t.body.back}}</span></a>
-              </div>
-            </div>
+        <div class="w3-pdp__info">
+          <span class="product-category-tag">{{t.body.category_label}}{{CATEGORY}}</span>
+          <h1 class="title-product">{{TITLE}}</h1>
+          {{SUMMARY_BLOCK}}
+          <div class="item-inputs">
+            <a class="w3-btn w3-btn--primary" href="#inquiry" id="contact-now-btn">{{t.body.request_quote}} <span class="w3-arw">→</span></a>
+            <a class="w3-btn w3-btn--ghost" href="../products/">{{t.body.banner.title}}</a>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="products-details py-100-70">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="products-details-content">
-            <div class="product-description">
-              <div class="explain adminbuy_cn">{{DESCRIPTION}}</div>
-            </div>
-            <div class="product-inquiry" id="inquiry">
-                <h3 class="title-tab">{{t.body.send_inquiry}}</h3>
-                <p class="explain">{{t.body.inquiry_blurb}}</p>
-                <div class="add-comments">
-                  <form id="wanew-product-form" action="https://api.web3forms.com/submit" method="POST" class="inner-add-comments form-contact-2">
-                    <!-- Web3Forms — public access key (client-side by design); inquiries land in the Web3Forms inbox -->
-                    <input type="hidden" name="access_key" value="680a6a34-0ed7-4c91-96a2-708d6d8a78f2">
-                    <input type="hidden" name="subject" value="New product inquiry: {{TITLE}}">
-                    <input type="hidden" name="from_name" value="Wanew.com Product Inquiry">
-                    <input type="hidden" name="product" value="{{TITLE}}">
-                    <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
-                    <div class="row gutters-20">
-                      <div class="col-md-6 inner-add-comments-box">
-                        <label for="p_company" class="sr-only">{{t.body.form.company}}</label>{{t.body.form.company}}
-                        <input type="text" name="company" id="p_company" value="" class="form-control" placeholder="{{t.body.form.company}}" />
-                      </div>
-                      <div class="col-md-6 inner-add-comments-box">
-                        <label for="p_name" class="sr-only">{{t.body.form.name}}</label>{{t.body.form.name}}
-                        <input type="text" name="name" id="p_name" value="" class="form-control" placeholder="{{t.body.ph.name}}" required />
-                      </div>
-                      <div class="col-md-6 inner-add-comments-box">
-                        <label for="p_phone" class="sr-only">{{t.body.form.phone}}</label>{{t.body.form.phone}}
-                        <input type="tel" name="phone" id="p_phone" value="" class="form-control" placeholder="{{t.body.ph.phone}}" />
-                      </div>
-                      <div class="col-md-6 inner-add-comments-box">
-                        <label for="p_email" class="sr-only">{{t.body.form.email}}</label>
-                        <input type="email" name="email" id="p_email" value="" class="form-control" placeholder="{{t.body.ph.email}}" required />
-                      </div>
-                      <div class="col-md-12 inner-add-comments-box">
-                        <label for="p_message" class="sr-only">{{t.body.form.message}}</label>{{t.body.form.message}}
-                        <textarea class="form-control" id="p_message" name="message" placeholder="{{t.body.ph.message}}" required></textarea>
-                      </div>
-                      <div class="col-12 form-group mb-0 pt-2">
-                        <button type="submit" class="btn-1 btn-3 submit" id="adminbuy_ly"><span>{{t.body.form.submit}}</span></button>
-                      </div>
-                    </div>
-                    </form>
-                </div>
-            </div>
-          </div>
 
-                    <div class="related-products">
-            <h2 class="related-products__head">{{t.body.related_products}}</h2>
-            <div class="row">{{RELATED}}</div>
-          </div>
-        </div>
+  <section class="w3-desc">
+    <div class="w3-container">
+      <div class="w3-desc__panel">
+        <div class="explain adminbuy_cn">{{DESCRIPTION}}</div>
       </div>
     </div>
   </section>
-  <footer class="site-footer">
-    <div class="site-footer__middle">
-      <div class="container">
-        <div class="site-footer__middle-inner">
-          <div class="row">
-            <div class="col-lg-5 wow fadeInUp" data-wow-delay="300ms">
-              <div class="footer-widget__column footer-widget__newsletter">
-                <h3 class="footer-widget__title">Wanew Starlink Accessories</h3>
-                <div class="text"> Address:No. 62, Baotian 1st Road, Xixiang Street, Baoan District, Shenzhen, Guangdong Province, China<br>
-                  E-mail：hello@wanew.com<br>
-                  </div>
-              </div>
-            </div>
-            <div class="col-lg-7 pcblock wow fadeInUp" data-wow-delay="100ms">
-              <div class="row">
-                <div class="col-lg-4 wow fadeInUp" data-wow-delay="100ms">
-                  <div class="footer-widget__column footer-widget__contact">
-                    <h3 class="footer-widget__title" id="footer-products-title">Products</h3>
-                    <ul class="footer-widget__links-list list-unstyled clearfix" id="footer-products-list">
-                      <!-- 各语言的子分类由JS根据URL动态显示 -->
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                  <div class="footer-widget__column footer-widget__contact">
-                    <h3 class="footer-widget__title" id="footer-service-title">Guides</h3>
-                    <ul class="footer-widget__links-list list-unstyled clearfix" id="footer-service-list">
-                      <!-- 各语言的子分类由JS根据URL动态显示 -->
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                  <div class="footer-widget__column footer-widget__links clearfix">
-                    <h3 class="footer-widget__title" id="footer-other-title">Other menus</h3>
-                    <ul class="footer-widget__links-list list-unstyled clearfix">
-                       
-                      <li><a href="/about/">- About Us</a></li>
-                      
-                      <li><a href="/products/">- Products</a></li>
-                      
-                      <li><a href="/hangye/">- Industry</a></li>
-                      
-                      <li><a href="/service/">- Guides</a></li>
-                      
-                      <li><a href="/faq/">- FAQ</a></li>
-                      
-                      <li><a href="/video/">- Video</a></li>
-                      
-                      <li><a href="/contact/">- Contact Us</a></li>
-                      
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
+  <section class="w3-inquiry" id="inquiry">
+    <div class="w3-container">
+      <div class="w3-inquiry__panel">
+        <div class="w3-inquiry__intro">
+          <h3>{{t.body.send_inquiry}}</h3>
+          <p>{{t.body.inquiry_blurb}}</p>
         </div>
+        <form id="wanew-product-form" action="https://api.web3forms.com/submit" method="POST" class="w3-form">
+          <!-- Web3Forms — public access key (client-side by design); inquiries land in the Web3Forms inbox -->
+          <input type="hidden" name="access_key" value="680a6a34-0ed7-4c91-96a2-708d6d8a78f2">
+          <input type="hidden" name="subject" value="New product inquiry: {{TITLE}}">
+          <input type="hidden" name="from_name" value="Wanew.com Product Inquiry">
+          <input type="hidden" name="product" value="{{TITLE}}">
+          <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="w3-field-box">
+            <label for="p_company">{{t.body.form.company}}</label>
+            <input type="text" name="company" id="p_company" value="" placeholder="{{t.body.form.company}}" />
+          </div>
+          <div class="w3-field-box">
+            <label for="p_name">{{t.body.form.name}}</label>
+            <input type="text" name="name" id="p_name" value="" placeholder="{{t.body.ph.name}}" required />
+          </div>
+          <div class="w3-field-box">
+            <label for="p_phone">{{t.body.form.phone}}</label>
+            <input type="tel" name="phone" id="p_phone" value="" placeholder="{{t.body.ph.phone}}" />
+          </div>
+          <div class="w3-field-box">
+            <label for="p_email">{{t.body.form.email}}</label>
+            <input type="email" name="email" id="p_email" value="" placeholder="{{t.body.ph.email}}" required />
+          </div>
+          <div class="w3-field-box w3-field-box--full">
+            <label for="p_message">{{t.body.form.message}}</label>
+            <textarea id="p_message" name="message" placeholder="{{t.body.ph.message}}" required></textarea>
+          </div>
+          <div class="w3-form__actions">
+            <button type="submit" class="w3-btn w3-btn--primary" id="adminbuy_ly">{{t.body.form.submit}}</button>
+            <span id="wanew-product-status" class="wanew-form-status" hidden></span>
+          </div>
+        </form>
       </div>
     </div>
-    <div class="site-footer__bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-12">
-            <div class="site-footer__bottom-inner">
-              <p class="site-footer__bottom-text">Copyright  ©  2026 Wanew Starlink Accessories All Rights Reserved.
-Wanew manufactures third-party Starlink-compatible accessories. Not affiliated with SpaceX or Starlink.  <a href="/sitemap.xml" target="_blank">XML</a>  </p>
-            </div>
-          </div>
-        </div>
+  </section>
+
+  <section class="w3-related">
+    <div class="w3-container">
+      <div class="related-products">
+        <h2 class="related-products__head">{{t.body.related_products}}</h2>
+        <div class="row">{{RELATED}}</div>
       </div>
     </div>
-  </footer>
+  </section>
 
-<!-- 多语言页脚数据：所有语言的 Products 和 Service 子分类 -->
-<script>
-var FOOTER_LANGS = {
-  "en": {
-    "products_title": "Products",
-    "products": [
-      ["/standard-circular/", "Standard Circular"],
-      ["/standard-actuated/", "Standard Actuated"],
-      ["/standard/", "Standard"],
-      ["/mini/", "Mini"],
-      ["/performance-gen-1/", "Performance (Gen 1)"],
-      ["/performance-gen-3/", "Performance (Gen 3)"],
-      ["/enterprise/", "Enterprise"]
-    ],
-    "service_title": "Guides",
-    "service": [
-      ["/marine/", "Marine"],
-      ["/rv-off-grid/", "RV / Off-Grid"],
-      ["/mounts/", "Mounts"],
-      ["/industrial/", "Industrial"],
-      ["/power/", "Power"]
-    ],
-    "other_title": "Other menus"
-  },
-  "cn": {
-    "products_title": "Products",
-    "products": [
-      ["/standard-circular/", "Standard Circular"],
-      ["/standard-actuated/", "Standard Actuated"],
-      ["/standard/", "Standard"],
-      ["/mini/", "Mini"],
-      ["/performance-gen-1/", "Performance (Gen 1)"],
-      ["/performance-gen-3/", "Performance (Gen 3)"],
-      ["/enterprise/", "Enterprise"]
-    ],
-    "service_title": "Guides",
-    "service": [
-      ["/marine/", "Marine"],
-      ["/rv-off-grid/", "RV / Off-Grid"],
-      ["/mounts/", "Mounts"],
-      ["/industrial/", "Industrial"],
-      ["/power/", "Power"]
-    ],
-    "other_title": "Other menus"
-  },
-  "de": {
-    "products_title": "Produkte",
-    "products": [
-      ["/de-standard-circular/", "Standard-Kreislauf"],
-      ["/de-standard-actuated/", "Standard Bet&auml;tigt"],
-      ["/de-standard/", "Standard"],
-      ["/de-mini/", "Mini"],
-      ["/de-performance-gen-1/", "Leistung (Gen 1)"],
-      ["/de-enterprise/", "Unternehmen"],
-      ["/de-performance-gen-3/", "Leistung (Gen 3)"]
-    ],
-    "service_title": "Dienstleistungen",
-    "service": [
-      ["/de-marine/", "Marine"],
-      ["/de-rv-off-grid/", "Wohnmobil / Netzunabh&auml;ngig"],
-      ["/de-mounts/", "Halterungen"],
-      ["/de-industrial/", "Industrie"],
-      ["/de-power/", "Stromversorgung"]
-    ],
-    "other_title": "Weitere Men&uuml;s"
-  },
-  "fra": {
-    "products_title": "Produits",
-    "products": [
-      ["/fra-standard-circular/", "Circulaire Standard"],
-      ["/fra-standard-actuated/", "Standard Actionn&eacute;"],
-      ["/fra-standard/", "Standard"],
-      ["/fra-mini/", "Mini"],
-      ["/fra-performance-gen-1/", "Performance (Gen 1)"],
-      ["/fra-enterprise/", "Entreprise"],
-      ["/fra-performance-gen-3/", "Performance (Gen 3)"]
-    ],
-    "service_title": "Le Service",
-    "service": [
-      ["/fra-marine/", "Marine"],
-      ["/fra-rv-off-grid/", "Camping-Car / Hors-R&eacute;seau"],
-      ["/fra-mounts/", "Supports"],
-      ["/fra-industrial/", "Industriel"],
-      ["/fra-power/", "Alimentation"]
-    ],
-    "other_title": "Autres menus"
-  },
-  "spa": {
-    "products_title": "Productos",
-    "products": [
-      ["/spa-standard-circular/", "Circular Est&aacute;ndar"],
-      ["/spa-standard-actuated/", "Actuado Est&aacute;ndar"],
-      ["/spa-standard/", "Est&aacute;ndar"],
-      ["/spa-mini/", "Mini"],
-      ["/spa-performance-gen-1/", "Rendimiento (Gen 1)"],
-      ["/spa-enterprise/", "Empresa"],
-      ["/spa-performance-gen-3/", "Rendimiento (Gen 3)"]
-    ],
-    "service_title": "Servicio",
-    "service": [
-      ["/spa-marine/", "Marino"],
-      ["/spa-rv-off-grid/", "RV / Fuera de Red"],
-      ["/spa-mounts/", "Soportes"],
-      ["/spa-industrial/", "Industrial"],
-      ["/spa-power/", "Energ&iacute;a"]
-    ],
-    "other_title": "Otros men&uacute;s"
-  },
-  "it": {
-    "products_title": "Prodotti",
-    "products": [
-      ["/it-standard-circular/", "Circolare Standard"],
-      ["/it-standard-actuated/", "Attuato Standard"],
-      ["/it-standard/", "Standard"],
-      ["/it-mini/", "Mini"],
-      ["/it-performance-gen-1/", "Prestazioni (Gen 1)"],
-      ["/it-enterprise/", "Impresa"],
-      ["/it-performance-gen-3/", "Prestazioni (Gen 3)"]
-    ],
-    "service_title": "Servizio",
-    "service": [
-      ["/it-marine/", "Marino"],
-      ["/it-rv-off-grid/", "Camper / Fuori Rete"],
-      ["/it-mounts/", "Supporti"],
-      ["/it-industrial/", "Industriale"],
-      ["/it-power/", "Alimentazione"]
-    ],
-    "other_title": "Altri menu"
-  },
-  "pt": {
-    "products_title": "Produtos",
-    "products": [
-      ["/pt-standard-circular/", "Circular Padr&atilde;o"],
-      ["/pt-standard-actuated/", "Ativado Padr&atilde;o"],
-      ["/pt-standard/", "Padr&atilde;o"],
-      ["/pt-mini/", "Mini"],
-      ["/pt-performance-gen-1/", "Desempenho (Gen 1)"],
-      ["/pt-enterprise/", "Empresa"],
-      ["/pt-performance-gen-3/", "Desempenho (Gen 3)"]
-    ],
-    "service_title": "Servi&ccedil;o",
-    "service": [
-      ["/pt-marine/", "Marinho"],
-      ["/pt-rv-off-grid/", "RV / Fora da Rede"],
-      ["/pt-mounts/", "Suportes"],
-      ["/pt-industrial/", "Industrial"],
-      ["/pt-power/", "Alimenta&ccedil;&atilde;o"]
-    ],
-    "other_title": "Outros menus"
-  },
-  "pl": {
-    "products_title": "Produkty",
-    "products": [
-      ["/pl-standard-circular/", "Standardowy Okr&aogon;g&lstrok;y"],
-      ["/pl-standard-actuated/", "Standard Nap&eogon;dowy"],
-      ["/pl-standard/", "Standardowe"],
-      ["/pl-mini/", "Mini"],
-      ["/pl-performance-gen-1/", "Wydajno&sacute;&cacute; (Gen 1)"],
-      ["/pl-enterprise/", "Przedsi&eogon;biorstwo"],
-      ["/pl-performance-gen-3/", "Wydajno&sacute;&cacute; (Gen 3)"]
-    ],
-    "service_title": "Us&lstrok;uga",
-    "service": [
-      ["/pl-marine/", "Morski"],
-      ["/pl-rv-off-grid/", "Kamper / Poza Sieci&aogon;"],
-      ["/pl-mounts/", "Uchwyty"],
-      ["/pl-industrial/", "Przemys&lstrok;owy"],
-      ["/pl-power/", "Zasilanie"]
-    ],
-    "other_title": "Inne menu"
-  },
-  "nl": {
-    "products_title": "Producten",
-    "products": [
-      ["/nl-standard-circular/", "Standaard Circulair"],
-      ["/nl-standard-actuated/", "Standaard Aangedreven"],
-      ["/nl-standard/", "Standaard"],
-      ["/nl-mini/", "Mini"],
-      ["/nl-performance-gen-1/", "Prestaties (Gen 1)"],
-      ["/nl-enterprise/", "Onderneming"],
-      ["/nl-performance-gen-3/", "Prestaties (Gen 3)"]
-    ],
-    "service_title": "Dienst",
-    "service": [
-      ["/nl-marine/", "Marine"],
-      ["/nl-rv-off-grid/", "Camper / Off-Grid"],
-      ["/nl-mounts/", "Bevestigingen"],
-      ["/nl-industrial/", "Industrieel"],
-      ["/nl-power/", "Voeding"]
-    ],
-    "other_title": "Andere menu's"
-  },
-  "jp": {
-    "products_title": "\u88fd\u54c1",
-    "products": [
-      ["/jp-standard-circular/", "\u6a19\u6e96\u5186\u5f62"],
-      ["/jp-standard-actuated/", "\u6a19\u6e96\u8d77\u52d5"],
-      ["/jp-standard/", "\u6a19\u6e96"],
-      ["/jp-mini/", "\u30df\u30cb"],
-      ["/jp-performance-gen-1/", "\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\uff08\u7b2c1\u4e16\u4ee3\uff09"],
-      ["/jp-enterprise/", "\u4f01\u696d"],
-      ["/jp-performance-gen-3/", "\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\uff08\u7b2c3\u4e16\u4ee3\uff09"]
-    ],
-    "service_title": "\u30b5\u30fc\u30d3\u30b9",
-    "service": [
-      ["/jp-marine/", "\u30de\u30ea\u30f3"],
-      ["/jp-rv-off-grid/", "RV / \u30aa\u30d5\u30b0\u30ea\u30c3\u30c9"],
-      ["/jp-mounts/", "\u30de\u30a6\u30f3\u30c8"],
-      ["/jp-industrial/", "\u7523\u696d\u7528"],
-      ["/jp-power/", "\u96fb\u6e90"]
-    ],
-    "other_title": "\u305d\u306e\u4ed6\u306e\u30e1\u30cb\u30e5\u30fc"
-  },
-  "kor": {
-    "products_title": "\uc81c\ud488",
-    "products": [
-      ["/kor-standard-circular/", "\ud45c\uc900 \uc6d0\ud615"],
-      ["/kor-standard-actuated/", "\ud45c\uc900 \uc791\ub3d9"],
-      ["/kor-standard/", "\ud45c\uc900"],
-      ["/kor-mini/", "\ubbf8\ub2c8"],
-      ["/kor-performance-gen-1/", "\uc131\ub2a5 (Gen 1)"],
-      ["/kor-enterprise/", "\uae30\uc5c5"],
-      ["/kor-performance-gen-3/", "\uc131\ub2a5 (Gen 3)"]
-    ],
-    "service_title": "\uc11c\ube44\uc2a4",
-    "service": [
-      ["/kor-marine/", "\ud574\uc591"],
-      ["/kor-rv-off-grid/", "RV / \uc624\ud504\uadf8\ub9ac\ub4dc"],
-      ["/kor-mounts/", "\ub9c8\uc6b4\ud2b8"],
-      ["/kor-industrial/", "\uc0b0\uc5c5\uc6a9"],
-      ["/kor-power/", "\uc804\uc6d0"]
-    ],
-    "other_title": "\uae30\ud0c0 \uba54\ub274"
-  },
-  "th": {
-    "products_title": "\u0e1c\u0e25\u0e34\u0e15\u0e20\u0e31\u0e13\u0e11\u0e4c",
-    "products": [
-      ["/th-standard-circular/", "\u0e27\u0e07\u0e01\u0e25\u0e21\u0e21\u0e32\u0e15\u0e23\u0e10\u0e32\u0e19"],
-      ["/th-standard-actuated/", "\u0e02\u0e31\u0e1a\u0e40\u0e04\u0e25\u0e37\u0e48\u0e2d\u0e19\u0e21\u0e32\u0e15\u0e23\u0e10\u0e32\u0e19"],
-      ["/th-standard/", "\u0e21\u0e32\u0e15\u0e23\u0e10\u0e32\u0e19"],
-      ["/th-mini/", "\u0e21\u0e34\u0e19\u0e34"],
-      ["/th-performance-gen-1/", "\u0e01\u0e32\u0e23\u0e41\u0e2a\u0e14\u0e07 (Gen 1)"],
-      ["/th-enterprise/", "\u0e2d\u0e07\u0e04\u0e4c\u0e01\u0e23"],
-      ["/th-performance-gen-3/", "\u0e01\u0e32\u0e23\u0e41\u0e2a\u0e14\u0e07 (Gen 3)"]
-    ],
-    "service_title": "\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23",
-    "service": [
-      ["/th-marine/", "\u0e17\u0e32\u0e07\u0e17\u0e30\u0e40\u0e25"],
-      ["/th-rv-off-grid/", "RV / \u0e19\u0e2d\u0e01\u0e23\u0e30\u0e1a\u0e1a"],
-      ["/th-mounts/", "\u0e17\u0e35\u0e48\u0e22\u0e36\u0e14"],
-      ["/th-industrial/", "\u0e2d\u0e38\u0e15\u0e2a\u0e32\u0e2b\u0e01\u0e23\u0e23\u0e21"],
-      ["/th-power/", "\u0e1e\u0e25\u0e31\u0e07\u0e07\u0e32\u0e19"]
-    ],
-    "other_title": "\u0e40\u0e21\u0e19\u0e39\u0e2d\u0e37\u0e48\u0e19\u0e46"
-  },
-  "may": {
-    "products_title": "Produk",
-    "products": [
-      ["/may-standard-circular/", "Standard Zirkular"],
-      ["/may-standard-actuated/", "Standard Diaktifkan"],
-      ["/may-standard/", "Standard"],
-      ["/may-mini/", "Mini"],
-      ["/may-performance-gen-1/", "Persembahan (Gen 1)"],
-      ["/may-enterprise/", "Syarikat"],
-      ["/may-performance-gen-3/", "Persembahan (Gen 3)"]
-    ],
-    "service_title": "Perkhidmatan",
-    "service": [
-      ["/may-marine/", "Marin"],
-      ["/may-rv-off-grid/", "RV / Luar Grid"],
-      ["/may-mounts/", "Pemasangan"],
-      ["/may-industrial/", "Perindustrian"],
-      ["/may-power/", "Kuasa"]
-    ],
-    "other_title": "Menu Lain"
-  },
-  "vie": {
-    "products_title": "S\u1ea3n Ph\u1ea9m",
-    "products": [
-      ["/vie-standard-circular/", "Tu\u1ea7n Ho&agrave;n Ti&ecirc;u Chu\u1ea9n"],
-      ["/vie-standard-actuated/", "Ti&ecirc;u Chu\u1ea9n Ho\u1ea1t \u0111\u1ed9ng"],
-      ["/vie-standard/", "Ti&ecirc;u Chu\u1ea9n"],
-      ["/vie-mini/", "S\u1ea3n Ph\u1ea9m Mini"],
-      ["/vie-performance-gen-1/", "Hi\u1ec7u Su\u1ea5t (Gen 1)"],
-      ["/vie-enterprise/", "Doanh Nghi\u1ec7p"],
-      ["/vie-performance-gen-3/", "Hi\u1ec7u Su\u1ea5t (Gen 3)"]
-    ],
-    "service_title": "D\u1ecbch V\u1ee5",
-    "service": [
-      ["/vie-marine/", "H\u00e0ng H\u1ea3i"],
-      ["/vie-rv-off-grid/", "RV / Ngo\u00e0i L\u01b0\u1edbi"],
-      ["/vie-mounts/", "Gi\u00e1 \u0110\u1ee1"],
-      ["/vie-industrial/", "C\u00f4ng Nghi\u1ec7p"],
-      ["/vie-power/", "Ngu\u1ed3n \u0110i\u1ec7n"]
-    ],
-    "other_title": "Menu Kh\u00e1c"
-  },
-  "ara": {
-    "products_title": "\u0645\u0646\u062a\u062c\u0627\u062a",
-    "products": [
-      ["/ara-standard-circular/", "\u062f\u0627\u0626\u0631\u0629 \u0642\u064a\u0627\u0633\u064a\u0629"],
-      ["/ara-standard-actuated/", "\u0627\u0644\u0642\u064a\u0627\u0633\u064a\u0629 \u062a\u0639\u0645\u0644"],
-      ["/ara-standard/", "\u0642\u064a\u0627\u0633\u064a"],
-      ["/ara-mini/", "\u0645\u064a\u0646\u064a"],
-      ["/ara-performance-gen-1/", "\u0627\u0644\u0623\u062f\u0627\u0621 (\u0627\u0644\u062c\u064a\u0644 \u0627\u0644\u0623\u0648\u0644)"],
-      ["/ara-enterprise/", "\u0627\u0644\u0645\u0624\u0633\u0633\u0629"],
-      ["/ara-performance-gen-3/", "\u0627\u0644\u0623\u062f\u0627\u0621 (\u0627\u0644\u062c\u064a\u0644 \u0627\u0644\u062b\u0627\u0644\u062b)"]
-    ],
-    "service_title": "\u062e\u062f\u0645\u0629",
-    "service": [
-      ["/ara-marine/", "\u0628\u062d\u0631\u064a"],
-      ["/ara-rv-off-grid/", "\u0639\u0631\u0628\u0629 \u0633\u0643\u0646\u064a\u0629 / \u062e\u0627\u0631\u062c \u0627\u0644\u0634\u0628\u0643\u0629"],
-      ["/ara-mounts/", "\u062d\u0627\u0645\u0644\u0627\u062a"],
-      ["/ara-industrial/", "\u0635\u0646\u0627\u0639\u064a"],
-      ["/ara-power/", "\u0637\u0627\u0642\u0629"]
-    ],
-    "other_title": "\u0642\u0648\u0627\u0626\u0645 \u0623\u062e\u0631\u0649"
-  },
-  "hau": {
-    "products_title": "Kayan Aiki",
-    "products": [
-      ["/hau-standard-circular/", "Daidaitaccen Circular"],
-      ["/hau-standard-actuated/", "Daidaitaccen Aiki"],
-      ["/hau-standard/", "Tsarin"],
-      ["/hau-mini/", "Mini"],
-      ["/hau-performance-gen-1/", "Ayyukan (Gen 1)"],
-      ["/hau-enterprise/", "Kasuwanci"],
-      ["/hau-performance-gen-3/", "Ayyukan (Gen 3)"]
-    ],
-    "service_title": "Ayyuka",
-    "service": [
-      ["/hau-marine/", "Marine"],
-      ["/hau-rv-off-grid/", "RV / Waje"],
-      ["/hau-mounts/", "Matsara"],
-      ["/hau-industrial/", "Masana'antu"],
-      ["/hau-power/", "Wutar Lantarki"]
-    ],
-    "other_title": "Sauran menu"
-  },
-  "swa": {
-    "products_title": "Bidhaa",
-    "products": [
-      ["/swa-standard-circular/", "Mzunguko Wa Kiwango"],
-      ["/swa-standard-actuated/", "Kiwango Cha Kutekelezwa"],
-      ["/swa-standard/", "Kiwango"],
-      ["/swa-mini/", "Mini Ya"],
-      ["/swa-performance-gen-1/", "Utendaji (Gen 1)"],
-      ["/swa-enterprise/", "Kampuni"],
-      ["/swa-performance-gen-3/", "Utendaji (Gen 3)"]
-    ],
-    "service_title": "Huduma",
-    "service": [
-      ["/swa-marine/", "Bahari"],
-      ["/swa-rv-off-grid/", "RV / Nje ya Gridi"],
-      ["/swa-mounts/", "Viweko"],
-      ["/swa-industrial/", "Viwanda"],
-      ["/swa-power/", "Nguvu"]
-    ],
-    "other_title": "Menus zingine"
-  }
-};
+  <footer class="site-footer"></footer>
 
-// 从URL路径检测语言代码（如 /jp-xxx/ → 'jp', /de-xxx/ → 'de'）
-(function() {
-  var m = window.location.pathname.match(/^\/([a-z]{2,5})\-/);
-  var lang = m ? m[1] : 'en';
-  if (!FOOTER_LANGS[lang]) lang = 'en';
-  var data = FOOTER_LANGS[lang];
-
-  // 设置标题
-  document.getElementById('footer-products-title').textContent = data.products_title;
-  document.getElementById('footer-service-title').textContent = data.service_title;
-  document.getElementById('footer-other-title').textContent = data.other_title;
-
-  // 填充产品列表
-  var pList = document.getElementById('footer-products-list');
-  var pHtml = '';
-  for (var i = 0; i < data.products.length; i++) {
-    pHtml += '<li><a href="' + data.products[i][0] + '">- ' + data.products[i][1] + '</a></li>';
-  }
-  pList.innerHTML = pHtml;
-
-  // 填充服务列表
-  var sList = document.getElementById('footer-service-list');
-  var sHtml = '';
-  for (var i = 0; i < data.service.length; i++) {
-    sHtml += '<li><a href="' + data.service[i][0] + '">- ' + data.service[i][1] + '</a></li>';
-  }
-  sList.innerHTML = sHtml;
-})();
-</script>
-
-<!-- Structured Data: Organization -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://wanew.com/#organization",
-  "name": "Wanew Starlink Accessories",
-  "url": "https://wanew.com",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://wanew.com/static/wanew-logo-black.png"
-  },
-  "description": "Professional manufacturer of Starlink cable accessories, mounts, connectors and cable equipment since 2010.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "No. 62, Baotian 1st Road, Xixiang Street",
-    "addressLocality": "Shenzhen",
-    "addressRegion": "Guangdong",
-    "postalCode": "518000",
-    "addressCountry": "CN"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "sales",
-    "email": "hello@wanew.com",
-    "availableLanguage": ["English", "Chinese", "French", "German", "Spanish", "Italian", "Portuguese", "Polish", "Dutch", "Japanese", "Korean", "Thai", "Malay", "Vietnamese", "Arabic", "Swahili", "Hausa"]
-  },
-  "sameAs": [
-    "https://wanew.com"
-  ],
-  "foundingDate": "2010",
-  "numberOfEmployees": {
-    "@type": "QuantitativeValue",
-    "minValue": 150,
-    "maxValue": 200
-  }
-}
-</script>
-
-<!-- 多语言Home/首页客户端翻译（放在body尾部确保DOM已就绪） -->
-<script>
-(function() {
-  function getCookie(name) {
-    var match = document.cookie.match(new RegExp('(?:^|;\\s*)' + name + '=([^;]+)'));
-    return match ? match[1] : '';
-  }
-  var lg = getCookie('lg');
-  if (!lg) lg = 'cn';
-  var homeText = {
-    cn: 'Home',
-    de: 'Startseite',
-    fra: 'Accueil',
-    hau: 'Gida',
-    it: 'Home',
-    jp: '\u30db\u30fc\u30e0',
-    kor: '\ud648',
-    may: 'Utama',
-    nl: 'Home',
-    pl: 'Strona g\u0142\u00f3wna',
-    pt: 'In\u00edcio',
-    spa: 'Inicio',
-    swa: 'Nyumbani',
-    ara: '\u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629',
-    th: '\u0e2b\u0e19\u0e49\u0e32\u0e41\u0e23\u0e01',
-    vie: 'Trang ch\u1ee7'
-  };
-  var text = homeText[lg] || 'Home';
-  if (text !== 'Home') {
-    // 替换所有<a>链接中文本为"Home"或"首页"的
-    var links = document.querySelectorAll('a');
-    for (var i = 0; i < links.length; i++) {
-      var t = links[i].textContent.trim();
-      if (t === 'Home' || t === '\u9996\u9875') {
-        links[i].textContent = text;
-      }
-    }
-    // 替换JSON-LD Breadcrumb的"name":"Home"
-    var scripts = document.querySelectorAll('script[type="application/ld+json"]');
-    for (var j = 0; j < scripts.length; j++) {
-      try {
-        var data = JSON.parse(scripts[j].textContent);
-        if (data && data['@type'] === 'BreadcrumbList' && data.itemListElement) {
-          for (var k = 0; k < data.itemListElement.length; k++) {
-            if (data.itemListElement[k].name === 'Home') {
-              data.itemListElement[k].name = text;
-            }
-          }
-          scripts[j].textContent = JSON.stringify(data, null, 2);
-        }
-      } catch(e) {}
-    }
-    // 替换分页中的Home
-    var pItems = document.querySelectorAll('.page-item, .page-link');
-    for (var m = 0; m < pItems.length; m++) {
-      if (pItems[m].textContent.trim() === 'Home') {
-        pItems[m].textContent = text;
-      }
-    }
-  }
-})();
-</script>
 </div>
-<div class="mobile-nav__wrapper">
-  <div class="mobile-nav__overlay mobile-nav__toggler"></div>
-  <div class="mobile-nav__content"> <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
-    <div class="logo-box"> <a href="https://wanew.com/" aria-label="logo image"><img src="/static/wanew-logo-white.png" width="155" alt="Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions"/></a> </div>
-    <div class="mobile-nav__container"></div>
-    <ul class="mobile-nav__contact list-unstyled">
-      <li> <i class="fa fa-envelope"></i> <a href="mailto:hello@wanew.com">hello@wanew.com</a> </li>
-</ul>
-    <!-- /.mobile-nav__contact --> 
-  </div>
-  <!-- /.mobile-nav__content --> 
-</div>
-<a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a> 
-<script src="/skin/js/jquery-3.6.0.min.js"></script> 
-<script src="/skin/js/bootstrap.bundle.min.js" defer></script>
-<script src="/skin/js/jquery.magnific-popup.min.js" defer></script>
-<script src="/skin/js/wow.js" defer></script>
-<script src="/skin/js/swiper.min.js"></script>
-<script src="/skin/js/mibooz.js?v=6" defer></script>
-
-<script>
-// 幻灯片CSS背景图WebP替换 — 使CSS background-image也享受WebP压缩
-// CSS背景图不经过<img>标签，已有的WebP替换JS对它们无效
-(function() {
-  // 先检测浏览器是否支持WebP（复用已有检测逻辑）
-  function isWebPSupported() {
-    var img = new Image();
-    var supported = false;
-    img.onload = function() { supported = true; };
-    img.onerror = function() { supported = false; };
-    img.src = 'data:image/webp;base64,UklGRi4AAABXRUJQVlA4TCEAAAAvAUAAEB8wAiMw' +
-              'AgSSNtse/cXjxyCCmrYNWPwmHRH9jwAAAA==';
-    // 同步返回不可靠，改用异步检测
-    return null; // 未知
-  }
-  
-  // 页面加载完成后替换CSS背景图
-  function replaceSliderBgToWebP() {
-    // 检查浏览器是否支持WebP
-    var testImg = new Image();
-    testImg.onload = function() {
-      // WebP支持
-      document.querySelectorAll('.image-layer').forEach(function(el) {
-        var bg = el.style.backgroundImage;
-        if (bg && bg.match(/\.(jpg|jpeg|png)["']?\)/i)) {
-          el.style.backgroundImage = bg.replace(/\.(jpg|jpeg|png)(["']?\))/gi, '.webp$2');
-        }
-      });
-    };
-    testImg.onerror = function() {
-      // 不支持WebP，不替换
-    };
-    testImg.src = 'data:image/webp;base64,UklGRi4AAABXRUJQVlA4TCEAAAAvAUAAEB8wAiMw' +
-                  'AgSSNtse/cXjxyCCmrYNWPwmHRH9jwAAAA==';
-  }
-  
-  // DOM就绪后执行
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', replaceSliderBgToWebP);
-  } else {
-    replaceSliderBgToWebP();
-  }
-})();
-</script>
-
-<script>
-$(function() {
-     $(document).on('click', '.yvzhonga', function(e) {
-        e.preventDefault();
-        $('.yvul').toggle();   // 直接切换所有匹配元素
-    });
-	// 悬浮窗口
-	$(".yb_conct").hover(function() {
-		$(".yb_conct").css("right", "5px");
-		$(".yb_bar .yb_ercode").css('height', '200px');
-	}, function() {
-		$(".yb_conct").css("right", "-127px");
-		$(".yb_bar .yb_ercode").css('height', '53px');
-	});
-	// 返回顶部
-	$(".yb_top").click(function() {
-		$("html,body").animate({
-			'scrollTop': '0px'
-		}, 300)
-	});
-});
-</script>
-
-<script src="/skin/js/swiper.min.js"></script>
-<script src="/skin/js/counterup.js" defer></script>
-<script src="/skin/js/slick.js" defer></script>
-<script src="/skin/js/custom-scrollbar.js" defer></script>
-<script src="/skin/js/app.js" defer></script>
-
-<script>
-var productSlider = new Swiper('.product_feature_img_slider_2', {
-  loop: true,
-  spaceBetween: 10,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  thumbs: {
-    swiper: {
-      el: '.product_thumb_slider_2',
-      loop: true,
-      spaceBetween: 10,
-      slidesPerView: 4,
-      watchSlidesProgress: true,
-    }
-  }
-});
-
-document.addEventListener('DOMContentLoaded', function(){
-  const categoryList = document.getElementById('productCategoryList');
-  if (!categoryList) return;
-  const listItems = categoryList.querySelectorAll('li');
-  const currentPageUrl = window.location.href;
-  const currentCategoryName = document.querySelector('.product-category-tag').textContent.replace('{{t.body.category_label}}', '').trim();
-
-  listItems.forEach(item => {
-    const catLink = item.getAttribute('data-cat-link');
-    const catName = item.getAttribute('data-cat-name').trim();
-    if (currentPageUrl.includes(catLink) || catName === currentCategoryName) {
-      item.classList.add('active-cat');
-    }
-  });
-
-  const msgTextarea = document.getElementById('content');
-  const fixedPrefix = `Product: Suitable for Starlink Mini Router 4-Port Ethernet Adapter Network-specific Adapter Expansion Dock POE network box\nLink: https://wanew.com/mini/4199.html\n\n`;
-  const prefixLength = fixedPrefix.length;
-
-  msgTextarea.value = fixedPrefix;
-
-  msgTextarea.addEventListener('keydown', function(e) {
-    let cursorPos = this.selectionStart;
-    if(cursorPos <= prefixLength){
-      if(e.key === 'Backspace' || e.key === 'Delete' || e.key === 'ArrowLeft'){
-        e.preventDefault();
-      }
-    }
-  });
-
-  msgTextarea.addEventListener('selectstart', function(e) {
-    if(this.selectionStart < prefixLength){
-      e.preventDefault();
-      this.setSelectionRange(prefixLength, prefixLength);
-    }
-  });
-
-  msgTextarea.addEventListener('input', function() {
-    let inputVal = this.value;
-    if(!inputVal.startsWith(fixedPrefix)){
-      this.value = fixedPrefix + inputVal.slice(prefixLength);
-    }
-    if(this.selectionStart < prefixLength){
-      this.setSelectionRange(prefixLength, prefixLength);
-    }
-  });
-});
-</script>
+<div class="mobile-nav__wrapper"></div>
+<a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+<script src="/skin/js/w3.js?v=2" defer></script>
 
 <!-- Product Structured Data -->
 <script type="application/ld+json">{{JSONLD_PRODUCT}}</script>
@@ -1125,17 +231,17 @@ document.addEventListener('DOMContentLoaded', function(){
   var btn = form.querySelector('button[type="submit"]');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (status) { status.hidden = false; status.className = 'wanew-form-status is-pending'; status.textContent = 'Sending\u2026'; }
+    if (status) { status.hidden = false; status.className = 'wanew-form-status is-pending'; status.textContent = "{{t.contact.js.1}}"; }
     if (btn) { btn.disabled = true; }
     var data = new FormData(form);
     data.append('product_page', document.title + ' | ' + location.href);
     fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
       .then(function (res) { return res.json().then(function (j) { return { ok: res.ok, j: j }; }); })
       .then(function (r) {
-        if (r.ok && r.j.success) { form.reset(); if (status) { status.className = 'wanew-form-status is-success'; status.textContent = "Thank you \u2014 we'll reply within 1 business day."; } }
-        else { if (status) { status.className = 'wanew-form-status is-error'; status.textContent = "Sorry \u2014 we couldn't send your message. Please email hello@wanew.com."; } }
+        if (r.ok && r.j.success) { form.reset(); if (status) { status.className = 'wanew-form-status is-success'; status.textContent = "{{t.contact.js.2}}"; } }
+        else { if (status) { status.className = 'wanew-form-status is-error'; status.textContent = "{{t.contact.js.3}}"; } }
       })
-      .catch(function () { if (status) { status.className = 'wanew-form-status is-error'; status.textContent = "Network error \u2014 please email hello@wanew.com."; } })
+      .catch(function () { if (status) { status.className = 'wanew-form-status is-error'; status.textContent = "{{t.contact.js.4}}"; } })
       .then(function () { if (btn) { btn.disabled = false; } });
   });
 })();

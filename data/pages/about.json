@@ -90,16 +90,6 @@
     "pt-BR": "Fábrica padronizada",
     "es-MX": "Planta de producción estandarizada"
   },
-  "about.about-caps-k.2": {
-    "en": "400,000–600,000",
-    "pt-BR": "400.000–600.000",
-    "es-MX": "400,000–600,000"
-  },
-  "about.about-caps-v.2": {
-    "en": "Units per month",
-    "pt-BR": "Unidades por mês",
-    "es-MX": "Unidades por mes"
-  },
   "about.about-caps-k.3": {
     "en": "Automated",
     "pt-BR": "Automatizadas",
@@ -169,16 +159,6 @@
     "en": "Annual export revenue",
     "pt-BR": "Faturamento anual de exportação",
     "es-MX": "Ingresos anuales por exportación"
-  },
-  "about.tj-v.2": {
-    "en": "US warehouse",
-    "pt-BR": "Armazém nos EUA",
-    "es-MX": "Almacén en EE. UU."
-  },
-  "about.tj-l.2": {
-    "en": "Local stock &amp; DDP",
-    "pt-BR": "Estoque local e DDP",
-    "es-MX": "Inventario local y DDP"
   },
   "about.tj-v.3": {
     "en": "DHL &middot; FedEx",

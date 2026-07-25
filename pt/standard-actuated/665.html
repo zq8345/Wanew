@@ -1,94 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<style>
-.sidebar__category-list li {
-  padding: 0px 0px;
-  margin-bottom: 0px;
-  border-radius: 0px;
-  transition: all 0.2s ease;
-.sidebar__category-list li.active-cat {
-  background-color: #2b3aa1 !important;
-  color: #fff !important;
-.sidebar__category-list li.active-cat a {
-  color: #fff !important;
-.single-blog-nav {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  margin-top: 50px !important;
-  padding: 20px 0 !important;
-  border-top: 1px solid #eee !important;
-  position: relative !important;
-  min-height: 160px !important;
-.blog-nav-prev {
-  display: flex !important;
-  align-items: center !important;
-  gap: 15px !important;
-  text-decoration: none !important;
-  color: #333 !important;
-.blog-nav-next {
-  display: flex !important;
-  align-items: center !important;
-  gap: 15px !important;
-  flex-direction: row-reverse !important;
-  text-decoration: none !important;
-  color: #333 !important;
-  position: absolute !important;
-  right: 0 !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  pointer-events: auto !important;
-.blog-nav-next .text-box {
-  text-align: right !important;
-.blog-nav-img {
-  width: 200px !important;
-  height: 150px !important;
-  object-fit: cover !important;
-  border-radius: 4px !important;
-  flex-shrink: 0 !important;
-.blog-nav-prev .text-box,
-.blog-nav-next .text-box {
-  display: flex !important;
-  flex-direction: column !important;
-.blog-nav-prev .subtitle,
-.blog-nav-next .subtitle {
-  font-size: 13px !important;
-  color: #666 !important;
-  margin-bottom: 5px !important;
-.blog-nav-prev .title,
-.blog-nav-next .title {
-  font-size: 15px !important;
-  font-weight: 500 !important;
-  color: #333 !important;
-.blog-nav-prev:hover,
-.blog-nav-next:hover {
-  color: #2b3aa1 !important;
-.blog-nav-prev:hover .title,
-.blog-nav-next:hover .title {
-  color: #2b3aa1 !important;
-.blog-nav-prev:hover .subtitle,
-.blog-nav-next:hover .subtitle {
-  color: #2b3aa1 !important;
-.product-category-tag {
-  font-size: 24px !important;
-  font-weight: bold !important;
-  color: #333 !important;
-  margin: 0 0 15px 0 !important;
-  display: block !important;
-  line-height: 1.4 !important;
-.swiper-button-next,
-.swiper-button-prev {
-  width: 40px !important;
-  height: 40px !important;
-  background: rgba(0,0,0,0.5) !important;
-  border-radius: 50% !important;
-  color: #fff !important;
-  z-index: 99 !important;
-.swiper-button-next:after,
-.swiper-button-prev:after {
-  font-size: 16px !important;
-</style>
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -225,25 +137,14 @@
 <meta name="twitter:description" content="[Cabo Starlink Rectangular Satellite Gen2]Basta conectar este cabo de reposição Starlink de 50ft à sua antena e roteador Starlink Gen2 para uma configuração sem complicações. Possui design plug and play, economizando seu tempo e esforço. Projetado especificamente para substituir o cabo rectangular satellite v2." />
 <meta name="twitter:image" content="/static/wanew-logo-black.png" />
 
-
-<link rel="preload" href="/skin/css/mibooz.css" as="style" />
-<link rel="preload" href="/skin/fonts/fa-solid-900-full.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/skin/fonts/icomoon.woff" as="font" type="font/woff" crossorigin />
-<link rel="stylesheet" href="/skin/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/skin/css/all.min.css" />
-<link rel="stylesheet" href="/skin/css/swiper.min.css" />
-<link rel="stylesheet" href="/skin/css/pro.css" />
-<link rel="stylesheet" href="/skin/css/jquery.magnific-popup.css" />
-<link rel="stylesheet" href="/skin/css/mibooz.css?v=5" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-<link rel="stylesheet" href="/skin/css/mibooz-responsive.css?v=5" />
-<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=57" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=2" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
-<body>
+<body class="w3-solid-header">
 <div class="page-wrapper">
 
 <header class="main-header clearfix">
@@ -254,8 +155,6 @@
         
         <div class="main-menu-wrapper__main-menu"> <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
           <ul class="main-menu__list">
-            <li><a href="/pt/">Início</a></li>
-
             <li><a href="/pt/products/" title="Produtos">Produtos</a>
               <ul class="nav-dd-products">
                 <li><a href="/pt/products/#mounts">Suportes e Fixações <span class="nav-dd__n">(19)</span></a></li>
@@ -268,35 +167,36 @@
               </ul>
             </li>
 
-            <li><a href="/pt/service/" title="Guias">Guias</a>
+            <li><a href="/pt/hangye/" title="Soluções">Soluções</a>
               <ul>
                 <li><a href="/pt/marine/">Náutico</a></li>
                 <li><a href="/pt/rv-off-grid/">Motorhome / Off-Grid</a></li>
-                <li><a href="/pt/mounts/">Suportes</a></li>
                 <li><a href="/pt/industrial/">Industrial</a></li>
-                <li><a href="/pt/power/">Energia</a></li>
                 <li><a href="/pt/hangye/">Hub por Setor</a></li>
               </ul>
             </li>
 
-            <li><a href="/pt/faq/" title="Suporte">Suporte</a>
+            <li><a href="/pt/service/" title="Guias">Guias</a>
               <ul>
+                <li><a href="/pt/mounts/">Suportes</a></li>
+                <li><a href="/pt/power/">Energia</a></li>
+                <li><a href="/pt/compatibility/">Guia de Compatibilidade</a></li>
                 <li><a href="/pt/faq/">FAQ</a></li>
                 <li><a href="/pt/video/">Vídeos</a></li>
-                <li><a href="/pt/compatibility/">Guia de Compatibilidade</a></li>
               </ul>
             </li>
 
             <li><a href="/pt/about/" title="Empresa">Empresa</a>
               <ul>
                 <li><a href="/pt/about/">Sobre</a></li>
-                <li><a href="/pt/contact/">Contato</a></li>
                 <li><a href="/pt/certifications-testing/">Certificações e Testes</a></li>
                 <li><a href="/pt/oem-odm-manufacturing/">Fabricação OEM/ODM</a></li>
                 <li><a href="/pt/patents-manufacturing/">Patentes e Capacidade Fabril</a></li>
                 <li><a href="/pt/brand-affiliation-faq/">Marca e Afiliação (FAQ)</a></li>
               </ul>
             </li>
+
+            <li><a href="/pt/contact/" title="Contato">Contato</a></li>
           </ul>
           <div class="lang-switch" data-lang-switch>
             <button type="button" class="lang-switch__btn" aria-haspopup="true" aria-label="Selecionar idioma"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg><span>PT</span><svg class="lang-switch__caret" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
@@ -316,28 +216,13 @@
     </nav>
   </header>
 
-  <div class="stricky-header stricked-menu main-menu">
-    <div class="sticky-header__content"></div>
-  </div>
-  
-  <section class="page-header">
-    <div class="page-header-bg" style="background-image: url(/static/upload/image/20260507/1778150530392387.webp)"> </div>
-    <div class="container">
-      <div class="page-header__inner left">
-        <p class="page-header__title">Produtos</p>
-        <p class="page-header__subtitle">Acessórios compatíveis com Starlink para todas as gerações de terminal.</p>
-      </div>
-    </div>
-  </section>
-  
-  <section class="products-details huibg py-100-70">
-    <div class="container">
-      <div class="products-details-content">
-        <div class="row">
-          <div class="col-md-5">
-            <div class="product_view_slider pe-5">
-              <div class="product_feature_img_slider_2 swiper">
-                <div class="swiper-wrapper">
+  <section class="w3-pdp">
+    <div class="w3-container">
+      <nav class="w3-pdp__crumb"><a href="../products/">Produtos</a><span>/</span><span>Standard Actuated</span></nav>
+      <div class="w3-pdp__grid">
+        <div class="w3-gallery">
+          <div class="product_feature_img_slider_2">
+            <div class="swiper-wrapper">
                   <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/929a2aa6dd.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
                   <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/f83812bd45.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
                   <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/4af1a3b1ff.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
@@ -347,90 +232,91 @@
                   <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/47e946a01c.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
                   <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/adbccf7b9a.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-              </div>
-              <div class="product_thumb_slider_2 swiper mt-3">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/929a2aa6dd.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
-                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/f83812bd45.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
-                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/4af1a3b1ff.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
-                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/99dd287f19.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
-                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/946d5a389b.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
-                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/e5a87eb616.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
-                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/47e946a01c.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
-                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/adbccf7b9a.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
-                </div>
-              </div>
-            </div>
+            <button type="button" class="swiper-button-prev" aria-label="Imagem anterior"></button>
+            <button type="button" class="swiper-button-next" aria-label="Próxima imagem"></button>
           </div>
-          <div class="col-md-7">
-            <div class="text-box">
-              <span class="product-category-tag">Categoria: Standard Actuated</span>
-              <h1 class="title-product">Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink</h1>
-              
-              <div class="item-inputs">
-                <a class="thm-btn" href="#inquiry" id="contact-now-btn"><span>Fale conosco agora</span></a>
-                <a class="thm-btn is-secondary" href="javascript:history.back(-1)"><span>Voltar</span></a>
-              </div>
-            </div>
+          <div class="product_thumb_slider_2">
+            <div class="swiper-wrapper">
+                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/929a2aa6dd.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
+                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/f83812bd45.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
+                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/4af1a3b1ff.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
+                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/99dd287f19.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
+                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/946d5a389b.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
+                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/e5a87eb616.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
+                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/47e946a01c.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
+                  <div class="swiper-slide feedback-single bg-white position-relative rounded"><img src="https://img.tejoy.com/u_file/UPBH/UPBH843/2603/02/products/adbccf7b9a.jpg" alt="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink" class="img-fluid" loading="lazy"></div>
+                </div>
+          </div>
+        </div>
+        <div class="w3-pdp__info">
+          <span class="product-category-tag">Categoria: Standard Actuated</span>
+          <h1 class="title-product">Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink</h1>
+          
+          <div class="item-inputs">
+            <a class="w3-btn w3-btn--primary" href="#inquiry" id="contact-now-btn">Solicite um orçamento <span class="w3-arw">→</span></a>
+            <a class="w3-btn w3-btn--ghost" href="../products/">Produtos</a>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="products-details py-100-70">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="products-details-content">
-            <div class="product-description">
-              <div class="explain adminbuy_cn"><p><img/></p><ul><li><p>[Cabo Starlink Rectangular Satellite Gen2]Basta conectar este cabo de reposição Starlink de 50ft à sua antena e roteador Starlink Gen2 para uma configuração sem complicações. Possui design plug and play, economizando seu tempo e esforço. Projetado especificamente para substituir o cabo rectangular satellite v2, este cabo de extensão Starlink oferece encaixe perfeito para o seu sistema Starlink Gen 2, garantindo conectividade e desempenho ideais.</p></li><li><p>[<strong>Classificação CMR CMX &amp; 24AWG OFC</strong>]O cabo de reposição Starlink de 50 ft é feito de cobre livre de oxigênio de núcleo único 24AWG de alta qualidade, garantindo transferência de dados sem interrupções e excelente força de sinal. Cabo Starlink 24AWG, atendendo aos mais altos padrões da indústria em qualidade e desempenho. Com classificação CMX e CMR para maior segurança e proteção contra riscos de incêndio.</p></li><li><p>[Alta velocidade 1200Mbps]O cabo Starlink Gen 2 de 50ft, com taxa de transferência de dados de alta velocidade de até 1200Mbps, garante streaming suave e acesso à internet sem qualquer travamento ou interrupção. Observação: não deve haver folga entre o plástico curvo no topo do plugue e o pino metálico. Se houver, o plugue não está totalmente inserido.</p></li><li><p>[Enterramento direto &amp; resistente às intempéries]Nossos cabos Starlink podem ser enterrados diretamente. O cabo de reposição para satélite de 50ft resiste à luz solar direta e a climas extremamente frios &amp; úmidos &amp; quentes, ainda funcionando com eficiência. Resistente a UV, mais durável &amp; flexível para trabalhos pesados. O cabo Ethernet Starlink Gen 2 é adequado para uso externo e interno.</p></li><li><p>[Blindagem dupla &amp; anti-EMI] Com qualidade aprimorada no trançamento dos pares, o cabo Starlink de 50ft reduz ao máximo qualquer interferência de sinal. Permite que você assista vídeos em HD, ouça música, navegue na internet e jogue em velocidade máxima. O cabo rectangular satellite Starlink com blindagem dupla é supereficiente na redução de interferência EMI/RFI e oferece a mais alta fidelidade para transmissão de dados a longas distâncias.</p></li><li><p>[Atendimento ao cliente &amp; suporte]Em relação a problemas com o cabo de reposição Starlink de 50ft e outras questões, ajudaremos você a resolvê-los em até 10 horas. Observação: os dedos DEVEM pressionar a parte plástica central. Insira o cabo Starlink na antena enquanto pressiona.</p></li></ul><p><br/><strong>Volume de 150FT:33*25.5*16.5cm</strong><br/><br/></p></div>
-            </div>
-            <div class="product-inquiry" id="inquiry">
-                <h3 class="title-tab">Envie uma consulta</h3>
-                <p class="explain">Tem interesse neste produto? Deixe sua mensagem que responderemos o mais rápido possível.</p>
-                <div class="add-comments">
-                  <form id="wanew-product-form" action="https://api.web3forms.com/submit" method="POST" class="inner-add-comments form-contact-2">
-                    <!-- Web3Forms — public access key (client-side by design); inquiries land in the Web3Forms inbox -->
-                    <input type="hidden" name="access_key" value="680a6a34-0ed7-4c91-96a2-708d6d8a78f2">
-                    <input type="hidden" name="subject" value="New product inquiry: Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink">
-                    <input type="hidden" name="from_name" value="Wanew.com Product Inquiry">
-                    <input type="hidden" name="product" value="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink">
-                    <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
-                    <div class="row gutters-20">
-                      <div class="col-md-6 inner-add-comments-box">
-                        <label for="p_company" class="sr-only">Nome da empresa</label>Nome da empresa
-                        <input type="text" name="company" id="p_company" value="" class="form-control" placeholder="Nome da empresa" />
-                      </div>
-                      <div class="col-md-6 inner-add-comments-box">
-                        <label for="p_name" class="sr-only">Nome</label>Nome
-                        <input type="text" name="name" id="p_name" value="" class="form-control" placeholder="Seu nome" required />
-                      </div>
-                      <div class="col-md-6 inner-add-comments-box">
-                        <label for="p_phone" class="sr-only">Telefone</label>Telefone
-                        <input type="tel" name="phone" id="p_phone" value="" class="form-control" placeholder="Seu telefone" />
-                      </div>
-                      <div class="col-md-6 inner-add-comments-box">
-                        <label for="p_email" class="sr-only">E-mail</label>
-                        <input type="email" name="email" id="p_email" value="" class="form-control" placeholder="Seu e-mail" required />
-                      </div>
-                      <div class="col-md-12 inner-add-comments-box">
-                        <label for="p_message" class="sr-only">Mensagem</label>Mensagem
-                        <textarea class="form-control" id="p_message" name="message" placeholder="Sua mensagem" required></textarea>
-                      </div>
-                      <div class="col-12 form-group mb-0 pt-2">
-                        <button type="submit" class="btn-1 btn-3 submit" id="adminbuy_ly"><span>Enviar</span></button>
-                      </div>
-                    </div>
-                    </form>
-                </div>
-            </div>
-          </div>
 
-                    <div class="related-products">
-            <h2 class="related-products__head">Produtos relacionados</h2>
-            <div class="row">
+  <section class="w3-desc">
+    <div class="w3-container">
+      <div class="w3-desc__panel">
+        <div class="explain adminbuy_cn"><p><img/></p><ul><li><p>[Cabo Starlink Rectangular Satellite Gen2]Basta conectar este cabo de reposição Starlink de 50ft à sua antena e roteador Starlink Gen2 para uma configuração sem complicações. Possui design plug and play, economizando seu tempo e esforço. Projetado especificamente para substituir o cabo rectangular satellite v2, este cabo de extensão Starlink oferece encaixe perfeito para o seu sistema Starlink Gen 2, garantindo conectividade e desempenho ideais.</p></li><li><p>[<strong>Classificação CMR CMX &amp; 24AWG OFC</strong>]O cabo de reposição Starlink de 50 ft é feito de cobre livre de oxigênio de núcleo único 24AWG de alta qualidade, garantindo transferência de dados sem interrupções e excelente força de sinal. Cabo Starlink 24AWG, atendendo aos mais altos padrões da indústria em qualidade e desempenho. Com classificação CMX e CMR para maior segurança e proteção contra riscos de incêndio.</p></li><li><p>[Alta velocidade 1200Mbps]O cabo Starlink Gen 2 de 50ft, com taxa de transferência de dados de alta velocidade de até 1200Mbps, garante streaming suave e acesso à internet sem qualquer travamento ou interrupção. Observação: não deve haver folga entre o plástico curvo no topo do plugue e o pino metálico. Se houver, o plugue não está totalmente inserido.</p></li><li><p>[Enterramento direto &amp; resistente às intempéries]Nossos cabos Starlink podem ser enterrados diretamente. O cabo de reposição para satélite de 50ft resiste à luz solar direta e a climas extremamente frios &amp; úmidos &amp; quentes, ainda funcionando com eficiência. Resistente a UV, mais durável &amp; flexível para trabalhos pesados. O cabo Ethernet Starlink Gen 2 é adequado para uso externo e interno.</p></li><li><p>[Blindagem dupla &amp; anti-EMI] Com qualidade aprimorada no trançamento dos pares, o cabo Starlink de 50ft reduz ao máximo qualquer interferência de sinal. Permite que você assista vídeos em HD, ouça música, navegue na internet e jogue em velocidade máxima. O cabo rectangular satellite Starlink com blindagem dupla é supereficiente na redução de interferência EMI/RFI e oferece a mais alta fidelidade para transmissão de dados a longas distâncias.</p></li><li><p>[Atendimento ao cliente &amp; suporte]Em relação a problemas com o cabo de reposição Starlink de 50ft e outras questões, ajudaremos você a resolvê-los em até 10 horas. Observação: os dedos DEVEM pressionar a parte plástica central. Insira o cabo Starlink na antena enquanto pressiona.</p></li></ul><p><br/><strong>Volume de 150FT:33*25.5*16.5cm</strong><br/><br/></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="w3-inquiry" id="inquiry">
+    <div class="w3-container">
+      <div class="w3-inquiry__panel">
+        <div class="w3-inquiry__intro">
+          <h3>Envie uma consulta</h3>
+          <p>Tem interesse neste produto? Deixe sua mensagem que responderemos o mais rápido possível.</p>
+        </div>
+        <form id="wanew-product-form" action="https://api.web3forms.com/submit" method="POST" class="w3-form">
+          <!-- Web3Forms — public access key (client-side by design); inquiries land in the Web3Forms inbox -->
+          <input type="hidden" name="access_key" value="680a6a34-0ed7-4c91-96a2-708d6d8a78f2">
+          <input type="hidden" name="subject" value="New product inquiry: Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink">
+          <input type="hidden" name="from_name" value="Wanew.com Product Inquiry">
+          <input type="hidden" name="product" value="Cabo para Starlink Gen 2 30FT 75FT 100FT 150FT, 24AWG Classificado CMX CMR, Cabo de Reposição Starlink 1200Mbps, Cabo Ethernet de Extensão Starlink">
+          <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="w3-field-box">
+            <label for="p_company">Nome da empresa</label>
+            <input type="text" name="company" id="p_company" value="" placeholder="Nome da empresa" />
+          </div>
+          <div class="w3-field-box">
+            <label for="p_name">Nome</label>
+            <input type="text" name="name" id="p_name" value="" placeholder="Seu nome" required />
+          </div>
+          <div class="w3-field-box">
+            <label for="p_phone">Telefone</label>
+            <input type="tel" name="phone" id="p_phone" value="" placeholder="Seu telefone" />
+          </div>
+          <div class="w3-field-box">
+            <label for="p_email">E-mail</label>
+            <input type="email" name="email" id="p_email" value="" placeholder="Seu e-mail" required />
+          </div>
+          <div class="w3-field-box w3-field-box--full">
+            <label for="p_message">Mensagem</label>
+            <textarea id="p_message" name="message" placeholder="Sua mensagem" required></textarea>
+          </div>
+          <div class="w3-form__actions">
+            <button type="submit" class="w3-btn w3-btn--primary" id="adminbuy_ly">Enviar</button>
+            <span id="wanew-product-status" class="wanew-form-status" hidden></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="w3-related">
+    <div class="w3-container">
+      <div class="related-products">
+        <h2 class="related-products__head">Produtos relacionados</h2>
+        <div class="row">
               <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="blog-one__single">
                   <a href="/pt/standard-actuated/659">
@@ -464,11 +350,10 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
+
   <footer class="site-footer">
     <div class="site-footer__middle">
       <div class="container">
@@ -538,50 +423,6 @@ A Wanew fabrica acessórios de terceiros compatíveis com Starlink. Não é afil
     </div>
   </footer>
 
-
-
-
-<!-- Structured Data: Organization -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://wanew.com/#organization",
-  "name": "Wanew Starlink Accessories",
-  "url": "https://wanew.com",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://wanew.com/static/wanew-logo-black.png"
-  },
-  "description": "Professional manufacturer of Starlink cable accessories, mounts, connectors and cable equipment since 2010.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "No. 62, Baotian 1st Road, Xixiang Street",
-    "addressLocality": "Shenzhen",
-    "addressRegion": "Guangdong",
-    "postalCode": "518000",
-    "addressCountry": "CN"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "sales",
-    "email": "hello@wanew.com",
-    "availableLanguage": ["English", "Chinese", "French", "German", "Spanish", "Italian", "Portuguese", "Polish", "Dutch", "Japanese", "Korean", "Thai", "Malay", "Vietnamese", "Arabic", "Swahili", "Hausa"]
-  },
-  "sameAs": [
-    "https://wanew.com"
-  ],
-  "foundingDate": "2010",
-  "numberOfEmployees": {
-    "@type": "QuantitativeValue",
-    "minValue": 150,
-    "maxValue": 200
-  }
-}
-</script>
-
-
-
 </div>
 <div class="mobile-nav__wrapper">
   <div class="mobile-nav__overlay mobile-nav__toggler"></div>
@@ -595,155 +436,8 @@ A Wanew fabrica acessórios de terceiros compatíveis com Starlink. Não é afil
   </div>
   <!-- /.mobile-nav__content --> 
 </div>
-<a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a> 
-<script src="/skin/js/jquery-3.6.0.min.js"></script> 
-<script src="/skin/js/bootstrap.bundle.min.js" defer></script>
-<script src="/skin/js/jquery.magnific-popup.min.js" defer></script>
-<script src="/skin/js/wow.js" defer></script>
-<script src="/skin/js/swiper.min.js"></script>
-<script src="/skin/js/mibooz.js?v=6" defer></script>
-
-<script>
-// 幻灯片CSS背景图WebP替换 — 使CSS background-image也享受WebP压缩
-// CSS背景图不经过<img>标签，已有的WebP替换JS对它们无效
-(function() {
-  // 先检测浏览器是否支持WebP（复用已有检测逻辑）
-  function isWebPSupported() {
-    var img = new Image();
-    var supported = false;
-    img.onload = function() { supported = true; };
-    img.onerror = function() { supported = false; };
-    img.src = 'data:image/webp;base64,UklGRi4AAABXRUJQVlA4TCEAAAAvAUAAEB8wAiMw' +
-              'AgSSNtse/cXjxyCCmrYNWPwmHRH9jwAAAA==';
-    // 同步返回不可靠，改用异步检测
-    return null; // 未知
-  }
-  
-  // 页面加载完成后替换CSS背景图
-  function replaceSliderBgToWebP() {
-    // 检查浏览器是否支持WebP
-    var testImg = new Image();
-    testImg.onload = function() {
-      // WebP支持
-      document.querySelectorAll('.image-layer').forEach(function(el) {
-        var bg = el.style.backgroundImage;
-        if (bg && bg.match(/\.(jpg|jpeg|png)["']?\)/i)) {
-          el.style.backgroundImage = bg.replace(/\.(jpg|jpeg|png)(["']?\))/gi, '.webp$2');
-        }
-      });
-    };
-    testImg.onerror = function() {
-      // 不支持WebP，不替换
-    };
-    testImg.src = 'data:image/webp;base64,UklGRi4AAABXRUJQVlA4TCEAAAAvAUAAEB8wAiMw' +
-                  'AgSSNtse/cXjxyCCmrYNWPwmHRH9jwAAAA==';
-  }
-  
-  // DOM就绪后执行
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', replaceSliderBgToWebP);
-  } else {
-    replaceSliderBgToWebP();
-  }
-})();
-</script>
-
-<script>
-$(function() {
-     $(document).on('click', '.yvzhonga', function(e) {
-        e.preventDefault();
-        $('.yvul').toggle();   // 直接切换所有匹配元素
-    });
-	// 悬浮窗口
-	$(".yb_conct").hover(function() {
-		$(".yb_conct").css("right", "5px");
-		$(".yb_bar .yb_ercode").css('height', '200px');
-	}, function() {
-		$(".yb_conct").css("right", "-127px");
-		$(".yb_bar .yb_ercode").css('height', '53px');
-	});
-	// 返回顶部
-	$(".yb_top").click(function() {
-		$("html,body").animate({
-			'scrollTop': '0px'
-		}, 300)
-	});
-});
-</script>
-
-<script src="/skin/js/swiper.min.js"></script>
-<script src="/skin/js/counterup.js" defer></script>
-<script src="/skin/js/slick.js" defer></script>
-<script src="/skin/js/custom-scrollbar.js" defer></script>
-<script src="/skin/js/app.js" defer></script>
-
-<script>
-var productSlider = new Swiper('.product_feature_img_slider_2', {
-  loop: true,
-  spaceBetween: 10,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  thumbs: {
-    swiper: {
-      el: '.product_thumb_slider_2',
-      loop: true,
-      spaceBetween: 10,
-      slidesPerView: 4,
-      watchSlidesProgress: true,
-    }
-  }
-});
-
-document.addEventListener('DOMContentLoaded', function(){
-  const categoryList = document.getElementById('productCategoryList');
-  if (!categoryList) return;
-  const listItems = categoryList.querySelectorAll('li');
-  const currentPageUrl = window.location.href;
-  const currentCategoryName = document.querySelector('.product-category-tag').textContent.replace('Categoria: ', '').trim();
-
-  listItems.forEach(item => {
-    const catLink = item.getAttribute('data-cat-link');
-    const catName = item.getAttribute('data-cat-name').trim();
-    if (currentPageUrl.includes(catLink) || catName === currentCategoryName) {
-      item.classList.add('active-cat');
-    }
-  });
-
-  const msgTextarea = document.getElementById('content');
-  const fixedPrefix = `Product: Suitable for Starlink Mini Router 4-Port Ethernet Adapter Network-specific Adapter Expansion Dock POE network box\nLink: https://wanew.com/mini/4199.html\n\n`;
-  const prefixLength = fixedPrefix.length;
-
-  msgTextarea.value = fixedPrefix;
-
-  msgTextarea.addEventListener('keydown', function(e) {
-    let cursorPos = this.selectionStart;
-    if(cursorPos <= prefixLength){
-      if(e.key === 'Backspace' || e.key === 'Delete' || e.key === 'ArrowLeft'){
-        e.preventDefault();
-      }
-    }
-  });
-
-  msgTextarea.addEventListener('selectstart', function(e) {
-    if(this.selectionStart < prefixLength){
-      e.preventDefault();
-      this.setSelectionRange(prefixLength, prefixLength);
-    }
-  });
-
-  msgTextarea.addEventListener('input', function() {
-    let inputVal = this.value;
-    if(!inputVal.startsWith(fixedPrefix)){
-      this.value = fixedPrefix + inputVal.slice(prefixLength);
-    }
-    if(this.selectionStart < prefixLength){
-      this.setSelectionRange(prefixLength, prefixLength);
-    }
-  });
-});
-</script>
+<a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+<script src="/skin/js/w3.js?v=2" defer></script>
 
 <!-- Product Structured Data -->
 <script type="application/ld+json">
@@ -775,17 +469,17 @@ document.addEventListener('DOMContentLoaded', function(){
   var btn = form.querySelector('button[type="submit"]');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (status) { status.hidden = false; status.className = 'wanew-form-status is-pending'; status.textContent = 'Sending\u2026'; }
+    if (status) { status.hidden = false; status.className = 'wanew-form-status is-pending'; status.textContent = "Enviando…"; }
     if (btn) { btn.disabled = true; }
     var data = new FormData(form);
     data.append('product_page', document.title + ' | ' + location.href);
     fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
       .then(function (res) { return res.json().then(function (j) { return { ok: res.ok, j: j }; }); })
       .then(function (r) {
-        if (r.ok && r.j.success) { form.reset(); if (status) { status.className = 'wanew-form-status is-success'; status.textContent = "Thank you \u2014 we'll reply within 1 business day."; } }
-        else { if (status) { status.className = 'wanew-form-status is-error'; status.textContent = "Sorry \u2014 we couldn't send your message. Please email hello@wanew.com."; } }
+        if (r.ok && r.j.success) { form.reset(); if (status) { status.className = 'wanew-form-status is-success'; status.textContent = "Obrigado — responderemos em até 1 dia útil."; } }
+        else { if (status) { status.className = 'wanew-form-status is-error'; status.textContent = "Desculpe — não foi possível enviar sua mensagem agora. Envie um e-mail para hello@wanew.com e responderemos imediatamente."; } }
       })
-      .catch(function () { if (status) { status.className = 'wanew-form-status is-error'; status.textContent = "Network error \u2014 please email hello@wanew.com."; } })
+      .catch(function () { if (status) { status.className = 'wanew-form-status is-error'; status.textContent = "Erro de rede — envie um e-mail para hello@wanew.com e retornaremos imediatamente."; } })
       .then(function () { if (btn) { btn.disabled = false; } });
   });
 })();

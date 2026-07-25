@@ -51,7 +51,7 @@
   },
   "home.p.1": {
     "en": "We focus on Starlink ecosystem accessories, precisely addressing user pain points and delivering high-fit, high-stability solutions.",
-    "pt-BR": "Focamos nos acessórios do ecossistema Starlink, resolvendo com precisão as dores dos usuários e entregando soluções de alto encaixe e alta estabilidade.",
+    "pt-BR": "Focamos nos acessórios do ecossistema Starlink, resolvendo com precisão as necessidades reais dos usuários e entregando soluções de encaixe preciso e alta estabilidade.",
     "es-MX": "Nos enfocamos en los accesorios del ecosistema Starlink, resolviendo con precisión los problemas reales de los usuarios y entregando soluciones de alta compatibilidad y alta estabilidad."
   },
   "home.h3.2": {
@@ -174,5 +174,115 @@
     "en": "View all guides →",
     "pt-BR": "Ver todos os guias →",
     "es-MX": "Ver todas las guías →"
+  },
+  "home.hero.eyebrow": {
+    "en": "Independent manufacturer · OEM/ODM",
+    "pt-BR": "Fabricante independente · OEM/ODM",
+    "es-MX": "Fabricante independiente · OEM/ODM"
+  },
+  "home.trust.cert.v": {
+    "en": "FCC · CE · RoHS",
+    "pt-BR": "FCC · CE · RoHS",
+    "es-MX": "FCC · CE · RoHS"
+  },
+  "home.trust.cert.k": {
+    "en": "Tested &amp; certified",
+    "pt-BR": "Testado e certificado",
+    "es-MX": "Probado y certificado"
+  },
+  "home.field.h2": {
+    "en": "Field-proven, wherever you run Starlink",
+    "pt-BR": "Comprovado em campo, onde quer que você use Starlink",
+    "es-MX": "Probado en campo, dondequiera que uses Starlink"
+  },
+  "home.field.sub": {
+    "en": "From boats and RVs to farms and job sites — accessories built for real-world installs.",
+    "pt-BR": "De barcos e motorhomes a fazendas e canteiros de obra — acessórios feitos para instalações reais.",
+    "es-MX": "De embarcaciones y casas rodantes a granjas y obras — accesorios hechos para instalaciones reales."
+  },
+  "home.cta.h2": {
+    "en": "Sourcing Starlink accessories at scale?",
+    "pt-BR": "Procurando acessórios para Starlink no atacado?",
+    "es-MX": "¿Buscas accesorios para Starlink al por mayor?"
+  },
+  "home.cta.sub": {
+    "en": "Tell us your Starlink models and volumes — our team replies within one business day.",
+    "pt-BR": "Informe seus modelos de Starlink e volumes — nossa equipe responde em até um dia útil.",
+    "es-MX": "Cuéntanos tus modelos de Starlink y volúmenes — nuestro equipo responde en un día hábil."
+  },
+  "home.cta.talk": {
+    "en": "Talk to an engineer",
+    "pt-BR": "Fale com um engenheiro",
+    "es-MX": "Habla con un ingeniero"
+  },
+  "home.hero.serving": {
+    "en": "Serving Starlink users in 130+ countries — mounts, cables, power and networking for every terminal generation.",
+    "pt-BR": "Atendemos usuários Starlink em mais de 130 países — suportes, cabos, energia e redes para todas as gerações de terminal.",
+    "es-MX": "Atendemos a usuarios de Starlink en más de 130 países — soportes, cables, energía y redes para todas las generaciones de terminal."
+  },
+  "home.scene.rv": {
+    "en": "RV",
+    "pt-BR": "Motorhome",
+    "es-MX": "Casa rodante"
+  },
+  "home.scene.home_roof": {
+    "en": "Home &amp; Roof",
+    "pt-BR": "Casa e telhado",
+    "es-MX": "Hogar y techo"
+  },
+  "home.scene.offgrid": {
+    "en": "Off-Grid",
+    "pt-BR": "Off-grid",
+    "es-MX": "Off-grid"
+  },
+  "home.scene.business": {
+    "en": "Business",
+    "pt-BR": "Empresas",
+    "es-MX": "Empresas"
+  },
+  "home.entry.compat": {
+    "en": "Not sure which Starlink you have? Check the compatibility guide",
+    "pt-BR": "Não sabe qual Starlink você tem? Veja o guia de compatibilidade",
+    "es-MX": "¿No sabes cuál Starlink tienes? Consulta la guía de compatibilidad"
+  },
+  "home.products.kick": {
+    "en": "Featured",
+    "pt-BR": "Em destaque",
+    "es-MX": "Destacados"
+  },
+  "home.products.h2": {
+    "en": "Popular products",
+    "pt-BR": "Produtos populares",
+    "es-MX": "Productos populares"
+  },
+  "home.scene.rv.line": {
+    "en": "Reliable internet on every road trip.",
+    "pt-BR": "Internet confiável em cada viagem de estrada.",
+    "es-MX": "Internet confiable en cada viaje por carretera."
+  },
+  "home.scene.marine.line": {
+    "en": "Stay connected offshore and at anchor.",
+    "pt-BR": "Fique conectado no mar e ao ancorar.",
+    "es-MX": "Mantente conectado en altamar y al anclar."
+  },
+  "home.scene.home_roof.line": {
+    "en": "Whole-home coverage, cleanly installed.",
+    "pt-BR": "Cobertura para toda a casa, instalação limpa.",
+    "es-MX": "Cobertura para todo el hogar, instalación limpia."
+  },
+  "home.scene.offgrid.line": {
+    "en": "Power and signal where the grid ends.",
+    "pt-BR": "Energia e sinal onde a rede acaba.",
+    "es-MX": "Energía y señal donde termina la red."
+  },
+  "home.scene.business.line": {
+    "en": "Enterprise-grade uptime for every site.",
+    "pt-BR": "Disponibilidade empresarial para cada local.",
+    "es-MX": "Disponibilidad empresarial para cada sitio."
+  },
+  "home.cert.label": {
+    "en": "Certified & tested",
+    "pt-BR": "Certificado e testado",
+    "es-MX": "Certificado y probado"
   }
 }

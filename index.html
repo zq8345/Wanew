@@ -139,21 +139,11 @@
 <meta name="twitter:description" content="Wanew is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX." />
 <meta name="twitter:image" content="/static/wanew-logo-black.png" />
 
-
-<link rel="preload" href="/skin/css/mibooz.css" as="style" />
-<link rel="preload" href="/skin/fonts/fa-solid-900-full.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/skin/fonts/icomoon.woff" as="font" type="font/woff" crossorigin />
-<link rel="stylesheet" href="/skin/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/skin/css/all.min.css" />
-<link rel="stylesheet" href="/skin/css/swiper.min.css" />
-<link rel="stylesheet" href="/skin/css/pro.css" />
-<link rel="stylesheet" href="/skin/css/jquery.magnific-popup.css" />
-<link rel="stylesheet" href="/skin/css/mibooz.css?v=5" />
+<link rel="preload" as="image" href="/static/upload/image/hero-montana-dusk.webp" fetchpriority="high" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-<link rel="stylesheet" href="/skin/css/mibooz-responsive.css?v=5" />
-<link rel="stylesheet" href="/skin/css/tejoy-redesign.css?v=57" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=2" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -168,8 +158,6 @@
         
         <div class="main-menu-wrapper__main-menu"> <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
           <ul class="main-menu__list">
-            <li><a href="/">Home</a></li>
-
             <li><a href="/products/" title="Products">Products</a>
               <ul class="nav-dd-products">
                 <li><a href="/products/#mounts">Mounts &amp; Brackets <span class="nav-dd__n">(19)</span></a></li>
@@ -182,35 +170,36 @@
               </ul>
             </li>
 
-            <li><a href="/service/" title="Guides">Guides</a>
+            <li><a href="/hangye/" title="Solutions">Solutions</a>
               <ul>
                 <li><a href="/marine/">Marine</a></li>
                 <li><a href="/rv-off-grid/">RV / Off-Grid</a></li>
-                <li><a href="/mounts/">Mounts</a></li>
                 <li><a href="/industrial/">Industrial</a></li>
-                <li><a href="/power/">Power</a></li>
                 <li><a href="/hangye/">Industry Hub</a></li>
               </ul>
             </li>
 
-            <li><a href="/faq/" title="Support">Support</a>
+            <li><a href="/service/" title="Guides">Guides</a>
               <ul>
+                <li><a href="/mounts/">Mounts</a></li>
+                <li><a href="/power/">Power</a></li>
+                <li><a href="/compatibility/">Compatibility Guide</a></li>
                 <li><a href="/faq/">FAQ</a></li>
                 <li><a href="/video/">Video</a></li>
-                <li><a href="/compatibility/">Compatibility Guide</a></li>
               </ul>
             </li>
 
             <li><a href="/about/" title="Company">Company</a>
               <ul>
                 <li><a href="/about/">About</a></li>
-                <li><a href="/contact/">Contact</a></li>
                 <li><a href="/certifications-testing/">Certifications & Testing</a></li>
                 <li><a href="/oem-odm-manufacturing/">OEM/ODM Manufacturing</a></li>
                 <li><a href="/patents-manufacturing/">Patents & Manufacturing Capacity</a></li>
                 <li><a href="/brand-affiliation-faq/">Brand & Affiliation FAQ</a></li>
               </ul>
             </li>
+
+            <li><a href="/contact/" title="Contact">Contact</a></li>
           </ul>
           <div class="lang-switch" data-lang-switch>
             <button type="button" class="lang-switch__btn" aria-haspopup="true" aria-label="Select language"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg><span>EN</span><svg class="lang-switch__caret" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
@@ -230,42 +219,82 @@
     </nav>
   </header>
 
-  <div class="stricky-header stricked-menu main-menu">
-    <div class="sticky-header__content"></div>
-  </div>
-  <section class="hero-single">
-    <div class="hero-single__bg" style="background-image: url(/static/upload/image/hero-montana-dusk.webp);"></div>
-    <div class="container">
-      <div class="hero-single__inner">
-        <h1 class="hero-single__title">Starlink Accessories One-stop Solution</h1>
-        <p class="hero-single__subtitle">Accessories for every Starlink model — mounts, cables, power adapters, and more.</p>
-        <a class="hero-single__cta" href="/products/">Browse products</a>
+  <!-- Hero -->
+  <section class="w3-hero">
+    <div class="w3-hero__bg" style="background-image: url(/static/upload/image/hero-montana-dusk.webp);"></div>
+    <div class="w3-hero__inner">
+      <div class="w3-container">
+        <div class="w3-hero__content">
+          <span class="w3-eyebrow">Independent manufacturer · OEM/ODM</span>
+          <h1 class="w3-h1 w3-hero__title">Starlink Accessories One-stop Solution</h1>
+          <p class="w3-hero__sub">Serving Starlink users in 130+ countries — mounts, cables, power and networking for every terminal generation.</p>
+          <div class="w3-hero__cta">
+            <a class="w3-btn w3-btn--primary" href="/contact/">Request a quote <span class="w3-arw">→</span></a>
+            <a class="w3-btn w3-btn--ghost" href="/products/">Browse products</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  <!--Hero End-->
-  
 
-<div class="indextitle">
-  <div class="container">
-    <div class="tj-sechead">
-      <div class="tj-kick">Shop</div>
-      <h2 class="tj-h2">Our Products</h2>
-      <div class="tj-rule"></div>
-      <p class="tj-sub">Starlink-compatible accessories for every terminal generation — mounts, cables, power adapters, and more.</p>
+  <!-- Trust strip: every figure is signed site copy (about/certifications pages) -->
+  <div class="w3-trust">
+    <div class="w3-container">
+      <div class="w3-trust__grid">
+        <div class="w3-trust__item"><span class="w3-trust__v">15 Years</span><span class="w3-trust__k">Manufacturing Experience</span></div>
+        <div class="w3-trust__item"><span class="w3-trust__v">200+ Patents</span><span class="w3-trust__k">Invention & Utility Patents</span></div>
+        <div class="w3-trust__item"><span class="w3-trust__v">400,000–600,000</span><span class="w3-trust__k">Units per month</span></div>
+        <div class="w3-trust__item"><span class="w3-trust__v">US warehouse</span><span class="w3-trust__k">Local stock &amp; DDP</span></div>
+        <div class="w3-trust__item"><span class="w3-trust__v">FCC · CE · RoHS</span><span class="w3-trust__k">Tested &amp; certified</span></div>
+      </div>
     </div>
   </div>
-</div>
 
-<section class="every-stage">
-  <div class="container-fluid p-0">
-    <div class="row g-0 m-0">
-      <div class="col-12 p-0">
-      
+  <!-- Product showcase (real product photography) -->
+  <section class="w3-section">
+    <div class="w3-container">
+      <div class="w3-sechead w3-sechead--row" data-w3-reveal>
+        <div>
+          <span class="w3-eyebrow">Featured</span>
+          <h2 class="w3-h2">Popular products</h2>
+        </div>
+        <a class="w3-link-arrow" href="/products/">All products</a>
+      </div>
+      <div class="w3-pstrip" data-w3-reveal="2">
+        <a class="w3-pstrip__card" href="/mini/692">
+            <div class="w3-pstrip__img"><img src="/static/upload/down/StarlinkMiniUSBCtoDCAdapter5.jpg" alt="For Starlink Mini Type C to DC Adapter Waterproof Compatible with Original Starlink Mini USB C Power Cable 65W+ PD Source DC Power Adapter - wanew Products" loading="lazy"></div>
+            <div class="w3-pstrip__title">For Starlink Mini Type C to DC Adapter Waterproof Compatible with Original Starlink Mini USB C Power Cable 65W+ PD Source DC Power Adapter</div>
+          </a>
+          <a class="w3-pstrip__card" href="/mini/694">
+            <div class="w3-pstrip__img"><img src="/static/upload/down/a20257a41f.jpg" alt="For Starlink Mini Carry Bag, Travel Shoulder Bag with Shoulder Strap for Starlink Mini Dish Kit, 600D Heavy Duty Oxford Cloth, Shockproof Portable Storage Briefcase Handbag for Outdoor, Camping, Sailing - wanew Products" loading="lazy"></div>
+            <div class="w3-pstrip__title">For Starlink Mini Carry Bag, Travel Shoulder Bag with Shoulder Strap for Starlink Mini Dish Kit, 600D Heavy Duty Oxford Cloth, Shockproof Portable Storage Briefcase Handbag for Outdoor, Camping, Sailing</div>
+          </a>
+          <a class="w3-pstrip__card" href="/mini/684">
+            <div class="w3-pstrip__img"><img src="/static/upload/down/1632b03ab7.jpg" alt="Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount - wanew Products" loading="lazy"></div>
+            <div class="w3-pstrip__title">Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount</div>
+          </a>
+          <a class="w3-pstrip__card" href="/mini/688">
+            <div class="w3-pstrip__img"><img src="/static/upload/down/169450f984.jpg" alt="For Starlink Mini Mount Car Mount fit 1.1-1.7 - wanew Products" loading="lazy"></div>
+            <div class="w3-pstrip__title">For Starlink Mini Mount Car Mount fit 1.1-1.7</div>
+          </a>
+          <a class="w3-pstrip__card" href="/mini/690">
+            <div class="w3-pstrip__img"><img src="/static/upload/down/24a706af4a.jpg" alt="For Starlink Mini Pole Mount Dish Adapter up to D1 1/2 - wanew Products" loading="lazy"></div>
+            <div class="w3-pstrip__title">For Starlink Mini Pole Mount Dish Adapter up to D1 1/2</div>
+          </a>
+      </div>
+    </div>
+  </section>
 
-        <div class="product-grid-full">
-          
-          <div class="product-grid-item">
+  <!-- Shop by Starlink model -->
+  <section class="w3-section w3-hairline-top">
+    <div class="w3-container">
+      <div class="w3-sechead" data-w3-reveal>
+        <span class="w3-eyebrow">Shop</span>
+        <h2 class="w3-h2">Shop by Starlink model</h2>
+        <p class="w3-sub">Starlink-compatible accessories for every terminal generation — mounts, cables, power adapters, and more.</p>
+      </div>
+      <div class="product-grid-full" data-w3-reveal="2">
+        <div class="product-grid-item">
             <a href="/standard-circular/" class="product-grid-link">
               <div class="product-grid-img">
                 <img src="/static/upload/image/20260424/1777029286188901.png" alt="Standard Circular - wanew product category" loading="lazy">
@@ -336,209 +365,127 @@
               <div class="product-grid-text"><b>Enterprise</b></div>
             </a>
           </div>
-          </div>
-          
+      </div>
+      <div class="w3-typerail" data-w3-reveal="3">
+        <a class="w3-typecard" href="/type/mounts/"><span>Mounts &amp; Brackets</span></a>
+        <a class="w3-typecard" href="/type/power/"><span>Power &amp; Charging</span></a>
+        <a class="w3-typecard" href="/type/cables/"><span>Cables</span></a>
+        <a class="w3-typecard" href="/type/networking/"><span>Networking</span></a>
+        <a class="w3-typecard" href="/type/cases/"><span>Cases &amp; Protection</span></a>
+      </div>
+      <div class="w3-viewall" data-w3-reveal><a class="w3-link-arrow" href="/compatibility/">Not sure which Starlink you have? Check the compatibility guide</a></div>
+    </div>
+  </section>
+
+  <!-- Field-proven: user-controlled scenario tabs (no auto-rotate) -->
+  <section class="w3-fieldcar w3-hairline-top">
+    <div class="w3-container">
+      <div class="w3-sechead" data-w3-reveal>
+        <span class="w3-eyebrow">Solutions</span>
+        <h2 class="w3-h2">Field-proven, wherever you run Starlink</h2>
+        <p class="w3-sub">From boats and RVs to farms and job sites — accessories built for real-world installs.</p>
+      </div>
+      <div class="w3-scenetabs" role="tablist" aria-label="Solutions" data-w3-scenes data-w3-reveal="2">
+        <button type="button" class="w3-scenetab is-active" role="tab" aria-selected="true" data-scene="0">RV</button>
+        <button type="button" class="w3-scenetab" role="tab" aria-selected="false" data-scene="1">Marine</button>
+        <button type="button" class="w3-scenetab" role="tab" aria-selected="false" data-scene="2">Home &amp; Roof</button>
+        <button type="button" class="w3-scenetab" role="tab" aria-selected="false" data-scene="3">Off-Grid</button>
+        <button type="button" class="w3-scenetab" role="tab" aria-selected="false" data-scene="4">Business</button>
       </div>
     </div>
-  </div>
-</section>
+    <div class="w3-scenestage" data-w3-scenes-stage data-w3-reveal="2">
+      <a class="w3-scene-panel is-active" data-scene="0" href="/rv-off-grid/" style="background-image: url(/static/upload/image/20260507/1778150530392387.webp);">
+        <div class="w3-scene-panel__cap"><span class="w3-eyebrow">RV</span><p class="w3-scene-panel__line">Reliable internet on every road trip.</p><span class="w3-link-arrow">Read more</span></div>
+      </a>
+      <a class="w3-scene-panel" data-scene="1" href="/marine/" style="background-image: url(/static/upload/image/20260507/1778150549229990.webp);">
+        <div class="w3-scene-panel__cap"><span class="w3-eyebrow">Marine</span><p class="w3-scene-panel__line">Stay connected offshore and at anchor.</p><span class="w3-link-arrow">Read more</span></div>
+      </a>
+      <a class="w3-scene-panel" data-scene="2" href="/mounts/" style="background-image: url(/static/upload/image/20260507/1778150152627003.webp);">
+        <div class="w3-scene-panel__cap"><span class="w3-eyebrow">Home &amp; Roof</span><p class="w3-scene-panel__line">Whole-home coverage, cleanly installed.</p><span class="w3-link-arrow">Read more</span></div>
+      </a>
+      <a class="w3-scene-panel" data-scene="3" href="/power/" style="background-image: url(/static/upload/image/20260507/1778150186553168.webp);">
+        <div class="w3-scene-panel__cap"><span class="w3-eyebrow">Off-Grid</span><p class="w3-scene-panel__line">Power and signal where the grid ends.</p><span class="w3-link-arrow">Read more</span></div>
+      </a>
+      <a class="w3-scene-panel" data-scene="4" href="/industrial/" style="background-image: url(/static/upload/image/20260507/1778150284268926.webp);">
+        <div class="w3-scene-panel__cap"><span class="w3-eyebrow">Business</span><p class="w3-scene-panel__line">Enterprise-grade uptime for every site.</p><span class="w3-link-arrow">Read more</span></div>
+      </a>
+    </div>
+  </section>
 
-
-<style>
-/* 满屏布局核心：无任何边距 */
-.product-grid-full {
-  display: flex;
-  flex-wrap: nowrap;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* 每一项等宽平分满屏 + 中间间距加大 10px */
-.product-grid-item {
-  flex: 1;
-  padding: 0 16px; /* 原来 6px → 现在 16px，间距加大10px */
-}
-
-.product-grid-link {
-  display: block;
-  text-align: center;
-  text-decoration: none;
-}
-
-/* 正方形灰色盒子（宽高完全一样） */
-.product-grid-img {
-  background: #f2f2f2;
-  border-radius: 14px;
-  width: 100%;
-  aspect-ratio: 1 / 1; /* 强制正方形 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-/* 图片悬浮放大效果 */
-.product-grid-item:hover .product-grid-img {
-  transform: scale(1.06);
-}
-
-.product-grid-img img {
-  max-width: 85%;
-  max-height: 85%;
-  object-fit: contain;
-}
-
-/* 文字样式 */
-.product-grid-text {
-  margin-top: 10px;
-  font-size: 15px;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-/* 悬浮文字变红 */
-.product-grid-item:hover .product-grid-text {
-  color: red;
-}
-</style>
-
-  
-  
-  <section class="tj-band-dark">
-    <div class="container">
-      <div class="tj-sechead">
-        <div class="tj-kick">Why Wanew</div>
-        <h2 class="tj-h2">Our Advantages</h2>
-        <div class="tj-rule"></div>
-        <p class="tj-sub">Standardized, fully optimized quality control and manufacturing processes, purpose-built for Starlink accessories to deliver consistent, high-quality products.</p>
-      </div>
-      <div class="tj-feat">
-
-        <div class="tj-fcard">
-          <div class="tj-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 1 4 10.5c-.7.7-1 1.2-1 2.5H9c0-1.3-.3-1.8-1-2.5A6 6 0 0 1 12 3Z"/></svg></div>
-          <h3>Starlink Accessories Dedicated R&amp;D Team</h3>
-          <p>We focus on Starlink ecosystem accessories, precisely addressing user pain points and delivering high-fit, high-stability solutions.</p>
+  <!-- About / manufacturing -->
+  <section class="w3-section w3-hairline-top" id="ind4">
+    <div class="w3-container">
+      <div class="w3-about">
+        <div class="w3-about__body" data-w3-reveal>
+          <span class="w3-eyebrow">About Us</span>
+          <p class="w3-sub">Wanew Starlink Accessories designs and manufactures Starlink-compatible mounts, power adapters, cables, protective cases, and deployment accessories for RV, marine, enterprise, and off-grid users. Built around engineering-led manufacturing and quality control, Wanew supports global buyers with stable production, OEM/ODM capability, and practical accessories for every Starlink terminal generation.</p>
+          <div class="w3-stats">
+            <div class="w3-stat"><span class="w3-stat__n">15 Years</span><span class="w3-stat__k">Manufacturing Experience</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">100+</span><span class="w3-stat__k">Professional Equipment</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">150+ Staff</span><span class="w3-stat__k">Skilled Technicians</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">200+ Patents</span><span class="w3-stat__k">Invention & Utility Patents</span></div>
+          </div>
+          <a href="/about/" class="w3-link-arrow">Learn More</a>
         </div>
-
-        <div class="tj-fcard">
-          <div class="tj-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2.4" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="2.4" fill="currentColor" stroke="none"/><circle cx="8" cy="18" r="2.4" fill="currentColor" stroke="none"/></svg></div>
-          <h3>Customized Starlink Accessories</h3>
-          <p>We specialize in tailored Starlink accessories, offering full-process support from technical design to mass production, delivering one-stop solutions for global users.</p>
+        <div class="w3-about__media" data-w3-reveal="2">
+          <img src="/static/upload/image/tejoy-company-wall.png" alt="" loading="lazy"/>
         </div>
-
-        <div class="tj-fcard">
-          <div class="tj-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <h3>Patent-backed Quality Control</h3>
-          <p>200+ Starlink accessory patents, standardized production &amp; full-chain QC. Monthly capacity: 400,000–600,000 units, ensuring both quality and on-time delivery.</p>
-        </div>
-
-        <div class="tj-fcard">
-          <div class="tj-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0M4 13v4a2 2 0 0 0 2 2M20 13v3a2 2 0 0 1-2 2h-4"/></svg></div>
-          <h3>Full-cycle After-sales Support</h3>
-          <p>Starlink-specific service system with pre-sales consultation &amp; fast-response after-sales. We stand behind every product with zero tolerance for quality issues.</p>
-        </div>
-
       </div>
     </div>
   </section>
-  
-  
-  
-  
-  
 
-<div class="index-four pad-80" id="ind4">
-    <div class="container">
-        <div class="info-wrap clearfix">
-            <div class="info-left wow animated fadeInLeft">
-                <div class="inth-header clearfix">
-                    <div class="inon-tit">About Us</div>
-                </div>
-                
-                <p style="text-indent: 0;">Wanew Starlink Accessories designs and manufactures Starlink-compatible mounts, power adapters, cables, protective cases, and deployment accessories for RV, marine, enterprise, and off-grid users. Built around engineering-led manufacturing and quality control, Wanew supports global buyers with stable production, OEM/ODM capability, and practical accessories for every Starlink terminal generation.</p>
-                
-
-                <!-- 4项数据亮点（英文版本） -->
-                <div class="about-data-list">
-                    <div class="about-data-item">
-                        <div class="about-data-num">15 Years</div>
-                        <div class="about-data-text">Manufacturing Experience</div>
-                    </div>
-                    <div class="about-data-item">
-                        <div class="about-data-num">100+</div>
-                        <div class="about-data-text">Professional Equipment</div>
-                    </div>
-                    <div class="about-data-item">
-                        <div class="about-data-num">150+ Staff</div>
-                        <div class="about-data-text">Skilled Technicians</div>
-                    </div>
-                    <div class="about-data-item">
-                        <div class="about-data-num">200+ Patents</div>
-                        <div class="about-data-text">Invention & Utility Patents</div>
-                    </div>
-                </div>
-
-                <a href="/about/" class="thm-btn abut-page__btn">Learn More</a>
-            </div>
-            
-            <div class="info-right wow animated fadeInRight">
-              <img src="/static/upload/image/tejoy-company-wall.png" alt="" loading="lazy"/>
-            </div>
-            
-        </div>
-    </div>
-</div>
-
-<!-- 自带样式，和截图布局完全匹配 -->
-<style>
-/* 数据亮点容器 */
-.about-data-list {
-    display: flex;
-    justify-content: space-between;
-    margin: 30px 0;
-    padding: 0;
-}
-.about-data-item {
-    text-align: center;
-    flex: 1;
-    border-right: 1px solid #eee;
-}
-/* 最后一项去掉右边框 */
-.about-data-item:last-child {
-    border-right: none;
-}
-.about-data-num {
-    font-size: 20px;
-    font-weight: bold;
-    color: #111;
-    margin-bottom: 8px;
-}
-.about-data-text {
-    font-size: 12px;
-    color: #333;
-    margin: 0;
-}
-</style>
-
-
-  
-  
-  
-  
-  <section class="tj-band-light">
-    <div class="container">
-      <div class="tj-sechead">
-        <div class="tj-kick">Learn</div>
-        <h2 class="tj-h2">Guides &amp; Resources</h2>
-        <div class="tj-rule"></div>
-        <p class="tj-sub">Setup guides, buyer advice, and knowledge for getting the most out of your Starlink.</p>
+  <!-- Why Wanew -->
+  <section class="w3-section w3-hairline-top">
+    <div class="w3-container">
+      <div class="w3-sechead" data-w3-reveal>
+        <span class="w3-eyebrow">Why Wanew</span>
+        <h2 class="w3-h2">Our Advantages</h2>
+        <p class="w3-sub">Standardized, fully optimized quality control and manufacturing processes, purpose-built for Starlink accessories to deliver consistent, high-quality products.</p>
       </div>
-      <div class="tj-guides">
+      <div class="w3-why">
+        <div class="w3-whycard" data-w3-reveal>
+          <span class="w3-whycard__idx">01</span>
+          <h3>Starlink Accessories Dedicated R&amp;D Team</h3>
+          <p>We focus on Starlink ecosystem accessories, precisely addressing user pain points and delivering high-fit, high-stability solutions.</p>
+        </div>
+        <div class="w3-whycard" data-w3-reveal="2">
+          <span class="w3-whycard__idx">02</span>
+          <h3>Customized Starlink Accessories</h3>
+          <p>We specialize in tailored Starlink accessories, offering full-process support from technical design to mass production, delivering one-stop solutions for global users.</p>
+        </div>
+        <div class="w3-whycard" data-w3-reveal="3">
+          <span class="w3-whycard__idx">03</span>
+          <h3>Patent-backed Quality Control</h3>
+          <p>200+ Starlink accessory patents, standardized production &amp; full-chain QC. Monthly capacity: 400,000–600,000 units, ensuring both quality and on-time delivery.</p>
+        </div>
+        <div class="w3-whycard" data-w3-reveal="4">
+          <span class="w3-whycard__idx">04</span>
+          <h3>Full-cycle After-sales Support</h3>
+          <p>Starlink-specific service system with pre-sales consultation &amp; fast-response after-sales. We stand behind every product with zero tolerance for quality issues.</p>
+        </div>
+      </div>
+      <div class="w3-certstrip" data-w3-reveal>
+        <span class="w3-certstrip__label">Certified & tested</span>
+        <div class="w3-certstrip__badges">
+          <span class="w3-certbadge">FCC</span>
+          <span class="w3-certbadge">CE</span>
+          <span class="w3-certbadge">RoHS</span>
+        </div>
+        <a class="w3-link-arrow" href="/certifications-testing/">Certifications & Testing</a>
+      </div>
+    </div>
+  </section>
 
-        <a class="tj-gcard" href="/power/4384">
+  <!-- Guides -->
+  <section class="w3-section w3-hairline-top">
+    <div class="w3-container">
+      <div class="w3-sechead" data-w3-reveal>
+        <span class="w3-eyebrow">Learn</span>
+        <h2 class="w3-h2">Guides &amp; Resources</h2>
+        <p class="w3-sub">Setup guides, buyer advice, and knowledge for getting the most out of your Starlink.</p>
+      </div>
+      <div class="w3-guides">
+        <a class="tj-gcard" href="/power/4384" data-w3-reveal>
           <div class="tj-cover"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7Z"/></svg></div>
           <div class="tj-gbody">
             <div class="tj-gmeta"><span class="tj-cat">Power</span><span class="tj-date">Jul 4, 2026</span></div>
@@ -547,8 +494,7 @@
             <span class="tj-more">Read more <span class="tj-arw">→</span></span>
           </div>
         </a>
-
-        <a class="tj-gcard" href="/rv-off-grid/4383">
+        <a class="tj-gcard" href="/rv-off-grid/4383" data-w3-reveal="2">
           <div class="tj-cover"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16V9a1 1 0 0 1 1-1h10l5 5v3M2 16h16M6 16a2 2 0 1 0 4 0M15 16a2 2 0 1 0 4 0M13 8v5h5"/></svg></div>
           <div class="tj-gbody">
             <div class="tj-gmeta"><span class="tj-cat">RV &amp; Off-Grid</span><span class="tj-date">Jul 4, 2026</span></div>
@@ -557,8 +503,7 @@
             <span class="tj-more">Read more <span class="tj-arw">→</span></span>
           </div>
         </a>
-
-        <a class="tj-gcard" href="/mounts/4382">
+        <a class="tj-gcard" href="/mounts/4382" data-w3-reveal="3">
           <div class="tj-cover"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M12 9a3 3 0 0 0-3 3v9M12 9a3 3 0 0 1 3 3v9M7 21h10M9 6h6"/></svg></div>
           <div class="tj-gbody">
             <div class="tj-gmeta"><span class="tj-cat">Mounts</span><span class="tj-date">Jul 4, 2026</span></div>
@@ -567,13 +512,26 @@
             <span class="tj-more">Read more <span class="tj-arw">→</span></span>
           </div>
         </a>
-
       </div>
-      <div class="tj-viewall"><a href="/service/">View all guides →</a></div>
+      <div class="w3-viewall" data-w3-reveal><a class="w3-link-arrow" href="/service/">View all guides →</a></div>
     </div>
   </section>
-  
-  
+
+  <!-- CTA band -->
+  <section class="w3-ctaband">
+    <div class="w3-ctaband__bg" style="background-image: url(/static/upload/image/20260507/1778150245270907.webp);"></div>
+    <div class="w3-container">
+      <div class="w3-ctaband__inner">
+        <span class="w3-eyebrow">Contact</span>
+        <h2 class="w3-h2">Sourcing Starlink accessories at scale?</h2>
+        <p class="w3-sub">Tell us your Starlink models and volumes — our team replies within one business day.</p>
+        <div class="w3-ctaband__cta">
+          <a class="w3-btn w3-btn--primary" href="/contact/">Request a quote <span class="w3-arw">→</span></a>
+          <a class="w3-btn w3-btn--ghost" href="mailto:hello@wanew.com">Talk to an engineer</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer class="site-footer">
     <div class="site-footer__middle">
@@ -644,9 +602,6 @@ Wanew manufactures third-party Starlink-compatible accessories. Not affiliated w
     </div>
   </footer>
 
-
-
-
 <!-- Structured Data: Organization -->
 <script type="application/ld+json">
 {
@@ -686,9 +641,6 @@ Wanew manufactures third-party Starlink-compatible accessories. Not affiliated w
 }
 </script>
 
-
-
-  <!--Site Footer End--> 
 </div>
 <div class="mobile-nav__wrapper">
   <div class="mobile-nav__overlay mobile-nav__toggler"></div>
@@ -702,80 +654,7 @@ Wanew manufactures third-party Starlink-compatible accessories. Not affiliated w
   </div>
   <!-- /.mobile-nav__content --> 
 </div>
-<a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a> 
-<script src="/skin/js/jquery-3.6.0.min.js"></script> 
-<script src="/skin/js/bootstrap.bundle.min.js" defer></script>
-<script src="/skin/js/jquery.magnific-popup.min.js" defer></script>
-<script src="/skin/js/wow.js" defer></script>
-<script src="/skin/js/swiper.min.js"></script>
-<script src="/skin/js/mibooz.js?v=6" defer></script>
-
-<script>
-// 幻灯片CSS背景图WebP替换 — 使CSS background-image也享受WebP压缩
-// CSS背景图不经过<img>标签，已有的WebP替换JS对它们无效
-(function() {
-  // 先检测浏览器是否支持WebP（复用已有检测逻辑）
-  function isWebPSupported() {
-    var img = new Image();
-    var supported = false;
-    img.onload = function() { supported = true; };
-    img.onerror = function() { supported = false; };
-    img.src = 'data:image/webp;base64,UklGRi4AAABXRUJQVlA4TCEAAAAvAUAAEB8wAiMw' +
-              'AgSSNtse/cXjxyCCmrYNWPwmHRH9jwAAAA==';
-    // 同步返回不可靠，改用异步检测
-    return null; // 未知
-  }
-  
-  // 页面加载完成后替换CSS背景图
-  function replaceSliderBgToWebP() {
-    // 检查浏览器是否支持WebP
-    var testImg = new Image();
-    testImg.onload = function() {
-      // WebP支持
-      document.querySelectorAll('.image-layer').forEach(function(el) {
-        var bg = el.style.backgroundImage;
-        if (bg && bg.match(/\.(jpg|jpeg|png)["']?\)/i)) {
-          el.style.backgroundImage = bg.replace(/\.(jpg|jpeg|png)(["']?\))/gi, '.webp$2');
-        }
-      });
-    };
-    testImg.onerror = function() {
-      // 不支持WebP，不替换
-    };
-    testImg.src = 'data:image/webp;base64,UklGRi4AAABXRUJQVlA4TCEAAAAvAUAAEB8wAiMw' +
-                  'AgSSNtse/cXjxyCCmrYNWPwmHRH9jwAAAA==';
-  }
-  
-  // DOM就绪后执行
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', replaceSliderBgToWebP);
-  } else {
-    replaceSliderBgToWebP();
-  }
-})();
-</script>
-
-<script>
-$(function() {
-     $(document).on('click', '.yvzhonga', function(e) {
-        e.preventDefault();
-        $('.yvul').toggle();   // 直接切换所有匹配元素
-    });
-	// 悬浮窗口
-	$(".yb_conct").hover(function() {
-		$(".yb_conct").css("right", "5px");
-		$(".yb_bar .yb_ercode").css('height', '200px');
-	}, function() {
-		$(".yb_conct").css("right", "-127px");
-		$(".yb_bar .yb_ercode").css('height', '53px');
-	});
-	// 返回顶部
-	$(".yb_top").click(function() {
-		$("html,body").animate({
-			'scrollTop': '0px'
-		}, 300)
-	});
-});
-</script>
+<a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+<script src="/skin/js/w3.js?v=2" defer></script>
 </body>
 </html>

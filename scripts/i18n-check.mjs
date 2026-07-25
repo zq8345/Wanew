@@ -71,7 +71,10 @@ for (const f of allJson("data")) {
   } else if (isCatalog(o)) {
     sources.catalog.push(f);
     for (const [k, v] of Object.entries(o)) if (!k.startsWith("_")) catalog[k] = v;
-  } else if (f === "data/locales.json" || /home-tiles|products-index|site\.json|es-glossary\.json|es-hold\.json|pages-list\.json|categories\.json/.test(f)) {
+  } else if (f === "data/locales.json" || /home-tiles|home-featured|products-index|site\.json|es-glossary\.json|es-hold\.json|pages-list\.json|categories\.json/.test(f)) {
+    // ⭐ home-featured.json = W3 首页产品策展条的【id 列表】(总工 review #2),顶层 { _doc, ids:[...] },
+    //    无 en 字段、不是文案。消费者=renderHome/pickHomeProducts(按 id 取 manifest 缩略图+本地化标题,
+    //    标题本地化走 manifest.i18n,不经此文件)→ 纯策展数据,非文案目录,点名放行。
     // ⭐ es-hold.json = 多语言建的【扣留清单单一真源】(id + why + since),不是文案目录:
     //    顶层是 { _doc, hold: [...] },无 en 字段。它的消费者是 scripts/es-hold-check.mjs
     //    (双向闸)和【下面的豁免判定】—— 放行它不让任何一条译文失去监视,反过来:
