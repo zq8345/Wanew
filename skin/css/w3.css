@@ -338,16 +338,14 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   display: flex; align-items: flex-end;
   overflow: hidden;
 }
-/* scaleX(-1): dish is baked at image-left (Joe); mirror moves it to the right so it no longer
-   collides with the left-aligned copy (风景镜像无违和 — no text/logo in the frame).
-   The ::after scrim mirrors together with the image, so the horizontal component is authored at
-   260deg (=360-100) which renders dark-right pre-flip -> dark-left (text side) post-flip. */
-.w3-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center 38%; transform: scaleX(-1) scale(1.02); }
+/* hero-home.webp: 设备已朝正(总工 v4)——【不再镜像】(旧 hero-montana 需 scaleX(-1),现移除)。水平 scrim 正常 100deg
+   (暗在左=左对齐文案侧),不再是镜像补偿的 260deg。 */
+.w3-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center 40%; transform: scale(1.02); }
 .w3-hero__bg::after {
   content: ""; position: absolute; inset: 0;
   background:
     linear-gradient(180deg, rgba(10, 12, 15, 0.50) 0%, rgba(10, 12, 15, 0.18) 28%, rgba(10, 12, 15, 0.56) 50%, rgba(10, 12, 15, 0.76) 74%, var(--w3-bg) 100%),
-    linear-gradient(260deg, rgba(10, 12, 15, 0.72) 0%, rgba(10, 12, 15, 0.08) 60%);
+    linear-gradient(100deg, rgba(10, 12, 15, 0.72) 0%, rgba(10, 12, 15, 0.08) 60%);
 }
 .w3-hero__inner { position: relative; width: 100%; padding: 140px 0 96px; }
 .w3-hero__content { max-width: 760px; display: grid; gap: 22px; }
@@ -785,9 +783,9 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   .w3-section { padding: 68px 0; }
   .w3-hero__inner { padding: 120px 0 72px; }
   .w3-field__inner, .w3-ctaband__inner { padding: 96px 0; }
-  /* narrow crop drops the sides; bias to source-left (the dish) so after scaleX(-1) it stays
-     in frame on the visual right — Joe reported the dish was nearly invisible on mobile. */
-  .w3-hero__bg { background-position: 18% 44%; }
+  /* narrow crop drops the sides; center-biased keeps the vehicle + Starlink in frame on mobile
+     (hero-home 已朝正,总工要"窄屏留住车+设备")。 */
+  .w3-hero__bg { background-position: center 42%; }
 }
 
 /* ============================================================================
