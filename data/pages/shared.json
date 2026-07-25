@@ -358,29 +358,5 @@
     "pt-BR": "Estoque local e DDP",
     "es-MX": "Inventario local y DDP",
     "zh": "本地库存 & DDP"
-  },
-  "shared.oem_starlink_compatible_accessories_wha": {
-    "en": "OEM Starlink-Compatible Accessories: What Buyers Should Verify",
-    "pt-BR": "Acessórios OEM Compatíveis com Starlink: O Que os Compradores Devem Verificar",
-    "es-MX": "Accesorios OEM compatibles con Starlink: qué deben verificar los compradores",
-    "zh": "OEM Starlink 兼容配件：买家应核实哪些要点"
-  },
-  "shared.guide_to_choosing_an_oem_manufacturer_f": {
-    "en": "Guide to choosing an OEM manufacturer for Starlink-compatible accessories. What to verify: capacity, QC, customization, IP, and logistics.",
-    "pt-BR": "Guia para escolher uma fabricante OEM de acessórios compatíveis com Starlink. O que verificar: capacidade, QC, personalização, propriedade intelectual e logística.",
-    "es-MX": "Guía para elegir un fabricante OEM de accesorios compatibles con Starlink. Qué verificar: capacidad, QC, personalización, propiedad intelectual y logística.",
-    "zh": "为 Starlink 兼容配件挑选 OEM 制造商的指南。需核实的要点：产能、品控（QC）、定制能力、知识产权（IP）与物流。"
-  },
-  "shared.next_generation_power_supplies_high_effi": {
-    "en": "Next-Generation Power Supplies: High-Efficiency, Stable Power Solutions for Modern Industries",
-    "pt-BR": "Fontes de Alimentação de Nova Geração: Soluções de Energia Estáveis e de Alta Eficiência para as Indústrias Modernas",
-    "es-MX": "Fuentes de alimentación de nueva generación: soluciones de energía estables y de alta eficiencia para las industrias modernas",
-    "zh": "新一代电源：为现代工业提供高效、稳定的供电方案"
-  },
-  "shared.explore_how_next_generation_power_suppli": {
-    "en": "Explore how next-generation power supplies enhance efficiency and equipment stability. This guide covers high-efficiency power solutions, key technologies, market applications, and setup best practices for reliable industrial performance.",
-    "pt-BR": "Descubra como as fontes de alimentação de nova geração aumentam a eficiência e a estabilidade dos equipamentos. Este guia aborda soluções de energia de alta eficiência, tecnologias-chave, aplicações de mercado e melhores práticas de instalação para um desempenho industrial confiável.",
-    "es-MX": "Descubre cómo las fuentes de alimentación de nueva generación mejoran la eficiencia y la estabilidad de los equipos. Esta guía cubre soluciones de energía de alta eficiencia, tecnologías clave, aplicaciones de mercado y mejores prácticas de instalación para un desempeño industrial confiable.",
-    "zh": "探索新一代电源如何提升效率与设备稳定性。本指南涵盖高效供电方案、关键技术、市场应用及部署最佳实践，助力实现可靠的工业性能。"
   }
 }

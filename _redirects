@@ -32,14 +32,4 @@
 /zh/patents-manufacturing  /zh/about/#patents  301
 /zh/brand-affiliation-faq/  /zh/about/#brand  301
 /zh/brand-affiliation-faq  /zh/about/#brand  301
-# A-nav step2: /industrial/ hub retired -> merged into /service/ (Guides). Exact match ONLY
-# (detail articles /industrial/NNNN stay live, must not be caught by a wildcard).
-/industrial/  /service/  301
-/industrial  /service/  301
-/pt/industrial/  /pt/service/  301
-/pt/industrial  /pt/service/  301
-/es/industrial/  /es/service/  301
-/es/industrial  /es/service/  301
-/zh/industrial/  /zh/service/  301
-/zh/industrial  /zh/service/  301
 /*  /404.html  404
