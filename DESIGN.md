@@ -125,6 +125,12 @@
 - **证据条** `.w3-certstrip`(优势区脚):真实认证徽标 `.w3-certbadge`(FCC/CE/RoHS)+ 标签 + 认证页链接——真实证据优先于装饰。
 - ⛔ 禁止:第二种卡片底色、卡片投影、无 hover 卡片、**用图标+三词卡填充版面**。
 
+### 3.2b 文章/攻略详情页(`.blog-details`,长文 SEO 页 marine/62 等)
+- **单栏**(总工拍板 2026-07-25):无侧栏(旧 blog 的 search/category/recent-posts widget 一律删),正文单列居中,Linear/Stripe 文档式。正文列宽 `max-width:820px` 居中(可读行长,禁满宽 1240)。
+- **W3 标题**:章节 h2 交 w3.css 统一(`clamp(22,2.6vw,30)` w700),h3 19px w650;**⛔ 零内联样式**——严禁 `<h2 style="...">` 写死颜色/背景(旧 Tejoy 蓝框 `rgb(15,76,129)` 覆盖单一真源,已全剥)。
+- 段落 15.5px/1.8 `--w3-text2`;表格强制 `width:100%`+横向滚动(旧 markup 有 `width="1400"` 会撑破);图 `max-width:100%`+12 圆角。
+- **迁移器** `scripts/skin-migrate.mjs`(幂等):换头 CSS/JS 全家桶→w3.css+w3.js、剥 h2 内联 style、平衡删侧栏 col、删 footer 重复 Organization JSON-LD(head 已有主的=L4)。加新长文页照此规范。
+
 ### 3.3 导航(chrome 单咽喉,DOM 由 `_chrome.html` 发出)
 - 顶栏固定 68px:透明起步,滚动 >12px(`html.w3-scrolled`)或 `body.w3-solid-header` 时落玻璃底+发丝下边。
 - 一级项 13.5px w500;hover/焦点 白字+微白底;**有下拉才有 caret**(CSS `:has` 自动)。
