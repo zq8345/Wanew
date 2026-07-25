@@ -163,7 +163,7 @@ body.w3-nav-locked { overflow: hidden; }
   display: flex; align-items: center; gap: 28px;
 }
 .main-menu-wrapper__logo { flex: 0 0 auto; }
-.main-menu-wrapper__logo img { height: 26px; width: auto; }
+.main-menu-wrapper__logo img { height: 26px; width: auto; opacity: 1; }   /* Joe: logo at full white, never dimmed */
 .main-menu-wrapper__main-menu { flex: 1 1 auto; display: flex; align-items: center; justify-content: flex-end; gap: 18px; }
 .main-menu-wrapper__call { display: none; }
 
@@ -173,13 +173,13 @@ body.w3-nav-locked { overflow: hidden; }
 .main-menu__list > li > a {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 10px 13px; border-radius: 8px;
-  font-size: 13.5px; font-weight: 500; color: #c9d1d9;
+  font-size: 13.5px; font-weight: 600; color: #fff;   /* Joe: pure white + heavier so nav reads on bright hero */
   transition: color 0.2s, background 0.2s;
 }
 .main-menu__list > li:hover > a, .main-menu__list > li:focus-within > a { color: #fff; background: rgba(255, 255, 255, 0.06); }
 /* ⑱ active section (JS adds .is-active by current path — chrome stays byte-identical):
    current item goes full white + a short accent underline; other items already muted. */
-.main-menu__list > li.is-active > a { color: #fff; font-weight: 600; }
+.main-menu__list > li.is-active > a { color: #fff; font-weight: 700; }   /* one notch heavier than idle 600; accent underline is the primary current-page cue */
 .main-menu__list > li.is-active::after {
   content: ""; position: absolute; left: 13px; right: 13px; bottom: 3px; height: 2px;
   border-radius: 2px; background: var(--w3-accent); pointer-events: none;
@@ -608,6 +608,14 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
    home hero. Homepage .w3-hero is separately/deliberately full-viewport — untouched. */
 .page-header { position: relative; min-height: clamp(320px, 40vw, 600px); display: flex; flex-direction: column; justify-content: flex-end; padding: calc(var(--w3-header-h) + 48px) 0 48px; overflow: hidden; }
 .page-header-bg { position: absolute; inset: 0; background-size: cover; background-position: center 42%; }
+/* /about/ art-direction: this 2.33:1 image ~matches the band ratio, so on wide screens
+   there's no horizontal crop room and the (center-right) worker sits glued right with a
+   big dark-left void. Narrow/tablet crop already centers it — leave those. On wide, zoom
+   in a touch to create crop room, then anchor right so the worker pulls toward center. */
+.page-header-bg--about { background-position: center 50%; }
+@media (min-width: 1024px) {
+  .page-header-bg--about { background-size: 118%; background-position: 66% center; }
+}
 /* aligned with home hero (.w3-hero__bg::after): light top so the transparent nav floats over
    the bright hero image, bright mid-window, darker only near the title, + left scrim for text. */
 .page-header-bg::after { content: ""; position: absolute; inset: 0; background:
