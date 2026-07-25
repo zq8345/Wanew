@@ -257,7 +257,7 @@
 
   <section class="w3-products">
     <div class="w3-container">
-      <div class="row" id="productGrid">
+      <div class="row" id="productGrid" data-empty="Nenhum produto corresponde a esta combinação.">
               <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-cat="enterprise" data-form="cables">
                 <div class="blog-one__single">
                   <a href="/pt/enterprise/650">
@@ -1178,71 +1178,5 @@ A Wanew fabrica acessórios de terceiros compatíveis com Starlink. Não é afil
 </div>
 <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
 <script src="/skin/js/w3.js?v=2" defer></script>
-<!-- product-filter -->
-<script>
-(function(){
-  var grid = document.getElementById('productGrid');
-  if(!grid) return;
-  var cards = [].slice.call(grid.querySelectorAll('[data-cat]'));
-  var modelChips = [].slice.call(document.querySelectorAll('#modelChips .product-chip'));
-  var formChips = [].slice.call(document.querySelectorAll('#formChips .product-chip'));
-  if(!modelChips.length || !formChips.length) return;
-  var state = { cat:'all', form:'all' };
-  var emptyMsg = document.createElement('div');
-  emptyMsg.className = 'product-empty';
-  emptyMsg.textContent = 'Nenhum produto corresponde a esta combinação.';
-  emptyMsg.style.display = 'none';
-  grid.parentNode.insertBefore(emptyMsg, grid.nextSibling);
-  function show(c){
-    return (state.cat==='all'||c.getAttribute('data-cat')===state.cat) &&
-           (state.form==='all'||c.getAttribute('data-form')===state.form);
-  }
-  function count(chips, selfAttr, otherAttr){
-    var otherVal = (otherAttr==='data-cat') ? state.cat : state.form;
-    for(var i=0;i<chips.length;i++){
-      var f = chips[i].getAttribute('data-filter'), n = 0;
-      for(var j=0;j<cards.length;j++){
-        var c = cards[j];
-        var selfOk = (f==='all') || (c.getAttribute(selfAttr)===f);
-        var otherOk = (otherVal==='all') || (c.getAttribute(otherAttr)===otherVal);
-        if(selfOk && otherOk) n++;
-      }
-      var span = chips[i].querySelector('.product-chip__n');
-      if(span) span.textContent = n;
-      chips[i].classList.toggle('is-empty', n===0);
-    }
-  }
-  function apply(){
-    var vis = 0;
-    for(var i=0;i<cards.length;i++){ var ok = show(cards[i]); cards[i].style.display = ok?'':'none'; if(ok) vis++; }
-    count(modelChips, 'data-cat', 'data-form');
-    count(formChips, 'data-form', 'data-cat');
-    emptyMsg.style.display = vis ? 'none' : '';
-  }
-  function bind(chips, axis){
-    for(var i=0;i<chips.length;i++){
-      chips[i].addEventListener('click', function(){
-        state[axis] = this.getAttribute('data-filter');
-        for(var j=0;j<chips.length;j++) chips[j].classList.toggle('is-active', chips[j]===this);
-        apply();
-      });
-    }
-  }
-  bind(modelChips, 'cat');
-  bind(formChips, 'form');
-  apply();
-  function deepLink(scroll){
-    var h = (location.hash || '').replace('#','').toLowerCase();
-    if(!/^[a-z0-9-]+$/.test(h)) return;
-    var chip = document.querySelector('#formChips .product-chip[data-filter="'+h+'"]')
-            || document.querySelector('#modelChips .product-chip[data-filter="'+h+'"]');
-    if(!chip) return;
-    chip.click();
-    if(scroll){ var f = document.querySelector('.product-filters'); if(f) f.scrollIntoView({block:'start'}); }
-  }
-  deepLink(true);
-  window.addEventListener('hashchange', function(){ deepLink(true); });
-})();
-</script>
 </body>
 </html>

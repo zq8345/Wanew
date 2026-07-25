@@ -127,6 +127,76 @@
     } else { start(); }
   });
 
+  /* ---- list-page filter (products / category / type shells) ----
+     Unified from the old per-page inline scripts. Binds whichever button
+     chip rows are present (#modelChips by data-cat, #formChips by data-form);
+     model-nav anchors are plain links and need no JS. Recomputes counts
+     within the current cross-filter; hash deep-links to a chip. */
+  (function () {
+    var grid = d.getElementById("productGrid");
+    if (!grid) return;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll("[data-cat]"));
+    var modelChips = Array.prototype.slice.call(d.querySelectorAll("#modelChips .product-chip"));
+    var formChips = Array.prototype.slice.call(d.querySelectorAll("#formChips .product-chip"));
+    if (!modelChips.length && !formChips.length) return;
+    var state = { cat: "all", form: "all" };
+    var empty = d.createElement("div");
+    empty.className = "product-empty"; empty.style.display = "none";
+    empty.textContent = grid.getAttribute("data-empty") || "No products match this combination.";
+    grid.parentNode.insertBefore(empty, grid.nextSibling);
+    function show(c) {
+      return (state.cat === "all" || c.getAttribute("data-cat") === state.cat) &&
+             (state.form === "all" || c.getAttribute("data-form") === state.form);
+    }
+    function count(chips, selfAttr, otherAttr) {
+      var otherVal = otherAttr === "data-cat" ? state.cat : state.form;
+      chips.forEach(function (chip) {
+        var f = chip.getAttribute("data-filter"), n = 0;
+        cards.forEach(function (c) {
+          var selfOk = f === "all" || c.getAttribute(selfAttr) === f;
+          var otherOk = otherVal === "all" || c.getAttribute(otherAttr) === otherVal;
+          if (selfOk && otherOk) n++;
+        });
+        var span = chip.querySelector(".product-chip__n");
+        if (span) span.textContent = n;
+        chip.classList.toggle("is-empty", n === 0);
+      });
+    }
+    function apply() {
+      var vis = 0;
+      cards.forEach(function (c) { var ok = show(c); c.style.display = ok ? "" : "none"; if (ok) vis++; });
+      if (modelChips.length) count(modelChips, "data-cat", "data-form");
+      if (formChips.length) count(formChips, "data-form", "data-cat");
+      empty.style.display = vis ? "none" : "";
+    }
+    function bind(chips, axis) {
+      chips.forEach(function (chip) {
+        if (!chip.hasAttribute("data-filter")) return;   // skip model-nav anchors
+        chip.addEventListener("click", function (e) {
+          if (chip.tagName === "A") return;              // anchors navigate, don't filter
+          e.preventDefault();
+          state[axis] = chip.getAttribute("data-filter");
+          chips.forEach(function (o) { o.classList.toggle("is-active", o === chip); });
+          apply();
+        });
+      });
+    }
+    bind(modelChips, "cat");
+    bind(formChips, "form");
+    apply();
+    function deepLink() {
+      var hsh = (location.hash || "").replace("#", "").toLowerCase();
+      if (!/^[a-z0-9-]+$/.test(hsh)) return;
+      var chip = d.querySelector('#formChips .product-chip[data-filter="' + hsh + '"]')
+              || d.querySelector('#modelChips .product-chip[data-filter="' + hsh + '"]');
+      if (!chip || chip.tagName === "A") return;
+      chip.click();
+      var bar = d.querySelector(".product-filters"); if (bar) bar.scrollIntoView({ block: "start" });
+    }
+    deepLink();
+    window.addEventListener("hashchange", deepLink);
+  })();
+
   /* ---- product gallery (CSS scroll-snap + thumb sync) ---- */
   var main = d.querySelector(".product_feature_img_slider_2 .swiper-wrapper");
   if (main) {

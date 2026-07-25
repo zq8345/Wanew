@@ -431,7 +431,7 @@ export function regenListPage(html, entries, catFilter, { locale = "en", catalog
   // locale falls back to English), which is the worst kind of wrong: right by accident.
   const cards = scope.map((e) => cardHtml(e, locale, catalog, urlOf)).join("") + "\n            ";
   html = html.replace(
-    /(<div class="row" id="productGrid">)(?:\s*<div class="col-xl-3[^"]*"[^>]*data-cat="[^"]*"[^>]*>[\s\S]*?<\/a>\s*<\/div>\s*<\/div>)*\s*(<\/div>)/,
+    /(<div class="row" id="productGrid"[^>]*>)(?:\s*<div class="col-xl-3[^"]*"[^>]*data-cat="[^"]*"[^>]*>[\s\S]*?<\/a>\s*<\/div>\s*<\/div>)*\s*(<\/div>)/,
     (m, open, close) => open + cards + close
   );
   // Both chip rows count WITHIN scope — a chip's number has to describe the grid under it, or it
