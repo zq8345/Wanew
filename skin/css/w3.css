@@ -618,6 +618,18 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
      the vertical window up so the worker's head is in-frame (was cut in the top ~10%). */
   .page-header-bg--about { background-size: 118%; background-position: 66% 24%; }
 }
+/* Products/Industry/Service heroes: the Starlink dish/subject sits far right and gets
+   edge-cut on wide. Same technique as --about: zoom to make horizontal crop room, then
+   anchor right so the subject pulls toward the (1240) content column. First-pass values
+   grounded in each source PNG's subject position — final framing = Joe's eye. */
+.page-header-bg--hangye { background-position: center 50%; }
+.page-header-bg--service { background-position: center 82%; }
+.page-header-bg--products { background-position: center 42%; }
+@media (min-width: 1024px) {
+  .page-header-bg--hangye { background-size: 112%; background-position: 72% 52%; }   /* plateau roof+panel ~58% x */
+  .page-header-bg--service { background-size: 112%; background-position: 76% 74%; }  /* tent+dish lower-right */
+  .page-header-bg--products { background-size: 118%; background-position: 84% 46%; } /* house+dish ~68% x */
+}
 /* aligned with home hero (.w3-hero__bg::after): light top so the transparent nav floats over
    the bright hero image, bright mid-window, darker only near the title, + left scrim for text. */
 .page-header-bg::after { content: ""; position: absolute; inset: 0; background:
@@ -1019,11 +1031,11 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .contact-page textarea.form-control { min-height: 120px; resize: vertical; }
 
 /* ===== Contact page redesign (Joe): 2-col reach/form, icon rows, channels, map ===== */
-.w3-contact__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
+.w3-contact__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: stretch; }   /* Joe: equal width + equal height */
 @media (max-width: 900px) { .w3-contact__grid { grid-template-columns: minmax(0, 1fr); } }
 .w3-contact__aside { display: grid; gap: 22px; }
 /* both columns sit in surface cards so the content reads as panels, not floating on black */
-.w3-contact__card { background: var(--w3-panel); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); padding: clamp(22px, 2.6vw, 34px); align-self: start; }
+.w3-contact__card { background: var(--w3-panel); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); padding: clamp(22px, 2.6vw, 34px); }   /* no align-self so the grid's align-items:stretch gives equal-height cards */
 /* icon info rows */
 .w3-cinfo { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 2px; }
 .w3-cinfo__row { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--w3-line); }
