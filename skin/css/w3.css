@@ -173,7 +173,7 @@ body.w3-nav-locked { overflow: hidden; }
 .main-menu__list > li > a {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 10px 13px; border-radius: 8px;
-  font-size: 13.5px; font-weight: 600; color: #fff;   /* Joe: pure white + heavier so nav reads on bright hero */
+  font-size: 13.5px; font-weight: 600; color: #d7dde4;   /* Joe: one notch below logo/title (brightness ladder) but still crisp; hover->#fff */
   transition: color 0.2s, background 0.2s;
 }
 .main-menu__list > li:hover > a, .main-menu__list > li:focus-within > a { color: #fff; background: rgba(255, 255, 255, 0.06); }
@@ -371,7 +371,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 }
 /* hero-home.webp: 设备已朝正(总工 v4)——【不再镜像】(旧 hero-montana 需 scaleX(-1),现移除)。水平 scrim 正常 100deg
    (暗在左=左对齐文案侧),不再是镜像补偿的 260deg。 */
-.w3-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center 40%; transform: scale(1.02); }
+.w3-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: 70% 40%; transform: scale(1.02); }   /* Joe: shift the crop right so the (right-set) truck moves toward centre; NOT mirrored. Mobile keeps its own center override. */
 /* ⑫ Q1.3: directional scrim — dark bottom-left (carries the left-anchored copy) →
    transparent top-right (releases the golden sky + truck). Second layer darkens the
    image bottom just enough for the white trust bar to read. */
@@ -381,7 +381,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
     linear-gradient(to top right, rgba(10, 12, 15, 0.93) 0%, rgba(10, 12, 15, 0.62) 27%, rgba(10, 12, 15, 0.22) 54%, rgba(10, 12, 15, 0) 73%),
     linear-gradient(180deg, rgba(10, 12, 15, 0) 58%, rgba(10, 12, 15, 0.52) 83%, rgba(10, 12, 15, 0.74) 100%);
 }
-.w3-hero__inner { position: relative; width: 100%; padding: 88px 0 150px; }  /* centered-upper, clear of the bottom trust bar */
+.w3-hero__inner { position: relative; width: 100%; padding: 88px 0 220px; }  /* Joe: lift the title block up toward the truck roofline (more bottom padding raises the centered block) */
 .w3-hero__content { max-width: 760px; display: grid; gap: 22px; }
 .w3-hero__title { text-wrap: balance; }
 .w3-hero__sub { color: #c3ccd5; font-size: clamp(15.5px, 1.5vw, 17.5px); max-width: 58ch; }
@@ -624,7 +624,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   linear-gradient(180deg, rgba(10, 12, 15, 0.40) 0%, rgba(10, 12, 15, 0.14) 34%, rgba(10, 12, 15, 0.62) 82%, var(--w3-bg) 100%),
   linear-gradient(100deg, rgba(10, 12, 15, 0.50) 0%, rgba(10, 12, 15, 0.04) 58%); }
 .page-header__inner { position: relative; display: grid; gap: 10px; max-width: 720px; }
-.page-header__title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.08; }
+.page-header__title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.08; color: var(--w3-text); }   /* explicit bright — /about/ (body.about-page sets text2) was inheriting grey */
 .page-header__subtitle { color: var(--w3-text2); font-size: 16px; }
 
 /* sticky filter bar */
