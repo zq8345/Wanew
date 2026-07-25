@@ -264,30 +264,6 @@
     "es-MX": "Atendemos a usuarios de Starlink en más de 130 países — soportes, cables, energía y redes para todas las generaciones de terminal.",
     "zh": "服务 130+ 国家的 Starlink 用户——为每一代终端提供支架、线缆、电源与网络配件。"
   },
-  "home.scene.rv": {
-    "en": "RV",
-    "pt-BR": "Motorhome",
-    "es-MX": "Casa rodante",
-    "zh": "房车"
-  },
-  "home.scene.home_roof": {
-    "en": "Home &amp; Roof",
-    "pt-BR": "Casa e telhado",
-    "es-MX": "Hogar y techo",
-    "zh": "家庭与屋顶"
-  },
-  "home.scene.offgrid": {
-    "en": "Off-Grid",
-    "pt-BR": "Off-grid",
-    "es-MX": "Off-grid",
-    "zh": "离网"
-  },
-  "home.scene.business": {
-    "en": "Business",
-    "pt-BR": "Empresas",
-    "es-MX": "Empresas",
-    "zh": "商用"
-  },
   "home.entry.compat": {
     "en": "Not sure which Starlink you have? Check the compatibility guide",
     "pt-BR": "Não sabe qual Starlink você tem? Veja o guia de compatibilidade",
@@ -347,12 +323,6 @@
     "pt-BR": "Navegue por categoria",
     "es-MX": "Explora por categoría",
     "zh": "按类目浏览"
-  },
-  "home.scene.portable": {
-    "en": "Portable",
-    "pt-BR": "Portátil",
-    "es-MX": "Portátil",
-    "zh": "便携"
   },
   "home.scene.portable.line": {
     "en": "Grab-and-go connectivity — Starlink Mini, powered anywhere.",

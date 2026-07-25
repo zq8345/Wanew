@@ -665,5 +665,40 @@
     "es-MX": "Ver esta página en chino",
     "zh": "以中文查看本页",
     "reason": "约定 A:aria-label 用读者的语言。zh 进切换器(总工拍板 B)"
+  },
+  "header.scene.home_roof": {
+    "en": "Home &amp; Roof",
+    "pt-BR": "Casa e telhado",
+    "es-MX": "Hogar y techo",
+    "zh": "家庭与屋顶",
+    "reason": "scene nav label — byte-identical to home.scene.* (homepage tab = Solutions nav, 总工 canonical 6)"
+  },
+  "header.scene.rv": {
+    "en": "RV",
+    "pt-BR": "Motorhome",
+    "es-MX": "Casa rodante",
+    "zh": "房车",
+    "reason": "scene nav label — byte-identical to home.scene.* (homepage tab = Solutions nav, 总工 canonical 6)"
+  },
+  "header.scene.offgrid": {
+    "en": "Off-Grid",
+    "pt-BR": "Off-grid",
+    "es-MX": "Off-grid",
+    "zh": "离网",
+    "reason": "scene nav label — byte-identical to home.scene.* (homepage tab = Solutions nav, 总工 canonical 6)"
+  },
+  "header.scene.portable": {
+    "en": "Portable",
+    "pt-BR": "Portátil",
+    "es-MX": "Portátil",
+    "zh": "便携",
+    "reason": "scene nav label — byte-identical to home.scene.* (homepage tab = Solutions nav, 总工 canonical 6)"
+  },
+  "header.scene.business": {
+    "en": "Business",
+    "pt-BR": "Empresas",
+    "es-MX": "Empresas",
+    "zh": "商用",
+    "reason": "scene nav label — byte-identical to home.scene.* (homepage tab = Solutions nav, 总工 canonical 6)"
   }
 }
