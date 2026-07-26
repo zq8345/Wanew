@@ -326,11 +326,14 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
     fs.writeFileSync(cache, body);
     return body;
   }
-  // 取首个【有实文】的 <p>:跳过空段 / 纯图 / 注释段 / 纯编号(部分文章首段是 <p><img></p> 或 <p></p><p><!--摘要--></p>)。
+  // 取首个【真正文段】做摘要。跳过:TOC/列表块(目录常是 <h2>Table of Contents</h2><ul>…每项 <p><a href="#">）、
+  // 锚点目录项、空段/纯图/注释段/纯编号、以及【标题式短片段】(短且无句读,如 "Understanding X"=正文小标题不是摘要)。
   const descOf = (b) => {
-    for (const raw of (b.match(/<p[^>]*>([\s\S]*?)<\/p>/gi) || [])) {
+    const noLists = b.replace(/<(ul|ol)\b[\s\S]*?<\/\1>/gi, " ");   // 去 TOC/列表,免把目录首项当摘要
+    for (const raw of (noLists.match(/<p[^>]*>([\s\S]*?)<\/p>/gi) || [])) {
+      if (/<a\s[^>]*href="#/i.test(raw)) continue;                   // 锚点目录项
       const t = raw.replace(/<!--[\s\S]*?-->/g, "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").replace(/^\s*\d+[.)]\s*/, "").trim();
-      if (t.length >= 24) return t.slice(0, 155);
+      if (t.length >= 24 && (/[.,;:!?]/.test(t) || t.length >= 70)) return t.slice(0, 155);   // 有句读或够长=真文段,排除标题式短片段
     }
     return "";
   };
