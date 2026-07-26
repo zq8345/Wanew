@@ -137,7 +137,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=33" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=34" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 <!-- hreflang alternates (derived from locales.json + page existence) -->
@@ -243,11 +243,13 @@
     </div>
   </section>
 
-  <!-- 3. Numbers — one consolidated band (was By-the-Numbers + Manufacturing tiles + Patents; each fact once). #patents anchor lives here. -->
+  <!-- 3+4 MERGED: Manufacturing Capability — one section telling "we can build / build well / certified":
+       numbers band + patents note + capability line + full-width 2×3 factory wall + cert shields + Quality Process flow.
+       Both #patents (section) and #certifications (cert block) anchors preserved for 301 targets. -->
   <section class="xlc-section xlc-section-alt" id="patents">
     <div class="container">
       <div class="tj-sechead">
-        <h2 class="tj-h2">Wanew en números</h2>
+        <h2 class="tj-h2">Capacidad de fabricación</h2>
         <div class="tj-rule"></div>
       </div>
       <div class="xlc-stats xlc-stats--6">
@@ -259,29 +261,20 @@
         <div class="xlc-stat-card"><div class="xlc-stat-number">130+</div><div class="xlc-stat-label">Países</div></div>
       </div>
       <p class="xlc-stats__note">80+ Patentes de invención &middot; 120+ Patentes de modelo de utilidad &middot; 20+ Patentes de diseño</p>
-    </div>
-  </section>
-
-  <!-- 4. Manufacturing & Quality — merged (Manufacturing Capability + Certifications badges + Quality Process). #certifications anchor. Stats live in the number band (§3); this section = capability line + factory + cert badges + QC stepper. -->
-  <section class="xlc-section" id="certifications">
-    <div class="container">
-      <div class="tj-sechead">
-        <h2 class="tj-h2">Capacidad de fabricación</h2>
-        <div class="tj-rule"></div>
-      </div>
-      <div class="about-split">
-        <div class="about-split__text">
-          <p>Desde una planta de producción estandarizada de 5,000 m², Wanew opera modernas líneas de producción automatizadas y equipo de prueba profesional, con una producción mensual de 600,000+ unidades. El control de calidad interno revisa cada lote conforme a la especificación — así los compradores obtienen escala, consistencia y tiempos de entrega confiables.</p>
-          <div class="about-certs">
-            <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">FCC</span></span>
-            <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">CE</span></span>
-            <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">RoHS</span></span>
-            <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">ISO 9001</span></span>
-          </div>
-        </div>
-        <div class="about-split__media">
-          <img src="/static/upload/image/20260508/1778202301187378.webp" alt="Planta de producción de Wanew" width="1024" height="1038" loading="lazy">
-        </div>
+      <p class="about-caps-line">Desde una planta de producción estandarizada de 5,000 m², Wanew opera modernas líneas de producción automatizadas y equipo de prueba profesional, con una producción mensual de 600,000+ unidades. El control de calidad interno revisa cada lote conforme a la especificación — así los compradores obtienen escala, consistencia y tiempos de entrega confiables.</p>
+      <ul class="about-facwall">
+        <li><figure><img src="/static/upload/image/about/factory-office.webp" alt="I+D y oficina" width="503" height="338" loading="lazy"><figcaption aria-hidden="true">I+D y oficina</figcaption></figure></li>
+        <li><figure><img src="/static/upload/image/about/factory-assembly.webp" alt="Línea de ensamblaje" width="507" height="338" loading="lazy"><figcaption aria-hidden="true">Línea de ensamblaje</figcaption></figure></li>
+        <li><figure><img src="/static/upload/image/about/factory-cnc.webp" alt="Mecanizado" width="503" height="338" loading="lazy"><figcaption aria-hidden="true">Mecanizado</figcaption></figure></li>
+        <li><figure><img src="/static/upload/image/about/factory-qc.webp" alt="Control y pruebas" width="507" height="338" loading="lazy"><figcaption aria-hidden="true">Control y pruebas</figcaption></figure></li>
+        <li><figure><img src="/static/upload/image/about/factory-warehouse.webp" alt="Almacén" width="503" height="349" loading="lazy"><figcaption aria-hidden="true">Almacén</figcaption></figure></li>
+        <li><figure><img src="/static/upload/image/about/factory-shipping.webp" alt="Empaque y envío" width="507" height="349" loading="lazy"><figcaption aria-hidden="true">Empaque y envío</figcaption></figure></li>
+      </ul>
+      <div class="about-certs" id="certifications">
+        <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">FCC</span></span>
+        <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">CE</span></span>
+        <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">RoHS</span></span>
+        <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">ISO 9001</span></span>
       </div>
       <h3 class="about-qp-head">Proceso de calidad</h3>
       <ol class="w3-flow w3-flow--5">
@@ -309,7 +302,7 @@
     </div>
   </section>
 
-  <section class="xlc-section xlc-section-alt" id="oem-odm">
+  <section class="xlc-section" id="oem-odm">
     <div class="container">
       <div class="xlc-body">
         <h2 class="xlc-merged-title">Fabricación OEM/ODM de accesorios compatibles con Starlink</h2>
@@ -355,7 +348,7 @@
   </section>
 
   <!-- 6. Global delivery — one line (US warehouse / DDP / export / regions). -->
-  <section class="xlc-section">
+  <section class="xlc-section xlc-section-alt">
     <div class="container">
       <div class="tj-sechead">
         <h2 class="tj-h2">Alcance global</h2>
@@ -365,7 +358,7 @@
     </div>
   </section>
 
-  <section class="xlc-section xlc-section-alt" id="brand">
+  <section class="xlc-section" id="brand">
     <div class="container">
       <div class="xlc-body">
         <h2 class="xlc-merged-title">¿Wanew está afiliada a Starlink o a SpaceX?</h2>

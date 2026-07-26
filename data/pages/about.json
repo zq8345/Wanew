@@ -482,5 +482,41 @@
     "es-MX": "Países",
     "zh": "国家",
     "reason": "6th stat in consolidated number band (130+, matches homepage 130+ countries claim)"
+  },
+  "about.faccap.1": {
+    "en": "R&D & Office",
+    "pt-BR": "P&D e escritório",
+    "es-MX": "I+D y oficina",
+    "zh": "研发办公"
+  },
+  "about.faccap.2": {
+    "en": "Assembly Line",
+    "pt-BR": "Linha de montagem",
+    "es-MX": "Línea de ensamblaje",
+    "zh": "装配产线"
+  },
+  "about.faccap.3": {
+    "en": "Machining",
+    "pt-BR": "Usinagem",
+    "es-MX": "Mecanizado",
+    "zh": "机加工"
+  },
+  "about.faccap.4": {
+    "en": "QC & Testing",
+    "pt-BR": "Controle e testes",
+    "es-MX": "Control y pruebas",
+    "zh": "质检测试"
+  },
+  "about.faccap.5": {
+    "en": "Warehouse",
+    "pt-BR": "Armazém",
+    "es-MX": "Almacén",
+    "zh": "仓储"
+  },
+  "about.faccap.6": {
+    "en": "Packing & Shipping",
+    "pt-BR": "Embalagem e envio",
+    "es-MX": "Empaque y envío",
+    "zh": "包装发运"
   }
 }

@@ -532,9 +532,12 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 
 /* OEM services — meaningful-icon cards (icon serves the service, not decoration) */
 .oem-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.w3-iconcard { background: var(--w3-panel); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); padding: 24px 20px; display: grid; gap: 10px; align-content: start; transition: transform .3s var(--w3-ease), border-color .3s; }
-.w3-iconcard:hover { transform: translateY(-4px); border-color: var(--w3-line2); }
-.w3-iconcard__ic { width: 46px; height: 46px; border-radius: 12px; border: 1px solid var(--w3-line); background: var(--w3-bg2); color: var(--w3-accent); display: grid; place-items: center; }
+.w3-iconcard { position: relative; overflow: hidden; background: var(--w3-panel); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); padding: 24px 20px; display: grid; gap: 12px; align-content: start; transition: transform .35s var(--w3-ease), border-color .35s, box-shadow .35s; }
+.w3-iconcard::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--w3-accent), transparent 72%); opacity: 0; transition: opacity .35s; }
+.w3-iconcard:hover { transform: translateY(-4px); border-color: var(--w3-line2); box-shadow: 0 12px 30px rgba(0,0,0,.4); }
+.w3-iconcard:hover::before { opacity: .85; }
+.w3-iconcard__ic { width: 46px; height: 46px; border-radius: 12px; border: 1px solid var(--w3-line); background: radial-gradient(120% 120% at 50% 30%, rgba(125,177,255,.12), var(--w3-bg2) 70%); color: var(--w3-accent); display: grid; place-items: center; transition: border-color .35s; }
+.w3-iconcard:hover .w3-iconcard__ic { border-color: rgba(125,177,255,.35); }
 .w3-iconcard__ic svg { width: 23px; height: 23px; }
 .oem-cards .w3-iconcard h3 { font-size: 15px; font-weight: 650; color: var(--w3-text); letter-spacing: -0.01em; line-height: 1.3; margin: 0; }
 .w3-iconcard p { font-size: 13px; color: var(--w3-text2); line-height: 1.6; margin: 0; }
@@ -544,22 +547,28 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 /* Horizontal flow diagram — shared (Quality Process 5 nodes + ODM 3 nodes).
    Icon-in-circle nodes joined by a connector line; collapses to a vertical flow
    (connector kept) on narrow. */
-.w3-flow { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; }
-.w3-flow__node { position: relative; text-align: center; padding: 0 12px; display: grid; gap: 8px; justify-items: center; align-content: start; }
-.w3-flow__node::before { content: ""; position: absolute; top: 27px; left: calc(50% + 27px); right: calc(-50% + 27px); height: 2px; background: var(--w3-line); z-index: 0; }
+.w3-flow { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; }
+.w3-flow__node { position: relative; text-align: center; padding: 0 14px; display: grid; gap: 11px; justify-items: center; align-content: start; }
+/* connector: gradient progress line joining icon centers (not a flat grey rule) */
+.w3-flow__node::before { content: ""; position: absolute; top: 32px; left: calc(50% + 36px); right: calc(-50% + 36px); height: 2px; background: linear-gradient(90deg, rgba(125,177,255,.55), rgba(125,177,255,.12)); border-radius: 2px; z-index: 0; }
 .w3-flow__node:last-child::before { display: none; }
-.w3-flow__ic { position: relative; z-index: 1; width: 54px; height: 54px; border-radius: 999px; border: 1px solid var(--w3-line2); background: var(--w3-panel); color: var(--w3-accent); display: grid; place-items: center; }
-.w3-flow__ic svg { width: 25px; height: 25px; }
-.w3-flow__n { font-size: 11px; font-weight: 700; color: var(--w3-accent); letter-spacing: 0.12em; font-variant-numeric: tabular-nums; }
+/* node: accent-tinted well + halo ring + depth (editorial, not plain) */
+.w3-flow__ic { position: relative; z-index: 1; width: 64px; height: 64px; border-radius: 999px; background: radial-gradient(120% 120% at 50% 30%, rgba(125,177,255,.14), var(--w3-panel) 68%); border: 1px solid var(--w3-line2); color: var(--w3-accent); display: grid; place-items: center; box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 6px 18px rgba(0,0,0,.35); transition: transform .35s var(--w3-ease), box-shadow .35s, border-color .35s; }
+.w3-flow__ic::after { content: ""; position: absolute; inset: -5px; border-radius: 999px; border: 1px solid rgba(125,177,255,.22); transition: border-color .35s, transform .35s var(--w3-ease); }
+.w3-flow__node:hover .w3-flow__ic { transform: translateY(-3px); border-color: rgba(125,177,255,.42); box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 10px 26px rgba(0,0,0,.45); }
+.w3-flow__node:hover .w3-flow__ic::after { border-color: rgba(125,177,255,.5); transform: scale(1.05); }
+.w3-flow__ic svg { width: 27px; height: 27px; }
+/* step number: accent pill */
+.w3-flow__n { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 18px; padding: 0 7px; border-radius: 999px; font-size: 10.5px; font-weight: 700; color: var(--w3-accent); background: rgba(125,177,255,.10); border: 1px solid rgba(125,177,255,.20); letter-spacing: 0.08em; font-variant-numeric: tabular-nums; }
 .w3-flow__node h4 { font-size: 14px; font-weight: 650; color: var(--w3-text); line-height: 1.3; margin: 0; letter-spacing: -0.01em; }
 .w3-flow__node p { font-size: 12.5px; color: var(--w3-text2); line-height: 1.55; margin: 0; max-width: 24ch; }
 @media (max-width: 760px) {
-  .w3-flow { grid-auto-flow: row; grid-auto-columns: auto; }
-  .w3-flow__node { grid-template-columns: 54px 1fr; grid-template-rows: auto auto auto; column-gap: 16px; row-gap: 2px; text-align: left; justify-items: start; padding: 0 0 24px; }
+  .w3-flow { grid-auto-flow: row; grid-auto-columns: auto; gap: 4px; }
+  .w3-flow__node { grid-template-columns: 64px 1fr; grid-template-rows: auto auto auto; column-gap: 18px; row-gap: 3px; text-align: left; justify-items: start; padding: 0 0 26px; }
   .w3-flow__ic { grid-row: 1 / 4; grid-column: 1; align-self: start; }
   .w3-flow__n, .w3-flow__node h4, .w3-flow__node p { grid-column: 2; }
   .w3-flow__node p { max-width: none; }
-  .w3-flow__node::before { top: 54px; bottom: 0; left: 26px; right: auto; width: 2px; height: auto; }
+  .w3-flow__node::before { top: 64px; bottom: -2px; left: 31px; right: auto; width: 2px; height: auto; background: linear-gradient(180deg, rgba(125,177,255,.55), rgba(125,177,255,.12)); }
 }
 
 /* Affiliation — one clear statement (dup title removed) + trademark note */
@@ -1013,6 +1022,19 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .sport-info .title a { color: var(--w3-text) !important; }
 .sport-info .title a:hover { color: var(--w3-accent) !important; }
 .sport-info p { font-size: 13.5px; color: var(--w3-text2) !important; line-height: 1.65; margin: 0; }
+
+/* Factory image wall — full-width 2×3 grid of real production photos (trust proof), editorial stage captions */
+.about-facwall { list-style: none; margin: 34px 0 8px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.about-facwall li { margin: 0; }
+.about-facwall figure { position: relative; margin: 0; overflow: hidden; border-radius: var(--w3-radius); border: 1px solid var(--w3-line); background: var(--w3-bg2); }
+.about-facwall img { display: block; width: 100%; height: auto; aspect-ratio: 503 / 338; object-fit: cover; transition: transform .6s var(--w3-ease); }
+.about-facwall figure:hover img { transform: scale(1.05); }
+.about-facwall figure::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 52%, rgba(10,12,15,.5)); pointer-events: none; }
+.about-facwall figcaption { position: absolute; left: 12px; bottom: 11px; z-index: 2; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; padding: 5px 10px; border-radius: 999px; background: rgba(10,12,15,.5); border: 1px solid rgba(255,255,255,.14); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+@media (max-width: 860px) { .about-facwall { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+@media (max-width: 520px) { .about-facwall { grid-template-columns: 1fr; } }
+/* capability lead line — sits between the number band and the factory wall */
+.about-caps-line { max-width: 760px; margin: 22px auto 0; text-align: center; font-size: 15.5px; line-height: 1.75; color: var(--w3-text2); }
 
 /* --- prose / rich content (about, faq, certs, xlc, video, compatibility) --- */
 .about-page, .xlc-section, .xlc-body, .video-page { color: var(--w3-text2); }
