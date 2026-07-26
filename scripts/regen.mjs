@@ -137,6 +137,28 @@ function localizeInternalHead(html, rel, locale) {
   return html;
 }
 
+// SEO 列表页(en/es/pt)的 <head> hreflang 从不被 regenListPage 重建 —— 历史上烤死在种子文件里,
+// 跨产品/语种覆盖不一致(实测:mini/index.html en+es 发 0 条、enterprise 发 4 条;审计定性=非互惠
+// →Google 整簇忽略→产品目录国际定向失效)。这里【每次构建都派生】互惠簇 + 自指 canonical + 正确 lang,
+// 与产品详情页(render)/信息页(renderPage)同一套【存在性】规则,correct-by-construction。幂等:先剥后注。
+// zh 走 localizeInternalHead(剥 hreflang + noindex),本函数只管 SEO 语种。
+function localizeSeoListHead(html, rel, locale) {
+  const route = "/" + rel.replace(/index\.html$/, "").replace(/\.html$/, "");   // "/mini/" | "/type/cables/"
+  const self = `https://wanew.com${urlOf(route, locale)}`;
+  html = html.replace(/(<html lang=")[^"]*(")/, `$1${locale}$2`);
+  html = html.replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${self}$2`);
+  html = html.replace(/\s*<!-- hreflang alternates[^>]*-->/g, "");
+  html = html.replace(/\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*"\s*\/?>/g, "");
+  const links = LOCALES
+    .filter((loc) => loc === "en" || urlOf(route, loc) !== route)   // 存在性:urlOf 原样还回=该语种没有此页→不发
+    .map((loc) => `<link rel="alternate" hreflang="${loc}" href="https://wanew.com${urlOf(route, loc)}" />`)
+    .concat(`<link rel="alternate" hreflang="x-default" href="https://wanew.com${route}" />`)
+    .join("\n");
+  html = html.replace(/(<link rel="canonical"[^>]*>)/,
+    `$1\n<!-- hreflang alternates (derived from locales.json + page existence) -->\n${links}`);
+  return html;
+}
+
 let lists = 0;
 for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
  for (const locale of RENDER_SET) {
@@ -159,6 +181,7 @@ for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
   // —— 两个 catalog 合并传入(键空间不重叠:header.* vs list.*)。
   h1 = setListLabels(h1, { locale, catalog: { ...catalog, ...listCat }, model: bannerModel });
   if (isExtra(locale)) h1 = localizeInternalHead(h1, rel, locale);   // zh list 页:head 本地化+noindex+零 hreflang
+  else h1 = localizeSeoListHead(h1, rel, locale);                     // en/es/pt list 页:派生+注入互惠 hreflang 簇
   if (h1 !== h0) { fs.writeFileSync(p, h1); lists++; }
  }
 }

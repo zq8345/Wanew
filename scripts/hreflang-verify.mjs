@@ -10,7 +10,9 @@
 //   ④ 簇内每条 href 必须=该语种的派生 URL,且目标文件真实存在
 //   ⑤ 完整性:每一门「对应页存在」的 enabled 语种都必须在簇里(缺=漏挂,hreflang 互指,漏一边等于没挂)
 //   ⑥ x-default 必须指默认语种 URL
-// 无簇的页只计数不判红(已知结构缺口:en 产品页 deliberate 不发,见 render.js:95 留档)。
+// 无簇的页只计数不判红。2026-07-26 起 en 产品页(详情+列表)已补发互惠簇(render.js render 去掉
+// locale!=="en" + regen.mjs localizeSeoListHead);现在的「无簇」= EN-only 内容页(未迁移的旧 hub 指南
+// 文章 industrial/mounts/power/rv-off-grid/video/* + admin/非路由页)—— 没有本地化孪生,本就无簇可发。
 import fs from "fs";
 import { localeDirs } from "./locale-dirs.mjs";
 
@@ -79,7 +81,7 @@ for (const p of walk(".").map((f) => f.replace("./", ""))) {
   if (!seen.has("x-default")) issues.push(`⑥ 缺 x-default`);
   if (issues.length) fails.push(`${p}\n     ${issues.join("\n     ")}`);
 }
-console.log(`hreflang-verify  语种 ${ENABLED.join(",")} | 有簇 ${withCluster} | 无簇 ${noCluster}(en 产品页 deliberate 不发,render.js 留档;无簇只计数)`);
+console.log(`hreflang-verify  语种 ${ENABLED.join(",")} | 有簇 ${withCluster} | 无簇 ${noCluster}(EN-only 内容页:未迁移旧 hub 指南文章 + 非路由页;无本地化孪生→无簇,只计数)`);
 console.log(`  ①无重复 ②键合法 ③自指 ④href=派生且目标存在 ⑤存在即必挂 ⑥x-default:  ${withCluster - fails.length} / ${withCluster}  ${fails.length ? "🔴" : "✅"}`);
 if (fails.length) { console.log(`\n🔴 ${fails.length} 个页:`); fails.slice(0, 12).forEach((f) => console.log(`   ${f}`)); }
 process.exit(fails.length ? 1 : 0);
