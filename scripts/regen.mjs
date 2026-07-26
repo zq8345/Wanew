@@ -198,6 +198,72 @@ for (const locale of RENDER_SET) {
 }
 console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.json)`);
 
+// ── Solutions: hub (/solutions/) + 6 scene pages (/solutions/{scene}/). Dedicated builder because
+//    the page-*.html loop can only express a single-level slug, and it SKIPS non-existent enabled
+//    pages (won't seed new URLs). Here we create unconditionally for enabled + zh(internal). The
+//    scene template is ONE file reused for 6 scenes: per-scene text keys are aliased to fixed
+//    {{t.sol.*}} tokens, and hero/recs/breadcrumb-url are string-substituted before renderPage.
+{
+  const solCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "solutions.json"), "utf8"));
+  const solHubTpl = fs.readFileSync(path.join(REPO, "data", "templates", "solutions-hub.html"), "utf8");
+  const solSceneTpl = fs.readFileSync(path.join(REPO, "data", "templates", "solutions-scene.html"), "utf8");
+  const SOL_SCENES = ["home", "rv", "marine", "off-grid", "portable", "business"];
+  const SOL_HERO = { home: "scene-home-rooftop", rv: "scene-rv-overland", marine: "scene-marine", "off-grid": "scene-offgrid", portable: "scene-portable", business: "scene-business-mine" };
+  const SVG = (inner) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${inner}</svg>`;
+  const ICON = {
+    mount: SVG('<ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/>'),
+    power: SVG('<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>'),
+    cable: SVG('<rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/>'),
+    net: SVG('<circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v3.5M12 10.5 6 17M12 10.5l6 6.5"/>'),
+    case: SVG('<rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5.2a3 3 0 0 1 6 0V7"/>'),
+    mini: SVG('<rect x="5" y="3" width="14" height="10" rx="2"/><path d="M12 13v5"/><path d="M8 21h8"/>'),
+    enterprise: SVG('<rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2"/>'),
+    all: SVG('<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'),
+  };
+  // [labelKey | null, url, icon, literalLabel?] — literal for proper-noun models (Mini/Enterprise)
+  const SOL_RECS = {
+    home: [["header.mounts_brackets", "/products/#mounts", "mount"], ["header.cables", "/products/#cables", "cable"]],
+    rv: [["header.mounts_brackets", "/products/#mounts", "mount"], ["header.power_charging", "/products/#power", "power"], [null, "/mini/", "mini", "Starlink Mini"]],
+    marine: [["header.mounts_brackets", "/products/#mounts", "mount"], ["header.cables", "/products/#cables", "cable"]],
+    "off-grid": [["header.power_charging", "/products/#power", "power"], ["header.cables", "/products/#cables", "cable"]],
+    portable: [[null, "/mini/", "mini", "Starlink Mini"], ["header.cases_protection", "/products/#cases", "case"], ["header.cables", "/products/#cables", "cable"]],
+    business: [[null, "/enterprise/", "enterprise", "Enterprise"], ["header.networking", "/products/#networking", "net"], ["header.all_products", "/products/", "all"]],
+  };
+  const pick = (o, loc) => (o && (o[loc] ?? o.en)) || "";
+  let solPages = 0;
+  for (const locale of RENDER_SET) {
+    if (!LOCALES.includes(locale) && !isExtra(locale)) continue;   // enabled + zh(extra) only
+    const baseCat = { ...catalog, ...shared, ...solCat };
+    // urlOf can't handle a #hash (it would look up a non-existent file) — resolve the base path's
+    // localized URL, then re-append the fragment. Same rule renderHome uses for typecard hashes.
+    const linkOf = (u) => { const h = u.indexOf("#"); return h < 0 ? urlOf(u, locale) : urlOf(u.slice(0, h), locale) + u.slice(h); };
+    // hub
+    {
+      const p = pageOf(locale, path.join("solutions", "index.html"));
+      const html = renderPage(solHubTpl, { locale, catalog: baseCat, urlOf, path: "/solutions/", dirOf, enabled: LOCALES, internal_noindex: INTERNAL });
+      fs.mkdirSync(path.dirname(p), { recursive: true });
+      if (!fs.existsSync(p) || fs.readFileSync(p, "utf8") !== html) { fs.writeFileSync(p, html); solPages++; }
+    }
+    // 6 scenes
+    for (const sc of SOL_SCENES) {
+      const recs = SOL_RECS[sc].map(([lk, url, ic, lit]) => {
+        const label = lit || pick(baseCat[lk], locale);
+        return `        <a class="sol-rec" href="${linkOf(url)}"><span class="sol-rec__ic" aria-hidden="true">${ICON[ic]}</span><span class="sol-rec__t">${label}</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>`;
+      }).join("\n");
+      const sceneCat = { ...baseCat, "sol.eyebrow": solCat[`solutions.${sc}.eyebrow`], "sol.h1": solCat[`solutions.${sc}.h1`], "sol.intro": solCat[`solutions.${sc}.intro`] };
+      const tpl2 = solSceneTpl
+        .split("{{SCENE_HERO}}").join(`/static/upload/image/20260725/${SOL_HERO[sc]}.webp`)
+        .split("{{SCENE_RECS}}").join(recs)
+        .split("{{SCENE_SOLUTIONS_URL}}").join(urlOf("/solutions/", locale));
+      const p = pageOf(locale, path.join("solutions", sc, "index.html"));
+      const html = renderPage(tpl2, { locale, catalog: sceneCat, urlOf, path: `/solutions/${sc}/`, dirOf, enabled: LOCALES, internal_noindex: INTERNAL });
+      fs.mkdirSync(path.dirname(p), { recursive: true });
+      if (!fs.existsSync(p) || fs.readFileSync(p, "utf8") !== html) { fs.writeFileSync(p, html); solPages++; }
+    }
+  }
+  console.log(`solutions: ${solPages} pages regenerated (hub + 6 scenes × ${RENDER_SET.length} locales)`);
+}
+
 // R3(b)… — every other templated page. Driven by what's on disk (data/templates/page-*.html), not
 // by a list here: bucket (c)/(d)/(e) land in the pipeline by existing, with nobody remembering to
 // register them. Same contract as everything else — regen emits content, chrome-sync owns chrome.

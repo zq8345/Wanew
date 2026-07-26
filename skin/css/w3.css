@@ -1036,6 +1036,37 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 /* capability lead line — sits between the number band and the factory wall */
 .about-caps-line { max-width: 760px; margin: 22px auto 0; text-align: center; font-size: 15.5px; line-height: 1.75; color: var(--w3-text2); }
 
+/* ── Solutions: hub scene cards + scene recommended-accessory cards + shared CTA ── */
+.page-header__eyebrow { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--w3-accent); margin-bottom: 12px; }
+.sol-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 8px; }
+.sol-card { display: flex; flex-direction: column; border: 1px solid var(--w3-line); border-radius: var(--w3-radius); overflow: hidden; background: var(--w3-panel); text-decoration: none; transition: transform .35s var(--w3-ease), border-color .35s, box-shadow .35s; }
+.sol-card:hover { transform: translateY(-4px); border-color: var(--w3-line2); box-shadow: 0 14px 34px rgba(0,0,0,.42); }
+.sol-card__media { position: relative; overflow: hidden; aspect-ratio: 16 / 9; background: var(--w3-bg2); }
+.sol-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--w3-ease); }
+.sol-card:hover .sol-card__media img { transform: scale(1.06); }
+.sol-card__body { position: relative; padding: 20px 22px 22px; display: grid; gap: 8px; align-content: start; }
+.sol-card__t { font-size: 18px; font-weight: 700; color: var(--w3-text); letter-spacing: -0.01em; }
+.sol-card__d { font-size: 13.5px; color: var(--w3-text2); line-height: 1.6; max-width: 34ch; }
+.sol-card__arw { position: absolute; top: 20px; right: 22px; color: var(--w3-accent); font-size: 18px; line-height: 1; transition: transform .3s var(--w3-ease); }
+.sol-card:hover .sol-card__arw { transform: translateX(4px); }
+@media (max-width: 900px) { .sol-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .sol-grid { grid-template-columns: 1fr; } }
+/* scene page: recommended accessories */
+.sol-recs { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-top: 8px; }
+.sol-rec { display: flex; align-items: center; gap: 14px; padding: 18px 20px; border: 1px solid var(--w3-line); border-radius: var(--w3-radius); background: var(--w3-panel); text-decoration: none; transition: transform .3s var(--w3-ease), border-color .3s, box-shadow .3s; }
+.sol-rec:hover { transform: translateY(-3px); border-color: rgba(125,177,255,.35); box-shadow: 0 10px 24px rgba(0,0,0,.35); }
+.sol-rec__ic { flex: none; width: 46px; height: 46px; border-radius: 12px; border: 1px solid var(--w3-line); background: radial-gradient(120% 120% at 50% 30%, rgba(125,177,255,.12), var(--w3-bg2) 70%); color: var(--w3-accent); display: grid; place-items: center; }
+.sol-rec__ic svg { width: 23px; height: 23px; }
+.sol-rec__t { flex: 1; font-size: 14.5px; font-weight: 600; color: var(--w3-text); }
+.sol-rec__arw { color: var(--w3-text3); font-size: 16px; transition: transform .3s var(--w3-ease), color .3s; }
+.sol-rec:hover .sol-rec__arw { color: var(--w3-accent); transform: translateX(3px); }
+/* shared CTA band (hub + scene) */
+.sol-cta { margin-top: 44px; padding: 30px 34px; border-radius: var(--w3-radius); border: 1px solid var(--w3-line); background: linear-gradient(180deg, var(--w3-panel), var(--w3-bg2)); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.sol-cta__text h3 { font-size: 20px; font-weight: 700; color: var(--w3-text); margin: 0 0 6px; letter-spacing: -0.01em; }
+.sol-cta__text p { font-size: 14px; color: var(--w3-text2); margin: 0; line-height: 1.6; }
+.sol-cta__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+@media (max-width: 640px) { .sol-cta { flex-direction: column; align-items: flex-start; } }
+
 /* --- prose / rich content (about, faq, certs, xlc, video, compatibility) --- */
 .about-page, .xlc-section, .xlc-body, .video-page { color: var(--w3-text2); }
 .about-lead, .about-split { display: grid; gap: clamp(24px,4vw,48px); align-items: center; margin-bottom: 56px; }

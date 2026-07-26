@@ -1,0 +1,240 @@
+{
+  "solutions.meta.title": {
+    "en": "Starlink Solutions by Environment | Wanew",
+    "pt-BR": "Soluções Starlink por ambiente | Wanew",
+    "es-MX": "Soluciones Starlink por entorno | Wanew",
+    "zh": "按场景分类的 Starlink 解决方案 | Wanew"
+  },
+  "solutions.meta.desc": {
+    "en": "Matched Starlink accessory setups for home, RV, marine, off-grid, portable and business use — mounts, power, cables and networking, ready to deploy.",
+    "pt-BR": "Configurações de acessórios Starlink para casa, motorhome, náutica, off-grid, uso portátil e empresarial — suportes, energia, cabos e rede, prontos para instalar.",
+    "es-MX": "Configuraciones de accesorios Starlink para casa, casa rodante, náutica, fuera de red, uso portátil y empresarial — soportes, energía, cables y red, listos para instalar.",
+    "zh": "面向家用、房车、船舶、离网、便携与商用的 Starlink 配件方案——支架、供电、线缆与组网,即装即用。"
+  },
+  "solutions.hub.eyebrow": {
+    "en": "SOLUTIONS",
+    "pt-BR": "SOLUÇÕES",
+    "es-MX": "SOLUCIONES",
+    "zh": "解决方案"
+  },
+  "solutions.hub.h1": {
+    "en": "Starlink solutions for every environment",
+    "pt-BR": "Soluções Starlink para todos os ambientes",
+    "es-MX": "Soluciones Starlink para cada entorno",
+    "zh": "面向每一种场景的 Starlink 解决方案"
+  },
+  "solutions.hub.intro": {
+    "en": "Pick your use case and get a matched set of Starlink-compatible accessories — mounts, power, cables and networking chosen to work together.",
+    "pt-BR": "Escolha seu caso de uso e receba um conjunto de acessórios compatíveis com Starlink — suportes, energia, cabos e rede escolhidos para funcionar juntos.",
+    "es-MX": "Elige tu caso de uso y obtén un conjunto de accesorios compatibles con Starlink — soportes, energía, cables y red pensados para trabajar juntos.",
+    "zh": "选择你的应用场景,获得一套配套的 Starlink 兼容配件——支架、供电、线缆与组网,协同设计。"
+  },
+  "solutions.hub.browse": {
+    "en": "Browse all products",
+    "pt-BR": "Ver todos os produtos",
+    "es-MX": "Ver todos los productos",
+    "zh": "浏览全部产品"
+  },
+  "solutions.hub.recommended": {
+    "en": "Recommended accessories",
+    "pt-BR": "Acessórios recomendados",
+    "es-MX": "Accesorios recomendados",
+    "zh": "推荐配件"
+  },
+  "solutions.home.eyebrow": {
+    "en": "SOLUTIONS · HOME",
+    "pt-BR": "SOLUÇÕES · CASA",
+    "es-MX": "SOLUCIONES · HOGAR",
+    "zh": "解决方案 · 家用"
+  },
+  "solutions.home.h1": {
+    "en": "Whole-home coverage, cleanly installed",
+    "pt-BR": "Cobertura para toda a casa, instalada com capricho",
+    "es-MX": "Cobertura para toda la casa, instalada con orden",
+    "zh": "全屋覆盖,安装利落"
+  },
+  "solutions.home.intro": {
+    "en": "Rooftop and wall mounts with tidy cable runs bring reliable Starlink coverage to the whole house — built to last, without the clutter.",
+    "pt-BR": "Suportes de telhado e parede com passagem de cabos organizada levam cobertura Starlink confiável a toda a casa — feitos para durar, sem bagunça.",
+    "es-MX": "Soportes de techo y pared con cableado ordenado llevan cobertura Starlink confiable a toda la casa — hechos para durar, sin desorden.",
+    "zh": "屋顶与墙面支架配合整洁走线,为整屋带来可靠的 Starlink 覆盖——耐用,不凌乱。"
+  },
+  "solutions.home.card": {
+    "en": "Rooftop mounts and tidy cabling for reliable whole-home coverage.",
+    "pt-BR": "Suportes de telhado e cabeamento organizado para cobertura confiável em toda a casa.",
+    "es-MX": "Soportes de techo y cableado ordenado para una cobertura confiable en toda la casa.",
+    "zh": "屋顶支架与整洁走线,可靠覆盖整屋。"
+  },
+  "solutions.rv.eyebrow": {
+    "en": "SOLUTIONS · RV & OVERLAND",
+    "pt-BR": "SOLUÇÕES · MOTORHOME E OVERLAND",
+    "es-MX": "SOLUCIONES · CASA RODANTE Y OVERLAND",
+    "zh": "解决方案 · 房车与越野"
+  },
+  "solutions.rv.h1": {
+    "en": "Stay connected on every road",
+    "pt-BR": "Fique conectado em qualquer estrada",
+    "es-MX": "Mantente conectado en cualquier camino",
+    "zh": "每一段旅途都在线"
+  },
+  "solutions.rv.intro": {
+    "en": "Vibration-ready mounts, 12 V/DC power, and the compact Starlink Mini keep RVs, vans and overland rigs online from the trailhead to the campsite.",
+    "pt-BR": "Suportes resistentes a vibração, energia 12 V/CC e o compacto Starlink Mini mantêm motorhomes, vans e veículos overland online da trilha ao acampamento.",
+    "es-MX": "Soportes resistentes a la vibración, energía de 12 V/CC y el compacto Starlink Mini mantienen en línea a casas rodantes, vans y vehículos overland desde el sendero hasta el campamento.",
+    "zh": "抗振支架、12V/DC 供电与小巧的 Starlink Mini,让房车、厢式车与越野车从出发到营地全程在线。"
+  },
+  "solutions.rv.card": {
+    "en": "Vibration-ready mounts, DC power and the compact Mini for life on the road.",
+    "pt-BR": "Suportes contra vibração, energia CC e o compacto Mini para a vida na estrada.",
+    "es-MX": "Soportes contra vibración, energía CC y el compacto Mini para la vida en el camino.",
+    "zh": "抗振支架、DC 供电与小巧 Mini,专为在路上的生活。"
+  },
+  "solutions.marine.eyebrow": {
+    "en": "SOLUTIONS · MARINE",
+    "pt-BR": "SOLUÇÕES · NÁUTICA",
+    "es-MX": "SOLUCIONES · NÁUTICA",
+    "zh": "解决方案 · 船舶海事"
+  },
+  "solutions.marine.h1": {
+    "en": "Connectivity that holds at sea",
+    "pt-BR": "Conectividade que aguenta o mar",
+    "es-MX": "Conectividad que resiste en el mar",
+    "zh": "经得起大海的连接"
+  },
+  "solutions.marine.intro": {
+    "en": "Pole and rail mounts built for salt and spray, paired with weatherproof cabling, keep boats and vessels connected offshore.",
+    "pt-BR": "Suportes de mastro e balaustrada feitos para sal e maresia, com cabeamento à prova de intempéries, mantêm barcos e embarcações conectados em alto-mar.",
+    "es-MX": "Soportes de poste y baranda hechos para la sal y el rocío, con cableado resistente a la intemperie, mantienen conectados a barcos y embarcaciones mar adentro.",
+    "zh": "耐盐雾的立杆与栏杆支架,搭配防候线缆,让船只在近海持续在线。"
+  },
+  "solutions.marine.card": {
+    "en": "Salt-ready mounts and weatherproof cabling for boats and vessels.",
+    "pt-BR": "Suportes resistentes ao sal e cabeamento à prova de intempéries para barcos e embarcações.",
+    "es-MX": "Soportes resistentes a la sal y cableado a prueba de intemperie para barcos y embarcaciones.",
+    "zh": "耐盐支架与防候线缆,专为船只打造。"
+  },
+  "solutions.off-grid.eyebrow": {
+    "en": "SOLUTIONS · OFF-GRID",
+    "pt-BR": "SOLUÇÕES · OFF-GRID",
+    "es-MX": "SOLUCIONES · FUERA DE RED",
+    "zh": "解决方案 · 离网"
+  },
+  "solutions.off-grid.h1": {
+    "en": "Power and connect anywhere",
+    "pt-BR": "Energia e conexão em qualquer lugar",
+    "es-MX": "Energía y conexión en cualquier lugar",
+    "zh": "随处供电,随处连接"
+  },
+  "solutions.off-grid.intro": {
+    "en": "DC adapters, power banks and rugged cabling keep Starlink running at remote sites, cabins and off-grid homes — no mains power required.",
+    "pt-BR": "Adaptadores CC, power banks e cabeamento reforçado mantêm o Starlink funcionando em locais remotos, cabanas e casas off-grid — sem precisar da rede elétrica.",
+    "es-MX": "Adaptadores CC, power banks y cableado reforzado mantienen el Starlink funcionando en sitios remotos, cabañas y hogares fuera de red — sin necesidad de red eléctrica.",
+    "zh": "DC 适配器、移动电源与加固线缆,让 Starlink 在偏远站点、小屋与离网住宅持续运行——无需市电。"
+  },
+  "solutions.off-grid.card": {
+    "en": "DC power and rugged cabling to run Starlink far from the grid.",
+    "pt-BR": "Energia CC e cabeamento reforçado para usar o Starlink longe da rede.",
+    "es-MX": "Energía CC y cableado reforzado para usar el Starlink lejos de la red.",
+    "zh": "DC 供电与加固线缆,让 Starlink 远离电网也能用。"
+  },
+  "solutions.portable.eyebrow": {
+    "en": "SOLUTIONS · PORTABLE",
+    "pt-BR": "SOLUÇÕES · PORTÁTIL",
+    "es-MX": "SOLUCIONES · PORTÁTIL",
+    "zh": "解决方案 · 便携"
+  },
+  "solutions.portable.h1": {
+    "en": "Grab-and-go internet",
+    "pt-BR": "Internet para levar e usar",
+    "es-MX": "Internet para llevar y usar",
+    "zh": "拎起就走的网络"
+  },
+  "solutions.portable.intro": {
+    "en": "The compact Starlink Mini, protective cases and lightweight cables make a kit you can pack, carry and set up anywhere in minutes.",
+    "pt-BR": "O compacto Starlink Mini, cases de proteção e cabos leves formam um kit que você guarda, carrega e instala em qualquer lugar em minutos.",
+    "es-MX": "El compacto Starlink Mini, estuches de protección y cables ligeros forman un kit que empacas, llevas e instalas en cualquier lugar en minutos.",
+    "zh": "小巧的 Starlink Mini、保护盒与轻量线缆,组成一套可收纳、可携带、几分钟即装的套件。"
+  },
+  "solutions.portable.card": {
+    "en": "Mini, cases and light cabling for a kit that travels with you.",
+    "pt-BR": "Mini, cases e cabos leves para um kit que viaja com você.",
+    "es-MX": "Mini, estuches y cables ligeros para un kit que viaja contigo.",
+    "zh": "Mini、保护盒与轻线,一套随身套件。"
+  },
+  "solutions.business.eyebrow": {
+    "en": "SOLUTIONS · BUSINESS & FIELD",
+    "pt-BR": "SOLUÇÕES · EMPRESAS E CAMPO",
+    "es-MX": "SOLUCIONES · EMPRESAS Y CAMPO",
+    "zh": "解决方案 · 商用与现场"
+  },
+  "solutions.business.h1": {
+    "en": "Deploy at scale, on site",
+    "pt-BR": "Implante em escala, no local",
+    "es-MX": "Despliega a escala, en sitio",
+    "zh": "规模化部署,直达现场"
+  },
+  "solutions.business.intro": {
+    "en": "Enterprise-grade hardware, networking gear and the full accessory range support job sites, emergency response and multi-unit rollouts.",
+    "pt-BR": "Hardware de nível empresarial, equipamentos de rede e a linha completa de acessórios atendem canteiros de obra, resposta a emergências e implantações em vários locais.",
+    "es-MX": "Hardware de nivel empresarial, equipo de red y la línea completa de accesorios respaldan obras, respuesta a emergencias e implementaciones en varios sitios.",
+    "zh": "企业级硬件、组网设备与全系配件,支撑工地、应急响应与多点批量部署。"
+  },
+  "solutions.business.card": {
+    "en": "Enterprise hardware and networking for job sites and rollouts.",
+    "pt-BR": "Hardware empresarial e rede para obras e implantações.",
+    "es-MX": "Hardware empresarial y red para obras e implementaciones.",
+    "zh": "企业级硬件与组网,专为工地与批量部署。"
+  },
+  "solutions.cta.title": {
+    "en": "Not sure which setup fits?",
+    "pt-BR": "Não sabe qual configuração combina?",
+    "es-MX": "¿No sabes qué configuración te conviene?",
+    "zh": "不确定哪套方案适合你?"
+  },
+  "solutions.cta.sub": {
+    "en": "Tell us your environment and weill match the right accessories.",
+    "pt-BR": "Conte-nos seu ambiente e indicaremos os acessórios certos.",
+    "es-MX": "Cuéntanos tu entorno y te recomendaremos los accesorios correctos.",
+    "zh": "告诉我们你的使用场景,我们为你匹配合适的配件。"
+  },
+  "solutions.home.name": {
+    "en": "Home",
+    "pt-BR": "Casa",
+    "es-MX": "Hogar",
+    "zh": "家用",
+    "reason.dupe": "Solutions 场景卡标题;与 nav 品类/场景标签同词不同角色(导航项 vs 解决方案卡),显式共存不合并。"
+  },
+  "solutions.rv.name": {
+    "en": "RV & Overland",
+    "pt-BR": "Motorhome e Overland",
+    "es-MX": "Casa rodante y Overland",
+    "zh": "房车与越野"
+  },
+  "solutions.marine.name": {
+    "en": "Marine",
+    "pt-BR": "Náutica",
+    "es-MX": "Náutica",
+    "zh": "船舶海事",
+    "reason.dupe": "Solutions 场景卡标题;与 nav 品类/场景标签同词不同角色(导航项 vs 解决方案卡),显式共存不合并。"
+  },
+  "solutions.off-grid.name": {
+    "en": "Off-Grid",
+    "pt-BR": "Off-Grid",
+    "es-MX": "Fuera de red",
+    "zh": "离网",
+    "reason.dupe": "Solutions 场景卡标题;与 nav 品类/场景标签同词不同角色(导航项 vs 解决方案卡),显式共存不合并。"
+  },
+  "solutions.portable.name": {
+    "en": "Portable",
+    "pt-BR": "Portátil",
+    "es-MX": "Portátil",
+    "zh": "便携",
+    "reason.dupe": "Solutions 场景卡标题;与 nav 品类/场景标签同词不同角色(导航项 vs 解决方案卡),显式共存不合并。"
+  },
+  "solutions.business.name": {
+    "en": "Business & Field",
+    "pt-BR": "Empresas e Campo",
+    "es-MX": "Empresas y Campo",
+    "zh": "商用与现场"
+  }
+}
