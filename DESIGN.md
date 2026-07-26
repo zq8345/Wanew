@@ -166,7 +166,7 @@
 - **画廊**(`.swiper-*` 类名载重,实现是 CSS scroll-snap + w3.js,无 swiper 库):主台 1:1 `--w3-tile` 16 圆角;箭头=白圆钮 42px 悬停现身;缩略图 72px,选中 = `--w3-accent` 2px 边。
 - **回顶钮** `.scroll-to-target`:44px 圆钮,滚动后现身。
 
-### 3.7 About / Solutions 区组件（W3 About v2/v3 + Solutions 重建新增,§7.4 登记）
+### 3.7 About / Solutions / Guides 区组件（W3 About v2/v3 + Solutions + Guides 迁移新增,§7.4 登记）
 > 令牌全取自 §2:色 bg2/panel/line/line2/accent、radius 16、ease、字阶。零魔法值。图标=内联 SVG 线性(stroke 1.6/accent),服务流程/含义(流程节点、认证盾),**非装饰卡**(review#1 边界:流程图/语义图标允许,一排三词装饰图标卡禁用)。
 - **流程图** `.w3-flow`/`.w3-flow__node`/`.w3-flow__ic`/`.w3-flow__n`(Quality Process 5 步 + OEM/ODM ODM 3 步,共用一套):横向 grid(`grid-auto-flow:column`),节点=accent 描边环圆 64px(径向井底 `rgba(125,177,255,.14)`→panel + halo `::after` + 景深)+ 渐变进度连接线(`::before`,accent→透明,非灰细线)+ 步骤号 accent 药丸 `.w3-flow__n`;≤760px 转竖排(连接线保留)。hover 节点上浮+环加亮。
 - **流程带容器** `.w3-flowband`〔审计 §7.4 补登〕:给流程图视觉分量的 surface 容器 —— `background:--w3-bg2` + `1px --w3-line` 边 + `--w3-radius` 圆角 + `34px 30px 30px` 内距(≤760px `26px 20px 6px`)。用途:包裹 `.w3-flow`,避免"图标+线飘在深底上"。
@@ -181,6 +181,11 @@
 - **Solutions CTA 带** `.sol-cta`:panel→bg2 渐变面板,左文右钮(≤640 竖排),主钮 §3.1 primary(Request a quote)。
 - **信息页 hero 眉标** `.page-header__eyebrow`:11px w600 全大写 0.2em accent(hero 内 eyebrow,如 "SOLUTIONS · RV")。
 - **Partner CTA** `.about-partner`:段标题(tj-h2)+ 一句 + primary 按钮(收尾转化,一句+钮不拖)。
+- **Guides 库网格** `.guides-grid`/`.guides-card`〔Guides 迁移新增〕:auto-fill minmax(300px) 卡网格;`.guides-card`=panel 底 + 发丝边 + 16 圆角 + hover 上浮 3px/accent 边 + 顶部 accent 渐变线(`::before`),`.guides-card__topic`(11px w650 全大写 accent 眉标)+ `.guides-card__t`(标题 clamp 16.5–18px w650,3 行截断)+ `.guides-card__arw`(角标 →);整卡链 `/guides/{slug}/`。`.guides-card.is-hidden`=筛选隐藏态(`display:none`),由 w3.js `[data-guides-filter]` 依 `data-topic` 切换。
+- **Guides 主题过滤条** `.guides-filter`/`.guides-chip`:玻璃底吸顶(§4.4)药丸行(flex wrap),`.guides-chip`=胶囊 line2 边 + hover accent,`.guides-chip.is-active`=accent 底反白(当前主题);仅 /guides/ 库首页出现,`data-guides-filter` 驱动纯前端过滤(无 JS 时全卡可见=渐进增强)。
+- **Guides CTA** `.guides-cta`:文章尾转化块,tj-h2 标题 + primary(Request a quote)+ ghost(返回该主题库);令牌全取 §2/§3.1。
+- **Guides 空主题占位** `.guides-soon`:未迁移主题(rv-off-grid/mounts/power,G2-4 前)库页 coming-soon 提示条(panel 底 + --w3-text2 居中一句);该页同时注入 `noindex,follow`,避免空壳被索引。
+- **窄 hero** `.page-header--slim`:信息/文章页轻量页头(比首页 hero 矮,左对齐),承载 `.w3-crumb`(面包屑:`/guides/` → 主题,发丝分隔 `/`,13px --w3-text3 + accent 链)+ 文章 h1。
 
 ## 4. 交互标准
 

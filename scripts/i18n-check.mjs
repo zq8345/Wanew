@@ -76,7 +76,7 @@ for (const f of allJson("data")) {
   } else if (isCatalog(o)) {
     sources.catalog.push(f);
     for (const [k, v] of Object.entries(o)) if (!k.startsWith("_")) catalog[k] = v;
-  } else if (f === "data/locales.json" || /home-tiles|home-featured|products-index|site\.json|es-glossary\.json|es-hold\.json|pages-list\.json|categories\.json/.test(f)) {
+  } else if (f === "data/locales.json" || /home-tiles|home-featured|products-index|site\.json|es-glossary\.json|es-hold\.json|pages-list\.json|categories\.json|guides-manifest/.test(f)) {
     // ⭐ home-featured.json = W3 首页产品策展条的【id 列表】(总工 review #2),顶层 { _doc, ids:[...] },
     //    无 en 字段、不是文案。消费者=renderHome/pickHomeProducts(按 id 取 manifest 缩略图+本地化标题,
     //    标题本地化走 manifest.i18n,不经此文件)→ 纯策展数据,非文案目录,点名放行。
@@ -96,6 +96,11 @@ for (const f of allJson("data")) {
     //    核过消费链(render.js:107):display 只作为 CATEGORY 的 modelDisplay 兜底进页面 ——
     //    与 locales.json model_display 同族的【不翻译的结构常量】(值在 fallback 清单里);
     //    导航/H1 的本地化呈现走 chrome.json 目录键,不经这份文件 → 非文案目录,放行。
+    // ⭐ guides-manifest.json = Guides 迁移的文章路由/策展元数据(顶层 { _doc, active_topics?, articles:[
+    //    {id, topic, slug, old, title} | {id, topic, dedup_to, old} ]}),无 en 字段、非按语种译文目录。
+    //    消费者=scripts/regen.mjs 的 Guides builder(按 slug/topic 生成 /guides/{slug}/ 与主题索引;
+    //    title 是 EN-only marine 文章标题,英文文章的结构数据,不经本地化目录)→ 纯路由/策展数据,点名放行。
+    //    (guides 的【可本地化文案】在 data/pages/guides.json,走 isCatalog 正常受监视,不在此豁免。)
     // ⚠️ 留档:这道形状闸同时逮到了 data/es-product-translations.json —— 而那个我【没有放行,直接删了】。
     //    它是已耗尽的迁移输入(只覆盖 2/58,另 56 个是批量直灌),更要命的是
     //    **seed 会跳过已有 es 的产品,所以编辑它不会有任何效果,还不报错** —— 一根没接线的杆,

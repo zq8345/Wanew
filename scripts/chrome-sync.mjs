@@ -80,7 +80,15 @@ if (WRITE) {
   const INTERNAL_DIRS = (locales.internal_noindex || [])
     .map((loc) => localeDirs(locales)[loc]).filter(Boolean);
   const isInternal = (p) => INTERNAL_DIRS.some((d) => p === `${d}/` || p.startsWith(`${d}/`));
-  const publishable = (p) => !EXCLUDE.has(p) && !isInternal(p);
+  // 页面级 noindex(如未迁移的空 Guides 主题占位页 guides/{mounts,power,rv-off-grid}/):渲染并留在
+  // pages-list(nav/切换器/admin pageExists 需要),但【不进 sitemap】—— noindex + sitemap 是矛盾信号,
+  // GSC 会报 "Submitted URL marked 'noindex'"。单真源=页面自己的 robots meta(不维护第二张排除名单)。
+  // ⚠️ 必须进 publishable 谓词本身,让 urls 和 expected 走同一判定 —— 否则自检 emitted!=expected 会炸。
+  const NOINDEX = new Set(list.filter((p) => {
+    try { return /<meta\s+name=["']robots["']\s+content=["'][^"']*noindex/i.test(fs.readFileSync(p, "utf8")); }
+    catch { return false; }
+  }));
+  const publishable = (p) => !EXCLUDE.has(p) && !isInternal(p) && !NOINDEX.has(p);
   const urls = list.filter(publishable).map((p) =>
     "https://wanew.com/" + p.replace(/index\.html$/, "").replace(/\.html$/, ""));
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
@@ -91,7 +99,7 @@ if (WRITE) {
   const emitted = (fs.readFileSync("sitemap.xml", "utf8").match(/<loc>/g) || []).length;
   const expected = list.filter(publishable).length;   // 同一 publishable 谓词 → 防 filter/map 静默丢页
   if (emitted !== expected) { console.error(`🔴 sitemap 自检 FAIL: 条目 ${emitted} != 可发布页 ${expected}`); process.exit(1); }
-  console.log(`sitemap.xml 重生成: ${emitted} 条（pages-list ${list.length} − 排除 ${list.length - expected}：404 + internal/${INTERNAL_DIRS.join(",") || "无"}）`);
+  console.log(`sitemap.xml 重生成: ${emitted} 条（pages-list ${list.length} − 排除 ${list.length - expected}：404 + internal/${INTERNAL_DIRS.join(",") || "无"} + noindex ${NOINDEX.size}）`);
 }
 
 console.log(`chrome-sync [${WRITE ? "WRITE" : "dry"}]  页面 ${pages.length}  |  字节不变 ${identical}  |  变更 ${changed}(其中纯空白 ${wsOnly})`);

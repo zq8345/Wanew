@@ -264,6 +264,108 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
   console.log(`solutions: ${solPages} pages regenerated (hub + 6 scenes × ${RENDER_SET.length} locales)`);
 }
 
+// ── Guides: library home /guides/ + 4 topic index /guides/{topic}/ + articles /guides/{slug}/ ──
+//    Migrates legacy .blog-details articles into the unified Guides library, STRIPPING the legacy
+//    Tejoy inline styles (DESIGN.md §3.2b: zero inline style). Articles are en-only (source has no
+//    localized bodies); home/topic shells build for all locales, listing en articles + lang-badge
+//    on non-en. Manifest drives it (guides-manifest.json); G1 = marine填, others G2-4.
+{
+  const gm = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "guides-manifest.json"), "utf8"));
+  const gCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "guides.json"), "utf8"));
+  const artTpl = fs.readFileSync(path.join(REPO, "data", "templates", "guides-article.html"), "utf8");
+  const listTpl = fs.readFileSync(path.join(REPO, "data", "templates", "guides-list.html"), "utf8");
+  const TOPICS = ["marine", "rv-off-grid", "mounts", "power"];
+  const TKEY = { marine: "header.marine", "rv-off-grid": "header.rv_off_grid", mounts: "header.mounts", power: "header.power" };
+  const pick = (o, loc) => (o && (o[loc] ?? o.en)) || "";
+  const esc = (s) => String(s || "").replace(/&(?!amp;|lt;|gt;|quot;|#)/g, "&amp;");
+  // ⭐ 分批:G1 只填 marine(其余 topic 建空壳供 nav,文章 G2-4 迁,避免新旧双份重复内容)。
+  const ACTIVE = new Set((gm.active_topics && gm.active_topics.length) ? gm.active_topics : ["marine"]);
+  const built = gm.articles.filter((a) => a.slug && ACTIVE.has(a.topic));
+  // Content store: extracted+stripped article body cached to data/guides-body/{slug}.html on first
+  // build, then read from there — so the legacy /marine/*.html source can be deleted (301) while the
+  // builder can still re-render articles (template/CSS changes propagate). Cache is the source of truth.
+  const bodyDir = path.join(REPO, "data", "guides-body");
+  function extractBody(a) {
+    const cache = path.join(bodyDir, a.slug + ".html");
+    if (fs.existsSync(cache)) return fs.readFileSync(cache, "utf8");
+    let h; try { h = fs.readFileSync(path.join(REPO, a.old.replace(/^\//, "") + ".html"), "utf8"); } catch { return null; }
+    const m = h.match(/<div class="blog-details__text-1[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>\s*)?<\/div>\s*<\/div>\s*<\/section>/);
+    if (!m) return null;
+    const body = m[1]
+      .replace(/\s+style="[^"]*"/gi, "")
+      .replace(/\s+class="[^"]*(?:list-paddingleft|firstRow)[^"]*"/gi, "")
+      .replace(/\s+(?:width|height)="\d+"/gi, "")
+      .replace(/&nbsp;/g, " ")
+      .replace(/[ \t]+\n/g, "\n").trim();
+    fs.mkdirSync(bodyDir, { recursive: true });
+    fs.writeFileSync(cache, body);
+    return body;
+  }
+  const descOf = (b) => { const m = b.match(/<p[^>]*>([\s\S]*?)<\/p>/i); return (m ? m[1].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim() : "").slice(0, 155); };
+  let gPages = 0, gWarn = 0;
+  // ARTICLES (en only — source content is en)
+  for (const a of built) {
+    const body = extractBody(a);
+    if (!body || (body.match(/<h2/gi) || []).length < 1) { console.log(`  ⚠️ guides extract 失败/空: ${a.old}`); gWarn++; continue; }
+    const tpl2 = artTpl
+      .split("{{ART_BODY}}").join(body)
+      .split("{{ART_TITLE}}").join(esc(a.title))
+      .split("{{ART_DESC}}").join(descOf(body).replace(/"/g, "&quot;"))
+      .split("{{GUIDES_URL}}").join(urlOf("/guides/", "en"))
+      .split("{{GUIDES_TOPIC_URL}}").join(urlOf(`/guides/${a.topic}/`, "en"))
+      .split("{{ART_TOPIC_LABEL}}").join(pick(catalog[TKEY[a.topic]], "en"))
+      .split("{{ART_TOPIC_MORE}}").join(pick(gCat["guides.more"], "en"));
+    const p = pageOf("en", path.join("guides", a.slug, "index.html"));
+    const html = renderPage(tpl2, { locale: "en", catalog: { ...catalog, ...shared, ...gCat }, urlOf, path: `/guides/${a.slug}/`, dirOf, enabled: LOCALES, internal_noindex: INTERNAL });
+    fs.mkdirSync(path.dirname(p), { recursive: true });
+    if (!fs.existsSync(p) || fs.readFileSync(p, "utf8") !== html) { fs.writeFileSync(p, html); gPages++; }
+  }
+  const cardOf = (a, loc) => {
+    const href = urlOf(`/guides/${a.slug}/`, loc);
+    const badge = (loc !== "en" && href === `/guides/${a.slug}/`) ? ` <span class="tj-lang-badge">${pick(catalog["card.lang_badge"], loc)}</span>` : "";
+    return `        <a class="guides-card" data-topic="${a.topic}" href="${href}"><span class="guides-card__topic">${pick(catalog[TKEY[a.topic]], loc)}</span><span class="guides-card__t">${esc(a.title)}${badge}</span><span class="guides-card__arw" aria-hidden="true">→</span></a>`;
+  };
+  for (const locale of RENDER_SET) {
+    if (!LOCALES.includes(locale) && !isExtra(locale)) continue;
+    const baseCat = { ...catalog, ...shared, ...gCat };
+    // home
+    {
+      const chips = [`<button type="button" class="guides-chip is-active" data-filter="all">${pick(gCat["guides.filter.all"], locale)}</button>`]
+        .concat(TOPICS.map((t) => `<button type="button" class="guides-chip" data-filter="${t}">${pick(catalog[TKEY[t]], locale)}</button>`)).join("");
+      const cards = built.map((a) => cardOf(a, locale)).join("\n");
+      const tpl2 = listTpl
+        .split("{{GL_TITLE}}").join(pick(gCat["guides.meta.title"], locale)).split("{{GL_DESC}}").join(pick(gCat["guides.meta.desc"], locale))
+        .split("{{GL_H1}}").join(pick(gCat["guides.hero.h1"], locale)).split("{{GL_INTRO}}").join(pick(gCat["guides.hero.intro"], locale))
+        .split("{{GL_CRUMB}}").join(pick(gCat["guides.hero.h1"], locale))
+        .split("{{GL_FILTER}}").join(`      <div class="guides-filter" data-guides-filter>${chips}</div>`).split("{{GL_CARDS}}").join(cards);
+      const p = pageOf(locale, path.join("guides", "index.html"));
+      const html = renderPage(tpl2, { locale, catalog: baseCat, urlOf, path: "/guides/", dirOf, enabled: LOCALES, internal_noindex: INTERNAL });
+      fs.mkdirSync(path.dirname(p), { recursive: true });
+      if (!fs.existsSync(p) || fs.readFileSync(p, "utf8") !== html) { fs.writeFileSync(p, html); gPages++; }
+    }
+    // 4 topic index (marine populated; rv/mounts/power = empty shells for nav — noindex + coming-soon
+    // until their batch fills them, so no thin-content penalty while honoring "nav once").
+    for (const t of TOPICS) {
+      const list = built.filter((a) => a.topic === t);
+      const empty = list.length === 0;
+      const cards = empty
+        ? `        <p class="guides-soon">${pick(gCat["guides.topic_soon"], locale)} <a href="${urlOf("/guides/", locale)}">${pick(gCat["guides.filter.all"], locale)}</a></p>`
+        : list.map((a) => cardOf(a, locale)).join("\n");
+      let tpl2 = listTpl
+        .split("{{GL_TITLE}}").join(pick(gCat[`guides.topic.${t}.title`], locale) + " | Wanew").split("{{GL_DESC}}").join(pick(gCat[`guides.topic.${t}.intro`], locale))
+        .split("{{GL_H1}}").join(pick(gCat[`guides.topic.${t}.title`], locale)).split("{{GL_INTRO}}").join(pick(gCat[`guides.topic.${t}.intro`], locale))
+        .split("{{GL_CRUMB}}").join(pick(gCat[`guides.topic.${t}.title`], locale))
+        .split("{{GL_FILTER}}").join("").split("{{GL_CARDS}}").join(cards);
+      if (empty) tpl2 = tpl2.replace("{{HREFLANG}}", '<meta name="robots" content="noindex, follow" />\n{{HREFLANG}}');
+      const p = pageOf(locale, path.join("guides", t, "index.html"));
+      const html = renderPage(tpl2, { locale, catalog: baseCat, urlOf, path: `/guides/${t}/`, dirOf, enabled: LOCALES, internal_noindex: INTERNAL });
+      fs.mkdirSync(path.dirname(p), { recursive: true });
+      if (!fs.existsSync(p) || fs.readFileSync(p, "utf8") !== html) { fs.writeFileSync(p, html); gPages++; }
+    }
+  }
+  console.log(`guides: ${gPages} pages regenerated (${built.length} articles + home + ${TOPICS.length} topics; ${gWarn} extract warnings)`);
+}
+
 // R3(b)… — every other templated page. Driven by what's on disk (data/templates/page-*.html), not
 // by a list here: bucket (c)/(d)/(e) land in the pipeline by existing, with nobody remembering to
 // register them. Same contract as everything else — regen emits content, chrome-sync owns chrome.

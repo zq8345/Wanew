@@ -166,6 +166,24 @@
     start();
   });
 
+  /* ---- Guides library topic filter (home /guides/) ---- */
+  d.querySelectorAll("[data-guides-filter]").forEach(function (bar) {
+    var grid = d.getElementById("guidesGrid");
+    if (!grid) return;
+    var chips = Array.prototype.slice.call(bar.querySelectorAll(".guides-chip"));
+    var cards = Array.prototype.slice.call(grid.querySelectorAll(".guides-card"));
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        chips.forEach(function (c) { c.classList.remove("is-active"); });
+        chip.classList.add("is-active");
+        var f = chip.getAttribute("data-filter");
+        cards.forEach(function (card) {
+          card.classList.toggle("is-hidden", f !== "all" && card.getAttribute("data-topic") !== f);
+        });
+      });
+    });
+  });
+
   /* ---- list-page filter (products / category / type shells) ----
      Unified from the old per-page inline scripts. Binds whichever button
      chip rows are present (#modelChips by data-cat, #formChips by data-form);

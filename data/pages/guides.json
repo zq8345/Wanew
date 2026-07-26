@@ -1,0 +1,104 @@
+{
+  "guides.meta.title": {
+    "en": "Starlink Accessory Guides — Install, Mounts, Power, Marine | Wanew",
+    "pt-BR": "Guias de Acessórios Starlink — Instalação, Suportes, Energia, Náutica | Wanew",
+    "es-MX": "Guías de accesorios Starlink — Instalación, soportes, energía, náutica | Wanew",
+    "zh": "Starlink 配件指南——安装、支架、供电、船舶 | Wanew"
+  },
+  "guides.meta.desc": {
+    "en": "Practical guides for Starlink accessories: mounting, power and cabling, marine and RV setups, compatibility and installation — from the accessory manufacturer.",
+    "pt-BR": "Guias práticos de acessórios Starlink: suportes, energia e cabeamento, náutica e motorhome, compatibilidade e instalação — do fabricante de acessórios.",
+    "es-MX": "Guías prácticas de accesorios Starlink: soportes, energía y cableado, náutica y casa rodante, compatibilidad e instalación — del fabricante de accesorios.",
+    "zh": "Starlink 配件实用指南:支架、供电与线缆、船舶与房车方案、兼容与安装——来自配件制造商。"
+  },
+  "guides.hero.eyebrow": {
+    "en": "GUIDES",
+    "pt-BR": "GUIAS",
+    "es-MX": "GUÍAS",
+    "zh": "指南"
+  },
+  "guides.hero.h1": {
+    "en": "Starlink accessory guides",
+    "pt-BR": "Guias de acessórios Starlink",
+    "es-MX": "Guías de accesorios Starlink",
+    "zh": "Starlink 配件指南"
+  },
+  "guides.hero.intro": {
+    "en": "Hands-on guides for mounting, powering, cabling and protecting your Starlink — by environment and by task.",
+    "pt-BR": "Guias práticos para instalar, alimentar, cabear e proteger seu Starlink — por ambiente e por tarefa.",
+    "es-MX": "Guías prácticas para montar, alimentar, cablear y proteger tu Starlink — por entorno y por tarea.",
+    "zh": "关于 Starlink 安装、供电、走线与防护的实操指南——按场景、按任务。"
+  },
+  "guides.filter.all": {
+    "en": "All guides",
+    "pt-BR": "Todos os guias",
+    "es-MX": "Todas las guías",
+    "zh": "全部指南"
+  },
+  "guides.more": {
+    "en": "More guides",
+    "pt-BR": "Mais guias",
+    "es-MX": "Más guías",
+    "zh": "更多指南"
+  },
+  "guides.topic.marine.title": {
+    "en": "Marine Starlink guides",
+    "pt-BR": "Guias Starlink náutica",
+    "es-MX": "Guías Starlink náutica",
+    "zh": "船舶 Starlink 指南"
+  },
+  "guides.topic.marine.intro": {
+    "en": "Mounting, corrosion protection, cabling and power for Starlink on boats and offshore vessels.",
+    "pt-BR": "Suportes, proteção contra corrosão, cabeamento e energia para Starlink em barcos e embarcações offshore.",
+    "es-MX": "Soportes, protección contra corrosión, cableado y energía para Starlink en barcos y embarcaciones.",
+    "zh": "船艇与近海船只上 Starlink 的支架、防腐、走线与供电。"
+  },
+  "guides.topic.rv-off-grid.title": {
+    "en": "RV & Off-Grid Starlink guides",
+    "pt-BR": "Guias Starlink motorhome e off-grid",
+    "es-MX": "Guías Starlink casa rodante y fuera de red",
+    "zh": "房车与离网 Starlink 指南"
+  },
+  "guides.topic.rv-off-grid.intro": {
+    "en": "Roof mounts, 12 V/DC and solar power, cable management and cold-weather tips for RVs and off-grid sites.",
+    "pt-BR": "Suportes de teto, energia 12 V/CC e solar, organização de cabos e dicas para clima frio em motorhomes e locais off-grid.",
+    "es-MX": "Soportes de techo, energía 12 V/CC y solar, gestión de cables y consejos para clima frío en casas rodantes y sitios fuera de red.",
+    "zh": "房车与离网站点的车顶支架、12V/DC 与太阳能供电、线缆管理与寒冷天气要点。"
+  },
+  "guides.topic.mounts.title": {
+    "en": "Starlink mounting guides",
+    "pt-BR": "Guias de suportes Starlink",
+    "es-MX": "Guías de soportes Starlink",
+    "zh": "Starlink 支架指南"
+  },
+  "guides.topic.mounts.intro": {
+    "en": "Pole, wall, flat-roof and no-drill mounting solutions and compatibility across Starlink models.",
+    "pt-BR": "Soluções de suporte de mastro, parede, telhado plano e sem furos, e compatibilidade entre modelos Starlink.",
+    "es-MX": "Soluciones de montaje de poste, pared, techo plano y sin taladrar, y compatibilidad entre modelos Starlink.",
+    "zh": "立杆、墙面、平屋顶与免打孔支架方案,及各 Starlink 机型兼容。"
+  },
+  "guides.topic.power.title": {
+    "en": "Starlink power guides",
+    "pt-BR": "Guias de energia Starlink",
+    "es-MX": "Guías de energía Starlink",
+    "zh": "Starlink 供电指南"
+  },
+  "guides.topic.power.intro": {
+    "en": "12 V DC and AC power options, adapters and cabling for reliable Starlink power anywhere.",
+    "pt-BR": "Opções de energia 12 V CC e CA, adaptadores e cabeamento para alimentar o Starlink com confiança em qualquer lugar.",
+    "es-MX": "Opciones de energía 12 V CC y CA, adaptadores y cableado para alimentar el Starlink de forma confiable en cualquier lugar.",
+    "zh": "12V DC 与 AC 供电方案、适配器与线缆,随处为 Starlink 可靠供电。"
+  },
+  "guides.cta.title": {
+    "en": "Need help choosing the right accessories?",
+    "pt-BR": "Precisa de ajuda para escolher os acessórios certos?",
+    "es-MX": "¿Necesitas ayuda para elegir los accesorios correctos?",
+    "zh": "需要帮你选对配件?"
+  },
+  "guides.topic_soon": {
+    "en": "Guides for this topic are coming soon. Meanwhile, browse all guides or request a quote.",
+    "pt-BR": "Os guias deste tópico chegarão em breve. Enquanto isso, veja todos os guias ou solicite um orçamento.",
+    "es-MX": "Las guías de este tema estarán disponibles pronto. Mientras tanto, explora todas las guías o solicita una cotización.",
+    "zh": "该主题的指南即将上线。你可先浏览全部指南或索取报价。"
+  }
+}
