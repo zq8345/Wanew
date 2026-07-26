@@ -358,5 +358,12 @@
     "pt-BR": "Estoque local e DDP",
     "es-MX": "Inventario local y DDP",
     "zh": "本地库存 & DDP"
+  },
+  "shared.iso": {
+    "en": "ISO 9001",
+    "pt-BR": "ISO 9001",
+    "es-MX": "ISO 9001",
+    "zh": "ISO 9001",
+    "reason": "cert badge proper noun (untranslated like FCC/CE/RoHS); claim = oem li.3 ISO 9001 certified"
   }
 }

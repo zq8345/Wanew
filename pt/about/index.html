@@ -137,7 +137,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=30" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=31" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 <!-- hreflang alternates (derived from locales.json + page existence) -->
@@ -229,13 +229,12 @@
   </section>
   
   
-  <!-- Intro -->
+  <!-- 2. Who we are (intro compressed to one paragraph; model keywords kept via p.2 model sentence) -->
   <section class="xlc-section">
     <div class="container">
       <div class="about-lead">
         <div class="about-lead__text">
-          <p>A Wanew Starlink Accessories é uma fabricante de acessórios compatíveis com Starlink guiada pela engenharia, sediada na Grande Baía Guangdong–Hong Kong–Macau. Sob uma operação integrada de P&amp;D, produção e vendas, projetamos e fabricamos uma linha completa de periféricos para terminais Starlink — cabos de rede e de energia à prova d'água, suportes e fixações, adaptadores de energia, cases de proteção e hardware de expansão de sinal.</p>
-          <p>Cada produto é projetado para atender às exigências de resistência às intempéries e de uso ao ar livre dos terminais Starlink Mini, Standard e Performance (Gen 1/2/3), oferecendo aos compradores do mundo todo um fornecimento estável, durável e com encaixe preciso, tudo em um só lugar. A Wanew é uma fabricante independente e terceirizada e <strong>não é afiliada à SpaceX nem à Starlink</strong>.</p>
+          <p>A Wanew Starlink Accessories é uma fabricante de acessórios compatíveis com Starlink guiada pela engenharia, sediada na Grande Baía Guangdong–Hong Kong–Macau. Sob uma operação integrada de P&amp;D, produção e vendas, projetamos e fabricamos uma linha completa de periféricos para terminais Starlink — cabos de rede e de energia à prova d'água, suportes e fixações, adaptadores de energia, cases de proteção e hardware de expansão de sinal. Cada produto é projetado para atender às exigências de resistência às intempéries e de uso ao ar livre dos terminais Starlink Mini, Standard e Performance (Gen 1/2/3), oferecendo aos compradores do mundo todo um fornecimento estável, durável e com encaixe preciso, tudo em um só lugar.</p>
         </div>
         <div class="about-lead__media">
           <img src="/static/upload/image/wanew-company-wall.png" alt="Fábrica de fabricação da Wanew" loading="lazy">
@@ -244,129 +243,61 @@
     </div>
   </section>
 
-  <!-- By the Numbers -->
-  <section class="xlc-section xlc-section-alt">
+  <!-- 3. Numbers — one consolidated band (was By-the-Numbers + Manufacturing tiles + Patents; each fact once). #patents anchor lives here. -->
+  <section class="xlc-section xlc-section-alt" id="patents">
     <div class="container">
       <div class="tj-sechead">
-        <div class="tj-kick">Em resumo</div>
         <h2 class="tj-h2">A Wanew em números</h2>
         <div class="tj-rule"></div>
-        <p class="tj-sub">Quinze anos de fabricação focada em acessórios compatíveis com Starlink.</p>
       </div>
-      <div class="xlc-stats">
-        <div class="xlc-stat-card">
-          <div class="xlc-stat-number">15+</div>
-          <div class="xlc-stat-label">Anos de experiência</div>
-        </div>
-        <div class="xlc-stat-card">
-          <div class="xlc-stat-number">100+</div>
-          <div class="xlc-stat-label">Equipamentos profissionais</div>
-        </div>
-        <div class="xlc-stat-card">
-          <div class="xlc-stat-number">150+</div>
-          <div class="xlc-stat-label">Técnicos qualificados</div>
-        </div>
-        <div class="xlc-stat-card">
-          <div class="xlc-stat-number">200+</div>
-          <div class="xlc-stat-label">Patentes</div>
-        </div>
+      <div class="xlc-stats xlc-stats--6">
+        <div class="xlc-stat-card"><div class="xlc-stat-number">15+</div><div class="xlc-stat-label">Anos de experiência</div></div>
+        <div class="xlc-stat-card"><div class="xlc-stat-number">150+</div><div class="xlc-stat-label">Técnicos qualificados</div></div>
+        <div class="xlc-stat-card"><div class="xlc-stat-number">200+</div><div class="xlc-stat-label">Patentes</div></div>
+        <div class="xlc-stat-card"><div class="xlc-stat-number">5.000 m²</div><div class="xlc-stat-label">Fábrica padronizada</div></div>
+        <div class="xlc-stat-card"><div class="xlc-stat-number">600.000+</div><div class="xlc-stat-label">Unidades por mês</div></div>
+        <div class="xlc-stat-card"><div class="xlc-stat-number">130+</div><div class="xlc-stat-label">Países</div></div>
       </div>
+      <p class="xlc-stats__note">80+ Patentes de invenção &middot; 120+ Patentes de modelo de utilidade &middot; 20+ Patentes de design</p>
     </div>
   </section>
 
-  <!-- Manufacturing Capability -->
-  <section class="xlc-section">
+  <!-- 4. Manufacturing & Quality — merged (Manufacturing Capability + Certifications badges + Quality Process). #certifications anchor. Stats live in the number band (§3); this section = capability line + factory + cert badges + QC stepper. -->
+  <section class="xlc-section" id="certifications">
     <div class="container">
       <div class="tj-sechead">
-        <div class="tj-kick">Produção</div>
         <h2 class="tj-h2">Capacidade de fabricação</h2>
         <div class="tj-rule"></div>
-        <p class="tj-sub">Produção automatizada em escala com controle de qualidade interno.</p>
       </div>
       <div class="about-split">
         <div class="about-split__text">
           <p>A partir de uma fábrica padronizada de 5.000 m², a Wanew opera linhas de produção automatizadas modernas e equipamentos de teste profissionais, com produção mensal de 600.000+ unidades. O controle de qualidade interno inspeciona cada lote conforme a especificação — assim os compradores ganham escala, consistência e prazos de entrega confiáveis.</p>
-          <ul class="about-caps">
-            <li><span class="about-caps__k">5.000 m²</span><span class="about-caps__v">Fábrica padronizada</span></li>
-            <li><span class="about-caps__k">600.000+</span><span class="about-caps__v">Unidades por mês</span></li>
-            <li><span class="about-caps__k">Automatizadas</span><span class="about-caps__v">Linhas de produção e teste</span></li>
-            <li><span class="about-caps__k">QC interno</span><span class="about-caps__v">Cada lote inspecionado conforme a especificação</span></li>
-          </ul>
+          <div class="about-certs">
+            <span class="about-certs__badge">FCC</span>
+            <span class="about-certs__badge">CE</span>
+            <span class="about-certs__badge">RoHS</span>
+            <span class="about-certs__badge">ISO 9001</span>
+          </div>
         </div>
         <div class="about-split__media">
           <img src="/static/upload/image/20260508/1778202301187378.jpg" alt="Fábrica de produção da Wanew" loading="lazy">
         </div>
       </div>
+      <h3 class="about-qp-head">Processo de qualidade</h3>
+      <ol class="odm-steps">
+        <li class="odm-step"><span class="odm-step__num">1</span><h3>Inspeção de materiais recebidos</h3><p>Todas as matérias-primas são verificadas conforme a especificação, com rastreabilidade completa.</p></li>
+        <li class="odm-step"><span class="odm-step__num">2</span><h3>Controle de qualidade em processo</h3><p>Pontos de inspeção em cada etapa da fabricação.</p></li>
+        <li class="odm-step"><span class="odm-step__num">3</span><h3>Teste final</h3><p>Cada produto é testado com terminais Starlink reais antes da embalagem.</p></li>
+        <li class="odm-step"><span class="odm-step__num">4</span><h3>Testes ambientais</h3><p>Testes de temperatura, UV e impermeabilização para produtos de uso externo.</p></li>
+        <li class="odm-step"><span class="odm-step__num">5</span><h3>Teste de estresse mecânico</h3><p>Verificação da capacidade de carga e da confiabilidade de suportes e componentes estruturais.</p></li>
+      </ol>
     </div>
   </section>
 
-  <!-- Certifications -->
-  <section class="xlc-section xlc-section-alt">
-    <div class="container">
-      <div class="tj-sechead">
-        <div class="tj-kick">Conformidade</div>
-        <h2 class="tj-h2">Certificações e Testes</h2>
-        <div class="tj-rule"></div>
-        <p class="tj-sub">Produtos testados segundo padrões internacionais.</p>
-      </div>
-      <div class="about-certs">
-        <span class="about-certs__badge">FCC</span>
-        <span class="about-certs__badge">CE</span>
-        <span class="about-certs__badge">RoHS</span>
-      </div>
-      <p class="about-certs__link"><a href="/pt/about/#certifications">Ver certificações, testes e qualidade &rarr;</a></p>
-    </div>
-  </section>
-
-  <!-- Global Reach -->
-  <section class="xlc-section">
-    <div class="container">
-      <div class="tj-sechead">
-        <div class="tj-kick">No mundo todo</div>
-        <h2 class="tj-h2">Alcance global</h2>
-        <div class="tj-rule"></div>
-        <p class="tj-sub">Exportado para diversos países e regiões, com armazenagem nos EUA e entrega DDP para um fornecimento consistente e confiável.</p>
-      </div>
-      <div class="tj-stats">
-        <div class="tj-st">
-          <svg class="tj-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>
-          <div class="tj-v">US$ 20&ndash;30M</div>
-          <div class="tj-l">Faturamento anual de exportação</div>
-        </div>
-        <div class="tj-st">
-          <svg class="tj-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-5 9 5v12M3 21h18M8 21v-6h8v6M8 12h8"/></svg>
-          <div class="tj-v">Armazém nos EUA</div>
-          <div class="tj-l">Estoque local e DDP</div>
-        </div>
-        <div class="tj-st">
-          <svg class="tj-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16V7h11v9M14 10h4l3 3v3M3 16h18M7 18.5a2 2 0 1 0 4 0M16 18.5a2 2 0 1 0 4 0"/></svg>
-          <div class="tj-v">DHL &middot; FedEx</div>
-          <div class="tj-l">Entrega no mundo todo</div>
-        </div>
-        <div class="tj-st">
-          <svg class="tj-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          <div class="tj-v">Várias regiões</div>
-          <div class="tj-l">Países atendidos</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="xlc-section xlc-section-alt">
-    <div class="container">
-      <div class="xlc-cta">
-        <h3>Seja parceiro da Wanew</h3>
-        <p>Entre em contato com nossa equipe de vendas para dúvidas sobre produtos, projetos OEM/ODM ou parcerias de distribuição.</p>
-        <a href="/pt/contact/"><span>Fale conosco</span></a>
-      </div>
-    </div>
-  </section>
-  <section class="xlc-section" id="oem-odm">
+  <section class="xlc-section xlc-section-alt" id="oem-odm">
     <div class="container">
       <div class="xlc-body">
         <h2 class="xlc-merged-title">Fabricação OEM/ODM de Acessórios Compatíveis com Starlink</h2>
-        <h2>Seu parceiro na fabricação de acessórios Starlink</h2>
 <p>A Wanew oferece serviços completos de fabricação OEM e ODM para acessórios compatíveis com Starlink. Mais de 15 anos de experiência e 200+ patentes.</p>
 <div class="about-oemodm">
   <div class="about-oemodm__col">
@@ -391,37 +322,14 @@
     </div>
   </section>
 
-  <section class="xlc-section xlc-section-alt" id="patents">
+  <!-- 6. Global delivery — one line (US warehouse / DDP / export / regions). -->
+  <section class="xlc-section">
     <div class="container">
-      <div class="xlc-body">
-        <h2 class="xlc-merged-title">Patentes e Capacidade Fabril da Wanew - Mais de 200 Patentes</h2>
-        <h2>Excelência em engenharia respaldada por patentes</h2>
-<p>A Wanew detém mais de <strong>200 patentes</strong> que cobrem sistemas de fixação, conectores de cabo, adaptadores de energia e cases de proteção.</p>
-<h2>Portfólio de patentes</h2>
-<div class="patent-cards">
-  <div class="patent-card"><span class="patent-card__n">80+</span><h3>Patentes de invenção</h3><p>Projeto de conectores, mecanismos de fixação</p></div>
-  <div class="patent-card"><span class="patent-card__n">120+</span><h3>Patentes de modelo de utilidade</h3><p>Melhorias estruturais, resistência às intempéries</p></div>
-  <div class="patent-card"><span class="patent-card__n">20+</span><h3>Patentes de design</h3><p>Aparência do produto, embalagem</p></div>
-</div>
+      <div class="tj-sechead">
+        <h2 class="tj-h2">Alcance global</h2>
+        <div class="tj-rule"></div>
       </div>
-    </div>
-  </section>
-
-  <section class="xlc-section" id="certifications">
-    <div class="container">
-      <div class="xlc-body">
-        <h2 class="xlc-merged-title">Certificações, Testes e Qualidade de Fabricação Wanew</h2>
-        <h2>Nosso compromisso com a qualidade</h2>
-<p>Na Wanew, a qualidade está incorporada ao nosso processo de fabricação. Cada produto passa por testes rigorosos para atender aos padrões internacionais.</p>
-<h2>Processo de qualidade</h2>
-<ol class="odm-steps">
-  <li class="odm-step"><span class="odm-step__num">1</span><h3>Inspeção de materiais recebidos</h3><p>Todas as matérias-primas são verificadas conforme a especificação, com rastreabilidade completa.</p></li>
-  <li class="odm-step"><span class="odm-step__num">2</span><h3>Controle de qualidade em processo</h3><p>Pontos de inspeção em cada etapa da fabricação.</p></li>
-  <li class="odm-step"><span class="odm-step__num">3</span><h3>Teste final</h3><p>Cada produto é testado com terminais Starlink reais antes da embalagem.</p></li>
-  <li class="odm-step"><span class="odm-step__num">4</span><h3>Testes ambientais</h3><p>Testes de temperatura, UV e impermeabilização para produtos de uso externo.</p></li>
-  <li class="odm-step"><span class="odm-step__num">5</span><h3>Teste de estresse mecânico</h3><p>Verificação da capacidade de carga e da confiabilidade de suportes e componentes estruturais.</p></li>
-</ol>
-      </div>
+      <p class="about-global-line">Exportado para diversos países e regiões, com armazenagem nos EUA e entrega DDP para um fornecimento consistente e confiável.</p>
     </div>
   </section>
 
@@ -438,6 +346,11 @@
   <details class="faq-item"><summary class="faq-q"><h3>Usar produtos Wanew anula a garantia da minha Starlink?</h3><span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-a"><p>Acessórios de terceiros não anulam automaticamente a garantia. Danos causados pelos acessórios podem não ser cobertos.</p></div></details>
   <details class="faq-item"><summary class="faq-q"><h3>A SpaceX recomenda a Wanew?</h3><span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-a"><p>A SpaceX não endossa nenhum fabricante de acessórios de terceiros.</p></div></details>
 </div>
+        <div class="xlc-cta about-cta">
+          <h3>Seja parceiro da Wanew</h3>
+          <p>Entre em contato com nossa equipe de vendas para dúvidas sobre produtos, projetos OEM/ODM ou parcerias de distribuição.</p>
+          <a href="/pt/contact/"><span>Fale conosco</span></a>
+        </div>
       </div>
     </div>
   </section>

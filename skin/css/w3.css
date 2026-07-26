@@ -1024,7 +1024,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .about-caps__k { font-size: 19px; font-weight: 700; color: var(--w3-text); font-variant-numeric: tabular-nums; }
 .about-caps__v { font-size: 12.5px; color: var(--w3-text3); }
 /* Certifications — substantial cert cards (visual weight = trust), not mini pills */
-.about-certs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 28px 0 18px; max-width: 640px; }
+.about-certs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0 0; }
 .about-certs__badge { display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 20px 16px; border-radius: var(--w3-radius); background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015)); border: 1px solid var(--w3-line2); font-size: 22px; font-weight: 800; letter-spacing: 0.06em; color: var(--w3-text); text-align: center; }
 @media (max-width: 560px) { .about-certs { gap: 12px; } .about-certs__badge { min-height: 76px; font-size: 18px; } }
 .about-certs__link a, .about-lead a, .about-split a { color: var(--w3-accent); }
@@ -1047,6 +1047,17 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .xlc-stat-number { font-size: clamp(36px, 4vw, 52px); font-weight: 800; color: var(--w3-accent); letter-spacing: -0.03em; line-height: 1; }
 .xlc-stat-label { font-size: 13.5px; color: var(--w3-text2); font-weight: 500; }
 @media (max-width: 720px) { .xlc-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+
+/* About 7-section rebuild: consolidated 6-stat band + inline patent note + merged Mfg/Quality + one-line Global + closing CTA */
+.xlc-stats--6 { grid-template-columns: repeat(6, 1fr); }
+.xlc-stats--6 .xlc-stat-number { font-size: clamp(26px, 2.4vw, 38px); }
+.xlc-stats--6 .xlc-stat-card { padding: 26px 16px; }
+@media (max-width: 1024px) { .xlc-stats--6 { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .xlc-stats--6 { grid-template-columns: repeat(2, 1fr); } }
+.xlc-stats__note { text-align: center; margin: 18px 0 0; font-size: 13px; color: var(--w3-text3); letter-spacing: 0.01em; }
+.about-qp-head { margin-top: 44px !important; }
+.about-global-line { font-size: 15.5px; color: var(--w3-text2); line-height: 1.75; max-width: 760px; margin: 4px 0 0; }
+.about-cta { margin-top: 44px; }
 
 /* --- FAQ accordion (overrides template inline .faq-* styles) --- */
 .faq-item { background: var(--w3-panel) !important; border: 1px solid var(--w3-line) !important; border-radius: var(--w3-radius) !important; margin-bottom: 12px !important; overflow: hidden; }

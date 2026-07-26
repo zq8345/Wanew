@@ -19,10 +19,10 @@
     "zh": "Wanew Starlink Accessories 是一家以工程驱动的 Starlink 兼容配件制造商，位于粤港澳大湾区。在集研发、生产、销售于一体的运营体系下，我们为 Starlink 终端设计并制造全系列周边配件——防水网络线与电源线、支架与安装座、电源适配器、防护外壳及信号扩展硬件。"
   },
   "about.p.2": {
-    "en": "Every product is engineered to meet the weather-resistance and outdoor demands of Starlink Mini, Standard, and Performance (Gen 1/2/3) terminals, giving global buyers a stable, durable, and precisely fitted one-stop supply. Wanew is an independent, third-party manufacturer and is",
-    "pt-BR": "Cada produto é projetado para atender às exigências de resistência às intempéries e de uso ao ar livre dos terminais Starlink Mini, Standard e Performance (Gen 1/2/3), oferecendo aos compradores do mundo todo um fornecimento estável, durável e com encaixe preciso, tudo em um só lugar. A Wanew é uma fabricante independente e terceirizada e",
-    "es-MX": "Cada producto está diseñado para cumplir con las exigencias de resistencia a la intemperie y de uso en exteriores de los terminales Starlink Mini, Standard y Performance (Gen 1/2/3), y les da a los compradores de todo el mundo un suministro estable, duradero y de ajuste preciso, todo en un solo lugar. Wanew es un fabricante independiente y externo, y",
-    "zh": "每件产品均针对 Starlink Mini、Standard 及 Performance (Gen 1/2/3) 终端的耐候性与户外需求进行工程设计，为全球采购商提供稳定、耐用、精准适配的一站式供应。Wanew 是独立的第三方制造商，"
+    "en": "Every product is engineered to meet the weather-resistance and outdoor demands of Starlink Mini, Standard, and Performance (Gen 1/2/3) terminals, giving global buyers a stable, durable, and precisely fitted one-stop supply.",
+    "pt-BR": "Cada produto é projetado para atender às exigências de resistência às intempéries e de uso ao ar livre dos terminais Starlink Mini, Standard e Performance (Gen 1/2/3), oferecendo aos compradores do mundo todo um fornecimento estável, durável e com encaixe preciso, tudo em um só lugar.",
+    "es-MX": "Cada producto está diseñado para cumplir con las exigencias de resistencia a la intemperie y de uso en exteriores de los terminales Starlink Mini, Standard y Performance (Gen 1/2/3), y les da a los compradores de todo el mundo un suministro estable, duradero y de ajuste preciso, todo en un solo lugar.",
+    "zh": "每件产品均针对 Starlink Mini、Standard 及 Performance (Gen 1/2/3) 终端的耐候性与户外需求进行工程设计，为全球采购商提供稳定、耐用、精准适配的一站式供应。"
   },
   "about.strong.1": {
     "en": "not affiliated with SpaceX or Starlink",
@@ -673,5 +673,12 @@
     "pt-BR": "Marca e Afiliação (FAQ)",
     "es-MX": "Preguntas frecuentes sobre la marca y la afiliación",
     "zh": "品牌关联常见问题"
+  },
+  "about.stat.countries": {
+    "en": "Countries",
+    "pt-BR": "Países",
+    "es-MX": "Países",
+    "zh": "国家",
+    "reason": "6th stat in consolidated number band (130+, matches homepage 130+ countries claim)"
   }
 }
