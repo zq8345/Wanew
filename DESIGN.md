@@ -201,6 +201,8 @@
 - **Guides 主题过滤条** `.guides-filter`/`.guides-chip`:药丸行(flex wrap);`.guides-chip`=胶囊 line2 边 + hover accent,`.guides-chip.is-active`=**白底(#fff)+ 近黑字(`--w3-surface-0`)**(当前主题)。builder 仅在【≥2 个有内容主题】时渲染整条筛选(单主题隐藏,见 regen `activeTopics`);`data-guides-filter` 驱动纯前端过滤(无 JS 时全卡可见=渐进增强)。⚠️active chip 白底 vs accent 底=主观,待 Joe 定;本条先与代码一致。
 - **Guides CTA** `.guides-cta`:文章尾转化块,tj-h2 标题 + primary(Request a quote)+ ghost(返回该主题库);令牌全取 §2/§3.1。
 - **Guides 空主题占位** `.guides-soon`:未迁移主题(rv-off-grid/mounts/power,G2-4 前)库页 coming-soon 提示条(panel 底 + --w3-text2 居中一句);该页同时注入 `noindex,follow`,避免空壳被索引。
+- **选择性提亮反转带** `.w3-invert`〔#82 首页 · §2.6 招2 实现〕:给「信任/证据」类整段套浅底反转(`--w3-invert-bg` 底 + `--w3-invert-ink`/`ink2` 文 + `--w3-invert-accent` 深蓝 accent),暗→亮→暗呼吸,**每屏 ≤1**。内部子件自动改色:eyebrow/h2/sub/link-arrow + `.w3-whycard`(白卡浮于浅底:白底+浅阴影 layered)+ `.w3-certstrip`/`.w3-certbadge`(浅底描边)。首个落点=首页 Our Advantages(Why Wanew)。
+- **首页 Guides 卡** `.tj-gcard`〔#82 · §2.6 升级〕:与 `.guides-card` 同款浮起(`--w3-surface-2`+`--w3-edge-top`+`--w3-elev-card`);`.tj-cover` 图标区用 `--w3-well`(径向井)垫底补"暗 void",图标 52px accent。
 - **窄 hero** `.page-header--slim`:信息/文章页轻量页头(比首页 hero 矮,左对齐),承载 `.w3-crumb`(面包屑:`/guides/` → 主题,发丝分隔 `/`,13px --w3-text3 + accent 链)+ 文章 h1。
 
 ## 4. 交互标准
