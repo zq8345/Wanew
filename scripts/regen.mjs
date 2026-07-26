@@ -334,10 +334,13 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
     // 守卫=检测提取失败(空/无标题结构)。h2 或 h3 都算有效小节标题(如 /power/4353 全用 h3)——
     // 标题层级规范化(h3→h2)是 ③ 内容质量的事,不该在此把真文章当失败跳过。
     if (!body || (body.match(/<h[23]/gi) || []).length < 1) { console.log(`  ⚠️ guides extract 失败/空: ${a.old}`); gWarn++; continue; }
+    const desc = descOf(body);
+    // ③ 卡片摘要(派生自正文首段,与文章 meta desc 同源);剥前导编号"1. "(部分文章首段是编号小节)→ 干净引言。
+    a._summary = desc.replace(/^\s*\d+[.)]\s*/, "");
     const tpl2 = artTpl
       .split("{{ART_BODY}}").join(body)
       .split("{{ART_TITLE}}").join(esc(a.title))
-      .split("{{ART_DESC}}").join(descOf(body).replace(/"/g, "&quot;"))
+      .split("{{ART_DESC}}").join(desc.replace(/"/g, "&quot;"))
       .split("{{GUIDES_URL}}").join(urlOf("/guides/", "en"))
       .split("{{GUIDES_TOPIC_URL}}").join(urlOf(`/guides/${a.topic}/`, "en"))
       .split("{{ART_TOPIC_LABEL}}").join(pick(catalog[TKEY[a.topic]], "en"))
@@ -350,8 +353,9 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
   const cardOf = (a, loc) => {
     const href = urlOf(`/guides/${a.slug}/`, loc);
     const badge = (loc !== "en" && href === `/guides/${a.slug}/`) ? ` <span class="tj-lang-badge">${pick(catalog["card.lang_badge"], loc)}</span>` : "";
-    // 卡面用 card_title(人话短标题,③逐篇填);缺省回落长标题。SEO 长标题始终留在文章 <title>/H1。
-    return `        <a class="guides-card" data-topic="${a.topic}" href="${href}"><span class="guides-card__topic">${pick(catalog[TKEY[a.topic]], loc)}</span><span class="guides-card__t">${esc(a.card_title || a.title)}${badge}</span><span class="guides-card__arw" aria-hidden="true">→</span></a>`;
+    // 卡面用 card_title(人话短标题,③逐篇填);缺省回落长标题(CSS 3 行截断兜底)。SEO 长标题始终留文章 <title>/H1。
+    const sum = a._summary ? `<span class="guides-card__sum">${esc(a._summary)}</span>` : "";
+    return `        <a class="guides-card" data-topic="${a.topic}" href="${href}"><span class="guides-card__topic">${pick(catalog[TKEY[a.topic]], loc)}</span><span class="guides-card__t">${esc(a.card_title || a.title)}${badge}</span>${sum}<span class="guides-card__arw" aria-hidden="true">→</span></a>`;
   };
   for (const locale of RENDER_SET) {
     if (!LOCALES.includes(locale) && !isExtra(locale)) continue;
