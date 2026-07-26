@@ -33,16 +33,21 @@ if (!section) { console.error("🔴 找不到 DESIGN.md §3 组件区"); process
 // 2) 拆成 bullet(以行首 "- " 分)。只把 bullet 的【首个 .class = primary 注册类】纳入本闸:
 //    子提及(如 .w3-invert bullet 里顺带说的 .w3-whycard)不算它的注册,避免把别的 bullet 的令牌误安上去。
 const bullets = section.split(/\n(?=- )/).filter((b) => /^- /.test(b));
-// ⚠️ 同一类可能被【多条 bullet】注册(如 tj-gcard 一条旧"面板底"+一条 #82"surface-2")——
-//    早前 bug:后者覆盖前者→漏查旧的。改为【每类收集全部 primary bullet】数组,逐条查,不覆盖。
-const docByClass = {};   // primaryClass -> [{ tokens:Set, bullet:string }, ...]
+// ⚠️ 两个踩过的坑,本提取同时避开:
+//   ① 同类多 bullet 注册(tj-gcard 旧"面板底"+新"surface-2")→ 收集数组不覆盖,逐条查。
+//   ② 一条 bullet 注册【多个类】(如 `.sol-grid`/`.sol-card`)→ 必须全验,只取首类会漏次类(sol-card 逃逸)。
+//   ③ 但【冒号后描述里提及的子件】(如 .w3-invert 描述里的 .w3-whycard)是"提及"非"注册",不能算——
+//      故【注册类 = 冒号前 header 段的全部 `.class`】(bullet 主语),冒号后的忽略。
+//   令牌仍从整条 bullet 取(bg 描述通常在冒号后正文,如"surface-2 底")。
+const docByClass = {};   // registeredClass -> [{ tokens:Set, bullet:string }, ...]
 for (const b of bullets) {
-  const first = b.match(/`\.([a-z0-9][a-z0-9_-]*)`/i);   // primary = bullet 里第一个 `.class`
-  if (!first) continue;
+  const head = b.split(/[:：]/)[0];                          // 冒号前 = 注册主语
+  const regClasses = [...head.matchAll(/`\.([a-z0-9][a-z0-9_-]*)`/gi)].map((m) => m[1]);
+  if (!regClasses.length) continue;
   const tokens = new Set();
   for (const t of SURFACE) if (new RegExp(`--w3-${t}\\b|\\b${t}\\b`).test(b)) tokens.add(t);
   for (const [re, t] of ZH) if (re.test(b)) tokens.add(t);   // 中文 prose bg 描述也算
-  (docByClass[first[1]] ||= []).push({ tokens, bullet: b });
+  for (const c of regClasses) (docByClass[c] ||= []).push({ tokens, bullet: b });
 }
 
 // 3) 代码里每个类的基础规则 background token(取 `.class { … background: var(--w3-X) … }`,X∈SURFACE)

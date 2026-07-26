@@ -191,8 +191,8 @@
 - **能力/免责行** `.about-caps-line`(制造段能力叙述,居中限宽 760)· `.about-disclaimer`(Compat&FAQ 段首商标免责一句,13.5px --w3-text3)。
 - **FAQ 平铺** `.faq-flat`/`.faq-flat__item`(About v4 §2.6 升级):`background:--w3-surface-2`+`--w3-edge-top`+`--w3-elev-card` 浮起卡内 h3+p 平铺(非 accordion,总工/Joe 定;内容留 DOM;About 不加 FAQPage schema)。
 - **段标题** `.tj-sechead`>`.tj-h2`(全站信息页统一 section 标题):tj-h2=§2.2 h2 精确值(`clamp(1.65rem,3vw,2.45rem)`/1.14/w700/-0.022em);**所有 section h2 同档**(旧 `.xlc-merged-title` 偏大已弃)。
-- **Solutions hub 场景卡** `.sol-grid`/`.sol-card`:3 列(→2→1)图卡,媒体 `aspect-ratio:16/9` cover + hover scale;body=场景名(18px w700)+ 描述(13.5 --w3-text2)+ 角标 accent →;整卡链 `/solutions/{scene}/`。
-- **Solutions 场景推荐配件** `.sol-recs`/`.sol-rec`:auto-fit minmax(230px),药丸行=径向井图标(46px)+ 标签 + hover accent →,深链 `/products/#type`、`/{model}/`。
+- **Solutions hub 场景卡** `.sol-grid`/`.sol-card`:3 列(→2→1)图卡,`.sol-card` `background:--w3-panel`(⚠️ pre-§2.6,#77 升级时改 --w3-surface-2 + edge + elev 并同步本行);媒体 `aspect-ratio:16/9` cover + hover scale;body=场景名(18px w700)+ 描述(13.5 --w3-text2)+ 角标 accent →;整卡链 `/solutions/{scene}/`。
+- **Solutions 场景推荐配件** `.sol-recs`/`.sol-rec`:auto-fit minmax(230px),`.sol-rec` `background:--w3-panel`(⚠️ pre-§2.6,#77 升级时同步本行);药丸行=径向井图标(46px)+ 标签 + hover accent →,深链 `/products/#type`、`/{model}/`。
 - **Solutions CTA 带** `.sol-cta`:panel→bg2 渐变面板,左文右钮(≤640 竖排),主钮 §3.1 primary(Request a quote)。
 - **信息页 hero 眉标** `.page-header__eyebrow`:11px w600 全大写 0.2em accent(hero 内 eyebrow,如 "SOLUTIONS · RV")。
 - **Partner CTA** `.about-partner`:段标题(tj-h2)+ 一句 + primary 按钮(收尾转化,一句+钮不拖)。
