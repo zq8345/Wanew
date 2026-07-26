@@ -33,6 +33,19 @@
   --w3-ease: cubic-bezier(0.22, 0.61, 0.24, 1);
   --w3-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.55);
   --w3-maxw: 1240px;
+
+  /* ---- 治沉闷对比系统 tokens (anti-flat / elevation & contrast — DESIGN.md §2.6, 2026-07-26 Joe/总工) ----
+     北极星 anduril.com:暗得高级 = 分层 + 对比 + 焦点,非暗得平。新增令牌,③起逐块套用,未套前零视觉变化。 */
+  --w3-surface-0: #0a0c0f;   /* 页面基底(= bg) */
+  --w3-surface-1: #0e1114;   /* 凹陷:stat well / 输入框(inset,比基底略深感) */
+  --w3-surface-2: #171c22;   /* 卡片:比 panel 抬亮一档,配 elev/edge 明显浮起、不与底糊 */
+  --w3-surface-3: #1e242b;   /* 抬起 / hover 态 */
+  --w3-elev-card: 0 2px 8px -2px rgba(0,0,0,.5), 0 14px 34px -14px rgba(0,0,0,.62);  /* 卡片浮起柔和双层投影 */
+  --w3-edge-top: inset 0 1px 0 rgba(255,255,255,.06);   /* 顶边内高光:把卡片从暗底"抬"起来 */
+  --w3-invert-bg: #f4f5f7;   /* 选择性提亮带(信任/证据类)浅底 */
+  --w3-invert-ink: #14181d;  /* 反转带深标题 */
+  --w3-invert-ink2: #56606b; /* 反转带正文 */
+  --w3-well: radial-gradient(circle at 50% 42%, rgba(125,177,255,.13), transparent 70%);  /* 图标空 void 垫底(补白) */
 }
 
 /* ---- reset ------------------------------------------------------------- */
