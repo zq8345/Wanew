@@ -32,4 +32,25 @@
 /zh/patents-manufacturing  /zh/about/#patents  301
 /zh/brand-affiliation-faq/  /zh/about/#brand  301
 /zh/brand-affiliation-faq  /zh/about/#brand  301
+# /hangye/ (Industry Hub) -> /solutions/ region migration (2026-07-25, Joe-approved flip)
+# EN has 6 NN scene subpages + index; es/pt/zh have only the localized hub index.
+# Scene-specific rules MUST precede the /hangye/* splat (first match wins).
+/hangye/24  /solutions/rv/  301
+/hangye/32  /solutions/business/  301
+/hangye/33  /solutions/portable/  301
+/hangye/58  /solutions/off-grid/  301
+/hangye/59  /solutions/business/  301
+/hangye/60  /solutions/marine/  301
+/hangye  /solutions/  301
+/hangye/  /solutions/  301
+/hangye/*  /solutions/  301
+/es/hangye  /es/solutions/  301
+/es/hangye/  /es/solutions/  301
+/es/hangye/*  /es/solutions/  301
+/pt/hangye  /pt/solutions/  301
+/pt/hangye/  /pt/solutions/  301
+/pt/hangye/*  /pt/solutions/  301
+/zh/hangye  /zh/solutions/  301
+/zh/hangye/  /zh/solutions/  301
+/zh/hangye/*  /zh/solutions/  301
 /*  /404.html  404

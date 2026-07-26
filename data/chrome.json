@@ -113,20 +113,6 @@
     "reason.es-MX": "证据 Starlink MX「entrada de alimentación de CC」—— 电力域;分类名 Energía 为判断",
     "zh": "电源"
   },
-  "header.industry_hub": {
-    "en": "Industry Hub",
-    "pt-BR": "Hub por Setor",
-    "es-MX": "Centro por sector",
-    "reason.es-MX": "判断:语法确定",
-    "zh": "行业中心"
-  },
-  "header.support": {
-    "en": "Support",
-    "pt-BR": "Suporte",
-    "es-MX": "Ayuda",
-    "reason.es-MX": "⭐避撞: support 和 mount 在西语里【同词 soporte】—— 导航里会出现「Soportes」(支架) 和「Soporte」(客服),只差一个 s。**pt 也撞了(Suportes/Suporte)但已上线;es 现在就能躲开** → 客服用 Ayuda",
-    "zh": "支持"
-  },
   "header.faq": {
     "en": "FAQ",
     "pt-BR": "FAQ",
@@ -149,13 +135,6 @@
     "reason.es-MX": "证据 Starlink MX「Guía de accesorios」—— Guía 坐实",
     "zh": "兼容性指南"
   },
-  "header.company": {
-    "en": "Company",
-    "pt-BR": "Empresa",
-    "es-MX": "Empresa",
-    "reason.es-MX": "证据 coppel.com「Precio de contado」页脚企业信息区用 Empresa",
-    "zh": "公司"
-  },
   "header.about": {
     "en": "About",
     "pt-BR": "Sobre",
@@ -176,27 +155,6 @@
     "es-MX": "Certificaciones y pruebas",
     "reason.es-MX": "证据 Starlink MX「Pruebe Starlink durante 30 días」—— prueba 坐实",
     "zh": "认证与测试"
-  },
-  "header.oem_odm_manufacturing": {
-    "en": "OEM/ODM Manufacturing",
-    "pt-BR": "Fabricação OEM/ODM",
-    "es-MX": "Fabricación OEM/ODM",
-    "reason.es-MX": "判断:语法确定;OEM/ODM 是行业代码值,不译",
-    "zh": "OEM/ODM 代工制造"
-  },
-  "header.patents_manufacturing_capacity": {
-    "en": "Patents & Manufacturing Capacity",
-    "pt-BR": "Patentes e Capacidade Fabril",
-    "es-MX": "Patentes y capacidad de fabricación",
-    "reason.es-MX": "判断:语法确定",
-    "zh": "专利与产能"
-  },
-  "header.brand_affiliation_faq": {
-    "en": "Brand & Affiliation FAQ",
-    "pt-BR": "Marca e Afiliação (FAQ)",
-    "es-MX": "Marca y afiliación (FAQ)",
-    "reason.es-MX": "判断:与 header.faq 绑定:此处 FAQ 作括号缩写保留,与 pt 同构",
-    "zh": "品牌与关联关系说明"
   },
   "header.wanew_premium_starlink_accessories": {
     "en": "Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
@@ -318,13 +276,6 @@
     "es-MX": "- Productos",
     "reason.es-MX": "证据 Starlink MXproducto 坐实",
     "zh": "- 产品"
-  },
-  "footer.industry": {
-    "en": "- Industry",
-    "pt-BR": "- Setores",
-    "es-MX": "- Sectores",
-    "reason.es-MX": "判断:industry(行业板块)= sector;与 header.industry_hub 一致",
-    "zh": "- 行业"
   },
   "footer.guides": {
     "en": "- Guides",
