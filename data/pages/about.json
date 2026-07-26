@@ -435,6 +435,12 @@
     "es-MX": "Compatibilidad y preguntas frecuentes",
     "zh": "兼容性与常见问题"
   },
+  "about.faq.see_full": {
+    "en": "See all FAQs",
+    "pt-BR": "Ver todas as perguntas frequentes",
+    "es-MX": "Ver todas las preguntas frecuentes",
+    "zh": "查看全部常见问题"
+  },
   "about.faq.disclaimer": {
     "en": "Wanew is an independent third-party manufacturer and is not affiliated with, sponsored by, or endorsed by SpaceX or Starlink. “Starlink” is a trademark of SpaceX; references here indicate compatibility only.",
     "pt-BR": "A Wanew é uma fabricante independente e não é afiliada, patrocinada nem endossada pela SpaceX ou Starlink. “Starlink” é uma marca registrada da SpaceX; as referências aqui indicam apenas compatibilidade.",

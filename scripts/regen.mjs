@@ -301,9 +301,11 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
   const TKEY = { marine: "header.marine", "rv-off-grid": "header.rv_off_grid", mounts: "header.mounts", power: "header.power" };
   const pick = (o, loc) => (o && (o[loc] ?? o.en)) || "";
   const esc = (s) => String(s || "").replace(/&(?!amp;|lt;|gt;|quot;|#)/g, "&amp;");
-  // ⭐ 分批:G1 只填 marine(其余 topic 建空壳供 nav,文章 G2-4 迁,避免新旧双份重复内容)。
+  // ⭐ 分批:G1 只填 marine。清理阶段①(总工/Joe 定):【不建空壳 topic 页】—— 空 coming-soon
+  //    页无价值、留着重演"新旧两套"混淆;G2-4 迁移时带内容重建。只建【真有文章】的 topic。
   const ACTIVE = new Set((gm.active_topics && gm.active_topics.length) ? gm.active_topics : ["marine"]);
   const built = gm.articles.filter((a) => a.slug && ACTIVE.has(a.topic));
+  const activeTopics = TOPICS.filter((t) => built.some((a) => a.topic === t));   // 有文章的 topic(顺序=TOPICS)
   // Content store: extracted+stripped article body cached to data/guides-body/{slug}.html on first
   // build, then read from there — so the legacy /marine/*.html source can be deleted (301) while the
   // builder can still re-render articles (template/CSS changes propagate). Cache is the source of truth.
@@ -353,40 +355,39 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
     const baseCat = { ...catalog, ...shared, ...gCat };
     // home
     {
-      const chips = [`<button type="button" class="guides-chip is-active" data-filter="all">${pick(gCat["guides.filter.all"], locale)}</button>`]
-        .concat(TOPICS.map((t) => `<button type="button" class="guides-chip" data-filter="${t}">${pick(catalog[TKEY[t]], locale)}</button>`)).join("");
+      // 筛选行:仅当 ≥2 个有内容的主题才有意义。当前只剩 marine 一个 → 整条筛选隐藏(清理阶段①,
+      // 总工定);主题长回来(G2-4)自动恢复。空 chip(点了 0 卡)是"点击空手而归=反证不专业",清掉。
+      const chips = activeTopics.length >= 2
+        ? [`<button type="button" class="guides-chip is-active" data-filter="all">${pick(gCat["guides.filter.all"], locale)}</button>`]
+            .concat(activeTopics.map((t) => `<button type="button" class="guides-chip" data-filter="${t}">${pick(catalog[TKEY[t]], locale)}</button>`)).join("")
+        : "";
       const cards = built.map((a) => cardOf(a, locale)).join("\n");
       const tpl2 = listTpl
         .split("{{GL_TITLE}}").join(pick(gCat["guides.meta.title"], locale)).split("{{GL_DESC}}").join(pick(gCat["guides.meta.desc"], locale))
         .split("{{GL_H1}}").join(pick(gCat["guides.hero.h1"], locale)).split("{{GL_INTRO}}").join(pick(gCat["guides.hero.intro"], locale))
         .split("{{GL_CRUMB}}").join(pick(gCat["guides.hero.h1"], locale))
-        .split("{{GL_FILTER}}").join(`      <div class="guides-filter" data-guides-filter>${chips}</div>`).split("{{GL_CARDS}}").join(cards);
+        .split("{{GL_FILTER}}").join(chips ? `      <div class="guides-filter" data-guides-filter>${chips}</div>` : "").split("{{GL_CARDS}}").join(cards);
       const p = pageOf(locale, path.join("guides", "index.html"));
       const html = renderPage(tpl2, { locale, catalog: baseCat, urlOf, path: "/guides/", dirOf, enabled: LOCALES, internal_noindex: INTERNAL });
       fs.mkdirSync(path.dirname(p), { recursive: true });
       if (!fs.existsSync(p) || fs.readFileSync(p, "utf8") !== html) { fs.writeFileSync(p, html); gPages++; }
     }
-    // 4 topic index (marine populated; rv/mounts/power = empty shells for nav — noindex + coming-soon
-    // until their batch fills them, so no thin-content penalty while honoring "nav once").
-    for (const t of TOPICS) {
+    // topic index —— 只建【真有文章】的主题(清理阶段①:不建空壳,见上方 activeTopics 注释)。
+    for (const t of activeTopics) {
       const list = built.filter((a) => a.topic === t);
-      const empty = list.length === 0;
-      const cards = empty
-        ? `        <p class="guides-soon">${pick(gCat["guides.topic_soon"], locale)} <a href="${urlOf("/guides/", locale)}">${pick(gCat["guides.filter.all"], locale)}</a></p>`
-        : list.map((a) => cardOf(a, locale)).join("\n");
-      let tpl2 = listTpl
+      const cards = list.map((a) => cardOf(a, locale)).join("\n");
+      const tpl2 = listTpl
         .split("{{GL_TITLE}}").join(pick(gCat[`guides.topic.${t}.title`], locale) + " | Wanew").split("{{GL_DESC}}").join(pick(gCat[`guides.topic.${t}.intro`], locale))
         .split("{{GL_H1}}").join(pick(gCat[`guides.topic.${t}.title`], locale)).split("{{GL_INTRO}}").join(pick(gCat[`guides.topic.${t}.intro`], locale))
         .split("{{GL_CRUMB}}").join(pick(gCat[`guides.topic.${t}.title`], locale))
         .split("{{GL_FILTER}}").join("").split("{{GL_CARDS}}").join(cards);
-      if (empty) tpl2 = tpl2.replace("{{HREFLANG}}", '<meta name="robots" content="noindex, follow" />\n{{HREFLANG}}');
       const p = pageOf(locale, path.join("guides", t, "index.html"));
       const html = renderPage(tpl2, { locale, catalog: baseCat, urlOf, path: `/guides/${t}/`, dirOf, enabled: LOCALES, internal_noindex: INTERNAL });
       fs.mkdirSync(path.dirname(p), { recursive: true });
       if (!fs.existsSync(p) || fs.readFileSync(p, "utf8") !== html) { fs.writeFileSync(p, html); gPages++; }
     }
   }
-  console.log(`guides: ${gPages} pages regenerated (${built.length} articles + home + ${TOPICS.length} topics; ${gWarn} extract warnings)`);
+  console.log(`guides: ${gPages} pages regenerated (${built.length} articles + home + ${activeTopics.length} topics [${activeTopics.join(",")}]; ${gWarn} extract warnings)`);
 }
 
 // R3(b)… — every other templated page. Driven by what's on disk (data/templates/page-*.html), not
