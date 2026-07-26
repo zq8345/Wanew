@@ -2,6 +2,7 @@
   "id": 669,
   "category": "enterprise",
   "form": "Cables",
+  "status": "published",
   "robots": null,
   "i18n": {
     "es-MX": {
@@ -25,7 +26,7 @@
   },
   "images": [
     {
-      "key": "u_file/UPBH/UPBH843/2603/02/products/2bb4444012.jpg",
+      "key": "u_file/UPBH/UPBH843/2603/02/products/8469d9aae8.jpg",
       "alt": "For Starlink Flat High Performance Cable 75FT/23M, Replacement FHP Power Cord Cable for Starlink Waterproof Extension Flat High Performance Gen 2 Accessories - wanew"
     },
     {
@@ -46,18 +47,6 @@
     },
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/f69c7c9239.jpg",
-      "alt": "For Starlink Flat High Performance Cable 75FT/23M, Replacement FHP Power Cord Cable for Starlink Waterproof Extension Flat High Performance Gen 2 Accessories - wanew"
-    },
-    {
-      "key": "u_file/UPBH/UPBH843/2603/02/products/8469d9aae8.jpg",
-      "alt": "For Starlink Flat High Performance Cable 75FT/23M, Replacement FHP Power Cord Cable for Starlink Waterproof Extension Flat High Performance Gen 2 Accessories - wanew"
-    },
-    {
-      "key": "u_file/UPBH/UPBH843/2603/02/products/43cff4cfb9.jpg",
-      "alt": "For Starlink Flat High Performance Cable 75FT/23M, Replacement FHP Power Cord Cable for Starlink Waterproof Extension Flat High Performance Gen 2 Accessories - wanew"
-    },
-    {
-      "key": "u_file/UPBH/UPBH843/2603/02/products/1b5358a8ac.jpg",
       "alt": "For Starlink Flat High Performance Cable 75FT/23M, Replacement FHP Power Cord Cable for Starlink Waterproof Extension Flat High Performance Gen 2 Accessories - wanew"
     }
   ],
