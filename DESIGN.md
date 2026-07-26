@@ -185,12 +185,12 @@
 ### 3.7 About / Solutions / Guides 区组件（W3 About v2/v3 + Solutions + Guides 迁移新增,§7.4 登记）
 > 令牌全取自 §2:色 bg2/panel/line/line2/accent、radius 16、ease、字阶。零魔法值。图标=内联 SVG 线性(stroke 1.6/accent),服务流程/含义(流程节点、认证盾),**非装饰卡**(review#1 边界:流程图/语义图标允许,一排三词装饰图标卡禁用)。
 - **流程图** `.w3-flow`/`.w3-flow__node`/`.w3-flow__ic`/`.w3-flow__n`(Quality Process 5 步 + OEM/ODM ODM 3 步,共用一套):横向 grid(`grid-auto-flow:column`),节点=accent 描边环圆 64px(径向井底 `rgba(125,177,255,.14)`→panel + halo `::after` + 景深)+ 渐变进度连接线(`::before`,accent→透明,非灰细线)+ 步骤号 accent 药丸 `.w3-flow__n`;≤760px 转竖排(连接线保留)。hover 节点上浮+环加亮。
-- **流程带容器** `.w3-flowband`〔审计 §7.4 补登〕:给流程图视觉分量的 surface 容器 —— `background:--w3-bg2` + `1px --w3-line` 边 + `--w3-radius` 圆角 + `34px 30px 30px` 内距(≤760px `26px 20px 6px`)。用途:包裹 `.w3-flow`,避免"图标+线飘在深底上"。
-- **图标卡** `.w3-iconcard`(OEM 4 服务卡):panel 底+发丝边+16 圆角+径向井图标(46px)+ hover 上浮 4px + 顶部 accent 渐变线(`::before`)+ 阴影;h3 15px w650 / p 13px --w3-text2。语义图标(机架/立方/滑块/盾),非装饰。
+- **流程带容器** `.w3-flowband`〔审计 §7.4 补登 · ③/About v4 §2.6 升级〕:给流程图视觉分量的 surface 容器 —— `background:--w3-surface-2` + `--w3-edge-top`+`--w3-elev-card` 浮起 + `1px --w3-line` 边 + `--w3-radius` 圆角 + `34px 30px 30px` 内距(≤760px `26px 20px 6px`)。用途:包裹 `.w3-flow`,避免"图标+线飘在深底上"。
+- **图标卡** `.w3-iconcard`(OEM 4 服务卡 · About v4 §2.6 升级):`background:--w3-surface-2`+`--w3-edge-top`+`--w3-elev-card` 浮起+发丝边+16 圆角+径向井图标(46px)+ hover 上浮 4px/更强投影 + 顶部 accent 渐变线(`::before`);h3 15px w650 / p 13px --w3-text2。语义图标(机架/立方/滑块/盾),非装饰。
 - **工厂影像墙** `.about-facwall`(制造段,信任硬货):全宽 2×3 grid(gap 14),`figure` overflow-hidden 圆角边框,`img` `aspect-ratio:503/338` object-fit cover + hover scale 1.05 + 底渐隐 `::after` + 编辑级工序 `figcaption`(小写角标胶囊,aria-hidden);≤860px 2 列、≤520px 1 列。图 alt=工序键。
 - **认证条** `.about-certstrip`/`.about-cert`(v3.1,取代旧 `.about-certs` 4 大空卡):slim 药丸横排(flex wrap 居中),药丸 `.about-cert`=胶囊 9/16 padding + line2 边 + 盾图标 18px accent + 13.5px w650;放在质量流程之后(节奏 数据→影像→工艺→认证)。
 - **能力/免责行** `.about-caps-line`(制造段能力叙述,居中限宽 760)· `.about-disclaimer`(Compat&FAQ 段首商标免责一句,13.5px --w3-text3)。
-- **FAQ 平铺** `.faq-flat`/`.faq-flat__item`:panel 卡内 h3+p 平铺(非 accordion,总工/Joe 定;内容留 DOM;About 不加 FAQPage schema)。
+- **FAQ 平铺** `.faq-flat`/`.faq-flat__item`(About v4 §2.6 升级):`background:--w3-surface-2`+`--w3-edge-top`+`--w3-elev-card` 浮起卡内 h3+p 平铺(非 accordion,总工/Joe 定;内容留 DOM;About 不加 FAQPage schema)。
 - **段标题** `.tj-sechead`>`.tj-h2`(全站信息页统一 section 标题):tj-h2=§2.2 h2 精确值(`clamp(1.65rem,3vw,2.45rem)`/1.14/w700/-0.022em);**所有 section h2 同档**(旧 `.xlc-merged-title` 偏大已弃)。
 - **Solutions hub 场景卡** `.sol-grid`/`.sol-card`:3 列(→2→1)图卡,媒体 `aspect-ratio:16/9` cover + hover scale;body=场景名(18px w700)+ 描述(13.5 --w3-text2)+ 角标 accent →;整卡链 `/solutions/{scene}/`。
 - **Solutions 场景推荐配件** `.sol-recs`/`.sol-rec`:auto-fit minmax(230px),药丸行=径向井图标(46px)+ 标签 + hover accent →,深链 `/products/#type`、`/{model}/`。
@@ -203,7 +203,7 @@
 - **Guides 空主题占位** `.guides-soon`:未迁移主题(rv-off-grid/mounts/power,G2-4 前)库页 coming-soon 提示条(panel 底 + --w3-text2 居中一句);该页同时注入 `noindex,follow`,避免空壳被索引。
 - **选择性提亮反转带** `.w3-invert`〔#82 首页 · §2.6 招2 实现〕:给「信任/证据」类整段套浅底反转(`--w3-invert-bg` 底 + `--w3-invert-ink`/`ink2` 文 + `--w3-invert-accent` 深蓝 accent),暗→亮→暗呼吸,**每屏 ≤1**。内部子件自动改色:eyebrow/h2/sub/link-arrow + `.w3-whycard`(白卡浮于浅底:白底+浅阴影 layered)+ `.w3-certstrip`/`.w3-certbadge`(浅底描边)。首个落点=首页 Our Advantages(Why Wanew)。
 - **首页 Guides 卡** `.tj-gcard`〔#82 · §2.6 升级〕:与 `.guides-card` 同款浮起(`--w3-surface-2`+`--w3-edge-top`+`--w3-elev-card`);`.tj-cover` 图标区用 `--w3-well`(径向井)垫底补"暗 void",图标 52px accent。
-- **窄 hero** `.page-header--slim`:信息/文章页轻量页头(比首页 hero 矮,左对齐),承载 `.w3-crumb`(面包屑:`/guides/` → 主题,发丝分隔 `/`,13px --w3-text3 + accent 链)+ 文章 h1。
+- **窄 hero** `.page-header--slim`:信息/文章页轻量页头(`background:--w3-bg` 深底 + §2.6 设计化图形 header 叠加,见上"设计化图形 header"条;比首页 hero 矮,左对齐),承载 `.w3-crumb`(面包屑:`/guides/` → 主题,发丝分隔 `/`,13px --w3-text3 + accent 链)+ 文章 h1。
 
 ## 4. 交互标准
 
