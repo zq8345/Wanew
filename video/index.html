@@ -117,6 +117,9 @@
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://wanew.com/video/" />
+<!-- ⭐ /video/ 是 coming-soon 空壳(#79 产品视频路由,别删):补 noindex 避免"可索引空壳"(审计 Medium);
+     sitemap 自动排除(chrome-sync 的页面级 noindex 排除逻辑)。有真视频后撤这行放开索引。 -->
+<meta name="robots" content="noindex, follow" />
 <!-- hreflang alternates (derived from locales.json + page existence) -->
 <link rel="alternate" hreflang="en" href="https://wanew.com/video/" />
 <link rel="alternate" hreflang="pt-BR" href="https://wanew.com/pt/video/" />
@@ -181,6 +184,10 @@
             <li><a href="/guides/" title="Guides">Guides</a>
               <ul>
                 <li><a href="/guides/marine/">Marine</a></li>
+                <li><a href="/guides/rv-off-grid/">RV / Off-Grid</a></li>
+                <li><a href="/guides/mounts/">Mounts</a></li>
+                <li><a href="/guides/power/">Power</a></li>
+                <li><a href="/guides/industrial/">Industrial</a></li>
                 <li><a href="/compatibility/">Compatibility Guide</a></li>
                 <li><a href="/faq/">FAQ</a></li>
               </ul>
@@ -257,7 +264,7 @@
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="200ms">
                   <div class="footer-widget__column footer-widget__contact">
                     <h3 class="footer-widget__title" id="footer-service-title">Guides</h3>
-                    <ul class="footer-widget__links-list list-unstyled clearfix" id="footer-service-list"><li><a href="/guides/">- Guides</a></li><li><a href="/guides/marine/">- Marine</a></li><li><a href="/compatibility/">- Compatibility Guide</a></li><li><a href="/faq/">- FAQ</a></li></ul>
+                    <ul class="footer-widget__links-list list-unstyled clearfix" id="footer-service-list"><li><a href="/guides/">- Guides</a></li><li><a href="/guides/marine/">- Marine</a></li><li><a href="/guides/rv-off-grid/">- RV / Off-Grid</a></li><li><a href="/guides/mounts/">- Mounts</a></li><li><a href="/guides/power/">- Power</a></li><li><a href="/guides/industrial/">- Industrial</a></li></ul>
                   </div>
                 </div>
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="200ms">

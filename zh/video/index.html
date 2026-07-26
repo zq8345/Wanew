@@ -117,6 +117,9 @@
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://wanew.com/zh/video/" />
+<!-- ⭐ /video/ 是 coming-soon 空壳(#79 产品视频路由,别删):补 noindex 避免"可索引空壳"(审计 Medium);
+     sitemap 自动排除(chrome-sync 的页面级 noindex 排除逻辑)。有真视频后撤这行放开索引。 -->
+<meta name="robots" content="noindex, follow" />
 <meta name="robots" content="noindex, follow" />
 <!-- Open Graph -->
 <meta property="og:title" content="视频-Wanew | 优质 Starlink 配件、支架与电源解决方案" />
@@ -178,6 +181,10 @@
             <li><a href="/zh/guides/" title="指南">指南</a>
               <ul>
                 <li><a href="/zh/guides/marine/">船用</a></li>
+                <li><a href="/zh/guides/rv-off-grid/">房车 / 离网</a></li>
+                <li><a href="/zh/guides/mounts/">支架</a></li>
+                <li><a href="/zh/guides/power/">电源</a></li>
+                <li><a href="/zh/guides/industrial/">工业</a></li>
                 <li><a href="/zh/compatibility/">兼容性指南</a></li>
                 <li><a href="/zh/faq/">常见问题</a></li>
               </ul>
@@ -254,7 +261,7 @@
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="200ms">
                   <div class="footer-widget__column footer-widget__contact">
                     <h3 class="footer-widget__title" id="footer-service-title">指南</h3>
-                    <ul class="footer-widget__links-list list-unstyled clearfix" id="footer-service-list"><li><a href="/zh/guides/">- 指南</a></li><li><a href="/zh/guides/marine/">- 船用</a></li><li><a href="/zh/compatibility/">- 兼容性指南</a></li><li><a href="/zh/faq/">- 常见问题</a></li></ul>
+                    <ul class="footer-widget__links-list list-unstyled clearfix" id="footer-service-list"><li><a href="/zh/guides/">- 指南</a></li><li><a href="/zh/guides/marine/">- 船用</a></li><li><a href="/zh/guides/rv-off-grid/">- 房车 / 离网</a></li><li><a href="/zh/guides/mounts/">- 支架</a></li><li><a href="/zh/guides/power/">- 电源</a></li><li><a href="/zh/guides/industrial/">- 工业</a></li></ul>
                   </div>
                 </div>
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="200ms">

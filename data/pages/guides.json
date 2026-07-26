@@ -100,5 +100,17 @@
     "pt-BR": "Os guias deste tópico chegarão em breve. Enquanto isso, veja todos os guias ou solicite um orçamento.",
     "es-MX": "Las guías de este tema estarán disponibles pronto. Mientras tanto, explora todas las guías o solicita una cotización.",
     "zh": "该主题的指南即将上线。你可先浏览全部指南或索取报价。"
+  },
+  "guides.topic.industrial.title": {
+    "en": "Industrial & OEM guides",
+    "pt-BR": "Guias industriais e OEM",
+    "es-MX": "Guías industriales y OEM",
+    "zh": "工业与 OEM 指南"
+  },
+  "guides.topic.industrial.intro": {
+    "en": "OEM verification, custom manufacturing, bulk ordering, quality control and global logistics for Starlink-compatible accessories.",
+    "pt-BR": "Verificação OEM, fabricação personalizada, pedidos em grande volume, controle de qualidade e logística global para acessórios compatíveis com Starlink.",
+    "es-MX": "Verificación OEM, fabricación personalizada, pedidos al por mayor, control de calidad y logística global para accesorios compatibles con Starlink.",
+    "zh": "Starlink 兼容配件的 OEM 验厂、定制量产、批量下单、质量管控与全球物流。"
   }
 }

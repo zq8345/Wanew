@@ -1,5 +1,5 @@
 {
-  "_doc": "Guides 文章清单(id→slug→topic→title);88/91 真重复 91 dedup 到 88;执行分批 marine 先",
+  "_doc": "Guides 文章清单(id→slug→topic→title);88/91 真重复 91 dedup 到 88;industrial/92 挂 power topic(决策3);active_topics 5 全开(②整合)",
   "articles": [
     {
       "id": 62,
@@ -370,6 +370,55 @@
       "slug": "starlink-compatible-power-adapters-buyer-guide-12v-dc",
       "old": "/power/4384",
       "title": "Starlink-Compatible Power Adapters Buyer Guide: 12V DC vs AC vs USB-C"
+    },
+    {
+      "id": 92,
+      "topic": "power",
+      "slug": "industrial-power-supplies-high-efficiency-stable-solutions",
+      "old": "/industrial/92",
+      "title": "Next-Generation Power Supplies: High-Efficiency, Stable Power Solutions for Modern Industries"
+    },
+    {
+      "id": 4359,
+      "topic": "industrial",
+      "slug": "oem-starlink-compatible-accessories-what-buyers-should-verify",
+      "old": "/industrial/4359",
+      "title": "OEM Starlink-Compatible Accessories: What Buyers Should Verify"
+    },
+    {
+      "id": 4378,
+      "topic": "industrial",
+      "slug": "bulk-ordering-guide-moq-lead-time-pricing-starlink-mounts",
+      "old": "/industrial/4378",
+      "title": "Bulk Ordering Guide: MOQ, Lead Time, and Pricing for Starlink Mounts"
+    },
+    {
+      "id": 4379,
+      "topic": "industrial",
+      "slug": "custom-starlink-accessory-manufacturing-prototype-to-production",
+      "old": "/industrial/4379",
+      "title": "Custom Starlink Accessory Manufacturing: From Prototype to Production"
+    },
+    {
+      "id": 4380,
+      "topic": "industrial",
+      "slug": "quality-control-standards-starlink-compatible-accessories",
+      "old": "/industrial/4380",
+      "title": "Quality Control Standards for Starlink-Compatible Accessories"
+    },
+    {
+      "id": 4381,
+      "topic": "industrial",
+      "slug": "shipping-logistics-how-wanew-delivers-worldwide",
+      "old": "/industrial/4381",
+      "title": "Shipping and Logistics: How Wanew Delivers Worldwide"
     }
+  ],
+  "active_topics": [
+    "marine",
+    "rv-off-grid",
+    "mounts",
+    "power",
+    "industrial"
   ]
 }

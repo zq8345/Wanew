@@ -117,6 +117,9 @@
 
 <!-- Canonical URL -->
 <link rel="canonical" href="{{CANONICAL}}" />
+<!-- ⭐ /video/ 是 coming-soon 空壳(#79 产品视频路由,别删):补 noindex 避免"可索引空壳"(审计 Medium);
+     sitemap 自动排除(chrome-sync 的页面级 noindex 排除逻辑)。有真视频后撤这行放开索引。 -->
+<meta name="robots" content="noindex, follow" />
 {{HREFLANG}}
 <!-- Open Graph -->
 <meta property="og:title" content="{{t.video.meta.title}}" />
@@ -179,7 +182,6 @@
             <li><a href="/faq/" title="Support">Support</a>
               <ul>
                 <li><a href="/faq/">FAQ</a></li>
-                <li><a href="/video/">Video</a></li>
                 <li><a href="/compatibility/">Compatibility Guide</a></li>
               </ul>
             </li>
@@ -273,7 +275,6 @@
                       
                       <li><a href="/faq/">- FAQ</a></li>
                       
-                      <li><a href="/video/">- Video</a></li>
                       
                       <li><a href="/contact/">- Contact Us</a></li>
                       
