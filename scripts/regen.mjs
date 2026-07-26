@@ -326,7 +326,14 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
     fs.writeFileSync(cache, body);
     return body;
   }
-  const descOf = (b) => { const m = b.match(/<p[^>]*>([\s\S]*?)<\/p>/i); return (m ? m[1].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim() : "").slice(0, 155); };
+  // 取首个【有实文】的 <p>:跳过空段 / 纯图 / 注释段 / 纯编号(部分文章首段是 <p><img></p> 或 <p></p><p><!--摘要--></p>)。
+  const descOf = (b) => {
+    for (const raw of (b.match(/<p[^>]*>([\s\S]*?)<\/p>/gi) || [])) {
+      const t = raw.replace(/<!--[\s\S]*?-->/g, "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").replace(/^\s*\d+[.)]\s*/, "").trim();
+      if (t.length >= 24) return t.slice(0, 155);
+    }
+    return "";
+  };
   let gPages = 0, gWarn = 0;
   // ARTICLES (en only — source content is en)
   for (const a of built) {
