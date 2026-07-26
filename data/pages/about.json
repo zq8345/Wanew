@@ -140,12 +140,6 @@
     "es-MX": "Fabricación OEM/ODM de accesorios compatibles con Starlink",
     "zh": "OEM/ODM Starlink 兼容配件代工制造"
   },
-  "oem-odm-manufacturing.page-header-subtitle.1": {
-    "en": "Custom manufacturing for Starlink accessory brands.",
-    "pt-BR": "Fabricação sob medida para marcas de acessórios Starlink.",
-    "es-MX": "Fabricación personalizada para marcas de accesorios Starlink.",
-    "zh": "为 Starlink 配件品牌提供定制化制造。"
-  },
   "oem-odm-manufacturing.p.1": {
     "en": "Wanew offers comprehensive OEM and ODM manufacturing services for Starlink-compatible accessories. 15+ years experience, 200+ patents.",
     "pt-BR": "A Wanew oferece serviços completos de fabricação OEM e ODM para acessórios compatíveis com Starlink. Mais de 15 anos de experiência e 200+ patentes.",
@@ -248,24 +242,6 @@
     "es-MX": "Transición fluida del prototipo a la producción en volumen",
     "zh": "从样机到量产无缝衔接"
   },
-  "oem-odm-manufacturing.meta.title": {
-    "en": "OEM/ODM Starlink-Compatible Accessories Manufacturing-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Fabricação OEM/ODM de Acessórios Compatíveis com Starlink-Wanew | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
-    "es-MX": "Fabricación OEM/ODM de Accesorios Compatibles con Starlink-Wanew | Accesorios Premium para Starlink: Soportes y Soluciones de Energía",
-    "zh": "OEM/ODM Starlink 兼容配件代工制造-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions"
-  },
-  "oem-odm-manufacturing.meta.desc": {
-    "en": "Wanew OEM/ODM manufacturing services for Starlink-compatible accessories. Custom branding, packaging, and specifications. MOQ 100+ pieces.",
-    "pt-BR": "Serviços de fabricação OEM/ODM da Wanew para acessórios compatíveis com Starlink. Marca, embalagem e especificações personalizadas. MOQ a partir de 100 peças.",
-    "es-MX": "Servicios de fabricación OEM/ODM de Wanew para accesorios compatibles con Starlink. Marca, empaque y especificaciones personalizadas. MOQ desde 100 piezas.",
-    "zh": "Wanew 为 Starlink 兼容配件提供 OEM/ODM 制造服务。定制品牌、包装与规格。起订量 100 件起。"
-  },
-  "patents-manufacturing.page-header-subtitle.1": {
-    "en": "200+ patents and scaled in-house production.",
-    "pt-BR": "Mais de 200 patentes e produção interna em larga escala.",
-    "es-MX": "Más de 200 patentes y producción propia a gran escala.",
-    "zh": "200 多项专利，规模化自有工厂生产。"
-  },
   "patents-manufacturing.td.1": {
     "en": "Invention Patents",
     "pt-BR": "Patentes de invenção",
@@ -283,30 +259,6 @@
     "pt-BR": "Patentes de design",
     "es-MX": "Patentes de diseño",
     "zh": "外观设计专利"
-  },
-  "patents-manufacturing.meta.title": {
-    "en": "Wanew | Patents & Manufacturing Capacity - 200+ Patents-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Wanew | Patentes e Capacidade Fabril - Mais de 200 Patentes - Wanew | Acessórios Premium para Starlink",
-    "es-MX": "Wanew | Patentes y Capacidad de Fabricación - Más de 200 Patentes-Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía",
-    "zh": "Wanew | 专利与制造产能 - 200 多项专利-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions"
-  },
-  "patents-manufacturing.meta.desc": {
-    "en": "Wanew manufacturing: 200+ patents, 400K-600K monthly capacity, 150+ employees, 15+ years of experience in Starlink-compatible accessory manufacturing.",
-    "pt-BR": "Fabricação Wanew: mais de 200 patentes, capacidade mensal de 400 mil a 600 mil unidades, mais de 150 colaboradores e 15+ anos de experiência na fabricação de acessórios compatíveis com Starlink.",
-    "es-MX": "Fabricación Wanew: más de 200 patentes, capacidad mensual de 400 mil a 600 mil unidades, más de 150 empleados y más de 15 años de experiencia fabricando accesorios compatibles con Starlink.",
-    "zh": "Wanew 制造实力：200 多项专利，月产能 40 万至 60 万件，150 多名员工，15 年以上 Starlink 兼容配件制造经验。"
-  },
-  "patents-manufacturing.ld.name.3": {
-    "en": "Patents & Manufacturing",
-    "pt-BR": "Patentes e Capacidade Fabril",
-    "es-MX": "Patentes y Fabricación",
-    "zh": "专利与制造"
-  },
-  "certifications-testing.page-header-subtitle.1": {
-    "en": "FCC, CE and RoHS tested; in-house manufacturing.",
-    "pt-BR": "Testado segundo FCC, CE e RoHS; fabricação própria.",
-    "es-MX": "Probado bajo FCC, CE y RoHS; fabricación propia.",
-    "zh": "通过 FCC、CE 与 RoHS 检测；自有工厂生产。"
   },
   "certifications-testing.h2.3": {
     "en": "Quality Process",
@@ -374,32 +326,8 @@
     "es-MX": "Verificación de la capacidad de carga y la confiabilidad de soportes y componentes estructurales.",
     "zh": "对支架及结构件进行承载额定值与可靠性验证。"
   },
-  "certifications-testing.meta.title": {
-    "en": "Wanew Certifications, Testing & Manufacturing Quality-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "Certificações, Testes e Qualidade de Fabricação Wanew-Wanew | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
-    "es-MX": "Certificaciones, Pruebas y Calidad de Fabricación Wanew-Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía",
-    "zh": "Wanew 认证、检测与制造品质-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions"
-  },
-  "certifications-testing.meta.desc": {
-    "en": "Wanew certifications: FCC, CE, RoHS compliance. Multi-stage testing for durability, weather resistance, and compatibility with Starlink terminals.",
-    "pt-BR": "Certificações da Wanew: conformidade FCC, CE e RoHS. Testes em várias etapas para durabilidade, resistência às intempéries e compatibilidade com terminais Starlink.",
-    "es-MX": "Certificaciones de Wanew: conformidad con FCC, CE y RoHS. Pruebas en varias etapas de durabilidad, resistencia a la intemperie y compatibilidad con terminales Starlink.",
-    "zh": "Wanew 认证：符合 FCC、CE、RoHS。多阶段测试确保耐用性、耐候性以及与 Starlink 终端的兼容性。"
-  },
   "brand-affiliation-faq.page-header-title.1": {
     "en": "Is Wanew Affiliated with Starlink or SpaceX?",
-    "pt-BR": "A Wanew é afiliada à Starlink ou à SpaceX?",
-    "es-MX": "¿Wanew está afiliada a Starlink o a SpaceX?",
-    "zh": "Wanew 与 Starlink 或 SpaceX 有关联吗？"
-  },
-  "brand-affiliation-faq.page-header-subtitle.1": {
-    "en": "Our independent, third-party relationship — explained.",
-    "pt-BR": "Nossa relação independente, de terceiro — explicada.",
-    "es-MX": "Nuestra relación independiente, como tercero — explicada.",
-    "zh": "解读我们作为独立第三方的关系。"
-  },
-  "brand-affiliation-faq.h2.1": {
-    "en": "Is Wanew affiliated with Starlink or SpaceX?",
     "pt-BR": "A Wanew é afiliada à Starlink ou à SpaceX?",
     "es-MX": "¿Wanew está afiliada a Starlink o a SpaceX?",
     "zh": "Wanew 与 Starlink 或 SpaceX 有关联吗？"
@@ -457,24 +385,6 @@
     "pt-BR": "A SpaceX não endossa nenhum fabricante de acessórios de terceiros.",
     "es-MX": "SpaceX no respalda a ningún fabricante de accesorios de terceros.",
     "zh": "SpaceX 不对任何第三方配件制造商作出背书。"
-  },
-  "brand-affiliation-faq.meta.title": {
-    "en": "Is Wanew Affiliated with Starlink or SpaceX?-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
-    "pt-BR": "A Wanew é afiliada à Starlink ou à SpaceX?-Wanew | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
-    "es-MX": "¿Wanew está afiliada a Starlink o a SpaceX?-Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía",
-    "zh": "Wanew 与 Starlink 或 SpaceX 有关联吗？-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions"
-  },
-  "brand-affiliation-faq.meta.desc": {
-    "en": "Clear answer: Wanew is an independent third-party manufacturer of Starlink-compatible accessories. NOT affiliated with SpaceX or Starlink.",
-    "pt-BR": "Resposta clara: a Wanew é uma fabricante independente e de terceiros de acessórios compatíveis com Starlink. NÃO é afiliada à SpaceX nem à Starlink.",
-    "es-MX": "Respuesta clara: Wanew es un fabricante independiente y externo de accesorios compatibles con Starlink. NO está afiliada a SpaceX ni a Starlink.",
-    "zh": "明确答复：Wanew 是一家独立的 Starlink 兼容配件第三方制造商。与 SpaceX 或 Starlink 无任何关联。"
-  },
-  "brand-affiliation-faq.ld.name.3": {
-    "en": "Brand Affiliation FAQ",
-    "pt-BR": "Marca e Afiliação (FAQ)",
-    "es-MX": "Preguntas frecuentes sobre la marca y la afiliación",
-    "zh": "品牌关联常见问题"
   },
   "about.stat.countries": {
     "en": "Countries",
