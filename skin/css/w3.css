@@ -1120,6 +1120,12 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-cmap__addr { font-size: 12.5px; color: var(--w3-text3); }
 .w3-cmap__cta { font-size: 12.5px; font-weight: 600; color: var(--w3-accent); margin-top: 3px; }
 /* form */
+/* ⚠️ .w3-form is itself display:grid 1fr 1fr (product form puts .w3-field-box children
+   directly). The contact form instead wraps all fields in ONE .w3-form__grid div — which
+   would land in a single 1fr column of .w3-form (half width), squeezing the whole form +
+   inputs to ~half the card (measured 2560: form 498 → grid 242 → input 113). Span it full
+   width so its own 1fr 1fr fills the card. */
+.w3-form > .w3-form__grid { grid-column: 1 / -1; width: 100%; }
 .w3-form__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .w3-field { display: grid; gap: 6px; }
 .w3-field--full { grid-column: 1 / -1; }
