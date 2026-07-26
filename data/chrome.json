@@ -695,11 +695,12 @@
     "reason": "约定 A:aria-label 用读者的语言。zh 进切换器(总工拍板 B)"
   },
   "header.scene.home_roof": {
-    "en": "Home &amp; Roof",
-    "pt-BR": "Casa e telhado",
-    "es-MX": "Hogar y techo",
-    "zh": "家庭与屋顶",
-    "reason": "scene nav label — byte-identical to home.scene.* (homepage tab = Solutions nav, 总工 canonical 6)"
+    "en": "Home",
+    "pt-BR": "Casa",
+    "es-MX": "Hogar",
+    "zh": "家用",
+    "reason": "scene nav label (Joe: roof is just one home scenario — label is 'Home', not 'Home & Roof'). Key name kept (not a URL/slug). Byte-identical across nav dropdown + homepage tab + eyebrow (all use this one key). 总工 canonical 6.",
+    "reason.dupe": "en「Home」与 header.home(顶栏首页链)同形不同位/角色 —— 这是 Solutions「家用场景」标签,header.home 是「首页」导航。异语已发散(Hogar/Casa/家用 vs Inicio/Início/首页),显式共存不合并。同 line 488 Products 那类。"
   },
   "header.scene.rv": {
     "en": "RV",
