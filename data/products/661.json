@@ -2,6 +2,7 @@
   "id": 661,
   "category": "standard",
   "form": "Networking",
+  "status": "published",
   "robots": null,
   "i18n": {
     "en": {
@@ -51,6 +52,15 @@
     {
       "key": "u_file/UPBH/UPBH843/2603/02/products/df2b03bdf2.jpg",
       "alt": "Multi Ports For Starlink Gen 3/ For Starlink Mini Ethernet Adapter for Wired External Network, 4 Ports Starlink Ethernet Adapter 1 to 4 [4 Devices Networked Simultaneously] - Up to 1 Gbps - wanew"
+    }
+  ],
+  "videos": [
+    {
+      "key": "u_file/uploads/ms1v8nu6y69exl.mp4",
+      "poster": {
+        "key": "u_file/uploads/ms1v8nu6y69exl.poster.webp"
+      },
+      "alt": ""
     }
   ],
   "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"Multi Ports For Starlink Gen 3/ For Starlink Mini Ethernet Adapter for Wired External Network, 4 Ports Starlink Ethernet Adapter 1 to 4 [4 Devices Networked Simultaneously] - Up to 1 Gbps\",\n  \"description\": \"Compatibility -- Works seamlessly with Starlink Gen3 and Starlink Mini, suitable for various environments.Multi-Device Connectivity -- 4 Gigabit Ethernet ports support multiple devices simultaneously, maximizing Starlink&#39;s high-speed internet.Reliable Performance -- Tested for 72 hours under ful\",\n  \"image\": \"https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/c2cb555333.jpg\",\n  \"category\": \"Standard\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"Wanew\"\n  }\n}\n",
