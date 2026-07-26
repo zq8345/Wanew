@@ -136,7 +136,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=36" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=37" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 {{HREFLANG}}
@@ -265,12 +265,6 @@
         <li><figure><img src="/static/upload/image/about/factory-warehouse.webp" alt="{{t.about.faccap.5}}" width="503" height="349" loading="lazy"><figcaption aria-hidden="true">{{t.about.faccap.5}}</figcaption></figure></li>
         <li><figure><img src="/static/upload/image/about/factory-shipping.webp" alt="{{t.about.faccap.6}}" width="507" height="349" loading="lazy"><figcaption aria-hidden="true">{{t.about.faccap.6}}</figcaption></figure></li>
       </ul>
-      <div class="about-certs" id="certifications">
-        <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">{{t.shared.fcc}}</span></span>
-        <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">{{t.shared.ce}}</span></span>
-        <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">{{t.shared.rohs}}</span></span>
-        <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">{{t.shared.iso}}</span></span>
-      </div>
       <h3 class="about-qp-head">{{t.certifications-testing.h2.3}}</h3>
       <div class="w3-flowband">
       <ol class="w3-flow w3-flow--5">
@@ -296,6 +290,12 @@
         </li>
       </ol>
       </div>
+      <div class="about-certstrip" id="certifications">
+        <span class="about-cert"><svg class="about-cert__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg>{{t.shared.fcc}}</span>
+        <span class="about-cert"><svg class="about-cert__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg>{{t.shared.ce}}</span>
+        <span class="about-cert"><svg class="about-cert__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg>{{t.shared.rohs}}</span>
+        <span class="about-cert"><svg class="about-cert__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg>{{t.shared.iso}}</span>
+      </div>
     </div>
   </section>
 
@@ -304,7 +304,6 @@
     <div class="container">
       <div class="xlc-body">
         <div class="tj-sechead"><h2 class="tj-h2">{{t.oem-odm-manufacturing.page-header-title.1}}</h2></div>
-<p>{{t.oem-odm-manufacturing.p.1}}</p>
 <div class="about-oemblock">
   <div class="about-oemodm__head">{{t.oem-odm-manufacturing.h2.2}}</div>
   <div class="oem-cards oem-cards--4">
@@ -353,8 +352,8 @@
   <section class="xlc-section xlc-section-alt" id="brand">
     <div class="container">
       <div class="tj-sechead"><h2 class="tj-h2">{{t.about.sec.compat_faq}}</h2></div>
+      <p class="about-disclaimer">{{t.about.faq.disclaimer}}</p>
       <div class="faq-flat">
-        <div class="faq-flat__item"><h3>{{t.brand-affiliation-faq.page-header-title.1}}</h3><p>{{t.brand-affiliation-faq.strong.1}} {{t.brand-affiliation-faq.strong.2}}</p></div>
         <div class="faq-flat__item"><h3>{{t.brand-affiliation-faq.h3.1}}</h3><p>{{t.brand-affiliation-faq.p.1}}</p></div>
         <div class="faq-flat__item"><h3>{{t.brand-affiliation-faq.h3.2}}</h3><p>{{t.brand-affiliation-faq.p.2}}</p></div>
         <div class="faq-flat__item"><h3>{{t.brand-affiliation-faq.h3.3}}</h3><p>{{t.brand-affiliation-faq.p.3}}</p></div>

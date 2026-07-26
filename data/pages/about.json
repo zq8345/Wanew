@@ -13,10 +13,10 @@
     "zh": "自 2010 年起，以工程驱动制造。"
   },
   "about.p.1": {
-    "en": "Wanew Starlink Accessories is an engineering-led manufacturer of Starlink-compatible accessories, based in the Guangdong–Hong Kong–Macao Greater Bay Area. Under one integrated R&amp;D, production and sales operation, we design and build a full range of peripherals for Starlink terminals — waterproof network and power cables, mounts and brackets, power adapters, protective cases, and signal-expansion hardware.",
-    "pt-BR": "A Wanew Starlink Accessories é uma fabricante de acessórios compatíveis com Starlink guiada pela engenharia, sediada na Grande Baía Guangdong–Hong Kong–Macau. Sob uma operação integrada de P&amp;D, produção e vendas, projetamos e fabricamos uma linha completa de periféricos para terminais Starlink — cabos de rede e de energia à prova d'água, suportes e fixações, adaptadores de energia, cases de proteção e hardware de expansão de sinal.",
-    "es-MX": "Wanew Starlink Accessories es un fabricante de accesorios compatibles con Starlink con enfoque en ingeniería, con sede en la Gran Área de la Bahía Guangdong–Hong Kong–Macao. Bajo una operación integrada de I+D, producción y ventas, diseñamos y fabricamos una línea completa de periféricos para terminales Starlink — cables de red y de alimentación impermeables, soportes y bases, adaptadores de energía, estuches protectores y hardware de expansión de señal.",
-    "zh": "Wanew Starlink Accessories 是一家以工程驱动的 Starlink 兼容配件制造商，位于粤港澳大湾区。在集研发、生产、销售于一体的运营体系下，我们为 Starlink 终端设计并制造全系列周边配件——防水网络线与电源线、支架与安装座、电源适配器、防护外壳及信号扩展硬件。"
+    "en": "Wanew Starlink Accessories is an engineering-led manufacturer based in the Guangdong–Hong Kong–Macao Greater Bay Area, running R&D, production and sales under one roof — a one-stop source for the full range of Starlink-terminal peripherals.",
+    "pt-BR": "A Wanew Starlink Accessories é uma fabricante guiada pela engenharia, sediada na Grande Baía Guangdong–Hong Kong–Macau, com P&D, produção e vendas sob o mesmo teto — uma fonte completa para toda a gama de periféricos para terminais Starlink.",
+    "es-MX": "Wanew Starlink Accessories es un fabricante con enfoque en ingeniería, ubicado en la Gran Área de la Bahía Guangdong–Hong Kong–Macao, con I+D, producción y ventas bajo un mismo techo — una fuente integral para toda la gama de periféricos para terminales Starlink.",
+    "zh": "Wanew Starlink Accessories 是一家以工程驱动的制造商,坐落于粤港澳大湾区,研发、生产、销售一体化——为 Starlink 终端全系列周边配件提供一站式供应。"
   },
   "about.p.2": {
     "en": "Every product is engineered to meet the weather-resistance and outdoor demands of Starlink Mini, Standard, and Performance (Gen 1/2/3) terminals, giving global buyers a stable, durable, and precisely fitted one-stop supply.",
@@ -61,10 +61,10 @@
     "zh": "制造能力"
   },
   "about.p.3": {
-    "en": "Modern automated production lines and professional testing equipment run under in-house quality control that checks every batch against specification — giving buyers scale, consistency, and reliable lead times.",
-    "pt-BR": "Linhas de produção automatizadas modernas e equipamentos de teste profissionais operam sob controle de qualidade interno que inspeciona cada lote conforme a especificação, oferecendo aos compradores escala, consistência e prazos de entrega confiáveis.",
-    "es-MX": "Líneas de producción automatizadas modernas y equipo de prueba profesional operan bajo un control de calidad interno que revisa cada lote conforme a la especificación, para dar a los compradores escala, consistencia y tiempos de entrega confiables.",
-    "zh": "现代化自动化生产线与专业测试设备，在自有质量管控下对每一批次逐一按规格检验——让采购商获得规模、一致性与可靠交期。"
+    "en": "In-house quality control checks every batch against specification — so buyers get scale, consistency, and reliable lead times.",
+    "pt-BR": "O controle de qualidade interno inspeciona cada lote conforme a especificação — assim os compradores ganham escala, consistência e prazos de entrega confiáveis.",
+    "es-MX": "El control de calidad interno revisa cada lote conforme a la especificación — así los compradores obtienen escala, consistencia y tiempos de entrega confiables.",
+    "zh": "自有质量管控对每一批次逐一按规格检验——让采购商获得规模、一致性与可靠交期。"
   },
   "about.about-caps-k.1": {
     "en": "5,000 m²",
@@ -91,10 +91,10 @@
     "zh": "全球覆盖"
   },
   "about.tj-sub.4": {
-    "en": "Exported to multiple countries and regions, with US warehousing and DDP delivery for consistent, reliable supply.",
-    "pt-BR": "Exportado para diversos países e regiões, com armazenagem nos EUA e entrega DDP para um fornecimento consistente e confiável.",
-    "es-MX": "Exportamos a múltiples países y regiones, con almacenamiento en EE. UU. y entrega DDP para un suministro constante y confiable.",
-    "zh": "出口至多个国家和地区，配备美国仓储与 DDP 交付，供应稳定可靠。"
+    "en": "US warehousing and DDP delivery for consistent, reliable supply.",
+    "pt-BR": "Armazenagem nos EUA e entrega DDP para um fornecimento constante e confiável.",
+    "es-MX": "Almacenamiento en EE. UU. y entrega DDP para un suministro constante y confiable.",
+    "zh": "美国仓储与 DDP 交付,供应稳定可靠。"
   },
   "about.h3.1": {
     "en": "Partner With Wanew",
@@ -434,5 +434,11 @@
     "pt-BR": "Compatibilidade e FAQ",
     "es-MX": "Compatibilidad y preguntas frecuentes",
     "zh": "兼容性与常见问题"
+  },
+  "about.faq.disclaimer": {
+    "en": "Wanew is an independent third-party manufacturer and is not affiliated with, sponsored by, or endorsed by SpaceX or Starlink. “Starlink” is a trademark of SpaceX; references here indicate compatibility only.",
+    "pt-BR": "A Wanew é uma fabricante independente e não é afiliada, patrocinada nem endossada pela SpaceX ou Starlink. “Starlink” é uma marca registrada da SpaceX; as referências aqui indicam apenas compatibilidade.",
+    "es-MX": "Wanew es un fabricante independiente y no está afiliado, patrocinado ni respaldado por SpaceX o Starlink. “Starlink” es una marca registrada de SpaceX; las referencias aquí solo indican compatibilidad.",
+    "zh": "Wanew 是独立的第三方制造商,与 SpaceX 或 Starlink 无隶属、赞助或背书关系。“Starlink” 是 SpaceX 的商标,本站相关表述仅表示兼容性。"
   }
 }
