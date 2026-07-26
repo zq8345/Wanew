@@ -1274,7 +1274,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .guides-filter { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 28px; }
 .guides-chip { padding: 8px 16px; border-radius: 999px; border: 1px solid var(--w3-line2); background: transparent; color: var(--w3-text2); font-size: 13px; font-weight: 600; cursor: pointer; transition: color .2s var(--w3-ease), background .2s, border-color .2s; }
 .guides-chip:hover { color: var(--w3-text); border-color: rgba(255,255,255,.38); }
-.guides-chip.is-active { background: #fff; color: #0b0d10; border-color: #fff; }
+.guides-chip.is-active { background: #fff; color: var(--w3-surface-0); border-color: #fff; }
 .guides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 /* §2.6 治沉闷:卡片从 surface-2 抬亮 + 顶边高光 + 柔和双层投影 = 明显浮起、不与底糊;顶部 accent 渐变线做焦点 */
 .guides-card { position: relative; display: flex; flex-direction: column; gap: 9px; padding: 24px 22px 20px; border: 1px solid var(--w3-line); border-radius: var(--w3-radius); background: var(--w3-surface-2); box-shadow: var(--w3-edge-top), var(--w3-elev-card); text-decoration: none; overflow: hidden; transition: transform .35s var(--w3-ease), border-color .35s, box-shadow .35s; }
