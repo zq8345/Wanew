@@ -137,7 +137,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=35" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=36" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 <!-- hreflang alternates (derived from locales.json + page existence) -->
@@ -243,14 +243,13 @@
     </div>
   </section>
 
-  <!-- 3+4 MERGED: Manufacturing Capability — one section telling "we can build / build well / certified":
-       numbers band + patents note + capability line + full-width 2×3 factory wall + cert shields + Quality Process flow.
-       Both #patents (section) and #certifications (cert block) anchors preserved for 301 targets. -->
+  <!-- SECTION 2 (v3): Manufacturing Capability — stats + patents note + capability line + Global Reach
+       line (absorbed here, no standalone section) + factory wall + cert shields + Quality Process flow
+       (in a surface band). #patents + #certifications anchors preserved for 301 targets. -->
   <section class="xlc-section xlc-section-alt" id="patents">
     <div class="container">
       <div class="tj-sechead">
         <h2 class="tj-h2">Capacidad de fabricación</h2>
-        <div class="tj-rule"></div>
       </div>
       <div class="xlc-stats xlc-stats--6">
         <div class="xlc-stat-card"><div class="xlc-stat-number">15+</div><div class="xlc-stat-label">Años de experiencia</div></div>
@@ -262,6 +261,7 @@
       </div>
       <p class="xlc-stats__note">80+ Patentes de invención &middot; 120+ Patentes de modelo de utilidad &middot; 20+ Patentes de diseño</p>
       <p class="about-caps-line">Líneas de producción automatizadas modernas y equipo de prueba profesional operan bajo un control de calidad interno que revisa cada lote conforme a la especificación, para dar a los compradores escala, consistencia y tiempos de entrega confiables.</p>
+      <p class="about-caps-line">Exportamos a múltiples países y regiones, con almacenamiento en EE. UU. y entrega DDP para un suministro constante y confiable.</p>
       <ul class="about-facwall">
         <li><figure><img src="/static/upload/image/about/factory-office.webp" alt="I+D y oficina" width="503" height="338" loading="lazy"><figcaption aria-hidden="true">I+D y oficina</figcaption></figure></li>
         <li><figure><img src="/static/upload/image/about/factory-assembly.webp" alt="Línea de ensamblaje" width="507" height="338" loading="lazy"><figcaption aria-hidden="true">Línea de ensamblaje</figcaption></figure></li>
@@ -277,6 +277,7 @@
         <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">ISO 9001</span></span>
       </div>
       <h3 class="about-qp-head">Proceso de calidad</h3>
+      <div class="w3-flowband">
       <ol class="w3-flow w3-flow--5">
         <li class="w3-flow__node">
           <span class="w3-flow__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><circle cx="10.5" cy="10.5" r="2.3"/><path d="m12.4 12.4 2 2"/></svg></span>
@@ -299,13 +300,15 @@
           <span class="w3-flow__n">5</span><h4>Pruebas de esfuerzo mecánico</h4><p>Verificación de la capacidad de carga y la confiabilidad de soportes y componentes estructurales.</p>
         </li>
       </ol>
+      </div>
     </div>
   </section>
 
+  <!-- SECTION 3 (v3): OEM/ODM Services — title unified to tj-h2; OEM icon cards + ODM flow (in band). -->
   <section class="xlc-section" id="oem-odm">
     <div class="container">
       <div class="xlc-body">
-        <h2 class="xlc-merged-title">Fabricación OEM/ODM de accesorios compatibles con Starlink</h2>
+        <div class="tj-sechead"><h2 class="tj-h2">Fabricación OEM/ODM de accesorios compatibles con Starlink</h2></div>
 <p>Wanew ofrece servicios completos de fabricación OEM y ODM para accesorios compatibles con Starlink. Más de 15 años de experiencia y 200+ patentes.</p>
 <div class="about-oemblock">
   <div class="about-oemodm__head">Servicios OEM</div>
@@ -328,6 +331,7 @@
     </div>
   </div>
   <div class="about-oemodm__head about-oemodm__head--odm">Servicios ODM</div>
+  <div class="w3-flowband">
   <ol class="w3-flow w3-flow--3">
     <li class="w3-flow__node">
       <span class="w3-flow__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.8 10.6c.5.5.8 1.2.8 1.9v.5h6v-.5c0-.7.3-1.4.8-1.9A6 6 0 0 0 12 3z"/></svg></span>
@@ -342,41 +346,34 @@
       <span class="w3-flow__n">3</span><h4>Producción en masa</h4><p>Transición fluida del prototipo a la producción en volumen</p>
     </li>
   </ol>
+  </div>
 </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. Global delivery — one line (US warehouse / DDP / export / regions). -->
-  <section class="xlc-section xlc-section-alt">
+  <!-- SECTION 4 (v3): Compatibility & FAQ — affiliation disclaimer as the prominent first item +
+       3 Q&A, one flat container. #brand anchor preserved (301 target). The trademark small-print is
+       deduped away: the footer carries the standing "not affiliated" disclaimer site-wide. -->
+  <section class="xlc-section xlc-section-alt" id="brand">
     <div class="container">
-      <div class="tj-sechead">
-        <h2 class="tj-h2">Alcance global</h2>
-        <div class="tj-rule"></div>
+      <div class="tj-sechead"><h2 class="tj-h2">Compatibilidad y preguntas frecuentes</h2></div>
+      <div class="faq-flat">
+        <div class="faq-flat__item"><h3>¿Wanew está afiliada a Starlink o a SpaceX?</h3><p>No. Wanew es un fabricante independiente y externo. No estamos afiliados a SpaceX ni a Starlink, ni contamos con su patrocinio o respaldo.</p></div>
+        <div class="faq-flat__item"><h3>¿Los productos Wanew son accesorios oficiales de Starlink?</h3><p>No. Se diseñan y prueban de forma independiente para garantizar la compatibilidad.</p></div>
+        <div class="faq-flat__item"><h3>¿Usar productos Wanew anula la garantía de mi Starlink?</h3><p>Los accesorios de terceros no anulan la garantía por sí solos. Los daños causados por los accesorios pueden no estar cubiertos.</p></div>
+        <div class="faq-flat__item"><h3>¿SpaceX recomienda a Wanew?</h3><p>SpaceX no respalda a ningún fabricante de accesorios de terceros.</p></div>
       </div>
-      <p class="about-global-line">Exportamos a múltiples países y regiones, con almacenamiento en EE. UU. y entrega DDP para un suministro constante y confiable.</p>
     </div>
   </section>
 
-  <section class="xlc-section" id="brand">
+  <!-- SECTION 5 (v3): Partner With Wanew — closing CTA, one line + primary button (Request a quote). -->
+  <section class="xlc-section">
     <div class="container">
-      <div class="xlc-body">
-        <h2 class="xlc-merged-title">¿Wanew está afiliada a Starlink o a SpaceX?</h2>
-<div class="about-affil">
-  <p class="about-affil__stmt"><strong>No.</strong> Wanew es un fabricante independiente y externo. No estamos afiliados a SpaceX ni a Starlink, ni contamos con su patrocinio o respaldo.</p>
-  <p class="about-affil__tm">Wanew fabrica accesorios de terceros compatibles con Starlink. "Starlink" es una marca registrada de SpaceX. Las referencias en este sitio web indican compatibilidad.</p>
-</div>
-<h2>Preguntas frecuentes</h2>
-<div class="faq-flat">
-  <div class="faq-flat__item"><h3>¿Los productos Wanew son accesorios oficiales de Starlink?</h3><p>No. Se diseñan y prueban de forma independiente para garantizar la compatibilidad.</p></div>
-  <div class="faq-flat__item"><h3>¿Usar productos Wanew anula la garantía de mi Starlink?</h3><p>Los accesorios de terceros no anulan la garantía por sí solos. Los daños causados por los accesorios pueden no estar cubiertos.</p></div>
-  <div class="faq-flat__item"><h3>¿SpaceX recomienda a Wanew?</h3><p>SpaceX no respalda a ningún fabricante de accesorios de terceros.</p></div>
-</div>
-        <div class="xlc-cta about-cta">
-          <h3>Asóciate con Wanew</h3>
-          <p>Contacta a nuestro equipo de ventas para dudas sobre productos, proyectos OEM/ODM o alianzas de distribución.</p>
-          <a href="/es/contact/"><span>Contáctanos</span></a>
-        </div>
+      <div class="tj-sechead"><h2 class="tj-h2">Asóciate con Wanew</h2></div>
+      <div class="about-partner">
+        <p>Contacta a nuestro equipo de ventas para dudas sobre productos, proyectos OEM/ODM o alianzas de distribución.</p>
+        <a class="w3-btn w3-btn--primary" href="/es/contact/">Solicita una cotización <span class="w3-arw">→</span></a>
       </div>
     </div>
   </section>

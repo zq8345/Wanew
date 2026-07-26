@@ -136,7 +136,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=35" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=36" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 <!-- hreflang alternates (derived from locales.json + page existence) -->
@@ -242,14 +242,13 @@
     </div>
   </section>
 
-  <!-- 3+4 MERGED: Manufacturing Capability — one section telling "we can build / build well / certified":
-       numbers band + patents note + capability line + full-width 2×3 factory wall + cert shields + Quality Process flow.
-       Both #patents (section) and #certifications (cert block) anchors preserved for 301 targets. -->
+  <!-- SECTION 2 (v3): Manufacturing Capability — stats + patents note + capability line + Global Reach
+       line (absorbed here, no standalone section) + factory wall + cert shields + Quality Process flow
+       (in a surface band). #patents + #certifications anchors preserved for 301 targets. -->
   <section class="xlc-section xlc-section-alt" id="patents">
     <div class="container">
       <div class="tj-sechead">
         <h2 class="tj-h2">Manufacturing Capability</h2>
-        <div class="tj-rule"></div>
       </div>
       <div class="xlc-stats xlc-stats--6">
         <div class="xlc-stat-card"><div class="xlc-stat-number">15+</div><div class="xlc-stat-label">Years Experience</div></div>
@@ -261,6 +260,7 @@
       </div>
       <p class="xlc-stats__note">80+ Invention Patents &middot; 120+ Utility Patents &middot; 20+ Design Patents</p>
       <p class="about-caps-line">Modern automated production lines and professional testing equipment run under in-house quality control that checks every batch against specification — giving buyers scale, consistency, and reliable lead times.</p>
+      <p class="about-caps-line">Exported to multiple countries and regions, with US warehousing and DDP delivery for consistent, reliable supply.</p>
       <ul class="about-facwall">
         <li><figure><img src="/static/upload/image/about/factory-office.webp" alt="R&D & Office" width="503" height="338" loading="lazy"><figcaption aria-hidden="true">R&D & Office</figcaption></figure></li>
         <li><figure><img src="/static/upload/image/about/factory-assembly.webp" alt="Assembly Line" width="507" height="338" loading="lazy"><figcaption aria-hidden="true">Assembly Line</figcaption></figure></li>
@@ -276,6 +276,7 @@
         <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">ISO 9001</span></span>
       </div>
       <h3 class="about-qp-head">Quality Process</h3>
+      <div class="w3-flowband">
       <ol class="w3-flow w3-flow--5">
         <li class="w3-flow__node">
           <span class="w3-flow__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><circle cx="10.5" cy="10.5" r="2.3"/><path d="m12.4 12.4 2 2"/></svg></span>
@@ -298,13 +299,15 @@
           <span class="w3-flow__n">5</span><h4>Mechanical Stress Testing</h4><p>Load rating and reliability verification for mounts and structural components.</p>
         </li>
       </ol>
+      </div>
     </div>
   </section>
 
+  <!-- SECTION 3 (v3): OEM/ODM Services — title unified to tj-h2; OEM icon cards + ODM flow (in band). -->
   <section class="xlc-section" id="oem-odm">
     <div class="container">
       <div class="xlc-body">
-        <h2 class="xlc-merged-title">OEM/ODM Starlink-Compatible Accessories Manufacturing</h2>
+        <div class="tj-sechead"><h2 class="tj-h2">OEM/ODM Starlink-Compatible Accessories Manufacturing</h2></div>
 <p>Wanew offers comprehensive OEM and ODM manufacturing services for Starlink-compatible accessories. 15+ years experience, 200+ patents.</p>
 <div class="about-oemblock">
   <div class="about-oemodm__head">OEM Services</div>
@@ -327,6 +330,7 @@
     </div>
   </div>
   <div class="about-oemodm__head about-oemodm__head--odm">ODM Services</div>
+  <div class="w3-flowband">
   <ol class="w3-flow w3-flow--3">
     <li class="w3-flow__node">
       <span class="w3-flow__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.8 10.6c.5.5.8 1.2.8 1.9v.5h6v-.5c0-.7.3-1.4.8-1.9A6 6 0 0 0 12 3z"/></svg></span>
@@ -341,41 +345,34 @@
       <span class="w3-flow__n">3</span><h4>Mass Production</h4><p>Seamless prototype to volume manufacturing</p>
     </li>
   </ol>
+  </div>
 </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. Global delivery — one line (US warehouse / DDP / export / regions). -->
-  <section class="xlc-section xlc-section-alt">
+  <!-- SECTION 4 (v3): Compatibility & FAQ — affiliation disclaimer as the prominent first item +
+       3 Q&A, one flat container. #brand anchor preserved (301 target). The trademark small-print is
+       deduped away: the footer carries the standing "not affiliated" disclaimer site-wide. -->
+  <section class="xlc-section xlc-section-alt" id="brand">
     <div class="container">
-      <div class="tj-sechead">
-        <h2 class="tj-h2">Global Reach</h2>
-        <div class="tj-rule"></div>
+      <div class="tj-sechead"><h2 class="tj-h2">Compatibility & FAQ</h2></div>
+      <div class="faq-flat">
+        <div class="faq-flat__item"><h3>Is Wanew Affiliated with Starlink or SpaceX?</h3><p>No. Wanew is an independent third-party manufacturer. We are not affiliated with, sponsored by, or endorsed by SpaceX or Starlink.</p></div>
+        <div class="faq-flat__item"><h3>Are Wanew products official Starlink accessories?</h3><p>No. They are independently designed and tested for compatibility.</p></div>
+        <div class="faq-flat__item"><h3>Will using Wanew void my Starlink warranty?</h3><p>Third-party accessories do not automatically void warranty. Damage caused by accessories may not be covered.</p></div>
+        <div class="faq-flat__item"><h3>Does SpaceX recommend Wanew?</h3><p>SpaceX does not endorse any third-party accessory manufacturer.</p></div>
       </div>
-      <p class="about-global-line">Exported to multiple countries and regions, with US warehousing and DDP delivery for consistent, reliable supply.</p>
     </div>
   </section>
 
-  <section class="xlc-section" id="brand">
+  <!-- SECTION 5 (v3): Partner With Wanew — closing CTA, one line + primary button (Request a quote). -->
+  <section class="xlc-section">
     <div class="container">
-      <div class="xlc-body">
-        <h2 class="xlc-merged-title">Is Wanew Affiliated with Starlink or SpaceX?</h2>
-<div class="about-affil">
-  <p class="about-affil__stmt"><strong>No.</strong> Wanew is an independent third-party manufacturer. We are not affiliated with, sponsored by, or endorsed by SpaceX or Starlink.</p>
-  <p class="about-affil__tm">Wanew manufactures third-party Starlink-compatible accessories. "Starlink" is a trademark of SpaceX. References on this website indicate compatibility.</p>
-</div>
-<h2>FAQ</h2>
-<div class="faq-flat">
-  <div class="faq-flat__item"><h3>Are Wanew products official Starlink accessories?</h3><p>No. They are independently designed and tested for compatibility.</p></div>
-  <div class="faq-flat__item"><h3>Will using Wanew void my Starlink warranty?</h3><p>Third-party accessories do not automatically void warranty. Damage caused by accessories may not be covered.</p></div>
-  <div class="faq-flat__item"><h3>Does SpaceX recommend Wanew?</h3><p>SpaceX does not endorse any third-party accessory manufacturer.</p></div>
-</div>
-        <div class="xlc-cta about-cta">
-          <h3>Partner With Wanew</h3>
-          <p>Contact our sales team for product inquiries, OEM/ODM projects, or distribution partnerships.</p>
-          <a href="/contact/"><span>Contact Us</span></a>
-        </div>
+      <div class="tj-sechead"><h2 class="tj-h2">Partner With Wanew</h2></div>
+      <div class="about-partner">
+        <p>Contact our sales team for product inquiries, OEM/ODM projects, or distribution partnerships.</p>
+        <a class="w3-btn w3-btn--primary" href="/contact/">Request a quote <span class="w3-arw">→</span></a>
       </div>
     </div>
   </section>

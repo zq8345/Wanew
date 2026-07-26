@@ -136,7 +136,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=35" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=36" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 {{HREFLANG}}
@@ -238,14 +238,13 @@
     </div>
   </section>
 
-  <!-- 3+4 MERGED: Manufacturing Capability — one section telling "we can build / build well / certified":
-       numbers band + patents note + capability line + full-width 2×3 factory wall + cert shields + Quality Process flow.
-       Both #patents (section) and #certifications (cert block) anchors preserved for 301 targets. -->
+  <!-- SECTION 2 (v3): Manufacturing Capability — stats + patents note + capability line + Global Reach
+       line (absorbed here, no standalone section) + factory wall + cert shields + Quality Process flow
+       (in a surface band). #patents + #certifications anchors preserved for 301 targets. -->
   <section class="xlc-section xlc-section-alt" id="patents">
     <div class="container">
       <div class="tj-sechead">
         <h2 class="tj-h2">{{t.about.tj-h2.2}}</h2>
-        <div class="tj-rule"></div>
       </div>
       <div class="xlc-stats xlc-stats--6">
         <div class="xlc-stat-card"><div class="xlc-stat-number">15+</div><div class="xlc-stat-label">{{t.about.xlc-stat-label.1}}</div></div>
@@ -257,6 +256,7 @@
       </div>
       <p class="xlc-stats__note">80+ {{t.patents-manufacturing.td.1}} &middot; 120+ {{t.patents-manufacturing.td.3}} &middot; 20+ {{t.patents-manufacturing.td.5}}</p>
       <p class="about-caps-line">{{t.about.p.3}}</p>
+      <p class="about-caps-line">{{t.about.tj-sub.4}}</p>
       <ul class="about-facwall">
         <li><figure><img src="/static/upload/image/about/factory-office.webp" alt="{{t.about.faccap.1}}" width="503" height="338" loading="lazy"><figcaption aria-hidden="true">{{t.about.faccap.1}}</figcaption></figure></li>
         <li><figure><img src="/static/upload/image/about/factory-assembly.webp" alt="{{t.about.faccap.2}}" width="507" height="338" loading="lazy"><figcaption aria-hidden="true">{{t.about.faccap.2}}</figcaption></figure></li>
@@ -272,6 +272,7 @@
         <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">{{t.shared.iso}}</span></span>
       </div>
       <h3 class="about-qp-head">{{t.certifications-testing.h2.3}}</h3>
+      <div class="w3-flowband">
       <ol class="w3-flow w3-flow--5">
         <li class="w3-flow__node">
           <span class="w3-flow__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><circle cx="10.5" cy="10.5" r="2.3"/><path d="m12.4 12.4 2 2"/></svg></span>
@@ -294,13 +295,15 @@
           <span class="w3-flow__n">5</span><h4>{{t.certifications-testing.h3.5}}</h4><p>{{t.certifications-testing.p.6}}</p>
         </li>
       </ol>
+      </div>
     </div>
   </section>
 
+  <!-- SECTION 3 (v3): OEM/ODM Services — title unified to tj-h2; OEM icon cards + ODM flow (in band). -->
   <section class="xlc-section" id="oem-odm">
     <div class="container">
       <div class="xlc-body">
-        <h2 class="xlc-merged-title">{{t.oem-odm-manufacturing.page-header-title.1}}</h2>
+        <div class="tj-sechead"><h2 class="tj-h2">{{t.oem-odm-manufacturing.page-header-title.1}}</h2></div>
 <p>{{t.oem-odm-manufacturing.p.1}}</p>
 <div class="about-oemblock">
   <div class="about-oemodm__head">{{t.oem-odm-manufacturing.h2.2}}</div>
@@ -323,6 +326,7 @@
     </div>
   </div>
   <div class="about-oemodm__head about-oemodm__head--odm">{{t.oem-odm-manufacturing.h2.3}}</div>
+  <div class="w3-flowband">
   <ol class="w3-flow w3-flow--3">
     <li class="w3-flow__node">
       <span class="w3-flow__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.8 10.6c.5.5.8 1.2.8 1.9v.5h6v-.5c0-.7.3-1.4.8-1.9A6 6 0 0 0 12 3z"/></svg></span>
@@ -337,41 +341,34 @@
       <span class="w3-flow__n">3</span><h4>{{t.oem-odm-manufacturing.strong.13}}</h4><p>{{t.oem-odm-manufacturing.strong.14}}</p>
     </li>
   </ol>
+  </div>
 </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. Global delivery — one line (US warehouse / DDP / export / regions). -->
-  <section class="xlc-section xlc-section-alt">
+  <!-- SECTION 4 (v3): Compatibility & FAQ — affiliation disclaimer as the prominent first item +
+       3 Q&A, one flat container. #brand anchor preserved (301 target). The trademark small-print is
+       deduped away: the footer carries the standing "not affiliated" disclaimer site-wide. -->
+  <section class="xlc-section xlc-section-alt" id="brand">
     <div class="container">
-      <div class="tj-sechead">
-        <h2 class="tj-h2">{{t.about.tj-h2.4}}</h2>
-        <div class="tj-rule"></div>
+      <div class="tj-sechead"><h2 class="tj-h2">{{t.about.sec.compat_faq}}</h2></div>
+      <div class="faq-flat">
+        <div class="faq-flat__item"><h3>{{t.brand-affiliation-faq.page-header-title.1}}</h3><p>{{t.brand-affiliation-faq.strong.1}} {{t.brand-affiliation-faq.strong.2}}</p></div>
+        <div class="faq-flat__item"><h3>{{t.brand-affiliation-faq.h3.1}}</h3><p>{{t.brand-affiliation-faq.p.1}}</p></div>
+        <div class="faq-flat__item"><h3>{{t.brand-affiliation-faq.h3.2}}</h3><p>{{t.brand-affiliation-faq.p.2}}</p></div>
+        <div class="faq-flat__item"><h3>{{t.brand-affiliation-faq.h3.3}}</h3><p>{{t.brand-affiliation-faq.p.3}}</p></div>
       </div>
-      <p class="about-global-line">{{t.about.tj-sub.4}}</p>
     </div>
   </section>
 
-  <section class="xlc-section" id="brand">
+  <!-- SECTION 5 (v3): Partner With Wanew — closing CTA, one line + primary button (Request a quote). -->
+  <section class="xlc-section">
     <div class="container">
-      <div class="xlc-body">
-        <h2 class="xlc-merged-title">{{t.brand-affiliation-faq.page-header-title.1}}</h2>
-<div class="about-affil">
-  <p class="about-affil__stmt"><strong>{{t.brand-affiliation-faq.strong.1}}</strong> {{t.brand-affiliation-faq.strong.2}}</p>
-  <p class="about-affil__tm">{{t.brand-affiliation-faq.blockquote.1}}</p>
-</div>
-<h2>{{t.header.faq}}</h2>
-<div class="faq-flat">
-  <div class="faq-flat__item"><h3>{{t.brand-affiliation-faq.h3.1}}</h3><p>{{t.brand-affiliation-faq.p.1}}</p></div>
-  <div class="faq-flat__item"><h3>{{t.brand-affiliation-faq.h3.2}}</h3><p>{{t.brand-affiliation-faq.p.2}}</p></div>
-  <div class="faq-flat__item"><h3>{{t.brand-affiliation-faq.h3.3}}</h3><p>{{t.brand-affiliation-faq.p.3}}</p></div>
-</div>
-        <div class="xlc-cta about-cta">
-          <h3>{{t.about.h3.1}}</h3>
-          <p>{{t.about.p.4}}</p>
-          <a href="{{url./contact/}}"><span>{{t.about.span.1}}</span></a>
-        </div>
+      <div class="tj-sechead"><h2 class="tj-h2">{{t.about.h3.1}}</h2></div>
+      <div class="about-partner">
+        <p>{{t.about.p.4}}</p>
+        <a class="w3-btn w3-btn--primary" href="{{url./contact/}}">{{t.body.request_quote}} <span class="w3-arw">→</span></a>
       </div>
     </div>
   </section>

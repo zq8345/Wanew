@@ -137,7 +137,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=35" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=36" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 <meta name="robots" content="noindex, follow" />
@@ -239,14 +239,13 @@
     </div>
   </section>
 
-  <!-- 3+4 MERGED: Manufacturing Capability — one section telling "we can build / build well / certified":
-       numbers band + patents note + capability line + full-width 2×3 factory wall + cert shields + Quality Process flow.
-       Both #patents (section) and #certifications (cert block) anchors preserved for 301 targets. -->
+  <!-- SECTION 2 (v3): Manufacturing Capability — stats + patents note + capability line + Global Reach
+       line (absorbed here, no standalone section) + factory wall + cert shields + Quality Process flow
+       (in a surface band). #patents + #certifications anchors preserved for 301 targets. -->
   <section class="xlc-section xlc-section-alt" id="patents">
     <div class="container">
       <div class="tj-sechead">
         <h2 class="tj-h2">制造能力</h2>
-        <div class="tj-rule"></div>
       </div>
       <div class="xlc-stats xlc-stats--6">
         <div class="xlc-stat-card"><div class="xlc-stat-number">15+</div><div class="xlc-stat-label">年经验</div></div>
@@ -258,6 +257,7 @@
       </div>
       <p class="xlc-stats__note">80+ 发明专利 &middot; 120+ 实用新型专利 &middot; 20+ 外观设计专利</p>
       <p class="about-caps-line">现代化自动化生产线与专业测试设备，在自有质量管控下对每一批次逐一按规格检验——让采购商获得规模、一致性与可靠交期。</p>
+      <p class="about-caps-line">出口至多个国家和地区，配备美国仓储与 DDP 交付，供应稳定可靠。</p>
       <ul class="about-facwall">
         <li><figure><img src="/static/upload/image/about/factory-office.webp" alt="研发办公" width="503" height="338" loading="lazy"><figcaption aria-hidden="true">研发办公</figcaption></figure></li>
         <li><figure><img src="/static/upload/image/about/factory-assembly.webp" alt="装配产线" width="507" height="338" loading="lazy"><figcaption aria-hidden="true">装配产线</figcaption></figure></li>
@@ -273,6 +273,7 @@
         <span class="about-certs__badge"><svg class="about-certs__shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg><span class="about-certs__t">ISO 9001</span></span>
       </div>
       <h3 class="about-qp-head">品质管控流程</h3>
+      <div class="w3-flowband">
       <ol class="w3-flow w3-flow--5">
         <li class="w3-flow__node">
           <span class="w3-flow__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><circle cx="10.5" cy="10.5" r="2.3"/><path d="m12.4 12.4 2 2"/></svg></span>
@@ -295,13 +296,15 @@
           <span class="w3-flow__n">5</span><h4>机械应力测试</h4><p>对支架及结构件进行承载额定值与可靠性验证。</p>
         </li>
       </ol>
+      </div>
     </div>
   </section>
 
+  <!-- SECTION 3 (v3): OEM/ODM Services — title unified to tj-h2; OEM icon cards + ODM flow (in band). -->
   <section class="xlc-section" id="oem-odm">
     <div class="container">
       <div class="xlc-body">
-        <h2 class="xlc-merged-title">OEM/ODM Starlink 兼容配件代工制造</h2>
+        <div class="tj-sechead"><h2 class="tj-h2">OEM/ODM Starlink 兼容配件代工制造</h2></div>
 <p>Wanew 为 Starlink 兼容配件提供全面的 OEM 与 ODM 制造服务。15 年以上经验，200 多项专利。</p>
 <div class="about-oemblock">
   <div class="about-oemodm__head">OEM 服务</div>
@@ -324,6 +327,7 @@
     </div>
   </div>
   <div class="about-oemodm__head about-oemodm__head--odm">ODM 服务</div>
+  <div class="w3-flowband">
   <ol class="w3-flow w3-flow--3">
     <li class="w3-flow__node">
       <span class="w3-flow__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.8 10.6c.5.5.8 1.2.8 1.9v.5h6v-.5c0-.7.3-1.4.8-1.9A6 6 0 0 0 12 3z"/></svg></span>
@@ -338,41 +342,34 @@
       <span class="w3-flow__n">3</span><h4>批量生产</h4><p>从样机到量产无缝衔接</p>
     </li>
   </ol>
+  </div>
 </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. Global delivery — one line (US warehouse / DDP / export / regions). -->
-  <section class="xlc-section xlc-section-alt">
+  <!-- SECTION 4 (v3): Compatibility & FAQ — affiliation disclaimer as the prominent first item +
+       3 Q&A, one flat container. #brand anchor preserved (301 target). The trademark small-print is
+       deduped away: the footer carries the standing "not affiliated" disclaimer site-wide. -->
+  <section class="xlc-section xlc-section-alt" id="brand">
     <div class="container">
-      <div class="tj-sechead">
-        <h2 class="tj-h2">全球覆盖</h2>
-        <div class="tj-rule"></div>
+      <div class="tj-sechead"><h2 class="tj-h2">兼容性与常见问题</h2></div>
+      <div class="faq-flat">
+        <div class="faq-flat__item"><h3>Wanew 与 Starlink 或 SpaceX 有关联吗？</h3><p>没有。 Wanew 是一家独立的第三方制造商。我们与 SpaceX 或 Starlink 没有任何关联，亦未获得其赞助或背书。</p></div>
+        <div class="faq-flat__item"><h3>Wanew 产品是官方 Starlink 配件吗？</h3><p>不是。它们由我们独立设计，并经过兼容性测试。</p></div>
+        <div class="faq-flat__item"><h3>使用 Wanew 产品会导致我的 Starlink 保修失效吗？</h3><p>使用第三方配件本身不会自动导致保修失效。但因配件所造成的损坏可能不在保修范围之内。</p></div>
+        <div class="faq-flat__item"><h3>SpaceX 推荐 Wanew 吗？</h3><p>SpaceX 不对任何第三方配件制造商作出背书。</p></div>
       </div>
-      <p class="about-global-line">出口至多个国家和地区，配备美国仓储与 DDP 交付，供应稳定可靠。</p>
     </div>
   </section>
 
-  <section class="xlc-section" id="brand">
+  <!-- SECTION 5 (v3): Partner With Wanew — closing CTA, one line + primary button (Request a quote). -->
+  <section class="xlc-section">
     <div class="container">
-      <div class="xlc-body">
-        <h2 class="xlc-merged-title">Wanew 与 Starlink 或 SpaceX 有关联吗？</h2>
-<div class="about-affil">
-  <p class="about-affil__stmt"><strong>没有。</strong> Wanew 是一家独立的第三方制造商。我们与 SpaceX 或 Starlink 没有任何关联，亦未获得其赞助或背书。</p>
-  <p class="about-affil__tm">Wanew 生产第三方 Starlink 兼容配件。“Starlink”是 SpaceX 的商标。本网站中的相关表述仅用于说明兼容性。</p>
-</div>
-<h2>常见问题</h2>
-<div class="faq-flat">
-  <div class="faq-flat__item"><h3>Wanew 产品是官方 Starlink 配件吗？</h3><p>不是。它们由我们独立设计，并经过兼容性测试。</p></div>
-  <div class="faq-flat__item"><h3>使用 Wanew 产品会导致我的 Starlink 保修失效吗？</h3><p>使用第三方配件本身不会自动导致保修失效。但因配件所造成的损坏可能不在保修范围之内。</p></div>
-  <div class="faq-flat__item"><h3>SpaceX 推荐 Wanew 吗？</h3><p>SpaceX 不对任何第三方配件制造商作出背书。</p></div>
-</div>
-        <div class="xlc-cta about-cta">
-          <h3>与 Wanew 合作</h3>
-          <p>如需产品咨询、OEM/ODM 项目或分销合作，请联系我们的销售团队。</p>
-          <a href="/zh/contact/"><span>联系我们</span></a>
-        </div>
+      <div class="tj-sechead"><h2 class="tj-h2">与 Wanew 合作</h2></div>
+      <div class="about-partner">
+        <p>如需产品咨询、OEM/ODM 项目或分销合作，请联系我们的销售团队。</p>
+        <a class="w3-btn w3-btn--primary" href="/zh/contact/">获取报价 <span class="w3-arw">→</span></a>
       </div>
     </div>
   </section>
