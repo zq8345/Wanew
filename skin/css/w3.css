@@ -546,9 +546,9 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 
 /* OEM services — meaningful-icon cards (icon serves the service, not decoration) */
 .oem-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.w3-iconcard { position: relative; overflow: hidden; background: var(--w3-panel); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); padding: 24px 20px; display: grid; gap: 12px; align-content: start; transition: transform .35s var(--w3-ease), border-color .35s, box-shadow .35s; }
+.w3-iconcard { position: relative; overflow: hidden; background: var(--w3-surface-2); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); box-shadow: var(--w3-edge-top), var(--w3-elev-card); padding: 24px 20px; display: grid; gap: 12px; align-content: start; transition: transform .35s var(--w3-ease), border-color .35s, box-shadow .35s; }
 .w3-iconcard::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--w3-accent), transparent 72%); opacity: 0; transition: opacity .35s; }
-.w3-iconcard:hover { transform: translateY(-4px); border-color: var(--w3-line2); box-shadow: 0 12px 30px rgba(0,0,0,.4); }
+.w3-iconcard:hover { transform: translateY(-4px); border-color: var(--w3-line2); box-shadow: var(--w3-edge-top), 0 6px 16px -4px rgba(0,0,0,.55), 0 22px 48px -16px rgba(0,0,0,.7); }
 .w3-iconcard:hover::before { opacity: .85; }
 .w3-iconcard__ic { width: 46px; height: 46px; border-radius: 12px; border: 1px solid var(--w3-line); background: radial-gradient(120% 120% at 50% 30%, rgba(125,177,255,.12), var(--w3-bg2) 70%); color: var(--w3-accent); display: grid; place-items: center; transition: border-color .35s; }
 .w3-iconcard:hover .w3-iconcard__ic { border-color: rgba(125,177,255,.35); }
@@ -560,7 +560,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 
 /* Flow band — surface container that gives the flow diagram visual weight
    (Joe v3: no more icons-on-a-bare-line floating on black). */
-.w3-flowband { background: var(--w3-bg2); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); padding: 34px 30px 30px; margin-top: 20px; }
+.w3-flowband { background: var(--w3-surface-2); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); box-shadow: var(--w3-edge-top), var(--w3-elev-card); padding: 34px 30px 30px; margin-top: 20px; }
 .w3-flowband .w3-flow { margin-top: 0; }
 @media (max-width: 760px) { .w3-flowband { padding: 26px 20px 6px; } }
 
@@ -598,7 +598,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .about-affil__tm { font-size: 13px; color: var(--w3-text3); line-height: 1.6; margin: 0; border-left: 2px solid var(--w3-line2); padding-left: 14px; }
 
 /* FAQ — flat card, 3 Q&A all expanded (Joe: no accordion) */
-.faq-flat { background: var(--w3-panel); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); padding: 4px 26px; margin: 16px 0 0; max-width: 840px; }
+.faq-flat { background: var(--w3-surface-2); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); box-shadow: var(--w3-edge-top), var(--w3-elev-card); padding: 4px 26px; margin: 16px 0 0; max-width: 840px; }
 .faq-flat__item { padding: 20px 0; border-bottom: 1px solid var(--w3-line); }
 .faq-flat__item:last-child { border-bottom: none; }
 .faq-flat .faq-flat__item h3 { font-size: 15px; font-weight: 650; color: var(--w3-text); letter-spacing: -0.01em; line-height: 1.4; margin: 0 0 6px; }
