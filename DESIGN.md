@@ -166,6 +166,22 @@
 - **画廊**(`.swiper-*` 类名载重,实现是 CSS scroll-snap + w3.js,无 swiper 库):主台 1:1 `--w3-tile` 16 圆角;箭头=白圆钮 42px 悬停现身;缩略图 72px,选中 = `--w3-accent` 2px 边。
 - **回顶钮** `.scroll-to-target`:44px 圆钮,滚动后现身。
 
+### 3.7 About / Solutions 区组件（W3 About v2/v3 + Solutions 重建新增,§7.4 登记）
+> 令牌全取自 §2:色 bg2/panel/line/line2/accent、radius 16、ease、字阶。零魔法值。图标=内联 SVG 线性(stroke 1.6/accent),服务流程/含义(流程节点、认证盾),**非装饰卡**(review#1 边界:流程图/语义图标允许,一排三词装饰图标卡禁用)。
+- **流程图** `.w3-flow`/`.w3-flow__node`/`.w3-flow__ic`/`.w3-flow__n`(Quality Process 5 步 + OEM/ODM ODM 3 步,共用一套):横向 grid(`grid-auto-flow:column`),节点=accent 描边环圆 64px(径向井底 `rgba(125,177,255,.14)`→panel + halo `::after` + 景深)+ 渐变进度连接线(`::before`,accent→透明,非灰细线)+ 步骤号 accent 药丸 `.w3-flow__n`;≤760px 转竖排(连接线保留)。hover 节点上浮+环加亮。
+- **流程带容器** `.w3-flowband`〔审计 §7.4 补登〕:给流程图视觉分量的 surface 容器 —— `background:--w3-bg2` + `1px --w3-line` 边 + `--w3-radius` 圆角 + `34px 30px 30px` 内距(≤760px `26px 20px 6px`)。用途:包裹 `.w3-flow`,避免"图标+线飘在深底上"。
+- **图标卡** `.w3-iconcard`(OEM 4 服务卡):panel 底+发丝边+16 圆角+径向井图标(46px)+ hover 上浮 4px + 顶部 accent 渐变线(`::before`)+ 阴影;h3 15px w650 / p 13px --w3-text2。语义图标(机架/立方/滑块/盾),非装饰。
+- **工厂影像墙** `.about-facwall`(制造段,信任硬货):全宽 2×3 grid(gap 14),`figure` overflow-hidden 圆角边框,`img` `aspect-ratio:503/338` object-fit cover + hover scale 1.05 + 底渐隐 `::after` + 编辑级工序 `figcaption`(小写角标胶囊,aria-hidden);≤860px 2 列、≤520px 1 列。图 alt=工序键。
+- **认证条** `.about-certstrip`/`.about-cert`(v3.1,取代旧 `.about-certs` 4 大空卡):slim 药丸横排(flex wrap 居中),药丸 `.about-cert`=胶囊 9/16 padding + line2 边 + 盾图标 18px accent + 13.5px w650;放在质量流程之后(节奏 数据→影像→工艺→认证)。
+- **能力/免责行** `.about-caps-line`(制造段能力叙述,居中限宽 760)· `.about-disclaimer`(Compat&FAQ 段首商标免责一句,13.5px --w3-text3)。
+- **FAQ 平铺** `.faq-flat`/`.faq-flat__item`:panel 卡内 h3+p 平铺(非 accordion,总工/Joe 定;内容留 DOM;About 不加 FAQPage schema)。
+- **段标题** `.tj-sechead`>`.tj-h2`(全站信息页统一 section 标题):tj-h2=§2.2 h2 精确值(`clamp(1.65rem,3vw,2.45rem)`/1.14/w700/-0.022em);**所有 section h2 同档**(旧 `.xlc-merged-title` 偏大已弃)。
+- **Solutions hub 场景卡** `.sol-grid`/`.sol-card`:3 列(→2→1)图卡,媒体 `aspect-ratio:16/9` cover + hover scale;body=场景名(18px w700)+ 描述(13.5 --w3-text2)+ 角标 accent →;整卡链 `/solutions/{scene}/`。
+- **Solutions 场景推荐配件** `.sol-recs`/`.sol-rec`:auto-fit minmax(230px),药丸行=径向井图标(46px)+ 标签 + hover accent →,深链 `/products/#type`、`/{model}/`。
+- **Solutions CTA 带** `.sol-cta`:panel→bg2 渐变面板,左文右钮(≤640 竖排),主钮 §3.1 primary(Request a quote)。
+- **信息页 hero 眉标** `.page-header__eyebrow`:11px w600 全大写 0.2em accent(hero 内 eyebrow,如 "SOLUTIONS · RV")。
+- **Partner CTA** `.about-partner`:段标题(tj-h2)+ 一句 + primary 按钮(收尾转化,一句+钮不拖)。
+
 ## 4. 交互标准
 
 1. **一切可点元素必有 hover / focus-visible / active 反馈**;focus-visible = `2px solid --w3-accent` outline + 3px offset(全局钉死,禁止 `outline:none` 不给替代)。
