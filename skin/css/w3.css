@@ -1237,3 +1237,6 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .xlc-body th, .xlc-body td, .about-page th, .about-page td { border: 1px solid var(--w3-line) !important; padding: 10px 13px; text-align: left; color: var(--w3-text2); }
 .xlc-body th, .about-page th { background: var(--w3-panel2) !important; color: var(--w3-text); font-weight: 600; }
 .huibg { background: transparent !important; }
+/* Video page placeholder (legacy thumbnail removed; awaiting install videos) */
+.video-soon { max-width: 640px; margin: 8px 0 0; display: grid; gap: 20px; justify-items: start; }
+.video-soon p { font-size: 15.5px; color: var(--w3-text2); line-height: 1.75; margin: 0; }

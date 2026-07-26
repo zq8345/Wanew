@@ -28,7 +28,8 @@
  * 用法：node scripts/brand-residue-scan.mjs
  */
 import fs from 'fs';
-const BRANDS = ['XLinkShop', 'XLinkCore', 'STARGEAR', 'linkoostar', 'DaierTek', 'starlingkshop', 'Dbilida', 'TP-Link', 'TP Link'];
+import path from 'path';
+const BRANDS = ['XLinkShop', 'XLinkCore', 'STARGEAR', 'linkoostar', 'DaierTek', 'starlingkshop', 'Dbilida', 'TP-Link', 'TP Link', '深圳市星链', '星链网络配件'];
 const OURS = ['meta_title', 'meta_description', 'keywords'];        // 后台改不到 = 我们的
 const JOES = ['title', 'description_html', 'summary_html'];          // 后台能改 = Joe 的
 const rx = (b) => new RegExp(b.replace(/[-\s]/g, '[-\\s]?'), 'gi');
@@ -81,3 +82,27 @@ if (unk.length) {
   console.log('\n=== ⚠️ 对账差额（有字段我没归类到！）===');
   unk.forEach((r) => console.log(`  ${r.id} ${r.brand} 差 ${r.n} 处`));
 } else console.log('\n✅ 对账平：每一处都归到了具体字段，无遗漏');
+
+// ── 全站文件层字节扫描（补上产品 JSON 之外的漏网：资产文件 / 非产品页 / EXIF 内嵌） ──
+// ⭐ 教训（2026-07-26）：XLinkCore 老前台图混进 /video/、且有 HTML 错误页伪装成 .jpg/.png/.woff
+//    （同一 md5 存 3 个扩展名），全被"只扫 data/products JSON"漏掉。原始字节 grep 覆盖：
+//    ① HTML 伪装资产 ② 图片/字体 EXIF 内嵌品牌串 ③ 非产品页（/video/ 等）文本层。
+//    ⚠️ 视觉水印（烤进画面的 logo/文字）字节扫不到 → 仍需人工过眼（见 Joe 清单）。
+// scripts/ = 构建期开发工具(不作为内容服务);es-glossary.json = 违禁词表 —— 都【按设计】列品牌名做
+// 检测目标,不是站点内容泄漏,排除以免噪声淹没真泄漏。扫描面 = 部署给用户的内容/资产。
+const SKIP = new Set(['.git', 'node_modules', '.wrangler', 'scripts']);
+const SKIP_FILE = new Set(['data/es-glossary.json']);
+const assetHits = [];
+(function walk(d) {
+  for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+    if (SKIP.has(e.name)) continue;
+    const fp = path.join(d, e.name);
+    if (e.isDirectory()) { walk(fp); continue; }
+    if (SKIP_FILE.has(fp.replace(/\\/g, '/').replace(/^\.\//, ''))) continue;
+    let buf; try { buf = fs.readFileSync(fp, 'latin1'); } catch { continue; }
+    for (const b of BRANDS) { const n = (buf.match(rx(b)) || []).length; if (n) assetHits.push({ file: fp.replace(/\\/g, '/'), brand: b, n }); }
+  }
+})('.');
+console.log('\n=== 🖼 全站文件层（资产 / 非产品页 / EXIF 字节）===');
+if (assetHits.length) { assetHits.forEach((h) => console.log(`  ⛔ ${h.file}  ${h.brand} ×${h.n}`)); console.log(`  ⛔ ${assetHits.length} 处品牌残留 —— 清掉！`); }
+else console.log('  ✅ 0 品牌残留（资产 / EXIF / 非产品页文本层）；⚠️ 视觉水印仍需人工过眼');

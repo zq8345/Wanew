@@ -22,5 +22,17 @@
     "pt-BR": "Vídeos - Wanew | Acessórios Premium para Starlink: Suportes e Soluções de Energia",
     "es-MX": "Videos - Wanew | Accesorios Premium para Starlink, Soportes y Soluciones de Energía",
     "zh": "视频-Wanew | 优质 Starlink 配件、支架与电源解决方案"
+  },
+  "video.soon": {
+    "en": "Installation and product videos are coming soon. In the meantime, visit our YouTube channel.",
+    "pt-BR": "Vídeos de instalação e de produtos em breve. Enquanto isso, visite nosso canal no YouTube.",
+    "es-MX": "Los videos de instalación y de productos estarán disponibles pronto. Mientras tanto, visita nuestro canal de YouTube.",
+    "zh": "安装与产品视频即将上线。在此期间,欢迎访问我们的 YouTube 频道。"
+  },
+  "video.youtube": {
+    "en": "Wanew on YouTube",
+    "pt-BR": "Wanew no YouTube",
+    "es-MX": "Wanew en YouTube",
+    "zh": "Wanew YouTube 频道"
   }
 }
