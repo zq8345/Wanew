@@ -1,7 +1,7 @@
 # /compatibility/ + /faq/ -> /guides/ (Guides consistency, 2026-07-27 Joe: one URL system under /guides/)
-# ⭐ AT TOP: _redirects has an empirical ~140-rule effective cutoff on CF Pages (rules past it are
-#   silently dropped — verified 2026-07-27 when these landed at pos ~135 and 404'd). Keep at top +
-#   total <=134. Proven /X/* splat (same as /marine/*): catches /faq/ + children. zh = noindex (no 301).
+# AT TOP: _redirects has an empirical effective-rule cutoff on CF Pages (rules past it are
+#   silently dropped). Keep migration rules at top. Proven /X/* splat (same as /marine/*):
+#   catches /faq/ + children. zh = noindex (no 301). Keep this file plain ASCII (non-ASCII broke it).
 /compatibility/*  /guides/compatibility/  301
 /faq/*  /guides/faq/  301
 /es/compatibility/*  /es/guides/compatibility/  301
@@ -35,8 +35,8 @@
 /pt/brand-affiliation-faq/  /pt/about/#brand  301
 /pt/brand-affiliation-faq  /pt/about/#brand  301
 # /hangye/ (Industry Hub) -> /solutions/ region migration (2026-07-25, Joe-approved flip)
-# Per-scene rules removed 2026-07-27 to free _redirects budget (~140 cutoff) for the compat/faq
-# migration — dead hub, /hangye/* splat below already catches every /hangye/N -> /solutions/.
+# Per-scene rules removed 2026-07-27 to free _redirects budget for the compat/faq migration.
+# Dead hub, /hangye/* splat below already catches every /hangye/N -> /solutions/.
 /hangye  /solutions/  301
 /hangye/*  /solutions/  301
 /es/hangye  /es/solutions/  301
