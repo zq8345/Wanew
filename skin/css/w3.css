@@ -1301,8 +1301,9 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .page-header--slim .page-header__title { font-size: clamp(1.7rem, 3.2vw, 2.6rem); }
 .w3-crumb { font-size: 13px; color: var(--w3-text3); margin-bottom: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
 .w3-crumb a { color: var(--w3-accent); }
-.guides-filter { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 28px; }
-.guides-chip { padding: 8px 16px; border-radius: 999px; border: 1px solid var(--w3-line2); background: transparent; color: var(--w3-text2); font-size: 13px; font-weight: 600; cursor: pointer; transition: color .2s var(--w3-ease), background .2s, border-color .2s; }
+/* Guides topic nav —— 一套浏览逻辑(Joe 铁令):chip 是导航链接 <a>,跳 /guides/{topic}/ 专属页,非就地筛选 */
+.guides-nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 28px; }
+.guides-chip { display: inline-flex; align-items: center; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--w3-line2); background: transparent; color: var(--w3-text2); font-size: 13px; font-weight: 600; text-decoration: none; transition: color .2s var(--w3-ease), background .2s, border-color .2s; }
 .guides-chip:hover { color: var(--w3-text); border-color: rgba(255,255,255,.38); }
 .guides-chip.is-active { background: #fff; color: var(--w3-surface-0); border-color: #fff; }
 .guides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -1316,7 +1317,6 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .guides-card__sum { font-size: 13.5px; font-weight: 400; color: var(--w3-text2); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .guides-card__arw { color: var(--w3-text3); font-size: 16px; margin-top: auto; padding-top: 4px; transition: transform .3s var(--w3-ease), color .3s; }
 .guides-card:hover .guides-card__arw { color: var(--w3-accent); transform: translateX(3px); }
-.guides-card.is-hidden { display: none; }
 @media (max-width: 900px) { .guides-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .guides-grid { grid-template-columns: 1fr; } }
 /* article closing CTA */

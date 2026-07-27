@@ -365,25 +365,29 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
     const badge = (loc !== "en" && href === `/guides/${a.slug}/`) ? ` <span class="tj-lang-badge">${pick(catalog["card.lang_badge"], loc)}</span>` : "";
     // 卡面用 card_title(人话短标题,③逐篇填);缺省回落长标题(CSS 3 行截断兜底)。SEO 长标题始终留文章 <title>/H1。
     const sum = a._summary ? `<span class="guides-card__sum">${esc(a._summary)}</span>` : "";
-    return `        <a class="guides-card" data-topic="${a.topic}" href="${href}"><span class="guides-card__topic">${pick(catalog[TKEY[a.topic]], loc)}</span><span class="guides-card__t">${esc(a.card_title || a.title)}${badge}</span>${sum}<span class="guides-card__arw" aria-hidden="true">→</span></a>`;
+    return `        <a class="guides-card" href="${href}"><span class="guides-card__topic">${pick(catalog[TKEY[a.topic]], loc)}</span><span class="guides-card__t">${esc(a.card_title || a.title)}${badge}</span>${sum}<span class="guides-card__arw" aria-hidden="true">→</span></a>`;
+  };
+  // 一套浏览逻辑(Joe 铁令,消除"客户端筛选 vs 专属页"两套):topic chip = 导航链接 <a>,
+  // 点击跳到 /guides/{topic}/ 专属页,不再原地过滤。home 与各 topic 页共用同一条 nav,
+  // current 标 is-active。仅 ≥2 个有内容主题才有意义(否则无处可去)。
+  const navChips = (loc, current) => {
+    if (activeTopics.length < 2) return "";
+    const all = `<a class="guides-chip${current === "all" ? " is-active" : ""}" href="${urlOf("/guides/", loc)}">${pick(gCat["guides.filter.all"], loc)}</a>`;
+    const tops = activeTopics.map((t) =>
+      `<a class="guides-chip${current === t ? " is-active" : ""}" href="${urlOf(`/guides/${t}/`, loc)}">${pick(catalog[TKEY[t]], loc)}</a>`).join("");
+    return `      <nav class="guides-nav" aria-label="Guides topics">${all}${tops}</nav>`;
   };
   for (const locale of RENDER_SET) {
     if (!LOCALES.includes(locale) && !isExtra(locale)) continue;
     const baseCat = { ...catalog, ...shared, ...gCat };
     // home
     {
-      // 筛选行:仅当 ≥2 个有内容的主题才有意义。当前只剩 marine 一个 → 整条筛选隐藏(清理阶段①,
-      // 总工定);主题长回来(G2-4)自动恢复。空 chip(点了 0 卡)是"点击空手而归=反证不专业",清掉。
-      const chips = activeTopics.length >= 2
-        ? [`<button type="button" class="guides-chip is-active" data-filter="all">${pick(gCat["guides.filter.all"], locale)}</button>`]
-            .concat(activeTopics.map((t) => `<button type="button" class="guides-chip" data-filter="${t}">${pick(catalog[TKEY[t]], locale)}</button>`)).join("")
-        : "";
       const cards = built.map((a) => cardOf(a, locale)).join("\n");
       const tpl2 = listTpl
         .split("{{GL_TITLE}}").join(pick(gCat["guides.meta.title"], locale)).split("{{GL_DESC}}").join(pick(gCat["guides.meta.desc"], locale))
         .split("{{GL_H1}}").join(pick(gCat["guides.hero.h1"], locale)).split("{{GL_INTRO}}").join(pick(gCat["guides.hero.intro"], locale))
         .split("{{GL_CRUMB}}").join(pick(gCat["guides.hero.h1"], locale))
-        .split("{{GL_FILTER}}").join(chips ? `      <div class="guides-filter" data-guides-filter>${chips}</div>` : "").split("{{GL_CARDS}}").join(cards);
+        .split("{{GL_FILTER}}").join(navChips(locale, "all")).split("{{GL_CARDS}}").join(cards);
       const p = pageOf(locale, path.join("guides", "index.html"));
       const html = renderPage(tpl2, { locale, catalog: baseCat, urlOf, path: "/guides/", dirOf, enabled: LOCALES, internal_noindex: INTERNAL });
       fs.mkdirSync(path.dirname(p), { recursive: true });
@@ -397,7 +401,7 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
         .split("{{GL_TITLE}}").join(pick(gCat[`guides.topic.${t}.title`], locale) + " | Wanew").split("{{GL_DESC}}").join(pick(gCat[`guides.topic.${t}.intro`], locale))
         .split("{{GL_H1}}").join(pick(gCat[`guides.topic.${t}.title`], locale)).split("{{GL_INTRO}}").join(pick(gCat[`guides.topic.${t}.intro`], locale))
         .split("{{GL_CRUMB}}").join(pick(gCat[`guides.topic.${t}.title`], locale))
-        .split("{{GL_FILTER}}").join("").split("{{GL_CARDS}}").join(cards);
+        .split("{{GL_FILTER}}").join(navChips(locale, t)).split("{{GL_CARDS}}").join(cards);
       const p = pageOf(locale, path.join("guides", t, "index.html"));
       const html = renderPage(tpl2, { locale, catalog: baseCat, urlOf, path: `/guides/${t}/`, dirOf, enabled: LOCALES, internal_noindex: INTERNAL });
       fs.mkdirSync(path.dirname(p), { recursive: true });

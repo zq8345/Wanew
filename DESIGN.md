@@ -156,6 +156,11 @@
 - nav 是 `position:fixed` 透明 overlay(滚动才出玻璃底)——信息页 hero 要像首页一样**从视口 y=0 起、延伸到 nav 背后**,nav 透明浮其上。
 - 机制:hero `.page-header` 靠**自身 top padding**(`calc(--w3-header-h + 84px)`)让标题避开 nav;内容区 `.xlc-section` 自带上下留白。**⛔ 禁给 `<body>` 加顶 padding**(那会把整个 page-wrapper 下推到 nav 下方,透明 nav 上方露深色页底 = "nav 黑带" bug,踩过三次;根因是 body 顶 padding,不是 hero 渐变/不是 stricky-header)。新信息页 body 别挂带顶 padding 的类。
 
+### 3.2e Guides 浏览 = 专属 topic 页一套逻辑,禁客户端筛选工具条
+- ⭐⭐ **约定(Joe 铁律,2026-07-27 写死):Guides 只用【专属 topic 页】一套浏览逻辑**——`/guides/`(All guides 入口)→ 点 topic chip **跳** `/guides/{topic}/` 专属页 → 文章。topic chip 是 `<a href="/guides/{topic}/">` **导航链接**(tab 式),不是就地过滤。
+- **⛔ 禁再建"客户端筛选工具条"**(`data-guides-filter` + `data-topic` + JS 就地 toggle):它和专属 topic 页干同一件事 = Joe 反复点的"2 套浏览逻辑"。已删(w3.js filter 段 + 卡片 `data-topic`)。card 只是 `<a>` 跳文章,不带筛选属性。
+- home 与各 topic 页共用同一条 `.guides-nav`(当前项 `.is-active`);由 regen `navChips(loc, current)` 单源发出,仅【≥2 个有内容主题】时渲染。
+
 ### 3.3 导航(chrome 单咽喉,DOM 由 `_chrome.html` 发出)
 - 顶栏固定 68px:透明起步,滚动 >12px(`html.w3-scrolled`)或 `body.w3-solid-header` 时落玻璃底+发丝下边。
 - 一级项 13.5px w500;hover/焦点 白字+微白底;**有下拉才有 caret**(CSS `:has` 自动)。
@@ -198,7 +203,7 @@
 - **信息页 hero 眉标** `.page-header__eyebrow`:11px w600 全大写 0.2em accent(hero 内 eyebrow,如 "SOLUTIONS · RV")。
 - **Partner CTA** `.about-partner`:段标题(tj-h2)+ 一句 + primary 按钮(收尾转化,一句+钮不拖)。
 - **Guides 库网格** `.guides-grid`/`.guides-card`〔Guides 迁移新增 · ③ 美化按 §2.6 升级,本条已对齐 shipped 代码〕:`repeat(3,1fr)` 卡网格(gap 16;≤900px 2 列、≤560px 1 列)。`.guides-card`=**§2.6 浮起**:`--w3-surface-2` 底 + `--w3-edge-top` 顶边高光 + `--w3-elev-card` 双层投影 + 发丝边 + 16 圆角;hover 上浮 4px + 更强投影 + 顶部 accent 渐变线(`::before` opacity 0→1)。内含 `.guides-card__topic`(11px **w700** 全大写 accent 眉标)+ `.guides-card__t`(标题 16.5px **w700**,3 行截断)+ `.guides-card__sum`(摘要 13.5px `--w3-text2`,2 行截断,派生自正文首个实文段)+ `.guides-card__arw`(角标 →,hover accent+右移);整卡链 `/guides/{slug}/`。card_title(人话短标题)住 guides-manifest,cardOf 回落长标题。`.guides-card.is-hidden`=筛选隐藏态(`display:none`),w3.js `[data-guides-filter]` 依 `data-topic` 切换。
-- **Guides 主题过滤条** `.guides-filter`/`.guides-chip`:药丸行(flex wrap);`.guides-chip`=胶囊 line2 边 + hover accent,`.guides-chip.is-active`=**白底(#fff)+ 近黑字(`--w3-surface-0`)**(当前主题)。builder 仅在【≥2 个有内容主题】时渲染整条筛选(单主题隐藏,见 regen `activeTopics`);`data-guides-filter` 驱动纯前端过滤(无 JS 时全卡可见=渐进增强)。⚠️active chip 白底 vs accent 底=主观,待 Joe 定;本条先与代码一致。
+- **Guides 主题导航条** `.guides-nav`/`.guides-chip`〔见 §3.2e 约定〕:药丸行(flex wrap);`.guides-chip`=**导航链接 `<a href="/guides/{topic}/">`**(胶囊 line2 边 + hover accent),`.guides-chip.is-active`=**白底(#fff)+ 近黑字(`--w3-surface-0`)**(当前所在页)。builder 仅在【≥2 个有内容主题】时渲染整条(单主题隐藏,见 regen `activeTopics`/`navChips`)。**已废除** `.guides-filter`/`data-guides-filter` 客户端过滤(§3.2e:Guides 单一浏览逻辑,禁 2 套)。
 - **Guides CTA** `.guides-cta`:文章尾转化块,tj-h2 标题 + primary(Request a quote)+ ghost(返回该主题库);令牌全取 §2/§3.1。
 - **Guides 空主题占位** `.guides-soon`:未迁移主题(rv-off-grid/mounts/power,G2-4 前)库页 coming-soon 提示条(panel 底 + --w3-text2 居中一句);该页同时注入 `noindex,follow`,避免空壳被索引。
 - **选择性提亮反转带** `.w3-invert`〔#82 首页 · §2.6 招2 实现〕:给「信任/证据」类整段套浅底反转(`--w3-invert-bg` 底 + `--w3-invert-ink`/`ink2` 文 + `--w3-invert-accent` 深蓝 accent),暗→亮→暗呼吸,**每屏 ≤1**。内部子件自动改色:eyebrow/h2/sub/link-arrow + `.w3-whycard`(白卡浮于浅底:白底+浅阴影 layered)+ `.w3-certstrip`/`.w3-certbadge`(浅底描边)。首个落点=首页 Our Advantages(Why Wanew)。
