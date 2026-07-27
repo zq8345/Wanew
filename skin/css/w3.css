@@ -953,6 +953,13 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-desc__panel th { background: #f5f6f8; font-weight: 600; }
 .w3-desc__panel a { color: #1d63d6; text-decoration: underline; }
 
+/* P5 详情页产品视频区(Admin 加视频后官网渲染)。有视频才出;播放器 16:9 黑底 contain 不裁,
+   §2.6 浮起(edge+elev);单视频占一列(≤720),多视频自适应网格。 */
+.w3-pvideo { padding: 4px 0 72px; }
+.w3-pvideo__title { font-size: clamp(1.35rem, 2.4vw, 1.85rem); font-weight: 700; letter-spacing: -0.02em; color: var(--w3-text); margin-bottom: 20px; }
+.w3-pvideo__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px; max-width: 960px; }
+.w3-pvideo__player { width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #05070a; border: 1px solid var(--w3-line); border-radius: var(--w3-radius); box-shadow: var(--w3-edge-top), var(--w3-elev-card); }
+
 /* inquiry */
 .w3-inquiry { padding: 24px 0 84px; }
 .w3-inquiry__panel {
