@@ -731,5 +731,12 @@
     "es-MX": "OEM y Mayoreo",
     "zh": "OEM 与批发",
     "reason.es-MX": "IA v2 任务轴 nav 标签(chrome 单源;卡片/topic 页共用 catalog 此键)"
+  },
+  "header.guides_reference": {
+    "en": "Reference",
+    "pt-BR": "Referência",
+    "es-MX": "Referencia",
+    "zh": "参考",
+    "reason.es-MX": "判断:语法确定(Referencia 通用参考区小标)"
   }
 }
