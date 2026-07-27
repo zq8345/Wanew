@@ -156,6 +156,8 @@
 - ⭐⭐ **约定(Joe 铁律,2026-07-27 写死):每个顶级板块页必带【专属照片 hero】**——`.page-header` + `.page-header-bg`(bg-image 真实照片)+ ::after scrim,与 Products/Solutions/About/Contact **同一套规格档次**。**禁用暗色纯 CSS 图形 header 代替照片 hero**(Guides ③ 曾误用 slim 图形 header 跑偏、且与 /faq//compatibility/ 的照片 hero 顶图两套——踩过)。Guides 家族(/guides/ 首页 + 各 topic + 文章页 + /compatibility/ + /faq/)统一 hero-guides.webp(⑯ 定的分区招牌图;文章页用矮版 `.page-header--article`)。新增顶级板块页=必配一张专属照片 hero,别再走图形。
 - nav 是 `position:fixed` 透明 overlay(滚动才出玻璃底)——信息页 hero 要像首页一样**从视口 y=0 起、延伸到 nav 背后**,nav 透明浮其上。
 - 机制:hero `.page-header` 靠**自身 top padding**(`calc(--w3-header-h + 84px)`)让标题避开 nav;内容区 `.xlc-section` 自带上下留白。**⛔ 禁给 `<body>` 加顶 padding**(那会把整个 page-wrapper 下推到 nav 下方,透明 nav 上方露深色页底 = "nav 黑带" bug,踩过三次;根因是 body 顶 padding,不是 hero 渐变/不是 stricky-header)。新信息页 body 别挂带顶 padding 的类。
+- ⭐ **响应式高度(Joe 2026-07-27 当面,铁律):hero 高度必须 vh 封顶、与宽度解耦**——`min-height: clamp(400px, 46vh, 560px)`(文章矮版 34vh;手机 50vh)。**⛔ 禁 width-driven 高度**(`vw`/`aspect-ratio`/`padding-top%`):宽屏会撑过半屏(踩过 `38.5vw`→2560 屏 900px 太高)。
+- ⭐ **每图焦点 `--hero-focus`**:`.page-header-bg` 用 `background-position: var(--hero-focus, center 44%)`,每张 hero 按图里**主体位置**设(照片 hero 短容器重裁上下→纵向焦点定主体、防飘边)。已设:`--about` 40% / `--guides` 50% / `--solutions` 42% / `--products` 46% / `--contact` 46%。手机竖屏可用 `--hero-focus-mobile` 覆盖(默认回落桌面焦点;竖屏裁左右、全高显示,横向 center 即中)。Joe 实站三档看后微调值。
 
 ### 3.2e Guides 浏览 = 专属 topic 页一套逻辑,禁客户端筛选工具条
 - ⭐⭐ **约定(Joe 铁律,2026-07-27 写死):Guides 只用【专属 topic 页】一套浏览逻辑**——`/guides/`(All guides 入口)→ 点 topic chip **跳** `/guides/{topic}/` 专属页 → 文章。topic chip 是 `<a href="/guides/{topic}/">` **导航链接**(tab 式),不是就地过滤。
