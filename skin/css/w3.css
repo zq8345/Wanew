@@ -749,14 +749,16 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
    The dark left third sits under the bottom-left title = good text legibility. No zoom/anchor
    needed with the corrected band ratio; inherits base centre. (Old 118%/66% 24% hack removed
    — it was compensating for the old wrong-ratio band.) */
-/* 每图纵向焦点(Joe 微调值):照片 hero 短容器重裁上下,焦点对准主体。about 图工人头 y≈20%→偏上留头肩。 */
-.page-header-bg--about { --hero-focus: center 40%; }
-/* Guides 区专属照片 hero(⭐2026-07-27 Joe:每个板块页必带专属照片 hero,与 Products/Solutions/About/Contact 同规格;
-   /guides/ 首页+各 topic+文章页统一用 hero-guides.webp——废弃我 ③ 误用的 slim 图形 header)。 */
-.page-header-bg--guides { --hero-focus: center 50%; }
-.page-header-bg--solutions { --hero-focus: center 42%; }
-.page-header-bg--products { --hero-focus: center 46%; }
-.page-header-bg--contact { --hero-focus: center 46%; }
+/* 每图焦点(⭐2026-07-27 v2:按【实际看图】的主体位置钉"中央偏右安全区"、不在角/不出框;Joe 三档微调)。
+   XY 均含义:X% 高=露右侧,Y% 高=露下部。主体坐标(看图):
+   about 工人 x62 y40(头22,左三分暗留标题)/ guides 碟+帐篷 x70 y70(在下右!旧 50% 把它裁掉→只剩星空)/
+   solutions 碟 x60 y55 / products(=compat) 碟 x78 y22(右上,窄屏裁右→往右钉)/ contact 越野车 x55 y55。
+   手机竖屏裁左右→X 对准主体最关键,off-center-X 的页(products/guides/about)单设 --hero-focus-mobile。 */
+.page-header-bg--about { --hero-focus: 55% 38%; --hero-focus-mobile: 60% 38%; }
+.page-header-bg--guides { --hero-focus: 68% 66%; --hero-focus-mobile: 72% 64%; }
+.page-header-bg--solutions { --hero-focus: 58% 50%; }
+.page-header-bg--products { --hero-focus: 74% 26%; --hero-focus-mobile: 82% 30%; }
+.page-header-bg--contact { --hero-focus: 55% 50%; }
 /* 文章页矮版照片 hero:比板块页矮,免长文被巨图挤下去;仍是【照片】hero 保持全站一致。同样 vh 封顶。 */
 .page-header--article { min-height: clamp(280px, 34vh, 420px); }
 /* Products/Industry/Service heroes: source images are ~2.6:1 like the band, so with the
