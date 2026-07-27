@@ -420,12 +420,16 @@ const tdir = path.join(REPO, "data", "templates");
 // Passed to every page; pages without cfg tokens ignore it (Contact is the only consumer).
 const contactCfg = fs.existsSync(path.join(REPO, "data", "contact-info.json"))
   ? JSON.parse(fs.readFileSync(path.join(REPO, "data", "contact-info.json"), "utf8")) : {};
+// ⭐ Guides 一致性(Joe 2026-07-27):compat/faq 并进 /guides/ 下,与 /guides/{topic}/ 同一套 URL。
+//   输出目录 + URL path 都走映射;canonical/hreflang 从 path 派生 → 自动指新 URL。老顶级 URL 走 _redirects 301。
+const PAGE_ROUTE = { compatibility: "guides/compatibility", faq: "guides/faq" };
 for (const f of fs.readdirSync(tdir).filter((x) => /^page-.+\.html$/.test(x))) {
   const slug = f.replace(/^page-|\.html$/g, "");
+  const route = PAGE_ROUTE[slug] || slug;                  // 输出路径 + URL(默认 = slug 本身)
   const pcat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", `${slug}.json`), "utf8"));
   const ptpl = fs.readFileSync(path.join(tdir, f), "utf8");
   for (const locale of RENDER_SET) {
-    const p = pageOf(locale, path.join(slug, "index.html"));
+    const p = pageOf(locale, path.join(route, "index.html"));
     if (!fs.existsSync(p) && !isExtra(locale)) continue;   // enabled 缺页不创建;zh 从模板播种
     const h0 = fs.existsSync(p) ? fs.readFileSync(p, "utf8") : "";
     // chrome 整个并进来,不是逐个把需要的 key 挑出来 —— `{...pcat, "card.lang_badge": ...}`
@@ -434,7 +438,7 @@ for (const f of fs.readdirSync(tdir).filter((x) => /^page-.+\.html$/.test(x))) {
     // ⭐ 这是 pages 去重的前提:429 条复印件里有 18 组的值【已经在 chrome.json 里】,
     // 页面目录存了第二份 —— 模板要能直接引 chrome key,那第二份才删得掉。
     // internal_noindex: INTERNAL → zh 信息页出 noindex、零 hreflang(enabled 仍只三语驱 hreflang)。
-    const h1 = renderPage(ptpl, { locale, catalog: { ...catalog, ...shared, ...pcat }, urlOf, path: `/${slug}/`, dirOf, enabled: LOCALES, internal_noindex: INTERNAL, config: contactCfg });
+    const h1 = renderPage(ptpl, { locale, catalog: { ...catalog, ...shared, ...pcat }, urlOf, path: `/${route}/`, dirOf, enabled: LOCALES, internal_noindex: INTERNAL, config: contactCfg });
     if (h1 !== h0) { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, h1); pages++; }
   }
 }

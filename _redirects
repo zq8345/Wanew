@@ -140,4 +140,19 @@
 /pt/industrial  /pt/guides/industrial/  301
 /pt/industrial/*  /pt/guides/industrial/  301
 
+# /compatibility/ + /faq/ -> /guides/ (Guides consistency, 2026-07-27 Joe: one URL system under /guides/)
+# zh = noindex, no 301. Proven /X + /X/* pattern (exact + splat catches slash & children).
+/compatibility  /guides/compatibility/  301
+/compatibility/*  /guides/compatibility/  301
+/faq  /guides/faq/  301
+/faq/*  /guides/faq/  301
+/es/compatibility  /es/guides/compatibility/  301
+/es/compatibility/*  /es/guides/compatibility/  301
+/es/faq  /es/guides/faq/  301
+/es/faq/*  /es/guides/faq/  301
+/pt/compatibility  /pt/guides/compatibility/  301
+/pt/compatibility/*  /pt/guides/compatibility/  301
+/pt/faq  /pt/guides/faq/  301
+/pt/faq/*  /pt/guides/faq/  301
+
 /*  /404.html  404

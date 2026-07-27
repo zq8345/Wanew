@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://wanew.com/about/</loc></url>
-  <url><loc>https://wanew.com/compatibility/</loc></url>
   <url><loc>https://wanew.com/contact/</loc></url>
   <url><loc>https://wanew.com/enterprise/650</loc></url>
   <url><loc>https://wanew.com/enterprise/657</loc></url>
@@ -10,7 +9,6 @@
   <url><loc>https://wanew.com/enterprise/675</loc></url>
   <url><loc>https://wanew.com/enterprise/</loc></url>
   <url><loc>https://wanew.com/es/about/</loc></url>
-  <url><loc>https://wanew.com/es/compatibility/</loc></url>
   <url><loc>https://wanew.com/es/contact/</loc></url>
   <url><loc>https://wanew.com/es/enterprise/650</loc></url>
   <url><loc>https://wanew.com/es/enterprise/657</loc></url>
@@ -18,7 +16,8 @@
   <url><loc>https://wanew.com/es/enterprise/669</loc></url>
   <url><loc>https://wanew.com/es/enterprise/675</loc></url>
   <url><loc>https://wanew.com/es/enterprise/</loc></url>
-  <url><loc>https://wanew.com/es/faq/</loc></url>
+  <url><loc>https://wanew.com/es/guides/compatibility/</loc></url>
+  <url><loc>https://wanew.com/es/guides/faq/</loc></url>
   <url><loc>https://wanew.com/es/guides/</loc></url>
   <url><loc>https://wanew.com/es/guides/industrial/</loc></url>
   <url><loc>https://wanew.com/es/guides/marine/</loc></url>
@@ -93,7 +92,6 @@
   <url><loc>https://wanew.com/es/standard/701</loc></url>
   <url><loc>https://wanew.com/es/standard/</loc></url>
   <url><loc>https://wanew.com/es/starlink-compatible-accessories/</loc></url>
-  <url><loc>https://wanew.com/faq/</loc></url>
   <url><loc>https://wanew.com/guides/best-starlink-mini-accessories-rv-off-grid-use/</loc></url>
   <url><loc>https://wanew.com/guides/best-starlink-mini-cable-management-rv-roof-mounts/</loc></url>
   <url><loc>https://wanew.com/guides/bulk-ordering-guide-moq-lead-time-pricing-starlink-mounts/</loc></url>
@@ -101,6 +99,7 @@
   <url><loc>https://wanew.com/guides/choose-best-starlink-rv-accessories-setup/</loc></url>
   <url><loc>https://wanew.com/guides/choose-right-starlink-marine-accessories-reliable-offshore-internet/</loc></url>
   <url><loc>https://wanew.com/guides/choose-starlink-mini-12v-power-adapter-setup/</loc></url>
+  <url><loc>https://wanew.com/guides/compatibility/</loc></url>
   <url><loc>https://wanew.com/guides/complete-guide-starlink-rv-12v-accessories-compatibility/</loc></url>
   <url><loc>https://wanew.com/guides/complete-starlink-marine-cable-management-best-solutions-routing/</loc></url>
   <url><loc>https://wanew.com/guides/corrosion-resistant-materials-starlink-marine-accessories-guide-durable/</loc></url>
@@ -108,6 +107,7 @@
   <url><loc>https://wanew.com/guides/essential-security-solutions-starlink-rv-accessories-mounts-locks/</loc></url>
   <url><loc>https://wanew.com/guides/essential-starlink-marine-accessories-fishing-boats-complete-connectivity/</loc></url>
   <url><loc>https://wanew.com/guides/essential-starlink-rv-accessories-full-time-rvers-setup/</loc></url>
+  <url><loc>https://wanew.com/guides/faq/</loc></url>
   <url><loc>https://wanew.com/guides/flat-roof-mounting-solutions-starlink-terminals-complete-guide/</loc></url>
   <url><loc>https://wanew.com/guides/</loc></url>
   <url><loc>https://wanew.com/guides/industrial-power-supplies-high-efficiency-stable-solutions/</loc></url>
@@ -206,7 +206,6 @@
   <url><loc>https://wanew.com/performance-gen-3/</loc></url>
   <url><loc>https://wanew.com/products/</loc></url>
   <url><loc>https://wanew.com/pt/about/</loc></url>
-  <url><loc>https://wanew.com/pt/compatibility/</loc></url>
   <url><loc>https://wanew.com/pt/contact/</loc></url>
   <url><loc>https://wanew.com/pt/enterprise/650</loc></url>
   <url><loc>https://wanew.com/pt/enterprise/657</loc></url>
@@ -214,7 +213,8 @@
   <url><loc>https://wanew.com/pt/enterprise/669</loc></url>
   <url><loc>https://wanew.com/pt/enterprise/675</loc></url>
   <url><loc>https://wanew.com/pt/enterprise/</loc></url>
-  <url><loc>https://wanew.com/pt/faq/</loc></url>
+  <url><loc>https://wanew.com/pt/guides/compatibility/</loc></url>
+  <url><loc>https://wanew.com/pt/guides/faq/</loc></url>
   <url><loc>https://wanew.com/pt/guides/</loc></url>
   <url><loc>https://wanew.com/pt/guides/industrial/</loc></url>
   <url><loc>https://wanew.com/pt/guides/marine/</loc></url>
