@@ -1,3 +1,13 @@
+# /compatibility/ + /faq/ -> /guides/ (Guides consistency, 2026-07-27 Joe: one URL system under /guides/)
+# ⭐ AT TOP: _redirects has an empirical ~140-rule effective cutoff on CF Pages (rules past it are
+#   silently dropped — verified 2026-07-27 when these landed at pos ~135 and 404'd). Keep at top +
+#   total <=134. Proven /X/* splat (same as /marine/*): catches /faq/ + children. zh = noindex (no 301).
+/compatibility/*  /guides/compatibility/  301
+/faq/*  /guides/faq/  301
+/es/compatibility/*  /es/guides/compatibility/  301
+/es/faq/*  /es/guides/faq/  301
+/pt/compatibility/*  /pt/guides/compatibility/  301
+/pt/faq/*  /pt/guides/faq/  301
 /about-tejoy   /about/  301
 /about-tejoy/  /about/  301
 /certifications-testing/  /about/#certifications  301
@@ -25,14 +35,8 @@
 /pt/brand-affiliation-faq/  /pt/about/#brand  301
 /pt/brand-affiliation-faq  /pt/about/#brand  301
 # /hangye/ (Industry Hub) -> /solutions/ region migration (2026-07-25, Joe-approved flip)
-# EN has 6 NN scene subpages + index; es/pt/zh have only the localized hub index.
-# Scene-specific rules MUST precede the /hangye/* splat (first match wins).
-/hangye/24  /solutions/rv/  301
-/hangye/32  /solutions/business/  301
-/hangye/33  /solutions/portable/  301
-/hangye/58  /solutions/off-grid/  301
-/hangye/59  /solutions/business/  301
-/hangye/60  /solutions/marine/  301
+# Per-scene rules removed 2026-07-27 to free _redirects budget (~140 cutoff) for the compat/faq
+# migration — dead hub, /hangye/* splat below already catches every /hangye/N -> /solutions/.
 /hangye  /solutions/  301
 /hangye/*  /solutions/  301
 /es/hangye  /es/solutions/  301
@@ -139,20 +143,5 @@
 /es/industrial/*  /es/guides/industrial/  301
 /pt/industrial  /pt/guides/industrial/  301
 /pt/industrial/*  /pt/guides/industrial/  301
-
-# /compatibility/ + /faq/ -> /guides/ (Guides consistency, 2026-07-27 Joe: one URL system under /guides/)
-# zh = noindex, no 301. Proven /X + /X/* pattern (exact + splat catches slash & children).
-/compatibility  /guides/compatibility/  301
-/compatibility/*  /guides/compatibility/  301
-/faq  /guides/faq/  301
-/faq/*  /guides/faq/  301
-/es/compatibility  /es/guides/compatibility/  301
-/es/compatibility/*  /es/guides/compatibility/  301
-/es/faq  /es/guides/faq/  301
-/es/faq/*  /es/guides/faq/  301
-/pt/compatibility  /pt/guides/compatibility/  301
-/pt/compatibility/*  /pt/guides/compatibility/  301
-/pt/faq  /pt/guides/faq/  301
-/pt/faq/*  /pt/guides/faq/  301
 
 /*  /404.html  404
