@@ -152,6 +152,7 @@
 - **⛔ 禁**:板块间 `border`/`hr`/细线分隔。
 
 ### 3.2d 信息页 hero(`.page-header`)必须铺到最顶、延伸到 nav 背后
+- ⭐⭐ **约定(Joe 铁律,2026-07-27 写死):每个顶级板块页必带【专属照片 hero】**——`.page-header` + `.page-header-bg`(bg-image 真实照片)+ ::after scrim,与 Products/Solutions/About/Contact **同一套规格档次**。**禁用暗色纯 CSS 图形 header 代替照片 hero**(Guides ③ 曾误用 slim 图形 header 跑偏、且与 /faq//compatibility/ 的照片 hero 顶图两套——踩过)。Guides 家族(/guides/ 首页 + 各 topic + 文章页 + /compatibility/ + /faq/)统一 hero-guides.webp(⑯ 定的分区招牌图;文章页用矮版 `.page-header--article`)。新增顶级板块页=必配一张专属照片 hero,别再走图形。
 - nav 是 `position:fixed` 透明 overlay(滚动才出玻璃底)——信息页 hero 要像首页一样**从视口 y=0 起、延伸到 nav 背后**,nav 透明浮其上。
 - 机制:hero `.page-header` 靠**自身 top padding**(`calc(--w3-header-h + 84px)`)让标题避开 nav;内容区 `.xlc-section` 自带上下留白。**⛔ 禁给 `<body>` 加顶 padding**(那会把整个 page-wrapper 下推到 nav 下方,透明 nav 上方露深色页底 = "nav 黑带" bug,踩过三次;根因是 body 顶 padding,不是 hero 渐变/不是 stricky-header)。新信息页 body 别挂带顶 padding 的类。
 
@@ -202,7 +203,7 @@
 - **Guides 空主题占位** `.guides-soon`:未迁移主题(rv-off-grid/mounts/power,G2-4 前)库页 coming-soon 提示条(panel 底 + --w3-text2 居中一句);该页同时注入 `noindex,follow`,避免空壳被索引。
 - **选择性提亮反转带** `.w3-invert`〔#82 首页 · §2.6 招2 实现〕:给「信任/证据」类整段套浅底反转(`--w3-invert-bg` 底 + `--w3-invert-ink`/`ink2` 文 + `--w3-invert-accent` 深蓝 accent),暗→亮→暗呼吸,**每屏 ≤1**。内部子件自动改色:eyebrow/h2/sub/link-arrow + `.w3-whycard`(白卡浮于浅底:白底+浅阴影 layered)+ `.w3-certstrip`/`.w3-certbadge`(浅底描边)。首个落点=首页 Our Advantages(Why Wanew)。
 - **首页 Guides 卡** `.tj-gcard`〔#82 · §2.6 升级〕:与 `.guides-card` 同款浮起(`--w3-surface-2`+`--w3-edge-top`+`--w3-elev-card`);`.tj-cover` 图标区用 `--w3-well`(径向井)垫底补"暗 void",图标 52px accent。
-- **窄 hero** `.page-header--slim`:信息/文章页轻量页头(`background:--w3-bg` 深底 + §2.6 设计化图形 header 叠加,见上"设计化图形 header"条;比首页 hero 矮,左对齐),承载 `.w3-crumb`(面包屑:`/guides/` → 主题,发丝分隔 `/`,13px --w3-text3 + accent 链)+ 文章 h1。
+- **文章照片 hero** `.page-header--article`(Guides 文章页 · 2026-07-27):`.page-header` 照片 hero 的**矮版**(`height:clamp(300px,30vw,460px)`,免长文被巨图挤下去),照片走 `.page-header-bg--guides`(hero-guides.webp,`background-position:center 62%`);承载 `.w3-crumb`(面包屑:`/guides/` → 主题,发丝分隔 `/`,13px --w3-text3 + accent 链)+ 文章 h1。⚠️ 旧 `.page-header--slim`(暗色纯图形 header)已废弃(Joe 铁令改照片 hero,见 §3.2d),CSS 残留待清、勿再用。
 
 ## 4. 交互标准
 

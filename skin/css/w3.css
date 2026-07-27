@@ -38,10 +38,12 @@
      北极星 anduril.com:暗得高级 = 分层 + 对比 + 焦点,非暗得平。新增令牌,③起逐块套用,未套前零视觉变化。 */
   --w3-surface-0: #0a0c0f;   /* 页面基底(= bg) */
   --w3-surface-1: #0e1114;   /* 凹陷:stat well / 输入框(inset,比基底略深感) */
-  --w3-surface-2: #171c22;   /* 卡片:比 panel 抬亮一档,配 elev/edge 明显浮起、不与底糊 */
-  --w3-surface-3: #1e242b;   /* 抬起 / hover 态 */
-  --w3-elev-card: 0 2px 8px -2px rgba(0,0,0,.5), 0 14px 34px -14px rgba(0,0,0,.62);  /* 卡片浮起柔和双层投影 */
-  --w3-edge-top: inset 0 1px 0 rgba(255,255,255,.06);   /* 顶边内高光:把卡片从暗底"抬"起来 */
+  /* ⭐ 2026-07-27 Joe 早上反馈"卡还是暗贴暗没浮出来"→ 加大台阶:暗模式浮起靠【更亮的面+更亮顶边+更实边】
+     比阴影有效(阴影在暗底弱)。surface-2 #171c22→#1e242e(与基底 #0a0c0f 台阶更明显)、顶边高光加亮、边用 line2。 */
+  --w3-surface-2: #1e242e;   /* 卡片:比基底明显抬亮一档(肉眼可辨的台阶),配 elev/edge/边浮起 */
+  --w3-surface-3: #262d38;   /* 抬起 / hover 态(再亮一档) */
+  --w3-elev-card: 0 2px 8px -2px rgba(0,0,0,.55), 0 16px 40px -14px rgba(0,0,0,.7);  /* 卡片浮起柔和双层投影(略强) */
+  --w3-edge-top: inset 0 1px 0 rgba(255,255,255,.09);   /* 顶边内高光(加亮):把卡片从暗底"抬"起来 */
   --w3-invert-bg: #f4f5f7;   /* 选择性提亮带(信任/证据类)浅底 */
   --w3-invert-ink: #14181d;  /* 反转带深标题 */
   --w3-invert-ink2: #56606b; /* 反转带正文 */
@@ -720,6 +722,11 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
    needed with the corrected band ratio; inherits base centre. (Old 118%/66% 24% hack removed
    — it was compensating for the old wrong-ratio band.) */
 .page-header-bg--about { background-position: center; }
+/* Guides 区专属照片 hero(⭐2026-07-27 Joe:每个板块页必带专属照片 hero,与 Products/Solutions/About/Contact 同规格;
+   /guides/ 首页+各 topic+文章页统一用 hero-guides.webp——废弃我 ③ 误用的 slim 图形 header)。 */
+.page-header-bg--guides { background-position: center 62%; }
+/* 文章页矮版照片 hero:比板块页(420–900)矮,免长文被巨图挤下去;仍是【照片】hero 保持全站一致。 */
+.page-header--article { height: clamp(300px, 30vw, 460px); }
 /* Products/Industry/Service heroes: source images are ~2.6:1 like the band, so with the
    band-ratio fix above cover shows the (near-)full image on every width and the subject
    already sits inside the content column — no zoom/x-shift needed. They inherit the base
