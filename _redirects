@@ -10,6 +10,15 @@
 /es/faq  /es/guides/faq/  301
 /pt/compatibility  /pt/guides/compatibility/  301
 /pt/faq  /pt/guides/faq/  301
+/guides/marine/*  /guides/  301
+/guides/rv-off-grid/*  /guides/  301
+/guides/industrial/*  /guides/  301
+/es/guides/marine/*  /es/guides/  301
+/es/guides/rv-off-grid/*  /es/guides/  301
+/es/guides/industrial/*  /es/guides/  301
+/pt/guides/marine/*  /pt/guides/  301
+/pt/guides/rv-off-grid/*  /pt/guides/  301
+/pt/guides/industrial/*  /pt/guides/  301
 /about-tejoy   /about/  301
 /about-tejoy/  /about/  301
 /certifications-testing/  /about/#certifications  301

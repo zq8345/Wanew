@@ -688,5 +688,48 @@
     "es-MX": "Empresas",
     "zh": "商用",
     "reason": "scene nav label — byte-identical to home.scene.* (homepage tab = Solutions nav, 总工 canonical 6)"
+  },
+  "header.guides_compatibility": {
+    "en": "Compatibility",
+    "pt-BR": "Compatibilidade",
+    "es-MX": "Compatibilidad",
+    "zh": "兼容性",
+    "reason.es-MX": "IA v2 任务轴 nav 标签(chrome 单源;卡片/topic 页共用 catalog 此键)",
+    "reason.dupe": "intentional: nav needs \"Compatibility\" in chrome.json (chrome-sync reads only chrome.json); shared.compatibility is the same word for another surface. Not a translation dup."
+  },
+  "header.guides_mounting": {
+    "en": "Mounting &amp; Installation",
+    "pt-BR": "Montagem e Instalação",
+    "es-MX": "Montaje e Instalación",
+    "zh": "支架与安装",
+    "reason.es-MX": "IA v2 任务轴 nav 标签(chrome 单源;卡片/topic 页共用 catalog 此键)"
+  },
+  "header.guides_power": {
+    "en": "Power &amp; Off-Grid",
+    "pt-BR": "Energia e Off-Grid",
+    "es-MX": "Energía y sin red eléctrica",
+    "zh": "供电与离网",
+    "reason.es-MX": "IA v2 任务轴 nav 标签(chrome 单源;卡片/topic 页共用 catalog 此键)"
+  },
+  "header.guides_cabling": {
+    "en": "Cabling &amp; Networking",
+    "pt-BR": "Cabeamento e Rede",
+    "es-MX": "Cableado y Redes",
+    "zh": "线缆与网络",
+    "reason.es-MX": "IA v2 任务轴 nav 标签(chrome 单源;卡片/topic 页共用 catalog 此键)"
+  },
+  "header.guides_protection": {
+    "en": "Weatherproofing &amp; Protection",
+    "pt-BR": "Proteção e Vedação",
+    "es-MX": "Protección e Impermeabilización",
+    "zh": "防护与耐候",
+    "reason.es-MX": "IA v2 任务轴 nav 标签(chrome 单源;卡片/topic 页共用 catalog 此键)"
+  },
+  "header.guides_oem": {
+    "en": "OEM &amp; Wholesale",
+    "pt-BR": "OEM e Atacado",
+    "es-MX": "OEM y Mayoreo",
+    "zh": "OEM 与批发",
+    "reason.es-MX": "IA v2 任务轴 nav 标签(chrome 单源;卡片/topic 页共用 catalog 此键)"
   }
 }

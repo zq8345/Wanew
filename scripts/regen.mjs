@@ -297,8 +297,13 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
   const gCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "guides.json"), "utf8"));
   const artTpl = fs.readFileSync(path.join(REPO, "data", "templates", "guides-article.html"), "utf8");
   const listTpl = fs.readFileSync(path.join(REPO, "data", "templates", "guides-list.html"), "utf8");
-  const TOPICS = ["marine", "rv-off-grid", "mounts", "power", "industrial"];
-  const TKEY = { marine: "header.marine", "rv-off-grid": "header.rv_off_grid", mounts: "header.mounts", power: "header.power", industrial: "header.industrial" };
+  // ⭐ Guides IA v2(Joe/总工 2026-07-27):5 任务轴(正交)+ oem(B2B,不进 nav、footer 经 /guides/oem/ 可达)。
+  //   compatibility 复用 /guides/compatibility/(page-* 建矩阵页,本 builder 只写卡片缓存注入,见下)。
+  //   退役 marine/rv-off-grid/industrial(文章已 retag 散入 5 轴;旧 topic 页 git rm+301)。
+  const TOPICS = ["compatibility", "mounts", "power", "cabling", "protection", "oem"];
+  const NAV_TOPICS = ["compatibility", "mounts", "power", "cabling", "protection"];   // oem 不进 nav
+  // 任务轴短标签(nav + 卡片眉标 + 文章"返回轴"):chrome.json 单源 header.guides_*(nav 也用同键,免双源)。
+  const TKEY = { compatibility: "header.guides_compatibility", mounts: "header.guides_mounting", power: "header.guides_power", cabling: "header.guides_cabling", protection: "header.guides_protection", oem: "header.guides_oem" };
   const pick = (o, loc) => (o && (o[loc] ?? o.en)) || "";
   const esc = (s) => String(s || "").replace(/&(?!amp;|lt;|gt;|quot;|#)/g, "&amp;");
   // ⭐ 分批:G1 只填 marine。清理阶段①(总工/Joe 定):【不建空壳 topic 页】—— 空 coming-soon
@@ -370,10 +375,11 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
   // 一套浏览逻辑(Joe 铁令,消除"客户端筛选 vs 专属页"两套):topic chip = 导航链接 <a>,
   // 点击跳到 /guides/{topic}/ 专属页,不再原地过滤。home 与各 topic 页共用同一条 nav,
   // current 标 is-active。仅 ≥2 个有内容主题才有意义(否则无处可去)。
+  const navTopics = NAV_TOPICS.filter((t) => built.some((a) => a.topic === t));   // 有文章的 nav 轴(排除 oem)
   const navChips = (loc, current) => {
-    if (activeTopics.length < 2) return "";
+    if (navTopics.length < 2) return "";
     const all = `<a class="guides-chip${current === "all" ? " is-active" : ""}" href="${urlOf("/guides/", loc)}">${pick(gCat["guides.filter.all"], loc)}</a>`;
-    const tops = activeTopics.map((t) =>
+    const tops = navTopics.map((t) =>
       `<a class="guides-chip${current === t ? " is-active" : ""}" href="${urlOf(`/guides/${t}/`, loc)}">${pick(catalog[TKEY[t]], loc)}</a>`).join("");
     return `      <nav class="guides-nav" aria-label="Guides topics">${all}${tops}</nav>`;
   };
@@ -382,7 +388,8 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
     const baseCat = { ...catalog, ...shared, ...gCat };
     // home
     {
-      const cards = built.map((a) => cardOf(a, locale)).join("\n");
+      // /guides/ 首页网格 = how-to 文章(排除 oem;oem 是 B2B,只经 /guides/oem/ + footer 可达,不在 how-to 库)。
+      const cards = built.filter((a) => a.topic !== "oem").map((a) => cardOf(a, locale)).join("\n");
       const tpl2 = listTpl
         .split("{{GL_TITLE}}").join(pick(gCat["guides.meta.title"], locale)).split("{{GL_DESC}}").join(pick(gCat["guides.meta.desc"], locale))
         .split("{{GL_H1}}").join(pick(gCat["guides.hero.h1"], locale)).split("{{GL_INTRO}}").join(pick(gCat["guides.hero.intro"], locale))
@@ -393,10 +400,18 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
       fs.mkdirSync(path.dirname(p), { recursive: true });
       if (!fs.existsSync(p) || fs.readFileSync(p, "utf8") !== html) { fs.writeFileSync(p, html); gPages++; }
     }
-    // topic index —— 只建【真有文章】的主题(清理阶段①:不建空壳,见上方 activeTopics 注释)。
+    // topic index —— 建【真有文章】的任务轴页。compatibility 特例:page-* 建 /guides/compatibility/(矩阵页),
+    //   本 builder 只把该轴文章卡写成缓存 section,由 page-* loop 注入矩阵页底部({{GUIDES_TOPIC_CARDS}})。
+    //   oem 也建独立 hub 页(footer 可达、不进 nav)。
     for (const t of activeTopics) {
       const list = built.filter((a) => a.topic === t);
       const cards = list.map((a) => cardOf(a, locale)).join("\n");
+      if (t === "compatibility") {
+        const section = `      <h2 class="guides-cards-head">${pick(gCat["guides.compat.articles_head"], locale)}</h2>\n      <div class="guides-grid">\n${cards}\n      </div>`;
+        fs.mkdirSync(bodyDir, { recursive: true });
+        fs.writeFileSync(path.join(bodyDir, `_cards-compatibility-${locale}.html`), section);
+        continue;   // 不建页(page-* 拥有 /guides/compatibility/)
+      }
       const tpl2 = listTpl
         .split("{{GL_TITLE}}").join(pick(gCat[`guides.topic.${t}.title`], locale) + " | Wanew").split("{{GL_DESC}}").join(pick(gCat[`guides.topic.${t}.intro`], locale))
         .split("{{GL_H1}}").join(pick(gCat[`guides.topic.${t}.title`], locale)).split("{{GL_INTRO}}").join(pick(gCat[`guides.topic.${t}.intro`], locale))
@@ -438,7 +453,14 @@ for (const f of fs.readdirSync(tdir).filter((x) => /^page-.+\.html$/.test(x))) {
     // ⭐ 这是 pages 去重的前提:429 条复印件里有 18 组的值【已经在 chrome.json 里】,
     // 页面目录存了第二份 —— 模板要能直接引 chrome key,那第二份才删得掉。
     // internal_noindex: INTERNAL → zh 信息页出 noindex、零 hreflang(enabled 仍只三语驱 hreflang)。
-    const h1 = renderPage(ptpl, { locale, catalog: { ...catalog, ...shared, ...pcat }, urlOf, path: `/${route}/`, dirOf, enabled: LOCALES, internal_noindex: INTERNAL, config: contactCfg });
+    // ⭐ IA v2:compatibility 页 = 矩阵内容(本模板)+ Guides builder 写的该轴文章卡缓存(注入 {{GUIDES_TOPIC_CARDS}})。
+    //   缓存缺失(如尚未 regen guides)→ 置空,不留裸 token。其余 page-* 模板无此 token,replace 为 no-op。
+    let ptpl2 = ptpl;
+    if (ptpl.includes("{{GUIDES_TOPIC_CARDS}}")) {
+      const cf = path.join(REPO, "data", "guides-body", `_cards-${slug}-${locale}.html`);
+      ptpl2 = ptpl.split("{{GUIDES_TOPIC_CARDS}}").join(fs.existsSync(cf) ? fs.readFileSync(cf, "utf8") : "");
+    }
+    const h1 = renderPage(ptpl2, { locale, catalog: { ...catalog, ...shared, ...pcat }, urlOf, path: `/${route}/`, dirOf, enabled: LOCALES, internal_noindex: INTERNAL, config: contactCfg });
     if (h1 !== h0) { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, h1); pages++; }
   }
 }
