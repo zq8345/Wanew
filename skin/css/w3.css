@@ -642,6 +642,32 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-invert .w3-certstrip__label { color: #5b6572; }
 .w3-invert .w3-certbadge { background: #fff; border-color: rgba(15,25,45,.14); color: var(--w3-invert-ink); }
 
+/* ⭐ Joe 2026-07-27 直裁:治沉闷 canonical = 【深底保留 + 容器翻白】,不是把整段背景翻白(.w3-invert)。
+   深色板块 + 白卡 = 白卡在深底上强对比跳出,替代 .w3-invert 成为提亮首选。用于 Our Advantages / Guides&Resources。
+   ⚠️只翻【卡片容器】,不翻 section 背景、不翻 section header(eyebrow/h2/sub 仍浅字在深底)。
+   ⚠️必须 section 作用域:.w3-whycard 被 About 复用(全暗做对),禁全局翻白。 */
+.w3-whitecards .w3-whycard,
+.w3-whitecards .tj-gcard {
+  background: #fff; border-color: rgba(15,25,45,.08);
+  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 2px 10px -3px rgba(0,0,0,.45), 0 28px 54px -22px rgba(0,0,0,.7);
+}
+.w3-whitecards .w3-whycard:hover,
+.w3-whitecards .tj-gcard:hover {
+  border-color: rgba(15,25,45,.16);
+  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 4px 14px -3px rgba(0,0,0,.5), 0 34px 64px -24px rgba(0,0,0,.78);
+}
+/* whycard 白卡内文(深字 + 深蓝 accent,与反转带同源) */
+.w3-whitecards .w3-whycard__idx { color: var(--w3-invert-accent); border-bottom-color: rgba(15,25,45,.12); }
+.w3-whitecards .w3-whycard h3 { color: var(--w3-invert-ink); }
+.w3-whitecards .w3-whycard p { color: var(--w3-invert-ink2); }
+/* guide 白卡:cover 翻浅底(深蓝图标)+ 内文深字 */
+.w3-whitecards .tj-cover { background: linear-gradient(135deg, #f4f6f9 0%, #e7ecf2 100%); border-bottom-color: rgba(15,25,45,.08); color: var(--w3-invert-accent); }
+.w3-whitecards .tj-gbody h3 { color: var(--w3-invert-ink); }
+.w3-whitecards .tj-gbody p { color: var(--w3-invert-ink2); }
+.w3-whitecards .tj-gmeta { color: #8a94a0; }
+.w3-whitecards .tj-cat { color: var(--w3-invert-accent); }
+.w3-whitecards .tj-more { color: var(--w3-invert-ink); }
+
 /* about band */
 .w3-about { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
 .w3-about__body { display: grid; gap: 18px; justify-items: start; }

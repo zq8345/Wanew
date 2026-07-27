@@ -113,9 +113,10 @@
 1. **真分层电梯**:surface 拉开明显台阶,卡片必须"浮"起、不与底同色糊成一片。
    - `--w3-surface-0`(基底)→`--w3-surface-1`(凹陷:stat well/输入框,inset)→`--w3-surface-2`(卡片,比 panel 抬亮一档)→`--w3-surface-3`(hover/抬起)。
    - 卡片浮起 = `--w3-surface-2` 底 + `--w3-edge-top`(顶边内高光)+ `--w3-elev-card`(柔和双层投影)+ `--w3-line` 边。**⚠️ 修订 §2.4**:卡片此前"只靠边框+底色、不用阴影"→ 现**允许 `--w3-elev-card` 柔和双层投影 + 顶边高光**(专治"卡和底糊一片")。大投影 `--w3-shadow` 仍仅浮层(下拉)。
-2. **对比节奏 + 选择性提亮(反转带)**:长暗段插焦点,暗→亮→暗呼吸。
-   - 「信任/证据」类板块(Our Advantages / stats 带 / 认证条)可用**浅底反转** `.w3-invert`:底 `--w3-invert-bg` + 标题 `--w3-invert-ink` + 正文 `--w3-invert-ink2`。
-   - 不是全白页;焦点处系统化提亮。**每屏 ≤1 个反转带**,别乱花。
+2. **对比节奏 + 选择性提亮**:长暗段插焦点,暗→亮→暗呼吸。
+   - ⭐⭐ **提亮首选(Joe 2026-07-27 直裁,canonical)= 【深底保留 + 容器翻白】** `.w3-whitecards`:section 背景**留深色**、section header(eyebrow/h2/sub)**留浅字**,只把【卡片容器】翻白(白底 + 深字 `--w3-invert-ink`/`ink2` + 深蓝 `--w3-invert-accent` + 深底上的柔和落影)。白卡在深底上强对比跳出=治沉闷。落点:首页 Our Advantages(`.w3-whycard`)+ Guides&Resources(`.tj-gcard`,cover 同步翻浅底)。
+   - ⚠️ **禁把整段背景翻白**(`.w3-invert` 那样):Joe 明确「把容器改成白色,不是把背景色改成白色」。`.w3-invert`(浅底整 band)**已被 `.w3-whitecards` 取代**为首页首选,保留 CSS 供未来纯浅底段但**默认别用**。
+   - 不是全白页;焦点处系统化提亮。**每屏 ≤1 个提亮段**,别乱花。
 3. **accent 敢用大**:蓝不只做小标签——焦点数字(stat)、关键图标(≥32px)、hover 态、编号角标用足 `--w3-accent`;可用 accent→透明渐变做进度线/顶边。
 4. **影像/图形补白(禁暗 void)**:内容板块**禁留"无图暗 void"**(如空的大图标区)。用产品图 / 线性图解 / 图形填;图标区最小垫底 = `--w3-well`(径向井)。
 5. **字阶对比锐化**:纯白标题(`--w3-text`)vs 克制但可读灰正文(`--w3-text2` 为正文灰**下限**,禁用更暗的做正文);相邻层级字号/字重/色三者都拉开,层次利落不发糊。
@@ -206,8 +207,9 @@
 - **Guides 主题导航条** `.guides-nav`/`.guides-chip`〔见 §3.2e 约定〕:药丸行(flex wrap);`.guides-chip`=**导航链接 `<a href="/guides/{topic}/">`**(胶囊 line2 边 + hover accent),`.guides-chip.is-active`=**白底(#fff)+ 近黑字(`--w3-surface-0`)**(当前所在页)。builder 仅在【≥2 个有内容主题】时渲染整条(单主题隐藏,见 regen `activeTopics`/`navChips`)。**已废除** `.guides-filter`/`data-guides-filter` 客户端过滤(§3.2e:Guides 单一浏览逻辑,禁 2 套)。
 - **Guides CTA** `.guides-cta`:文章尾转化块,tj-h2 标题 + primary(Request a quote)+ ghost(返回该主题库);令牌全取 §2/§3.1。
 - **Guides 空主题占位** `.guides-soon`:未迁移主题(rv-off-grid/mounts/power,G2-4 前)库页 coming-soon 提示条(panel 底 + --w3-text2 居中一句);该页同时注入 `noindex,follow`,避免空壳被索引。
-- **选择性提亮反转带** `.w3-invert`〔#82 首页 · §2.6 招2 实现〕:给「信任/证据」类整段套浅底反转(`--w3-invert-bg` 底 + `--w3-invert-ink`/`ink2` 文 + `--w3-invert-accent` 深蓝 accent),暗→亮→暗呼吸,**每屏 ≤1**。内部子件自动改色:eyebrow/h2/sub/link-arrow + `.w3-whycard`(白卡浮于浅底:白底+浅阴影 layered)+ `.w3-certstrip`/`.w3-certbadge`(浅底描边)。首个落点=首页 Our Advantages(Why Wanew)。
-- **首页 Guides 卡** `.tj-gcard`〔#82 · §2.6 升级〕:与 `.guides-card` 同款浮起(`--w3-surface-2`+`--w3-edge-top`+`--w3-elev-card`);`.tj-cover` 图标区用 `--w3-well`(径向井)垫底补"暗 void",图标 52px accent。
+- **提亮:深底白容器** `.w3-whitecards`〔⭐Joe 2026-07-27 直裁 · §2.6 招2 canonical〕:section 修饰类,**背景留深、header 留浅字**,只把内部卡片容器翻白——`.w3-whycard`/`.tj-gcard` → 白底 + 深字(`--w3-invert-ink`/`ink2`)+ 深蓝 accent(`--w3-invert-accent`)+ 深底落影;`.tj-cover` 翻浅底渐变(深蓝图标)。落点=首页 Our Advantages + Guides&Resources。**⚠️ section 作用域**:`.w3-whycard` 被 About 复用(全暗做对),禁全局翻白。
+- **选择性提亮反转带** `.w3-invert`〔#82 · §2.6 招2 旧实现,**已被 `.w3-whitecards` 取代**〕:整 band 浅底(`--w3-invert-bg`+`--w3-invert-ink`/`ink2`+`--w3-invert-accent`)。Joe 直裁「翻容器不翻背景」后**首页停用**;CSS 保留供未来纯浅底段,默认别用。
+- **首页 Guides 卡** `.tj-gcard`〔#82 · §2.6〕:基类同 `.guides-card` 浮起(`--w3-surface-2`+`--w3-edge-top`+`--w3-elev-card`),`.tj-cover` 用 `--w3-well` 径向井补暗 void;**首页实际渲染在 `.w3-whitecards` 内=白卡**(见上条),基类深色态供未来深底复用。
 - **文章照片 hero** `.page-header--article`(Guides 文章页 · 2026-07-27):`.page-header` 照片 hero 的**矮版**(`height:clamp(300px,30vw,460px)`,免长文被巨图挤下去),照片走 `.page-header-bg--guides`(hero-guides.webp,`background-position:center 62%`);承载 `.w3-crumb`(面包屑:`/guides/` → 主题,发丝分隔 `/`,13px --w3-text3 + accent 链)+ 文章 h1。⚠️ 旧 `.page-header--slim`(暗色纯图形 header)已废弃(Joe 铁令改照片 hero,见 §3.2d),CSS 残留待清、勿再用。
 
 ## 4. 交互标准
