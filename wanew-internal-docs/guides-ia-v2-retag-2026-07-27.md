@@ -5,16 +5,25 @@
 - manifest 记录 `{id, topic, slug, old, title, card_title}` —— `topic` 是**元数据**（驱动 topic 列表页分组+卡片标签），**不在 URL**。
 - ⇒ **retag = 只改 manifest 的 `topic` 值，58 篇文章 URL 全不动**；仅 topic 列表页（新建/退役）URL 变。零文章 URL 破坏。
 
+## ✅ 总工已审批 + 逐条裁定（2026-07-27）
+- 边界篇：4358→Selection、4369→Selection、4384→Power、62→Protection（暂留，标 Joe 复核可能去 About/FAQ，先不 churn）。
+- **B2B：marine 64（OEM制造）+ 65（批量采购）随 industrial 一并移出 OUT**（Guides 只留真 how-to；OEM/批发/商务分流）。→ OUT=7。
+- 近重复（71↔73/72↔74/88↔89↔90）本轮**只 retag 不合并**，合并留 Joe 回来拍。
+- ⚠️ 计数校正（给总工）：64/65 在我原表里是**独立 B2B-flag、不在 Selection 的 16 里**（Selection 列出的 16 篇不含 64/65）。故移 64/65 进 OUT 后 **Selection 仍 16**、OUT 5→7、5 轴数量不变。总工"Selection 16→14"是把 64/65 误算进了 Selection。
+
 ## 5 新任务轴（正交、每轴 ≥7 篇有内容、无空壳）
-| 新任务轴 (slug 建议) | 篇数 |
-|---|---|
-| Compatibility & Selection (`compatibility`) | 16 |
-| Mounting & Installation (`mounting-installation`) | 10 |
-| Power & Off-Grid (`power-off-grid`) | 8 |
-| Cabling & Networking (`cabling-networking`) | 10 |
-| Weatherproofing & Protection (`weatherproofing-protection`) | 7 |
-| **OUT of Guides menu（B2B，页留+footer 可达）** | 5 (+2 flag) |
-| 排除（dedup 空壳，非真页） | 1 (id91) |
+| 新任务轴 (菜单 label / URL slug) | 篇数 | slug 方案 |
+|---|---|---|
+| Compatibility & Selection ("Compatibility" / `compatibility`) | 16 | **复用刚迁的 /guides/compatibility/**（总工"吃掉 Compatibility 页"）——该页升级成"Compat&Selection"轴 hub+列表 |
+| Mounting & Installation (`mounts`) | 10 | **复用 /guides/mounts/**（保留 URL，仅 relabel）→ 不退役、不加 301 |
+| Power & Off-Grid (`power`) | 8 | **复用 /guides/power/**（保留 URL，仅 relabel）→ 不退役、不加 301 |
+| Cabling & Networking (`cabling`) | 10 | **新 slug** /guides/cabling/ |
+| Weatherproofing & Protection (`protection`) | 7 | **新 slug** /guides/protection/ |
+| **OUT（B2B，页留+footer 可达，待 About/B2B 轮）** | 7 | 无菜单项；topic=`business`（不进 nav），页仍 /guides/{slug}/ 活 |
+| 排除（dedup 空壳，非真页） | 1 (id91) | — |
+
+**退役（→301，按 A 后预算 81+X<100 决定）**：marine（→场景合集/`/guides/`）、rv-off-grid（同）、industrial（→ B2B/`/guides/`）三个旧 topic 页。mounts/power **不退**（复用）。
+**OUT 组 7 篇**：industrial 4359/4378/4379/4380/4381 + marine 64/65 → topic 改 `business`（或保留但移出 nav），页不删。
 
 ## 全表（id / 现topic / 新任务 / 理由；⚠=边界待定，M=近重复可合并，B=B2B候选）
 
