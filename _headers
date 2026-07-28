@@ -1,0 +1,34 @@
+# Cloudflare Pages 响应头规则（#66 图片提速）
+#
+# 在此之前【没有这个文件】= 所有静态资源吃 Pages 默认缓存，回访者每次都要重新验证。
+# 图片是站上最大的字节来源（单张最大 3.3MB），缓存规则是这里性价比最高的一刀：
+# 改一个文件，0 行页面改动，回访直接从磁盘取。
+#
+# ⚠️ 只对【内容不变或带版本号】的路径用 immutable：
+#   /static/upload/*  上传资产按时间戳/哈希命名，改图＝换文件名，不会原地变 → 安全
+#   /skin/*           CSS/JS 走 ?v=NN 查询串击穿（本仓已有的做法），换版即换 URL → 安全
+#   HTML              绝不长缓存：内容会原地更新，长缓存会把旧页面钉死在用户机器上
+#
+# 顺序：Pages 取【最先匹配】的规则，所以更具体的写在前面。
+
+/static/upload/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/skin/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.ico
+  Cache-Control: public, max-age=604800
+
+/favicon.svg
+  Cache-Control: public, max-age=604800
+
+# HTML：允许 CDN 短缓存 + 必须回源校验，保证内容更新能立刻见效
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
