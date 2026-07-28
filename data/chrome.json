@@ -292,13 +292,6 @@
     "reason": "loanword — FAQ is standard in pt-BR (confirmed: native /pt/faq/ h1 + \"Marca e Afiliação (FAQ)\")",
     "zh": "- 常见问题"
   },
-  "footer.video": {
-    "en": "- Video",
-    "pt-BR": "- Vídeos",
-    "es-MX": "- Videos",
-    "reason.es-MX": "⭐墨西哥特征: 无重音,与 header.video 一致",
-    "zh": "- 视频"
-  },
   "footer.contact_us": {
     "en": "- Contact Us",
     "pt-BR": "- Contato",
@@ -446,22 +439,6 @@
     "reason.es-MX": "证据 Starlink MXaccesorios + compatibles con 坐实",
     "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use",
     "zh": "适配各代终端的 Starlink 兼容配件。"
-  },
-  "body.contact_now": {
-    "en": "Contact Now",
-    "pt-BR": "Fale conosco agora",
-    "es-MX": "Contáctanos ahora",
-    "reason.es-MX": "⭐tú 形式(规范 §二之〇之一:证据 coppel.com su/sus 0 次 + gob.mx su 0 次)",
-    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use",
-    "zh": "立即联系"
-  },
-  "body.back": {
-    "en": "Back",
-    "pt-BR": "Voltar",
-    "es-MX": "Volver",
-    "reason.es-MX": "判断:语法确定",
-    "reason": "body chrome (R1 spec item 7) — pt seeded from the live pt page (phase2-convert's own output), verified present before use",
-    "zh": "返回"
   },
   "body.send_inquiry": {
     "en": "Send an Inquiry",
