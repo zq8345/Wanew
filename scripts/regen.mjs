@@ -525,6 +525,45 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
       `<a class="guides-chip${current === t ? " is-active" : ""}" href="${urlOf(`/guides/${t}/`, loc)}">${pick(catalog[TKEY[t]], loc)}</a>`).join("");
     return `      <nav class="guides-nav" aria-label="Guides topics">${all}${tops}</nav>`;
   };
+  /* ── 场景横切带(总工 #85):按【任务】的 5 轴是唯一浏览逻辑(Joe §3.2e 铁令,不动);
+   *    但有一类读者是从"我的设备装在哪"进来的。给他们一条【横切】入口。
+   *
+   * ⭐ 关键设计判断,写清楚免得以后被当成回退:
+   *   ① **不新建 /guides/{场景}/ 页** —— 那会同时踩两条:(a) 变成第二套 Guides 浏览轴,
+   *      正是 Joe 杀掉的"2 套浏览系统";(b) /guides/marine/ 等在 IA v2 已退役并 301 到
+   *      /guides/,重建会和线上 301 打架。
+   *   ② 这条带指向 /solutions/{场景}/ 页 —— 它们本来就是场景 SEO 落地页(7 块内容),
+   *      (注:这行别写成 markdown 粗体包路径,`**` 紧跟 `/` 会把块注释提前闭合 —— 我刚踩过)
+   *      而且它们的"怎么装起来"已经反向链回该场景的指南。于是形成真闭环:
+   *      Guides 首页 → 场景页 → 该场景指南 → Guides 首页。
+   *   ③ 篇数从 manifest 的 `old`(原 hub 路径)派生 = 真实数据,不是手写数字,不会漂。
+   *   ④ 只出现在 Guides 首页;topic 页拿到 "" → 那些页字节不变。nav 一个字没动。 */
+  const sceneHub = (a) => (String(a.old || "").match(/^\/([a-z-]+)\//) || [])[1];
+  const SCENE_BAND = [
+    { key: "marine", hub: "marine", to: "/solutions/marine/", nameKey: "solutions.marine.name" },
+    { key: "rv", hub: "rv-off-grid", to: "/solutions/rv/", nameKey: "solutions.rv.name" },
+  ];
+  const solCatForScenes = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "solutions.json"), "utf8"));
+  const scenesBand = (loc) => {
+    const items = SCENE_BAND.map((sc) => {
+      const n = built.filter((a) => sceneHub(a) === sc.hub).length;
+      if (!n) return null;                       // 没文章就不出这一格,不做空壳
+      const name = pick(solCatForScenes[sc.nameKey], loc);
+      const blurb = pick(solCatForScenes[`solutions.${sc.key}.card`], loc);
+      return `        <a class="guides-scene" href="${urlOf(sc.to, loc)}">`
+        + `<span class="guides-scene__n">${n} ${esc(pick(gCat["guides.scenes.count"], loc))}</span>`
+        + `<span class="guides-scene__t">${esc(name)}</span>`
+        + `<span class="guides-scene__d">${esc(blurb)}</span>`
+        + `<span class="guides-scene__arw" aria-hidden="true">→</span></a>`;
+    }).filter(Boolean);
+    if (!items.length) return "";
+    return `      <section class="guides-scenes">\n`
+      + `        <h2 class="guides-scenes__h">${esc(pick(gCat["guides.scenes.h2"], loc))}</h2>\n`
+      + `        <p class="guides-scenes__sub">${esc(pick(gCat["guides.scenes.sub"], loc))}</p>\n`
+      + `        <div class="guides-scenes__grid">
+${items.join("\n")}
+        </div>\n      </section>`;
+  };
   for (const locale of RENDER_SET) {
     if (!LOCALES.includes(locale) && !isExtra(locale)) continue;
     const baseCat = { ...catalog, ...shared, ...gCat };
@@ -536,7 +575,7 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
         .split("{{GL_TITLE}}").join(pick(gCat["guides.meta.title"], locale)).split("{{GL_DESC}}").join(pick(gCat["guides.meta.desc"], locale))
         .split("{{GL_H1}}").join(pick(gCat["guides.hero.h1"], locale)).split("{{GL_INTRO}}").join(pick(gCat["guides.hero.intro"], locale))
         .split("{{GL_CRUMB}}").join(pick(gCat["guides.hero.h1"], locale))
-        .split("{{GL_FILTER}}").join(navChips(locale, "all")).split("{{GL_CARDS}}").join(cards);
+        .split("{{GL_FILTER}}").join(navChips(locale, "all")).split("{{GL_SCENES}}").join(scenesBand(locale)).split("{{GL_CARDS}}").join(cards);
       const p = pageOf(locale, path.join("guides", "index.html"));
       const html = renderPage(tpl2, { locale, catalog: baseCat, urlOf, path: "/guides/", dirOf, enabled: LOCALES, internal_noindex: INTERNAL });
       fs.mkdirSync(path.dirname(p), { recursive: true });
@@ -558,7 +597,7 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
         .split("{{GL_TITLE}}").join(pick(gCat[`guides.topic.${t}.title`], locale) + " | Wanew").split("{{GL_DESC}}").join(pick(gCat[`guides.topic.${t}.intro`], locale))
         .split("{{GL_H1}}").join(pick(gCat[`guides.topic.${t}.title`], locale)).split("{{GL_INTRO}}").join(pick(gCat[`guides.topic.${t}.intro`], locale))
         .split("{{GL_CRUMB}}").join(pick(gCat[`guides.topic.${t}.title`], locale))
-        .split("{{GL_FILTER}}").join(navChips(locale, t)).split("{{GL_CARDS}}").join(cards);
+        .split("{{GL_FILTER}}").join(navChips(locale, t)).split("{{GL_SCENES}}").join("").split("{{GL_CARDS}}").join(cards);
       const p = pageOf(locale, path.join("guides", t, "index.html"));
       const html = renderPage(tpl2, { locale, catalog: baseCat, urlOf, path: `/guides/${t}/`, dirOf, enabled: LOCALES, internal_noindex: INTERNAL });
       fs.mkdirSync(path.dirname(p), { recursive: true });

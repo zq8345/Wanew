@@ -130,5 +130,23 @@
     "pt-BR": "Guias de compatibilidade e seleção",
     "es-MX": "Guías de compatibilidad y selección",
     "zh": "兼容性与选型指南"
+  },
+  "guides.scenes.h2": {
+    "en": "Browse by scenario",
+    "pt-BR": "Navegar por cenário",
+    "es-MX": "Explorar por escenario",
+    "zh": "按场景查看"
+  },
+  "guides.scenes.sub": {
+    "en": "The guides above are organised by task. If you would rather start from where the gear lives, start here.",
+    "pt-BR": "Os guias acima estão organizados por tarefa. Se preferir partir de onde o equipamento fica, comece aqui.",
+    "es-MX": "Las guías de arriba están organizadas por tarea. Si prefieres partir de dónde va el equipo, empieza aquí.",
+    "zh": "上面的指南按任务组织。如果你更想从设备所在的场景出发,从这里开始。"
+  },
+  "guides.scenes.count": {
+    "en": "guides",
+    "pt-BR": "guias",
+    "es-MX": "guías",
+    "zh": "篇指南"
   }
 }
