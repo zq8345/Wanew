@@ -5,12 +5,6 @@
     "es-MX": "Solución integral en accesorios para Starlink",
     "zh": "Starlink 配件一站式解决方案"
   },
-  "home.hero.subtitle": {
-    "en": "Accessories for every Starlink model — mounts, cables, power adapters, and more.",
-    "pt-BR": "Acessórios para todos os modelos Starlink — suportes, cabos, adaptadores de energia e muito mais.",
-    "es-MX": "Accesorios para todos los modelos Starlink — soportes, cables, adaptadores de energía y mucho más.",
-    "zh": "适配各型号 Starlink 的配件——支架、线缆、电源适配器及更多。"
-  },
   "home.hero.cta": {
     "en": "Browse products",
     "pt-BR": "Ver produtos",
@@ -22,12 +16,6 @@
     "pt-BR": "Loja",
     "es-MX": "Tienda",
     "zh": "选购"
-  },
-  "home.h2.1": {
-    "en": "Our Products",
-    "pt-BR": "Nossos produtos",
-    "es-MX": "Nuestros productos",
-    "zh": "我们的产品"
   },
   "home.sub.1": {
     "en": "Starlink-compatible accessories for every terminal generation — mounts, cables, power adapters, and more.",

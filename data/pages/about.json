@@ -30,12 +30,6 @@
     "es-MX": "Planta de fabricación de Wanew",
     "zh": "Wanew 生产工厂"
   },
-  "about.tj-h2.1": {
-    "en": "Wanew by the Numbers",
-    "pt-BR": "A Wanew em números",
-    "es-MX": "Wanew en números",
-    "zh": "数字里的 Wanew"
-  },
   "about.xlc-stat-label.1": {
     "en": "Years Experience",
     "pt-BR": "Anos de experiência",
@@ -78,12 +72,6 @@
     "es-MX": "Planta de producción estandarizada",
     "zh": "标准化生产厂房"
   },
-  "about.alt.2": {
-    "en": "Wanew production facility",
-    "pt-BR": "Fábrica de produção da Wanew",
-    "es-MX": "Planta de producción de Wanew",
-    "zh": "Wanew 生产工厂"
-  },
   "about.tj-h2.4": {
     "en": "Global Reach",
     "pt-BR": "Alcance global",
@@ -101,19 +89,6 @@
     "pt-BR": "Seja parceiro da Wanew",
     "es-MX": "Asóciate con Wanew",
     "zh": "与 Wanew 合作"
-  },
-  "about.p.4": {
-    "en": "Contact our sales team for product inquiries, OEM/ODM projects, or distribution partnerships.",
-    "pt-BR": "Entre em contato com nossa equipe de vendas para dúvidas sobre produtos, projetos OEM/ODM ou parcerias de distribuição.",
-    "es-MX": "Contacta a nuestro equipo de ventas para dudas sobre productos, proyectos OEM/ODM o alianzas de distribución.",
-    "zh": "如需产品咨询、OEM/ODM 项目或分销合作，请联系我们的销售团队。"
-  },
-  "about.span.1": {
-    "en": "Contact Us",
-    "pt-BR": "Fale conosco",
-    "es-MX": "Contáctanos",
-    "reason.dupe": "页面标题/面包屑/内联三处「Contact Us」,同词不同位置,显式共存不合并。",
-    "zh": "联系我们"
   },
   "about.meta.title": {
     "en": "About Us-Wanew | Premium Starlink Accessories, Mounts &amp; Power Solutions",
@@ -139,12 +114,6 @@
     "pt-BR": "Fabricação OEM/ODM de Acessórios Compatíveis com Starlink",
     "es-MX": "Fabricación OEM/ODM de accesorios compatibles con Starlink",
     "zh": "OEM/ODM Starlink 兼容配件代工制造"
-  },
-  "oem-odm-manufacturing.p.1": {
-    "en": "Wanew offers comprehensive OEM and ODM manufacturing services for Starlink-compatible accessories. 15+ years experience, 200+ patents.",
-    "pt-BR": "A Wanew oferece serviços completos de fabricação OEM e ODM para acessórios compatíveis com Starlink. Mais de 15 anos de experiência e 200+ patentes.",
-    "es-MX": "Wanew ofrece servicios completos de fabricación OEM y ODM para accesorios compatibles con Starlink. Más de 15 años de experiencia y 200+ patentes.",
-    "zh": "Wanew 为 Starlink 兼容配件提供全面的 OEM 与 ODM 制造服务。15 年以上经验，200 多项专利。"
   },
   "oem-odm-manufacturing.h2.2": {
     "en": "OEM Services",
@@ -325,30 +294,6 @@
     "pt-BR": "Verificação da capacidade de carga e da confiabilidade de suportes e componentes estruturais.",
     "es-MX": "Verificación de la capacidad de carga y la confiabilidad de soportes y componentes estructurales.",
     "zh": "对支架及结构件进行承载额定值与可靠性验证。"
-  },
-  "brand-affiliation-faq.page-header-title.1": {
-    "en": "Is Wanew Affiliated with Starlink or SpaceX?",
-    "pt-BR": "A Wanew é afiliada à Starlink ou à SpaceX?",
-    "es-MX": "¿Wanew está afiliada a Starlink o a SpaceX?",
-    "zh": "Wanew 与 Starlink 或 SpaceX 有关联吗？"
-  },
-  "brand-affiliation-faq.strong.1": {
-    "en": "No.",
-    "pt-BR": "Não.",
-    "es-MX": "No.",
-    "zh": "没有。"
-  },
-  "brand-affiliation-faq.strong.2": {
-    "en": "Wanew is an independent third-party manufacturer. We are not affiliated with, sponsored by, or endorsed by SpaceX or Starlink.",
-    "pt-BR": "A Wanew é uma fabricante independente e de terceiros. Não somos afiliados, patrocinados nem endossados pela SpaceX ou pela Starlink.",
-    "es-MX": "Wanew es un fabricante independiente y externo. No estamos afiliados a SpaceX ni a Starlink, ni contamos con su patrocinio o respaldo.",
-    "zh": "Wanew 是一家独立的第三方制造商。我们与 SpaceX 或 Starlink 没有任何关联，亦未获得其赞助或背书。"
-  },
-  "brand-affiliation-faq.blockquote.1": {
-    "en": "Wanew manufactures third-party Starlink-compatible accessories. \"Starlink\" is a trademark of SpaceX. References on this website indicate compatibility.",
-    "pt-BR": "A Wanew fabrica acessórios de terceiros compatíveis com Starlink. \"Starlink\" é uma marca registrada da SpaceX. As referências neste site indicam compatibilidade.",
-    "es-MX": "Wanew fabrica accesorios de terceros compatibles con Starlink. \"Starlink\" es una marca registrada de SpaceX. Las referencias en este sitio web indican compatibilidad.",
-    "zh": "Wanew 生产第三方 Starlink 兼容配件。“Starlink”是 SpaceX 的商标。本网站中的相关表述仅用于说明兼容性。"
   },
   "brand-affiliation-faq.h3.1": {
     "en": "Are Wanew products official Starlink accessories?",

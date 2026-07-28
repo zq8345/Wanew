@@ -59,12 +59,6 @@
     "es-MX": "sistemas de montaje",
     "zh": "安装支架系统"
   },
-  "shared.certified": {
-    "en": "✅ Certified",
-    "pt-BR": "✅ Certificado",
-    "es-MX": "✅ Certificado",
-    "zh": "✅ 已认证"
-  },
   "shared.starlink_mini": {
     "en": "Starlink Mini",
     "pt-BR": "Starlink Mini",
@@ -82,12 +76,6 @@
     "pt-BR": "Compatibilidade",
     "es-MX": "Compatibilidad",
     "zh": "兼容性"
-  },
-  "shared.industry": {
-    "en": "Industry",
-    "pt-BR": "Setores",
-    "es-MX": "Sectores",
-    "zh": "行业"
   },
   "shared.jul_4_2026": {
     "en": "Jul 4, 2026",
@@ -143,12 +131,6 @@
     "es-MX": "Accesorios marítimos Starlink indispensables para una conexión de internet confiable en yates",
     "zh": "游艇稳定联网必备的 Starlink 船舶配件"
   },
-  "shared.discover_the_must_have_starlink_marine_a": {
-    "en": "Discover the must-have Starlink Marine Accessories for yachts and boats. Learn how reliable marine satellite internet enhances navigation, communication, and entertainment at sea.",
-    "pt-BR": "Conheça os acessórios náuticos Starlink indispensáveis para iates e barcos. Veja como a internet via satélite marítima confiável melhora a navegação, a comunicação e o entretenimento no mar.",
-    "es-MX": "Conoce los accesorios marítimos Starlink indispensables para yates y botes. Descubre cómo el internet marítimo vía satélite confiable mejora la navegación, la comunicación y el entretenimiento en el mar.",
-    "zh": "了解游艇与船舶必备的 Starlink 船舶配件。看可靠的船舶卫星互联网如何提升海上导航、通信与娱乐体验。"
-  },
   "shared.how_to_choose_the_right_starlink_marine_": {
     "en": "How to Choose the Right Starlink Marine Accessories for Reliable Offshore Internet",
     "pt-BR": "Como escolher os acessórios náuticos Starlink certos para uma internet offshore confiável",
@@ -160,18 +142,6 @@
     "pt-BR": "Acessórios náuticos Starlink essenciais para barcos de pesca: seu kit completo de conectividade",
     "es-MX": "Accesorios marítimos Starlink esenciales para botes de pesca: tu kit completo de conectividad",
     "zh": "渔船必备的 Starlink 船舶配件：您的完整联网套件"
-  },
-  "shared.2026_04_30": {
-    "en": "2026-04-30",
-    "pt-BR": "30 de abr. de 2026",
-    "es-MX": "30 de abr. de 2026",
-    "zh": "2026-04-30"
-  },
-  "shared.2026_04_29": {
-    "en": "2026-04-29",
-    "pt-BR": "29 de abr. de 2026",
-    "es-MX": "29 de abr. de 2026",
-    "zh": "2026-04-29"
   },
   "shared.comprehensive_comparison_of_wanew_pipe_m": {
     "en": "Comprehensive comparison of Wanew pipe mount, wall mount, and flat roof mount for Starlink. Decision matrix, real-world scenarios, and FAQs to help you choose the right mounting solution.",
@@ -292,12 +262,6 @@
     "pt-BR": "Notícias",
     "es-MX": "Noticias",
     "zh": "新闻"
-  },
-  "shared.safety_compliance_standards_for_starlink": {
-    "en": "Safety Compliance Standards for Starlink Marine Accessories | Complete Certification & Safety Guidelines",
-    "pt-BR": "Normas de conformidade e segurança para acessórios Starlink Marine: guia completo de certificação e diretrizes de segurança.",
-    "es-MX": "Normas de cumplimiento y seguridad para accesorios marítimos Starlink | Guía completa de certificación y lineamientos de seguridad",
-    "zh": "Starlink 船舶配件的安全合规标准 | 完整认证与安全指引"
   },
   "shared.starlink_junction_box_installation_for_o": {
     "en": "Starlink Junction Box Installation for Outdoor Cable Management",
