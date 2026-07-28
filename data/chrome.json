@@ -392,20 +392,20 @@
     "zh": "简体中文"
   },
   "card.alt.suffix": {
-    "en": "- wanew Products",
+    "en": "- Wanew Products",
     "pt-BR": "- Produtos Wanew",
     "es-MX": "- Productos Wanew",
     "reason.es-MX": "判断:与 pt 同构(catalog key,不是每页一份的字符串)",
     "reason": "signed by the i18n window (pt source of truth), chrome-pt-decisions.md; used by R2 cardHtml",
-    "zh": "- wanew 产品"
+    "zh": "- Wanew 产品"
   },
   "card.alt.category": {
-    "en": "- wanew product category",
-    "pt-BR": "- categoria de produto wanew",
-    "es-MX": "- categoría de producto wanew",
+    "en": "- Wanew product category",
+    "pt-BR": "- categoria de produto Wanew",
+    "es-MX": "- categoría de producto Wanew",
     "reason.es-MX": "判断:与 pt 同构",
     "_note": "首页机型卡 alt 后缀。pt-BR 的值不是我造的:它已经手写在 pt/index.html 的 Mini/Standard 两张卡上,这里只是把它提上来当唯一真源。",
-    "zh": "- wanew 产品分类"
+    "zh": "- Wanew 产品分类"
   },
   "card.lang_badge": {
     "en": "in English",

@@ -106,3 +106,34 @@ const assetHits = [];
 console.log('\n=== 🖼 全站文件层（资产 / 非产品页 / EXIF 字节）===');
 if (assetHits.length) { assetHits.forEach((h) => console.log(`  ⛔ ${h.file}  ${h.brand} ×${h.n}`)); console.log(`  ⛔ ${assetHits.length} 处品牌残留 —— 清掉！`); }
 else console.log('  ✅ 0 品牌残留（资产 / EXIF / 非产品页文本层）；⚠️ 视觉水印仍需人工过眼');
+
+// ══ 自家品牌的【大小写】也是残留的一种(2026-07-28 新增)══════════════════════
+// 抓到的实例:`card.alt.suffix` / `card.alt.category` 里 en 与 zh 写成小写 `wanew`,
+// 而同一个键的 es/pt 写的是 `Wanew` —— **同一个键内部就不一致**,产出 724 处 alt 带着小写品牌名。
+// 这道闸此前只找【别人的品牌】(Tejoy/XLinkCore…),默认"自家品牌不会写错" ——
+// 而它恰恰是没人会去 grep 的那一类。**被漏掉的盲区要变成检查器的新能力,不是记在谁的脑子里。**
+// ⚠️ 域名与邮箱里的 `wanew.com` / `hello@wanew.com` 是【正确的小写】,必须排除,
+//    否则这条会天天误报,然后被人加豁免关掉 —— 那就回到了它没能力的状态。
+{
+  const CAT = ['data/chrome.json', 'data/site.json'];
+  const bad = [];
+  for (const rel of CAT) {
+    if (!fs.existsSync(rel)) continue;
+    const j = JSON.parse(fs.readFileSync(rel, 'utf8'));
+    for (const [k, v] of Object.entries(j)) {
+      if (k.startsWith('reason.')) continue;
+      for (const [loc, s] of Object.entries(v && typeof v === 'object' ? v : {})) {
+        if (loc.startsWith('reason.') || typeof s !== 'string') continue;
+        // 去掉域名/邮箱后再看还有没有小写 wanew
+        const stripped = s.replace(/[\w.+-]*@?wanew\.com/g, '');
+        if (/(^|[^@/\w])wanew\b/.test(stripped)) bad.push(`${rel}  ${k}[${loc}] = ${JSON.stringify(s)}`);
+      }
+    }
+  }
+  console.log('\n=== 🔠 自家品牌大小写(catalog 真源)===');
+  if (bad.length) {
+    bad.forEach((b) => console.log(`  ⛔ ${b}`));
+    console.log(`  ⛔ ${bad.length} 处品牌名写成了小写 —— 品牌是 Wanew,只有域名/邮箱小写`);
+    process.exitCode = 1;
+  } else console.log('  ✅ 0 处(域名/邮箱的小写 wanew.com 已排除)');
+}
