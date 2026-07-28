@@ -1,5 +1,5 @@
 {
-  "_note": "R2 缩略图存在性清单。key = 原图 R2 key，value = 缩略图 key（长边 960 webp）。由 wanew-admin 的 scripts/r2-thumbs.mjs 在生成缩略图后【逐个回探公开 CDN 确认真的取得到】才写入——是事实不是意图，写失败的不会出现在这里。regen 用法：命中→用缩略图，未命中→回落原图（不会 404）。⚠️ 只覆盖 R2(img.wanew.com) 那部分；/static/ 下的缩略图 regen 直接查磁盘，不在此清单。",
+  "_note": "R2 缩略图存在性清单。keys = **缩略图 key 的数组**（长边 960 webp）——形状由消费方 regen 定（它读 .keys）。由 wanew-admin 的 scripts/r2-thumbs.mjs 在生成缩略图后【逐个回探公开 CDN 确认真的取得到】才写入——是事实不是意图，写失败的不会出现在这里。regen 用法：命中→用缩略图，未命中→回落原图（不会 404）。⚠️ 只覆盖 R2(img.wanew.com) 那部分；/static/ 下的缩略图 regen 直接查磁盘，不在此清单。",
   "_generated_by": "wanew-admin/scripts/r2-thumbs.mjs",
   "long_edge": 960,
   "keys": [
