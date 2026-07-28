@@ -21,25 +21,17 @@ const REPO = process.cwd();
 const SRC = path.join(REPO, "skin", "css", "w3.css");
 
 // ── 刻度:唯一合法的取值形态 ────────────────────────────────────────────
-const TOKENS = ["micro", "small", "compact", "body", "lead"];
+const TOKENS = ["micro", "small", "compact", "body", "lead", "h3", "h2", "h1", "d2", "d1"];
 
 // ── 待迁移(大端)。**棘轮:只准变少,不准变多。** ──────────────────────
 //   大端档位(h3/h2/h1/display-2/display-1)等总工拍板后落地,落一档、这里删一批。
 //   ⚠️ 清单里每一项都写明"迁到哪一档",否则它会变成一张permanent的免罪符。
-const MIGRATING = {
-  "19px": "→ h3", "20px": "→ h3", "21px": "→ h3", "22px": "→ h3", "26px": "→ h2",
-  "clamp(1.3rem, 2vw, 1.7rem)": "→ h3", "clamp(1.3rem, 2.2vw, 1.8rem)": "→ h3",
-  "clamp(1.35rem, 2.4vw, 1.85rem)": "→ h3", "clamp(1.45rem, 2.4vw, 2rem)": "→ h3",
-  "clamp(1.5rem, 2.2vw, 2rem)": "→ h2", "clamp(1.5rem,3vw,2.2rem)": "→ h2",
-  "clamp(22px, 1.9vw, 30px)": "→ h2", "clamp(22px, 2.6vw, 30px)": "→ h2",
-  "clamp(24px, 2.1vw, 34px)": "→ h2", "clamp(1.5rem, 3.2vw, 2.4rem)": "→ h1",
-  "clamp(1.7rem, 3.2vw, 2.6rem)": "→ h1", "clamp(1.7rem, 7vw, 2.3rem)": "→ h1(窄屏覆盖,归档后删)",
-  "clamp(2rem, 3.4vw, 3.1rem)": "→ display-2", "clamp(2rem, 4vw, 3rem)": "→ display-2",
-  "clamp(28px, 4vw, 44px)": "→ display-2", "clamp(2.35rem, 5.2vw, 4.1rem)": "→ display-1",
-  "clamp(36px, 4vw, 52px)": "→ display-1", "clamp(15.5px, 1.5vw, 17.5px)": "→ body",
-};
-// 上一次的规模。**只准降不准升** —— debt ratchet,防止"顺手再加一条待迁移"。
-const MIGRATING_CEILING = 28;
+// **已清零**(2026-07-28,大端十档落地那一批)。23 种 / 28 处全部迁完。
+const MIGRATING = {};
+// 上一次的规模。**只准降不准升** —— debt ratchet。
+// 现在是 0:**这道闸从此没有软肋**,任何刻度外的值都会直接报红,没有"暂时放过"的通道。
+// ⚠️ 要往回加,先在 DESIGN.md §2.2 里写清是哪一档、为什么它不能用现有档。
+const MIGRATING_CEILING = 0;
 
 // ── 显式豁免:必须带理由,照 reason.dupe / .sol-cta 的先例 ───────────────
 const EXEMPT = {
