@@ -351,102 +351,6 @@
     "es-MX": "Un kit que sirve para un bote",
     "zh": "适配船上的一套配置"
   },
-  "solutions.marine.recs.note": {
-    "en": "Ratings apply to the product that states them, not to a whole kit.",
-    "pt-BR": "Os graus valem para o produto que os declara, não para o kit inteiro.",
-    "es-MX": "Los grados aplican al producto que los declara, no a todo el kit.",
-    "zh": "所列等级只属于标注它的产品,不代表整套配置。"
-  },
-  "solutions.marine.rec.1.n": {
-    "en": "Aluminum Alloy Pole Mount (Gen 3)",
-    "pt-BR": "Suporte de Mastro em Liga de Alumínio (Gen 3)",
-    "es-MX": "Soporte de Poste en Aleación de Aluminio (Gen 3)",
-    "zh": "铝合金立杆支架(Gen 3)"
-  },
-  "solutions.marine.rec.1.s": {
-    "en": "Aluminum alloy · Anodized finish",
-    "pt-BR": "Liga de alumínio · Acabamento anodizado",
-    "es-MX": "Aleación de aluminio · Acabado anodizado",
-    "zh": "铝合金 · 阳极氧化"
-  },
-  "solutions.marine.rec.2.n": {
-    "en": "Mini Heavy-Duty Pole Mount",
-    "pt-BR": "Suporte de Mastro Reforçado para Mini",
-    "es-MX": "Soporte de Poste Reforzado para Mini",
-    "zh": "Mini 重型立杆支架"
-  },
-  "solutions.marine.rec.2.s": {
-    "en": "Coated alloy · Rated for coastal salt spray",
-    "pt-BR": "Liga revestida · Indicada para maresia costeira",
-    "es-MX": "Aleación recubierta · Indicada para rocío salino costero",
-    "zh": "带涂层合金 · 标称适应海岸盐雾"
-  },
-  "solutions.marine.rec.3.n": {
-    "en": "Mini Rail and Ladder Clamp Mount",
-    "pt-BR": "Suporte de Braçadeira para Balaustrada e Escada",
-    "es-MX": "Soporte de Abrazadera para Baranda y Escalera",
-    "zh": "Mini 栏杆/爬梯卡箍支架"
-  },
-  "solutions.marine.rec.3.s": {
-    "en": "Stainless clamp · Tube 0.8 to 1.18 in",
-    "pt-BR": "Braçadeira inoxidável · Tubo de 0.8 a 1.18 pol",
-    "es-MX": "Abrazadera inoxidable · Tubo de 0.8 a 1.18 pulg",
-    "zh": "不锈钢管夹 · 管径 0.8–1.18 英寸"
-  },
-  "solutions.marine.rec.4.n": {
-    "en": "DC Power Extension Cable",
-    "pt-BR": "Cabo de Extensão de Energia DC",
-    "es-MX": "Cable de Extensión de Corriente CC",
-    "zh": "DC 电源延长线"
-  },
-  "solutions.marine.rec.4.s": {
-    "en": "IP68 connectors · Sealing gaskets",
-    "pt-BR": "Conectores IP68 · Vedação com juntas",
-    "es-MX": "Conectores IP68 · Juntas de sellado",
-    "zh": "IP68 连接器 · 密封圈"
-  },
-  "solutions.marine.rec.5.n": {
-    "en": "12V/24V to 30V DC Adapter, 60W",
-    "pt-BR": "Adaptador DC 12V/24V para 30V, 60W",
-    "es-MX": "Adaptador CC 12V/24V a 30V, 60W",
-    "zh": "12V/24V 转 30V 直流适配器 60W"
-  },
-  "solutions.marine.rec.5.s": {
-    "en": "12V/24V to 30V · 60W",
-    "pt-BR": "12V/24V para 30V · 60W",
-    "es-MX": "12V/24V a 30V · 60W",
-    "zh": "12V/24V 转 30V · 60W"
-  },
-  "solutions.marine.rec.6.n": {
-    "en": "IP68 Ethernet Cable (Gen 3)",
-    "pt-BR": "Cabo Ethernet IP68 (Gen 3)",
-    "es-MX": "Cable Ethernet IP68 (Gen 3)",
-    "zh": "IP68 以太网线(Gen 3)"
-  },
-  "solutions.marine.rec.6.s": {
-    "en": "IP68 · 23AWG · 2000Mbps",
-    "pt-BR": "IP68 · 23AWG · 2000Mbps",
-    "es-MX": "IP68 · 23AWG · 2000Mbps",
-    "zh": "IP68 · 23AWG · 2000Mbps"
-  },
-  "solutions.marine.trust.h2": {
-    "en": "Why trust the hardware",
-    "pt-BR": "Por que confiar no equipamento",
-    "es-MX": "Por qué confiar en el equipo",
-    "zh": "凭什么信这些硬件"
-  },
-  "solutions.marine.trust.d": {
-    "en": "We manufacture our own accessories, and have since 2010.",
-    "pt-BR": "Fabricamos nossos próprios acessórios, desde 2010.",
-    "es-MX": "Fabricamos nuestros propios accesorios, desde 2010.",
-    "zh": "配件由我们自己制造,自 2010 年起。"
-  },
-  "solutions.marine.install.h2": {
-    "en": "How it goes together",
-    "pt-BR": "Como se monta",
-    "es-MX": "Cómo se instala",
-    "zh": "怎么装起来"
-  },
   "solutions.marine.cta.h2": {
     "en": "Tell us your boat",
     "pt-BR": "Conte-nos sobre seu barco",
@@ -458,5 +362,911 @@
     "pt-BR": "Envie o tipo de embarcação, o ponto de fixação e o modelo Starlink. Nós especificamos o kit.",
     "es-MX": "Envía tu tipo de bote, punto de montaje y modelo Starlink. Nosotros especificamos el kit.",
     "zh": "告诉我们船型、安装点、Starlink 型号,我们来配这套。"
+  },
+  "solutions.deep.trust.h2": {
+    "en": "Why trust the hardware",
+    "pt-BR": "Por que confiar no equipamento",
+    "es-MX": "Por qué confiar en el equipo",
+    "zh": "凭什么信这些硬件"
+  },
+  "solutions.deep.trust.d": {
+    "en": "We manufacture our own accessories, and have since 2010.",
+    "pt-BR": "Fabricamos nossos próprios acessórios, desde 2010.",
+    "es-MX": "Fabricamos nuestros propios accesorios, desde 2010.",
+    "zh": "配件由我们自己制造,自 2010 年起。"
+  },
+  "solutions.deep.install.h2": {
+    "en": "How it goes together",
+    "pt-BR": "Como se monta",
+    "es-MX": "Cómo se instala",
+    "zh": "怎么装起来"
+  },
+  "solutions.deep.note": {
+    "en": "Ratings apply to the product that states them, not to a whole kit.",
+    "pt-BR": "Os graus valem para o produto que os declara, não para o kit inteiro.",
+    "es-MX": "Los grados aplican al producto que los declara, no a todo el kit.",
+    "zh": "所列等级只属于标注它的产品,不代表整套配置。"
+  },
+  "solutions.home.pain.h2": {
+    "en": "What makes a home install different",
+    "pt-BR": "O que muda numa instalação residencial",
+    "es-MX": "Qué cambia en una instalación residencial",
+    "zh": "家里装有什么不一样"
+  },
+  "solutions.home.pain.1.t": {
+    "en": "It goes up once",
+    "pt-BR": "Sobe uma vez só",
+    "es-MX": "Se instala una sola vez",
+    "zh": "只装一次"
+  },
+  "solutions.home.pain.1.d": {
+    "en": "Placement is permanent, so obstruction matters.",
+    "pt-BR": "A posição é permanente, então obstrução importa.",
+    "es-MX": "La posición es permanente, así que la obstrucción importa.",
+    "zh": "位置是永久的,遮挡就很要命。"
+  },
+  "solutions.home.pain.2.t": {
+    "en": "The cable has to get inside",
+    "pt-BR": "O cabo precisa entrar",
+    "es-MX": "El cable tiene que entrar",
+    "zh": "线要进屋"
+  },
+  "solutions.home.pain.2.d": {
+    "en": "A wall or eave entry needs sealing.",
+    "pt-BR": "A entrada por parede ou beiral precisa de vedação.",
+    "es-MX": "La entrada por muro o alero necesita sellado.",
+    "zh": "穿墙或屋檐的入口要做密封。"
+  },
+  "solutions.home.pain.3.t": {
+    "en": "It has to look right",
+    "pt-BR": "Precisa ficar bonito",
+    "es-MX": "Tiene que verse bien",
+    "zh": "还得好看"
+  },
+  "solutions.home.pain.3.d": {
+    "en": "Brackets and runs become part of the house.",
+    "pt-BR": "Suportes e cabos passam a fazer parte da casa.",
+    "es-MX": "Soportes y tendidos pasan a ser parte de la casa.",
+    "zh": "支架和走线会变成房子的一部分。"
+  },
+  "solutions.home.pain.4.t": {
+    "en": "Weather, not motion",
+    "pt-BR": "Intempérie, não movimento",
+    "es-MX": "Intemperie, no movimiento",
+    "zh": "考验的是天气不是颠簸"
+  },
+  "solutions.home.pain.4.d": {
+    "en": "Wind load and rain, year after year.",
+    "pt-BR": "Carga de vento e chuva, ano após ano.",
+    "es-MX": "Carga de viento y lluvia, año tras año.",
+    "zh": "年复一年的风载与雨水。"
+  },
+  "solutions.home.sys.h2": {
+    "en": "What a home setup needs",
+    "pt-BR": "O que uma instalação residencial precisa",
+    "es-MX": "Qué necesita una instalación residencial",
+    "zh": "家用配置需要什么"
+  },
+  "solutions.home.sys.1.t": {
+    "en": "A mount matched to the surface",
+    "pt-BR": "Suporte compatível com a superfície",
+    "es-MX": "Soporte acorde a la superficie",
+    "zh": "匹配安装面的支架"
+  },
+  "solutions.home.sys.1.d": {
+    "en": "Wall, flat roof or pole, not one bracket for all.",
+    "pt-BR": "Parede, telhado plano ou mastro: não existe suporte único.",
+    "es-MX": "Muro, techo plano o poste: no hay un soporte único.",
+    "zh": "墙面、平屋顶还是立杆,没有通用件。"
+  },
+  "solutions.home.sys.2.t": {
+    "en": "Cable routing that stays tidy",
+    "pt-BR": "Passagem de cabo organizada",
+    "es-MX": "Tendido de cable ordenado",
+    "zh": "走线要规整"
+  },
+  "solutions.home.sys.2.d": {
+    "en": "Clips and a sealed entry instead of a loose run.",
+    "pt-BR": "Presilhas e entrada vedada em vez de cabo solto.",
+    "es-MX": "Grapas y entrada sellada en vez de cable suelto.",
+    "zh": "用线夹和密封入口,而不是一根线乱搭。"
+  },
+  "solutions.home.sys.3.t": {
+    "en": "Aim you can adjust",
+    "pt-BR": "Mira ajustável",
+    "es-MX": "Orientación ajustable",
+    "zh": "角度可调"
+  },
+  "solutions.home.sys.3.d": {
+    "en": "Tilt and rotation to clear trees and roofline.",
+    "pt-BR": "Inclinação e giro para livrar árvores e telhado.",
+    "es-MX": "Inclinación y giro para librar árboles y techo.",
+    "zh": "可俯仰旋转,避开树和屋脊。"
+  },
+  "solutions.home.sys.4.t": {
+    "en": "Mains power, kept tidy",
+    "pt-BR": "Energia da rede, organizada",
+    "es-MX": "Energía de red, ordenada",
+    "zh": "市电也要收纳好"
+  },
+  "solutions.home.sys.4.d": {
+    "en": "Router and supply mounted, not left on the floor.",
+    "pt-BR": "Roteador e fonte fixados, não largados no chão.",
+    "es-MX": "Router y fuente fijados, no tirados en el piso.",
+    "zh": "路由器和电源固定安装,别丢地上。"
+  },
+  "solutions.home.recs.h2": {
+    "en": "A kit for a house",
+    "pt-BR": "Um kit para casa",
+    "es-MX": "Un kit para casa",
+    "zh": "一套家用配置"
+  },
+  "solutions.home.cta.h2": {
+    "en": "Tell us your roof",
+    "pt-BR": "Conte-nos sobre seu telhado",
+    "es-MX": "Cuéntanos sobre tu techo",
+    "zh": "把你的屋顶情况告诉我们"
+  },
+  "solutions.home.cta.d": {
+    "en": "Send your mounting surface and Starlink model. We will spec the kit.",
+    "pt-BR": "Envie a superfície de fixação e o modelo Starlink. Nós especificamos o kit.",
+    "es-MX": "Envía tu superficie de montaje y modelo Starlink. Nosotros especificamos el kit.",
+    "zh": "告诉我们安装面和 Starlink 型号,我们来配这套。"
+  },
+  "solutions.rv.pain.h2": {
+    "en": "What makes an RV different",
+    "pt-BR": "O que muda num motorhome",
+    "es-MX": "Qué cambia en una casa rodante",
+    "zh": "房车上有什么不一样"
+  },
+  "solutions.rv.pain.1.t": {
+    "en": "You drive with it",
+    "pt-BR": "Você anda com ele",
+    "es-MX": "Viajas con ello",
+    "zh": "它要跟着你跑"
+  },
+  "solutions.rv.pain.1.d": {
+    "en": "Road vibration works fasteners loose.",
+    "pt-BR": "A vibração da estrada afrouxa parafusos.",
+    "es-MX": "La vibración del camino afloja tornillos.",
+    "zh": "路面振动会把紧固件晃松。"
+  },
+  "solutions.rv.pain.2.t": {
+    "en": "There is no wall socket",
+    "pt-BR": "Não há tomada",
+    "es-MX": "No hay toma de pared",
+    "zh": "没有墙插座"
+  },
+  "solutions.rv.pain.2.d": {
+    "en": "Power comes off the 12V or 24V system.",
+    "pt-BR": "A energia vem do sistema de 12V ou 24V.",
+    "es-MX": "La energía sale del sistema de 12V o 24V.",
+    "zh": "电要从 12V/24V 车电系统取。"
+  },
+  "solutions.rv.pain.3.t": {
+    "en": "You set up and pack down",
+    "pt-BR": "Você monta e desmonta",
+    "es-MX": "Montas y desmontas",
+    "zh": "天天装了又拆"
+  },
+  "solutions.rv.pain.3.d": {
+    "en": "Mounts have to come off without tools.",
+    "pt-BR": "Os suportes precisam sair sem ferramentas.",
+    "es-MX": "Los soportes deben salir sin herramientas.",
+    "zh": "支架得能徒手拆下来。"
+  },
+  "solutions.rv.pain.4.t": {
+    "en": "Roof space is crowded",
+    "pt-BR": "O teto é disputado",
+    "es-MX": "El techo va lleno",
+    "zh": "车顶很挤"
+  },
+  "solutions.rv.pain.4.d": {
+    "en": "Racks, vents and AC leave little room.",
+    "pt-BR": "Bagageiro, saídas de ar e ar-condicionado deixam pouco espaço.",
+    "es-MX": "Portaequipaje, ventilas y aire dejan poco espacio.",
+    "zh": "行李架、通风口和空调没剩多少地方。"
+  },
+  "solutions.rv.sys.h2": {
+    "en": "What an RV setup needs",
+    "pt-BR": "O que uma instalação de motorhome precisa",
+    "es-MX": "Qué necesita una instalación en casa rodante",
+    "zh": "房车配置需要什么"
+  },
+  "solutions.rv.sys.1.t": {
+    "en": "A mount that survives the road",
+    "pt-BR": "Suporte que aguenta a estrada",
+    "es-MX": "Soporte que aguante el camino",
+    "zh": "扛得住路况的支架"
+  },
+  "solutions.rv.sys.1.d": {
+    "en": "Magnetic, clamp or ladder, matched to the surface.",
+    "pt-BR": "Magnético, braçadeira ou escada, conforme a superfície.",
+    "es-MX": "Magnético, abrazadera o escalera, según la superficie.",
+    "zh": "磁吸、卡箍还是爬梯式,看安装面定。"
+  },
+  "solutions.rv.sys.2.t": {
+    "en": "12V power, no inverter",
+    "pt-BR": "Energia 12V, sem inversor",
+    "es-MX": "Energía 12V, sin inversor",
+    "zh": "12V 直供,不过逆变"
+  },
+  "solutions.rv.sys.2.d": {
+    "en": "A DC adapter instead of mains through a converter.",
+    "pt-BR": "Um adaptador CC em vez da rede via conversor.",
+    "es-MX": "Un adaptador CC en vez de red por convertidor.",
+    "zh": "用直流适配器,不用先逆变成市电。"
+  },
+  "solutions.rv.sys.3.t": {
+    "en": "Cable that tolerates movement",
+    "pt-BR": "Cabo que aguenta movimento",
+    "es-MX": "Cable que tolere el movimiento",
+    "zh": "耐得住晃动的线"
+  },
+  "solutions.rv.sys.3.d": {
+    "en": "Weather-rated runs from roof to cabin.",
+    "pt-BR": "Trechos com proteção do teto até a cabine.",
+    "es-MX": "Tramos con protección del techo a la cabina.",
+    "zh": "从车顶到车厢,用有防护等级的线。"
+  },
+  "solutions.rv.sys.4.t": {
+    "en": "Quick to remove",
+    "pt-BR": "Rápido de remover",
+    "es-MX": "Rápido de quitar",
+    "zh": "拆得快"
+  },
+  "solutions.rv.sys.4.d": {
+    "en": "So the dish is not left up at highway speed.",
+    "pt-BR": "Para a antena não ficar erguida em rodovia.",
+    "es-MX": "Para no dejar la antena arriba en carretera.",
+    "zh": "免得上高速还架在车顶。"
+  },
+  "solutions.rv.recs.h2": {
+    "en": "A kit for a rig",
+    "pt-BR": "Um kit para o motorhome",
+    "es-MX": "Un kit para la casa rodante",
+    "zh": "一套房车配置"
+  },
+  "solutions.rv.cta.h2": {
+    "en": "Tell us your rig",
+    "pt-BR": "Conte-nos sobre seu motorhome",
+    "es-MX": "Cuéntanos sobre tu casa rodante",
+    "zh": "把你的车况告诉我们"
+  },
+  "solutions.rv.cta.d": {
+    "en": "Send your roof type and Starlink model. We will spec the kit.",
+    "pt-BR": "Envie o tipo de teto e o modelo Starlink. Nós especificamos o kit.",
+    "es-MX": "Envía tu tipo de techo y modelo Starlink. Nosotros especificamos el kit.",
+    "zh": "告诉我们车顶类型和 Starlink 型号,我们来配这套。"
+  },
+  "solutions.off-grid.pain.h2": {
+    "en": "What makes off-grid different",
+    "pt-BR": "O que muda fora da rede",
+    "es-MX": "Qué cambia fuera de la red",
+    "zh": "离网有什么不一样"
+  },
+  "solutions.off-grid.pain.1.t": {
+    "en": "There is no mains",
+    "pt-BR": "Não existe rede elétrica",
+    "es-MX": "No hay red eléctrica",
+    "zh": "没有市电"
+  },
+  "solutions.off-grid.pain.1.d": {
+    "en": "Every watt comes from a battery or a panel.",
+    "pt-BR": "Cada watt vem de uma bateria ou painel.",
+    "es-MX": "Cada watt viene de una batería o un panel.",
+    "zh": "每一瓦都来自电池或太阳能板。"
+  },
+  "solutions.off-grid.pain.2.t": {
+    "en": "The power budget is the design",
+    "pt-BR": "O orçamento de energia é o projeto",
+    "es-MX": "El presupuesto de energía es el diseño",
+    "zh": "电量预算就是设计本身"
+  },
+  "solutions.off-grid.pain.2.d": {
+    "en": "Consumption decides how long you stay online.",
+    "pt-BR": "O consumo decide quanto tempo você fica online.",
+    "es-MX": "El consumo decide cuánto tiempo sigues en línea.",
+    "zh": "耗电量决定你能在线多久。"
+  },
+  "solutions.off-grid.pain.3.t": {
+    "en": "Nobody is coming to fix it",
+    "pt-BR": "Ninguém vem consertar",
+    "es-MX": "Nadie vendrá a repararlo",
+    "zh": "没人会来修"
+  },
+  "solutions.off-grid.pain.3.d": {
+    "en": "Spares and simple parts beat clever ones.",
+    "pt-BR": "Peças simples e reservas valem mais que soluções espertas.",
+    "es-MX": "Repuestos y piezas simples valen más que ingenio.",
+    "zh": "备件和简单件,胜过精巧件。"
+  },
+  "solutions.off-grid.pain.4.t": {
+    "en": "Weather swings hard",
+    "pt-BR": "O clima varia muito",
+    "es-MX": "El clima cambia fuerte",
+    "zh": "温差极端"
+  },
+  "solutions.off-grid.pain.4.d": {
+    "en": "Heat, cold and damp, unattended.",
+    "pt-BR": "Calor, frio e umidade, sem ninguém por perto.",
+    "es-MX": "Calor, frío y humedad, sin nadie cerca.",
+    "zh": "高温、严寒、潮湿,而且无人照看。"
+  },
+  "solutions.off-grid.sys.h2": {
+    "en": "What an off-grid setup needs",
+    "pt-BR": "O que uma instalação fora da rede precisa",
+    "es-MX": "Qué necesita una instalación fuera de la red",
+    "zh": "离网配置需要什么"
+  },
+  "solutions.off-grid.sys.1.t": {
+    "en": "Stored power sized in Wh",
+    "pt-BR": "Energia armazenada medida em Wh",
+    "es-MX": "Energía almacenada medida en Wh",
+    "zh": "按 Wh 算的储电"
+  },
+  "solutions.off-grid.sys.1.d": {
+    "en": "A pack rated in watt-hours, not guesswork.",
+    "pt-BR": "Um pacote medido em watt-hora, não no chute.",
+    "es-MX": "Un paquete medido en watt-hora, no a ojo.",
+    "zh": "选标了瓦时的电池,不靠猜。"
+  },
+  "solutions.off-grid.sys.2.t": {
+    "en": "DC in, no inverter losses",
+    "pt-BR": "Entrada CC, sem perdas de inversor",
+    "es-MX": "Entrada CC, sin pérdidas de inversor",
+    "zh": "直流进,免逆变损耗"
+  },
+  "solutions.off-grid.sys.2.d": {
+    "en": "Feed the terminal directly where you can.",
+    "pt-BR": "Alimente o terminal diretamente quando possível.",
+    "es-MX": "Alimenta la terminal directo cuando se pueda.",
+    "zh": "能直供就直供终端。"
+  },
+  "solutions.off-grid.sys.3.t": {
+    "en": "A mount you can re-site",
+    "pt-BR": "Suporte que dá para remanejar",
+    "es-MX": "Soporte que puedas reubicar",
+    "zh": "能挪位置的支架"
+  },
+  "solutions.off-grid.sys.3.d": {
+    "en": "Pole mounting beats drilling into anything.",
+    "pt-BR": "Fixar em mastro é melhor que furar qualquer coisa.",
+    "es-MX": "Montar en poste es mejor que perforar algo.",
+    "zh": "立杆安装,好过在任何东西上打孔。"
+  },
+  "solutions.off-grid.sys.4.t": {
+    "en": "Mains when you have it",
+    "pt-BR": "Rede quando houver",
+    "es-MX": "Red cuando la haya",
+    "zh": "有电时也能用"
+  },
+  "solutions.off-grid.sys.4.d": {
+    "en": "A kit that takes AC or 12V.",
+    "pt-BR": "Um kit que aceita CA ou 12V.",
+    "es-MX": "Un kit que acepta CA o 12V.",
+    "zh": "一套能吃交流也能吃 12V 的。"
+  },
+  "solutions.off-grid.recs.h2": {
+    "en": "A kit that runs on its own",
+    "pt-BR": "Um kit que se sustenta",
+    "es-MX": "Un kit que se sostiene solo",
+    "zh": "一套能自持的配置"
+  },
+  "solutions.off-grid.cta.h2": {
+    "en": "Tell us your power budget",
+    "pt-BR": "Conte-nos seu orçamento de energia",
+    "es-MX": "Cuéntanos tu presupuesto de energía",
+    "zh": "把你的用电情况告诉我们"
+  },
+  "solutions.off-grid.cta.d": {
+    "en": "Send your battery setup and Starlink model. We will spec the kit.",
+    "pt-BR": "Envie seu sistema de baterias e o modelo Starlink. Nós especificamos o kit.",
+    "es-MX": "Envía tu sistema de baterías y modelo Starlink. Nosotros especificamos el kit.",
+    "zh": "告诉我们你的电池方案和 Starlink 型号,我们来配这套。"
+  },
+  "solutions.portable.pain.h2": {
+    "en": "What makes portable different",
+    "pt-BR": "O que muda no uso portátil",
+    "es-MX": "Qué cambia en el uso portátil",
+    "zh": "便携使用有什么不一样"
+  },
+  "solutions.portable.pain.1.t": {
+    "en": "It lives in a bag",
+    "pt-BR": "Ele vive numa bolsa",
+    "es-MX": "Vive en una mochila",
+    "zh": "它常年待在包里"
+  },
+  "solutions.portable.pain.1.d": {
+    "en": "Transit is where the damage happens.",
+    "pt-BR": "É no transporte que o dano acontece.",
+    "es-MX": "El daño ocurre en el traslado.",
+    "zh": "损坏几乎都发生在运输途中。"
+  },
+  "solutions.portable.pain.2.t": {
+    "en": "Setup time is the point",
+    "pt-BR": "O tempo de montagem é o ponto",
+    "es-MX": "El tiempo de montaje es el punto",
+    "zh": "快才是意义"
+  },
+  "solutions.portable.pain.2.d": {
+    "en": "Minutes, not an installation job.",
+    "pt-BR": "Minutos, não uma obra de instalação.",
+    "es-MX": "Minutos, no una obra de instalación.",
+    "zh": "要的是几分钟,不是一场施工。"
+  },
+  "solutions.portable.pain.3.t": {
+    "en": "No fixed surface",
+    "pt-BR": "Sem superfície fixa",
+    "es-MX": "Sin superficie fija",
+    "zh": "没有固定安装面"
+  },
+  "solutions.portable.pain.3.d": {
+    "en": "You get whatever is there.",
+    "pt-BR": "Você usa o que estiver disponível.",
+    "es-MX": "Usas lo que haya.",
+    "zh": "现场有什么就用什么。"
+  },
+  "solutions.portable.pain.4.t": {
+    "en": "You carry the power too",
+    "pt-BR": "Você carrega a energia também",
+    "es-MX": "También cargas la energía",
+    "zh": "电也得自己背"
+  },
+  "solutions.portable.pain.4.d": {
+    "en": "There is no socket at the destination.",
+    "pt-BR": "Não há tomada no destino.",
+    "es-MX": "No hay toma en el destino.",
+    "zh": "目的地没有插座。"
+  },
+  "solutions.portable.sys.h2": {
+    "en": "What a portable setup needs",
+    "pt-BR": "O que uma instalação portátil precisa",
+    "es-MX": "Qué necesita una instalación portátil",
+    "zh": "便携配置需要什么"
+  },
+  "solutions.portable.sys.1.t": {
+    "en": "A case that takes knocks",
+    "pt-BR": "Uma case que aguenta pancada",
+    "es-MX": "Un estuche que aguante golpes",
+    "zh": "扛得住磕碰的箱包"
+  },
+  "solutions.portable.sys.1.d": {
+    "en": "Padded or hard-shell for dish and cable.",
+    "pt-BR": "Acolchoada ou rígida para antena e cabo.",
+    "es-MX": "Acolchado o rígido para antena y cable.",
+    "zh": "软垫或硬壳,装得下天线和线。"
+  },
+  "solutions.portable.sys.2.t": {
+    "en": "A mount with no drilling",
+    "pt-BR": "Suporte sem furar",
+    "es-MX": "Soporte sin perforar",
+    "zh": "免打孔的支架"
+  },
+  "solutions.portable.sys.2.d": {
+    "en": "Pivot or clamp, nothing permanent.",
+    "pt-BR": "Pivô ou braçadeira, nada permanente.",
+    "es-MX": "Pivote o abrazadera, nada permanente.",
+    "zh": "转轴或卡箍,不留永久痕迹。"
+  },
+  "solutions.portable.sys.3.t": {
+    "en": "Power you can carry",
+    "pt-BR": "Energia que dá para levar",
+    "es-MX": "Energía que puedas llevar",
+    "zh": "能随身带的电"
+  },
+  "solutions.portable.sys.3.d": {
+    "en": "A pack rated in Wh you can travel with.",
+    "pt-BR": "Um pacote em Wh que dá para viajar.",
+    "es-MX": "Un paquete en Wh con el que puedas viajar.",
+    "zh": "标了 Wh、能带着走的电源。"
+  },
+  "solutions.portable.sys.4.t": {
+    "en": "One bag, everything in it",
+    "pt-BR": "Uma bolsa, tudo dentro",
+    "es-MX": "Una bolsa, todo dentro",
+    "zh": "一个包装齐全部"
+  },
+  "solutions.portable.sys.4.d": {
+    "en": "Cable and supply stored with the dish.",
+    "pt-BR": "Cabo e fonte guardados junto com a antena.",
+    "es-MX": "Cable y fuente guardados junto a la antena.",
+    "zh": "线和电源和天线收在一起。"
+  },
+  "solutions.portable.recs.h2": {
+    "en": "A kit that travels",
+    "pt-BR": "Um kit para viajar",
+    "es-MX": "Un kit para viajar",
+    "zh": "一套能带走的配置"
+  },
+  "solutions.portable.cta.h2": {
+    "en": "Tell us how you travel",
+    "pt-BR": "Conte-nos como você viaja",
+    "es-MX": "Cuéntanos cómo viajas",
+    "zh": "把你的出行方式告诉我们"
+  },
+  "solutions.portable.cta.d": {
+    "en": "Send how you move and your Starlink model. We will spec the kit.",
+    "pt-BR": "Conte como você se desloca e o modelo Starlink. Nós especificamos o kit.",
+    "es-MX": "Cuéntanos cómo te desplazas y tu modelo Starlink. Nosotros especificamos el kit.",
+    "zh": "告诉我们你怎么走动和 Starlink 型号,我们来配这套。"
+  },
+  "solutions.business.pain.h2": {
+    "en": "What makes a deployment different",
+    "pt-BR": "O que muda numa implantação",
+    "es-MX": "Qué cambia en un despliegue",
+    "zh": "批量部署有什么不一样"
+  },
+  "solutions.business.pain.1.t": {
+    "en": "It is not one terminal",
+    "pt-BR": "Não é um terminal só",
+    "es-MX": "No es una sola terminal",
+    "zh": "不是一台的事"
+  },
+  "solutions.business.pain.1.d": {
+    "en": "A repeatable build beats one clever install.",
+    "pt-BR": "Uma montagem repetível vale mais que uma instalação esperta.",
+    "es-MX": "Un armado repetible vale más que una instalación ingeniosa.",
+    "zh": "可复制的标准装法,胜过一次巧妙安装。"
+  },
+  "solutions.business.pain.2.t": {
+    "en": "Downtime has a price",
+    "pt-BR": "Indisponibilidade tem preço",
+    "es-MX": "La caída tiene precio",
+    "zh": "停机是有价格的"
+  },
+  "solutions.business.pain.2.d": {
+    "en": "Wired paths and spares cost less than an outage.",
+    "pt-BR": "Caminhos cabeados e reservas custam menos que uma queda.",
+    "es-MX": "Rutas cableadas y repuestos cuestan menos que una caída.",
+    "zh": "有线通路和备件,比一次断网便宜。"
+  },
+  "solutions.business.pain.3.t": {
+    "en": "Clients are wired",
+    "pt-BR": "Os clientes são cabeados",
+    "es-MX": "Los clientes van cableados",
+    "zh": "终端设备是有线的"
+  },
+  "solutions.business.pain.3.d": {
+    "en": "Cameras and terminals need ethernet, not WiFi.",
+    "pt-BR": "Câmeras e terminais precisam de ethernet, não WiFi.",
+    "es-MX": "Cámaras y terminales necesitan ethernet, no WiFi.",
+    "zh": "摄像头和各类终端要以太网,不是 WiFi。"
+  },
+  "solutions.business.pain.4.t": {
+    "en": "Procurement asks questions",
+    "pt-BR": "Compras faz perguntas",
+    "es-MX": "Compras hace preguntas",
+    "zh": "采购会追问"
+  },
+  "solutions.business.pain.4.d": {
+    "en": "Lead time, MOQ and documentation matter.",
+    "pt-BR": "Prazo, MOQ e documentação importam.",
+    "es-MX": "Plazo, MOQ y documentación importan.",
+    "zh": "交期、起订量、文件,都要给得出。"
+  },
+  "solutions.business.sys.h2": {
+    "en": "What a deployment needs",
+    "pt-BR": "O que uma implantação precisa",
+    "es-MX": "Qué necesita un despliegue",
+    "zh": "部署需要什么"
+  },
+  "solutions.business.sys.1.t": {
+    "en": "Wired distribution",
+    "pt-BR": "Distribuição cabeada",
+    "es-MX": "Distribución cableada",
+    "zh": "有线分发"
+  },
+  "solutions.business.sys.1.d": {
+    "en": "Ethernet out of the terminal into real switches.",
+    "pt-BR": "Ethernet do terminal para switches de verdade.",
+    "es-MX": "Ethernet de la terminal a switches reales.",
+    "zh": "从终端出以太网,接到真正的交换机。"
+  },
+  "solutions.business.sys.2.t": {
+    "en": "Mounted, serviceable gear",
+    "pt-BR": "Equipamento fixado e acessível",
+    "es-MX": "Equipo fijado y accesible",
+    "zh": "设备要固定且可维护"
+  },
+  "solutions.business.sys.2.d": {
+    "en": "Router and supply fixed and reachable.",
+    "pt-BR": "Roteador e fonte fixados e acessíveis.",
+    "es-MX": "Router y fuente fijados y accesibles.",
+    "zh": "路由器和电源固定安装、够得着。"
+  },
+  "solutions.business.sys.3.t": {
+    "en": "Runs rated for outdoors",
+    "pt-BR": "Trechos com proteção externa",
+    "es-MX": "Tramos con protección exterior",
+    "zh": "户外段要有防护等级"
+  },
+  "solutions.business.sys.3.d": {
+    "en": "Weather-rated cable between buildings.",
+    "pt-BR": "Cabo com proteção entre edifícios.",
+    "es-MX": "Cable con protección entre edificios.",
+    "zh": "楼与楼之间用有防护等级的线。"
+  },
+  "solutions.business.sys.4.t": {
+    "en": "One spec you can repeat",
+    "pt-BR": "Uma especificação repetível",
+    "es-MX": "Una especificación repetible",
+    "zh": "一份能复制的清单"
+  },
+  "solutions.business.sys.4.d": {
+    "en": "The same parts list across every site.",
+    "pt-BR": "A mesma lista de peças em todos os sites.",
+    "es-MX": "La misma lista de piezas en cada sitio.",
+    "zh": "每个点位用同一份物料清单。"
+  },
+  "solutions.business.recs.h2": {
+    "en": "A kit that scales",
+    "pt-BR": "Um kit que escala",
+    "es-MX": "Un kit que escala",
+    "zh": "一套可复制的配置"
+  },
+  "solutions.business.cta.h2": {
+    "en": "Tell us your sites",
+    "pt-BR": "Conte-nos sobre seus sites",
+    "es-MX": "Cuéntanos sobre tus sitios",
+    "zh": "把你的点位情况告诉我们"
+  },
+  "solutions.business.cta.d": {
+    "en": "Send how many sites and what they connect. We will spec the build.",
+    "pt-BR": "Diga quantos sites e o que eles conectam. Nós especificamos a montagem.",
+    "es-MX": "Dinos cuántos sitios y qué conectan. Nosotros especificamos el armado.",
+    "zh": "告诉我们有多少点位、要接什么,我们来定这套装法。"
+  },
+  "solutions.kit.4202.n": {
+    "en": "Aluminum Alloy Pole Mount (Gen 3)",
+    "pt-BR": "Suporte de Mastro em Liga de Alumínio (Gen 3)",
+    "es-MX": "Soporte de Poste en Aleación de Aluminio (Gen 3)",
+    "zh": "铝合金立杆支架(Gen 3)"
+  },
+  "solutions.kit.4202.s": {
+    "en": "Aluminum alloy · Anodized finish",
+    "pt-BR": "Liga de alumínio · Acabamento anodizado",
+    "es-MX": "Aleación de aluminio · Acabado anodizado",
+    "zh": "铝合金 · 阳极氧化"
+  },
+  "solutions.kit.691.n": {
+    "en": "Mini Heavy-Duty Pole Mount",
+    "pt-BR": "Suporte de Mastro Reforçado para Mini",
+    "es-MX": "Soporte de Poste Reforzado para Mini",
+    "zh": "Mini 重型立杆支架"
+  },
+  "solutions.kit.691.s": {
+    "en": "Coated alloy · Rated for coastal salt spray",
+    "pt-BR": "Liga revestida · Indicada para maresia costeira",
+    "es-MX": "Aleación recubierta · Indicada para rocío salino costero",
+    "zh": "带涂层合金 · 标称适应海岸盐雾"
+  },
+  "solutions.kit.689.n": {
+    "en": "Mini Rail and Ladder Clamp Mount",
+    "pt-BR": "Suporte de Braçadeira para Balaustrada e Escada",
+    "es-MX": "Soporte de Abrazadera para Baranda y Escalera",
+    "zh": "Mini 栏杆/爬梯卡箍支架"
+  },
+  "solutions.kit.689.s": {
+    "en": "Stainless clamp · Tube 0.8 to 1.18 in",
+    "pt-BR": "Braçadeira inoxidável · Tubo de 0.8 a 1.18 pol",
+    "es-MX": "Abrazadera inoxidable · Tubo de 0.8 a 1.18 pulg",
+    "zh": "不锈钢管夹 · 管径 0.8–1.18 英寸"
+  },
+  "solutions.kit.4206.n": {
+    "en": "DC Power Extension Cable",
+    "pt-BR": "Cabo de Extensão de Energia DC",
+    "es-MX": "Cable de Extensión de Corriente CC",
+    "zh": "DC 电源延长线"
+  },
+  "solutions.kit.4206.s": {
+    "en": "IP68 connectors · Sealing gaskets",
+    "pt-BR": "Conectores IP68 · Vedação com juntas",
+    "es-MX": "Conectores IP68 · Juntas de sellado",
+    "zh": "IP68 连接器 · 密封圈"
+  },
+  "solutions.kit.4205.n": {
+    "en": "12V/24V to 30V DC Adapter, 60W",
+    "pt-BR": "Adaptador DC 12V/24V para 30V, 60W",
+    "es-MX": "Adaptador CC 12V/24V a 30V, 60W",
+    "zh": "12V/24V 转 30V 直流适配器 60W"
+  },
+  "solutions.kit.4205.s": {
+    "en": "12V/24V to 30V · 60W",
+    "pt-BR": "12V/24V para 30V · 60W",
+    "es-MX": "12V/24V a 30V · 60W",
+    "zh": "12V/24V 转 30V · 60W"
+  },
+  "solutions.kit.697.n": {
+    "en": "IP68 Ethernet Cable (Gen 3)",
+    "pt-BR": "Cabo Ethernet IP68 (Gen 3)",
+    "es-MX": "Cable Ethernet IP68 (Gen 3)",
+    "zh": "IP68 以太网线(Gen 3)"
+  },
+  "solutions.kit.697.s": {
+    "en": "IP68 · 23AWG · 2000Mbps",
+    "pt-BR": "IP68 · 23AWG · 2000Mbps",
+    "es-MX": "IP68 · 23AWG · 2000Mbps",
+    "zh": "IP68 · 23AWG · 2000Mbps"
+  },
+  "solutions.kit.4208.n": {
+    "en": "Mini Wall Mount, 360 adjustable",
+    "pt-BR": "Suporte de Parede Mini, ajuste 360",
+    "es-MX": "Soporte de Pared Mini, ajuste 360",
+    "zh": "Mini 壁装支架 360 可调"
+  },
+  "solutions.kit.4208.s": {
+    "en": "Aluminum alloy · 360 adjustment",
+    "pt-BR": "Liga de alumínio · Ajuste 360",
+    "es-MX": "Aleación de aluminio · Ajuste 360",
+    "zh": "铝合金 · 360 可调"
+  },
+  "solutions.kit.662.n": {
+    "en": "Gen 3 Pipe Adapter Mount",
+    "pt-BR": "Adaptador de Tubo Gen 3",
+    "es-MX": "Adaptador de Tubo Gen 3",
+    "zh": "Gen 3 管夹支架"
+  },
+  "solutions.kit.662.s": {
+    "en": "Fits pipe 1.25 to 2.5 in",
+    "pt-BR": "Serve tubo de 1.25 a 2.5 pol",
+    "es-MX": "Para tubo de 1.25 a 2.5 pulg",
+    "zh": "适配 1.25–2.5 英寸管径"
+  },
+  "solutions.kit.655.n": {
+    "en": "Cable Routing Kit",
+    "pt-BR": "Kit de Passagem de Cabo",
+    "es-MX": "Kit de Tendido de Cable",
+    "zh": "走线套件"
+  },
+  "solutions.kit.655.s": {
+    "en": "Clamps and screws · ABS",
+    "pt-BR": "Presilhas e parafusos · ABS",
+    "es-MX": "Grapas y tornillos · ABS",
+    "zh": "夹具与螺丝 · ABS"
+  },
+  "solutions.kit.681.n": {
+    "en": "Mini Magnetic Roof Mount",
+    "pt-BR": "Suporte Magnético de Teto Mini",
+    "es-MX": "Soporte Magnético de Techo Mini",
+    "zh": "Mini 磁吸车顶支架"
+  },
+  "solutions.kit.681.s": {
+    "en": "Magnetic base · ABS housing",
+    "pt-BR": "Base magnética · Corpo em ABS",
+    "es-MX": "Base magnética · Cuerpo de ABS",
+    "zh": "磁吸底座 · ABS 外壳"
+  },
+  "solutions.kit.4201.n": {
+    "en": "Portable Power Bank",
+    "pt-BR": "Bateria Portátil",
+    "es-MX": "Batería Portátil",
+    "zh": "便携电源"
+  },
+  "solutions.kit.4201.s": {
+    "en": "27500mAh · 99Wh",
+    "pt-BR": "27500mAh · 99Wh",
+    "es-MX": "27500mAh · 99Wh",
+    "zh": "27500mAh · 99Wh"
+  },
+  "solutions.kit.4210.n": {
+    "en": "Battery Mount Pack",
+    "pt-BR": "Pacote com Suporte e Bateria",
+    "es-MX": "Paquete con Soporte y Batería",
+    "zh": "带支架电池包"
+  },
+  "solutions.kit.4210.s": {
+    "en": "30,000mAh · 20V output · 100W",
+    "pt-BR": "30.000mAh · Saída 20V · 100W",
+    "es-MX": "30,000mAh · Salida 20V · 100W",
+    "zh": "30,000mAh · 20V 输出 · 100W"
+  },
+  "solutions.kit.4204.n": {
+    "en": "60W Power Supply Kit",
+    "pt-BR": "Kit de Fonte 60W",
+    "es-MX": "Kit de Fuente 60W",
+    "zh": "60W 供电套件"
+  },
+  "solutions.kit.4204.s": {
+    "en": "30V/2A · AC and 12V car input",
+    "pt-BR": "30V/2A · Entrada CA e 12V veicular",
+    "es-MX": "30V/2A · Entrada CA y 12V vehicular",
+    "zh": "30V/2A · 交流与 12V 车充双输入"
+  },
+  "solutions.kit.690.n": {
+    "en": "Mini Pole Mount Adapter",
+    "pt-BR": "Adaptador de Mastro Mini",
+    "es-MX": "Adaptador de Poste Mini",
+    "zh": "Mini 立杆适配座"
+  },
+  "solutions.kit.690.s": {
+    "en": "Pole adapter · up to D1 1/2",
+    "pt-BR": "Adaptador de mastro · até D1 1/2",
+    "es-MX": "Adaptador de poste · hasta D1 1/2",
+    "zh": "立杆适配 · 最大 D1 1/2"
+  },
+  "solutions.kit.694.n": {
+    "en": "Mini Carry Bag",
+    "pt-BR": "Bolsa de Transporte Mini",
+    "es-MX": "Bolsa de Transporte Mini",
+    "zh": "Mini 便携包"
+  },
+  "solutions.kit.694.s": {
+    "en": "Shoulder strap · Travel bag",
+    "pt-BR": "Alça de ombro · Bolsa de viagem",
+    "es-MX": "Correa de hombro · Bolsa de viaje",
+    "zh": "肩带 · 旅行包型"
+  },
+  "solutions.kit.695.n": {
+    "en": "Mini Hard Case",
+    "pt-BR": "Case Rígida Mini",
+    "es-MX": "Estuche Rígido Mini",
+    "zh": "Mini 硬壳箱"
+  },
+  "solutions.kit.695.s": {
+    "en": "Hard shell · For the Mini dish kit",
+    "pt-BR": "Casca rígida · Para o kit da antena Mini",
+    "es-MX": "Carcasa rígida · Para el kit de antena Mini",
+    "zh": "硬壳 · 适配 Mini 天线套装"
+  },
+  "solutions.kit.684.n": {
+    "en": "Mini Pivot Mount",
+    "pt-BR": "Suporte Pivotante Mini",
+    "es-MX": "Soporte Pivotante Mini",
+    "zh": "Mini 转轴支架"
+  },
+  "solutions.kit.684.s": {
+    "en": "Aluminum alloy · Tilt adjustment",
+    "pt-BR": "Liga de alumínio · Ajuste de inclinação",
+    "es-MX": "Aleación de aluminio · Ajuste de inclinación",
+    "zh": "铝合金 · 俯仰可调"
+  },
+  "solutions.kit.661.n": {
+    "en": "Multi-Port Ethernet Adapter",
+    "pt-BR": "Adaptador Ethernet Multiportas",
+    "es-MX": "Adaptador Ethernet Multipuerto",
+    "zh": "多口以太网适配器"
+  },
+  "solutions.kit.661.s": {
+    "en": "Multi-port · Standard and Gen 3",
+    "pt-BR": "Multiportas · Standard e Gen 3",
+    "es-MX": "Multipuerto · Standard y Gen 3",
+    "zh": "多端口 · 适配 Standard 与 Gen 3"
+  },
+  "solutions.kit.4199.n": {
+    "en": "Mini 4-Port Ethernet Adapter",
+    "pt-BR": "Adaptador Ethernet 4 Portas Mini",
+    "es-MX": "Adaptador Ethernet 4 Puertos Mini",
+    "zh": "Mini 四口以太网适配器"
+  },
+  "solutions.kit.4199.s": {
+    "en": "4-port · For the Mini router",
+    "pt-BR": "4 portas · Para o roteador Mini",
+    "es-MX": "4 puertos · Para el router Mini",
+    "zh": "四端口 · 适配 Mini 路由"
+  },
+  "solutions.kit.674.n": {
+    "en": "Router and Supply Mounting Kit",
+    "pt-BR": "Kit de Fixação de Roteador e Fonte",
+    "es-MX": "Kit de Montaje de Router y Fuente",
+    "zh": "路由与电源固定套件"
+  },
+  "solutions.kit.674.s": {
+    "en": "Wall mounting · ABS",
+    "pt-BR": "Fixação em parede · ABS",
+    "es-MX": "Montaje en muro · ABS",
+    "zh": "壁装 · ABS"
+  },
+  "solutions.kit.650.n": {
+    "en": "Enterprise Ethernet Cable, 2-pack",
+    "pt-BR": "Cabo Ethernet Enterprise, 2 unidades",
+    "es-MX": "Cable Ethernet Enterprise, 2 piezas",
+    "zh": "Enterprise 以太网线(2 条装)"
+  },
+  "solutions.kit.650.s": {
+    "en": "CAT6 · 23AWG · IP67",
+    "pt-BR": "CAT6 · 23AWG · IP67",
+    "es-MX": "CAT6 · 23AWG · IP67",
+    "zh": "CAT6 · 23AWG · IP67"
   }
 }

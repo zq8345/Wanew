@@ -217,29 +217,126 @@
     </div>
   </section>
 
-  <section class="xlc-section">
+<!-- Deep scene blocks (Solutions #77). Injected into solutions-scene.html at the scene-blocks
+     slot for any scene listed in DEEP (regen.mjs); a scene absent from DEEP gets "" and keeps the
+     thin generic band instead. (Do NOT write the slot's token name literally in this file: this partial is
+     injected verbatim, and renderPage's assertNoTokens would flag it as an unresolved token.)
+     Content model: pain -> system -> kit -> trust -> install -> CTA.
+     🔴 Claim discipline: each durability/rating line is scoped to the product whose own listing
+     states it (see solutions.marine.rec.*.s). No blanket marine durability claims. -->
+
+  <section class="xlc-section sol-deep-pain">
     <div class="container">
       <div class="tj-sechead">
-        <h2 class="tj-h2">Acessórios recomendados</h2>
+        <h2 class="tj-h2">O que muda numa implantação</h2>
         <div class="tj-rule"></div>
       </div>
-      <div class="sol-recs">
-        <a class="sol-rec" href="/pt/enterprise/"><span class="sol-rec__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2"/></svg></span><span class="sol-rec__t">Enterprise</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>
-        <a class="sol-rec" href="/pt/products/#networking"><span class="sol-rec__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v3.5M12 10.5 6 17M12 10.5l6 6.5"/></svg></span><span class="sol-rec__t">Redes</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>
-        <a class="sol-rec" href="/pt/products/"><span class="sol-rec__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span><span class="sol-rec__t">Todos os produtos</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>
+      <div class="sol-deep-grid">
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">01</span><h3>Não é um terminal só</h3><p>Uma montagem repetível vale mais que uma instalação esperta.</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">02</span><h3>Indisponibilidade tem preço</h3><p>Caminhos cabeados e reservas custam menos que uma queda.</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">03</span><h3>Os clientes são cabeados</h3><p>Câmeras e terminais precisam de ethernet, não WiFi.</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">04</span><h3>Compras faz perguntas</h3><p>Prazo, MOQ e documentação importam.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section class="xlc-section w3-whitecards sol-deep-sys">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">O que uma implantação precisa</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-grid">
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v3.5M12 10.5 6 17M12 10.5l6 6.5"/></svg></span><h3>Distribuição cabeada</h3><p>Ethernet do terminal para switches de verdade.</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span><h3>Equipamento fixado e acessível</h3><p>Roteador e fonte fixados e acessíveis.</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span><h3>Trechos com proteção externa</h3><p>Cabo com proteção entre edifícios.</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.2 2.9 7.6 7 8.5 4.1-.9 7-4.3 7-8.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Uma especificação repetível</h3><p>A mesma lista de peças em todos os sites.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-kit">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">Um kit que escala</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-kit__grid">
+        <a class="sol-deep-kit__c" href="/pt/standard/661">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v3.5M12 10.5 6 17M12 10.5l6 6.5"/></svg></span>
+          <h3 class="sol-deep-kit__t">Adaptador Ethernet Multiportas</h3>
+          <p class="sol-deep-kit__s">Multiportas · Standard e Gen 3</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-deep-kit__c" href="/pt/mini/4199">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v3.5M12 10.5 6 17M12 10.5l6 6.5"/></svg></span>
+          <h3 class="sol-deep-kit__t">Adaptador Ethernet 4 Portas Mini</h3>
+          <p class="sol-deep-kit__s">4 portas · Para o roteador Mini</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-deep-kit__c" href="/pt/standard/674">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span>
+          <h3 class="sol-deep-kit__t">Kit de Fixação de Roteador e Fonte</h3>
+          <p class="sol-deep-kit__s">Fixação em parede · ABS</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-deep-kit__c" href="/pt/enterprise/650">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span>
+          <h3 class="sol-deep-kit__t">Cabo Ethernet Enterprise, 2 unidades</h3>
+          <p class="sol-deep-kit__s">CAT6 · 23AWG · IP67</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+      </div>
+      <p class="sol-deep-note">Os graus valem para o produto que os declara, não para o kit inteiro.</p>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-trust">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">Por que confiar no equipamento</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <p class="sol-deep-lead">Fabricamos nossos próprios acessórios, desde 2010.</p>
+      <div class="about-certstrip sol-deep-certs">
+        <span class="about-certstrip__i">FCC</span>
+        <span class="about-certstrip__i">CE</span>
+        <span class="about-certstrip__i">RoHS</span>
+        <span class="about-certstrip__i">ISO 9001</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-install">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">Como se monta</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-guides">
+        <a class="sol-deep-guides__l" href="/guides/oem-starlink-compatible-accessories-what-buyers-should-verify/"><span>OEM Accessories: What to Verify <span class="sol-deep-guides__b">em inglês</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-deep-guides__l" href="/guides/bulk-ordering-guide-moq-lead-time-pricing-starlink-mounts/"><span>Bulk Ordering: MOQ, Lead Time, Pricing <span class="sol-deep-guides__b">em inglês</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-deep-guides__l" href="/guides/custom-starlink-accessory-manufacturing-prototype-to-production/"><span>Custom Manufacturing: Prototype to Production <span class="sol-deep-guides__b">em inglês</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-deep-guides__l" href="/guides/quality-control-standards-starlink-compatible-accessories/"><span>Quality Control Standards <span class="sol-deep-guides__b">em inglês</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-cta">
+    <div class="container">
       <div class="sol-cta">
         <div class="sol-cta__text">
-          <h3>Não sabe qual configuração combina?</h3>
-          <p>Conte-nos seu ambiente e indicaremos os acessórios certos.</p>
+          <h3>Conte-nos sobre seus sites</h3>
+          <p>Diga quantos sites e o que eles conectam. Nós especificamos a montagem.</p>
         </div>
         <div class="sol-cta__actions">
           <a class="w3-btn w3-btn--primary" href="/pt/contact/">Solicite um orçamento <span class="w3-arw">→</span></a>
-          <a class="w3-btn w3-btn--ghost" href="/pt/products/">Ver todos os produtos</a>
+          <a class="w3-btn w3-btn--ghost" href="/pt/guides/">Como se monta</a>
         </div>
       </div>
     </div>
   </section>
+
 
   <footer class="site-footer">
     <div class="site-footer__middle">

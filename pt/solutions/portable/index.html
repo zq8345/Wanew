@@ -217,29 +217,126 @@
     </div>
   </section>
 
-  <section class="xlc-section">
+<!-- Deep scene blocks (Solutions #77). Injected into solutions-scene.html at the scene-blocks
+     slot for any scene listed in DEEP (regen.mjs); a scene absent from DEEP gets "" and keeps the
+     thin generic band instead. (Do NOT write the slot's token name literally in this file: this partial is
+     injected verbatim, and renderPage's assertNoTokens would flag it as an unresolved token.)
+     Content model: pain -> system -> kit -> trust -> install -> CTA.
+     🔴 Claim discipline: each durability/rating line is scoped to the product whose own listing
+     states it (see solutions.marine.rec.*.s). No blanket marine durability claims. -->
+
+  <section class="xlc-section sol-deep-pain">
     <div class="container">
       <div class="tj-sechead">
-        <h2 class="tj-h2">Acessórios recomendados</h2>
+        <h2 class="tj-h2">O que muda no uso portátil</h2>
         <div class="tj-rule"></div>
       </div>
-      <div class="sol-recs">
-        <a class="sol-rec" href="/pt/mini/"><span class="sol-rec__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="10" rx="2"/><path d="M12 13v5"/><path d="M8 21h8"/></svg></span><span class="sol-rec__t">Starlink Mini</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>
-        <a class="sol-rec" href="/pt/products/#cases"><span class="sol-rec__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5.2a3 3 0 0 1 6 0V7"/></svg></span><span class="sol-rec__t">Cases e Proteção</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>
-        <a class="sol-rec" href="/pt/products/#cables"><span class="sol-rec__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span><span class="sol-rec__t">Cabos</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>
+      <div class="sol-deep-grid">
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">01</span><h3>Ele vive numa bolsa</h3><p>É no transporte que o dano acontece.</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">02</span><h3>O tempo de montagem é o ponto</h3><p>Minutos, não uma obra de instalação.</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">03</span><h3>Sem superfície fixa</h3><p>Você usa o que estiver disponível.</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">04</span><h3>Você carrega a energia também</h3><p>Não há tomada no destino.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section class="xlc-section w3-whitecards sol-deep-sys">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">O que uma instalação portátil precisa</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-grid">
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5.2a3 3 0 0 1 6 0V7"/></svg></span><h3>Uma case que aguenta pancada</h3><p>Acolchoada ou rígida para antena e cabo.</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span><h3>Suporte sem furar</h3><p>Pivô ou braçadeira, nada permanente.</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><h3>Energia que dá para levar</h3><p>Um pacote em Wh que dá para viajar.</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.2 2.9 7.6 7 8.5 4.1-.9 7-4.3 7-8.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Uma bolsa, tudo dentro</h3><p>Cabo e fonte guardados junto com a antena.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-kit">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">Um kit para viajar</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-kit__grid">
+        <a class="sol-deep-kit__c" href="/pt/mini/694">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5.2a3 3 0 0 1 6 0V7"/></svg></span>
+          <h3 class="sol-deep-kit__t">Bolsa de Transporte Mini</h3>
+          <p class="sol-deep-kit__s">Alça de ombro · Bolsa de viagem</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-deep-kit__c" href="/pt/mini/695">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5.2a3 3 0 0 1 6 0V7"/></svg></span>
+          <h3 class="sol-deep-kit__t">Case Rígida Mini</h3>
+          <p class="sol-deep-kit__s">Casca rígida · Para o kit da antena Mini</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-deep-kit__c" href="/pt/mini/684">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span>
+          <h3 class="sol-deep-kit__t">Suporte Pivotante Mini</h3>
+          <p class="sol-deep-kit__s">Liga de alumínio · Ajuste de inclinação</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-deep-kit__c" href="/pt/mini/4201">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+          <h3 class="sol-deep-kit__t">Bateria Portátil</h3>
+          <p class="sol-deep-kit__s">27500mAh · 99Wh</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+      </div>
+      <p class="sol-deep-note">Os graus valem para o produto que os declara, não para o kit inteiro.</p>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-trust">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">Por que confiar no equipamento</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <p class="sol-deep-lead">Fabricamos nossos próprios acessórios, desde 2010.</p>
+      <div class="about-certstrip sol-deep-certs">
+        <span class="about-certstrip__i">FCC</span>
+        <span class="about-certstrip__i">CE</span>
+        <span class="about-certstrip__i">RoHS</span>
+        <span class="about-certstrip__i">ISO 9001</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-install">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">Como se monta</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-guides">
+        <a class="sol-deep-guides__l" href="/guides/set-up-starlink-mini-rv-camping-complete-guide/"><span>Setting Up Starlink Mini for Camping <span class="sol-deep-guides__b">em inglês</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-deep-guides__l" href="/guides/best-starlink-mini-accessories-rv-off-grid-use/"><span>Best Starlink Mini Gear for RVs <span class="sol-deep-guides__b">em inglês</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-deep-guides__l" href="/guides/starlink-mini-standard-which-mounting-kit-do-need/"><span>Mini vs Standard: Which Mount? <span class="sol-deep-guides__b">em inglês</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-deep-guides__l" href="/guides/install-starlink-mount-without-drilling-non-permanent-solutions/"><span>Mounting Without Drilling <span class="sol-deep-guides__b">em inglês</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-cta">
+    <div class="container">
       <div class="sol-cta">
         <div class="sol-cta__text">
-          <h3>Não sabe qual configuração combina?</h3>
-          <p>Conte-nos seu ambiente e indicaremos os acessórios certos.</p>
+          <h3>Conte-nos como você viaja</h3>
+          <p>Conte como você se desloca e o modelo Starlink. Nós especificamos o kit.</p>
         </div>
         <div class="sol-cta__actions">
           <a class="w3-btn w3-btn--primary" href="/pt/contact/">Solicite um orçamento <span class="w3-arw">→</span></a>
-          <a class="w3-btn w3-btn--ghost" href="/pt/products/">Ver todos os produtos</a>
+          <a class="w3-btn w3-btn--ghost" href="/pt/guides/">Como se monta</a>
         </div>
       </div>
     </div>
   </section>
+
 
   <footer class="site-footer">
     <div class="site-footer__middle">

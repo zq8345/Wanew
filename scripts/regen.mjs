@@ -272,24 +272,78 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
   //    🔴 Content-accuracy rule: each kit card's spec line restates ONLY what that product's own
   //    listing says (see solutions.marine.rec.*.s). Cards are text+icon, NO product photos — the
   //    catalogue still carries scraped listing images with old-brand pixel residue (4209 class).
-  const marineTpl = fs.readFileSync(path.join(REPO, "data", "templates", "solutions-marine.html"), "utf8");
-  // The thin generic band (Recommended chips + generic CTA) moved OUT of solutions-scene.html into
-  // its own partial so a deep scene can drop it: marine's kit + scene CTA supersede it, and keeping
-  // both would put two CTAs on one page. Non-marine scenes get this markup back verbatim, so their
-  // built pages stay byte-identical — that equality is the regression proof, see the regen diff.
+  const deepTpl = fs.readFileSync(path.join(REPO, "data", "templates", "solutions-deep.html"), "utf8");
+  // The thin generic band (Recommended chips + generic CTA) lives in its own partial so a deep
+  // scene can drop it: its kit + scene CTA supersede it, and keeping both puts two CTAs on a page.
+  // Scenes NOT in DEEP still get that markup back verbatim, byte-identical to before.
   const solGenericTpl = fs.readFileSync(path.join(REPO, "data", "templates", "solutions-scene-generic.html"), "utf8").replace(/\r/g, "").replace(/\n$/, "");
-  const MARINE_KIT = [   // [n, category, id, icon] — real catalogue products, verified present
-    [1, "performance-gen-3", 4202, "mount"], [2, "mini", 691, "mount"], [3, "mini", 689, "mount"],
-    [4, "mini", 4206, "cable"], [5, "mini", 4205, "power"], [6, "performance-gen-3", 697, "cable"],
-  ];
+  // Guide card titles come from the guides manifest, not a second copy here — retitling an article
+  // must not need an edit in two places.
+  const guidesManifest = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "guides-manifest.json"), "utf8")).articles;
+  const guideTitle = (slug) => {
+    const a = guidesManifest.find((x) => x.slug === slug);
+    if (!a) throw new Error(`solutions: guide slug not in manifest: ${slug}`);
+    return a.card_title || a.title;
+  };
+  // Per-scene deep content wiring. kit = real catalogue products (verified present); guides = real
+  // retagged articles. 🔴 Each card's spec tag restates ONLY what that product's own listing says,
+  // and cards are icon+text with NO product photos — the catalogue still holds scraped listing
+  // images with old-brand pixel residue (the 4209 class).
+  const DEEP = {
+    marine: {
+      kit: [[1, "performance-gen-3", 4202, "mount"], [2, "mini", 691, "mount"], [3, "mini", 689, "mount"],
+            [4, "mini", 4206, "cable"], [5, "mini", 4205, "power"], [6, "performance-gen-3", 697, "cable"]],
+      sysIcons: ["mount", "shield", "cable", "power"],
+      guides: ["starlink-marine-installation-step-by-step-boat-satellite",
+               "special-mounts-starlink-marine-accessories-complete-guide-stable",
+               "complete-starlink-marine-cable-management-best-solutions-routing",
+               "starlink-marine-accessories-guide-marine-grade-connectors",
+               "starlink-marine-maintenance-5-essential-tips-reliable-satellite"],
+    },
+    home: {
+      kit: [[1, "mini", 4208, "mount"], [2, "mini", 691, "mount"], [3, "standard", 662, "mount"], [4, "standard-circular", 655, "cable"]],
+      sysIcons: ["mount", "cable", "shield", "power"],
+      guides: ["flat-roof-mounting-solutions-starlink-terminals-complete-guide",
+               "starlink-wall-mount-roof-mount-pros-cons-home",
+               "install-starlink-mount-without-drilling-non-permanent-solutions",
+               "starlink-junction-box-installation-outdoor-cable-management"],
+    },
+    rv: {
+      kit: [[1, "mini", 681, "mount"], [2, "mini", 689, "mount"], [3, "mini", 4205, "power"], [4, "mini", 4206, "cable"]],
+      sysIcons: ["mount", "power", "cable", "shield"],
+      guides: ["essential-starlink-rv-accessories-full-time-rvers-setup",
+               "complete-guide-starlink-rv-12v-accessories-compatibility",
+               "best-starlink-mini-cable-management-rv-roof-mounts",
+               "starlink-mini-pipe-mount-installation-guide-step-by"],
+    },
+    "off-grid": {
+      kit: [[1, "mini", 4201, "power"], [2, "mini", 4210, "power"], [3, "mini", 4204, "power"], [4, "mini", 690, "mount"]],
+      sysIcons: ["power", "cable", "mount", "shield"],
+      guides: ["power-starlink-mini-solar-panels-complete-12v-dc",
+               "wanew-starlink-mini-power-guide-12v-adapters-dc",
+               "starlink-compatible-power-adapters-buyer-guide-12v-dc",
+               "winterizing-starlink-mini-cold-weather-accessories-guide"],
+    },
+    portable: {
+      kit: [[1, "mini", 694, "case"], [2, "mini", 695, "case"], [3, "mini", 684, "mount"], [4, "mini", 4201, "power"]],
+      sysIcons: ["case", "mount", "power", "shield"],
+      guides: ["set-up-starlink-mini-rv-camping-complete-guide",
+               "best-starlink-mini-accessories-rv-off-grid-use",
+               "starlink-mini-standard-which-mounting-kit-do-need",
+               "install-starlink-mount-without-drilling-non-permanent-solutions"],
+    },
+    business: {
+      kit: [[1, "standard", 661, "net"], [2, "mini", 4199, "net"], [3, "standard", 674, "mount"], [4, "enterprise", 650, "cable"]],
+      sysIcons: ["net", "mount", "cable", "shield"],
+      guides: ["oem-starlink-compatible-accessories-what-buyers-should-verify",
+               "bulk-ordering-guide-moq-lead-time-pricing-starlink-mounts",
+               "custom-starlink-accessory-manufacturing-prototype-to-production",
+               "quality-control-standards-starlink-compatible-accessories"],
+    },
+  };
   const esc = (s) => String(s).replace(/&(?!(?:amp|lt|gt|quot|#\d+);)/g, "&amp;");
-  const MARINE_GUIDES = [  // real retagged marine articles (slug verified in guides-manifest.json)
-    ["starlink-marine-installation-step-by-step-boat-satellite", "Step-by-Step Boat Installation"],
-    ["special-mounts-starlink-marine-accessories-complete-guide-stable", "Special Mounts for Rough Seas"],
-    ["complete-starlink-marine-cable-management-best-solutions-routing", "Marine Cable Management & Routing"],
-    ["starlink-marine-accessories-guide-marine-grade-connectors", "Choosing Marine-Grade Connectors"],
-    ["starlink-marine-maintenance-5-essential-tips-reliable-satellite", "5 Marine Maintenance Essentials"],
-  ];
+  // Chips for the thin generic band — only reached by a scene NOT in DEEP. All six are deep today,
+  // so this is the fallback path for a future scene, kept working rather than deleted.
   // [labelKey | null, url, icon, literalLabel?] — literal for proper-noun models (Mini/Enterprise)
   const SOL_RECS = {
     home: [["header.mounts_brackets", "/products/#mounts", "mount"], ["header.cables", "/products/#cables", "cable"]],
@@ -320,35 +374,43 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
         const label = lit || pick(baseCat[lk], locale);
         return `        <a class="sol-rec" href="${linkOf(url)}"><span class="sol-rec__ic" aria-hidden="true">${ICON[ic]}</span><span class="sol-rec__t">${label}</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>`;
       }).join("\n");
-      const sceneCat = { ...baseCat, "sol.eyebrow": solCat[`solutions.${sc}.eyebrow`], "sol.h1": solCat[`solutions.${sc}.h1`], "sol.intro": solCat[`solutions.${sc}.intro`] };
-      // Marine-only deep blocks; "" for the other 5 scenes => their pages don't move a byte.
+      // Per-scene text is aliased onto fixed {{t.sol.*}} tokens so ONE partial serves every scene.
+      const alias = (suffix) => solCat[`solutions.${sc}.${suffix}`];
+      const sceneCat = { ...baseCat, "sol.eyebrow": alias("eyebrow"), "sol.h1": alias("h1"), "sol.intro": alias("intro") };
+      const deep = DEEP[sc];
       let sceneBlocks = "";
-      if (sc === "marine") {
-        const kit = MARINE_KIT.map(([n, cat, id, ic]) => {
-          const nm = pick(solCat[`solutions.marine.rec.${n}.n`], locale);
-          const spec = pick(solCat[`solutions.marine.rec.${n}.s`], locale);
-          return `        <a class="sol-mar-kit__c" href="${urlOf(`/${cat}/${id}`, locale)}">\n`
-            + `          <span class="sol-mar-kit__ic" aria-hidden="true">${ICON[ic]}</span>\n`
-            + `          <h3 class="sol-mar-kit__t">${esc(nm)}</h3>\n`
-            + `          <p class="sol-mar-kit__s">${esc(spec)}</p>\n`
-            + `          <span class="sol-mar-kit__arw" aria-hidden="true">→</span>\n        </a>`;
+      if (deep) {
+        for (const k of ["pain.h2", "sys.h2", "recs.h2", "cta.h2", "cta.d",
+                         ...[1, 2, 3, 4].flatMap((i) => [`pain.${i}.t`, `pain.${i}.d`, `sys.${i}.t`, `sys.${i}.d`])]) {
+          sceneCat[`sol.${k}`] = alias(k);
+        }
+        const kit = deep.kit.map(([, cat, id, ic]) => {
+          // Card copy is keyed by PRODUCT id, not by scene slot: the same product shown in two
+          // scenes must not carry two descriptions that can drift apart.
+          const nm = pick(solCat[`solutions.kit.${id}.n`], locale);
+          const spec = pick(solCat[`solutions.kit.${id}.s`], locale);
+          return `        <a class="sol-deep-kit__c" href="${urlOf(`/${cat}/${id}`, locale)}">\n`
+            + `          <span class="sol-deep-kit__ic" aria-hidden="true">${ICON[ic]}</span>\n`
+            + `          <h3 class="sol-deep-kit__t">${esc(nm)}</h3>\n`
+            + `          <p class="sol-deep-kit__s">${esc(spec)}</p>\n`
+            + `          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>\n        </a>`;
         }).join("\n");
-        // Marine articles are EN-only today: on a localized page the title carries the same honest
-        // "in English" badge the Guides cards use (card.lang_badge) rather than pretending it is
-        // translated. Same call Joe/总工 signed off on for the Guides listings.
-        const badge = locale === DEFAULT ? "" : ` <span class="sol-mar-guides__b">${esc(pick(baseCat["card.lang_badge"], locale))}</span>`;
-        const guides = MARINE_GUIDES.map(([slug, title]) =>
-          `        <a class="sol-mar-guides__l" href="${urlOf(`/guides/${slug}/`, locale)}"><span>${esc(title)}${badge}</span><span class="sol-mar-guides__arw" aria-hidden="true">→</span></a>`
+        // Guide articles are EN-only today, so a localized page carries the same honest "in English"
+        // badge the Guides cards use (card.lang_badge) rather than pretending they are translated.
+        const badge = locale === DEFAULT ? "" : ` <span class="sol-deep-guides__b">${esc(pick(baseCat["card.lang_badge"], locale))}</span>`;
+        const guides = deep.guides.map((slug) =>
+          `        <a class="sol-deep-guides__l" href="${urlOf(`/guides/${slug}/`, locale)}"><span>${esc(guideTitle(slug))}${badge}</span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>`
         ).join("\n");
-        sceneBlocks = marineTpl
-          .split("{{MARINE_KIT}}").join(kit)
-          .split("{{MARINE_GUIDES}}").join(guides)
-          .split("{{ICON_MOUNT}}").join(ICON.mount).split("{{ICON_SHIELD}}").join(ICON.shield)
-          .split("{{ICON_CABLE}}").join(ICON.cable).split("{{ICON_POWER}}").join(ICON.power);
+        const [i1, i2, i3, i4] = deep.sysIcons;
+        sceneBlocks = deepTpl
+          .split("{{DEEP_KIT}}").join(kit)
+          .split("{{DEEP_GUIDES}}").join(guides)
+          .split("{{ICON_MOUNT}}").join(ICON[i1]).split("{{ICON_SHIELD}}").join(ICON[i2])
+          .split("{{ICON_CABLE}}").join(ICON[i3]).split("{{ICON_POWER}}").join(ICON[i4]);
       }
       const tpl2 = solSceneTpl
         .split("{{SCENE_HERO}}").join(`/static/upload/image/20260725/${SOL_HERO[sc]}.webp`)
-        .split("{{SCENE_GENERIC}}").join(sc === "marine" ? "" : solGenericTpl)
+        .split("{{SCENE_GENERIC}}").join(deep ? "" : solGenericTpl)
         .split("{{SCENE_RECS}}").join(recs)
         .split("{{SCENE_BLOCKS}}").join(sceneBlocks)
         .split("{{SCENE_SOLUTIONS_URL}}").join(urlOf("/solutions/", locale));

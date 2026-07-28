@@ -216,28 +216,126 @@
     </div>
   </section>
 
-  <section class="xlc-section">
+<!-- Deep scene blocks (Solutions #77). Injected into solutions-scene.html at the scene-blocks
+     slot for any scene listed in DEEP (regen.mjs); a scene absent from DEEP gets "" and keeps the
+     thin generic band instead. (Do NOT write the slot's token name literally in this file: this partial is
+     injected verbatim, and renderPage's assertNoTokens would flag it as an unresolved token.)
+     Content model: pain -> system -> kit -> trust -> install -> CTA.
+     🔴 Claim discipline: each durability/rating line is scoped to the product whose own listing
+     states it (see solutions.marine.rec.*.s). No blanket marine durability claims. -->
+
+  <section class="xlc-section sol-deep-pain">
     <div class="container">
       <div class="tj-sechead">
-        <h2 class="tj-h2">Recommended accessories</h2>
+        <h2 class="tj-h2">What makes a home install different</h2>
         <div class="tj-rule"></div>
       </div>
-      <div class="sol-recs">
-        <a class="sol-rec" href="/products/#mounts"><span class="sol-rec__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span><span class="sol-rec__t">Mounts &amp; Brackets</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>
-        <a class="sol-rec" href="/products/#cables"><span class="sol-rec__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span><span class="sol-rec__t">Cables</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>
+      <div class="sol-deep-grid">
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">01</span><h3>It goes up once</h3><p>Placement is permanent, so obstruction matters.</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">02</span><h3>The cable has to get inside</h3><p>A wall or eave entry needs sealing.</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">03</span><h3>It has to look right</h3><p>Brackets and runs become part of the house.</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">04</span><h3>Weather, not motion</h3><p>Wind load and rain, year after year.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section class="xlc-section w3-whitecards sol-deep-sys">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">What a home setup needs</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-grid">
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span><h3>A mount matched to the surface</h3><p>Wall, flat roof or pole, not one bracket for all.</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span><h3>Cable routing that stays tidy</h3><p>Clips and a sealed entry instead of a loose run.</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.2 2.9 7.6 7 8.5 4.1-.9 7-4.3 7-8.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Aim you can adjust</h3><p>Tilt and rotation to clear trees and roofline.</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><h3>Mains power, kept tidy</h3><p>Router and supply mounted, not left on the floor.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-kit">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">A kit for a house</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-kit__grid">
+        <a class="sol-deep-kit__c" href="/mini/4208">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span>
+          <h3 class="sol-deep-kit__t">Mini Wall Mount, 360 adjustable</h3>
+          <p class="sol-deep-kit__s">Aluminum alloy · 360 adjustment</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-deep-kit__c" href="/mini/691">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span>
+          <h3 class="sol-deep-kit__t">Mini Heavy-Duty Pole Mount</h3>
+          <p class="sol-deep-kit__s">Coated alloy · Rated for coastal salt spray</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-deep-kit__c" href="/standard/662">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span>
+          <h3 class="sol-deep-kit__t">Gen 3 Pipe Adapter Mount</h3>
+          <p class="sol-deep-kit__s">Fits pipe 1.25 to 2.5 in</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-deep-kit__c" href="/standard-circular/655">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span>
+          <h3 class="sol-deep-kit__t">Cable Routing Kit</h3>
+          <p class="sol-deep-kit__s">Clamps and screws · ABS</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+      </div>
+      <p class="sol-deep-note">Ratings apply to the product that states them, not to a whole kit.</p>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-trust">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">Why trust the hardware</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <p class="sol-deep-lead">We manufacture our own accessories, and have since 2010.</p>
+      <div class="about-certstrip sol-deep-certs">
+        <span class="about-certstrip__i">FCC</span>
+        <span class="about-certstrip__i">CE</span>
+        <span class="about-certstrip__i">RoHS</span>
+        <span class="about-certstrip__i">ISO 9001</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-install">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">How it goes together</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-guides">
+        <a class="sol-deep-guides__l" href="/guides/flat-roof-mounting-solutions-starlink-terminals-complete-guide/"><span>Flat Roof Mounting Solutions</span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-deep-guides__l" href="/guides/starlink-wall-mount-roof-mount-pros-cons-home/"><span>Wall Mount vs Roof Mount</span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-deep-guides__l" href="/guides/install-starlink-mount-without-drilling-non-permanent-solutions/"><span>Mounting Without Drilling</span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-deep-guides__l" href="/guides/starlink-junction-box-installation-outdoor-cable-management/"><span>Junction Box for Outdoor Cabling</span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-cta">
+    <div class="container">
       <div class="sol-cta">
         <div class="sol-cta__text">
-          <h3>Not sure which setup fits?</h3>
-          <p>Tell us your environment and weill match the right accessories.</p>
+          <h3>Tell us your roof</h3>
+          <p>Send your mounting surface and Starlink model. We will spec the kit.</p>
         </div>
         <div class="sol-cta__actions">
           <a class="w3-btn w3-btn--primary" href="/contact/">Request a quote <span class="w3-arw">→</span></a>
-          <a class="w3-btn w3-btn--ghost" href="/products/">Browse all products</a>
+          <a class="w3-btn w3-btn--ghost" href="/guides/">How it goes together</a>
         </div>
       </div>
     </div>
   </section>
+
 
   <footer class="site-footer">
     <div class="site-footer__middle">

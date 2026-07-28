@@ -213,29 +213,126 @@
     </div>
   </section>
 
-  <section class="xlc-section">
+<!-- Deep scene blocks (Solutions #77). Injected into solutions-scene.html at the scene-blocks
+     slot for any scene listed in DEEP (regen.mjs); a scene absent from DEEP gets "" and keeps the
+     thin generic band instead. (Do NOT write the slot's token name literally in this file: this partial is
+     injected verbatim, and renderPage's assertNoTokens would flag it as an unresolved token.)
+     Content model: pain -> system -> kit -> trust -> install -> CTA.
+     🔴 Claim discipline: each durability/rating line is scoped to the product whose own listing
+     states it (see solutions.marine.rec.*.s). No blanket marine durability claims. -->
+
+  <section class="xlc-section sol-deep-pain">
     <div class="container">
       <div class="tj-sechead">
-        <h2 class="tj-h2">推荐配件</h2>
+        <h2 class="tj-h2">房车上有什么不一样</h2>
         <div class="tj-rule"></div>
       </div>
-      <div class="sol-recs">
-        <a class="sol-rec" href="/zh/products/#mounts"><span class="sol-rec__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span><span class="sol-rec__t">支架与固定架</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>
-        <a class="sol-rec" href="/zh/products/#power"><span class="sol-rec__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span class="sol-rec__t">电源与充电</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>
-        <a class="sol-rec" href="/zh/mini/"><span class="sol-rec__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="10" rx="2"/><path d="M12 13v5"/><path d="M8 21h8"/></svg></span><span class="sol-rec__t">Starlink Mini</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>
+      <div class="sol-deep-grid">
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">01</span><h3>它要跟着你跑</h3><p>路面振动会把紧固件晃松。</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">02</span><h3>没有墙插座</h3><p>电要从 12V/24V 车电系统取。</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">03</span><h3>天天装了又拆</h3><p>支架得能徒手拆下来。</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">04</span><h3>车顶很挤</h3><p>行李架、通风口和空调没剩多少地方。</p></div>
       </div>
+    </div>
+  </section>
+
+  <section class="xlc-section w3-whitecards sol-deep-sys">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">房车配置需要什么</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-grid">
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span><h3>扛得住路况的支架</h3><p>磁吸、卡箍还是爬梯式,看安装面定。</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><h3>12V 直供,不过逆变</h3><p>用直流适配器,不用先逆变成市电。</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span><h3>耐得住晃动的线</h3><p>从车顶到车厢,用有防护等级的线。</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.2 2.9 7.6 7 8.5 4.1-.9 7-4.3 7-8.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>拆得快</h3><p>免得上高速还架在车顶。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-kit">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">一套房车配置</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-kit__grid">
+        <a class="sol-deep-kit__c" href="/mini/681">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span>
+          <h3 class="sol-deep-kit__t">Mini 磁吸车顶支架</h3>
+          <p class="sol-deep-kit__s">磁吸底座 · ABS 外壳</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-deep-kit__c" href="/mini/689">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span>
+          <h3 class="sol-deep-kit__t">Mini 栏杆/爬梯卡箍支架</h3>
+          <p class="sol-deep-kit__s">不锈钢管夹 · 管径 0.8–1.18 英寸</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-deep-kit__c" href="/mini/4205">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+          <h3 class="sol-deep-kit__t">12V/24V 转 30V 直流适配器 60W</h3>
+          <p class="sol-deep-kit__s">12V/24V 转 30V · 60W</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-deep-kit__c" href="/mini/4206">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span>
+          <h3 class="sol-deep-kit__t">DC 电源延长线</h3>
+          <p class="sol-deep-kit__s">IP68 连接器 · 密封圈</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+      </div>
+      <p class="sol-deep-note">所列等级只属于标注它的产品,不代表整套配置。</p>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-trust">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">凭什么信这些硬件</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <p class="sol-deep-lead">配件由我们自己制造,自 2010 年起。</p>
+      <div class="about-certstrip sol-deep-certs">
+        <span class="about-certstrip__i">FCC</span>
+        <span class="about-certstrip__i">CE</span>
+        <span class="about-certstrip__i">RoHS</span>
+        <span class="about-certstrip__i">ISO 9001</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-install">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">怎么装起来</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-guides">
+        <a class="sol-deep-guides__l" href="/guides/essential-starlink-rv-accessories-full-time-rvers-setup/"><span>Essential RV Starlink Gear <span class="sol-deep-guides__b">英文</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-deep-guides__l" href="/guides/complete-guide-starlink-rv-12v-accessories-compatibility/"><span>RV 12V Accessories &amp; Compatibility <span class="sol-deep-guides__b">英文</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-deep-guides__l" href="/guides/best-starlink-mini-cable-management-rv-roof-mounts/"><span>Mini Cable Management for RV Roofs <span class="sol-deep-guides__b">英文</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-deep-guides__l" href="/guides/starlink-mini-pipe-mount-installation-guide-step-by/"><span>Mini Pipe Mount Install (RV &amp; Roof) <span class="sol-deep-guides__b">英文</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-cta">
+    <div class="container">
       <div class="sol-cta">
         <div class="sol-cta__text">
-          <h3>不确定哪套方案适合你?</h3>
-          <p>告诉我们你的使用场景,我们为你匹配合适的配件。</p>
+          <h3>把你的车况告诉我们</h3>
+          <p>告诉我们车顶类型和 Starlink 型号,我们来配这套。</p>
         </div>
         <div class="sol-cta__actions">
           <a class="w3-btn w3-btn--primary" href="/zh/contact/">获取报价 <span class="w3-arw">→</span></a>
-          <a class="w3-btn w3-btn--ghost" href="/zh/products/">浏览全部产品</a>
+          <a class="w3-btn w3-btn--ghost" href="/zh/guides/">怎么装起来</a>
         </div>
       </div>
     </div>
   </section>
+
 
   <footer class="site-footer">
     <div class="site-footer__middle">

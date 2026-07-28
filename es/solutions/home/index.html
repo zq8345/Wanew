@@ -217,28 +217,126 @@
     </div>
   </section>
 
-  <section class="xlc-section">
+<!-- Deep scene blocks (Solutions #77). Injected into solutions-scene.html at the scene-blocks
+     slot for any scene listed in DEEP (regen.mjs); a scene absent from DEEP gets "" and keeps the
+     thin generic band instead. (Do NOT write the slot's token name literally in this file: this partial is
+     injected verbatim, and renderPage's assertNoTokens would flag it as an unresolved token.)
+     Content model: pain -> system -> kit -> trust -> install -> CTA.
+     🔴 Claim discipline: each durability/rating line is scoped to the product whose own listing
+     states it (see solutions.marine.rec.*.s). No blanket marine durability claims. -->
+
+  <section class="xlc-section sol-deep-pain">
     <div class="container">
       <div class="tj-sechead">
-        <h2 class="tj-h2">Accesorios recomendados</h2>
+        <h2 class="tj-h2">Qué cambia en una instalación residencial</h2>
         <div class="tj-rule"></div>
       </div>
-      <div class="sol-recs">
-        <a class="sol-rec" href="/es/products/#mounts"><span class="sol-rec__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span><span class="sol-rec__t">Soportes y bases</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>
-        <a class="sol-rec" href="/es/products/#cables"><span class="sol-rec__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span><span class="sol-rec__t">Cables</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>
+      <div class="sol-deep-grid">
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">01</span><h3>Se instala una sola vez</h3><p>La posición es permanente, así que la obstrucción importa.</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">02</span><h3>El cable tiene que entrar</h3><p>La entrada por muro o alero necesita sellado.</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">03</span><h3>Tiene que verse bien</h3><p>Soportes y tendidos pasan a ser parte de la casa.</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">04</span><h3>Intemperie, no movimiento</h3><p>Carga de viento y lluvia, año tras año.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section class="xlc-section w3-whitecards sol-deep-sys">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">Qué necesita una instalación residencial</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-grid">
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span><h3>Soporte acorde a la superficie</h3><p>Muro, techo plano o poste: no hay un soporte único.</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span><h3>Tendido de cable ordenado</h3><p>Grapas y entrada sellada en vez de cable suelto.</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.2 2.9 7.6 7 8.5 4.1-.9 7-4.3 7-8.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Orientación ajustable</h3><p>Inclinación y giro para librar árboles y techo.</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><h3>Energía de red, ordenada</h3><p>Router y fuente fijados, no tirados en el piso.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-kit">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">Un kit para casa</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-kit__grid">
+        <a class="sol-deep-kit__c" href="/mini/4208">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span>
+          <h3 class="sol-deep-kit__t">Soporte de Pared Mini, ajuste 360</h3>
+          <p class="sol-deep-kit__s">Aleación de aluminio · Ajuste 360</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-deep-kit__c" href="/mini/691">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span>
+          <h3 class="sol-deep-kit__t">Soporte de Poste Reforzado para Mini</h3>
+          <p class="sol-deep-kit__s">Aleación recubierta · Indicada para rocío salino costero</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-deep-kit__c" href="/es/standard/662">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span>
+          <h3 class="sol-deep-kit__t">Adaptador de Tubo Gen 3</h3>
+          <p class="sol-deep-kit__s">Para tubo de 1.25 a 2.5 pulg</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-deep-kit__c" href="/es/standard-circular/655">
+          <span class="sol-deep-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span>
+          <h3 class="sol-deep-kit__t">Kit de Tendido de Cable</h3>
+          <p class="sol-deep-kit__s">Grapas y tornillos · ABS</p>
+          <span class="sol-deep-kit__arw" aria-hidden="true">→</span>
+        </a>
+      </div>
+      <p class="sol-deep-note">Los grados aplican al producto que los declara, no a todo el kit.</p>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-trust">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">Por qué confiar en el equipo</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <p class="sol-deep-lead">Fabricamos nuestros propios accesorios, desde 2010.</p>
+      <div class="about-certstrip sol-deep-certs">
+        <span class="about-certstrip__i">FCC</span>
+        <span class="about-certstrip__i">CE</span>
+        <span class="about-certstrip__i">RoHS</span>
+        <span class="about-certstrip__i">ISO 9001</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-install">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">Cómo se instala</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-guides">
+        <a class="sol-deep-guides__l" href="/guides/flat-roof-mounting-solutions-starlink-terminals-complete-guide/"><span>Flat Roof Mounting Solutions <span class="sol-deep-guides__b">en inglés</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-deep-guides__l" href="/guides/starlink-wall-mount-roof-mount-pros-cons-home/"><span>Wall Mount vs Roof Mount <span class="sol-deep-guides__b">en inglés</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-deep-guides__l" href="/guides/install-starlink-mount-without-drilling-non-permanent-solutions/"><span>Mounting Without Drilling <span class="sol-deep-guides__b">en inglés</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-deep-guides__l" href="/guides/starlink-junction-box-installation-outdoor-cable-management/"><span>Junction Box for Outdoor Cabling <span class="sol-deep-guides__b">en inglés</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-cta">
+    <div class="container">
       <div class="sol-cta">
         <div class="sol-cta__text">
-          <h3>¿No sabes qué configuración te conviene?</h3>
-          <p>Cuéntanos tu entorno y te recomendaremos los accesorios correctos.</p>
+          <h3>Cuéntanos sobre tu techo</h3>
+          <p>Envía tu superficie de montaje y modelo Starlink. Nosotros especificamos el kit.</p>
         </div>
         <div class="sol-cta__actions">
           <a class="w3-btn w3-btn--primary" href="/es/contact/">Solicita una cotización <span class="w3-arw">→</span></a>
-          <a class="w3-btn w3-btn--ghost" href="/es/products/">Ver todos los productos</a>
+          <a class="w3-btn w3-btn--ghost" href="/es/guides/">Cómo se instala</a>
         </div>
       </div>
     </div>
   </section>
+
 
   <footer class="site-footer">
     <div class="site-footer__middle">

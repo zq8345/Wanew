@@ -1,0 +1,93 @@
+<!-- Deep scene blocks (Solutions #77). Injected into solutions-scene.html at the scene-blocks
+     slot for any scene listed in DEEP (regen.mjs); a scene absent from DEEP gets "" and keeps the
+     thin generic band instead. (Do NOT write the slot's token name literally in this file: this partial is
+     injected verbatim, and renderPage's assertNoTokens would flag it as an unresolved token.)
+     Content model: pain -> system -> kit -> trust -> install -> CTA.
+     🔴 Claim discipline: each durability/rating line is scoped to the product whose own listing
+     states it (see solutions.marine.rec.*.s). No blanket marine durability claims. -->
+
+  <section class="xlc-section sol-deep-pain">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">{{t.sol.pain.h2}}</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-grid">
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">01</span><h3>{{t.sol.pain.1.t}}</h3><p>{{t.sol.pain.1.d}}</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">02</span><h3>{{t.sol.pain.2.t}}</h3><p>{{t.sol.pain.2.d}}</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">03</span><h3>{{t.sol.pain.3.t}}</h3><p>{{t.sol.pain.3.d}}</p></div>
+        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">04</span><h3>{{t.sol.pain.4.t}}</h3><p>{{t.sol.pain.4.d}}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section w3-whitecards sol-deep-sys">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">{{t.sol.sys.h2}}</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-grid">
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true">{{ICON_MOUNT}}</span><h3>{{t.sol.sys.1.t}}</h3><p>{{t.sol.sys.1.d}}</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true">{{ICON_SHIELD}}</span><h3>{{t.sol.sys.2.t}}</h3><p>{{t.sol.sys.2.d}}</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true">{{ICON_CABLE}}</span><h3>{{t.sol.sys.3.t}}</h3><p>{{t.sol.sys.3.d}}</p></div>
+        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true">{{ICON_POWER}}</span><h3>{{t.sol.sys.4.t}}</h3><p>{{t.sol.sys.4.d}}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-kit">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">{{t.sol.recs.h2}}</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-kit__grid">
+{{DEEP_KIT}}
+      </div>
+      <p class="sol-deep-note">{{t.solutions.deep.note}}</p>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-trust">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">{{t.solutions.deep.trust.h2}}</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <p class="sol-deep-lead">{{t.solutions.deep.trust.d}}</p>
+      <div class="about-certstrip sol-deep-certs">
+        <span class="about-certstrip__i">FCC</span>
+        <span class="about-certstrip__i">CE</span>
+        <span class="about-certstrip__i">RoHS</span>
+        <span class="about-certstrip__i">ISO 9001</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-install">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">{{t.solutions.deep.install.h2}}</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <div class="sol-deep-guides">
+{{DEEP_GUIDES}}
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-deep-cta">
+    <div class="container">
+      <div class="sol-cta">
+        <div class="sol-cta__text">
+          <h3>{{t.sol.cta.h2}}</h3>
+          <p>{{t.sol.cta.d}}</p>
+        </div>
+        <div class="sol-cta__actions">
+          <a class="w3-btn w3-btn--primary" href="{{url./contact/}}">{{t.body.request_quote}} <span class="w3-arw">→</span></a>
+          <a class="w3-btn w3-btn--ghost" href="{{url./guides/}}">{{t.solutions.deep.install.h2}}</a>
+        </div>
+      </div>
+    </div>
+  </section>
