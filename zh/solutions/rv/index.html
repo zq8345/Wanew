@@ -125,7 +125,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.11ba5fc223.css" />
+<link rel="stylesheet" href="/skin/css/w3.a5063ad3b2.css" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -223,32 +223,32 @@
      🔴 Claim discipline: each durability/rating line is scoped to the product whose own listing
      states it (see solutions.marine.rec.*.s). No blanket marine durability claims. -->
 
-  <section class="xlc-section sol-deep-pain">
+  <!-- v2:难点(难在哪)与需求(所以需要什么)是因果一对,合成【一个面板、左右两栏】,
+       从"两段松散清单"变成"一段论证"。面板 = About v8 从 Contact 提取的 .w3-panel,不造第三个。
+       ⚠️ 两栏【不逐行配对】:配对检查核到描述层,六页全部不成立(marine 需求 1/2 相对难点错位,
+          且需求 1 同时回答难点 2 与 4)。逐行并排会隐含"这条难点由这条解决"的因果,
+          把内容错误放大成明说的错话。对应不成立是【内容问题】,排版救不了,只会放大。 -->
+  <section class="xlc-section sol-deep-problem">
     <div class="container">
-      <div class="tj-sechead">
-        <h2 class="tj-h2">房车上有什么不一样</h2>
-        <div class="tj-rule"></div>
-      </div>
-      <div class="sol-deep-grid">
-        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">01</span><h3>它要跟着你跑</h3><p>路面振动会把紧固件晃松。</p></div>
-        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">02</span><h3>没有墙插座</h3><p>电要从 12V/24V 车电系统取。</p></div>
-        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">03</span><h3>天天装了又拆</h3><p>支架得能徒手拆下来。</p></div>
-        <div class="sol-deep-pain__i"><span class="sol-deep-pain__n">04</span><h3>车顶很挤</h3><p>行李架、通风口和空调没剩多少地方。</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="xlc-section w3-whitecards sol-deep-sys">
-    <div class="container">
-      <div class="tj-sechead">
-        <h2 class="tj-h2">房车配置需要什么</h2>
-        <div class="tj-rule"></div>
-      </div>
-      <div class="sol-deep-grid">
-        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span><h3>扛得住路况的支架</h3><p>磁吸、卡箍还是爬梯式,看安装面定。</p></div>
-        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><h3>12V 直供,不过逆变</h3><p>用直流适配器,不用先逆变成市电。</p></div>
-        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span><h3>耐得住晃动的线</h3><p>从车顶到车厢,用有防护等级的线。</p></div>
-        <div class="sol-deep-sys__c"><span class="sol-deep-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.2 2.9 7.6 7 8.5 4.1-.9 7-4.3 7-8.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>拆得快</h3><p>免得上高速还架在车顶。</p></div>
+      <div class="w3-panel sol-problem">
+        <div class="sol-problem__col">
+          <span class="sol-problem__eyebrow">房车上有什么不一样</span>
+          <ul class="sol-problem__list">
+            <li class="w3-panel__row"><span class="sol-problem__n">01</span><span class="w3-panel__body"><h3>它要跟着你跑</h3><p>路面振动会把紧固件晃松。</p></span></li>
+            <li class="w3-panel__row"><span class="sol-problem__n">02</span><span class="w3-panel__body"><h3>没有墙插座</h3><p>电要从 12V/24V 车电系统取。</p></span></li>
+            <li class="w3-panel__row"><span class="sol-problem__n">03</span><span class="w3-panel__body"><h3>天天装了又拆</h3><p>支架得能徒手拆下来。</p></span></li>
+            <li class="w3-panel__row"><span class="sol-problem__n">04</span><span class="w3-panel__body"><h3>车顶很挤</h3><p>行李架、通风口和空调没剩多少地方。</p></span></li>
+          </ul>
+        </div>
+        <div class="sol-problem__col">
+          <span class="sol-problem__eyebrow">房车配置需要什么</span>
+          <ul class="sol-problem__list">
+            <li class="w3-panel__row"><span class="sol-problem__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span><span class="w3-panel__body"><h3>扛得住路况的支架</h3><p>磁吸、卡箍还是爬梯式,看安装面定。</p></span></li>
+            <li class="w3-panel__row"><span class="sol-problem__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span class="w3-panel__body"><h3>12V 直供,不过逆变</h3><p>用直流适配器,不用先逆变成市电。</p></span></li>
+            <li class="w3-panel__row"><span class="sol-problem__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span><span class="w3-panel__body"><h3>耐得住晃动的线</h3><p>从车顶到车厢,用有防护等级的线。</p></span></li>
+            <li class="w3-panel__row"><span class="sol-problem__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.2 2.9 7.6 7 8.5 4.1-.9 7-4.3 7-8.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="w3-panel__body"><h3>拆得快</h3><p>免得上高速还架在车顶。</p></span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
