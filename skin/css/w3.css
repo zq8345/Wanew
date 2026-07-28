@@ -1530,28 +1530,46 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
    贴在一起像四块创可贴;3 步流程同理。上半段之所以成立,是它有 6 数字+6 工厂照+5 步质检+4 认证
    = 有真东西。所以这里把版式削到与内容相称,而不是给内容注水(新编内容会踩内容准确红线)。
    → 4 卡合成一个紧凑定义列表、3 步合成一条序列、二者同属一个饱满的块。 */
-.about-caps { display: grid; gap: 0; margin: 18px 0 0; border-top: 1px solid var(--w3-line); }
-.about-caps__row { display: grid; grid-template-columns: minmax(160px, 240px) 1fr; gap: 18px;
-  padding: 15px 2px; border-bottom: 1px solid var(--w3-line); }
-.about-caps__row dt { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; margin: 0; }
-.about-caps__row dd { font-size: 14.5px; line-height: 1.6; margin: 0; }
-.w3-whitecards .about-caps__row dt { color: var(--w3-invert-ink); }
-.w3-whitecards .about-caps__row dd { color: var(--w3-invert-ink2); }
-.w3-whitecards .about-caps { border-color: rgba(11,13,16,.14); }
-.w3-whitecards .about-caps__row { border-color: rgba(11,13,16,.14); }
+/* ⚠️ 叫 .about-oemcaps 不叫 .about-caps:1203 行已有一个同名组件(数字网格 1fr 1fr)。
+   上一版撞了名又没重设 columns → 这些行继承了它的两列,每行只拿到一半宽。 */
+.about-oemcaps { display: grid; grid-template-columns: 1fr; gap: 0; margin: 18px 0 0; }
+.about-oemcaps__row { display: grid; grid-template-columns: minmax(160px, 240px) 1fr; gap: 18px;
+  padding: 15px 2px; border-top: 1px solid var(--w3-line); }
+.about-oemcaps__row:first-child { border-top: 0; }
+.about-oemcaps__row dt { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; margin: 0; color: var(--w3-text); }
+.about-oemcaps__row dd { font-size: 14.5px; line-height: 1.6; margin: 0; color: var(--w3-text2); }
+@media (max-width: 560px) { .about-oemcaps__row { grid-template-columns: 1fr; gap: 4px; } }
 
-.about-steps { display: grid; gap: 12px; margin: 18px 0 0; counter-reset: s; }
-.about-steps li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: baseline;
-  font-size: 14.5px; line-height: 1.65; }
-.about-steps__n { display: inline-flex; width: 24px; height: 24px; align-items: center; justify-content: center;
+/* 整块做成一张真白卡。上一版的白底是 .w3-iconcard 给的,我换掉那个类时只搬走了深色墨,
+   白底留在了原地 —— 深墨落深底,标题就此消失。底和墨必须一起搬。 */
+.w3-whitecards .about-oemblock { background: #fff; border-radius: 16px; padding: 26px 30px;
+  border: 1px solid rgba(11,13,16,.10); box-shadow: 0 14px 30px rgba(0,0,0,.28); }
+.w3-whitecards .about-oemblock .about-oemodm__head { color: var(--w3-invert-ink2); }
+.w3-whitecards .about-oemcaps__row { border-color: rgba(11,13,16,.14); }
+.w3-whitecards .about-oemcaps__row dt { color: var(--w3-invert-ink); }
+.w3-whitecards .about-oemcaps__row dd { color: var(--w3-invert-ink2); }
+@media (max-width: 560px) { .w3-whitecards .about-oemblock { padding: 20px 18px; } }
+
+.about-steps { display: grid; gap: 12px; margin: 18px 0 0; padding: 0; list-style: none; }
+/* ⚠️ 别把这条 li 改回 grid/flex。上一版是 grid + `28px 1fr`,而 li 里有三个子项
+   (序号 span、<b>、以及【裸文本节点】)—— 裸文本成了匿名网格项、掉进 28px 那一列,
+   于是每个单词占一行。block + 绝对定位序号,内联内容有几个都不影响。 */
+.about-steps li { position: relative; display: block; padding-left: 36px;
+  font-size: 14.5px; line-height: 1.65; color: var(--w3-text2); }
+.about-steps__n { position: absolute; left: 0; top: 1px;
+  display: inline-flex; width: 24px; height: 24px; align-items: center; justify-content: center;
   border-radius: 50%; font-size: 12px; font-weight: 700; background: var(--w3-accent); color: #fff; }
-.about-steps b { font-weight: 700; margin-right: 6px; }
+.about-steps b { font-weight: 700; margin-right: 6px; color: var(--w3-text); }
 .w3-whitecards .about-steps li { color: var(--w3-invert-ink2); }
 .w3-whitecards .about-steps b { color: var(--w3-invert-ink); }
 .w3-whitecards .about-steps__n { background: var(--w3-invert-accent); }
 
 /* Partner:三条路径各只有六七个字 → 三合一成一行,不再三张单薄的卡 */
-.about-partner__ways { margin: 12px 0 0; font-size: 15px; line-height: 1.9; color: var(--w3-text2); max-width: 860px; }
+.about-partner__ways { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 8px;
+  font-size: 15px; line-height: 1.7; color: var(--w3-text2); max-width: 860px; }
+.about-partner__ways li { padding-left: 14px; position: relative; }
+.about-partner__ways li::before { content: ""; position: absolute; left: 0; top: 10px;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--w3-accent); }
 .about-partner__ways b { color: var(--w3-text); }
 
 /* Compatibility & FAQ:暗卡原本缩在左侧、右边一大片空 → 撑满 */
