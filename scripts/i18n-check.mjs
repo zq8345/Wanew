@@ -76,7 +76,7 @@ for (const f of allJson("data")) {
   } else if (isCatalog(o)) {
     sources.catalog.push(f);
     for (const [k, v] of Object.entries(o)) if (!k.startsWith("_")) catalog[k] = v;
-  } else if (f === "data/locales.json" || /home-tiles|home-featured|products-index|site\.json|es-glossary\.json|es-hold\.json|pages-list\.json|categories\.json|forms\.json|media-sizes\.json|r2-thumbs\.json|product-routes\.json|guides-manifest/.test(f)) {
+  } else if (f === "data/locales.json" || /home-tiles|home-featured|products-index|site\.json|es-glossary\.json|es-hold\.json|pages-list\.json|categories\.json|forms\.json|media-sizes\.json|r2-thumbs\.json|product-routes\.json|vendor-manifest\.json|guides-manifest/.test(f)) {
     // ⭐ home-featured.json = W3 首页产品策展条的【id 列表】(总工 review #2),顶层 { _doc, ids:[...] },
     //    无 en 字段、不是文案。消费者=renderHome/pickHomeProducts(按 id 取 manifest 缩略图+本地化标题,
     //    标题本地化走 manifest.i18n,不经此文件)→ 纯策展数据,非文案目录,点名放行。
@@ -84,6 +84,11 @@ for (const f of allJson("data")) {
     //    顶层是 { _doc, hold: [...] },无 en 字段。它的消费者是 scripts/es-hold-check.mjs
     //    (双向闸)和【下面的豁免判定】—— 放行它不让任何一条译文失去监视,反过来:
     //    没有它,这 20 处 gap 会让 --strict 永远红,而一道永远红的门最后会被所有人略过。
+    // ⭐ vendor-manifest.json = 【哪些文件必须被 Admin 镜像】的权威清单，不是文案:
+    //    顶层 { _note, _why_here, _why_every_file, _gate, files:[...] }，无 en/es-MX/pt-BR/zh 字段（核过）。
+    //    条目形状 { path, mirror:bool, why }。⚠️ `why` 是中文，但它是【给开发者读的决策理由】
+    //    ——「这个文件为什么要/不要被镜像」——不是网站上任何人会看到的字，也不随语种变。
+    //    消费者 = scripts/vendor-manifest-check.mjs 与 Admin 的字节相同守卫。
     // ⭐ product-routes.json = regen 产出的【/products/ 路由已知分类清单】,不是文案:
     //    顶层 { _note, _generated_by, categories:[...] },13 条纯 URL slug(cables/mini/…),
     //    无 en/es-MX/pt-BR/zh 字段、条目里无自然语言。消费者 = 跳转层 Function(判分类页还是产品页)。

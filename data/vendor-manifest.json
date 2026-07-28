@@ -1,0 +1,43 @@
+{
+  "_note": "【必须被 Admin 镜像的文件】的权威清单。权威在官网这一侧,因为'我导出的哪些东西被 admin 消费'是官网的知识,admin 无从得知。Admin 的字节相同守卫读这份,不再自己维护一份。别手改 mirror 之外的字段。",
+  "_why_here": "这份清单原来在 admin 仓。那样它只能抓'我镜像的文件变了',抓不到'有一个我该镜像的文件出现了' —— 官网新增 page-paths.js 时,admin 的守卫永远不会知道,是总工口头提醒才补上的。清单挪过来之后:官网加文件并在这里表态 → admin 下次 preflight 当场红。",
+  "_why_every_file": "🔴 列表里【每个 _lib 文件都要出现】,包括不镜像的。只列'要镜像的'治不了新增文件被忘记 —— 忘记加进清单和'决定不镜像'长得一模一样。要求全员表态,新增文件就必须做一次显式决定,而闸会替你记得问。",
+  "_gate": "scripts/vendor-manifest-check.mjs",
+  "files": [
+    {
+      "path": "functions/_lib/render.js",
+      "mirror": true,
+      "why": "产品页/列表页/首页的渲染。Admin 保存产品时要产出与官网构建逐字节相同的页面。"
+    },
+    {
+      "path": "functions/_lib/chrome.js",
+      "mirror": true,
+      "why": "站点 chrome(头尾/导航/切换器)与形态计数。Admin 产出的页面要带同一套 chrome。"
+    },
+    {
+      "path": "functions/_lib/github.js",
+      "mirror": true,
+      "why": "commitFiles:提交流程本身,含 SHA 自证闸与体积自适应分流。两侧必须是同一份,否则保护只在一边。"
+    },
+    {
+      "path": "functions/_lib/page-paths.js",
+      "mirror": true,
+      "why": "产品页面路径与 slug 派生。Admin 保存时要算出 path 写进 manifest —— 丢了它就是 650 那个 404。"
+    },
+    {
+      "path": "scripts/locale-dirs.mjs",
+      "mirror": true,
+      "why": "locale → 目录名(pt-BR→pt / es-MX→es)的唯一真源。两侧算错一处,产出就落到错的语种目录。"
+    },
+    {
+      "path": "functions/_lib/product-route.js",
+      "mirror": false,
+      "why": "路由判据,只在 CF Pages 的 Function 挂载点上跑。Admin 不做路由,镜像它只会多一份要同步的东西。"
+    },
+    {
+      "path": "functions/_lib/access-jwt.js",
+      "mirror": false,
+      "why": "⚠️ 删掉 functions/api/admin/ 之后它在官网仓已无 importer。Admin 有自己的 Access 校验路径,不消费这份。留着是因为它是安全原语、该被专门决定去留,不该作为别的改动的副作用消失 —— 这条待总工裁。"
+    }
+  ]
+}
