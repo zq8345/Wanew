@@ -54,7 +54,7 @@
 |---|---|---|
 | display-1 | `clamp(2.35rem, 5.2vw, 4.1rem)` /1.06, w700, ls-0.028em | 首页 H1 |
 | display-2 | `clamp(2rem, 4vw, 3rem)` /1.08, w700, ls-0.025em | 列表页横幅 H1 |
-| h2 | `clamp(1.65rem, 3vw, 2.45rem)` /1.14, w700, ls-0.022em | 区块标题 |
+| h2 | `clamp(2rem, 3.4vw, 3.1rem)` /1.08, w700, ls-0.03em | 区块标题 ⚠️见下方状态 |
 | h3 | `clamp(1.45rem, 2.4vw, 2rem)` /1.22, w700, ls-0.02em | 详情页 H1(产品名) |
 | h4 | `clamp(1.3rem, 2vw~2.2vw, 1.7rem~1.8rem)`, w700 | 面板标题/相关产品头 |
 | stat | `21px` w700 | 数据格数字 |
@@ -203,7 +203,10 @@
 - **About 合作路径** `.about-paths`/`.about-path`〔About v4 收尾转化块〕:编号 01-03 + 左细线,与 `.sol-deep-pain__i` 同一套「编号索引」语言(禁装饰图标卡);段 `.about-partner-close` padding 96/104,标题同上密度约定,主/次按钮成对(Request a quote + All products)。
 - **About OEM 段翻白** `.about-oem-light`(section 上同时挂 `.w3-whitecards`):§2.6 招2 落点——4 张 `.w3-iconcard` 与 3 步 `.w3-flow__node` **一起**翻白(半白半暗会打架),`.w3-flowband` 在白卡态下退成透明(不再是第二块暗面板),`.w3-flow__n` 用 `--w3-invert-accent` 实底白字。
 - **FAQ 平铺** `.faq-flat`/`.faq-flat__item`(About v4 §2.6 升级 → v4 下半段再升:加 `::before` accent 左脊 2px/opacity .75 + h3 提到 17px 近白、p 14.5px --w3-text2,治「暗卡暗字挤一起」):`background:--w3-surface-2`+`--w3-edge-top`+`--w3-elev-card` 浮起卡内 h3+p 平铺(非 accordion,总工/Joe 定;内容留 DOM;About 不加 FAQPage schema)。
-- **段标题** `.tj-sechead`>`.tj-h2`(全站信息页统一 section 标题):tj-h2=§2.2 h2 精确值(`clamp(1.65rem,3vw,2.45rem)`/1.14/w700/-0.022em);**所有 section h2 同档**(旧 `.xlc-merged-title` 偏大已弃)。
+- **段标题** `.tj-sechead`>`.tj-h2`(全站信息页统一 section 标题):tj-h2=§2.2 h2 精确值(`clamp(2rem,3.4vw,3.1rem)`/1.08/w700/-0.03em);**所有 section h2 同档**。
+  - ⚠️ **2026-07-28 升档,状态=待 Joe 实站确认**:按 Joe 的密度 brief(starlink 密度 = 少字 + 大字阶 + 大留白)从 `clamp(1.65rem,3vw,2.45rem)`/1.14/-0.022em 升到现值,**取代原先那句「旧 `.xlc-merged-title` 偏大已弃」** —— 那句是在【没有密度 brief 的语境下】写的,语境变了、定案跟着变。
+  - **回退方式(若 Joe 否)**:把 w3.css 里 `.w3-h2` 与 `.about-lead__text h2, …, .video-page h2` 两条改回 `clamp(1.65rem,3vw,2.45rem)`/1.14/-0.022em 即可,**两处单点、全站跟随**,代价接近零。
+  - 📌 **来源留痕**:此升档最初是我(官网窗)执行 Joe 口头密度 brief 时**只改了 Solutions/About 的局部覆盖、未同步本文件**,造成 28 页新档 / 33 页旧档并存。自查发现后停下上报,总工 2026-07-28 拍板认可放大并要求本文件如实标状态,遂一次改到位并删除那三条局部覆盖(避免三处各自漂)。
 - **Solutions hub 场景卡** `.sol-grid`/`.sol-card`:3 列(→2→1)图卡,`.sol-card` `background:--w3-panel`(⚠️ pre-§2.6,#77 升级时改 --w3-surface-2 + edge + elev 并同步本行);媒体 `aspect-ratio:16/9` cover + hover scale;body=场景名(18px w700)+ 描述(13.5 --w3-text2)+ 角标 accent →;整卡链 `/solutions/{scene}/`。
 - **Solutions 场景推荐配件** `.sol-recs`/`.sol-rec`:auto-fit minmax(230px),`.sol-rec` `background:--w3-panel`(⚠️ pre-§2.6,#77 升级时同步本行);药丸行=径向井图标(46px)+ 标签 + hover accent →,深链 `/products/#type`、`/{model}/`。
 - **Solutions CTA 带** `.sol-cta`:panel→bg2 渐变面板,左文右钮(≤640 竖排),主钮 §3.1 primary(Request a quote)。
