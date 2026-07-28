@@ -160,19 +160,39 @@ function localizeSeoListHead(html, rel, locale) {
 }
 
 let lists = 0;
+// ⭐ Part 1 机型"从零建列表页"机制(Admin 加机型解锁,2026-07-27):模型页=[slug,slug,...]即 typeof cat==="string"。
+//   一个新模型 slug 进 categories.json 但页不存在 → 从【参考现有模型页】(结构与所有模型页相同)播种,
+//   下面 regenListPage 按新 cat 重写卡片/banner/title → 建出 en/es/pt(zh 仍从 en 播种)。加 slug=新 URL 不破坏现有=安全。
+//   ⚠️ 首页"Shop by Starlink model" tile 是【策展】(home-tiles.json 每条带特定图片,存在性只做过滤,非自动新增):
+//   新模型进 tile 需 Admin 另加一条 {cat,img}(带干净图)—— 归 Part 3 加机型契约。本机制只负责【建列表页】。
+//   新模型无产品时卡片网格为空(正常:产品由 Admin 后续按 category 归入,grid 自动填充)。
+//   ⚠️ 只对【模型】create-if-missing;products/type/aggregate 等固定列表页保持"缺页不自动建"原契约。
+const isModelEntry = (c) => typeof c === "string";
+const modelSeedRel = (loc, targetCat) => {
+  const s = CATS.find((c) => c !== targetCat && fs.existsSync(pageOf(loc, `${c}/index.html`)));
+  return s ? `${s}/index.html` : null;   // 该 locale 里第一个【非目标】现存模型页做种;无则该 locale 建不了(回落跳过)
+};
 for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
  for (const locale of RENDER_SET) {
   const p = pageOf(locale, rel);
   if (!fs.existsSync(p)) {
-    // enabled 语种没有这个页 → 不创建(站点地图是另一个决定)。
-    // 内部语种(zh) → 从默认语种页【播种】:copy 后由下面的 regen 三步本地化(标题/机型 banner/筛选栏
+    // 内部语种(zh) → 从默认语种页【播种】:copy 后由下面 regen 三步本地化(标题/机型 banner/筛选栏
     // 走 catalog zh;卡片走 manifest=英文;chrome 由 chrome-sync 烘 zh)。⚠️ 产品卡标题与
     // /products/ 的 banner 散文本轮保持英文(products-zh 未接、非 catalog 渲染)——内部 noindex 页,已知残留。
-    if (!isExtra(locale)) continue;
-    const seed = pageOf(DEFAULT, rel);
-    if (!fs.existsSync(seed)) continue;
-    fs.mkdirSync(path.dirname(p), { recursive: true });
-    fs.copyFileSync(seed, p);
+    if (isExtra(locale)) {
+      const seed = pageOf(DEFAULT, rel);
+      if (!fs.existsSync(seed)) continue;   // en 还没建(如新模型 en 播种失败)→ 本轮跳过,下轮补
+      fs.mkdirSync(path.dirname(p), { recursive: true });
+      fs.copyFileSync(seed, p);
+    } else if (isModelEntry(cat)) {
+      // 新模型 en/es/pt:从参考现存模型页播种(regenListPage 会按 cat 重写为新模型的卡片网格/banner)。
+      const seedRel = modelSeedRel(locale, cat);
+      if (!seedRel) continue;               // 该 locale 无可做种的现存模型页 → 跳过(不硬造)
+      fs.mkdirSync(path.dirname(p), { recursive: true });
+      fs.copyFileSync(pageOf(locale, seedRel), p);
+    } else {
+      continue;   // 非模型固定列表页(products/type/aggregate):缺页不自动建(站点地图是另一个决定,原契约)
+    }
   }
   const h0 = fs.readFileSync(p, "utf8");
   let h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf });
