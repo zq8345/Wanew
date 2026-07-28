@@ -35,11 +35,69 @@ const webpInline = (text) => String(text).replace(
     return _twinCache.get(webp) ? webp : m;          // 没孪生就原样留着（那时运行时脚本仍是唯一正确行为）
   });
 
+// ── #66：正文图补 loading="lazy" + 真实 width/height（防 CLS）───────────────
+//
+// 量到的:全站 5629 个 <img> 里 5569 个没有 width/height —— 浏览器在图下载完之前不知道该留
+// 多大位置,内容就会跳。这不是"加个属性"的小事,是每页都在发生的布局抖动。
+//
+// ⭐ 尺寸【从磁盘上的图真读】(自写 PNG/JPEG/WebP 头解析,无依赖),不是估。读不到就不写 ——
+//   宁可不加,也不加一个错的宽高比(那比没有更糟:会按错的比例留错位置)。
+// ⭐ 必须跑在 webpInline 【之后】:那时 src 已是 .webp,读的就是真正会被下载的那张。
+// ⚠️ 全局 CSS 是 `img{max-width:100%;height:auto}` —— 所以属性只提供宽高比给浏览器预留位置,
+//   显示尺寸仍由 CSS 决定,不会撑坏布局(动手前先核过这条规则才敢加)。
+// ⚠️ 只处理【正文里的图】(产品描述/攻略正文)。首屏 header 的 logo 不走这里,它不该 lazy。
+const _dimCache = new Map();
+const imgDim = (webPath) => {
+  if (_dimCache.has(webPath)) return _dimCache.get(webPath);
+  let d = null;
+  try {
+    const b = fs.readFileSync(path.join(REPO, webPath.replace(/^\//, "")));
+    if (b.slice(0, 8).toString("hex") === "89504e470d0a1a0a") d = [b.readUInt32BE(16), b.readUInt32BE(20)];
+    else if (b[0] === 0xFF && b[1] === 0xD8) {
+      let i = 2;
+      while (i < b.length - 8) {
+        if (b[i] !== 0xFF) { i++; continue; }
+        const m = b[i + 1];
+        if (m >= 0xC0 && m <= 0xCF && m !== 0xC4 && m !== 0xC8 && m !== 0xCC) { d = [b.readUInt16BE(i + 7), b.readUInt16BE(i + 5)]; break; }
+        i += 2 + b.readUInt16BE(i + 2);
+      }
+    } else if (b.slice(0, 4).toString() === "RIFF" && b.slice(8, 12).toString() === "WEBP") {
+      const f = b.slice(12, 16).toString();
+      if (f === "VP8X") d = [1 + b.readUIntLE(24, 3), 1 + b.readUIntLE(27, 3)];
+      else if (f === "VP8 ") d = [b.readUInt16LE(26) & 0x3fff, b.readUInt16LE(28) & 0x3fff];
+      else if (f === "VP8L") { const n = b.readUInt32LE(21); d = [(n & 0x3FFF) + 1, ((n >> 14) & 0x3FFF) + 1]; }
+    }
+  } catch { d = null; }
+  _dimCache.set(webPath, d);
+  return d;
+};
+const imgAttrs = (text) => String(text).replace(/<img\b[^>]*>/gi, (tag) => {
+  const src = (tag.match(/src="([^"]+)"/i) || [])[1];
+  if (!src || !src.startsWith("/static/")) return tag;      // 远程图读不到尺寸,不碰
+  let out = tag;
+  if (!/\bloading=/i.test(out)) out = out.replace(/<img\b/i, '<img loading="lazy"');
+  if (!/\bwidth=/i.test(out) && !/\bheight=/i.test(out)) {
+    const d = imgDim(src);
+    if (d) out = out.replace(/<img\b/i, `<img width="${d[0]}" height="${d[1]}"`);
+  }
+  return out;
+});
+const prepMedia = (text) => imgAttrs(webpInline(text));      // 顺序固定:先换 webp,再按最终图读尺寸
+
 const prods = {};
 const pdir = path.join(REPO, "data", "products");
 for (const f of fs.readdirSync(pdir)) {
   if (!f.endsWith(".json")) continue;
+  // ⚠️ webpInline 跑在【原始 JSON 文本】上没问题(它只匹配路径子串)；但 imgAttrs 不行 ——
+  //    JSON 里的 HTML 引号是 \" 转义的，src="..." 这种正则在原文本上【永远匹配不到】。
+  //    所以顺序必须是：先在文本层换 webp → JSON.parse → 再在【解析出来的 HTML 字段】上补属性。
+  //    (第一版我把两步都塞在文本层，跑完量出来 lazy 只 +6、抽样图一个属性没有，才查出这条。)
   const d = JSON.parse(webpInline(fs.readFileSync(path.join(pdir, f), "utf8")));
+  for (const loc of Object.keys(d.i18n || {})) {
+    for (const fld of ["description_html", "summary_html"]) {
+      if (d.i18n[loc] && typeof d.i18n[loc][fld] === "string") d.i18n[loc][fld] = imgAttrs(d.i18n[loc][fld]);
+    }
+  }
   prods[d.id] = d;
 }
 
@@ -483,7 +541,7 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
   const bodyDir = path.join(REPO, "data", "guides-body");
   function extractBody(a) {
     const cache = path.join(bodyDir, a.slug + ".html");
-    if (fs.existsSync(cache)) return webpInline(fs.readFileSync(cache, "utf8"));   // #81: 正文里的图同样收 .webp
+    if (fs.existsSync(cache)) return prepMedia(fs.readFileSync(cache, "utf8"));   // #81/#66: 收 .webp + 补 lazy/尺寸
     let h; try { h = fs.readFileSync(path.join(REPO, a.old.replace(/^\//, "") + ".html"), "utf8"); } catch { return null; }
     const m = h.match(/<div class="blog-details__text-1[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>\s*)?<\/div>\s*<\/div>\s*<\/section>/);
     if (!m) return null;

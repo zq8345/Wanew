@@ -125,3 +125,18 @@
 - [ ] 加形态：forms.json 追加 → build → `curl -sI https://wanew.com/type/new-key/` = 200；某机型页 form chip 出现新项且计数对。
 - [ ] 删守卫：对一个 count>0 的机型/形态调删端点 → 返回拒绝 + 该 count；`node scripts/forms-integrity-check.mjs` = PASS（因为没真删成）。
 - [ ] 改显示名：改 forms.json `name` + 连带改产品 `form` → build → integrity 闸 PASS、chip 标签变、`/type/{key}/` URL 不变。
+
+---
+
+## 附:已登记的技术债(总工 2026-07-27 拍板"先不做")
+
+**Admin 发布路径不做 webp 替换** —— 官网构建时会把 `/static/upload/*.jpg|png` 收成 `.webp`
+(见 `scripts/regen.mjs` 的 `webpInline`),但 Admin 的 CF Worker 发布路径读不到磁盘、判断不了
+webp 孪生是否存在,所以它发布出来的产品详情页仍是 `.jpg`,靠模板里那段运行时探测脚本兜底。
+
+- **为什么不做**:收益小(只是 Admin 新发布的产品页多一次探测,有兜底不会坏),成本大
+  (跨仓契约 + 又一轮 vendor 同步)。
+- **要做的话怎么做**:构建期生成一份"哪些路径有 webp 孪生"的清单,随 render 契约穿进
+  `render.js`,让两条渲染路径用同一份事实。
+- **触发条件**:哪天 Admin 那条发布路径本来就要动,顺带做掉。
+- 同理,模板里那段运行时探测脚本**在此之前不能删** —— 它是 Worker 路径唯一的兜底。

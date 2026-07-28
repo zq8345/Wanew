@@ -17,6 +17,11 @@
 /static/*
   Cache-Control: public, max-age=31536000, immutable
 
+# ⚠️ 实测留档(2026-07-27 生产 curl):这条【当前不生效】。
+#    /skin/css/w3.css?v=54 实际返回 `max-age=14400, must-revalidate`，
+#    说明有更高优先级的 zone 规则盖住了 Pages 的 _headers。现状不算坏(4 小时 + 回源校验，
+#    且 CSS 走 ?v=NN 击穿)，所以【保留本条不删】：万一将来 zone 规则撤掉，这里还能兜底。
+#    但文件与现实不一致本身会骗人，故把实测结果写在这儿。要真统一得让 Joe 改 zone 规则。
 /skin/*
   Cache-Control: public, max-age=31536000, immutable
 
