@@ -18,7 +18,7 @@ import path from 'path';
 
 /* ⚠️ 白名单/标记表 = 「考卷」. 改动必须 bump 版本并知会总调度 —— 否则基线不可比,
    等于自己给自己打分. 基线快照见 scripts/pt-leak-baseline.json */
-export const SCANNER_VERSION = '1.0.0';
+export const SCANNER_VERSION = '1.1.0';   // 1.1.0:加 FORMAT_LEAKS 格式判据(多语言窗规格 2026-07-28)
 
 const ROOT = process.cwd();
 const PT_DIR = path.join(ROOT, 'pt');
@@ -130,6 +130,32 @@ function stripWhitelist(text) {
   for (const re of WHITELIST) t = t.replace(re, ' ');
   return t;
 }
+/* ── 格式化短语判据(多语言窗 2026-07-28 规格,与逐词标记表【并列,不替代】)───────────
+   缘起:官网实测 Contact 页 `Mon–Fri 9:00–18:00` 与 `within 1 business day` 在 es/pt 页面上
+   是英文,而这两个闸的命中数都是 **0** —— 逐词标记表里没有 Mon/Fri 这类三字母缩写。
+
+   🔴 为什么不照抄 zh-leak-scan 的"白名单减法":zh 与英文【不同字符集】,"减掉白名单后剩下的
+      连续英文 = 泄漏"在 zh 上安全;而 es/pt 与英语同属拉丁字母、同形词海量(`Cables`、
+      `Industrial` 逐字同形),照搬会淹没在误报里 ——
+      **而误报是豁免的上游:一道吵闹的闸活不过一天,它会被加个豁免关掉。**
+
+   🔴 也不是"把星期缩写逐个加进标记表":`Mar` 是英文 March 缩写,同时是西语 martes(周二)
+      的缩写,还是 "mar"(海)。**单字层面在 es 上就是雷。**
+
+   → 判据改为要求【格式元素叠加】:两个星期缩写被连字符连起来 · `within N business day(s)`
+     整体短语 · 时间戳后面紧跟 AM/PM。**命中这种复合格式本身就是证据,不必猜单字含义。**
+
+   ⚠️ 这一族的计数【单独出】,不混进逐词判据那个数 —— 保持"数字要能被拆开看"的既有原则。 */
+const FORMAT_LEAKS = [
+  { name: 'day-range',    re: /\b(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s*[-–—]\s*(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\b/ },
+  { name: 'business-day', re: /\bwithin\s+\d+\s+business\s+days?\b/i },
+  { name: 'am-pm-time',   re: /\b\d{1,2}:\d{2}\s*(AM|PM)\b/i },
+];
+// es-leak-scan 直接 import 这一份 —— **格式规则天然语言无关,不该分叉出两套"Mon–Fri 是不是英文"的逻辑**。
+export function formatHits(text) {
+  return FORMAT_LEAKS.filter((f) => f.re.test(text)).map((f) => f.name);
+}
+
 function englishHits(text) {
   const stripped = stripWhitelist(text).toLowerCase();
   // ⚠️ 词边界必须含重音字母, 否则 "transferência" 会被切成 "transfer"+"ência" → 假阳性
@@ -234,8 +260,16 @@ function linkLeaksOf(raw, vis, rel, ptUrls) {
 /* ─────────── 扫描 ─────────── */
 const findings = [];
 const linkFindings = [];
-const files = walk(PT_DIR);
-const PT_URLS = buildPtUrlSet(files);
+// 类①-b:格式化短语命中。**单独一个数组** —— 与类①的逐词命中并列展示,不合并计数。
+const formatFindings = [];
+// 🔴 CLI 守卫(2026-07-28 加):此前扫描主体在【模块顶层】直接跑 —— 任何人 import 这个文件
+//    都会连带触发一次全站扫描。es-leak-scan 为复用 formatHits 而 import 它时当场现形:
+//    es 的输出从 ~10 行变成 399 行,里面混着 pt 的全部结果。
+//    ⚠️ 这类"import 有副作用"的模块,被复用的那一刻才暴露 —— **而复用正是我们想鼓励的事**。
+//    (es 复用词表时是用正则从源码里抠的,绕开了这个坑,所以它一直没被发现。)
+const IS_CLI = process.argv[1] && process.argv[1].replace(/\\/g, '/').endsWith('pt-leak-scan.mjs');
+const files = IS_CLI ? walk(PT_DIR) : [];
+const PT_URLS = IS_CLI ? buildPtUrlSet(files) : new Set();
 for (const file of files) {
   const raw = fs.readFileSync(file, 'utf8');
   const vis = blankNonVisible(raw);
@@ -256,6 +290,9 @@ for (const file of files) {
     //    且这个数只用来分类、不用来免责:真漏译那一栏才是待办,已接受那栏仍会被打印出来可核。
     const badged = /tj-lang-badge/.test(raw.slice(Math.max(0, m.index - 420), m.index + m[0].length + 200));
     if (hits.length) findings.push({ file: rel, line: lineOf(raw, m.index), kind: 'text', hits, text: text.slice(0, 120), badged });
+    // 类①-b:格式化短语。与上面的逐词判据【并列跑】—— 逐词命中为 0 的文本仍可能命中格式。
+    const fmt = formatHits(text);
+    if (fmt.length) formatFindings.push({ file: rel, line: lineOf(raw, m.index), kind: 'text', rules: fmt, text: text.slice(0, 120) });
   }
   // 2) 可见属性
   for (const m of vis.matchAll(/\b(placeholder|alt|title|aria-label)="([^"]+)"/gi)) {
@@ -263,6 +300,8 @@ for (const file of files) {
     if (!text || text.length < 3) continue;
     const hits = englishHits(text);
     if (hits.length) findings.push({ file: rel, line: lineOf(raw, m.index), kind: attr, hits, text: text.slice(0, 120) });
+    const fmt = formatHits(text);
+    if (fmt.length) formatFindings.push({ file: rel, line: lineOf(raw, m.index), kind: attr, rules: fmt, text: text.slice(0, 120) });
   }
   // 3) 第二类: 指向英文页的链接
   linkFindings.push(...linkLeaksOf(raw, vis, rel, PT_URLS));
@@ -270,6 +309,8 @@ for (const file of files) {
 }
 
 /* ─────────── 输出 ─────────── */
+// ⚠️ 同 CLI 守卫:被 import 时不打印、不 exit —— 一个模块不该在别人 import 它的时候结束别人的进程。
+if (IS_CLI)
 if (AS_JSON) {
   console.log(JSON.stringify({
     scannerVersion: SCANNER_VERSION,
@@ -321,7 +362,12 @@ if (AS_JSON) {
     console.log(`\n泄漏总数: ${findings.length}(已接受 ${accepted.length} + 真漏译 ${real.length}) / 涉及 ${Object.keys(byFile).length} 个文件`);
   }
   console.log(`\n合计: 类①可见文本 ${findings.length} = 已接受 ${accepted.length} + 【真漏译 ${real.length}】 · 类②英文链接 ${linkFindings.length}`);
+  // 类①-b 单独一行:它抓的是【逐词判据抓不到】的那一类,合并进上面那个数就看不出它有没有在工作。
+  console.log(`      类①-b 格式化短语 ${formatFindings.length}${formatFindings.length ? ':' : '(day-range / business-day / am-pm-time 均无命中)'}`);
+  for (const f of formatFindings.slice(0, 12))
+    console.log(`        ⛔ ${f.file}:${f.line} [${f.kind}] {${f.rules.join(',')}}  ${f.text}`);
+  if (formatFindings.length > 12) console.log(`        … 其余 ${formatFindings.length - 12} 条`);
   console.log('⚠️ 判达标只看【真漏译】那个数。总数含已接受的债,它不会归零,拿它当 KPI 会让这道门永远红。');
   console.log('(类③=图片里烧死的英文像素, 扫不到, 需重做图)');
 }
-process.exit(findings.length || linkFindings.length ? 1 : 0);
+if (IS_CLI) process.exit(findings.length || linkFindings.length || formatFindings.length ? 1 : 0);

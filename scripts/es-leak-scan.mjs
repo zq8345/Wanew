@@ -106,6 +106,12 @@ function loadPtMarkers() {
   return [...m[1].matchAll(/'([a-z-]+)'/g)].map((x) => x[1]);
 }
 
+// 🔴 版本依赖显式化(多语言窗 2026-07-28 要求):本文件【没有】独立的 SCANNER_VERSION,
+//    它的判据完全跟随 pt-leak-scan —— 词表靠上面的正则从那份源码里抓,格式判据靠下面这行 import。
+//    **pt 的 SCANNER_VERSION 变了,这个闸的口径就变了**,前后两次的数字同样不可比。
+//    此前这个依赖只存在于代码里、没有一句话说明,读的人看不出"改 pt 会动 es"。
+import { formatHits } from './pt-leak-scan.mjs';
+
 const PT_MARKERS = loadPtMarkers();
 export const EN_MARKERS = new Set(PT_MARKERS.filter((w) => !PT_REMOVED.has(w)));
 
@@ -140,7 +146,12 @@ export function esLeaksIn(text) {
   for (const p of WHITELIST_PHRASES) t = t.replace(new RegExp(escapeRe(p), 'gi'), ' '); // ① 先剥短语（长的已排前）
   const words = t.toLowerCase().match(WORD_RE) || [];
   const hits = words.filter((w) => EN_MARKERS.has(w) && !WHITELIST_WORDS.has(w));
-  return [...new Set(hits)];
+  // ② 格式化短语(多语言窗 2026-07-28 规格):**import 而不是重写一遍** ——
+  //    FORMAT_LEAKS 是格式规则、天然语言无关,两个语种不该分叉出两套"Mon–Fri 算不算英文"的逻辑。
+  //    ⚠️ 它判的是【剥白名单之前】的原文:格式判据认的是复合结构,先剥短语可能把 Mon–Fri 拆散。
+  //    命中带 `fmt:` 前缀,与逐词命中区分 —— 数字要能被拆开看。
+  const fmt = formatHits(String(text)).map((n) => `fmt:${n}`);
+  return [...new Set([...hits, ...fmt])];
 }
 
 /* ── CLI：扫 data/ 里已有的 es-MX 值 ───────────────────────────────────── */
