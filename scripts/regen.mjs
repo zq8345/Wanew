@@ -105,10 +105,29 @@ const MEDIA_SIZES = (() => {
   walk(path.join(REPO, "static"));
   return out;
 })();
+/* ── R2 图的尺寸并进来(Admin 出的 data/r2-media-sizes.json)──────────────────
+   🔴 只并进【内存】的 MEDIA_SIZES,**绝不并进落盘的 media-sizes.json** ——
+      下面那段是【全量覆写】,写进去的话下一次 regen 就把它冲掉,
+      **和 thumb 被冲回原图是同一个坑**(两个写入方,而覆写方沉默地赢)。
+      落盘那份的语义是"regen 量到的 static/ 尺寸",让它保持名副其实。
+   🔴 两组都要:**56 条 = 原图 28 + 缩略图 28**。
+      卡片走 `dimAttr(e.thumb, …)`(regen 接管后喂的是缩略图 URL),
+      详情页走 `dimAttr(原图URL, …)` —— **只给原图那一组,卡片就查不到、不注 width/height,
+      列表页这 28 张的 CLS 防护等于没做,而且一样没有任何症状。**
+   ⚠️ 顶层是 `{ _note, _generated_by, sizes:{...} }`,**必须取 `.sizes`** ——
+      直接 spread 整个对象的话,进查找表的是那三个键,56 条一条都进不去。
+      我预演接线时正是这么错了一次,当场 0 命中。 */
+const R2_SIZES = (() => {
+  const p = path.join(REPO, "data", "r2-media-sizes.json");
+  if (!fs.existsSync(p)) return {};
+  return JSON.parse(fs.readFileSync(p, "utf8")).sizes || {};
+})();
 {
   const p = path.join(REPO, "data", "media-sizes.json");
   const body = JSON.stringify(MEDIA_SIZES, null, 0) + "\n";
   if (!fs.existsSync(p) || fs.readFileSync(p, "utf8") !== body) fs.writeFileSync(p, body);
+  Object.assign(MEDIA_SIZES, R2_SIZES);                    // ← 落盘之后才并,顺序是判据的一部分
+  console.log(`  + R2 尺寸 ${Object.keys(R2_SIZES).length} 条并入内存(不落盘)`);
   console.log(`media-sizes: ${Object.keys(MEDIA_SIZES).length} images measured -> data/media-sizes.json`);
 }      // 顺序固定:先换 webp,再按最终图读尺寸
 
