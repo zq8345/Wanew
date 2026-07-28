@@ -13,12 +13,13 @@ const LIST_CAT = null; // /products/ uses no category filter
 // baked into this file. Both single sources are required: a missing one is a hard 500, not a
 // silent fallback that would let the list-page regen emit empty data-form / wrong chip counts.
 async function loadCtx(env, cfg) {
-  const [template, siteRaw, manRaw, formsRaw, catsRaw] = await Promise.all([
+  const [template, siteRaw, manRaw, formsRaw, catsRaw, sizesRaw] = await Promise.all([
     readFile(env, cfg, "data/templates/product.html"),
     readFile(env, cfg, "data/site.json"),
     readFile(env, cfg, "data/products-index.json"),
     readFile(env, cfg, "data/forms.json"),
     readFile(env, cfg, "data/categories.json"),
+    readFile(env, cfg, "data/media-sizes.json"),
   ]);
   if (!template || !siteRaw || !formsRaw || !catsRaw) return null;
   const forms = JSON.parse(formsRaw).forms;
@@ -28,6 +29,12 @@ async function loadCtx(env, cfg) {
     formNames: forms.map((f) => f.name),                                   // validation whitelist
     catSlugs: categories.map((c) => c.slug),                               // validation whitelist
     formKey: Object.fromEntries(forms.map((f) => [f.name, f.key])),        // bucket name -> data-form slug
+    // #8 图片固有尺寸(防 CLS):构建期由 regen 扫磁盘生成 data/media-sizes.json,这里读【同一份】。
+    // Worker 读不到磁盘量不出尺寸,但它读得到仓库文件 —— 所以尺寸不必是"谁能读磁盘谁才有"的特权,
+    // 两条渲染路径吃同一份事实(和 formKey 同一条路子)。
+    // ⚠️ 这一份【可缺】,与 forms/categories 不同:缺了 render 侧查不到就什么都不写,退化成今天的
+    //    行为(见 render.js dimAttr);而 forms/categories 缺了会出错页,所以那两个是硬 500。
+    sizes: sizesRaw ? JSON.parse(sizesRaw) : undefined,
   };
 }
 
@@ -39,7 +46,7 @@ async function publishProduct(env, cfg, ctx, prod, { isNew, oldCategory, email }
   const entry = { id: prod.id, category: prod.category, form: prod.form, title: prod.i18n.en.title, thumb, excerpt: excerptOf(prod) };
   const manifest = ctx.manifest.filter((e) => e.id !== prod.id).concat(entry)
     .sort((a, b) => a.category.localeCompare(b.category) || a.id - b.id);
-  const detailHtml = render(prod, { template, imgBase: site.img_base, related: genRelated(entry, manifest) });
+  const detailHtml = render(prod, { template, imgBase: site.img_base, related: genRelated(entry, manifest), sizes: ctx.sizes });
   const files = [
     { path: `data/products/${prod.id}.json`, content: JSON.stringify(prod, null, 2) },
     { path: `${prod.category}/${prod.id}.html`, content: detailHtml },
@@ -50,7 +57,7 @@ async function publishProduct(env, cfg, ctx, prod, { isNew, oldCategory, email }
   for (const cat of cats) {
     const rel = cat ? `${cat}/index.html` : "products/index.html";
     const h = await readFile(env, cfg, rel);
-    if (h) files.push({ path: rel, content: regenListPage(h, manifest, cat, { formKey: ctx.formKey }) });
+    if (h) files.push({ path: rel, content: regenListPage(h, manifest, cat, { formKey: ctx.formKey, sizes: ctx.sizes }) });
   }
   return commitFiles(env, cfg, files, `admin: ${isNew ? "create" : "update"} product ${prod.id} (${email})`);
 }
@@ -70,7 +77,7 @@ async function unpublishProduct(env, cfg, ctx, id, { email }) {
   for (const cat of new Set([LIST_CAT, category])) {
     const rel = cat ? `${cat}/index.html` : "products/index.html";
     const h = await readFile(env, cfg, rel);
-    if (h) files.push({ path: rel, content: regenListPage(h, manifest, cat, { formKey: ctx.formKey }) });
+    if (h) files.push({ path: rel, content: regenListPage(h, manifest, cat, { formKey: ctx.formKey, sizes: ctx.sizes }) });
   }
   return commitFiles(env, cfg, files, `admin: delete product ${id} (${email})`);
 }

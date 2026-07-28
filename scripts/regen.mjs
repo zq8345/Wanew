@@ -82,7 +82,34 @@ const imgAttrs = (text) => String(text).replace(/<img\b[^>]*>/gi, (tag) => {
   }
   return out;
 });
-const prepMedia = (text) => imgAttrs(webpInline(text));      // 顺序固定:先换 webp,再按最终图读尺寸
+const prepMedia = (text) => imgAttrs(webpInline(text));
+
+// ── #8：把尺寸做成【数据】，让两条渲染路径吃同一份事实 ────────────────────────
+// render.js 是双运行时(regen=Node / Admin=CF Worker)，Worker 读不到磁盘量不出尺寸。
+// 所以构建期把 static 下每张图的真实宽高扫成 data/media-sizes.json，regen 直接用、
+// Admin Worker 经 GitHub API 读同一份 —— 尺寸不再是"谁能读到磁盘谁才有"的特权。
+// ⚠️ 只收【真读出来】的：解析失败就不进表，render 侧查不到就什么都不写(错的宽高比比没有更糟)。
+const MEDIA_SIZES = (() => {
+  const out = {};
+  const walk = (dir) => {
+    for (const d of fs.readdirSync(dir, { withFileTypes: true })) {
+      const p = path.join(dir, d.name);
+      if (d.isDirectory()) { walk(p); continue; }
+      if (!/\.(webp|png|jpe?g)$/i.test(d.name)) continue;
+      const web = "/" + path.relative(REPO, p).split(path.sep).join("/");
+      const dim = imgDim(web);
+      if (dim) out[web] = dim;
+    }
+  };
+  walk(path.join(REPO, "static"));
+  return out;
+})();
+{
+  const p = path.join(REPO, "data", "media-sizes.json");
+  const body = JSON.stringify(MEDIA_SIZES, null, 0) + "\n";
+  if (!fs.existsSync(p) || fs.readFileSync(p, "utf8") !== body) fs.writeFileSync(p, body);
+  console.log(`media-sizes: ${Object.keys(MEDIA_SIZES).length} images measured -> data/media-sizes.json`);
+}      // 顺序固定:先换 webp,再按最终图读尺寸
 
 const prods = {};
 const pdir = path.join(REPO, "data", "products");
@@ -158,7 +185,7 @@ for (const id of targets) {
     // decide the site map. Creating pt pages that nothing links to is a different decision.
     if (locale !== DEFAULT && !fs.existsSync(out)) continue;
     const related = genRelated(entry, entries, locale, catalog, urlOf);
-    const html = render(prod, { template: tpl, imgBase: cfg.img_base, related, locale, modelDisplay: MODEL, catalog, urlOf, enabled: LOCALES, catmap: CATMAP_DATA });
+    const html = render(prod, { template: tpl, imgBase: cfg.img_base, related, locale, modelDisplay: MODEL, catalog, urlOf, enabled: LOCALES, catmap: CATMAP_DATA, sizes: MEDIA_SIZES });
     const opens = (html.match(/<div\b/g) || []).length;
     const closes = (html.match(/<\/div>/g) || []).length;
     if (opens !== closes) { imbalanced++; console.error(`  ⚠️ div imbalance ${locale} ${prod.category}/${id}: ${opens}/${closes}`); }
@@ -279,7 +306,7 @@ for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
     }
   }
   const h0 = fs.readFileSync(p, "utf8");
-  let h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf, formKey: FORM_KEY });
+  let h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf, formKey: FORM_KEY, sizes: MEDIA_SIZES });
   h1 = setListTitle(h1, name, locale, catalog);
   // setListLabels 现在也本地化形态 chip 类目名(header.* 键在 chrome.json=catalog)+ All(list.* 键在 listCat)
   // —— 两个 catalog 合并传入(键空间不重叠:header.* vs list.*)。
@@ -323,7 +350,7 @@ for (const locale of RENDER_SET) {
   // ⚠️ 换图只改这一行:两处分开写时,改一处漏一处 → preload 预载 A、实际显示 B,静默多下一张图。
   // 现值是那张越野图【占位】(Joe 的新图未到);图一到只换这一行。
   const h1 = renderHome(homeTpl.split("{{HERO_HOME_IMG}}").join(HERO_HOME_IMG), { locale, catalog: { ...catalog, ...shared, ...homeCat },
-    tiles: homeTiles, modelDisplay: MODEL, urlOf, exists: pageExists, dirOf, enabled: LOCALES,
+    tiles: homeTiles, modelDisplay: MODEL, urlOf, exists: pageExists, dirOf, enabled: LOCALES, sizes: MEDIA_SIZES,
     products: entries, featured: homeFeatured, internal_noindex: INTERNAL });
   if (h1 !== h0) { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, h1); homes++; }
 }

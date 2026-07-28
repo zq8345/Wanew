@@ -76,7 +76,7 @@ for (const f of allJson("data")) {
   } else if (isCatalog(o)) {
     sources.catalog.push(f);
     for (const [k, v] of Object.entries(o)) if (!k.startsWith("_")) catalog[k] = v;
-  } else if (f === "data/locales.json" || /home-tiles|home-featured|products-index|site\.json|es-glossary\.json|es-hold\.json|pages-list\.json|categories\.json|forms\.json|guides-manifest/.test(f)) {
+  } else if (f === "data/locales.json" || /home-tiles|home-featured|products-index|site\.json|es-glossary\.json|es-hold\.json|pages-list\.json|categories\.json|forms\.json|media-sizes\.json|guides-manifest/.test(f)) {
     // ⭐ home-featured.json = W3 首页产品策展条的【id 列表】(总工 review #2),顶层 { _doc, ids:[...] },
     //    无 en 字段、不是文案。消费者=renderHome/pickHomeProducts(按 id 取 manifest 缩略图+本地化标题,
     //    标题本地化走 manifest.i18n,不经此文件)→ 纯策展数据,非文案目录,点名放行。
@@ -101,6 +101,10 @@ for (const f of allJson("data")) {
     //    (/type/{key}/)与卡片 data-form 值;`name` 是存在产品 form 字段上的 bucket 标识 + admin 校验
     //    白名单值 —— 两者都是【标识符不是展示文案】。形态 chip / nav 的本地化呈现走 chrome.json 的
     //    header.cables / header.mounts_brackets 等目录键(受本闸监视),不经这份文件 → 非文案目录,放行。
+    // ⭐ media-sizes.json = #8 构建期扫出来的【图片固有尺寸表】,形状是 { "/static/....webp": [w,h] }。
+    //    值全是数字数组、零文本,不可能藏译文。它存在的理由是 render.js 双运行时:Admin 的 CF Worker
+    //    读不到磁盘、量不出尺寸,所以尺寸做成数据让两条渲染路径吃同一份(和 forms.json 同一条路子)。
+    //    由 regen 自动重生成,不手写 → 非文案目录,放行。
     // ⭐ guides-manifest.json = Guides 迁移的文章路由/策展元数据(顶层 { _doc, active_topics?, articles:[
     //    {id, topic, slug, old, title} | {id, topic, dedup_to, old} ]}),无 en 字段、非按语种译文目录。
     //    消费者=scripts/regen.mjs 的 Guides builder(按 slug/topic 生成 /guides/{slug}/ 与主题索引;
