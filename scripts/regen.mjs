@@ -160,6 +160,29 @@ const urlOf = (p, loc) => {
 // self-sufficient on purpose — publish-time regen reads only this, not all 64 product JSONs — so
 // the localized title/excerpt has to live here too, or the admin Function would need 64 file
 // reads to render one pt list page. title/excerpt stay English so the admin UI is untouched.
+/* ── 卡片缩略图:存在就用,不存在回落原图 ──────────────────────────────────
+   两类图两种存在性判断,因为 regen 是 Node:
+   · `/static/`(本仓 40 张)→ **直接查磁盘**,不需要任何清单
+   · R2(28 张,`im.key`)→ regen 看不见 R2,读 Admin 生成的清单 `data/r2-thumbs.json`
+     ⚠️ 清单必须由【列举 R2 实际内容】生成,不是记录脚本"打算写什么" ——
+        否则它记的是意图不是事实,而写失败的那张会被列进去,变成 404(总工 2026-07-28 定的约束)。
+   ⚠️ 清单只为 R2 存在。**别把 /static/ 那 40 张也塞进去** —— 它们的存在性本来就查得到,
+      多一份要维护的清单,就多一处会漂的地方。 */
+const R2_THUMBS = fs.existsSync(path.join(REPO, "data", "r2-thumbs.json"))
+  ? new Set(JSON.parse(fs.readFileSync(path.join(REPO, "data", "r2-thumbs.json"), "utf8")).keys || [])
+  : new Set();
+const thumbName = (s) => s.replace(/\.[^.\/]+$/, ".thumb.webp");
+function thumbFor(im, imgBase) {
+  const orig = resolveImg(im, imgBase);
+  if (!orig) return "";
+  if (im && im.key !== undefined) {                       // R2:查清单
+    const tk = thumbName(im.key);
+    return R2_THUMBS.has(tk) ? imgBase + tk : orig;
+  }
+  const t = thumbName(orig);                              // 静态:查磁盘
+  return t !== orig && fs.existsSync(path.join(REPO, t.replace(/^\//, ""))) ? t : orig;
+}
+
 const entries = Object.values(prods).map((p) => {
   const e = { id: p.id, category: p.category, form: p.form, title: p.i18n.en.title,
     // 🔴 规范 URL 段。算一次存下来 —— 跳转层(Function)读它判断"来的 slug 规不规范",
@@ -169,7 +192,14 @@ const entries = Object.values(prods).map((p) => {
     path: productPath(p.i18n.en.card_title || p.i18n.en.title, p.id),
     // 短名跟语言走,只在有值时才写进 manifest —— 没填的产品条目字节不变(68 个当前全没填)。
     ...(p.i18n.en.card_title ? { card_title: p.i18n.en.card_title } : {}),
-    thumb: p.images[0] ? resolveImg(p.images[0], cfg.img_base) : "", excerpt: excerptOf(p) };
+    // 🔴 `thumb` 的语义是【卡片用的图】,不是"images[0] 原样"。
+    //    此前它直接派生自 images[0],于是有两个写入方:Admin 把它改成缩略图,
+    //    **下一次 regen 全量覆盖 manifest 时冲回原图,而且不报任何错** —— 收益在下次发版时静默蒸发。
+    //    ⚠️ 也不能改 images[0] 让它自己派生出缩略图:images[0] 同时是【详情页大图】的来源,
+    //       那样是"修好卡片、弄糊详情页"。
+    //    → 规则改成【存在就用缩略图,不存在回落原图】:单一写入方(regen)、存在性驱动,
+    //      不靠谁记得触发刷新;漏生成某张的代价是"那张慢",不是"那张 404"。
+    thumb: thumbFor(p.images[0], cfg.img_base), excerpt: excerptOf(p) };
   for (const loc of LOCALES) {
     if (loc === DEFAULT) continue;
     const t = p.i18n[loc] && p.i18n[loc].title;
