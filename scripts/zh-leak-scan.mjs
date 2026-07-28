@@ -12,6 +12,12 @@
  * 扫:标签之间的文字节点 + 可见属性(placeholder / alt / title / aria-label)
  * 不扫:<script>/<style>/注释/class/href/src/id/data-*
  *
+ * ⚠️ 【已知缺陷,押后修 —— 总工 2026-07-28 同意】`--json` 的输出【不是合法 JSON】:
+ *    基线比对那段在 JSON 之后又 console.log 了两行,`JSON.parse` 会当场抛。
+ *    与 pt-leak-scan 那个"formatLeaks 只在 CLI 有、--json 里没有"是同族:**机读接口不干净**。
+ *    ⚠️ 押后的前提是**它是响的不是静默的**(解析当场炸,不会给出一个错的数)。
+ *    修法:基线比对的输出也进 JSON 对象,或 --json 模式下完全不打印它。
+ *
  * 用法: node scripts/zh-leak-scan.mjs [--json] [--max N] [--write-baseline]
  * 退出: 0 = 未超基线; 1 = 超了基线或基线缺失
  */
