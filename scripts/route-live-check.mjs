@@ -20,7 +20,7 @@
  * 用法: node scripts/route-live-check.mjs [--port 8791] [--keep]
  * 退出: 0 = 全过; 1 = 有断言失败; 9 = 仪器无效(服务没起来 / 基准不过)
  */
-import { spawn } from "child_process";
+import { spawn, spawnSync } from "child_process";
 import fs from "fs";
 
 const PORT_IX = process.argv.indexOf("--port");
@@ -80,6 +80,19 @@ async function probe(path) {
 }
 
 let srv = null;
+
+// 🔴 起服务【之前】必须确认端口是空的。
+//    wrangler 退出时会留下 workerd 子进程(kill 只杀了 npx 那层壳),它继续占着端口
+//    且**不热重载**。下一次跑这个脚本时,up() 的第一个 fetch 当场成功 ——
+//    脚本以为自己起的服务好了,基准 200,报「仪器有效」,
+//    **然后拿旧代码跑完全部断言,一片绿。**
+//    > 这是比"闸缺失"更坏的一种坏:闸还在,还是绿的,而它照的是上一次的世界。
+//    所以端口非空 = 仪器无效,直接退出并说清怎么清理 —— 不自动杀,那可能是别人的服务。
+async function portBusy() {
+  try { await fetch(BASE + "/", { redirect: "manual", signal: AbortSignal.timeout(2000) }); return true; }
+  catch { return false; }
+}
+
 async function up() {
   srv = spawn("npx", ["wrangler", "pages", "dev", ".", "--port", String(PORT),
     "--compatibility-date=2026-07-03"],
@@ -91,17 +104,37 @@ async function up() {
   return false;
 }
 
+// ⚠️ Windows 上 child.kill() 只杀 npx 壳,workerd 会活下来占住端口。整棵树一起杀。
+//    ⚠️ 必须用 **spawnSync**:第一版用 spawn(异步),node 主进程先退出了 taskkill 才轮到跑,
+//    于是"杀了"和"没杀"一样 —— 跑完照样留一个僵尸,而退出码是 0。
+//    **清理动作跑在进程生命周期之外,等于没跑。**
+function down() {
+  if (!srv || KEEP) return;
+  if (process.platform === "win32") {
+    try { spawnSync("taskkill", ["/PID", String(srv.pid), "/T", "/F"], { stdio: "ignore" }); } catch { /* 尽力 */ }
+  }
+  srv.kill();
+}
+
+if (await portBusy()) {
+  console.error(`
+❌ 仪器无效:${BASE} 已经有服务在监听。`);
+  console.error("   多半是上次遗留的 workerd(wrangler 退出时只杀了外层壳)。**它不热重载**,");
+  console.error("   跑下去测的会是【旧代码】,而且一路绿灯。先清理再来:");
+  console.error("     powershell -c \"Get-NetTCPConnection -LocalPort " + PORT + " | %{ taskkill /PID $_.OwningProcess /T /F }\"");
+  process.exit(9);
+}
 const ready = await up();
 if (!ready) {
   console.error(`\n❌ 仪器无效:${BASE} 起不来(90s 超时)。**这不是闸红,是没测成。**`);
-  if (srv) srv.kill();
+  down();
   process.exit(9);
 }
 // 🔴 基准:根路径必须 200。不过 = 服务在但服务错了东西,同样不许出结论。
 const bench = await probe("/");
 if (bench.code !== 200) {
   console.error(`\n❌ 仪器无效:基准 / 返回 ${bench.code},期望 200。**服务起来了但服务的不是这个站** —— 不出结论。`);
-  if (srv && !KEEP) srv.kill();
+  down();
   process.exit(9);
 }
 console.log(`【route-live-check】${BASE} 基准 / = 200,仪器有效。开始 ${cases.length} 条真请求。`);
@@ -112,7 +145,7 @@ console.log(`   旧址组合对账:${ROUTES.categories.length} 分类 × ${ALL_L
 if (oldAddrTested + skipped.length !== oldAddrTotal) {
   console.error(`
 ❌ 仪器无效:旧址对账不平(${oldAddrTested}+${skipped.length} ≠ ${oldAddrTotal})—— 有组合两边都没落到,不出结论。`);
-  if (srv && !KEEP) srv.kill();
+  down();
   process.exit(9);
 }
 for (const s of skipped) console.log(`   ⏭️  ${s}`);
@@ -132,7 +165,7 @@ for (const c of cases) {
     console.error(`  ❌ ${c.path}  期望 ${c.code}${c.loc ? " → " + c.loc : ""},得到 ${got.code}${got.why ? " · " + got.why : ""}`);
   }
 }
-if (srv && !KEEP) srv.kill();
+down();
 
 if (fail) { console.error(`\n❌ ${fail}/${cases.length} 条失败`); process.exit(1); }
 console.log(`✅ ${cases.length}/${cases.length} 条真请求全过`);
