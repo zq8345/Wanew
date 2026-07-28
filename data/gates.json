@@ -1,0 +1,155 @@
+{
+  "_note": "【哪些是闸、怎么跑】的显式名单。**不是 glob**:按文件名模式枚举分不出「闸」和「名字像闸的工具」——rm-verify 裸跑会 exit 1,曾被当成第三条红。",
+  "_why_explicit": "两个人各自按 glob 数,一个得 22、一个得 25(实为 23)。数不一样说明当时没有权威名单。闸少一道在代码里没有痕迹,只能声明。",
+  "_how_used": "scripts/gates-check.mjs 核对:① 清单里每条的文件必须存在 ② scripts/ 下任何名字含 check|verify|scan|test|selftest 的 .mjs,必须在 gates 或 not_gates 里出现。**glob 只用来触发提问,不用来判定。**",
+  "_slow": "🐢 = 慢闸(起 wrangler / 跑 build),日常可跳过,但改 Functions 或路由后必跑。",
+  "gates": [
+    {
+      "id": "brand-residue-scan",
+      "cmd": "node scripts/brand-residue-scan.mjs",
+      "what": "旧品牌残留字样"
+    },
+    {
+      "id": "catalog-dupe-check",
+      "cmd": "node scripts/catalog-dupe-check.mjs",
+      "what": "catalog 键重复/冲突"
+    },
+    {
+      "id": "chrome-verify",
+      "cmd": "node scripts/chrome-verify.mjs",
+      "what": "各页 chrome 与模板一致(regen 后没跑 chrome-sync 会红)"
+    },
+    {
+      "id": "design-drift-check",
+      "cmd": "node scripts/design-drift-check.mjs",
+      "what": "产出与 DESIGN.md 的可测推论一致"
+    },
+    {
+      "id": "es-glossary-check",
+      "cmd": "node scripts/es-glossary-check.mjs",
+      "what": "es 术语表一致性"
+    },
+    {
+      "id": "es-hold-check",
+      "cmd": "node scripts/es-hold-check.mjs",
+      "what": "es 扣留清单双向对账(缺 es 的产品必须显式声明)"
+    },
+    {
+      "id": "es-leak-scan",
+      "cmd": "node scripts/es-leak-scan.mjs",
+      "what": "es 页里的英文残留(基线棘轮)"
+    },
+    {
+      "id": "es-marker-selftest",
+      "cmd": "node scripts/es-marker-selftest.mjs",
+      "what": "es 判定用的标记词考卷自测"
+    },
+    {
+      "id": "forms-integrity-check",
+      "cmd": "node scripts/forms-integrity-check.mjs",
+      "what": "产品的 category/form 都在真源清单里"
+    },
+    {
+      "id": "gates-check",
+      "cmd": "node scripts/gates-check.mjs",
+      "what": "守这份名单本身:清单里的脚本必须存在,scripts/ 下名字像闸的文件必须表过态"
+    },
+    {
+      "id": "hreflang-verify",
+      "cmd": "node scripts/hreflang-verify.mjs",
+      "what": "hreflang 簇六条规则(自指/互惠/目标存在)"
+    },
+    {
+      "id": "i18n-check",
+      "cmd": "node scripts/i18n-check.mjs",
+      "what": "文案键覆盖;并拒绝静默跳过不认识形状的 data JSON"
+    },
+    {
+      "id": "list-page-wiring.test",
+      "cmd": "node --test scripts/list-page-wiring.test.mjs",
+      "what": "形态页 banner 未走错分支 · canonical 自指 · 首页 tile 未静默消失"
+    },
+    {
+      "id": "product-route.test",
+      "cmd": "node --test scripts/product-route.test.mjs",
+      "what": "/products/ 路由判据 · 挂载双向对账 · 详情页孤儿"
+    },
+    {
+      "id": "pt-drift-check",
+      "cmd": "node scripts/pt-drift-check.mjs",
+      "what": "pt 与 en 的结构漂移"
+    },
+    {
+      "id": "pt-leak-scan",
+      "cmd": "node scripts/pt-leak-scan.mjs",
+      "what": "pt 页里的英文残留(基线棘轮)"
+    },
+    {
+      "id": "render.test",
+      "cmd": "node --test scripts/render.test.mjs",
+      "what": "render.js 的渲染判据"
+    },
+    {
+      "id": "repo-hygiene-check",
+      "cmd": "node scripts/repo-hygiene-check.mjs",
+      "what": "仓库卫生:未追踪/该忽略的文件"
+    },
+    {
+      "id": "route-live-check",
+      "cmd": "node scripts/route-live-check.mjs",
+      "what": "🐢 真 HTTP:起本地 pages dev 发 491 条真请求(不复刻判据)"
+    },
+    {
+      "id": "routes-budget-check",
+      "cmd": "node scripts/routes-budget-check.mjs",
+      "what": "🐢 _routes.json 额度/长度/私有模块暴露(先断言编译成功)"
+    },
+    {
+      "id": "switcher-verify",
+      "cmd": "node scripts/switcher-verify.mjs",
+      "what": "语种切换器的链接与当前页一致"
+    },
+    {
+      "id": "type-scale-check",
+      "cmd": "node scripts/type-scale-check.mjs",
+      "what": "字阶 10 档未被绕过(自带正对照)"
+    },
+    {
+      "id": "vendor-manifest-check",
+      "cmd": "node scripts/vendor-manifest-check.mjs",
+      "what": "镜像清单与 _lib 实际文件双向对齐"
+    },
+    {
+      "id": "whitecards-pair-check",
+      "cmd": "node scripts/whitecards-pair-check.mjs",
+      "what": "白卡片成对出现"
+    },
+    {
+      "id": "zh-leak-scan",
+      "cmd": "node scripts/zh-leak-scan.mjs",
+      "what": "zh 页里的英文残留(基线棘轮)"
+    }
+  ],
+  "not_gates": [
+    {
+      "path": "scripts/verify-b.mjs",
+      "kind": "historical",
+      "why": "R3(b) 那一批的一次性验收(生成页 vs HEAD 零回归),不是持续不变量"
+    },
+    {
+      "path": "scripts/rm-verify.mjs",
+      "kind": "tool",
+      "why": "删除工具:接路径参数并执行删除。**裸跑打印用法后 exit 1** —— 把它当闸会得到一条假红"
+    },
+    {
+      "path": "scripts/gh-commit-e2e.mjs",
+      "kind": "probe",
+      "why": "需 GITHUB_TOKEN 的真提交探针,无凭据时 exit 9(仪器无效)"
+    },
+    {
+      "path": "scripts/gh-tombstone-probe.mjs",
+      "kind": "probe",
+      "why": "需 GITHUB_TOKEN 的 tree 探针,无凭据时 exit 9"
+    }
+  ]
+}
