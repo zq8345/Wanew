@@ -137,7 +137,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=59" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=60" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 <meta name="robots" content="noindex, follow" />
@@ -230,11 +230,13 @@
   <section class="xlc-section">
     <div class="container">
       <div class="about-lead">
-        <div class="about-lead__text">
-          <p>Wanew Starlink Accessories 是一家以工程驱动的制造商,坐落于粤港澳大湾区,研发、生产、销售一体化——为 Starlink 终端全系列周边配件提供一站式供应。 每件产品均针对 Starlink Mini、Standard 及 Performance (Gen 1/2/3) 终端的耐候性与户外需求进行工程设计，为全球采购商提供稳定、耐用、精准适配的一站式供应。</p>
-        </div>
+        <!-- media 在 text 之前 = 视觉左侧。用 DOM 顺序而不是 row-reverse/order:
+             后者只挪视觉、不挪 Tab 焦点顺序,键盘用户会拿到与看到的相反的次序。 -->
         <div class="about-lead__media">
           <img src="/static/upload/image/wanew-company-wall.webp" alt="Wanew 生产工厂" width="1586" height="992" loading="lazy">
+        </div>
+        <div class="about-lead__text">
+          <p>Wanew Starlink Accessories 是一家以工程驱动的制造商,坐落于粤港澳大湾区,研发、生产、销售一体化——为 Starlink 终端全系列周边配件提供一站式供应。 每件产品均针对 Starlink Mini、Standard 及 Performance (Gen 1/2/3) 终端的耐候性与户外需求进行工程设计，为全球采购商提供稳定、耐用、精准适配的一站式供应。</p>
         </div>
       </div>
     </div>
@@ -243,22 +245,14 @@
   <!-- SECTION 2 (v3): Manufacturing Capability — stats + patents note + capability line + Global Reach
        line (absorbed here, no standalone section) + factory wall + cert shields + Quality Process flow
        (in a surface band). #patents + #certifications anchors preserved for 301 targets. -->
-  <section class="xlc-section xlc-section-alt" id="patents">
+  <section class="xlc-section xlc-section-alt w3-whitecards" id="patents">
     <div class="container">
       <div class="tj-sechead">
         <h2 class="tj-h2">制造能力</h2>
       </div>
-      <div class="xlc-stats xlc-stats--6">
-        <div class="xlc-stat-card"><div class="xlc-stat-number">15+</div><div class="xlc-stat-label">年经验</div></div>
-        <div class="xlc-stat-card"><div class="xlc-stat-number">150+</div><div class="xlc-stat-label">熟练员工</div></div>
-        <div class="xlc-stat-card"><div class="xlc-stat-number">200+</div><div class="xlc-stat-label">专利</div></div>
-        <div class="xlc-stat-card"><div class="xlc-stat-number">5,000 m²</div><div class="xlc-stat-label">标准化生产厂房</div></div>
-        <div class="xlc-stat-card"><div class="xlc-stat-number">600,000+</div><div class="xlc-stat-label">件/月</div></div>
-        <div class="xlc-stat-card"><div class="xlc-stat-number">130+</div><div class="xlc-stat-label">国家</div></div>
-      </div>
-      <p class="xlc-stats__note">80+ 发明专利 &middot; 120+ 实用新型专利 &middot; 20+ 外观设计专利</p>
-      <p class="about-caps-line">自有质量管控对每一批次逐一按规格检验——让采购商获得规模、一致性与可靠交期。</p>
-      <p class="about-caps-line">美国仓储与 DDP 交付,供应稳定可靠。</p>
+      <!-- 数字卡移到工厂图墙【之后】(Joe):h2 直接接图墙,先给看的再给数的。
+           不在中间补过渡文案 —— 总工点名不要自作主张加。
+           同时删掉三行(专利小注 + 两行能力句):键一并从 about.json 删,见 orphan 闸。 -->
       <ul class="about-facwall">
         <li><figure><img src="/static/upload/image/about/factory-office.webp" alt="研发办公" width="503" height="338" loading="lazy"><figcaption aria-hidden="true">研发办公</figcaption></figure></li>
         <li><figure><img src="/static/upload/image/about/factory-assembly.webp" alt="装配产线" width="507" height="338" loading="lazy"><figcaption aria-hidden="true">装配产线</figcaption></figure></li>
@@ -267,6 +261,14 @@
         <li><figure><img src="/static/upload/image/about/factory-warehouse.webp" alt="仓储" width="503" height="349" loading="lazy"><figcaption aria-hidden="true">仓储</figcaption></figure></li>
         <li><figure><img src="/static/upload/image/about/factory-shipping.webp" alt="包装发运" width="507" height="349" loading="lazy"><figcaption aria-hidden="true">包装发运</figcaption></figure></li>
       </ul>
+      <div class="xlc-stats xlc-stats--6">
+        <div class="xlc-stat-card"><div class="xlc-stat-number">15+</div><div class="xlc-stat-label">年经验</div></div>
+        <div class="xlc-stat-card"><div class="xlc-stat-number">150+</div><div class="xlc-stat-label">熟练员工</div></div>
+        <div class="xlc-stat-card"><div class="xlc-stat-number">200+</div><div class="xlc-stat-label">专利</div></div>
+        <div class="xlc-stat-card"><div class="xlc-stat-number">5,000 m²</div><div class="xlc-stat-label">标准化生产厂房</div></div>
+        <div class="xlc-stat-card"><div class="xlc-stat-number">600,000+</div><div class="xlc-stat-label">件/月</div></div>
+        <div class="xlc-stat-card"><div class="xlc-stat-number">130+</div><div class="xlc-stat-label">国家</div></div>
+      </div>
       <h3 class="about-qp-head">品质管控流程</h3>
       <div class="w3-flowband">
       <ol class="w3-flow w3-flow--5">
@@ -305,7 +307,7 @@
   <section class="xlc-section w3-whitecards about-oem-light" id="oem-odm">
     <div class="container">
       <div class="xlc-body">
-        <div class="tj-sechead"><h2 class="tj-h2">OEM/ODM Starlink 兼容配件代工制造</h2></div>
+        <div class="tj-sechead"><h2 class="tj-h2">OEM/ODM</h2><p class="tj-sechead__sub">Starlink 兼容配件代工制造</p></div>
 <div class="about-oemblock">
   <div class="about-oemodm__head">OEM 服务</div>
   <dl class="about-oemcaps">
@@ -328,7 +330,7 @@
   <!-- SECTION 4 (v3): Compatibility & FAQ — affiliation disclaimer as the prominent first item +
        3 Q&A, one flat container. #brand anchor preserved (301 target). The trademark small-print is
        deduped away: the footer carries the standing "not affiliated" disclaimer site-wide. -->
-  <section class="xlc-section xlc-section-alt" id="brand">
+  <section class="xlc-section xlc-section-alt w3-whitecards" id="brand">
     <div class="container">
       <div class="tj-sechead"><h2 class="tj-h2">兼容性与常见问题</h2></div>
       <p class="about-disclaimer">Wanew 是独立的第三方制造商,与 SpaceX 或 Starlink 无隶属、赞助或背书关系。“Starlink” 是 SpaceX 的商标,本站相关表述仅表示兼容性。</p>
@@ -344,14 +346,14 @@
   <!-- SECTION 5 (v4): Partner With Wanew — the page's closing conversion block. v3 was a single
        sentence and one button, which is why it read as empty. Now it names the three ways to
        actually work with us (one line each, no paragraphs) and gives a primary + secondary exit. -->
-  <section class="xlc-section about-partner-close">
+  <section class="xlc-section about-partner-close w3-whitecards">
     <div class="container">
       <div class="tj-sechead"><h2 class="tj-h2">与 Wanew 合作</h2></div>
       <p class="about-partner__lead">三种合作方式。</p>
       <ul class="about-partner__ways">
-        <li><b>OEM</b> — 我们的设计,你的品牌与包装。</li>
-        <li><b>ODM</b> — 你的规格,由我们做工程与开模。</li>
-        <li><b>分销</b> — 在你的市场经销我们的目录。</li>
+        <li class="about-pcard"><h3>OEM</h3><p>我们的设计,你的品牌与包装。</p></li>
+        <li class="about-pcard"><h3>ODM</h3><p>你的规格,由我们做工程与开模。</p></li>
+        <li class="about-pcard"><h3>分销</h3><p>在你的市场经销我们的目录。</p></li>
       </ul>
       <div class="about-partner__actions">
         <a class="w3-btn w3-btn--primary" href="/zh/contact/">获取报价 <span class="w3-arw">→</span></a>

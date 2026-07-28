@@ -54,12 +54,6 @@
     "es-MX": "Capacidad de fabricación",
     "zh": "制造能力"
   },
-  "about.p.3": {
-    "en": "In-house quality control checks every batch against specification — so buyers get scale, consistency, and reliable lead times.",
-    "pt-BR": "O controle de qualidade interno inspeciona cada lote conforme a especificação — assim os compradores ganham escala, consistência e prazos de entrega confiáveis.",
-    "es-MX": "El control de calidad interno revisa cada lote conforme a la especificación — así los compradores obtienen escala, consistencia y tiempos de entrega confiables.",
-    "zh": "自有质量管控对每一批次逐一按规格检验——让采购商获得规模、一致性与可靠交期。"
-  },
   "about.about-caps-k.1": {
     "en": "5,000 m²",
     "pt-BR": "5.000 m²",
@@ -71,12 +65,6 @@
     "pt-BR": "Fábrica padronizada",
     "es-MX": "Planta de producción estandarizada",
     "zh": "标准化生产厂房"
-  },
-  "about.tj-sub.4": {
-    "en": "US warehousing and DDP delivery for consistent, reliable supply.",
-    "pt-BR": "Armazenagem nos EUA e entrega DDP para um fornecimento constante e confiável.",
-    "es-MX": "Almacenamiento en EE. UU. y entrega DDP para un suministro constante y confiable.",
-    "zh": "美国仓储与 DDP 交付,供应稳定可靠。"
   },
   "about.h3.1": {
     "en": "Partner With Wanew",
@@ -103,12 +91,8 @@
     "reason.dupe": "页面标题/面包屑/eyebrow 三处「About Us」,pt 各自不同(Sobre Nós/Sobre/Sobre a Wanew)对应不同位置。同词不同位,显式共存不合并。",
     "zh": "关于我们"
   },
-  "oem-odm-manufacturing.page-header-title.1": {
-    "en": "OEM/ODM Starlink-Compatible Accessories Manufacturing",
-    "pt-BR": "Fabricação OEM/ODM de Acessórios Compatíveis com Starlink",
-    "es-MX": "Fabricación OEM/ODM de accesorios compatibles con Starlink",
-    "zh": "OEM/ODM Starlink 兼容配件代工制造"
-  },
+  "oem-odm-manufacturing.page-header-title.1": { "en": "OEM/ODM", "pt-BR": "OEM/ODM", "es-MX": "OEM/ODM", "zh": "OEM/ODM" },
+  "about.oem.subtitle": { "en": "Starlink-Compatible Accessories Manufacturing", "pt-BR": "Fabricação de acessórios compatíveis com Starlink", "es-MX": "Fabricación de accesorios compatibles con Starlink", "zh": "Starlink 兼容配件代工制造" },
   "oem-odm-manufacturing.h2.2": {
     "en": "OEM Services",
     "pt-BR": "Serviços OEM",
@@ -204,24 +188,6 @@
     "pt-BR": "Transição perfeita do protótipo à produção em volume",
     "es-MX": "Transición fluida del prototipo a la producción en volumen",
     "zh": "从样机到量产无缝衔接"
-  },
-  "patents-manufacturing.td.1": {
-    "en": "Invention Patents",
-    "pt-BR": "Patentes de invenção",
-    "es-MX": "Patentes de invención",
-    "zh": "发明专利"
-  },
-  "patents-manufacturing.td.3": {
-    "en": "Utility Patents",
-    "pt-BR": "Patentes de modelo de utilidade",
-    "es-MX": "Patentes de modelo de utilidad",
-    "zh": "实用新型专利"
-  },
-  "patents-manufacturing.td.5": {
-    "en": "Design Patents",
-    "pt-BR": "Patentes de design",
-    "es-MX": "Patentes de diseño",
-    "zh": "外观设计专利"
   },
   "certifications-testing.h2.3": {
     "en": "Quality Process",

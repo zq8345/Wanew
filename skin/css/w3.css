@@ -46,7 +46,9 @@
   --w3-edge-top: inset 0 1px 0 rgba(255,255,255,.09);   /* 顶边内高光(加亮):把卡片从暗底"抬"起来 */
   --w3-invert-bg: #f4f5f7;   /* 选择性提亮带(信任/证据类)浅底 */
   --w3-invert-ink: #14181d;  /* 反转带深标题 */
-  --w3-invert-ink2: #56606b; /* 反转带正文 */
+  --w3-invert-ink2: #4d5762; /* 反转带正文。2026-07-28:#56606b 在白卡上只有 6.40,低于总工定的正文级 ≥7;改 #4d5762 → 7.35。
+     ⚠️ 全站令牌:14 条规则 / 32 个挂 w3-whitecards 的页面(首页 Our Advantages、Solutions、Guides、About)。
+     只改文字深浅,不动任何版式。要退回原样就把这一行改回 #56606b。 */
   --w3-invert-accent: #1d63d6; /* 反转带 accent(浅底上 --w3-accent 太浅→用深蓝,与 §2.1 链接色同源) */
   --w3-well: radial-gradient(circle at 50% 42%, rgba(125,177,255,.13), transparent 70%);  /* 图标空 void 垫底(补白) */
 }
@@ -619,10 +621,9 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .about-affil__tm { font-size: 13px; color: var(--w3-text3); line-height: 1.6; margin: 0; border-left: 2px solid var(--w3-line2); padding-left: 14px; }
 
 /* FAQ — flat card, 3 Q&A all expanded (Joe: no accordion) */
-.faq-flat { background: var(--w3-surface-2); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); box-shadow: var(--w3-edge-top), var(--w3-elev-card); padding: 4px 26px; margin: 16px 0 0; max-width: 840px; }
-.faq-flat__item { padding: 20px 0; border-bottom: 1px solid var(--w3-line); }
-.faq-flat__item:last-child { border-bottom: none; }
-.faq-flat .faq-flat__item h3 { font-size: 15px; font-weight: 650; color: var(--w3-text); letter-spacing: -0.01em; line-height: 1.4; margin: 0 0 6px; }
+/* v5:容器不再是卡,卡是 .faq-flat__item(三列见下方 v5 段)。
+   旧版是"一张大卡里三条带分隔线的问答",max-width 840 —— 三卡横排后它成了压宽的元凶。 */
+.faq-flat .faq-flat__item h3 { font-size: 16px; font-weight: 650; color: var(--w3-text); letter-spacing: -0.01em; line-height: 1.4; margin: 0 0 8px; }
 .faq-flat__item p { font-size: 13.5px; color: var(--w3-text2); line-height: 1.7; margin: 0; }
 
 /* certification evidence strip (real cert badges, foot of Why section) */
@@ -1564,13 +1565,45 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-whitecards .about-steps b { color: var(--w3-invert-ink); }
 .w3-whitecards .about-steps__n { background: var(--w3-invert-accent); }
 
-/* Partner:三条路径各只有六七个字 → 三合一成一行,不再三张单薄的卡 */
-.about-partner__ways { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 8px;
-  font-size: 15px; line-height: 1.7; color: var(--w3-text2); max-width: 860px; }
-.about-partner__ways li { padding-left: 14px; position: relative; }
-.about-partner__ways li::before { content: ""; position: absolute; left: 0; top: 10px;
-  width: 5px; height: 5px; border-radius: 50%; background: var(--w3-accent); }
-.about-partner__ways b { color: var(--w3-text); }
+/* Partner 的"三合一成一行"版(含 max-width:860 与项目符号)已随 v5 三卡退役,见下方 v5 段。 */
+
+/* ── About v5(Joe 亲列 7 条)────────────────────────────────────────────────
+   🔴 本段的硬性不变量:每个进 .w3-whitecards 白名单的卡片类,
+      **底色声明与文字墨色声明必须成对出现**。上一版 About 崩掉的第二个根因就是
+      只搬了墨没搬底 —— 深墨落深底、标题整片隐形,而两个改动【各自看都是对的】。
+      scripts/whitecards-pair-check.mjs 常驻检查这一条,缺一即红。 */
+
+/* ④ Compatibility & FAQ:3 卡横排,三卡总宽 = 容器宽。
+   免责声明整幅一行留在卡上方(法务文案,且 #brand 是 301 目标,id 不动)。 */
+.faq-flat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 18px 0 0; }
+.faq-flat__item { border-radius: 16px; padding: 22px 24px; }
+@media (max-width: 900px) { .faq-flat { grid-template-columns: 1fr; gap: 14px; } }
+
+/* ⑤ Partner:三条路径 → 三张卡(i18n 本来就是 .t/.d 的卡片形状,没新建键) */
+.about-partner__ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  margin: 16px 0 0; padding: 0; list-style: none; }
+.about-pcard { border-radius: 16px; padding: 22px 24px; }
+/* 退役旧 .faq-flat 容器时它的外边距一并没了,链接会贴着卡底边。补回呼吸位。 */
+.about-faq-more { margin-top: 16px; }
+.about-pcard h3 { font-size: 17px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.01em; }
+.about-pcard p { font-size: 14.5px; line-height: 1.6; margin: 0; }
+@media (max-width: 900px) { .about-partner__ways { grid-template-columns: 1fr; gap: 14px; } }
+
+/* ⑦ OEM/ODM 标题拆大小字。副标题是【独立键】不是切出来的:
+   es/pt 的 OEM/ODM 夹在句中,切字符串会得到病句。 */
+.tj-sechead__sub { margin: 8px 0 0; font-size: 15.5px; line-height: 1.5; color: var(--w3-text2); }
+.w3-whitecards .tj-sechead__sub { color: var(--w3-text2); }   /* 段标题区仍在深底上,墨不翻 */
+
+/* ⑥ 白名单新增三类卡。底与墨【成对】,顺序写在一起,便于人眼与闸同时核。 */
+.w3-whitecards .xlc-stat-card { background: #fff; border: 1px solid rgba(11,13,16,.10); box-shadow: 0 14px 30px rgba(0,0,0,.28); }
+.w3-whitecards .xlc-stat-card .xlc-stat-number { color: var(--w3-invert-ink); }
+.w3-whitecards .xlc-stat-card .xlc-stat-label { color: var(--w3-invert-ink2); }
+.w3-whitecards .faq-flat__item { background: #fff; border: 1px solid rgba(11,13,16,.10); box-shadow: 0 14px 30px rgba(0,0,0,.28); }
+.w3-whitecards .faq-flat__item h3 { color: var(--w3-invert-ink); }
+.w3-whitecards .faq-flat__item p { color: var(--w3-invert-ink2); }
+.w3-whitecards .about-pcard { background: #fff; border: 1px solid rgba(11,13,16,.10); box-shadow: 0 14px 30px rgba(0,0,0,.28); }
+.w3-whitecards .about-pcard h3 { color: var(--w3-invert-ink); }
+.w3-whitecards .about-pcard p { color: var(--w3-invert-ink2); }
 
 /* PDP 适配徽章〔#52 契约〕:买家的第一个决定是"这个配不配我的终端"。数据是机型 slug,
    显示名 model_display > categories.display。**产品没填 compatible_with 就整块不出现**——
@@ -1582,6 +1615,4 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   font-size: 12.5px; font-weight: 600; }
 
 /* Compatibility & FAQ:暗卡原本缩在左侧、右边一大片空 → 撑满 */
-#brand .faq-flat { display: grid; gap: 12px; }
-#brand .faq-flat__item { width: 100%; }
 #brand .about-disclaimer { max-width: none; }

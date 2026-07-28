@@ -136,7 +136,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=59" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=60" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 {{HREFLANG}}
@@ -227,11 +227,13 @@
   <section class="xlc-section">
     <div class="container">
       <div class="about-lead">
-        <div class="about-lead__text">
-          <p>{{t.about.p.1}} {{t.about.p.2}}</p>
-        </div>
+        <!-- media 在 text 之前 = 视觉左侧。用 DOM 顺序而不是 row-reverse/order:
+             后者只挪视觉、不挪 Tab 焦点顺序,键盘用户会拿到与看到的相反的次序。 -->
         <div class="about-lead__media">
           <img src="/static/upload/image/wanew-company-wall.webp" alt="{{t.about.alt.1}}" width="1586" height="992" loading="lazy">
+        </div>
+        <div class="about-lead__text">
+          <p>{{t.about.p.1}} {{t.about.p.2}}</p>
         </div>
       </div>
     </div>
@@ -240,22 +242,14 @@
   <!-- SECTION 2 (v3): Manufacturing Capability — stats + patents note + capability line + Global Reach
        line (absorbed here, no standalone section) + factory wall + cert shields + Quality Process flow
        (in a surface band). #patents + #certifications anchors preserved for 301 targets. -->
-  <section class="xlc-section xlc-section-alt" id="patents">
+  <section class="xlc-section xlc-section-alt w3-whitecards" id="patents">
     <div class="container">
       <div class="tj-sechead">
         <h2 class="tj-h2">{{t.about.tj-h2.2}}</h2>
       </div>
-      <div class="xlc-stats xlc-stats--6">
-        <div class="xlc-stat-card"><div class="xlc-stat-number">15+</div><div class="xlc-stat-label">{{t.about.xlc-stat-label.1}}</div></div>
-        <div class="xlc-stat-card"><div class="xlc-stat-number">150+</div><div class="xlc-stat-label">{{t.about.xlc-stat-label.3}}</div></div>
-        <div class="xlc-stat-card"><div class="xlc-stat-number">200+</div><div class="xlc-stat-label">{{t.about.xlc-stat-label.4}}</div></div>
-        <div class="xlc-stat-card"><div class="xlc-stat-number">{{t.about.about-caps-k.1}}</div><div class="xlc-stat-label">{{t.about.about-caps-v.1}}</div></div>
-        <div class="xlc-stat-card"><div class="xlc-stat-number">{{t.shared.monthly_output_units}}</div><div class="xlc-stat-label">{{t.shared.units_per_month}}</div></div>
-        <div class="xlc-stat-card"><div class="xlc-stat-number">130+</div><div class="xlc-stat-label">{{t.about.stat.countries}}</div></div>
-      </div>
-      <p class="xlc-stats__note">80+ {{t.patents-manufacturing.td.1}} &middot; 120+ {{t.patents-manufacturing.td.3}} &middot; 20+ {{t.patents-manufacturing.td.5}}</p>
-      <p class="about-caps-line">{{t.about.p.3}}</p>
-      <p class="about-caps-line">{{t.about.tj-sub.4}}</p>
+      <!-- 数字卡移到工厂图墙【之后】(Joe):h2 直接接图墙,先给看的再给数的。
+           不在中间补过渡文案 —— 总工点名不要自作主张加。
+           同时删掉三行(专利小注 + 两行能力句):键一并从 about.json 删,见 orphan 闸。 -->
       <ul class="about-facwall">
         <li><figure><img src="/static/upload/image/about/factory-office.webp" alt="{{t.about.faccap.1}}" width="503" height="338" loading="lazy"><figcaption aria-hidden="true">{{t.about.faccap.1}}</figcaption></figure></li>
         <li><figure><img src="/static/upload/image/about/factory-assembly.webp" alt="{{t.about.faccap.2}}" width="507" height="338" loading="lazy"><figcaption aria-hidden="true">{{t.about.faccap.2}}</figcaption></figure></li>
@@ -264,6 +258,14 @@
         <li><figure><img src="/static/upload/image/about/factory-warehouse.webp" alt="{{t.about.faccap.5}}" width="503" height="349" loading="lazy"><figcaption aria-hidden="true">{{t.about.faccap.5}}</figcaption></figure></li>
         <li><figure><img src="/static/upload/image/about/factory-shipping.webp" alt="{{t.about.faccap.6}}" width="507" height="349" loading="lazy"><figcaption aria-hidden="true">{{t.about.faccap.6}}</figcaption></figure></li>
       </ul>
+      <div class="xlc-stats xlc-stats--6">
+        <div class="xlc-stat-card"><div class="xlc-stat-number">15+</div><div class="xlc-stat-label">{{t.about.xlc-stat-label.1}}</div></div>
+        <div class="xlc-stat-card"><div class="xlc-stat-number">150+</div><div class="xlc-stat-label">{{t.about.xlc-stat-label.3}}</div></div>
+        <div class="xlc-stat-card"><div class="xlc-stat-number">200+</div><div class="xlc-stat-label">{{t.about.xlc-stat-label.4}}</div></div>
+        <div class="xlc-stat-card"><div class="xlc-stat-number">{{t.about.about-caps-k.1}}</div><div class="xlc-stat-label">{{t.about.about-caps-v.1}}</div></div>
+        <div class="xlc-stat-card"><div class="xlc-stat-number">{{t.shared.monthly_output_units}}</div><div class="xlc-stat-label">{{t.shared.units_per_month}}</div></div>
+        <div class="xlc-stat-card"><div class="xlc-stat-number">130+</div><div class="xlc-stat-label">{{t.about.stat.countries}}</div></div>
+      </div>
       <h3 class="about-qp-head">{{t.certifications-testing.h2.3}}</h3>
       <div class="w3-flowband">
       <ol class="w3-flow w3-flow--5">
@@ -302,7 +304,7 @@
   <section class="xlc-section w3-whitecards about-oem-light" id="oem-odm">
     <div class="container">
       <div class="xlc-body">
-        <div class="tj-sechead"><h2 class="tj-h2">{{t.oem-odm-manufacturing.page-header-title.1}}</h2></div>
+        <div class="tj-sechead"><h2 class="tj-h2">{{t.oem-odm-manufacturing.page-header-title.1}}</h2><p class="tj-sechead__sub">{{t.about.oem.subtitle}}</p></div>
 <div class="about-oemblock">
   <div class="about-oemodm__head">{{t.oem-odm-manufacturing.h2.2}}</div>
   <dl class="about-oemcaps">
@@ -325,7 +327,7 @@
   <!-- SECTION 4 (v3): Compatibility & FAQ — affiliation disclaimer as the prominent first item +
        3 Q&A, one flat container. #brand anchor preserved (301 target). The trademark small-print is
        deduped away: the footer carries the standing "not affiliated" disclaimer site-wide. -->
-  <section class="xlc-section xlc-section-alt" id="brand">
+  <section class="xlc-section xlc-section-alt w3-whitecards" id="brand">
     <div class="container">
       <div class="tj-sechead"><h2 class="tj-h2">{{t.about.sec.compat_faq}}</h2></div>
       <p class="about-disclaimer">{{t.about.faq.disclaimer}}</p>
@@ -341,14 +343,14 @@
   <!-- SECTION 5 (v4): Partner With Wanew — the page's closing conversion block. v3 was a single
        sentence and one button, which is why it read as empty. Now it names the three ways to
        actually work with us (one line each, no paragraphs) and gives a primary + secondary exit. -->
-  <section class="xlc-section about-partner-close">
+  <section class="xlc-section about-partner-close w3-whitecards">
     <div class="container">
       <div class="tj-sechead"><h2 class="tj-h2">{{t.about.h3.1}}</h2></div>
       <p class="about-partner__lead">{{t.about.partner.lead}}</p>
       <ul class="about-partner__ways">
-        <li><b>{{t.about.partner.1.t}}</b> — {{t.about.partner.1.d}}</li>
-        <li><b>{{t.about.partner.2.t}}</b> — {{t.about.partner.2.d}}</li>
-        <li><b>{{t.about.partner.3.t}}</b> — {{t.about.partner.3.d}}</li>
+        <li class="about-pcard"><h3>{{t.about.partner.1.t}}</h3><p>{{t.about.partner.1.d}}</p></li>
+        <li class="about-pcard"><h3>{{t.about.partner.2.t}}</h3><p>{{t.about.partner.2.d}}</p></li>
+        <li class="about-pcard"><h3>{{t.about.partner.3.t}}</h3><p>{{t.about.partner.3.d}}</p></li>
       </ul>
       <div class="about-partner__actions">
         <a class="w3-btn w3-btn--primary" href="{{url./contact/}}">{{t.body.request_quote}} <span class="w3-arw">→</span></a>
