@@ -263,8 +263,21 @@ body.w3-nav-locked { overflow: hidden; }
   width: 100%; max-width: var(--w3-maxw); margin: 0 auto; padding: 0 24px;
   display: flex; align-items: center; gap: 28px;
 }
-.main-menu-wrapper__logo { flex: 0 0 auto; }
-.main-menu-wrapper__logo img { height: 26px; width: auto; opacity: 1; }   /* Joe: logo at full white, never dimmed */
+/* 窄屏把左右留白与间距收紧,给 logo 让出宽度(收缩是兜底,这一条是让它尽量不必收缩) */
+@media (max-width: 560px) {
+  .main-menu-wrapper { padding: 0 16px; gap: 14px; }
+}
+/* ⚠️ logo 必须【能收缩】(2026-07-28)。原本是 flex: 0 0 auto —— 不许收缩,
+   于是 375 上宽度账是 logo 224 + gap 28 + 操作区 98 + padding 48 = 398 > 375,
+   语言切换器被挤出容器右边 14px(实测 .main-menu 374>360,而且是可见的,不是屏外元素)。
+   ⚠️ 只收紧 padding/gap 治不了根:那只是把溢出推到更窄的设备上(320 仍会溢出)。
+      **能收缩的东西才不会溢出** —— min-width:0 是关键,没有它 flex 项不会缩到内容宽以下。 */
+.main-menu-wrapper__logo { flex: 0 1 auto; min-width: 0; }
+.main-menu-wrapper__logo img { height: 26px; width: auto; max-width: 100%; object-fit: contain; opacity: 1; }   /* Joe: logo at full white, never dimmed */
+/* ⚠️ 保持 flex: 1 1 auto —— 它撑满 logo 右边的剩余空间,配合 justify-content:flex-end
+   把导航与切换器顶到右缘。我一度为了治溢出把它改成 0 0 auto,**桌面导航当场挤回左边**
+   (1440 实测语言切换器右缘 924,容器 1425)。溢出的根在 logo 不能收缩,不在这里 ——
+   **治标的地方改了,标没了,别的也没了。** */
 .main-menu-wrapper__main-menu { flex: 1 1 auto; display: flex; align-items: center; justify-content: flex-end; gap: 18px; }
 .main-menu-wrapper__call { display: none; }
 
