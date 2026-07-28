@@ -38,11 +38,6 @@
       "path": "functions/_lib/product-route.js",
       "mirror": false,
       "why": "路由判据,只在 CF Pages 的 Function 挂载点上跑。Admin 不做路由,镜像它只会多一份要同步的东西。"
-    },
-    {
-      "path": "functions/_lib/access-jwt.js",
-      "mirror": false,
-      "why": "⚠️ 删掉 functions/api/admin/ 之后它在官网仓已无 importer。Admin 有自己的 Access 校验路径,不消费这份。留着是因为它是安全原语、该被专门决定去留,不该作为别的改动的副作用消失 —— 这条待总工裁。"
     }
   ],
   "_realtime": "⚠️ 这份清单【不进镜像列表】。Admin 每次 vendor check 实时从官网 main 取它 —— 镜像下来会把'官网新增了一个该镜像的文件'这个信号延迟一轮,而那正是它要解决的问题。它不是被消费的代码,是'该消费哪些代码'的元数据。"
