@@ -35,6 +35,7 @@
     "es-MX": "Todas las guías",
     "zh": "全部指南"
   },
+  "guides.nav.aria": { "en": "Guides topics", "pt-BR": "Tópicos dos guias", "es-MX": "Temas de las guías", "zh": "指南主题" },
   "guides.more": {
     "en": "More guides",
     "pt-BR": "Mais guias",

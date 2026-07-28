@@ -222,16 +222,14 @@
   
   
   
-  <section class="blog-sidebar huibg">
+  <section class="xlc-section">
     <div class="container">
-      <div class="row">
-        <div class="col-xl-9 col-lg-9">
-          <div class="blog-sidebar__left">
+{{GUIDES_FILTER}}
+      <div class="xlc-body">
           
 
 
-<div class="blog-sidebar__content">
-  <div class="faq-list">
+<div class="faq-list">
     
     <div class="faq-item">
       <div class="faq-question" role="button" tabindex="0" aria-expanded="true" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
@@ -444,7 +442,6 @@
     </div>
     
   </div>
-</div>
 
 <script>
 // 点击展开/收缩功能
@@ -465,22 +462,6 @@ function toggleFaq(el) {
 
 
             
-          </div>
-        </div>
-        
-        <div class="col-xl-3 col-lg-3">
-          <div class="sidebar">
-            <div class="sidebar__single sidebar__search">
-              
-            </div>
-            <div class="sidebar__single sidebar__category">
-              <h3 class="sidebar__title">{{t.header.faq}}</h3>
-              <ul class="sidebar__category-list list-unstyled">
-                
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>

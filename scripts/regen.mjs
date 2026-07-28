@@ -663,7 +663,7 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
     const all = `<a class="guides-chip${current === "all" ? " is-active" : ""}" href="${urlOf("/guides/", loc)}">${pick(gCat["guides.filter.all"], loc)}</a>`;
     const tops = navTopics.map((t) =>
       `<a class="guides-chip${current === t ? " is-active" : ""}" href="${urlOf(`/guides/${t}/`, loc)}">${pick(catalog[TKEY[t]], loc)}</a>`).join("");
-    return `      <nav class="guides-nav" aria-label="Guides topics">${all}${tops}</nav>`;
+    return `      <nav class="guides-nav" aria-label="${esc(pick(gCat["guides.nav.aria"], loc))}">${all}${tops}</nav>`;
   };
   /* ── 场景横切带(总工 #85):按【任务】的 5 轴是唯一浏览逻辑(Joe §3.2e 铁令,不动);
    *    但有一类读者是从"我的设备装在哪"进来的。给他们一条【横切】入口。
@@ -743,6 +743,14 @@ ${items.join("\n")}
       fs.mkdirSync(path.dirname(p), { recursive: true });
       if (!fs.existsSync(p) || fs.readFileSync(p, "utf8") !== html) { fs.writeFileSync(p, html); gPages++; }
     }
+    /* ⭐ IA 一致性(Joe 2026-07-27 亲自提的不一致):/guides/ 下每一页都该有同一条 chip 筛选条。
+     *   compat/faq 由 page-* loop 建,而 navChips 是本 builder 的闭包(依赖 built/navTopics),
+     *   所以和 _cards- 走同一套缓存交接 —— 不为它们新造第二条通路(那才是 §3.2e 杀掉的"两套")。
+     *   faq 传的 current 不匹配任何 chip → 整条无 is-active。这是总工 ③「筛选条里不放 FAQ chip」
+     *   的直接后果:FAQ 不是 5 条任务轴之一,这条 chip 条在 FAQ 上是【出口】不是【当前位置】。 */
+    fs.mkdirSync(bodyDir, { recursive: true });
+    for (const [slug, cur] of [["compatibility", "compatibility"], ["faq", "faq"]])
+      fs.writeFileSync(path.join(bodyDir, `_filter-${slug}-${locale}.html`), navChips(locale, cur));
   }
   console.log(`guides: ${gPages} pages regenerated (${built.length} articles + home + ${activeTopics.length} topics [${activeTopics.join(",")}]; ${gWarn} extract warnings)`);
 }
@@ -777,9 +785,10 @@ for (const f of fs.readdirSync(tdir).filter((x) => /^page-.+\.html$/.test(x))) {
     // ⭐ IA v2:compatibility 页 = 矩阵内容(本模板)+ Guides builder 写的该轴文章卡缓存(注入 {{GUIDES_TOPIC_CARDS}})。
     //   缓存缺失(如尚未 regen guides)→ 置空,不留裸 token。其余 page-* 模板无此 token,replace 为 no-op。
     let ptpl2 = ptpl;
-    if (ptpl.includes("{{GUIDES_TOPIC_CARDS}}")) {
-      const cf = path.join(REPO, "data", "guides-body", `_cards-${slug}-${locale}.html`);
-      ptpl2 = ptpl.split("{{GUIDES_TOPIC_CARDS}}").join(fs.existsSync(cf) ? fs.readFileSync(cf, "utf8") : "");
+    for (const [token, prefix] of [["{{GUIDES_TOPIC_CARDS}}", "_cards"], ["{{GUIDES_FILTER}}", "_filter"]]) {
+      if (!ptpl2.includes(token)) continue;
+      const cf = path.join(REPO, "data", "guides-body", `${prefix}-${slug}-${locale}.html`);
+      ptpl2 = ptpl2.split(token).join(fs.existsSync(cf) ? fs.readFileSync(cf, "utf8") : "");
     }
     const h1 = renderPage(ptpl2, { locale, catalog: { ...catalog, ...shared, ...pcat }, urlOf, path: `/${route}/`, dirOf, enabled: LOCALES, internal_noindex: INTERNAL, config: contactCfg });
     if (h1 !== h0) { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, h1); pages++; }

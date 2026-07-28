@@ -163,6 +163,11 @@
 - ⭐⭐ **约定(Joe 铁律,2026-07-27 写死):Guides 只用【专属 topic 页】一套浏览逻辑**——`/guides/`(All guides 入口)→ 点 topic chip **跳** `/guides/{topic}/` 专属页 → 文章。topic chip 是 `<a href="/guides/{topic}/">` **导航链接**(tab 式),不是就地过滤。
 - **⛔ 禁再建"客户端筛选工具条"**(`data-guides-filter` + `data-topic` + JS 就地 toggle):它和专属 topic 页干同一件事 = Joe 反复点的"2 套浏览逻辑"。已删(w3.js filter 段 + 卡片 `data-topic`)。card 只是 `<a>` 跳文章,不带筛选属性。
 - home 与各 topic 页共用同一条 `.guides-nav`(当前项 `.is-active`);由 regen `navChips(loc, current)` 单源发出,仅【≥2 个有内容主题】时渲染。
+- ⭐ **/guides/ 下【每一页】都带这条 chip 条,包括 /guides/compatibility/ 与 /guides/faq/**〔Joe 2026-07-28 亲自提的不一致 · 总工批〕:此前这两页由 page-\* loop 建、拿不到 builder 的 `navChips` 闭包,于是**点 chip 进 Compatibility 后既回不去也切不了轴** —— chip 条把它当目的地,它自己却不认这套导航。修法沿用 `{{GUIDES_TOPIC_CARDS}}` 的**缓存交接**(builder 写 `data/guides-body/_filter-{slug}-{locale}.html`,page loop 注入 `{{GUIDES_FILTER}}`),**不为这两页新造第二条通路** —— 那才会变成 §3.2e 要杀的"两套"。
+- **FAQ 不进 chip 条**(总工定):它不是 5 条任务轴之一。**后果写在这:FAQ 页上整条 chip 无 `is-active`** —— 这条条在 FAQ 上是【出口】不是【当前位置】。若 Joe 觉得"什么都没亮"像坏了,那是这个取舍的表现,不是 bug。
+- **nav 下拉里的 REFERENCE 分隔标签已去除**,FAQ 与 5 条轴同级〔Joe 实际使用推翻了原分组:他并不把 FAQ 当"另一类"〕。CSS `.nav-dd__reflabel` 暂留(全站 0 消费者),要不要连同分组概念一起废由 Joe 定。
+- FAQ 页容器由 `blog-sidebar huibg` 换成与 /guides/ 同款 `xlc-section`:旧布局是"正文+侧栏"的 2.6fr/1fr 栅格,而**那个侧栏是空的**(1440 视口实测:318×2275px 的空列,只有一个 "FAQ" 字),正文被压到 66.6%。换后 96.1%(1192px,左右内边距对称)。⚠️ 顺带失去 `.blog-sidebar__content` 的 `gap:14px`,条目间距 26px → 12px(= `.faq-item` 自带 margin,组件本来的意图)。
+- chip 条 `aria-label` 走目录键 `guides.nav.aria`(原为硬编码英文 "Guides topics",是站内 aria 唯一没走目录的一处;pt/es/zh 8 页因此漏译,已随本次修掉)。
 
 ### 3.3 导航(chrome 单咽喉,DOM 由 `_chrome.html` 发出)
 - 顶栏固定 68px:透明起步,滚动 >12px(`html.w3-scrolled`)或 `body.w3-solid-header` 时落玻璃底+发丝下边。
