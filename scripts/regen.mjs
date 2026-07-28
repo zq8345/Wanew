@@ -213,7 +213,7 @@ const entries = Object.values(prods).map((p) => {
 const only = process.argv.slice(2).map(Number);
 const targets = only.length ? only : Object.keys(prods).map(Number);
 
-let written = 0, imbalanced = 0;
+let written = 0, imbalanced = 0, dualWritten = 0;
 for (const id of targets) {
   const prod = prods[id];
   if (!prod) { console.error("missing product", id); continue; }
@@ -231,9 +231,43 @@ for (const id of targets) {
     fs.mkdirSync(path.dirname(out), { recursive: true });
     fs.writeFileSync(out, html);
     written++;
+
+    /* ── /products/ 迁移 · 第 1b 步:新址【并存】产出,旧址一个字节不动 ──────────
+       双活期两个 URL 返回同一份内容 = 重复内容。处理方式(总工 2026-07-28 拍 (a)):
+       **新址带 noindex、且不进 sitemap**,第 5 步再摘掉。
+       🔴 为什么不是"新址 canonical 指向旧址":那是靠两个 canonical 的【相对关系】去暗示
+          "我还没准备好",而 noindex 的字面意思就是这个。**暗示需要被正确解读,声明不需要。**
+       🔴 也不是两边 canonical 都自指:那等于两个 URL 互相声称自己是正主,
+          **Google 会自己挑一个,而挑中哪个不受我们控制。**
+       ⚠️ noindex 与"进 sitemap"是自相矛盾的信号(一边说别收、一边主动提交)——
+          所以 sitemap 生成侧必须跳过新址,见 chrome-sync。
+       ⚠️ canonical 保持【自指新址】:第 5 步只需摘 noindex,**不必翻转任何已有声明**。
+          翻转是最容易漏一半的操作。 */
+    const newRel = path.join("products", `${entry.path}.html`);
+    const newOut = pageOf(locale, newRel);
+    let dual = html.replace(/<link rel="canonical" href="[^"]*"/,
+      `<link rel="canonical" href="https://wanew.com${dirOf(locale) ? "/" + dirOf(locale) : ""}/products/${entry.path}"`);
+    dual = /<meta\s+name="robots"/i.test(dual) ? dual
+      : dual.replace(/(<link rel="canonical")/, `<meta name="robots" content="noindex, follow" />\n$1`);
+    // ⚠️ hreflang 也必须改写成新址簇 —— hreflang-verify 当场抓到了这一条。
+    //    新址页是【复制旧址内容】来的,里面那组 alternate 仍然指着旧址:等于**新址在替旧址说话**,
+    //    而旧址并不认它(hreflang 验的是互惠:A 说 B 是自己的某语种版本,B 也要说回来)。
+    //    ⚠️ 存在性规则照旧:某语种没有这个产品页,就不发它的 alternate —— 发了就是声明一个 404。
+    for (const alt of LOCALES) {
+      if (!fs.existsSync(pageOf(alt, path.join(prod.category, `${id}.html`)))) continue;
+      const d = dirOf(alt) ? `/${dirOf(alt)}` : "";
+      dual = dual.replace(new RegExp(`(hreflang="${alt}" href=")https://wanew\\.com[^"]*(")`),
+        `$1https://wanew.com${d}/products/${entry.path}$2`);
+    }
+    dual = dual.replace(/(hreflang="x-default" href=")https:\/\/wanew\.com[^"]*(")/,
+      `$1https://wanew.com/products/${entry.path}$2`);
+    fs.mkdirSync(path.dirname(newOut), { recursive: true });
+    fs.writeFileSync(newOut, dual);
+    dualWritten++;
   }
 }
 console.log(`regen: wrote ${written} pages (${LOCALES.join("+")}) | div-imbalanced ${imbalanced}`);
+console.log(`  /products/ 新址并存(noindex,不进 sitemap): ${dualWritten} 页`);
 // ⚠️ regen emits the TEMPLATE's chrome, which is the pre-R1 English one. The chrome lives in
 // data/chrome.json now, so `node scripts/chrome-sync.mjs --write` MUST run after this or every
 // regenerated page silently reverts R1. Content and chrome are separate layers, in that order.
