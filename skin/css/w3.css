@@ -389,7 +389,11 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 }
 /* hero-home.webp: 设备已朝正(总工 v4)——【不再镜像】(旧 hero-montana 需 scaleX(-1),现移除)。水平 scrim 正常 100deg
    (暗在左=左对齐文案侧),不再是镜像补偿的 260deg。 */
-.w3-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: 70% 40%; transform: scale(1.02); }   /* Joe: shift the crop right so the (right-set) truck moves toward centre; NOT mirrored. Mobile keeps its own center override. */
+/* 骨架化(#84):主体位 = 一个变量,不是散落的魔法数。当前占位图=越野车,车体横跨 x≈48-85%,
+   所以主体锚点取 66% 52%(车身中心);左侧 0-46% 是天空山脉净空 = 文案安全列。
+   ⭐ Joe 新图到位后【只改 --hero-focus 一个值】,布局不用重做。 */
+.w3-hero__bg { position: absolute; inset: 0; background-size: cover;
+  background-position: var(--hero-focus, 66% 52%); transform: scale(1.02); }   /* Joe: shift the crop right so the (right-set) truck moves toward centre; NOT mirrored. Mobile keeps its own center override. */
 /* ⑫ Q1.3: directional scrim — dark bottom-left (carries the left-anchored copy) →
    transparent top-right (releases the golden sky + truck). Second layer darkens the
    image bottom just enough for the white trust bar to read. */
@@ -400,7 +404,15 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
     linear-gradient(180deg, rgba(10, 12, 15, 0) 58%, rgba(10, 12, 15, 0.52) 83%, rgba(10, 12, 15, 0.74) 100%);
 }
 .w3-hero__inner { position: relative; width: 100%; padding: 88px 0 220px; }  /* Joe: lift the title block up toward the truck roofline (more bottom padding raises the centered block) */
-.w3-hero__content { max-width: 760px; display: grid; gap: 22px; }
+/* 文案安全列:宽屏下限制在左侧 ~46%,主体从 48% 才开始 → 文字永远不叠在车上。
+   用 min() 而不是写死 px:窄屏时让位给可读宽度,宽屏时守住比例。 */
+.w3-hero__content { max-width: min(760px, 46%); display: grid; gap: 22px; }
+/* 超宽屏:标准 .container 是居中定宽的,视口越宽它的左边缘越往右 —— 实测 1440 时文案左缘在
+   8.2%,到 2560 变成 26.6%,右缘顶到 48.1% 正好压上主体。安全列必须相对【hero】成立,
+   而不是相对容器,所以 hero 自己的容器在宽屏跟着视口走。*/
+.w3-hero__inner > .w3-container { max-width: min(1760px, 92vw); }
+/* ⚠️ 站内容器类名是 .w3-container 不是 .container —— 我第一版写成 .container,规则从未匹配,
+   CSS 文件里看着"改了"、量出来纹丝不动。只读代码会骗人,几何要真量。 */
 .w3-hero__title { text-wrap: balance; }
 .w3-hero__sub { color: #c3ccd5; font-size: clamp(15.5px, 1.5vw, 17.5px); max-width: 58ch; }
 .w3-hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
@@ -1007,12 +1019,20 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .tj-lang-badge { font-size: 0.78em; color: var(--w3-text3); font-weight: 500; }
 @media (max-width: 640px) {
   .w3-section { padding: 68px 0; }
-  .w3-hero__inner { padding: 120px 0 72px; }
+  /* 手机:不再是"文字压在图上"——改成【上下堆叠】。超宽图(2.7:1)在竖屏用 cover 会把主体裁没,
+     所以图独占一条固定高度的带,文案在它下面的实底上。总工:「手机上下堆叠不叠压」。 */
+  .w3-hero { display: block; min-height: 0; }
+  .w3-hero__bg { position: relative; inset: auto; height: 38vh; min-height: 220px;
+    background-position: var(--hero-focus-mobile, 62% 52%); transform: none; }
+  .w3-hero__bg::after { background: linear-gradient(to top, rgba(10,12,15,.55) 0%, rgba(10,12,15,0) 45%); }
+  .w3-hero__content { max-width: none; }
+  .w3-hero__inner { padding: 28px 0 40px; background: var(--w3-bg); }
   .w3-field__inner, .w3-ctaband__inner { padding: 96px 0; }
-  /* narrow crop drops the sides; center-biased keeps the vehicle + Starlink in frame on mobile
-     (hero-home 已朝正,总工要"窄屏留住车+设备")。 */
-  .w3-hero__bg { background-position: center 42%; }
 }
+/* ⚠️ 这里原本还有第二条 `.w3-hero__bg { background-position: center 42% }` —— 它排在骨架规则
+   之后,把 `--hero-focus-mobile` 整个覆盖掉了(真视口实测:设了 62% 52%,量出来仍是 50% 42%)。
+   同一个属性在同一个媒体查询里写两次 = 后写的赢,而变量看起来"设了却没生效" = 静默漂移。
+   已合并为一条:窄屏取值走 --hero-focus-mobile,默认 62% 52%(把车+碟留在画面里)。 */
 
 /* ============================================================================
    CONTENT PAGES (info-page rollout wave 2) — article hubs, prose, FAQ, contact,
