@@ -136,7 +136,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.82906f2dd4.css" />
+<link rel="stylesheet" href="/skin/css/w3.11ba5fc223.css" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 <!-- hreflang alternates (derived from locales.json + page existence) -->
@@ -248,7 +248,7 @@
   <!-- SECTION 2 (v3): Manufacturing Capability — stats + patents note + capability line + Global Reach
        line (absorbed here, no standalone section) + factory wall + cert shields + Quality Process flow
        (in a surface band). #patents + #certifications anchors preserved for 301 targets. -->
-  <section class="xlc-section xlc-section-alt w3-whitecards" id="patents">
+  <section class="xlc-section xlc-section-alt" id="patents">
     <div class="container">
       <div class="tj-sechead">
         <h2 class="tj-h2">Manufacturing Capability</h2>
@@ -264,45 +264,25 @@
         <li><figure><img src="/static/upload/image/about/factory-warehouse.webp" alt="Warehouse" width="503" height="349" loading="lazy"><figcaption aria-hidden="true">Warehouse</figcaption></figure></li>
         <li><figure><img src="/static/upload/image/about/factory-shipping.webp" alt="Packing & Shipping" width="507" height="349" loading="lazy"><figcaption aria-hidden="true">Packing & Shipping</figcaption></figure></li>
       </ul>
-      <div class="xlc-stats xlc-stats--6">
-        <div class="ab-card xlc-stat-card"><div class="xlc-stat-number">15+</div><div class="xlc-stat-label">Years Experience</div></div>
-        <div class="ab-card xlc-stat-card"><div class="xlc-stat-number">150+</div><div class="xlc-stat-label">Skilled Staff</div></div>
-        <div class="ab-card xlc-stat-card"><div class="xlc-stat-number">200+</div><div class="xlc-stat-label">Patents</div></div>
-        <div class="ab-card xlc-stat-card"><div class="xlc-stat-number">5,000 m²</div><div class="xlc-stat-label">Factory area</div></div>
-        <div class="ab-card xlc-stat-card"><div class="xlc-stat-number">600,000+</div><div class="xlc-stat-label">Units per month</div></div>
-        <div class="ab-card xlc-stat-card"><div class="xlc-stat-number">130+</div><div class="xlc-stat-label">Countries</div></div>
-      </div>
+      <ul class="w3-panel about-stats">
+        <li class="w3-panel__row about-stat"><span class="about-stat__n">15+</span><span class="about-stat__l">Years Experience</span></li>
+        <li class="w3-panel__row about-stat"><span class="about-stat__n">150+</span><span class="about-stat__l">Skilled Staff</span></li>
+        <li class="w3-panel__row about-stat"><span class="about-stat__n">200+</span><span class="about-stat__l">Patents</span></li>
+        <li class="w3-panel__row about-stat"><span class="about-stat__n">5,000 m²</span><span class="about-stat__l">Factory area</span></li>
+        <li class="w3-panel__row about-stat"><span class="about-stat__n">600,000+</span><span class="about-stat__l">Units per month</span></li>
+        <li class="w3-panel__row about-stat"><span class="about-stat__n">130+</span><span class="about-stat__l">Countries</span></li>
+      </ul>
       <h3 class="about-qp-head">Quality Process</h3>
       <!-- v6:5 步拆成 5 张独立卡,上 3 下 2(下排居中)。
            🔴 连接线一并删掉:拆成两排后那条横线要么断在半空、要么绕行,怎么摆都是错的。
               顺序改由 1-5 的序号承担。这是取舍不是漏做。
            图标 SVG 逐字沿用原来那 5 个(同一套 24 viewBox / stroke-width 1.6),只换外壳。 -->
-      <ol class="about-qp">
-        <li class="ab-card about-qp__c">
-          <div class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><circle cx="10.5" cy="10.5" r="2.3"/><path d="m12.4 12.4 2 2"/></svg></span><h4>Incoming Material Inspection</h4></div>
-          <p>All raw materials verified against specification with full traceability.</p>
-          <span class="about-qp__n">1</span>
-        </li>
-        <li class="ab-card about-qp__c">
-          <div class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span><h4>In-Process QC</h4></div>
-          <p>Inspection checkpoints at each manufacturing stage.</p>
-          <span class="about-qp__n">2</span>
-        </li>
-        <li class="ab-card about-qp__c">
-          <div class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4M8.5 12.5l2.2 2.2 4.3-4.3"/></svg></span><h4>Final Testing</h4></div>
-          <p>Every product tested with real Starlink terminals before packaging.</p>
-          <span class="about-qp__n">3</span>
-        </li>
-        <li class="ab-card about-qp__c">
-          <div class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s5.5 5.8 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 8.8 12 3 12 3z"/><path d="M9.5 13.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></span><h4>Environmental Testing</h4></div>
-          <p>Temperature, UV, and waterproofing tests for outdoor products.</p>
-          <span class="about-qp__n">4</span>
-        </li>
-        <li class="ab-card about-qp__c">
-          <div class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v5M12 17v5M8 6l4-4 4 4M8 18l4 4 4-4"/><rect x="4" y="9.5" width="16" height="5" rx="1"/></svg></span><h4>Mechanical Stress Testing</h4></div>
-          <p>Load rating and reliability verification for mounts and structural components.</p>
-          <span class="about-qp__n">5</span>
-        </li>
+      <ol class="w3-panel about-qp">
+        <li class="w3-panel__row about-qprow"><span class="about-qprow__n">1</span><span class="w3-panel__body"><span class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><circle cx="10.5" cy="10.5" r="2.3"/><path d="m12.4 12.4 2 2"/></svg></span><h4>Incoming Material Inspection</h4></span><p>All raw materials verified against specification with full traceability.</p></span></li>
+        <li class="w3-panel__row about-qprow"><span class="about-qprow__n">2</span><span class="w3-panel__body"><span class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span><h4>In-Process QC</h4></span><p>Inspection checkpoints at each manufacturing stage.</p></span></li>
+        <li class="w3-panel__row about-qprow"><span class="about-qprow__n">3</span><span class="w3-panel__body"><span class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4M8.5 12.5l2.2 2.2 4.3-4.3"/></svg></span><h4>Final Testing</h4></span><p>Every product tested with real Starlink terminals before packaging.</p></span></li>
+        <li class="w3-panel__row about-qprow"><span class="about-qprow__n">4</span><span class="w3-panel__body"><span class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s5.5 5.8 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 8.8 12 3 12 3z"/><path d="M9.5 13.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></span><h4>Environmental Testing</h4></span><p>Temperature, UV, and waterproofing tests for outdoor products.</p></span></li>
+        <li class="w3-panel__row about-qprow"><span class="about-qprow__n">5</span><span class="w3-panel__body"><span class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v5M12 17v5M8 6l4-4 4 4M8 18l4 4 4-4"/><rect x="4" y="9.5" width="16" height="5" rx="1"/></svg></span><h4>Mechanical Stress Testing</h4></span><p>Load rating and reliability verification for mounts and structural components.</p></span></li>
       </ol>
       <div class="about-certstrip" id="certifications">
         <span class="about-cert"><svg class="about-cert__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg>FCC</span>
@@ -314,12 +294,12 @@
   </section>
 
   <!-- SECTION 3 (v3): OEM/ODM Services — title unified to tj-h2; OEM icon cards + ODM flow (in band). -->
-  <section class="xlc-section w3-whitecards about-oem-light" id="oem-odm">
+  <section class="xlc-section about-oem-light" id="oem-odm">
     <div class="container">
       <div class="xlc-body">
         <div class="tj-sechead"><h2 class="tj-h2">OEM/ODM</h2><p class="tj-sechead__sub">Starlink-Compatible Accessories Manufacturing</p></div>
-<div class="about-oemgrid">
-  <div class="ab-card about-oemcard">
+<div class="w3-panel about-oemgrid">
+  <div class="about-oemcard">
     <div class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l6-4 6 4v12"/><path d="M15 21V13h6v8"/><path d="M7 21v-4h4v4"/></svg></span><div class="about-oemodm__head">OEM Services</div></div>
     <!-- ⚠️ 刻意取舍:OEM 这 4 项是【能力清单、无先后】,编号会隐含一个不存在的顺序。
          Joe 要两卡排版统一、总工判定一致性收益更大,所以照做 —— 别当 bug"修"回表格样。 -->
@@ -330,7 +310,7 @@
       <li><span class="about-steps__n">4</span><b>Quality Testing</b> Full standard testing process</li>
     </ol>
   </div>
-  <div class="ab-card about-oemcard">
+  <div class="about-oemcard">
     <div class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="4"/><path d="M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8"/></svg></span><div class="about-oemodm__head">ODM Services</div></div>
     <ol class="about-steps">
       <li><span class="about-steps__n">1</span><b>Concept Development</b> Our R&D team handles design from your idea</li>
@@ -346,14 +326,14 @@
   <!-- SECTION 4 (v3): Compatibility & FAQ — affiliation disclaimer as the prominent first item +
        3 Q&A, one flat container. #brand anchor preserved (301 target). The trademark small-print is
        deduped away: the footer carries the standing "not affiliated" disclaimer site-wide. -->
-  <section class="xlc-section xlc-section-alt w3-whitecards" id="brand">
+  <section class="xlc-section xlc-section-alt" id="brand">
     <div class="container">
       <div class="tj-sechead"><h2 class="tj-h2">Compatibility & FAQ</h2></div>
-      <div class="faq-flat">
-        <div class="ab-card faq-flat__item"><h3>Are Wanew products official Starlink accessories?</h3><p>No. They are independently designed and tested for compatibility.</p></div>
-        <div class="ab-card faq-flat__item"><h3>Will using Wanew void my Starlink warranty?</h3><p>Third-party accessories do not automatically void warranty. Damage caused by accessories may not be covered.</p></div>
-        <div class="ab-card faq-flat__item"><h3>Does SpaceX recommend Wanew?</h3><p>SpaceX does not endorse any third-party accessory manufacturer.</p></div>
-      </div>
+      <ul class="w3-panel faq-flat">
+        <li class="w3-panel__row"><span class="w3-panel__body"><h3>Are Wanew products official Starlink accessories?</h3><p>No. They are independently designed and tested for compatibility.</p></span></li>
+        <li class="w3-panel__row"><span class="w3-panel__body"><h3>Will using Wanew void my Starlink warranty?</h3><p>Third-party accessories do not automatically void warranty. Damage caused by accessories may not be covered.</p></span></li>
+        <li class="w3-panel__row"><span class="w3-panel__body"><h3>Does SpaceX recommend Wanew?</h3><p>SpaceX does not endorse any third-party accessory manufacturer.</p></span></li>
+      </ul>
       <p class="about-faq-more"><a class="w3-link-arrow" href="/guides/faq/">See all FAQs</a></p>
     </div>
   </section>
@@ -361,14 +341,14 @@
   <!-- SECTION 5 (v4): Partner With Wanew — the page's closing conversion block. v3 was a single
        sentence and one button, which is why it read as empty. Now it names the three ways to
        actually work with us (one line each, no paragraphs) and gives a primary + secondary exit. -->
-  <section class="xlc-section about-partner-close w3-whitecards">
+  <section class="xlc-section about-partner-close">
     <div class="container">
       <div class="tj-sechead"><h2 class="tj-h2">Partner With Wanew</h2></div>
       <p class="about-partner__lead">Three ways to work with us.</p>
-      <ul class="about-partner__ways">
-        <li class="ab-card about-pcard"><div class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg></span><h3>OEM</h3></div><p>Our design, your brand and packaging.</p></li>
-        <li class="ab-card about-pcard"><div class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></span><h3>ODM</h3></div><p>Your specification, engineered and tooled here.</p></li>
-        <li class="ab-card about-pcard"><div class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3z"/></svg></span><h3>Distribution</h3></div><p>Stock the catalogue in your market.</p></li>
+      <ul class="w3-panel about-partner__ways">
+        <li class="w3-panel__row"><span class="w3-panel__body"><span class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg></span><h3>OEM</h3></span><p>Our design, your brand and packaging.</p></span></li>
+        <li class="w3-panel__row"><span class="w3-panel__body"><span class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></span><h3>ODM</h3></span><p>Your specification, engineered and tooled here.</p></span></li>
+        <li class="w3-panel__row"><span class="w3-panel__body"><span class="ab-card__hd"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3z"/></svg></span><h3>Distribution</h3></span><p>Stock the catalogue in your market.</p></span></li>
       </ul>
       <div class="about-partner__actions">
         <a class="w3-btn w3-btn--primary" href="/contact/">Request a quote <span class="w3-arw">→</span></a>

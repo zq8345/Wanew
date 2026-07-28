@@ -1254,6 +1254,19 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 @media (max-width: 900px) { .w3-contact__grid { grid-template-columns: minmax(0, 1fr); } }
 .w3-contact__aside { display: grid; gap: 22px; }
 /* both columns sit in surface cards so the content reads as panels, not floating on black */
+/* ══ 共用面板组件 .w3-panel ══════════════════════════════════════════════════
+   ⭐ 提取自 Contact 页 —— Joe 指出「contact 页面就挺好看的,为什么 about 怎么调都不好看」,
+      量下来差别是【结构】不是细节:Contact 是 2 个深色面板 / 1 个白色元素 / 面板内细线分行,
+      About 曾是 0 个面板 / 29 张白卡 / 每条内容各自成卡。
+      **白卡本是"把一个东西从暗底提出来"的手段,当所有东西都被提出来,就等于没有东西被提出来。**
+   🔴 新页面【消费这个组件】,不许再造第二个面板 —— 两页各长各的正是要消灭的病。
+   ⚠️ 数值逐字取自原 .w3-contact__card,一个都没改:这一步是重构,Contact 产出必须逐字节不变。 */
+.w3-panel { background: var(--w3-panel); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); padding: clamp(22px, 2.6vw, 34px); }
+/* 面板内的"行":同一容器里的兄弟行 + 下边框,**不是各自带背景/圆角的盒子**。
+   (卡片 = 可点击的对象;不可点击的内容用面板 + 分隔行 —— 总工 2026-07-28 立的规则。) */
+.w3-panel__row { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--w3-line); }
+.w3-panel__row:last-child { border-bottom: none; }
+/* Contact 沿用旧类名消费同一套值 —— 改类名会动它的产出,而这一步不许动。 */
 .w3-contact__card { background: var(--w3-panel); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); padding: clamp(22px, 2.6vw, 34px); }   /* no align-self so the grid's align-items:stretch gives equal-height cards */
 /* icon info rows */
 .w3-cinfo { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 2px; }
@@ -1533,19 +1546,18 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 
 /* ④ Compatibility & FAQ:3 卡横排,三卡总宽 = 容器宽。
    免责声明整幅一行留在卡上方(法务文案,且 #brand 是 301 目标,id 不动)。 */
-.faq-flat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 18px 0 0; }
+.faq-flat { list-style: none; margin: 18px 0 0; display: grid; }
 /* v6:见 .ab-card */
-@media (max-width: 900px) { .faq-flat { grid-template-columns: 1fr; gap: 14px; } }
+
 
 /* ⑤ Partner:三条路径 → 三张卡(i18n 本来就是 .t/.d 的卡片形状,没新建键) */
-.about-partner__ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-  margin: 16px 0 0; padding: 0; list-style: none; }
+.about-partner__ways { list-style: none; margin: 16px 0 0; display: grid; }
 /* v6:见 .ab-card */
 /* 退役旧 .faq-flat 容器时它的外边距一并没了,链接会贴着卡底边。补回呼吸位。 */
 .about-faq-more { margin-top: 16px; }
 .about-pcard h3 { font-size: 17px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.01em; }
 .about-pcard p { font-size: 14.5px; line-height: 1.6; margin: 0; }
-@media (max-width: 900px) { .about-partner__ways { grid-template-columns: 1fr; gap: 14px; } }
+
 
 /* ⑦ OEM/ODM 标题拆大小字。副标题是【独立键】不是切出来的:
    es/pt 的 OEM/ODM 夹在句中,切字符串会得到病句。 */
@@ -1553,63 +1565,53 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-whitecards .tj-sechead__sub { color: var(--w3-text2); }   /* 段标题区仍在深底上,墨不翻 */
 
 /* ⑥ 白名单新增三类卡。底与墨【成对】,顺序写在一起,便于人眼与闸同时核。 */
-/* ══ About v6:全页唯一一种卡片 ══════════════════════════════════════════════
-   Joe:"都用白底黑字,都用同样的圆角,能加图标的尽量加图标,图标也是黑白的,
-        不要加一些乱七八糟的颜色"。
-   ⭐ 手法:所有卡片挂同一个 .ab-card,盒模型只在这里定义一次 ——
-      「全页卡片圆角/内距/底色集合大小 = 1」于是是【构造保证】的,不是巧合对上的。
-      各卡片类只剩自己的排版(网格、字号),不许再自带 border-radius/padding/background。 */
-.ab-card { background: var(--w3-surface-2); border: 1px solid var(--w3-line);
-  border-radius: var(--w3-radius); padding: 24px 26px; box-shadow: var(--w3-elev-card);
-  /* ⚠️ 网格项默认 min-width:auto —— 卡里的大数字会撑住列的下限,把整行顶出容器。
-     375 下实测过:列算成 180.3+168 而容器只有 327,整页横向溢出 9px。min-width:0 让卡能缩。 */
-  min-width: 0; }
-@media (max-width: 560px) { .ab-card { padding: 18px 16px; } }   /* 窄屏收内距,否则内容挤不下 */
-/* ⭐ 卡片头部规格〔Joe v7:「加的不和谐」〕:**图标与标题同一行**,描述另起一行。
-   图标单独占一行时读起来像"贴在卡左上角的一枚贴纸",而不是标题的一部分。
-   与 .ab-card 同源的手法:头部只定义一次,「所有带图标的卡,图标与标题同行」
-   于是是【构造保证】的,不是各处碰巧对齐。新卡片一律用 .ab-card__hd。 */
-.ab-card__hd { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; }
+/* ══ About v8:白卡待遇已退役 ═══════════════════════════════════════════════
+   v6 用 .ab-card 统一了"卡片长相",但 Joe 指出 Contact 好看而 About 怎么调都不好看 ——
+   量下来差别是【结构】:Contact 2 个深色面板 / 1 个白色元素,About 曾是 0 个面板 / 29 张白卡。
+   **白卡是"把一个东西从暗底提出来"的手段;当所有东西都被提出来,就等于没有东西被提出来。**
+   → 内容改用共用面板 .w3-panel + 细线分行(见上)。白色只留焦点(Request a quote)。
+   ⚠️ 只有【头部规格】留下来:图标与标题同一行(v7),那条在面板结构下同样成立。
+   🔴 别把 .ab-card 的白底待遇加回来 —— 已否的删,同流程带那条。 */
+.ab-card__hd { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; }
 .ab-card__hd > :is(h3, h4, .about-oemodm__head) { margin: 0; min-width: 0; }
-.ab-card__ic { display: inline-flex; width: 22px; height: 22px; flex: none; color: currentColor; }
-.ab-card__ic svg { width: 100%; height: 100%; }          /* 单色:stroke=currentColor,跟随文字色 */
-.w3-whitecards .ab-card { background: #fff; border-color: rgba(11,13,16,.10); box-shadow: 0 14px 30px rgba(0,0,0,.28); color: var(--w3-invert-ink2); }
-.w3-whitecards .ab-card h3, .w3-whitecards .ab-card h4,
-.w3-whitecards .ab-card .xlc-stat-number, .w3-whitecards .ab-card b,
-.w3-whitecards .ab-card dt, .w3-whitecards .ab-card .about-oemodm__head { color: var(--w3-invert-ink); }
-.w3-whitecards .ab-card p, .w3-whitecards .ab-card .xlc-stat-label,
-.w3-whitecards .ab-card dd, .w3-whitecards .ab-card li { color: var(--w3-invert-ink2); }
-/* 🔴 零彩色:序号圆点、图标全部跟随文字色,不用 accent。 */
-.w3-whitecards .ab-card .ab-card__ic { color: var(--w3-invert-ink); }
-.about-qp__n, .about-steps__n { background: var(--w3-invert-ink); color: #fff; }
+.ab-card__ic { display: inline-flex; width: 20px; height: 20px; flex: none; color: var(--w3-text3); }
+.ab-card__ic svg { width: 100%; height: 100%; }
 
-/* Quality Process:5 张独立卡,上 3 下 2(下排居中)。
-   6 列网格、每卡跨 2 列;第 4、5 张各偏移 1 列 → 正好落在上排两个缝隙下。 */
-.about-qp { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; margin: 18px 0 0; padding: 0; list-style: none; }
-.about-qp__c { grid-column: span 2; }
-.about-qp__c:nth-child(4) { grid-column: 2 / span 2; }
-.about-qp__c:nth-child(5) { grid-column: 4 / span 2; }
-.about-qp__c h4 { font-size: 16px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.01em; }
-.about-qp__c p { font-size: 14px; line-height: 1.6; margin: 0; }
-/* 序号移到卡底居中(原来在右上角,与左上角的图标像两枚互不相干的徽章在打架)。
-   ⚠️ 连接线已在 v6 判掉,序号是【唯一承担顺序】的东西 —— 五卡底部各一枚居中数字,
-   横向扫过去应当像一排刻度。 */
-.about-qp__c { display: flex; flex-direction: column; }
-.about-qp__c p { flex: 1 1 auto; }
-.about-qp__n { align-self: center; margin: 14px 0 0; width: 22px; height: 22px; border-radius: 50%;
-  display: inline-flex; align-items: center; justify-content: center; font-size: 11.5px; font-weight: 700; }
-@media (max-width: 900px) { .about-qp { grid-template-columns: 1fr; gap: 14px; }
-  .about-qp__c, .about-qp__c:nth-child(4), .about-qp__c:nth-child(5) { grid-column: auto; } }
+/* 面板内的行:内容区(标题+描述)统一由 .w3-panel__body 承载 */
+.w3-panel__body { flex: 1 1 auto; min-width: 0; }
+.w3-panel__body h3, .w3-panel__body h4 { font-size: 16px; font-weight: 650; color: var(--w3-text); margin: 0 0 4px; letter-spacing: -0.01em; }
+.w3-panel__body p { font-size: 14.5px; line-height: 1.65; color: var(--w3-text2); margin: 0; }
+
+/* 数据:6 项细线分行,不是 6 张卡 */
+.about-stats { list-style: none; margin: 18px 0 0; padding: clamp(22px, 2.6vw, 34px); display: grid; }
+.about-stats .about-stat { align-items: baseline; gap: 16px; }
+.about-stat__n { font-size: clamp(22px, 1.9vw, 30px); font-weight: 800; color: var(--w3-text); letter-spacing: -0.03em; min-width: 5.5ch; }
+.about-stat__l { font-size: 14.5px; color: var(--w3-text2); }
+
+/* Quality Process:5 行,行首序号承担顺序(连接线 v6 已判掉) */
+.about-qp { list-style: none; margin: 18px 0 0; padding: clamp(22px, 2.6vw, 34px); display: grid; }
+.about-qprow__n { flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--w3-surface-2);
+  border: 1px solid var(--w3-line2); color: var(--w3-text); display: inline-flex; align-items: center;
+  justify-content: center; font-size: 11.5px; font-weight: 700; }
+
+/* v6 的 QP【卡片】规则(6 列网格 3+2、卡底居中序号)已随 v8 面板结构退役。
+   顺序改由行首序号承担;3+2 排布问题在面板里自动消失。 */
 
 /* OEM / ODM:并排两卡。两边内容不等长(4 行 vs 3 步),靠 grid 默认 stretch 等高。 */
 /* ⚠️ 刻意【不】用 align-items:stretch 强制等高。OEM 有 4 行带说明、ODM 只有 3 句短句,
    撑到等高之后 ODM 卡下方是一大块空白 —— 比自然的高度差更难看。
    "两卡是一对"由【顶部对齐 + 同宽 + 同一套 .ab-card 规格】维持,不由等高维持。 */
-.about-oemgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0 0; align-items: start; }
+/* 一个面板内两栏,中间一条竖向细线。等高问题自动消失:面板是一个物体,
+   两栏长短不同不再读成"一张卡没做完"。 */
+.about-oemgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 18px 0 0; align-items: stretch; }
+.about-oemgrid > .about-oemcard:first-child { padding-right: clamp(18px, 2.4vw, 30px); border-right: 1px solid var(--w3-line); }
+.about-oemgrid > .about-oemcard:last-child { padding-left: clamp(18px, 2.4vw, 30px); }
 .about-oemcard { display: flex; flex-direction: column; }
 /* 堆叠断点 900→1279:与数字卡转 3 列同一条线 —— 整段【中等宽度】用一个定义,不是一个组件一条线。
    实测:901/es 并排时高度差 419px、1025/es 257px,那已经不成对了;≥1280 并排时差 124-168px,自然。 */
-@media (max-width: 1279px) { .about-oemgrid { grid-template-columns: 1fr; gap: 14px; } }
+@media (max-width: 1279px) { .about-oemgrid { grid-template-columns: 1fr; }
+  .about-oemgrid > .about-oemcard:first-child { padding-right: 0; border-right: 0; border-bottom: 1px solid var(--w3-line); padding-bottom: 18px; }
+  .about-oemgrid > .about-oemcard:last-child { padding-left: 0; padding-top: 18px; } }
 
 /* PDP 适配徽章〔#52 契约〕:买家的第一个决定是"这个配不配我的终端"。数据是机型 slug,
    显示名 model_display > categories.display。**产品没填 compatible_with 就整块不出现**——
