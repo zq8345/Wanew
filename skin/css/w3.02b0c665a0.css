@@ -1238,7 +1238,10 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .about-caps-line { max-width: 760px; margin: 22px auto 0; text-align: center; font-size: var(--w3-fs-body); line-height: 1.75; color: var(--w3-text2); }
 
 /* ── Solutions: hub scene cards + scene recommended-accessory cards + shared CTA ── */
-.page-header__eyebrow { display: inline-block; font-size: var(--w3-fs-small); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--w3-accent); margin-bottom: 12px; }
+/* 2026-07-28:字号 small(12.5)→ micro(11),与基准 .w3-eyebrow 对齐。
+   眉题是【一个角色】,基准形制是 micro/w600/全大写(§2.2)——同一角色两个字号,
+   正是字阶那 37 个落点的病。色用 accent 是刻意的变体(总工判过:代码对、宪法过期)。 */
+.page-header__eyebrow { display: inline-block; font-size: var(--w3-fs-micro); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--w3-accent); margin-bottom: 12px; }
 .sol-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 8px; }
 .sol-card { display: flex; flex-direction: column; border: 1px solid var(--w3-line); border-radius: var(--w3-radius); overflow: hidden; background: var(--w3-panel); text-decoration: none; transition: transform .35s var(--w3-ease), border-color .35s, box-shadow .35s; }
 .sol-card:hover { transform: translateY(-4px); border-color: var(--w3-line2); box-shadow: 0 14px 34px rgba(0,0,0,.42); }
@@ -1536,7 +1539,8 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .guides-card::before { content: ""; position: absolute; inset: 0 0 auto; height: 2px; background: linear-gradient(90deg, var(--w3-accent), transparent 72%); opacity: 0; transition: opacity .35s var(--w3-ease); }
 .guides-card:hover { transform: translateY(-4px); border-color: var(--w3-line2); box-shadow: var(--w3-edge-top), 0 6px 16px -4px rgba(0,0,0,.55), 0 22px 48px -16px rgba(0,0,0,.7); }
 .guides-card:hover::before { opacity: 1; }
-.guides-card__topic { font-size: var(--w3-fs-micro); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--w3-accent); }
+/* 2026-07-28:字重 700 → 600,与基准 .w3-eyebrow 对齐(同上,眉题是一个角色)。 */
+.guides-card__topic { font-size: var(--w3-fs-micro); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--w3-accent); }
 .guides-card__t { font-size: var(--w3-fs-body); font-weight: 700; color: var(--w3-text); line-height: 1.32; letter-spacing: -0.015em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .guides-card__sum { font-size: var(--w3-fs-compact); font-weight: 400; color: var(--w3-text2); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .guides-card__arw { color: var(--w3-text3); font-size: var(--w3-fs-body); margin-top: auto; padding-top: 4px; transition: transform .3s var(--w3-ease), color .3s; }
