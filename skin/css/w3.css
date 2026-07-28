@@ -581,39 +581,6 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 @media (max-width: 860px) { .oem-cards { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 460px) { .oem-cards { grid-template-columns: 1fr; } }
 
-/* Flow band — surface container that gives the flow diagram visual weight
-   (Joe v3: no more icons-on-a-bare-line floating on black). */
-.w3-flowband { background: var(--w3-surface-2); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); box-shadow: var(--w3-edge-top), var(--w3-elev-card); padding: 34px 30px 30px; margin-top: 20px; }
-.w3-flowband .w3-flow { margin-top: 0; }
-@media (max-width: 760px) { .w3-flowband { padding: 26px 20px 6px; } }
-
-/* Horizontal flow diagram — shared (Quality Process 5 nodes + ODM 3 nodes).
-   Icon-in-circle nodes joined by a connector line; collapses to a vertical flow
-   (connector kept) on narrow. */
-.w3-flow { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; }
-.w3-flow__node { position: relative; text-align: center; padding: 0 14px; display: grid; gap: 11px; justify-items: center; align-content: start; }
-/* connector: gradient progress line joining icon centers (not a flat grey rule) */
-.w3-flow__node::before { content: ""; position: absolute; top: 32px; left: calc(50% + 36px); right: calc(-50% + 36px); height: 2px; background: linear-gradient(90deg, rgba(125,177,255,.55), rgba(125,177,255,.12)); border-radius: 2px; z-index: 0; }
-.w3-flow__node:last-child::before { display: none; }
-/* node: accent-tinted well + halo ring + depth (editorial, not plain) */
-.w3-flow__ic { position: relative; z-index: 1; width: 64px; height: 64px; border-radius: 999px; background: radial-gradient(120% 120% at 50% 30%, rgba(125,177,255,.14), var(--w3-panel) 68%); border: 1px solid var(--w3-line2); color: var(--w3-accent); display: grid; place-items: center; box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 6px 18px rgba(0,0,0,.35); transition: transform .35s var(--w3-ease), box-shadow .35s, border-color .35s; }
-.w3-flow__ic::after { content: ""; position: absolute; inset: -5px; border-radius: 999px; border: 1px solid rgba(125,177,255,.22); transition: border-color .35s, transform .35s var(--w3-ease); }
-.w3-flow__node:hover .w3-flow__ic { transform: translateY(-3px); border-color: rgba(125,177,255,.42); box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 10px 26px rgba(0,0,0,.45); }
-.w3-flow__node:hover .w3-flow__ic::after { border-color: rgba(125,177,255,.5); transform: scale(1.05); }
-.w3-flow__ic svg { width: 27px; height: 27px; }
-/* step number: accent pill */
-.w3-flow__n { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 18px; padding: 0 7px; border-radius: 999px; font-size: 10.5px; font-weight: 700; color: var(--w3-accent); background: rgba(125,177,255,.10); border: 1px solid rgba(125,177,255,.20); letter-spacing: 0.08em; font-variant-numeric: tabular-nums; }
-.w3-flow__node h4 { font-size: 14px; font-weight: 650; color: var(--w3-text); line-height: 1.3; margin: 0; letter-spacing: -0.01em; }
-.w3-flow__node p { font-size: 12.5px; color: var(--w3-text2); line-height: 1.55; margin: 0; max-width: 24ch; }
-@media (max-width: 760px) {
-  .w3-flow { grid-auto-flow: row; grid-auto-columns: auto; gap: 4px; }
-  .w3-flow__node { grid-template-columns: 64px 1fr; grid-template-rows: auto auto auto; column-gap: 18px; row-gap: 3px; text-align: left; justify-items: start; padding: 0 0 26px; }
-  .w3-flow__ic { grid-row: 1 / 4; grid-column: 1; align-self: start; }
-  .w3-flow__n, .w3-flow__node h4, .w3-flow__node p { grid-column: 2; }
-  .w3-flow__node p { max-width: none; }
-  .w3-flow__node::before { top: 64px; bottom: -2px; left: 31px; right: auto; width: 2px; height: auto; background: linear-gradient(180deg, rgba(125,177,255,.55), rgba(125,177,255,.12)); }
-}
-
 /* Affiliation — one clear statement (dup title removed) + trademark note */
 .about-affil { max-width: 780px; margin: 6px 0 0; display: grid; gap: 12px; }
 .about-affil__stmt { font-size: 16px; line-height: 1.7; color: var(--w3-text); margin: 0; }
@@ -1415,10 +1382,8 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 
 /* ── Solutions · Marine deep blocks (#77 sample). §2.6 分层：bg-0 段 → surface-2 卡浮起 + edge-top。
    全部走令牌，零硬编码色。其余 5 场景不加载这些类（HTML 里根本不出现）。 */
-.sol-deep-pain, .sol-deep-sys, .sol-deep-kit, .sol-deep-trust, .sol-deep-install, .sol-deep-cta { padding-top: 96px; padding-bottom: 96px; }
-.sol-deep-pain .tj-sechead, .sol-deep-sys .tj-sechead, .sol-deep-kit .tj-sechead, .sol-deep-trust .tj-sechead, .sol-deep-install .tj-sechead { margin-bottom: 8px; }
-/* 少字要看起来是【有意的克制】：标题更大、正文更少、留白更多 */
-.sol-deep-lead { max-width: 620px; margin: 18px 0 0; font-size: 16px; line-height: 1.6; color: var(--w3-text2); }
+.sol-deep-pain, .sol-deep-sys, .sol-deep-kit, .sol-deep-cta { padding-top: 96px; padding-bottom: 96px; }
+.sol-deep-pain .tj-sechead, .sol-deep-sys .tj-sechead, .sol-deep-kit .tj-sechead { margin-bottom: 8px; }
 .sol-deep-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 28px; margin-top: 52px; }
 
 /* ① 难在哪：编号 + 标题 + 说明（DESIGN.md 禁装饰图标卡，这里用编号索引） */
@@ -1454,18 +1419,10 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 /* ④ 凭什么信：复用 About 认证条 */
 .sol-deep-certs { margin-top: 34px; }
 
-/* ⑤ 怎么装：指南链接行 */
-.sol-deep-guides { display: grid; gap: 10px; margin-top: 46px; }
-.sol-deep-guides__l { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; border-radius: var(--w3-radius); background: var(--w3-surface-2); border: 1px solid var(--w3-line); border-top: 1px solid var(--w3-edge-top); color: var(--w3-text); font-size: 15px; font-weight: 600; text-decoration: none; transition: transform .3s var(--w3-ease), border-color .3s; }
-.sol-deep-guides__l:hover { transform: translateX(3px); border-color: rgba(125,177,255,.35); color: var(--w3-text); }
-.sol-deep-guides__b { font-size: 12px; font-weight: 500; color: var(--w3-text3); margin-left: 6px; }
-.sol-deep-guides__arw { color: var(--w3-text3); transition: color .3s; }
-.sol-deep-guides__l:hover .sol-deep-guides__arw { color: var(--w3-accent); }
-
 @media (max-width: 767px) {
   .sol-deep-grid, .sol-deep-kit__grid { grid-template-columns: 1fr; }
   .sol-deep-pain__i { padding: 18px 0 18px 20px; }
-  .sol-deep-pain, .sol-deep-sys, .sol-deep-kit, .sol-deep-trust, .sol-deep-install, .sol-deep-cta { padding-top: 60px; padding-bottom: 60px; }
+  .sol-deep-pain, .sol-deep-sys, .sol-deep-kit, .sol-deep-cta { padding-top: 60px; padding-bottom: 60px; }
 }
 
 /* ── About v4 下半段治沉闷（Joe：暗卡暗字挤一起）。§2.6 招2 = 深底留深、容器翻白。
@@ -1478,13 +1435,6 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-whitecards .w3-iconcard h3 { color: var(--w3-invert-ink); }
 .w3-whitecards .w3-iconcard p { color: var(--w3-invert-ink2); }
 .w3-whitecards .w3-iconcard__ic { background: rgba(11,13,16,.05); color: var(--w3-invert-accent); }
-/* 流程带不再是另一块暗面板：让白色步骤卡浮在深底上，与上面的服务卡同语言 */
-.w3-whitecards .w3-flowband { background: transparent; border-color: transparent; box-shadow: none; padding-left: 0; padding-right: 0; }
-.w3-whitecards .w3-flow__node { background: #fff; border-color: rgba(11,13,16,.10); box-shadow: 0 14px 30px rgba(0,0,0,.28); }
-.w3-whitecards .w3-flow__node h4 { color: var(--w3-invert-ink); }
-.w3-whitecards .w3-flow__node p { color: var(--w3-invert-ink2); }
-.w3-whitecards .w3-flow__ic { background: rgba(11,13,16,.05); color: var(--w3-invert-accent); }
-.w3-whitecards .w3-flow__n { background: var(--w3-invert-accent); color: #fff; }
 
 /* ② Compatibility & FAQ —— 保持深底（与上面的白卡段形成呼吸），但做真分层 + accent 提亮 */
 /* v6:盒模型归 .ab-card;蓝色左竖条(::before)一并退场 —— About 页零彩色。 */

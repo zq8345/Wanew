@@ -129,7 +129,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=63" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=64" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -220,7 +220,10 @@
      slot for any scene listed in DEEP (regen.mjs); a scene absent from DEEP gets "" and keeps the
      thin generic band instead. (Do NOT write the slot's token name literally in this file: this partial is
      injected verbatim, and renderPage's assertNoTokens would flag it as an unresolved token.)
-     Content model: pain -> system -> kit -> trust -> install -> CTA.
+     Content model: pain -> system -> kit -> CTA.
+     (trust 与 install 两块 2026-07-28 按 Joe 删除:trust 的形态是"一句话 + 一行没有容器的裸文字",
+      有等于没有;install 的 24 篇文章在 /guides/ 枢纽与各 topic 页均可达,已逐篇核过。
+      认证信息仍在 About 的 .about-certstrip 上,不是丢信息,是去掉一个做坏了的重复。)
      🔴 Claim discipline: each durability/rating line is scoped to the product whose own listing
      states it (see solutions.marine.rec.*.s). No blanket marine durability claims. -->
 
@@ -290,36 +293,7 @@
     </div>
   </section>
 
-  <section class="xlc-section sol-deep-trust">
-    <div class="container">
-      <div class="tj-sechead">
-        <h2 class="tj-h2">Por qué confiar en el equipo</h2>
-        <div class="tj-rule"></div>
-      </div>
-      <p class="sol-deep-lead">Fabricamos nuestros propios accesorios, desde 2010.</p>
-      <div class="about-certstrip sol-deep-certs">
-        <span class="about-certstrip__i">FCC</span>
-        <span class="about-certstrip__i">CE</span>
-        <span class="about-certstrip__i">RoHS</span>
-        <span class="about-certstrip__i">ISO 9001</span>
-      </div>
-    </div>
-  </section>
 
-  <section class="xlc-section sol-deep-install">
-    <div class="container">
-      <div class="tj-sechead">
-        <h2 class="tj-h2">Cómo se instala</h2>
-        <div class="tj-rule"></div>
-      </div>
-      <div class="sol-deep-guides">
-        <a class="sol-deep-guides__l" href="/guides/flat-roof-mounting-solutions-starlink-terminals-complete-guide/"><span>Flat Roof Mounting Solutions <span class="sol-deep-guides__b">en inglés</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
-        <a class="sol-deep-guides__l" href="/guides/starlink-wall-mount-roof-mount-pros-cons-home/"><span>Wall Mount vs Roof Mount <span class="sol-deep-guides__b">en inglés</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
-        <a class="sol-deep-guides__l" href="/guides/install-starlink-mount-without-drilling-non-permanent-solutions/"><span>Mounting Without Drilling <span class="sol-deep-guides__b">en inglés</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
-        <a class="sol-deep-guides__l" href="/guides/starlink-junction-box-installation-outdoor-cable-management/"><span>Junction Box for Outdoor Cabling <span class="sol-deep-guides__b">en inglés</span></span><span class="sol-deep-guides__arw" aria-hidden="true">→</span></a>
-      </div>
-    </div>
-  </section>
 
   <section class="xlc-section sol-deep-cta">
     <div class="container">
@@ -330,7 +304,7 @@
         </div>
         <div class="sol-cta__actions">
           <a class="w3-btn w3-btn--primary" href="/es/contact/">Solicita una cotización <span class="w3-arw">→</span></a>
-          <a class="w3-btn w3-btn--ghost" href="/es/guides/">Cómo se instala</a>
+          <a class="w3-btn w3-btn--ghost" href="/es/guides/">Guías</a>
         </div>
       </div>
     </div>

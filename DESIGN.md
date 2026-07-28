@@ -210,6 +210,14 @@
 - **Solutions 深度场景骨架** `.sol-deep-*`〔#77 · 6 场景共用一个 partial `solutions-deep.html`〕:`.sol-deep-pain__i` 编号+左细线(不用装饰图标卡,遵 §卡片 review#1)· `.sol-deep-sys__c` / `.sol-deep-kit__c` / `.sol-deep-guides__l` 一律 `background:--w3-surface-2`+`--w3-edge-top`+`--w3-elev-card` 浮起;`.sol-deep-sys__c` 在 `.w3-whitecards` 段内翻白卡。**密度约定(Joe 2026-07-27「文字太多·看 starlink.com」)**:块标题 `clamp(2rem,3.4vw,3.1rem)`、块 padding 96px、痛点说明压半行、产品卡只放 名字+一行规格短标签。🔴 规格标签只复述该产品自身 listing 有出处的内容;卡片**不放产品图**(目录仍有旧品牌像素残留风险)。
 - **About 合作路径** `.about-paths`/`.about-path`〔About v4 收尾转化块〕:编号 01-03 + 左细线,与 `.sol-deep-pain__i` 同一套「编号索引」语言(禁装饰图标卡);段 `.about-partner-close` padding 96/104,标题同上密度约定,主/次按钮成对(Request a quote + All products)。
 - **About OEM 段翻白** `.about-oem-light`(section 上同时挂 `.w3-whitecards`):§2.6 招2 落点——4 张 `.w3-iconcard` 与 3 步 `.w3-flow__node` **一起**翻白(半白半暗会打架),`.w3-flowband` 在白卡态下退成透明(不再是第二块暗面板),`.w3-flow__n` 用 `--w3-invert-accent` 实底白字。
+- ⭐⭐ **`.w3-flowband` / `.w3-flow` / `.w3-flow__*` 已【刻意删除】,不是清理漏网**〔总工 2026-07-28 定〕
+  - 删的理由**不是**「没人用」,而是:这批刚确立「全站卡片只有一种规格 `.ab-card`」。**留着一套无人使用、长相不同的流程带组件,等于在库里放一把「下次有人想做流程图时会顺手抓起来」的枪** —— 抓起来的那一刻,一页两套长相就回来了。
+  - **将来要做流程展示:用 `.ab-card` + 序号拼**(About v6 已证可行:五张卡 3+2 居中、顺序由序号承担)。**这不是丢失能力,是把能力收敛到唯一写法上。**
+  - ⚠️ **与 `.nav-dd__reflabel` 区别对待是有理由的**:那条留着,因为「Guides 分组要不要参考标签」是**尚未决定的产品问题**;流程带是**已被否决的表现形式**(连接线在 v6 判为不成立)。**未决的留,已否的删。**
+- **Solutions 场景页删两块**〔Joe 2026-07-28〕:`Why trust the hardware`(含 FCC/CE/RoHS/ISO 那行,同一块不是两块)与 `How it goes together`,六场景 × 四语。
+  - **不是丢信息**:认证仍在 About 的 `.about-certstrip`(四语各 1 条,FCC/CE/RoHS/ISO 齐);那块在 Solutions 上的形态是「一句话 + 一行没有容器的裸文字 + 大片空白」,**有等于没有,比不放更伤信任**。将来要重做是**重做不是恢复**。
+  - **install 块里那 24 篇文章**(6 场景 × 4)删后仍可达:20 篇经 `/guides/` 枢纽 + 对应 topic 页,4 篇 OEM 相关经 `/guides/oem/`。**逐篇核过,判据先在正样本上验过。**
+  - ⚠️ **底部 CTA 那个次级按钮的文案曾用【被删 section 的标题键本身】**(不是同名巧合)。只删 section 不动它 → **键不会变孤儿、孤儿闸照样绿,而站上留着一句指向不存在内容的话**。已改用 `header.guides`。**闸绿 ≠ 干净。**
 - ⭐⭐ **About 页统一卡片规格 `.ab-card`**〔Joe 2026-07-28 v6:「都用白底黑字,都用同样的圆角,能加图标的尽量加图标,图标也是黑白的,不要加一些乱七八糟的颜色」〕
   - **病根**:一页上并存多套卡片长相(实测圆角 3 种、内距 **6 种**),**每逐条改一次就多出一种**,永远收敛不了。**解法是先定规格再全页重画,不是改第七次。**
   - **手法**:所有卡片挂同一个 `.ab-card`,**盒模型(底/边/圆角/内距/投影)只在这一处定义**。各卡片类只剩自己的排版,**不许再自带 `border-radius`/`padding`/`background`** —— 于是「全页卡片圆角/内距/底色集合大小 = 1」是**构造保证**的,不是巧合对上的。19 张卡实测三个集合各只有 1 个值。

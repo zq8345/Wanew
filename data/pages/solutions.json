@@ -363,24 +363,6 @@
     "es-MX": "Envía tu tipo de bote, punto de montaje y modelo Starlink. Nosotros especificamos el kit.",
     "zh": "告诉我们船型、安装点、Starlink 型号,我们来配这套。"
   },
-  "solutions.deep.trust.h2": {
-    "en": "Why trust the hardware",
-    "pt-BR": "Por que confiar no equipamento",
-    "es-MX": "Por qué confiar en el equipo",
-    "zh": "凭什么信这些硬件"
-  },
-  "solutions.deep.trust.d": {
-    "en": "We manufacture our own accessories, and have since 2010.",
-    "pt-BR": "Fabricamos nossos próprios acessórios, desde 2010.",
-    "es-MX": "Fabricamos nuestros propios accesorios, desde 2010.",
-    "zh": "配件由我们自己制造,自 2010 年起。"
-  },
-  "solutions.deep.install.h2": {
-    "en": "How it goes together",
-    "pt-BR": "Como se monta",
-    "es-MX": "Cómo se instala",
-    "zh": "怎么装起来"
-  },
   "solutions.deep.note": {
     "en": "Ratings apply to the product that states them, not to a whole kit.",
     "pt-BR": "Os graus valem para o produto que os declara, não para o kit inteiro.",
