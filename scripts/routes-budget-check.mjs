@@ -78,8 +78,12 @@ for (const l of libRoutes)
 
 // ⚠️ 额度用掉一半就先说一声。**等撞上限再发现,那时已经没有便宜的退路了**
 //    (退路是手写 _routes.json,而漏列一条 = 一个安全防护静默失效)。
-if (!fail && total > LIMIT / 2)
+// ⚠️ `--json` 模式下【什么都不额外打印】—— 这一行曾经在 JSON 之后照常输出,
+//    于是 `--json` 的产出不是合法 JSON,JSON.parse 当场抛。
+//    **这和 zh-leak-scan 头部记着的"机读接口不干净"是同一个病,而我在读过那条之后又造了一个。**
+//    > **人读的输出和机读的输出混在同一个 stdout 上,只要有一条漏判模式,机读那端就全废。**
+if (!AS_JSON && !fail && total > LIMIT / 2)
   console.log(`  ⚠️ 已用 ${total}/${LIMIT},过半。再往上走要重新评估是不是还能靠自动生成。`);
 
 if (fail) { console.error(`\n❌ ${fail} 条不过\n`); process.exit(1); }
-console.log("  ✅ 额度、长度、私有模块暴露 三项全过\n");
+if (!AS_JSON) console.log("  ✅ 额度、长度、私有模块暴露 三项全过\n");
