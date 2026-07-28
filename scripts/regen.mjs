@@ -161,12 +161,15 @@ const urlOf = (p, loc) => {
 // reads to render one pt list page. title/excerpt stay English so the admin UI is untouched.
 const entries = Object.values(prods).map((p) => {
   const e = { id: p.id, category: p.category, form: p.form, title: p.i18n.en.title,
+    // 短名跟语言走,只在有值时才写进 manifest —— 没填的产品条目字节不变(68 个当前全没填)。
+    ...(p.i18n.en.card_title ? { card_title: p.i18n.en.card_title } : {}),
     thumb: p.images[0] ? resolveImg(p.images[0], cfg.img_base) : "", excerpt: excerptOf(p) };
   for (const loc of LOCALES) {
     if (loc === DEFAULT) continue;
     const t = p.i18n[loc] && p.i18n[loc].title;
+    const ct = p.i18n[loc] && p.i18n[loc].card_title;
     const x = excerptOf(p, loc);                                // derived, never stored by hand
-    if (t || x !== e.excerpt) (e.i18n ??= {})[loc] = { ...(t ? { title: t } : {}), ...(x ? { excerpt: x } : {}) };
+    if (t || ct || x !== e.excerpt) (e.i18n ??= {})[loc] = { ...(t ? { title: t } : {}), ...(ct ? { card_title: ct } : {}), ...(x ? { excerpt: x } : {}) };
   }
   return e;
 });

@@ -1572,6 +1572,15 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   width: 5px; height: 5px; border-radius: 50%; background: var(--w3-accent); }
 .about-partner__ways b { color: var(--w3-text); }
 
+/* PDP 适配徽章〔#52 契约〕:买家的第一个决定是"这个配不配我的终端"。数据是机型 slug,
+   显示名 model_display > categories.display。**产品没填 compatible_with 就整块不出现**——
+   这条是内容红线的一部分(没写清的不显示,不编),不是可选的样式细节。 */
+.pdp-compat { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 10px 0 2px; }
+.pdp-compat__lbl { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--w3-text3); }
+.pdp-compat__b { display: inline-flex; align-items: center; padding: 4px 11px; border-radius: 999px;
+  border: 1px solid var(--w3-line2); background: var(--w3-surface-2); color: var(--w3-text);
+  font-size: 12.5px; font-weight: 600; }
+
 /* Compatibility & FAQ:暗卡原本缩在左侧、右边一大片空 → 撑满 */
 #brand .faq-flat { display: grid; gap: 12px; }
 #brand .faq-flat__item { width: 100%; }
