@@ -59,24 +59,62 @@ test("列表页接线", () => {
   ok(clash.length === 0,
     `① 形态页 h1 不许与任何机型页 h1 相同${clash.length ? `(撞了:${clash.map(([k]) => k).join(",")})` : ""}`);
 
+  // ── ①b 🔴 列表页 canonical 必须【自指】——— 这才是 rel 真正驱动的东西 ────────
+  /* ⚠️ 这条是实测逼出来的,过程值得记:我原本以为 (i) 的静默风险在 `formSlug`
+     (`/^type\/([^/]+)\//.exec(rel)`)—— 地址一搬,正则失配,形态页标题就悄悄错了。
+     我把那个假设写进了闸①,还报给了总工,他也认了。
+     **然后我把那个正则真的改成匹配不上、重跑整条流水线 —— 产出零字节变化,闸①纹丝不动。**
+     原因:形态页的 h1/title 来自 LIST_PAGES 的 `name`(`{t: TYPE_TITLE_KEY[s]}`),
+     那一项**从 TYPES 直接构造,根本不经过 rel 反查**;formSlug 只喂 setListLabels 的
+     formKey,而它在当前数据下产出与默认值相同。
+     > **一道照着错误因果建起来的闸,会一直是绿的 —— 而它绿得毫无意义。**
+     > **"我以为它防住了 X"和"它真的会因为 X 而红",中间隔着一次真实副作用实验。**
+     真正吃 rel 的是 `localizeSeoListHead(h1, rel, locale)` / `localizeInternalHead` ——
+     它们拿 rel 算 canonical 与 hreflang。所以判据盯这里,而且仍是结构性的:
+     **不问 canonical 应该是哪个字符串,只问它是不是指向页面自己。**
+     (i) 把页搬到 /products/ 之后,这条原样成立 —— 自指就是自指。 */
+  const canonOf = (p) => (/<link rel="canonical" href="([^"]*)"/.exec(fs.readFileSync(p, "utf8")) || [])[1] || "";
+  let canonChecked = 0;
+  for (const d of LOC_DIRS) {
+    const dir = d ? `${d}/` : "";
+    for (const [slug, isForm] of [...FORMS.map((k) => [k, true]), ...CATS.map((c) => [c, false])]) {
+      const p = findPage(dir, slug, isForm);
+      if (!p) continue;                                  // 该语种没这页 —— 既有事实,② 的基线管它
+      const want = `https://wanew.com/${p.replace(/index\.html$/, "")}`;
+      ok(canonOf(p) === want, `①b ${p} 的 canonical 必须自指:得到 ${canonOf(p) || "(空)"},期望 ${want}`);
+      canonChecked++;
+    }
+  }
+  ok(canonChecked >= 40, `①b 覆盖 ${canonChecked} 个列表页(四语种 × 13 条,存在多少验多少)`);
+
   // ── ② 首页机型 tile 没有静默消失 ────────────────────────────────────────
+  /* 🔴 **基线是冻结的数,不是"当前可用数"。** 我第一版写的是
+     「渲染数 == 该语种当前可用数」—— 总工点破了它的盲区,而那个盲区正好命中第 5 步:
+     **5b 删掉 227 个旧址静态页时,"可用数"会跟着一起降,两边同步下滑,判据永远相等。**
+     > **一个会随被测对象一起移动的基线,量不出任何东西。**
+     所以数量对【冻结的期望值】比,变化必须来改这张表,并在报告里说明为什么。
+     ⚠️ en = 8 是硬的(home-tiles.json 声明 8 条,en 全都有页),它是这张表里最强的一格:
+        任何一个 tile 在 en 消失都藏不住。es/pt = 7 是既有事实(那两个语种没有
+        performance-gen-2 的页,总工早年确认过 pt 的 7 个 tile 就是这么来的),不是缺口。 */
+  const TILE_BASELINE = { "": 8, es: 7, pt: 7, zh: 8 };
+  ok(TILES.length === 8, `② home-tiles.json 声明 ${TILES.length} 条(基线按 8 定的)`);
   for (const d of LOC_DIRS) {
     const dir = d ? `${d}/` : "";
     const home = `${dir}index.html`;
     if (!fs.existsSync(home)) continue;
     const html = fs.readFileSync(home, "utf8");
-    // 该语种下【真实可用】的 tile 数:tile 声明了它,且它指向的页在这个语种存在
-    const available = TILES.filter((t) => findPage(dir, t.cat, false));
-    // 首页里实际出现的:指向这些机型页的链接
-    const rendered = available.filter((t) => {
+    const rendered = TILES.filter((t) => {
       const p = findPage(dir, t.cat, false);
-      const href = "/" + p.replace(/index\.html$/, "");
-      return html.includes(`href="${href}"`);
+      if (!p) return false;
+      return html.includes(`href="/${p.replace(/index\.html$/, "")}"`);
     });
-    ok(available.length > 0, `② ${d || "en"} 首页至少有 1 个可用机型 tile(有 ${available.length} 个)`);
-    ok(rendered.length === available.length,
-      `② ${d || "en"} 首页渲染出的机型 tile ${rendered.length} = 可用 ${available.length}` +
-      `${rendered.length < available.length ? ` —— 缺 ${available.filter((t) => !rendered.includes(t)).map((t) => t.cat).join(",")}` : ""}`);
+    const want = TILE_BASELINE[d];
+    ok(want !== undefined, `② ${d || "en"} 必须在基线表里(新增语种要显式定它的期望值)`);
+    const missing = TILES.filter((t) => !rendered.includes(t)).map((t) => t.cat);
+    ok(rendered.length === want,
+      `② ${d || "en"} 首页机型 tile ${rendered.length},基线 ${want}` +
+      `${missing.length ? ` —— 缺 ${missing.join(",")}` : ""}` +
+      `${rendered.length < want ? "(tile 静默消失了 —— 多半是页面搬家而 tile 还指着旧址)" : ""}`);
   }
 
   console.log(`\n✅ ${pass} 条断言通过`);
