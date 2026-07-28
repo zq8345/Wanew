@@ -11,6 +11,7 @@
     "pt-BR": "Solução completa em acessórios para Starlink",
     "es-MX": "Solución integral en accesorios para Starlink",
     "zh": "Starlink 配件一站式解决方案",
+    "reason.dupe": "与 home:home.hero.title 同 en 是【刻意】的:Joe 要 About 副标题与首页标语逐字一致。刻意不合并成共享键——两者语义不同(首页主标题 vs About 副标题),合并会让将来改一个连带改掉另一个。改这句时两处一起改。",
     "reason": "刻意与首页 H1(home.hero.title)逐字一致 —— Joe:「我是想和首页的文案保持一致」。刻意【不】合并成共享键:两者语义不同(首页主标题 vs About 副标题),只是此刻取值相同;合并会让将来改一个连带改掉另一个。改这句时两处一起改。"
   },
   "about.p.1": {
