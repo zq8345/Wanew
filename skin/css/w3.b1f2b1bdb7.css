@@ -1426,8 +1426,20 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-channel { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--w3-line2); background: var(--w3-panel); color: var(--w3-text); font-size: var(--w3-fs-compact); font-weight: 600; cursor: pointer; transition: border-color 0.2s, background 0.2s, transform 0.15s; }
 .w3-channel:hover { border-color: var(--w3-line2); transform: translateY(-1px); background: var(--w3-panel2); }
 .w3-channel__ic { display: inline-flex; }
-.w3-channel--wa { background: #1faa53; border-color: #1faa53; color: #fff; }
-.w3-channel--wa:hover { background: #1a9449; border-color: #1a9449; }
+/* ⭐ 品牌色按钮(全站唯一一颗:WhatsApp。微信与电话用中性面板底,不是品牌色)。
+   2026-07-28:`#1faa53` → `#188741`。白字在旧值上只有 **3.03**,而 14px/w600 的门槛是 4.5。
+   ⚠️ 先算过"抬字号到大字门槛 3.0"那条路,**没走** —— 因为 `.w3-channel__t` 没有独立字号规则,
+      它继承 `.w3-channel`,而那条规则管着【三颗按钮】:抬字号会把中性底的电话/微信也一起抬大,
+      或者逼出"三颗并排字号不一"。**局部最优 + 共享载体 = 必然波及。**
+   ⚠️ 更硬的理由:新值过的是【完整门槛 4.5】,不是放宽后的 3.0。
+      **不用放宽的方案,永远优于用得起放宽的方案。**
+   实测:官方绿 `#25D366` 配白字仅 **1.98**(连 3.0 都不到),站内一直用的是加深版 ——
+      **用户参照的从来不是官方绿**,所以再深一档不损识别;按钮的识别本来就靠绿+图标。
+   新值 = 官方绿 64% 明度,白字对比 **4.58**(门槛 4.5,余量 53%)。
+   ⚠️ 记一个没踩的坑:微信官方绿 `#07C160` 配白字只有 **2.38** —— 将来若有人想"统一成品牌色",
+      先看这个数。 */
+.w3-channel--wa { background: #188741; border-color: #188741; color: #fff; }
+.w3-channel--wa:hover { background: #146d34; border-color: #146d34; }
 .w3-channel-wechat { position: relative; }
 /* default hidden — a class selector's display would beat the [hidden] attribute, so
    set display:none here and reveal via .is-open (click) or desktop hover/focus. */
