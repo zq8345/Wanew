@@ -154,6 +154,13 @@ export function render(prod, { template, imgBase, related, locale = "en", modelD
     if (v === undefined || v === null || v === "") throw new Error(`catalog ${key} has no value for ${locale} — the guard should have caught this first`);
     return v;
   });
+  // {{url./some/path/}} -> the locale's version of that path, falling back to the default when
+  // that locale has no such page (urlOf's existence rule). renderHome/renderPage already had this;
+  // render() did not, so the product template's compatibility link shipped the token verbatim into
+  // the href — caught by checking the built page rather than trusting that the token "looked
+  // supported". Without urlOf (a caller mid-migration) the raw path is emitted, which is still a
+  // working link, never a leftover token.
+  r = r.replace(/\{\{url\.(\/[a-z0-9/-]*)\}\}/gi, (m, p) => (urlOf ? urlOf(p, locale) : p));
   return r;
 }
 

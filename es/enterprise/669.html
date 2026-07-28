@@ -140,7 +140,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=55" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=56" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -244,6 +244,15 @@
         <div class="w3-pdp__info">
           <span class="product-category-tag">Categoría: Enterprise</span>
           <h1 class="title-product">Cable Flat High Performance para Starlink 75FT/23M, Cable de Alimentación FHP de Repuesto, Cable de Extensión Impermeable para Starlink, Accesorios Flat High Performance Gen 2</h1>
+          <!-- PDP 体检 #1:买家的第一个决定是"这个配不配我的终端"。页面里 compatib* 出现 14 次,
+               但【全埋在 1000-2900 字符的描述散文里】;而站上本来就有兼容矩阵却没有任何链过去的入口
+               —— 信息有、结构没有。这一条补的就是那个结构。
+               🔴 为什么【不】做"适配 Mini / Gen 3"那种徽章:核过全部 68 个产品数据 ——
+               `isCompatibleWith` = 0 个产品,jsonld 里的 compatib 全落在 name(9)/description(19),
+               也就是散文。唯一结构化的适配数据只有 category,而它上面那个标签已经在显示了。
+               从散文里抽终端型号 = 推断,踩内容准确红线,所以【宁可不显示徽章】。
+               真要做徽章,得 Admin 先加一个结构化适配字段(已列给总工)。 -->
+          <a class="product-compat-link" href="/es/guides/compatibility/">Guía de compatibilidad <span class="w3-arw">→</span></a>
           <div class="item-inputs">
             <a class="w3-btn w3-btn--primary" href="#inquiry" id="contact-now-btn">Solicita una cotización <span class="w3-arw">→</span></a>
           </div>

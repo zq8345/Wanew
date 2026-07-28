@@ -1514,3 +1514,10 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .guides-scene__arw { position: absolute; right: 20px; bottom: 16px; color: var(--w3-text3); transition: color .3s, transform .3s; }
 .guides-scene:hover .guides-scene__arw { color: var(--w3-accent); transform: translateX(3px); }
 @media (max-width: 767px) { .guides-scenes { margin-top: 48px; } .guides-scenes__grid { grid-template-columns: 1fr; } }
+
+/* PDP 兼容入口(体检 #1)——买家第一个决定"配不配我的终端"的结构化出口。
+   刻意做成克制的文字链而不是大按钮:页面已有主 CTA(Request a quote),这条不该抢它。 */
+.product-compat-link { display: inline-flex; align-items: center; gap: 6px; margin: 2px 0 4px;
+  font-size: 14px; font-weight: 600; color: var(--w3-accent); text-decoration: none;
+  transition: gap .25s var(--w3-ease), opacity .25s; }
+.product-compat-link:hover { gap: 10px; opacity: .85; color: var(--w3-accent); }
