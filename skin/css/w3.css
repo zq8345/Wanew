@@ -563,7 +563,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 /* About editorial visual (Joe: flow diagrams + meaningful icons, not text-dump).
    DESIGN.md nuance (总工 2026-07-25): icons serving flow/meaning are allowed & wanted;
    the banned thing was decorative icon+3-word card rows. Inline SVG line icons, accent. */
-.about-oemodm__head { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; color: var(--w3-text3); margin: 28px 0 16px; }
+.about-oemodm__head { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; color: var(--w3-text3); margin: 0; }
 .about-oemblock > .about-oemodm__head:first-child { margin-top: 8px; }
 .about-oemodm__head--odm { margin-top: 40px; }
 
@@ -1565,7 +1565,13 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
      375 下实测过:列算成 180.3+168 而容器只有 327,整页横向溢出 9px。min-width:0 让卡能缩。 */
   min-width: 0; }
 @media (max-width: 560px) { .ab-card { padding: 18px 16px; } }   /* 窄屏收内距,否则内容挤不下 */
-.ab-card__ic { display: inline-flex; width: 26px; height: 26px; margin: 0 0 12px; color: currentColor; }
+/* ⭐ 卡片头部规格〔Joe v7:「加的不和谐」〕:**图标与标题同一行**,描述另起一行。
+   图标单独占一行时读起来像"贴在卡左上角的一枚贴纸",而不是标题的一部分。
+   与 .ab-card 同源的手法:头部只定义一次,「所有带图标的卡,图标与标题同行」
+   于是是【构造保证】的,不是各处碰巧对齐。新卡片一律用 .ab-card__hd。 */
+.ab-card__hd { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; }
+.ab-card__hd > :is(h3, h4, .about-oemodm__head) { margin: 0; min-width: 0; }
+.ab-card__ic { display: inline-flex; width: 22px; height: 22px; flex: none; color: currentColor; }
 .ab-card__ic svg { width: 100%; height: 100%; }          /* 单色:stroke=currentColor,跟随文字色 */
 .w3-whitecards .ab-card { background: #fff; border-color: rgba(11,13,16,.10); box-shadow: 0 14px 30px rgba(0,0,0,.28); color: var(--w3-invert-ink2); }
 .w3-whitecards .ab-card h3, .w3-whitecards .ab-card h4,
@@ -1580,12 +1586,17 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 /* Quality Process:5 张独立卡,上 3 下 2(下排居中)。
    6 列网格、每卡跨 2 列;第 4、5 张各偏移 1 列 → 正好落在上排两个缝隙下。 */
 .about-qp { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; margin: 18px 0 0; padding: 0; list-style: none; }
-.about-qp__c { grid-column: span 2; position: relative; }
+.about-qp__c { grid-column: span 2; }
 .about-qp__c:nth-child(4) { grid-column: 2 / span 2; }
 .about-qp__c:nth-child(5) { grid-column: 4 / span 2; }
 .about-qp__c h4 { font-size: 16px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.01em; }
 .about-qp__c p { font-size: 14px; line-height: 1.6; margin: 0; }
-.about-qp__n { position: absolute; top: 20px; right: 22px; width: 22px; height: 22px; border-radius: 50%;
+/* 序号移到卡底居中(原来在右上角,与左上角的图标像两枚互不相干的徽章在打架)。
+   ⚠️ 连接线已在 v6 判掉,序号是【唯一承担顺序】的东西 —— 五卡底部各一枚居中数字,
+   横向扫过去应当像一排刻度。 */
+.about-qp__c { display: flex; flex-direction: column; }
+.about-qp__c p { flex: 1 1 auto; }
+.about-qp__n { align-self: center; margin: 14px 0 0; width: 22px; height: 22px; border-radius: 50%;
   display: inline-flex; align-items: center; justify-content: center; font-size: 11.5px; font-weight: 700; }
 @media (max-width: 900px) { .about-qp { grid-template-columns: 1fr; gap: 14px; }
   .about-qp__c, .about-qp__c:nth-child(4), .about-qp__c:nth-child(5) { grid-column: auto; } }
