@@ -246,7 +246,16 @@ for (const file of files) {
     const text = m[1].replace(/\s+/g, ' ').trim();
     if (!text || text.length < 3) continue;
     const hits = englishHits(text);
-    if (hits.length) findings.push({ file: rel, line: lineOf(raw, m.index), kind: 'text', hits, text: text.slice(0, 120) });
+    // badged:这段英文后面紧跟着 tj-lang-badge(em inglês)=【已声明的英文】,不是漏译。
+    // 取窗口而不是整文件:证据必须和结论在同一处,否则一个页面只要任意位置有角标就会把全页洗白。
+    // ⚠️ 判据取 raw(原始标记),不能取 finding.text —— 那是剥过标签的纯文本,角标不可能在里面。
+    // 窗口【前后都要看】:角标挂在卡片标题上,而同一张卡的【摘要】排在角标之后 ——
+    // 只向后看会把标题判成已接受、把同一张卡的摘要判成真漏译,同一张已声明的卡被拆成两半。
+    // ⚠️ 这是个有界近似(向前 420 / 向后 200 字符):窗口内恰好有别的卡的角标时会误判为已接受。
+    //    接受这个代价的方向是【偏保守地少报真漏译】吗?不是 —— 反了会漏掉真问题。所以窗口取得紧,
+    //    且这个数只用来分类、不用来免责:真漏译那一栏才是待办,已接受那栏仍会被打印出来可核。
+    const badged = /tj-lang-badge/.test(raw.slice(Math.max(0, m.index - 420), m.index + m[0].length + 200));
+    if (hits.length) findings.push({ file: rel, line: lineOf(raw, m.index), kind: 'text', hits, text: text.slice(0, 120), badged });
   }
   // 2) 可见属性
   for (const m of vis.matchAll(/\b(placeholder|alt|title|aria-label)="([^"]+)"/gi)) {
@@ -282,7 +291,19 @@ if (AS_JSON) {
   } else {
     console.log('✅ 类② 无「该指 pt 却指英文」的链接');
   }
-  console.log(`\n【类①】可见文本英文残留`);
+  // ── 拆分:已接受的债 vs 真漏译 ──────────────────────────────────────────────
+  // 为什么必须拆:这个数字里【很大一部分是 58 篇 EN-only 攻略文章的卡片标题】,而那是
+  // 总工/Joe 当时明确拍板"留现状 + 挂诚实角标(em inglês)"的**已接受的债**,不是缺陷。
+  // 把它和真漏译混在一个数里,后果是:这个数【永远不可能归零】→ 门永远红 → 最后被所有人略过。
+  // **会被忽略的告警等于没有告警。** 所以按"这一行有没有挂 tj-lang-badge"分开计。
+  // ⚠️ 判据取【生成页里真实存在的标记】tj-lang-badge,不是靠猜文件名或路径 —— 角标在哪、
+  //    哪一行就是已声明的英文,证据和结论在同一行上。
+  const isBadged = (f) => f.badged === true;
+  const accepted = findings.filter(isBadged);
+  const real = findings.filter((f) => !isBadged(f));
+  console.log(`\n【类①】可见文本英文残留 —— 已接受的债 ${accepted.length} · 真漏译 ${real.length}`);
+  console.log('  已接受 = 挂了 tj-lang-badge(em inglês)的 EN-only 攻略卡片标题:总工/Joe 拍过"留现状+诚实角标"');
+  console.log('  真漏译 = 没有任何声明的英文残留 ← 【只有这个数该被当成待办】');
   if (!findings.length) {
     console.log('✅ 未发现英文残留 (可见文本)');
   } else {
@@ -297,9 +318,10 @@ if (AS_JSON) {
         console.log(`   L${f.line} [${f.kind}] {${f.hits.join(',')}}  ${f.text}`);
       }
     }
-    console.log(`\n泄漏总数: ${findings.length} / 涉及 ${Object.keys(byFile).length} 个文件`);
+    console.log(`\n泄漏总数: ${findings.length}(已接受 ${accepted.length} + 真漏译 ${real.length}) / 涉及 ${Object.keys(byFile).length} 个文件`);
   }
-  console.log(`\n合计: 类①可见文本 ${findings.length} · 类②英文链接 ${linkFindings.length}`);
+  console.log(`\n合计: 类①可见文本 ${findings.length} = 已接受 ${accepted.length} + 【真漏译 ${real.length}】 · 类②英文链接 ${linkFindings.length}`);
+  console.log('⚠️ 判达标只看【真漏译】那个数。总数含已接受的债,它不会归零,拿它当 KPI 会让这道门永远红。');
   console.log('(类③=图片里烧死的英文像素, 扫不到, 需重做图)');
 }
 process.exit(findings.length || linkFindings.length ? 1 : 0);
