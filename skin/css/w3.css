@@ -1431,3 +1431,49 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   .sol-deep-pain__i { padding: 18px 0 18px 20px; }
   .sol-deep-pain, .sol-deep-sys, .sol-deep-kit, .sol-deep-trust, .sol-deep-install, .sol-deep-cta { padding-top: 60px; padding-bottom: 60px; }
 }
+
+/* ── About v4 下半段治沉闷（Joe：暗卡暗字挤一起）。§2.6 招2 = 深底留深、容器翻白。
+   同时套 Solutions 那轮定下的「starlink 密度」：标题更大、块间更松、正文更少。 */
+
+/* ① OEM/ODM —— 4 服务卡 + 3 步流程一起翻白，整段一种容器语言（半白半暗会打架） */
+.about-oem-light { padding-top: 96px; padding-bottom: 96px; }
+.about-oem-light .tj-h2 { font-size: clamp(2rem, 3.4vw, 3.1rem); line-height: 1.08; letter-spacing: -0.03em; }
+.about-oem-light .about-oemodm__head { margin-top: 46px; }
+.w3-whitecards .w3-iconcard { background: #fff; border-color: rgba(11,13,16,.10); box-shadow: 0 14px 30px rgba(0,0,0,.28); }
+.w3-whitecards .w3-iconcard h3 { color: var(--w3-invert-ink); }
+.w3-whitecards .w3-iconcard p { color: var(--w3-invert-ink2); }
+.w3-whitecards .w3-iconcard__ic { background: rgba(11,13,16,.05); color: var(--w3-invert-accent); }
+/* 流程带不再是另一块暗面板：让白色步骤卡浮在深底上，与上面的服务卡同语言 */
+.w3-whitecards .w3-flowband { background: transparent; border-color: transparent; box-shadow: none; padding-left: 0; padding-right: 0; }
+.w3-whitecards .w3-flow__node { background: #fff; border-color: rgba(11,13,16,.10); box-shadow: 0 14px 30px rgba(0,0,0,.28); }
+.w3-whitecards .w3-flow__node h4 { color: var(--w3-invert-ink); }
+.w3-whitecards .w3-flow__node p { color: var(--w3-invert-ink2); }
+.w3-whitecards .w3-flow__ic { background: rgba(11,13,16,.05); color: var(--w3-invert-accent); }
+.w3-whitecards .w3-flow__n { background: var(--w3-invert-accent); color: #fff; }
+
+/* ② Compatibility & FAQ —— 保持深底（与上面的白卡段形成呼吸），但做真分层 + accent 提亮 */
+.faq-flat__item { position: relative; padding: 24px 26px 24px 28px; border-radius: var(--w3-radius);
+  background: var(--w3-surface-2); border: 1px solid var(--w3-line); border-top: 1px solid var(--w3-edge-top);
+  box-shadow: var(--w3-elev-card); }
+.faq-flat__item::before { content: ""; position: absolute; left: 0; top: 22px; bottom: 22px; width: 2px;
+  border-radius: 2px; background: var(--w3-accent); opacity: .75; }
+.faq-flat__item h3 { color: var(--w3-text); font-size: 17px; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 8px; line-height: 1.35; }
+.faq-flat__item p { color: var(--w3-text2); font-size: 14.5px; line-height: 1.7; margin: 0; }
+.about-disclaimer { max-width: 720px; }
+
+/* ③ Partner —— v3 是一句话+一个按钮（所以显空）。改成真收尾转化块：三条路径 + 主次出口 */
+.about-partner-close { padding-top: 96px; padding-bottom: 104px; }
+.about-partner-close .tj-h2 { font-size: clamp(2rem, 3.4vw, 3.1rem); line-height: 1.08; letter-spacing: -0.03em; }
+.about-partner__lead { margin: 16px 0 0; font-size: 16px; line-height: 1.6; color: var(--w3-text2); }
+.about-paths { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px; margin-top: 46px; }
+.about-path { padding: 24px 24px 24px 26px; border-left: 2px solid var(--w3-line); }
+.about-path__n { display: block; font-size: 12px; font-weight: 700; letter-spacing: .14em; color: var(--w3-accent); margin-bottom: 10px; }
+.about-path h3 { font-size: 19px; font-weight: 700; color: var(--w3-text); margin: 0 0 8px; letter-spacing: -0.015em; }
+.about-path p { font-size: 14.5px; line-height: 1.6; color: var(--w3-text3); margin: 0; }
+.about-partner__actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 44px; }
+
+@media (max-width: 767px) {
+  .about-oem-light, .about-partner-close { padding-top: 60px; padding-bottom: 60px; }
+  .about-paths { grid-template-columns: 1fr; gap: 8px; }
+  .about-path { padding: 18px 0 18px 20px; }
+}

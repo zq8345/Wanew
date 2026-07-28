@@ -137,7 +137,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=51" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=52" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 <!-- hreflang alternates (derived from locales.json + page existence) -->
@@ -307,7 +307,7 @@
   </section>
 
   <!-- SECTION 3 (v3): OEM/ODM Services — title unified to tj-h2; OEM icon cards + ODM flow (in band). -->
-  <section class="xlc-section" id="oem-odm">
+  <section class="xlc-section w3-whitecards about-oem-light" id="oem-odm">
     <div class="container">
       <div class="xlc-body">
         <div class="tj-sechead"><h2 class="tj-h2">Fabricação OEM/ODM de Acessórios Compatíveis com Starlink</h2></div>
@@ -369,13 +369,21 @@
     </div>
   </section>
 
-  <!-- SECTION 5 (v3): Partner With Wanew — closing CTA, one line + primary button (Request a quote). -->
-  <section class="xlc-section">
+  <!-- SECTION 5 (v4): Partner With Wanew — the page's closing conversion block. v3 was a single
+       sentence and one button, which is why it read as empty. Now it names the three ways to
+       actually work with us (one line each, no paragraphs) and gives a primary + secondary exit. -->
+  <section class="xlc-section about-partner-close">
     <div class="container">
       <div class="tj-sechead"><h2 class="tj-h2">Seja parceiro da Wanew</h2></div>
-      <div class="about-partner">
-        <p>Entre em contato com nossa equipe de vendas para dúvidas sobre produtos, projetos OEM/ODM ou parcerias de distribuição.</p>
+      <p class="about-partner__lead">Três formas de trabalhar conosco.</p>
+      <div class="about-paths">
+        <div class="about-path"><span class="about-path__n">01</span><h3>OEM</h3><p>Nosso design, sua marca e embalagem.</p></div>
+        <div class="about-path"><span class="about-path__n">02</span><h3>ODM</h3><p>Sua especificação, projetada e ferramentada aqui.</p></div>
+        <div class="about-path"><span class="about-path__n">03</span><h3>Distribuição</h3><p>Trabalhe o catálogo no seu mercado.</p></div>
+      </div>
+      <div class="about-partner__actions">
         <a class="w3-btn w3-btn--primary" href="/pt/contact/">Solicite um orçamento <span class="w3-arw">→</span></a>
+        <a class="w3-btn w3-btn--ghost" href="/pt/products/">Todos os produtos</a>
       </div>
     </div>
   </section>

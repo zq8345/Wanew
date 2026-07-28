@@ -446,5 +446,47 @@
     "pt-BR": "A Wanew é uma fabricante independente e não é afiliada, patrocinada nem endossada pela SpaceX ou Starlink. “Starlink” é uma marca registrada da SpaceX; as referências aqui indicam apenas compatibilidade.",
     "es-MX": "Wanew es un fabricante independiente y no está afiliado, patrocinado ni respaldado por SpaceX o Starlink. “Starlink” es una marca registrada de SpaceX; las referencias aquí solo indican compatibilidad.",
     "zh": "Wanew 是独立的第三方制造商,与 SpaceX 或 Starlink 无隶属、赞助或背书关系。“Starlink” 是 SpaceX 的商标,本站相关表述仅表示兼容性。"
+  },
+  "about.partner.1.t": {
+    "en": "OEM",
+    "pt-BR": "OEM",
+    "es-MX": "OEM",
+    "zh": "OEM"
+  },
+  "about.partner.1.d": {
+    "en": "Our design, your brand and packaging.",
+    "pt-BR": "Nosso design, sua marca e embalagem.",
+    "es-MX": "Nuestro diseño, tu marca y empaque.",
+    "zh": "我们的设计,你的品牌与包装。"
+  },
+  "about.partner.2.t": {
+    "en": "ODM",
+    "pt-BR": "ODM",
+    "es-MX": "ODM",
+    "zh": "ODM"
+  },
+  "about.partner.2.d": {
+    "en": "Your specification, engineered and tooled here.",
+    "pt-BR": "Sua especificação, projetada e ferramentada aqui.",
+    "es-MX": "Tu especificación, diseñada y con herramental aquí.",
+    "zh": "你的规格,由我们做工程与开模。"
+  },
+  "about.partner.3.t": {
+    "en": "Distribution",
+    "pt-BR": "Distribuição",
+    "es-MX": "Distribución",
+    "zh": "分销"
+  },
+  "about.partner.3.d": {
+    "en": "Stock the catalogue in your market.",
+    "pt-BR": "Trabalhe o catálogo no seu mercado.",
+    "es-MX": "Distribuye el catálogo en tu mercado.",
+    "zh": "在你的市场经销我们的目录。"
+  },
+  "about.partner.lead": {
+    "en": "Three ways to work with us.",
+    "pt-BR": "Três formas de trabalhar conosco.",
+    "es-MX": "Tres formas de trabajar con nosotros.",
+    "zh": "三种合作方式。"
   }
 }
