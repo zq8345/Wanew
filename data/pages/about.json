@@ -7,10 +7,11 @@
     "zh": "关于我们"
   },
   "about.page-header-subtitle.1": {
-    "en": "Engineering-led manufacturing since 2010.",
-    "pt-BR": "Fabricação guiada pela engenharia desde 2010.",
-    "es-MX": "Fabricación con enfoque en ingeniería desde 2010.",
-    "zh": "自 2010 年起，以工程驱动制造。"
+    "en": "Starlink Accessories One-stop Solution",
+    "pt-BR": "Solução completa em acessórios para Starlink",
+    "es-MX": "Solución integral en accesorios para Starlink",
+    "zh": "Starlink 配件一站式解决方案",
+    "reason": "刻意与首页 H1(home.hero.title)逐字一致 —— Joe:「我是想和首页的文案保持一致」。刻意【不】合并成共享键:两者语义不同(首页主标题 vs About 副标题),只是此刻取值相同;合并会让将来改一个连带改掉另一个。改这句时两处一起改。"
   },
   "about.p.1": {
     "en": "Wanew Starlink Accessories is an engineering-led manufacturer based in the Guangdong–Hong Kong–Macao Greater Bay Area, running R&D, production and sales under one roof — a one-stop source for the full range of Starlink-terminal peripherals.",
