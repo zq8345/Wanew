@@ -136,7 +136,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=61" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=62" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 {{HREFLANG}}
@@ -259,38 +259,40 @@
         <li><figure><img src="/static/upload/image/about/factory-shipping.webp" alt="{{t.about.faccap.6}}" width="507" height="349" loading="lazy"><figcaption aria-hidden="true">{{t.about.faccap.6}}</figcaption></figure></li>
       </ul>
       <div class="xlc-stats xlc-stats--6">
-        <div class="xlc-stat-card"><div class="xlc-stat-number">15+</div><div class="xlc-stat-label">{{t.about.xlc-stat-label.1}}</div></div>
-        <div class="xlc-stat-card"><div class="xlc-stat-number">150+</div><div class="xlc-stat-label">{{t.about.xlc-stat-label.3}}</div></div>
-        <div class="xlc-stat-card"><div class="xlc-stat-number">200+</div><div class="xlc-stat-label">{{t.about.xlc-stat-label.4}}</div></div>
-        <div class="xlc-stat-card"><div class="xlc-stat-number">{{t.about.about-caps-k.1}}</div><div class="xlc-stat-label">{{t.about.about-caps-v.1}}</div></div>
-        <div class="xlc-stat-card"><div class="xlc-stat-number">{{t.shared.monthly_output_units}}</div><div class="xlc-stat-label">{{t.shared.units_per_month}}</div></div>
-        <div class="xlc-stat-card"><div class="xlc-stat-number">130+</div><div class="xlc-stat-label">{{t.about.stat.countries}}</div></div>
+        <div class="ab-card xlc-stat-card"><div class="xlc-stat-number">15+</div><div class="xlc-stat-label">{{t.about.xlc-stat-label.1}}</div></div>
+        <div class="ab-card xlc-stat-card"><div class="xlc-stat-number">150+</div><div class="xlc-stat-label">{{t.about.xlc-stat-label.3}}</div></div>
+        <div class="ab-card xlc-stat-card"><div class="xlc-stat-number">200+</div><div class="xlc-stat-label">{{t.about.xlc-stat-label.4}}</div></div>
+        <div class="ab-card xlc-stat-card"><div class="xlc-stat-number">{{t.about.about-caps-k.1}}</div><div class="xlc-stat-label">{{t.about.about-caps-v.1}}</div></div>
+        <div class="ab-card xlc-stat-card"><div class="xlc-stat-number">{{t.shared.monthly_output_units}}</div><div class="xlc-stat-label">{{t.shared.units_per_month}}</div></div>
+        <div class="ab-card xlc-stat-card"><div class="xlc-stat-number">130+</div><div class="xlc-stat-label">{{t.about.stat.countries}}</div></div>
       </div>
       <h3 class="about-qp-head">{{t.certifications-testing.h2.3}}</h3>
-      <div class="w3-flowband">
-      <ol class="w3-flow w3-flow--5">
-        <li class="w3-flow__node">
-          <span class="w3-flow__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><circle cx="10.5" cy="10.5" r="2.3"/><path d="m12.4 12.4 2 2"/></svg></span>
-          <span class="w3-flow__n">1</span><h4>{{t.certifications-testing.h3.1}}</h4><p>{{t.certifications-testing.p.2}}</p>
+      <!-- v6:5 步拆成 5 张独立卡,上 3 下 2(下排居中)。
+           🔴 连接线一并删掉:拆成两排后那条横线要么断在半空、要么绕行,怎么摆都是错的。
+              顺序改由 1-5 的序号承担。这是取舍不是漏做。
+           图标 SVG 逐字沿用原来那 5 个(同一套 24 viewBox / stroke-width 1.6),只换外壳。 -->
+      <ol class="about-qp">
+        <li class="ab-card about-qp__c">
+          <span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><circle cx="10.5" cy="10.5" r="2.3"/><path d="m12.4 12.4 2 2"/></svg></span>
+          <span class="about-qp__n">1</span><h4>{{t.certifications-testing.h3.1}}</h4><p>{{t.certifications-testing.p.2}}</p>
         </li>
-        <li class="w3-flow__node">
-          <span class="w3-flow__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>
-          <span class="w3-flow__n">2</span><h4>{{t.certifications-testing.h3.2}}</h4><p>{{t.certifications-testing.p.3}}</p>
+        <li class="ab-card about-qp__c">
+          <span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>
+          <span class="about-qp__n">2</span><h4>{{t.certifications-testing.h3.2}}</h4><p>{{t.certifications-testing.p.3}}</p>
         </li>
-        <li class="w3-flow__node">
-          <span class="w3-flow__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4M8.5 12.5l2.2 2.2 4.3-4.3"/></svg></span>
-          <span class="w3-flow__n">3</span><h4>{{t.certifications-testing.h3.3}}</h4><p>{{t.certifications-testing.p.4}}</p>
+        <li class="ab-card about-qp__c">
+          <span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4M8.5 12.5l2.2 2.2 4.3-4.3"/></svg></span>
+          <span class="about-qp__n">3</span><h4>{{t.certifications-testing.h3.3}}</h4><p>{{t.certifications-testing.p.4}}</p>
         </li>
-        <li class="w3-flow__node">
-          <span class="w3-flow__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s5.5 5.8 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 8.8 12 3 12 3z"/><path d="M9.5 13.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></span>
-          <span class="w3-flow__n">4</span><h4>{{t.certifications-testing.h3.4}}</h4><p>{{t.certifications-testing.p.5}}</p>
+        <li class="ab-card about-qp__c">
+          <span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s5.5 5.8 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 8.8 12 3 12 3z"/><path d="M9.5 13.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></span>
+          <span class="about-qp__n">4</span><h4>{{t.certifications-testing.h3.4}}</h4><p>{{t.certifications-testing.p.5}}</p>
         </li>
-        <li class="w3-flow__node">
-          <span class="w3-flow__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v5M12 17v5M8 6l4-4 4 4M8 18l4 4 4-4"/><rect x="4" y="9.5" width="16" height="5" rx="1"/></svg></span>
-          <span class="w3-flow__n">5</span><h4>{{t.certifications-testing.h3.5}}</h4><p>{{t.certifications-testing.p.6}}</p>
+        <li class="ab-card about-qp__c">
+          <span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v5M12 17v5M8 6l4-4 4 4M8 18l4 4 4-4"/><rect x="4" y="9.5" width="16" height="5" rx="1"/></svg></span>
+          <span class="about-qp__n">5</span><h4>{{t.certifications-testing.h3.5}}</h4><p>{{t.certifications-testing.p.6}}</p>
         </li>
       </ol>
-      </div>
       <div class="about-certstrip" id="certifications">
         <span class="about-cert"><svg class="about-cert__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg>{{t.shared.fcc}}</span>
         <span class="about-cert"><svg class="about-cert__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 19 5v5.5c0 4.2-3 7.4-7 8.5-4-1.1-7-4.3-7-8.5V5z"/><path d="m9 11.5 2 2 4-4"/></svg>{{t.shared.ce}}</span>
@@ -305,20 +307,26 @@
     <div class="container">
       <div class="xlc-body">
         <div class="tj-sechead"><h2 class="tj-h2">{{t.oem-odm-manufacturing.page-header-title.1}}</h2><p class="tj-sechead__sub">{{t.about.oem.subtitle}}</p></div>
-<div class="about-oemblock">
-  <div class="about-oemodm__head">{{t.oem-odm-manufacturing.h2.2}}</div>
-  <dl class="about-oemcaps">
-    <div class="about-oemcaps__row"><dt>{{t.oem-odm-manufacturing.strong.1}}</dt><dd>{{t.oem-odm-manufacturing.strong.2}}</dd></div>
-    <div class="about-oemcaps__row"><dt>{{t.oem-odm-manufacturing.strong.3}}</dt><dd>{{t.oem-odm-manufacturing.strong.4}}</dd></div>
-    <div class="about-oemcaps__row"><dt>{{t.oem-odm-manufacturing.strong.5}}</dt><dd>{{t.oem-odm-manufacturing.strong.6}}</dd></div>
-    <div class="about-oemcaps__row"><dt>{{t.oem-odm-manufacturing.strong.7}}</dt><dd>{{t.oem-odm-manufacturing.strong.8}}</dd></div>
-  </dl>
-  <div class="about-oemodm__head about-oemodm__head--odm">{{t.oem-odm-manufacturing.h2.3}}</div>
-  <ol class="about-steps">
-    <li><span class="about-steps__n">1</span><b>{{t.oem-odm-manufacturing.strong.9}}</b> {{t.oem-odm-manufacturing.strong.10}}</li>
-    <li><span class="about-steps__n">2</span><b>{{t.oem-odm-manufacturing.strong.11}}</b> {{t.oem-odm-manufacturing.strong.12}}</li>
-    <li><span class="about-steps__n">3</span><b>{{t.oem-odm-manufacturing.strong.13}}</b> {{t.oem-odm-manufacturing.strong.14}}</li>
-  </ol>
+<div class="about-oemgrid">
+  <div class="ab-card about-oemcard">
+    <span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l6-4 6 4v12"/><path d="M15 21V13h6v8"/><path d="M7 21v-4h4v4"/></svg></span>
+    <div class="about-oemodm__head">{{t.oem-odm-manufacturing.h2.2}}</div>
+    <dl class="about-oemcaps">
+      <div class="about-oemcaps__row"><dt>{{t.oem-odm-manufacturing.strong.1}}</dt><dd>{{t.oem-odm-manufacturing.strong.2}}</dd></div>
+      <div class="about-oemcaps__row"><dt>{{t.oem-odm-manufacturing.strong.3}}</dt><dd>{{t.oem-odm-manufacturing.strong.4}}</dd></div>
+      <div class="about-oemcaps__row"><dt>{{t.oem-odm-manufacturing.strong.5}}</dt><dd>{{t.oem-odm-manufacturing.strong.6}}</dd></div>
+      <div class="about-oemcaps__row"><dt>{{t.oem-odm-manufacturing.strong.7}}</dt><dd>{{t.oem-odm-manufacturing.strong.8}}</dd></div>
+    </dl>
+  </div>
+  <div class="ab-card about-oemcard">
+    <span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="4"/><path d="M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8"/></svg></span>
+    <div class="about-oemodm__head">{{t.oem-odm-manufacturing.h2.3}}</div>
+    <ol class="about-steps">
+      <li><span class="about-steps__n">1</span><b>{{t.oem-odm-manufacturing.strong.9}}</b> {{t.oem-odm-manufacturing.strong.10}}</li>
+      <li><span class="about-steps__n">2</span><b>{{t.oem-odm-manufacturing.strong.11}}</b> {{t.oem-odm-manufacturing.strong.12}}</li>
+      <li><span class="about-steps__n">3</span><b>{{t.oem-odm-manufacturing.strong.13}}</b> {{t.oem-odm-manufacturing.strong.14}}</li>
+    </ol>
+  </div>
 </div>
       </div>
     </div>
@@ -330,13 +338,12 @@
   <section class="xlc-section xlc-section-alt w3-whitecards" id="brand">
     <div class="container">
       <div class="tj-sechead"><h2 class="tj-h2">{{t.about.sec.compat_faq}}</h2></div>
-      <p class="about-disclaimer">{{t.about.faq.disclaimer}}</p>
       <div class="faq-flat">
-        <div class="faq-flat__item"><h3>{{t.brand-affiliation-faq.h3.1}}</h3><p>{{t.brand-affiliation-faq.p.1}}</p></div>
-        <div class="faq-flat__item"><h3>{{t.brand-affiliation-faq.h3.2}}</h3><p>{{t.brand-affiliation-faq.p.2}}</p></div>
-        <div class="faq-flat__item"><h3>{{t.brand-affiliation-faq.h3.3}}</h3><p>{{t.brand-affiliation-faq.p.3}}</p></div>
+        <div class="ab-card faq-flat__item"><h3>{{t.brand-affiliation-faq.h3.1}}</h3><p>{{t.brand-affiliation-faq.p.1}}</p></div>
+        <div class="ab-card faq-flat__item"><h3>{{t.brand-affiliation-faq.h3.2}}</h3><p>{{t.brand-affiliation-faq.p.2}}</p></div>
+        <div class="ab-card faq-flat__item"><h3>{{t.brand-affiliation-faq.h3.3}}</h3><p>{{t.brand-affiliation-faq.p.3}}</p></div>
       </div>
-      <p class="about-faq-more"><a class="w3-link-arrow" href="{{url./guides/faq/}}">{{t.about.faq.see_full}} <span class="w3-arw">→</span></a></p>
+      <p class="about-faq-more"><a class="w3-link-arrow" href="{{url./guides/faq/}}">{{t.about.faq.see_full}}</a></p>
     </div>
   </section>
 
@@ -348,9 +355,9 @@
       <div class="tj-sechead"><h2 class="tj-h2">{{t.about.h3.1}}</h2></div>
       <p class="about-partner__lead">{{t.about.partner.lead}}</p>
       <ul class="about-partner__ways">
-        <li class="about-pcard"><h3>{{t.about.partner.1.t}}</h3><p>{{t.about.partner.1.d}}</p></li>
-        <li class="about-pcard"><h3>{{t.about.partner.2.t}}</h3><p>{{t.about.partner.2.d}}</p></li>
-        <li class="about-pcard"><h3>{{t.about.partner.3.t}}</h3><p>{{t.about.partner.3.d}}</p></li>
+        <li class="ab-card about-pcard"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg></span><h3>{{t.about.partner.1.t}}</h3><p>{{t.about.partner.1.d}}</p></li>
+        <li class="ab-card about-pcard"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></span><h3>{{t.about.partner.2.t}}</h3><p>{{t.about.partner.2.d}}</p></li>
+        <li class="ab-card about-pcard"><span class="ab-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3z"/></svg></span><h3>{{t.about.partner.3.t}}</h3><p>{{t.about.partner.3.d}}</p></li>
       </ul>
       <div class="about-partner__actions">
         <a class="w3-btn w3-btn--primary" href="{{url./contact/}}">{{t.body.request_quote}} <span class="w3-arw">→</span></a>

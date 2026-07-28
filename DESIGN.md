@@ -210,6 +210,16 @@
 - **Solutions 深度场景骨架** `.sol-deep-*`〔#77 · 6 场景共用一个 partial `solutions-deep.html`〕:`.sol-deep-pain__i` 编号+左细线(不用装饰图标卡,遵 §卡片 review#1)· `.sol-deep-sys__c` / `.sol-deep-kit__c` / `.sol-deep-guides__l` 一律 `background:--w3-surface-2`+`--w3-edge-top`+`--w3-elev-card` 浮起;`.sol-deep-sys__c` 在 `.w3-whitecards` 段内翻白卡。**密度约定(Joe 2026-07-27「文字太多·看 starlink.com」)**:块标题 `clamp(2rem,3.4vw,3.1rem)`、块 padding 96px、痛点说明压半行、产品卡只放 名字+一行规格短标签。🔴 规格标签只复述该产品自身 listing 有出处的内容;卡片**不放产品图**(目录仍有旧品牌像素残留风险)。
 - **About 合作路径** `.about-paths`/`.about-path`〔About v4 收尾转化块〕:编号 01-03 + 左细线,与 `.sol-deep-pain__i` 同一套「编号索引」语言(禁装饰图标卡);段 `.about-partner-close` padding 96/104,标题同上密度约定,主/次按钮成对(Request a quote + All products)。
 - **About OEM 段翻白** `.about-oem-light`(section 上同时挂 `.w3-whitecards`):§2.6 招2 落点——4 张 `.w3-iconcard` 与 3 步 `.w3-flow__node` **一起**翻白(半白半暗会打架),`.w3-flowband` 在白卡态下退成透明(不再是第二块暗面板),`.w3-flow__n` 用 `--w3-invert-accent` 实底白字。
+- ⭐⭐ **About 页统一卡片规格 `.ab-card`**〔Joe 2026-07-28 v6:「都用白底黑字,都用同样的圆角,能加图标的尽量加图标,图标也是黑白的,不要加一些乱七八糟的颜色」〕
+  - **病根**:一页上并存多套卡片长相(实测圆角 3 种、内距 **6 种**),**每逐条改一次就多出一种**,永远收敛不了。**解法是先定规格再全页重画,不是改第七次。**
+  - **手法**:所有卡片挂同一个 `.ab-card`,**盒模型(底/边/圆角/内距/投影)只在这一处定义**。各卡片类只剩自己的排版,**不许再自带 `border-radius`/`padding`/`background`** —— 于是「全页卡片圆角/内距/底色集合大小 = 1」是**构造保证**的,不是巧合对上的。19 张卡实测三个集合各只有 1 个值。
+  - **零彩色**:图标一律 `stroke=currentColor` 跟随文字色;序号圆点用 `--w3-invert-ink` 不用 accent。About 四段实测蓝色残留 **0**。图标风格单一(24 viewBox / stroke-width 1.6),**不许混入实心图标或第二种线宽**。
+  - **⚠️ `.ab-card` 必须带 `min-width: 0`**:网格项默认 `min-width:auto`,卡里的大数字会撑住列的下限、把整行顶出容器(375 下实测列算成 180.3+168 而容器只有 327,整页横向溢出 9px)。窄屏另收内距。
+  - **Quality Process 5 卡上 3 下 2**(`.about-qp`):6 列网格每卡跨 2 列,第 4/5 张各偏移 1 列 → 落在上排两个缝隙下,下排自然居中。🔴 **连接线一并删除** —— 拆成两排后横线要么断在半空要么绕行,怎么摆都是错的,顺序改由序号承担。这是取舍不是漏做。
+  - **OEM/ODM 并排两卡**(`.about-oemgrid`):两边内容不等长(4 行 vs 3 步),靠 grid 默认 stretch **等高**(实测 449/449)。
+  - **`.about-qp-head` 视觉字号 = 同段 h2**,但**标签仍是 `h3`** —— 只改视觉不改文档层级。⚠️ 需写成 `.xlc-section h3.about-qp-head`,否则被 `.xlc-section h3`(特异性更高)压掉,不要用 `!important` 硬顶。
+  - **About 免责声明已删**:页脚站内每页都挂着同一句、且三条 Q&A 本身就在说同一件事;`#brand` id(301 目标)保留不动。
+  - **退役**:`.w3-flowband`/`.w3-flow--5`/`.w3-flow__node` 在 About 拆卡后**全站 0 消费者**(它们只用在 About)。CSS 暂留,待决定是否彻底废除。
 - ⭐ **About v5 三卡横排**〔Joe 2026-07-28 亲列 7 条〕:`.faq-flat`(Compatibility & FAQ)与 `.about-partner__ways`(Partner)统一为 `repeat(3,1fr)` + gap 18,**三卡合计 = 容器内容宽**(1440 实测 385×3 + 18×2 = 1191 / 1192,差 1px);≤900px 落单列。**容器不再是卡,卡是 `.faq-flat__item` / `.about-pcard`** —— 旧版「一张大卡装三条问答」的 `max-width:840/860` 才是压宽元凶,已**退役**而不是叠一条 `max-width:none`(叠覆盖会让下一个人同时读到两套意图)。
 - ⭐⭐ **`.w3-whitecards` 底墨成对不变量**〔常驻闸 `scripts/whitecards-pair-check.mjs`〕:被翻成深色墨的文字,**自己或任一祖先必须有浅底**。2026-07-28 About 崩过一次就是只搬墨没搬底(白底原本来自 `.w3-iconcard`):深墨压深底、整片标题隐形,而 CSS 读着完全正常、肉眼审不出来。**闸按【产出 HTML 的真实祖先链】判**,不按「每个类必须自带 background」—— 后者在健康树上误报 4 条(`.tj-gbody` 等的底合法地来自祖先卡片容器),而**在健康树上报红的闸会被忽略,等于没装**。
 - **段标题副标** `.tj-sechead__sub`:大字下的小字副标题(OEM/ODM 段)。⚠️ **副标题是独立 catalog 键,不是从主标题切出来的** —— es/pt 里 OEM/ODM 夹在句中(`Fabricación OEM/ODM de accesorios…`),切字符串会得到病句。
