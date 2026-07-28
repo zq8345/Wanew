@@ -1398,7 +1398,21 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-crumb { font-size: 13px; color: var(--w3-text3); margin-bottom: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
 .w3-crumb a { color: var(--w3-accent); }
 /* Guides topic nav —— 一套浏览逻辑(Joe 铁令):chip 是导航链接 <a>,跳 /guides/{topic}/ 专属页,非就地筛选 */
-.guides-nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 28px; }
+/* ⭐ 单行横向条带(总工 2026-07-28):375 下 es 的 chip 条曾要占 6 行 ≈ 240px,
+   把正文推到快一屏之下 —— 那是可用性问题不是观感问题。
+   ⚠️ 刻意【不设断点】:一律 nowrap + overflow-x:auto。桌面本来就不溢出,行为零变化;
+      一套行为比一个 media query 更难出错(总工原话)。 */
+.guides-nav { display: flex; flex-wrap: nowrap; gap: 8px; margin: 0 0 28px;
+  overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; position: relative; }
+.guides-nav::-webkit-scrollbar { display: none; }
+/* 右缘渐隐提示还有 —— 用背景色令牌不写死 hex;滚到底时由 JS 摘掉 is-end 之外的类,
+   否则遮罩会永远在骗人(总工原话)。 */
+.guides-nav::after { content: ""; position: sticky; right: 0; flex: none; width: 34px; height: 1px;
+  margin-left: -34px; align-self: stretch; pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--w3-bg)); transition: opacity .2s; }
+.guides-nav.is-end::after { opacity: 0; }
+.guides-nav.is-nooverflow::after { display: none; }
+.guides-chip { flex: none; }
 .guides-chip { display: inline-flex; align-items: center; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--w3-line2); background: transparent; color: var(--w3-text2); font-size: 13px; font-weight: 600; text-decoration: none; transition: color .2s var(--w3-ease), background .2s, border-color .2s; }
 .guides-chip:hover { color: var(--w3-text); border-color: rgba(255,255,255,.38); }
 .guides-chip.is-active { background: #fff; color: var(--w3-surface-0); border-color: #fff; }
