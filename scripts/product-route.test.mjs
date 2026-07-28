@@ -156,5 +156,29 @@ test("/products/ 路由层", (t) => {
     "export const PRODUCT_PATH_RE = /^\\/(?:(es|pt)\\/)?products\\/?(.*)$/;");
   ok(trap.join() === "es,pt", `⑦ 正对照B:块注释与行注释里的旧正则都不许被读进来(读到 ${trap.join("|")})`);
 
+  // ── ⑧ 🔴 functions/_lib/ 下的共享模块不许导出 onRequest ────────────────────
+  //    CF Pages 认路由的依据是【导出了 onRequest】,**与它在不在 `_` 开头的目录里无关**。
+  //    我把共享判据抽进 _lib/product-route.js 时原样叫了 onRequest,于是 wrangler
+  //    自动生成的 _routes.json 里凭空多出一条 `/_lib/product-route` ——
+  //    **一个共享模块变成了对外端点**(生产实测 404,没造成暴露,但没人打算创建它)。
+  //    > **决定"这是不是一个路由"的不是目录,是导出的名字。**
+  //    ⚠️ 判据只扫 `functions/_lib/`,所以**不需要、也不许**豁免 `X as onRequest` 这种别名形式:
+  //    别名导出的结果同样是"这个文件导出了 onRequest",一样会变成路由。
+  //    我第一版给正则加了 `(?!\s+as)` 想放过别名,是把【挂载点该做的事】和【_lib 不该做的事】
+  //    按形状混成了一类 —— 而正对照当场把它抓了出来。**豁免要按位置给,不按写法给。**
+  const EXPORTS_ONREQUEST = /export\s+(?:async\s+)?function\s+onRequest\b|export\s*\{[^}]*\bonRequest\b/;
+  const libFiles = fs.readdirSync("functions/_lib").filter((f) => f.endsWith(".js"));
+  ok(libFiles.length > 0, `⑧ functions/_lib 下有 ${libFiles.length} 个模块`);
+  for (const f of libFiles)
+    ok(!EXPORTS_ONREQUEST.test(stripComments(fs.readFileSync(`functions/_lib/${f}`, "utf8"))),
+      `⑧ _lib/${f} 不导出 onRequest(否则它会变成一条路由)`);
+  // 🔴 正对照:这条判据得能红。
+  ok(EXPORTS_ONREQUEST.test("export async function onRequest(c){}"), "⑧ 正对照:直接声明形式会被抓到");
+  ok(EXPORTS_ONREQUEST.test('export { onRequest } from "./x.js";'), "⑧ 正对照:再导出形式会被抓到");
+  ok(EXPORTS_ONREQUEST.test('export { handleProductRoute as onRequest } from "./x.js";'),
+    "⑧ 正对照:别名形式 `X as onRequest` 在 _lib 里同样必须被抓到(它一样会造出路由)");
+  ok(!EXPORTS_ONREQUEST.test('export function handleProductRoute(c){}'),
+    "⑧ 正对照:不叫 onRequest 的正常导出不误伤");
+
   console.log(`\n✅ ${pass} 条断言通过`);
 });

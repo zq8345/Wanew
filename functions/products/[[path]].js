@@ -17,4 +17,4 @@
  *    那句是错的:**Function 一旦返回 301,静态页就不会被服务了,双活当场结束。**
  *    旧址 301 与"删旧址静态页 + 切内链 + 换 sitemap"是同一件事,归第 5 步。
  */
-export { onRequest } from "../_lib/product-route.js";
+export { handleProductRoute as onRequest } from "../_lib/product-route.js";

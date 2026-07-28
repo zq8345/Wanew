@@ -47,7 +47,14 @@ const CANON = new Map(MANIFEST.filter((p) => p.path).map((p) => [String(p.id), p
 //    重新加回 zh 的触发条件 = §9.1 那条被重新考虑(即 zh 产品详情页真的产出了)。
 export const PRODUCT_PATH_RE = /^\/(?:(es|pt)\/)?products\/?(.*)$/;
 
-export async function onRequest(context) {
+// 🔴 **这里绝不能叫 `onRequest`。** CF Pages 把「导出了 onRequest 的文件」认成路由 ——
+//    与它在不在 `_` 开头的目录里无关。我第一版就叫 onRequest,于是 wrangler 自动生成的
+//    _routes.json 里凭空多出一条 `/_lib/product-route`,**一个共享模块变成了一个对外端点**。
+//    生产实测它返回 404(URL 不匹配正则 → next() → 静态层没有这个文件),所以没造成暴露;
+//    但它白占一条 include 额度,而且是个**没人打算创建的路由**。
+//    同目录的 render.js / chrome.js / github.js 都没出现在路由表里,正是因为它们不导出这个名字。
+//    > **决定"这是不是一个路由"的不是目录,是导出的名字。**
+export async function handleProductRoute(context) {
   const { request, next } = context;
   const url = new URL(request.url);
   const m = PRODUCT_PATH_RE.exec(url.pathname);
