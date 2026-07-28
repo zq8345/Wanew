@@ -396,6 +396,16 @@ const modelSeedRel = (loc, targetCat) => {
 // 与其留一条"记得跑两遍"的规矩(总有人不记得),不如让顺序不再重要:
 //   阶段①把这个 rel 的各语种缺页【全部】建出来 → 阶段②再统一 regen + 派生 head。
 // hreflang 只依赖【同一个 rel 的其它语种】,所以按 rel 分两阶段就足够,不需要全站两遍。
+/* 已知分类清单 = 三个已有真源的并集。**必须算在列表页循环之前** —— 它是循环的输入
+   (第 1c 用它决定哪些页要产新址),放在循环之后就是"拿还没算出来的东西做判断"。
+   ⚠️ 下面写 data/product-routes.json 时复用【同一个集合】,不许各算各的:
+      各算各的会漂,而漂的表现是"页在那儿但路由不认"或"路由指向 404"。 */
+const KNOWN_ROUTES = new Set([
+  ...CATS,
+  ...FORMS.map((f) => f.key),
+  ...AGGREGATES.map(([r]) => r.replace(/\/index\.html$/, "")),
+]);
+let dualLists = 0;
 for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
  // ── 阶段①:只建缺页,不产出任何 head ──
  for (const locale of RENDER_SET) {
@@ -449,9 +459,42 @@ for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
   if (isExtra(locale)) h1 = localizeInternalHead(h1, rel, locale);   // zh list 页:head 本地化+noindex+零 hreflang
   else h1 = localizeSeoListHead(h1, rel, locale);                     // en/es/pt list 页:派生+注入互惠 hreflang 簇
   if (h1 !== h0) { fs.writeFileSync(p, h1); lists++; }
+
+  /* ── 第 1c:分类页的新址并存产出 ────────────────────────────────────────
+     第 1b 只产了【详情页】新址 —— 我当时把"新址产出"当成一件事,实际它有两半。
+     缺这半的后果不是报错,是 `/products/{分类}/` 在生产上 404,
+     而那个 404 长得和"路由判错"一模一样(第 4 步生产实测时正是这么撞上的)。
+     ⚠️ 与详情页同样的三处改写:canonical 自指新址 · noindex · hreflang 自成新址簇;
+        其余一个字节不动 —— "差异恰好三类"那条对账同样适用于这一半。
+     ⚠️ zh 不产:它是内部语种、本来就不进 sitemap,多一份副本只是多一份要维护的东西。 */
+  if (!isExtra(locale)) {
+    const catSlug = /^type\/([^/]+)\//.exec(rel)?.[1] || rel.replace(/\/index\.html$/, "");
+    if (catSlug && KNOWN_ROUTES.has(catSlug)) {
+      const nOut = pageOf(locale, path.join("products", catSlug, "index.html"));
+      const d = dirOf(locale) ? `/${dirOf(locale)}` : "";
+      let dual = h1.replace(/<link rel="canonical" href="[^"]*"/,
+        `<link rel="canonical" href="https://wanew.com${d}/products/${catSlug}/"`);
+      dual = /<meta\s+name="robots"/i.test(dual) ? dual
+        : dual.replace(/(<link rel="canonical")/, `<meta name="robots" content="noindex, follow" />\n$1`);
+      dual = dual.replace(/<link rel="alternate"[^>]*>/g, (tag) => {
+        const mm = /hreflang="([^"]+)"/.exec(tag);
+        if (!mm) return tag;
+        if (mm[1] === "x-default")
+          return tag.replace(/href="[^"]*"/, `href="https://wanew.com/products/${catSlug}/"`);
+        if (!LOCALES.includes(mm[1])) return tag;
+        if (!fs.existsSync(pageOf(mm[1], rel))) return tag;    // 存在性规则:没有就不发 alternate
+        const dd = dirOf(mm[1]) ? `/${dirOf(mm[1])}` : "";
+        return tag.replace(/href="[^"]*"/, `href="https://wanew.com${dd}/products/${catSlug}/"`);
+      });
+      fs.mkdirSync(path.dirname(nOut), { recursive: true });
+      fs.writeFileSync(nOut, dual);
+      dualLists++;
+    }
+  }
  }
 }
 console.log(`list pages regenerated: ${lists} changed`);
+console.log(`  /products/{分类}/ 新址并存(noindex,不进 sitemap): ${dualLists} 页`);
 
 /* ── /products/ 路由的已知分类清单 → 落成数据文件,供跳转层(Pages Function)读 ──────
    🔴 判据 = 三个【已有真源】的并集,没有新清单要维护:
@@ -468,11 +511,9 @@ console.log(`list pages regenerated: ${lists} changed`);
       若 Function 自己去拼,它拼的是"此刻的三个文件",而页面是"上次构建时的三个文件",
       两者之间那个窗口里的不一致,会表现为 404 或错误路由。 */
 {
-  const known = [...new Set([
-    ...CATS,
-    ...FORMS.map((f) => f.key),
-    ...AGGREGATES.map(([rel]) => rel.replace(/\/index\.html$/, "")),
-  ])].sort();
+  // 与第 1c 判定"哪些页要产新址"用的是【同一个集合】—— 各算各的就会漂:
+  // 一边产了页、另一边没把它列进路由表,表现为"页在那儿但路由不认",反之则是路由指向 404。
+  const known = [...KNOWN_ROUTES].sort();
   const p = path.join(REPO, "data", "product-routes.json");
   const body = JSON.stringify({
     _note: "「/products/{x}/ 是不是分类页」的判据。x 命中这张表 = 分类页,否则按末尾 -{数字} 解析成产品。" +
