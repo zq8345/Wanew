@@ -249,6 +249,10 @@
             </li>
             <li class="w3-cinfo__row">
               <span class="w3-cinfo__ic" aria-hidden="true">🕐</span>
+              <!-- 值改走 i18n(2026-07-28):cfg 是「语言无关」的那一格,而 Mon/Fri 是英文。
+                   标签一直是 i18n 的,值不是 —— 结果 es/pt 页面上营业时间是英文。
+                   ⚠️ cfg.hours 暂时留在 contact-info.json 里(等 Admin 确认它的写入路径后再删),
+                      **但已无人消费** —— 这里是唯一的消费点。 -->
               <span class="w3-cinfo__body"><span class="w3-cinfo__k">Business hours</span><span class="w3-cinfo__v">Mon–Fri 9:00–18:00 (GMT+8)</span></span>
             </li>
             <li class="w3-cinfo__row">

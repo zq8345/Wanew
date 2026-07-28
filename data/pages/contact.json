@@ -67,18 +67,102 @@
     "reason.dupe": "页面标题/面包屑/内联三处「Contact Us」,同词不同位置,显式共存不合并。",
     "zh": "联系我们"
   },
-  "contact.label.address": { "en": "Address", "pt-BR": "Endereço", "es-MX": "Dirección", "zh": "地址" },
-  "contact.label.hours": { "en": "Business hours", "pt-BR": "Horário de atendimento", "es-MX": "Horario de atención", "zh": "工作时间" },
-  "contact.label.response": { "en": "Response time", "pt-BR": "Tempo de resposta", "es-MX": "Tiempo de respuesta", "zh": "响应时间" },
-  "contact.channel.whatsapp": { "en": "WhatsApp", "pt-BR": "WhatsApp", "es-MX": "WhatsApp", "zh": "WhatsApp" },
-  "contact.channel.wechat": { "en": "WeChat", "pt-BR": "WeChat", "es-MX": "WeChat", "zh": "微信" },
-  "contact.wechat.scan": { "en": "Scan to add on WeChat", "pt-BR": "Escaneie para adicionar no WeChat", "es-MX": "Escanea para agregarnos en WeChat", "zh": "扫码添加微信" },
-  "contact.wechat.copy": { "en": "Copy WeChat ID", "pt-BR": "Copiar ID do WeChat", "es-MX": "Copiar ID de WeChat", "zh": "复制微信号" },
-  "contact.map.hq": { "en": "Shenzhen HQ", "pt-BR": "Sede em Shenzhen", "es-MX": "Sede en Shenzhen", "zh": "深圳总部" },
-  "contact.map.view": { "en": "View on Google Maps", "pt-BR": "Ver no Google Maps", "es-MX": "Ver en Google Maps", "zh": "在 Google 地图查看" },
-  "contact.inquiry.label": { "en": "Inquiry type", "pt-BR": "Tipo de consulta", "es-MX": "Tipo de consulta", "zh": "咨询类型" },
-  "contact.inquiry.oem": { "en": "OEM / ODM", "pt-BR": "OEM / ODM", "es-MX": "OEM / ODM", "zh": "OEM / ODM" },
-  "contact.inquiry.wholesale": { "en": "Wholesale", "pt-BR": "Atacado", "es-MX": "Mayoreo", "zh": "批发" },
-  "contact.inquiry.samples": { "en": "Samples", "pt-BR": "Amostras", "es-MX": "Muestras", "zh": "样品" },
-  "contact.inquiry.support": { "en": "Technical support", "pt-BR": "Suporte técnico", "es-MX": "Soporte técnico", "zh": "技术支持" }
+  "contact.label.address": {
+    "en": "Address",
+    "pt-BR": "Endereço",
+    "es-MX": "Dirección",
+    "zh": "地址"
+  },
+  "contact.label.hours": {
+    "en": "Business hours",
+    "pt-BR": "Horário de atendimento",
+    "es-MX": "Horario de atención",
+    "zh": "工作时间"
+  },
+  "contact.value.hours": {
+    "en": "Mon–Fri 9:00–18:00 (GMT+8)",
+    "pt-BR": "Seg–Sex 9:00–18:00 (GMT+8)",
+    "es-MX": "Lun–Vie 9:00–18:00 (GMT+8)",
+    "zh": "周一至周五 9:00–18:00 (GMT+8)"
+  },
+  "reason.contact.value.hours": "值此前住在 data/contact-info.json —— 那个文件自称「language-agnostic values」,但 Mon/Fri 是英文星期缩写。结果:meta description 四语都本地化了,而页面上的营业时间四语全是英文,搜索结果说西语、落地页当场推翻。标签(contact.label.hours)一直是 i18n 的,只有值不是 —— 修法是让那个 _schema 描述重新为真,不是给它加脚注。译文:总工 2026-07-28 给,多语言窗待复核。",
+  "contact.label.response": {
+    "en": "Response time",
+    "pt-BR": "Tempo de resposta",
+    "es-MX": "Tiempo de respuesta",
+    "zh": "响应时间"
+  },
+  "contact.value.response": {
+    "en": "within 1 business day",
+    "pt-BR": "em 1 dia útil",
+    "es-MX": "en 1 día hábil",
+    "zh": "1 个工作日内"
+  },
+  "reason.contact.value.response": "同 contact.value.hours。⚠️ address 【不】进 catalog:总工 2026-07-28 裁定「地址不译」—— 那是中国地址,必须能被国际快递员照着写和投递,把 Road 译成 Calle 会让它在寄件时变成错的;国际惯例是地址保持原形态、只本地化标签,而标签本来就走 i18n。",
+  "contact.channel.whatsapp": {
+    "en": "WhatsApp",
+    "pt-BR": "WhatsApp",
+    "es-MX": "WhatsApp",
+    "zh": "WhatsApp"
+  },
+  "contact.channel.wechat": {
+    "en": "WeChat",
+    "pt-BR": "WeChat",
+    "es-MX": "WeChat",
+    "zh": "微信"
+  },
+  "contact.wechat.scan": {
+    "en": "Scan to add on WeChat",
+    "pt-BR": "Escaneie para adicionar no WeChat",
+    "es-MX": "Escanea para agregarnos en WeChat",
+    "zh": "扫码添加微信"
+  },
+  "contact.wechat.copy": {
+    "en": "Copy WeChat ID",
+    "pt-BR": "Copiar ID do WeChat",
+    "es-MX": "Copiar ID de WeChat",
+    "zh": "复制微信号"
+  },
+  "contact.map.hq": {
+    "en": "Shenzhen HQ",
+    "pt-BR": "Sede em Shenzhen",
+    "es-MX": "Sede en Shenzhen",
+    "zh": "深圳总部"
+  },
+  "contact.map.view": {
+    "en": "View on Google Maps",
+    "pt-BR": "Ver no Google Maps",
+    "es-MX": "Ver en Google Maps",
+    "zh": "在 Google 地图查看"
+  },
+  "contact.inquiry.label": {
+    "en": "Inquiry type",
+    "pt-BR": "Tipo de consulta",
+    "es-MX": "Tipo de consulta",
+    "zh": "咨询类型"
+  },
+  "contact.inquiry.oem": {
+    "en": "OEM / ODM",
+    "pt-BR": "OEM / ODM",
+    "es-MX": "OEM / ODM",
+    "zh": "OEM / ODM"
+  },
+  "contact.inquiry.wholesale": {
+    "en": "Wholesale",
+    "pt-BR": "Atacado",
+    "es-MX": "Mayoreo",
+    "zh": "批发"
+  },
+  "contact.inquiry.samples": {
+    "en": "Samples",
+    "pt-BR": "Amostras",
+    "es-MX": "Muestras",
+    "zh": "样品"
+  },
+  "contact.inquiry.support": {
+    "en": "Technical support",
+    "pt-BR": "Suporte técnico",
+    "es-MX": "Soporte técnico",
+    "zh": "技术支持"
+  }
 }
