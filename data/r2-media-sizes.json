@@ -1,0 +1,230 @@
+{
+  "_note": "R2(img.wanew.com) 图片的真实宽高，供 render.js 的 dimAttr 注 width/height 防 CLS。官网 regen 只扫 static/ 且【全量覆写】data/media-sizes.json，所以 R2 这部分单出一份、由 regen 合并进 sizes（别写进那个文件，会被冲掉）。⚠️ 键是 dimAttr 查询时用的**完整 URL 原样**：原图 URL 配【原图】尺寸（详情页图库用），缩略图 URL 配【缩略图】尺寸（列表卡用）。两者比例几乎相同，配错了今天不会有任何症状，直到换一张比例不同的图——所以两组分开量、分开写。只收真读出来的（sharp 解析成功），量不到的不进表：错的宽高比比没有更糟。",
+  "_generated_by": "wanew-admin/scripts/r2-thumbs.mjs（与缩略图同一次运行产出，不分两步跑）",
+  "sizes": {
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/f393ae6bea.jpg": [
+      1500,
+      1500
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/f393ae6bea.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/8469d9aae8.jpg": [
+      1500,
+      1150
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/8469d9aae8.thumb.webp": [
+      960,
+      736
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/0959d22481.jpg": [
+      1600,
+      1600
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/0959d22481.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/2797aed546.jpg": [
+      1600,
+      1600
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/2797aed546.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/fa1c3904bb.jpg": [
+      1600,
+      1600
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/fa1c3904bb.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/2bb4ccae90.jpg": [
+      1600,
+      1600
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/2bb4ccae90.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/54e2b31d29.jpg": [
+      2000,
+      2000
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/54e2b31d29.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/471fc16a30.jpg": [
+      1500,
+      1500
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/471fc16a30.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/16e4e4ebb5.jpg": [
+      1200,
+      1200
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/16e4e4ebb5.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/6bb0763c24.jpg": [
+      2100,
+      2100
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/6bb0763c24.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/08/products/b3597dc054.jpg": [
+      1000,
+      1000
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/08/products/b3597dc054.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/uploads/ms1zjc1gfzjpci.webp": [
+      1500,
+      1500
+    ],
+    "https://img.wanew.com/u_file/uploads/ms1zjc1gfzjpci.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/d649cf2f17.jpg": [
+      1000,
+      1000
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/d649cf2f17.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/uploads/ms1wwrua6add8l.webp": [
+      1500,
+      1500
+    ],
+    "https://img.wanew.com/u_file/uploads/ms1wwrua6add8l.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/uploads/ms1xiyq2dt0c6s.webp": [
+      1500,
+      1500
+    ],
+    "https://img.wanew.com/u_file/uploads/ms1xiyq2dt0c6s.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/uploads/ms1ystoed0kyix.webp": [
+      1478,
+      1500
+    ],
+    "https://img.wanew.com/u_file/uploads/ms1ystoed0kyix.thumb.webp": [
+      946,
+      960
+    ],
+    "https://img.wanew.com/u_file/uploads/ms1z8rtf4rm5ck.webp": [
+      1500,
+      1434
+    ],
+    "https://img.wanew.com/u_file/uploads/ms1z8rtf4rm5ck.thumb.webp": [
+      960,
+      918
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/5650253a55.jpg": [
+      1600,
+      1600
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/5650253a55.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/1e0268e594.jpg": [
+      1600,
+      2000
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/1e0268e594.thumb.webp": [
+      768,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/8b4bace44a.jpg": [
+      2100,
+      2100
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/8b4bace44a.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/0ca2e2a7c8.jpg": [
+      1000,
+      1000
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/0ca2e2a7c8.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/08/products/StarlinkGen3PivotMountimage4.jpg": [
+      1600,
+      1600
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/08/products/StarlinkGen3PivotMountimage4.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/065cc72e8f.jpg": [
+      1600,
+      1600
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/065cc72e8f.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/4d257d30f3.jpg": [
+      1000,
+      1000
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/4d257d30f3.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/8345d6f0f9.jpg": [
+      1406,
+      1500
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/8345d6f0f9.thumb.webp": [
+      900,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/929a2aa6dd.jpg": [
+      1500,
+      1500
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/929a2aa6dd.thumb.webp": [
+      960,
+      960
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/105b33dab5.jpg": [
+      1500,
+      1488
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/105b33dab5.thumb.webp": [
+      960,
+      952
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/ddbec41296.jpg": [
+      1300,
+      1300
+    ],
+    "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/ddbec41296.thumb.webp": [
+      960,
+      960
+    ]
+  }
+}
