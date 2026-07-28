@@ -129,7 +129,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.css?v=49" />
+<link rel="stylesheet" href="/skin/css/w3.css?v=50" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -217,28 +217,148 @@
     </div>
   </section>
 
-  <section class="xlc-section">
+<!-- Marine scene blocks (Solutions #77 sample). Injected into solutions-scene.html at the
+     scene-blocks slot for the marine scene ONLY — every other scene gets "", so their pages stay
+     byte-identical. (Do NOT write the slot's token name literally in this file: this partial is
+     injected verbatim, and renderPage's assertNoTokens would flag it as an unresolved token.)
+     Content model: pain -> system -> kit -> trust -> install -> CTA.
+     🔴 Claim discipline: each durability/rating line is scoped to the product whose own listing
+     states it (see solutions.marine.rec.*.s). No blanket marine durability claims. -->
+
+  <section class="xlc-section sol-mar-pain">
     <div class="container">
       <div class="tj-sechead">
-        <h2 class="tj-h2">Acessórios recomendados</h2>
+        <h2 class="tj-h2">O que torna um barco diferente</h2>
         <div class="tj-rule"></div>
       </div>
-      <div class="sol-recs">
-        <a class="sol-rec" href="/pt/products/#mounts"><span class="sol-rec__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span><span class="sol-rec__t">Suportes e Fixações</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>
-        <a class="sol-rec" href="/pt/products/#cables"><span class="sol-rec__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span><span class="sol-rec__t">Cabos</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>
+      <div class="sol-mar-grid">
+        <div class="sol-mar-pain__i"><span class="sol-mar-pain__n">01</span><h3>O sal chega a tudo</h3><p>O ar salgado e a maresia atacam parafusos, braçadeiras e pinos de conectores muito antes de afetar a antena.</p></div>
+        <div class="sol-mar-pain__i"><span class="sol-mar-pain__n">02</span><h3>O barco nunca para de se mexer</h3><p>Impacto das ondas, vibração do motor e adernagem afrouxam suportes e fatigam terminações de cabo que num telhado ficariam paradas.</p></div>
+        <div class="sol-mar-pain__i"><span class="sol-mar-pain__n">03</span><h3>Sem celular para recorrer</h3><p>Além da cobertura costeira, o link por satélite é o único. Não há uma segunda rede para se apoiar.</p></div>
+        <div class="sol-mar-pain__i"><span class="sol-mar-pain__n">04</span><h3>Não existe teto plano</h3><p>Você instala em balaustrada, mastro, arco de radar ou hardtop: tubo redondo de diâmetro variável, não um plano.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section class="xlc-section w3-whitecards sol-mar-sys">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">O que uma instalação de barco realmente precisa</h2>
+        <div class="tj-rule"></div>
+        <p class="sol-mar-lead">Quatro partes precisam funcionar juntas. Erre em uma e o link cai justamente nas condições para as quais você o comprou.</p>
+      </div>
+      <div class="sol-mar-grid">
+        <div class="sol-mar-sys__c"><span class="sol-mar-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span><h3>Um suporte que segura tubo redondo</h3><p>Fixação em balaustrada, mastro ou arco com faixa de braçadeira compatível com o diâmetro do seu tubo, não um suporte de superfície plana.</p></div>
+        <div class="sol-mar-sys__c"><span class="sol-mar-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.2 2.9 7.6 7 8.5 4.1-.9 7-4.3 7-8.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Ferragens que resistem à corrosão</h3><p>O sal ataca primeiro as peças metálicas: procure liga anodizada ou com revestimento e braçadeiras em aço inoxidável.</p></div>
+        <div class="sol-mar-sys__c"><span class="sol-mar-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span><h3>Emendas de cabo que ficam vedadas</h3><p>Cada emenda exposta é uma porta de entrada para a água. Use conectores com grau de proteção declarado nos trechos que ficam no convés.</p></div>
+        <div class="sol-mar-sys__c"><span class="sol-mar-sys__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><h3>Energia do barco, não do cais</h3><p>Navegando não há energia do cais. Alimentar o terminal pelo banco de baterias de 12V ou 24V é o que o mantém ligado.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-mar-kit">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">Um kit que serve para barco</h2>
+        <div class="tj-rule"></div>
+        <p class="sol-mar-lead">Produtos do nosso catálogo que atendem às quatro partes acima. Os graus de proteção e materiais abaixo são os declarados na página de cada produto.</p>
+      </div>
+      <div class="sol-mar-kit__grid">
+        <a class="sol-mar-kit__c" href="/pt/performance-gen-3/4202">
+          <span class="sol-mar-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span>
+          <h3 class="sol-mar-kit__t">Suporte de Mastro em Liga de Alumínio (Gen 3)</h3>
+          <p class="sol-mar-kit__w">Fixa uma antena Gen 3 em mastro, balaustrada ou arco.</p>
+          <p class="sol-mar-kit__s">A página declara liga de alumínio com acabamento anodizado para resistência à corrosão.</p>
+          <span class="sol-mar-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-mar-kit__c" href="/pt/mini/691">
+          <span class="sol-mar-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span>
+          <h3 class="sol-mar-kit__t">Suporte de Mastro Reforçado para Mini</h3>
+          <p class="sol-mar-kit__w">Fixação em mastro com inclinação ajustável para Starlink Mini.</p>
+          <p class="sol-mar-kit__s">A página declara revestimento anticorrosivo e indica uso sob maresia costeira, de -40F a 150F.</p>
+          <span class="sol-mar-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-mar-kit__c" href="/pt/mini/689">
+          <span class="sol-mar-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="5" ry="2.5"/><path d="M12 8.4V16"/><path d="M8 20h8"/><path d="M12 16l4-2.4"/></svg></span>
+          <h3 class="sol-mar-kit__t">Suporte de Braçadeira para Balaustrada e Escada</h3>
+          <p class="sol-mar-kit__w">Para barcos onde o único ponto de fixação é a balaustrada ou escada existente.</p>
+          <p class="sol-mar-kit__s">A página declara braçadeira de aço inoxidável, faixa de tubo de 0,8 a 1,18 pol.</p>
+          <span class="sol-mar-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-mar-kit__c" href="/pt/mini/4206">
+          <span class="sol-mar-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span>
+          <h3 class="sol-mar-kit__t">Cabo de Extensão de Energia DC</h3>
+          <p class="sol-mar-kit__w">Estende o trecho DC do banco de baterias até onde o terminal fica.</p>
+          <p class="sol-mar-kit__s">A página declara conectores com grau IP68 e vedação, indicados contra maresia.</p>
+          <span class="sol-mar-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-mar-kit__c" href="/pt/mini/4205">
+          <span class="sol-mar-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+          <h3 class="sol-mar-kit__t">Adaptador DC 12V/24V para 30V, 60W</h3>
+          <p class="sol-mar-kit__w">Alimenta um Starlink Mini direto do sistema de 12V ou 24V do barco.</p>
+          <p class="sol-mar-kit__s">Saída de 60W, entrada 12V/24V para 30V, indicado para caminhão, motorhome e barco.</p>
+          <span class="sol-mar-kit__arw" aria-hidden="true">→</span>
+        </a>
+        <a class="sol-mar-kit__c" href="/pt/performance-gen-3/697">
+          <span class="sol-mar-kit__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="5" height="3.2" rx="1"/><rect x="14.5" y="18.8" width="5" height="3.2" rx="1"/><path d="M7 5.2v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v3.6"/></svg></span>
+          <h3 class="sol-mar-kit__t">Cabo Ethernet IP68 (Gen 3)</h3>
+          <p class="sol-mar-kit__w">Trecho cabeado da antena até um roteador abaixo do convés.</p>
+          <p class="sol-mar-kit__s">A página declara 23AWG, 2000Mbps e proteção à prova d'água IP68.</p>
+          <span class="sol-mar-kit__arw" aria-hidden="true">→</span>
+        </a>
+      </div>
+      <p class="sol-mar-note">Um grau como IP68 vale para o produto específico que o declara, não para todos os itens de um kit.</p>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-mar-trust">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">Por que confiar no equipamento</h2>
+        <div class="tj-rule"></div>
+      </div>
+      <p class="sol-mar-lead">Fabricamos nossos próprios acessórios em vez de apenas reetiquetá-los, e fazemos isso desde 2010. As certificações abaixo são mantidas no nível da empresa.</p>
+      <div class="about-certstrip sol-mar-certs">
+        <span class="about-certstrip__i">FCC</span>
+        <span class="about-certstrip__i">CE</span>
+        <span class="about-certstrip__i">RoHS</span>
+        <span class="about-certstrip__i">ISO 9001</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-mar-install">
+    <div class="container">
+      <div class="tj-sechead">
+        <h2 class="tj-h2">Como se monta</h2>
+        <div class="tj-rule"></div>
+        <p class="sol-mar-lead">Guias passo a passo escritos para barcos, da nossa biblioteca de Guias.</p>
+      </div>
+      <div class="sol-mar-guides">
+        <a class="sol-mar-guides__l" href="/guides/starlink-marine-installation-step-by-step-boat-satellite/"><span>Step-by-Step Boat Installation <span class="sol-mar-guides__b">em inglês</span></span><span class="sol-mar-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-mar-guides__l" href="/guides/special-mounts-starlink-marine-accessories-complete-guide-stable/"><span>Special Mounts for Rough Seas <span class="sol-mar-guides__b">em inglês</span></span><span class="sol-mar-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-mar-guides__l" href="/guides/complete-starlink-marine-cable-management-best-solutions-routing/"><span>Marine Cable Management &amp; Routing <span class="sol-mar-guides__b">em inglês</span></span><span class="sol-mar-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-mar-guides__l" href="/guides/starlink-marine-accessories-guide-marine-grade-connectors/"><span>Choosing Marine-Grade Connectors <span class="sol-mar-guides__b">em inglês</span></span><span class="sol-mar-guides__arw" aria-hidden="true">→</span></a>
+        <a class="sol-mar-guides__l" href="/guides/starlink-marine-maintenance-5-essential-tips-reliable-satellite/"><span>5 Marine Maintenance Essentials <span class="sol-mar-guides__b">em inglês</span></span><span class="sol-mar-guides__arw" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="xlc-section sol-mar-cta">
+    <div class="container">
       <div class="sol-cta">
         <div class="sol-cta__text">
-          <h3>Não sabe qual configuração combina?</h3>
-          <p>Conte-nos seu ambiente e indicaremos os acessórios certos.</p>
+          <h3>Conte-nos sobre seu barco</h3>
+          <p>Envie o tipo de embarcação, onde é possível instalar e qual terminal Starlink você usa. Vamos especificar um kit adequado.</p>
         </div>
         <div class="sol-cta__actions">
           <a class="w3-btn w3-btn--primary" href="/pt/contact/">Solicite um orçamento <span class="w3-arw">→</span></a>
-          <a class="w3-btn w3-btn--ghost" href="/pt/products/">Ver todos os produtos</a>
+          <a class="w3-btn w3-btn--ghost" href="/pt/guides/">Como se monta</a>
         </div>
       </div>
     </div>
   </section>
+
 
   <footer class="site-footer">
     <div class="site-footer__middle">

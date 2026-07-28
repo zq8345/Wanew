@@ -76,7 +76,7 @@ for (const f of allJson("data")) {
   } else if (isCatalog(o)) {
     sources.catalog.push(f);
     for (const [k, v] of Object.entries(o)) if (!k.startsWith("_")) catalog[k] = v;
-  } else if (f === "data/locales.json" || /home-tiles|home-featured|products-index|site\.json|es-glossary\.json|es-hold\.json|pages-list\.json|categories\.json|guides-manifest/.test(f)) {
+  } else if (f === "data/locales.json" || /home-tiles|home-featured|products-index|site\.json|es-glossary\.json|es-hold\.json|pages-list\.json|categories\.json|forms\.json|guides-manifest/.test(f)) {
     // ⭐ home-featured.json = W3 首页产品策展条的【id 列表】(总工 review #2),顶层 { _doc, ids:[...] },
     //    无 en 字段、不是文案。消费者=renderHome/pickHomeProducts(按 id 取 manifest 缩略图+本地化标题,
     //    标题本地化走 manifest.i18n,不经此文件)→ 纯策展数据,非文案目录,点名放行。
@@ -96,6 +96,11 @@ for (const f of allJson("data")) {
     //    核过消费链(render.js:107):display 只作为 CATEGORY 的 modelDisplay 兜底进页面 ——
     //    与 locales.json model_display 同族的【不翻译的结构常量】(值在 fallback 清单里);
     //    导航/H1 的本地化呈现走 chrome.json 目录键,不经这份文件 → 非文案目录,放行。
+    // ⭐ forms.json = #52 批2 从 render.js/chrome.js 的 FORM_KEY + regen.mjs 的 TYPES 硬编码迁出的
+    //    形态轴结构常量,顶层 { _note, forms:[{key,name}] },无 en 字段。核过消费链:`key` 是 URL 段
+    //    (/type/{key}/)与卡片 data-form 值;`name` 是存在产品 form 字段上的 bucket 标识 + admin 校验
+    //    白名单值 —— 两者都是【标识符不是展示文案】。形态 chip / nav 的本地化呈现走 chrome.json 的
+    //    header.cables / header.mounts_brackets 等目录键(受本闸监视),不经这份文件 → 非文案目录,放行。
     // ⭐ guides-manifest.json = Guides 迁移的文章路由/策展元数据(顶层 { _doc, active_topics?, articles:[
     //    {id, topic, slug, old, title} | {id, topic, dedup_to, old} ]}),无 en 字段、非按语种译文目录。
     //    消费者=scripts/regen.mjs 的 Guides builder(按 slug/topic 生成 /guides/{slug}/ 与主题索引;

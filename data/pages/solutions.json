@@ -104,13 +104,13 @@
   "solutions.marine.intro": {
     "en": "Pole and rail mounts built for salt and spray, paired with weatherproof cabling, keep boats and vessels connected offshore.",
     "pt-BR": "Suportes de mastro e balaustrada feitos para sal e maresia, com cabeamento à prova de intempéries, mantêm barcos e embarcações conectados em alto-mar.",
-    "es-MX": "Soportes de poste y baranda hechos para la sal y el rocío, con cableado resistente a la intemperie, mantienen conectados a barcos y embarcaciones mar adentro.",
+    "es-MX": "Soportes de poste y baranda hechos para la sal y el rocío, con cableado resistente a la intemperie, mantienen conectados a botes y embarcaciones mar adentro.",
     "zh": "耐盐雾的立杆与栏杆支架,搭配防候线缆,让船只在近海持续在线。"
   },
   "solutions.marine.card": {
     "en": "Salt-ready mounts and weatherproof cabling for boats and vessels.",
     "pt-BR": "Suportes resistentes ao sal e cabeamento à prova de intempéries para barcos e embarcações.",
-    "es-MX": "Soportes resistentes a la sal y cableado a prueba de intemperie para barcos y embarcaciones.",
+    "es-MX": "Soportes resistentes a la sal y cableado a prueba de intemperie para botes y embarcaciones.",
     "zh": "耐盐支架与防候线缆,专为船只打造。"
   },
   "solutions.off-grid.eyebrow": {
@@ -236,5 +236,281 @@
     "pt-BR": "Empresas e Campo",
     "es-MX": "Empresas y Campo",
     "zh": "商用与现场"
+  },
+  "solutions.marine.pain.h2": {
+    "en": "What makes a boat different",
+    "pt-BR": "O que torna um barco diferente",
+    "es-MX": "Qué hace diferente a un bote",
+    "zh": "船上到底难在哪"
+  },
+  "solutions.marine.pain.1.t": {
+    "en": "Salt reaches everything",
+    "pt-BR": "O sal chega a tudo",
+    "es-MX": "La sal llega a todo",
+    "zh": "盐雾无孔不入"
+  },
+  "solutions.marine.pain.1.d": {
+    "en": "Salt air and spray work on fasteners, clamps and connector pins long before anything happens to the dish itself.",
+    "pt-BR": "O ar salgado e a maresia atacam parafusos, braçadeiras e pinos de conectores muito antes de afetar a antena.",
+    "es-MX": "El aire salino y el rocío atacan tornillos, abrazaderas y pines de conectores mucho antes que a la antena.",
+    "zh": "盐雾最先侵蚀的是螺丝、卡箍和连接器触点,而不是天线本身。"
+  },
+  "solutions.marine.pain.2.t": {
+    "en": "The boat never stops moving",
+    "pt-BR": "O barco nunca para de se mexer",
+    "es-MX": "El bote nunca deja de moverse",
+    "zh": "船一直在动"
+  },
+  "solutions.marine.pain.2.d": {
+    "en": "Wave slam, engine vibration and heel loosen mounts and fatigue cable terminations that would sit still on a roof.",
+    "pt-BR": "Impacto das ondas, vibração do motor e adernagem afrouxam suportes e fatigam terminações de cabo que num telhado ficariam paradas.",
+    "es-MX": "El golpe de las olas, la vibración del motor y la escora aflojan soportes y fatigan terminaciones de cable que en un techo estarían quietas.",
+    "zh": "拍浪、机器振动和横倾会让支架松动、让线缆端接疲劳——这些在屋顶上根本不会发生。"
+  },
+  "solutions.marine.pain.3.t": {
+    "en": "No cellular to fall back on",
+    "pt-BR": "Sem celular para recorrer",
+    "es-MX": "Sin señal celular de respaldo",
+    "zh": "离岸没有蜂窝兜底"
+  },
+  "solutions.marine.pain.3.d": {
+    "en": "Past coastal coverage the satellite link is the only link. There is no second network to limp along on.",
+    "pt-BR": "Além da cobertura costeira, o link por satélite é o único. Não há uma segunda rede para se apoiar.",
+    "es-MX": "Más allá de la cobertura costera, el enlace satelital es el único. No hay una segunda red de respaldo.",
+    "zh": "出了近岸覆盖,卫星链路就是唯一链路——没有第二张网可以将就。"
+  },
+  "solutions.marine.pain.4.t": {
+    "en": "There is no flat roof",
+    "pt-BR": "Não existe teto plano",
+    "es-MX": "No hay techo plano",
+    "zh": "船上没有平屋顶"
+  },
+  "solutions.marine.pain.4.d": {
+    "en": "You mount to a rail, pole, radar arch or hardtop: round tube of varying diameter, not a flat plane.",
+    "pt-BR": "Você instala em balaustrada, mastro, arco de radar ou hardtop: tubo redondo de diâmetro variável, não um plano.",
+    "es-MX": "Se instala en baranda, poste, arco de radar o hardtop: tubo redondo de diámetro variable, no una superficie plana.",
+    "zh": "安装面是栏杆、立杆、雷达架或硬顶——直径不一的圆管,不是平面。"
+  },
+  "solutions.marine.sys.h2": {
+    "en": "What a boat setup actually needs",
+    "pt-BR": "O que uma instalação de barco realmente precisa",
+    "es-MX": "Qué necesita realmente una instalación en bote",
+    "zh": "一套船用配置真正需要什么"
+  },
+  "solutions.marine.sys.lead": {
+    "en": "Four parts have to work together. Get one wrong and the link goes down in the conditions you bought it for.",
+    "pt-BR": "Quatro partes precisam funcionar juntas. Erre em uma e o link cai justamente nas condições para as quais você o comprou.",
+    "es-MX": "Cuatro partes deben funcionar juntas. Si una falla, el enlace se cae justo en las condiciones para las que lo compraste.",
+    "zh": "四个部分必须配套。任何一环选错,恰恰会在你最需要它的海况下掉线。"
+  },
+  "solutions.marine.sys.1.t": {
+    "en": "A mount that grips round tube",
+    "pt-BR": "Um suporte que segura tubo redondo",
+    "es-MX": "Un soporte que sujete tubo redondo",
+    "zh": "能夹住圆管的支架"
+  },
+  "solutions.marine.sys.1.d": {
+    "en": "Rail, pole or arch mounting with a clamp range that matches your tube diameter, not a flat-surface bracket.",
+    "pt-BR": "Fixação em balaustrada, mastro ou arco com faixa de braçadeira compatível com o diâmetro do seu tubo, não um suporte de superfície plana.",
+    "es-MX": "Montaje en baranda, poste o arco con un rango de abrazadera acorde al diámetro de tu tubo, no un soporte de superficie plana.",
+    "zh": "栏杆/立杆/弧架安装,卡箍夹持范围要匹配你的管径,而不是平面底座。"
+  },
+  "solutions.marine.sys.2.t": {
+    "en": "Hardware that resists corrosion",
+    "pt-BR": "Ferragens que resistem à corrosão",
+    "es-MX": "Herrajes que resisten la corrosión",
+    "zh": "抗腐蚀的金属件"
+  },
+  "solutions.marine.sys.2.d": {
+    "en": "Salt attacks the metalwork first, so look for anodized or coated alloy and stainless clamping hardware.",
+    "pt-BR": "O sal ataca primeiro as peças metálicas: procure liga anodizada ou com revestimento e braçadeiras em aço inoxidável.",
+    "es-MX": "La sal ataca primero las piezas metálicas: busca aleación anodizada o recubierta y abrazaderas de acero inoxidable.",
+    "zh": "盐先啃金属件,所以要选阳极氧化或带涂层的合金,以及不锈钢卡箍。"
+  },
+  "solutions.marine.sys.3.t": {
+    "en": "Cable joints that stay sealed",
+    "pt-BR": "Emendas de cabo que ficam vedadas",
+    "es-MX": "Uniones de cable que sigan selladas",
+    "zh": "接头必须持续密封"
+  },
+  "solutions.marine.sys.3.d": {
+    "en": "Every exposed joint is a way in for water. Use connectors with a stated waterproof rating on the runs that live on deck.",
+    "pt-BR": "Cada emenda exposta é uma porta de entrada para a água. Use conectores com grau de proteção declarado nos trechos que ficam no convés.",
+    "es-MX": "Cada unión expuesta es una entrada de agua. Usa conectores con grado de protección declarado en los tramos que van en cubierta.",
+    "zh": "每一个暴露的接头都是进水口。走在甲板上的线段,要用标明防水等级的连接器。"
+  },
+  "solutions.marine.sys.4.t": {
+    "en": "Power from the boat, not the dock",
+    "pt-BR": "Energia do barco, não do cais",
+    "es-MX": "Energía del bote, no del muelle",
+    "zh": "用船电,不是岸电"
+  },
+  "solutions.marine.sys.4.d": {
+    "en": "Underway there is no shore AC. Feeding the terminal from the 12V or 24V house bank is what keeps it running.",
+    "pt-BR": "Navegando não há energia do cais. Alimentar o terminal pelo banco de baterias de 12V ou 24V é o que o mantém ligado.",
+    "es-MX": "En navegación no hay corriente del muelle. Alimentar la terminal desde el banco de 12V o 24V es lo que la mantiene encendida.",
+    "zh": "航行中没有岸电。从 12V/24V 船用电池组供电,才能让终端一直在线。"
+  },
+  "solutions.marine.recs.h2": {
+    "en": "A kit that fits a boat",
+    "pt-BR": "Um kit que serve para barco",
+    "es-MX": "Un kit que sirve para un bote",
+    "zh": "适配船上的一套配置"
+  },
+  "solutions.marine.recs.lead": {
+    "en": "Products from our catalogue that suit the four parts above. Protection ratings and materials below are those stated on each product's own listing.",
+    "pt-BR": "Produtos do nosso catálogo que atendem às quatro partes acima. Os graus de proteção e materiais abaixo são os declarados na página de cada produto.",
+    "es-MX": "Productos de nuestro catálogo que cubren las cuatro partes anteriores. Los grados de protección y materiales indicados abajo son los declarados en la ficha de cada producto.",
+    "zh": "以下是目录里对应上面四部分的产品。所列防护等级与材质,均以各产品自身页面的标注为准。"
+  },
+  "solutions.marine.recs.note": {
+    "en": "A rating such as IP68 applies to the specific product that states it, not to every item in a kit.",
+    "pt-BR": "Um grau como IP68 vale para o produto específico que o declara, não para todos os itens de um kit.",
+    "es-MX": "Un grado como IP68 aplica al producto específico que lo declara, no a todos los artículos de un kit.",
+    "zh": "IP68 之类的等级只属于标注它的那一个产品,不代表整套配置都有该等级。"
+  },
+  "solutions.marine.rec.1.n": {
+    "en": "Aluminum Alloy Pole Mount (Gen 3)",
+    "pt-BR": "Suporte de Mastro em Liga de Alumínio (Gen 3)",
+    "es-MX": "Soporte de Poste en Aleación de Aluminio (Gen 3)",
+    "zh": "铝合金立杆支架(Gen 3)"
+  },
+  "solutions.marine.rec.1.w": {
+    "en": "Clamps a Gen 3 dish to mast, rail or arch tube.",
+    "pt-BR": "Fixa uma antena Gen 3 em mastro, balaustrada ou arco.",
+    "es-MX": "Sujeta una antena Gen 3 a mástil, baranda o arco.",
+    "zh": "把 Gen 3 碟固定到桅杆、栏杆或弧架上。"
+  },
+  "solutions.marine.rec.1.s": {
+    "en": "Listing states aluminum alloy with an anodized finish for corrosion resistance.",
+    "pt-BR": "A página declara liga de alumínio com acabamento anodizado para resistência à corrosão.",
+    "es-MX": "La ficha declara aleación de aluminio con acabado anodizado para resistencia a la corrosión.",
+    "zh": "产品页标注:铝合金材质,阳极氧化处理以抗腐蚀。"
+  },
+  "solutions.marine.rec.2.n": {
+    "en": "Mini Heavy-Duty Pole Mount",
+    "pt-BR": "Suporte de Mastro Reforçado para Mini",
+    "es-MX": "Soporte de Poste Reforzado para Mini",
+    "zh": "Mini 重型立杆支架"
+  },
+  "solutions.marine.rec.2.w": {
+    "en": "Adjustable-tilt pole mounting for a Starlink Mini.",
+    "pt-BR": "Fixação em mastro com inclinação ajustável para Starlink Mini.",
+    "es-MX": "Montaje en poste con inclinación ajustable para Starlink Mini.",
+    "zh": "适用于 Starlink Mini 的可调俯仰立杆安装。"
+  },
+  "solutions.marine.rec.2.s": {
+    "en": "Listing states a corrosion-resistant coating and rates it for coastal salt spray, minus 40F to 150F.",
+    "pt-BR": "A página declara revestimento anticorrosivo e indica uso sob maresia costeira, de -40F a 150F.",
+    "es-MX": "La ficha declara recubrimiento anticorrosivo e indica uso ante rocío salino costero, de -40F a 150F.",
+    "zh": "产品页标注:防腐蚀涂层,适应海岸盐雾,-40F 至 150F。"
+  },
+  "solutions.marine.rec.3.n": {
+    "en": "Mini Rail and Ladder Clamp Mount",
+    "pt-BR": "Suporte de Braçadeira para Balaustrada e Escada",
+    "es-MX": "Soporte de Abrazadera para Baranda y Escalera",
+    "zh": "Mini 栏杆/爬梯卡箍支架"
+  },
+  "solutions.marine.rec.3.w": {
+    "en": "For boats where the only mounting point is existing rail or ladder tube.",
+    "pt-BR": "Para barcos onde o único ponto de fixação é a balaustrada ou escada existente.",
+    "es-MX": "Para botes donde el único punto de anclaje es la baranda o escalera existente.",
+    "zh": "适合只能利用现有栏杆或爬梯管作为安装点的船。"
+  },
+  "solutions.marine.rec.3.s": {
+    "en": "Listing states a stainless steel pipe and pole clamp, tube range 0.8 to 1.18 in.",
+    "pt-BR": "A página declara braçadeira de aço inoxidável, faixa de tubo de 0,8 a 1,18 pol.",
+    "es-MX": "La ficha declara abrazadera de acero inoxidable, rango de tubo de 0.8 a 1.18 pulg.",
+    "zh": "产品页标注:不锈钢管夹,适配管径 0.8–1.18 英寸。"
+  },
+  "solutions.marine.rec.4.n": {
+    "en": "DC Power Extension Cable",
+    "pt-BR": "Cabo de Extensão de Energia DC",
+    "es-MX": "Cable de Extensión de Corriente CC",
+    "zh": "DC 电源延长线"
+  },
+  "solutions.marine.rec.4.w": {
+    "en": "Extends the DC run from the house bank to where the terminal sits.",
+    "pt-BR": "Estende o trecho DC do banco de baterias até onde o terminal fica.",
+    "es-MX": "Extiende el tramo CC desde el banco de baterías hasta donde va la terminal.",
+    "zh": "把从船电到终端安装位置的直流线路延长。"
+  },
+  "solutions.marine.rec.4.s": {
+    "en": "Listing states IP68 waterproof-rated connectors with sealing gaskets, cited against salt spray.",
+    "pt-BR": "A página declara conectores com grau IP68 e vedação, indicados contra maresia.",
+    "es-MX": "La ficha declara conectores con grado IP68 y juntas de sellado, indicados ante rocío salino.",
+    "zh": "产品页标注:IP68 防水连接器带密封圈,标称可应对盐雾。"
+  },
+  "solutions.marine.rec.5.n": {
+    "en": "12V/24V to 30V DC Adapter, 60W",
+    "pt-BR": "Adaptador DC 12V/24V para 30V, 60W",
+    "es-MX": "Adaptador CC 12V/24V a 30V, 60W",
+    "zh": "12V/24V 转 30V 直流适配器 60W"
+  },
+  "solutions.marine.rec.5.w": {
+    "en": "Runs a Starlink Mini straight off the boat's 12V or 24V system.",
+    "pt-BR": "Alimenta um Starlink Mini direto do sistema de 12V ou 24V do barco.",
+    "es-MX": "Alimenta un Starlink Mini directo del sistema de 12V o 24V del bote.",
+    "zh": "让 Starlink Mini 直接吃船上的 12V/24V 电。"
+  },
+  "solutions.marine.rec.5.s": {
+    "en": "60W output, 12V/24V input to 30V, listed for truck, RV and boat use.",
+    "pt-BR": "Saída de 60W, entrada 12V/24V para 30V, indicado para caminhão, motorhome e barco.",
+    "es-MX": "Salida de 60W, entrada 12V/24V a 30V, indicado para camión, casa rodante y bote.",
+    "zh": "60W 输出,12V/24V 输入转 30V,标称适用于卡车、房车与船艇。"
+  },
+  "solutions.marine.rec.6.n": {
+    "en": "IP68 Ethernet Cable (Gen 3)",
+    "pt-BR": "Cabo Ethernet IP68 (Gen 3)",
+    "es-MX": "Cable Ethernet IP68 (Gen 3)",
+    "zh": "IP68 以太网线(Gen 3)"
+  },
+  "solutions.marine.rec.6.w": {
+    "en": "Wired run from the dish to a router below deck.",
+    "pt-BR": "Trecho cabeado da antena até um roteador abaixo do convés.",
+    "es-MX": "Tramo cableado de la antena a un router bajo cubierta.",
+    "zh": "从天线到舱内路由器的有线连接。"
+  },
+  "solutions.marine.rec.6.s": {
+    "en": "Listing states 23AWG, 2000Mbps and IP68 waterproof protection.",
+    "pt-BR": "A página declara 23AWG, 2000Mbps e proteção à prova d'água IP68.",
+    "es-MX": "La ficha declara 23AWG, 2000Mbps y protección impermeable IP68.",
+    "zh": "产品页标注:23AWG、2000Mbps、IP68 防水。"
+  },
+  "solutions.marine.trust.h2": {
+    "en": "Why trust the hardware",
+    "pt-BR": "Por que confiar no equipamento",
+    "es-MX": "Por qué confiar en el equipo",
+    "zh": "凭什么信这些硬件"
+  },
+  "solutions.marine.trust.d": {
+    "en": "We manufacture our own accessories rather than rebadging them, and we have been doing it since 2010. Company certifications below are held at the organisation level.",
+    "pt-BR": "Fabricamos nossos próprios acessórios em vez de apenas reetiquetá-los, e fazemos isso desde 2010. As certificações abaixo são mantidas no nível da empresa.",
+    "es-MX": "Fabricamos nuestros propios accesorios en lugar de solo reetiquetarlos, y lo hacemos desde 2010. Las certificaciones siguientes son a nivel de empresa.",
+    "zh": "配件由我们自己制造,而不是贴牌转售,并且自 2010 年起一直如此。下列认证为公司层面持有。"
+  },
+  "solutions.marine.install.h2": {
+    "en": "How it goes together",
+    "pt-BR": "Como se monta",
+    "es-MX": "Cómo se instala",
+    "zh": "怎么装起来"
+  },
+  "solutions.marine.install.d": {
+    "en": "Step-by-step guides written for boats, from our Guides library.",
+    "pt-BR": "Guias passo a passo escritos para barcos, da nossa biblioteca de Guias.",
+    "es-MX": "Guías paso a paso escritas para botes, de nuestra biblioteca de Guías.",
+    "zh": "来自指南库、专门针对船艇写的分步教程。"
+  },
+  "solutions.marine.cta.h2": {
+    "en": "Tell us your boat",
+    "pt-BR": "Conte-nos sobre seu barco",
+    "es-MX": "Cuéntanos sobre tu bote",
+    "zh": "把你的船况告诉我们"
+  },
+  "solutions.marine.cta.d": {
+    "en": "Send us the vessel type, where you can mount, and which Starlink terminal you run. We will spec a kit that fits it.",
+    "pt-BR": "Envie o tipo de embarcação, onde é possível instalar e qual terminal Starlink você usa. Vamos especificar um kit adequado.",
+    "es-MX": "Envíanos el tipo de bote, dónde puedes instalar y qué terminal Starlink usas. Especificaremos un kit adecuado.",
+    "zh": "告诉我们船型、可安装的位置、以及你用的是哪款 Starlink 终端,我们来配一套合适的。"
   }
 }

@@ -264,7 +264,32 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
     mini: SVG('<rect x="5" y="3" width="14" height="10" rx="2"/><path d="M12 13v5"/><path d="M8 21h8"/>'),
     enterprise: SVG('<rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2"/>'),
     all: SVG('<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'),
+    shield: SVG('<path d="M12 3 5 6v5.5c0 4.2 2.9 7.6 7 8.5 4.1-.9 7-4.3 7-8.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/>'),
   };
+  // ── Marine (Solutions #77 sample): the scene template is shared by all 6 scenes, so the extra
+  //    blocks are injected at {{SCENE_BLOCKS}} for marine ONLY — every other scene gets "" and its
+  //    page stays byte-identical. When a second scene gets the treatment, give it its own entry.
+  //    🔴 Content-accuracy rule: each kit card's spec line restates ONLY what that product's own
+  //    listing says (see solutions.marine.rec.*.s). Cards are text+icon, NO product photos — the
+  //    catalogue still carries scraped listing images with old-brand pixel residue (4209 class).
+  const marineTpl = fs.readFileSync(path.join(REPO, "data", "templates", "solutions-marine.html"), "utf8");
+  // The thin generic band (Recommended chips + generic CTA) moved OUT of solutions-scene.html into
+  // its own partial so a deep scene can drop it: marine's kit + scene CTA supersede it, and keeping
+  // both would put two CTAs on one page. Non-marine scenes get this markup back verbatim, so their
+  // built pages stay byte-identical — that equality is the regression proof, see the regen diff.
+  const solGenericTpl = fs.readFileSync(path.join(REPO, "data", "templates", "solutions-scene-generic.html"), "utf8").replace(/\r/g, "").replace(/\n$/, "");
+  const MARINE_KIT = [   // [n, category, id, icon] — real catalogue products, verified present
+    [1, "performance-gen-3", 4202, "mount"], [2, "mini", 691, "mount"], [3, "mini", 689, "mount"],
+    [4, "mini", 4206, "cable"], [5, "mini", 4205, "power"], [6, "performance-gen-3", 697, "cable"],
+  ];
+  const esc = (s) => String(s).replace(/&(?!(?:amp|lt|gt|quot|#\d+);)/g, "&amp;");
+  const MARINE_GUIDES = [  // real retagged marine articles (slug verified in guides-manifest.json)
+    ["starlink-marine-installation-step-by-step-boat-satellite", "Step-by-Step Boat Installation"],
+    ["special-mounts-starlink-marine-accessories-complete-guide-stable", "Special Mounts for Rough Seas"],
+    ["complete-starlink-marine-cable-management-best-solutions-routing", "Marine Cable Management & Routing"],
+    ["starlink-marine-accessories-guide-marine-grade-connectors", "Choosing Marine-Grade Connectors"],
+    ["starlink-marine-maintenance-5-essential-tips-reliable-satellite", "5 Marine Maintenance Essentials"],
+  ];
   // [labelKey | null, url, icon, literalLabel?] — literal for proper-noun models (Mini/Enterprise)
   const SOL_RECS = {
     home: [["header.mounts_brackets", "/products/#mounts", "mount"], ["header.cables", "/products/#cables", "cable"]],
@@ -296,9 +321,38 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
         return `        <a class="sol-rec" href="${linkOf(url)}"><span class="sol-rec__ic" aria-hidden="true">${ICON[ic]}</span><span class="sol-rec__t">${label}</span><span class="sol-rec__arw" aria-hidden="true">→</span></a>`;
       }).join("\n");
       const sceneCat = { ...baseCat, "sol.eyebrow": solCat[`solutions.${sc}.eyebrow`], "sol.h1": solCat[`solutions.${sc}.h1`], "sol.intro": solCat[`solutions.${sc}.intro`] };
+      // Marine-only deep blocks; "" for the other 5 scenes => their pages don't move a byte.
+      let sceneBlocks = "";
+      if (sc === "marine") {
+        const kit = MARINE_KIT.map(([n, cat, id, ic]) => {
+          const nm = pick(solCat[`solutions.marine.rec.${n}.n`], locale);
+          const why = pick(solCat[`solutions.marine.rec.${n}.w`], locale);
+          const spec = pick(solCat[`solutions.marine.rec.${n}.s`], locale);
+          return `        <a class="sol-mar-kit__c" href="${urlOf(`/${cat}/${id}`, locale)}">\n`
+            + `          <span class="sol-mar-kit__ic" aria-hidden="true">${ICON[ic]}</span>\n`
+            + `          <h3 class="sol-mar-kit__t">${esc(nm)}</h3>\n`
+            + `          <p class="sol-mar-kit__w">${esc(why)}</p>\n`
+            + `          <p class="sol-mar-kit__s">${esc(spec)}</p>\n`
+            + `          <span class="sol-mar-kit__arw" aria-hidden="true">→</span>\n        </a>`;
+        }).join("\n");
+        // Marine articles are EN-only today: on a localized page the title carries the same honest
+        // "in English" badge the Guides cards use (card.lang_badge) rather than pretending it is
+        // translated. Same call Joe/总工 signed off on for the Guides listings.
+        const badge = locale === DEFAULT ? "" : ` <span class="sol-mar-guides__b">${esc(pick(baseCat["card.lang_badge"], locale))}</span>`;
+        const guides = MARINE_GUIDES.map(([slug, title]) =>
+          `        <a class="sol-mar-guides__l" href="${urlOf(`/guides/${slug}/`, locale)}"><span>${esc(title)}${badge}</span><span class="sol-mar-guides__arw" aria-hidden="true">→</span></a>`
+        ).join("\n");
+        sceneBlocks = marineTpl
+          .split("{{MARINE_KIT}}").join(kit)
+          .split("{{MARINE_GUIDES}}").join(guides)
+          .split("{{ICON_MOUNT}}").join(ICON.mount).split("{{ICON_SHIELD}}").join(ICON.shield)
+          .split("{{ICON_CABLE}}").join(ICON.cable).split("{{ICON_POWER}}").join(ICON.power);
+      }
       const tpl2 = solSceneTpl
         .split("{{SCENE_HERO}}").join(`/static/upload/image/20260725/${SOL_HERO[sc]}.webp`)
+        .split("{{SCENE_GENERIC}}").join(sc === "marine" ? "" : solGenericTpl)
         .split("{{SCENE_RECS}}").join(recs)
+        .split("{{SCENE_BLOCKS}}").join(sceneBlocks)
         .split("{{SCENE_SOLUTIONS_URL}}").join(urlOf("/solutions/", locale));
       const p = pageOf(locale, path.join("solutions", sc, "index.html"));
       const html = renderPage(tpl2, { locale, catalog: sceneCat, urlOf, path: `/solutions/${sc}/`, dirOf, enabled: LOCALES, internal_noindex: INTERNAL });
