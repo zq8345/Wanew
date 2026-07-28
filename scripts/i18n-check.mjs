@@ -76,7 +76,7 @@ for (const f of allJson("data")) {
   } else if (isCatalog(o)) {
     sources.catalog.push(f);
     for (const [k, v] of Object.entries(o)) if (!k.startsWith("_")) catalog[k] = v;
-  } else if (f === "data/locales.json" || /home-tiles|home-featured|products-index|site\.json|es-glossary\.json|es-hold\.json|pages-list\.json|categories\.json|forms\.json|media-sizes\.json|r2-thumbs\.json|guides-manifest/.test(f)) {
+  } else if (f === "data/locales.json" || /home-tiles|home-featured|products-index|site\.json|es-glossary\.json|es-hold\.json|pages-list\.json|categories\.json|forms\.json|media-sizes\.json|r2-thumbs\.json|product-routes\.json|guides-manifest/.test(f)) {
     // ⭐ home-featured.json = W3 首页产品策展条的【id 列表】(总工 review #2),顶层 { _doc, ids:[...] },
     //    无 en 字段、不是文案。消费者=renderHome/pickHomeProducts(按 id 取 manifest 缩略图+本地化标题,
     //    标题本地化走 manifest.i18n,不经此文件)→ 纯策展数据,非文案目录,点名放行。
@@ -84,6 +84,9 @@ for (const f of allJson("data")) {
     //    顶层是 { _doc, hold: [...] },无 en 字段。它的消费者是 scripts/es-hold-check.mjs
     //    (双向闸)和【下面的豁免判定】—— 放行它不让任何一条译文失去监视,反过来:
     //    没有它,这 20 处 gap 会让 --strict 永远红,而一道永远红的门最后会被所有人略过。
+    // ⭐ product-routes.json = regen 产出的【/products/ 路由已知分类清单】,不是文案:
+    //    顶层 { _note, _generated_by, categories:[...] },13 条纯 URL slug(cables/mini/…),
+    //    无 en/es-MX/pt-BR/zh 字段、条目里无自然语言。消费者 = 跳转层 Function(判分类页还是产品页)。
     // ⭐ r2-thumbs.json = Admin 列举 R2 实际内容生成的【缩略图存在性清单】,不是文案:
     //    顶层 { _note, _generated_by, long_edge, keys:[...] },keys 是 28 条 R2 对象键路径。
     //    ⚠️ 核过才放行,不是看见新文件就加白名单:无 en/es-MX/pt-BR/zh 字段、条目里无任何自然语言

@@ -1,0 +1,19 @@
+{
+  "_note": "「/products/{x}/ 是不是分类页」的判据。x 命中这张表 = 分类页,否则按末尾 -{数字} 解析成产品。由 regen 在产出页面的同一次运行里生成 —— 与实际产出同源,不会漂移。别手改。",
+  "_generated_by": "scripts/regen.mjs",
+  "categories": [
+    "cables",
+    "cases",
+    "enterprise",
+    "mini",
+    "mounts",
+    "networking",
+    "performance-gen-1",
+    "performance-gen-2",
+    "performance-gen-3",
+    "power",
+    "standard",
+    "standard-actuated",
+    "standard-circular"
+  ]
+}

@@ -453,6 +453,37 @@ for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
 }
 console.log(`list pages regenerated: ${lists} changed`);
 
+/* ── /products/ 路由的已知分类清单 → 落成数据文件,供跳转层(Pages Function)读 ──────
+   🔴 判据 = 三个【已有真源】的并集,没有新清单要维护:
+      `categories.json` 的 slug(机型)∪ `forms.json` 的 key(品类)∪ `AGGREGATES` 声明的聚合页。
+   为什么不是"扫产出目录":两次都试过,两次都带出偏差 ——
+      ·「有 index.html」→ 把 `admin` / `starlink-compatible-accessories` 算了进来
+      ·「目录下有 \d+.html」→ `video/39.html` 混进来(文件名恰好是数字),
+        而 `performance-gen-2` 反而漏掉(**聚合页自己没有产品**)。
+      再往上加排除/承认逻辑,就是特判的另一种写法。
+
+   🔴 为什么由 regen 写、而不是 Function 自己拼这三份:
+      `AGGREGATES` 声明在【构建脚本】里,运行时不该 import 构建脚本;
+      更要紧的是 —— **这份清单由"产出这批页面的那一次运行"生成,所以它不可能和实际产出漂移。**
+      若 Function 自己去拼,它拼的是"此刻的三个文件",而页面是"上次构建时的三个文件",
+      两者之间那个窗口里的不一致,会表现为 404 或错误路由。 */
+{
+  const known = [...new Set([
+    ...CATS,
+    ...FORMS.map((f) => f.key),
+    ...AGGREGATES.map(([rel]) => rel.replace(/\/index\.html$/, "")),
+  ])].sort();
+  const p = path.join(REPO, "data", "product-routes.json");
+  const body = JSON.stringify({
+    _note: "「/products/{x}/ 是不是分类页」的判据。x 命中这张表 = 分类页,否则按末尾 -{数字} 解析成产品。" +
+      "由 regen 在产出页面的同一次运行里生成 —— 与实际产出同源,不会漂移。别手改。",
+    _generated_by: "scripts/regen.mjs",
+    categories: known,
+  }, null, 2) + "\n";
+  if (!fs.existsSync(p) || fs.readFileSync(p, "utf8") !== body) fs.writeFileSync(p, body);
+  console.log(`product-routes: ${known.length} 个已知分类 slug -> data/product-routes.json`);
+}
+
 // R3(a) — the homepage is generated now, not hand-written: template + prose catalog + tiles.
 // setTileAlts is gone: the tiles are emitted with their alts already derived, so there is nothing
 // left to go back and patch. Model tiles filter by EXISTENCE — a tile appears only where the page
