@@ -272,14 +272,22 @@ for (const id of targets) {
     //    新址页是【复制旧址内容】来的,里面那组 alternate 仍然指着旧址:等于**新址在替旧址说话**,
     //    而旧址并不认它(hreflang 验的是互惠:A 说 B 是自己的某语种版本,B 也要说回来)。
     //    ⚠️ 存在性规则照旧:某语种没有这个产品页,就不发它的 alternate —— 发了就是声明一个 404。
-    for (const alt of LOCALES) {
-      if (!fs.existsSync(pageOf(alt, path.join(prod.category, `${id}.html`)))) continue;
+    //    🔴 只改 `<link rel="alternate">`,**绝不能只锚 `hreflang="xx" href="`** ——
+    //       语言切换器的 `<a>` 上是【同样的属性组合】(`href` + `class` + `hreflang`),
+    //       宽正则会把切换器一起改掉:切换器该指"本页的其它语种版本"(旧址簇,因为用户当前在旧址体系),
+    //       被改成新址后就变成了跨体系跳转。**产出看起来完全正常,链接也 200。**
+    //       是"差异恰好三处"那条对账把它揪出来的:第四类差异 720 处全是切换器。
+    dual = dual.replace(/<link rel="alternate"[^>]*>/g, (tag) => {
+      const m = /hreflang="([^"]+)"/.exec(tag);
+      if (!m) return tag;
+      const alt = m[1];
+      if (alt === "x-default")
+        return tag.replace(/href="[^"]*"/, `href="https://wanew.com/products/${entry.path}"`);
+      if (!LOCALES.includes(alt)) return tag;
+      if (!fs.existsSync(pageOf(alt, path.join(prod.category, `${id}.html`)))) return tag;
       const d = dirOf(alt) ? `/${dirOf(alt)}` : "";
-      dual = dual.replace(new RegExp(`(hreflang="${alt}" href=")https://wanew\\.com[^"]*(")`),
-        `$1https://wanew.com${d}/products/${entry.path}$2`);
-    }
-    dual = dual.replace(/(hreflang="x-default" href=")https:\/\/wanew\.com[^"]*(")/,
-      `$1https://wanew.com/products/${entry.path}$2`);
+      return tag.replace(/href="[^"]*"/, `href="https://wanew.com${d}/products/${entry.path}"`);
+    });
     fs.mkdirSync(path.dirname(newOut), { recursive: true });
     fs.writeFileSync(newOut, dual);
     dualWritten++;
