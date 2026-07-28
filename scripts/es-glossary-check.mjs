@@ -36,21 +36,85 @@ const LOC = 'es-MX';
 const WORD_RE = /[a-zà-ÿñ][a-zà-ÿñ'-]*/gi;
 const strip = (s) => String(s).replace(/<[^>]+>/g, ' ').replace(/&[a-z]+;/gi, ' ');
 
+/* ── 复数：一条规则，不是每个词手写两遍 ──────────────────────────────────
+ *
+ * ⭐ 这是一个【真洞】，2026-07-27 上线 Solutions 时才发现：表按【精确单词】查，
+ *   所以 `barco` 在表里、`barcos` 不在 → 既有 `solutions.marine.card` 里的
+ *   「para barcos y embarcaciones」**一直是绿的**。闸没说谎，是它照不到那个词形。
+ *
+ * ⚠️ 而数据本身已经暴露了这个设计的病：9 个带 variants 的术语里，只有 2 个
+ *   （power adapter / RV）**手写了复数**，其余 7 个没写。靠人记得给每个词补一份复数
+ *   = N 个特例 = 一定漂。→ 改成【按规则生成】，新增术语自动被照，不用记。
+ *
+ * 生成方向很重要：**从词表正向生成复数**，不是把语料里的任意词反向单数化。
+ *   反向单数化会把 `países`→`paí` 这类噪声塞进查表，制造假阳性；正向生成只会新增
+ *   「某个已知错词的复数形」这一种键，命中即真命中。
+ *
+ * ⚠️ 已知照不到的（如实列，遵本文件规矩）：
+ *   ① 不规则/变音复数（lápiz→lápices 这条做了，但 régimen→regímenes 这类重音移位没做）；
+ *   ② 多词短语只把【中心词=第一个词】变复数（`adaptador de corriente` →
+ *      `adaptadores de corriente` 对；`punta de lanza` 这种中心词不在首位的会漏）。 */
+const esPlural = (w) => {
+  if (!w || w.length < 3) return null;
+  if (/s$/.test(w)) return null;                                  // 已是复数形/不变词，不猜
+  if (/z$/.test(w)) return w.slice(0, -1) + 'ces';                // vez → veces
+  if (/ión$/.test(w)) return w.slice(0, -3) + 'iones';            // embarcación → embarcaciones（重音消失）
+  if (/[aeiou]$/.test(w)) return w + 's';                         // barco → barcos
+  if (/[a-zà-ÿñ]$/i.test(w)) return w + 'es';                     // ordenador → ordenadores
+  return null;
+};
+/* 短语：只把中心词（首词）变复数 */
+const esPluralPhrase = (p) => {
+  const [head, ...rest] = p.split(/\s+/);
+  const hp = esPlural(head);
+  return hp ? [hp, ...rest].join(' ') : null;
+};
+
 /* ── 规则 ①：禁用词 ─────────────────────────────────────────────────── */
 const FORBIDDEN = new Map(G.forbidden.map((f) => [f.word.toLowerCase(), f]));
+for (const f of G.forbidden) {                                    // 复数形同禁
+  const p = esPlural(f.word.toLowerCase());
+  if (p && !FORBIDDEN.has(p)) FORBIDDEN.set(p, f);
+}
+
+/* 形容词豁免表 —— 同形异义(见 es-glossary.json 的 _forbidden_doc)。
+ * 建在这里而不是某条规则里面:一个词可能同时命中禁用词和 variants 两条规则,
+ * 豁免必须对两条都生效,否则一边放行一边报红。 */
+const ADJ_ALLOW = new Map();
+for (const f of G.forbidden) {
+  if (!f.allow_adjective_after) continue;
+  const w = f.word.toLowerCase();
+  ADJ_ALLOW.set(w, f.allow_adjective_after);
+  const p = esPlural(w);
+  if (p) ADJ_ALLOW.set(p, f.allow_adjective_after);   // 形容词要与名词数一致,复数形同豁免
+}
 
 /* ── 规则 ②：术语 variants（已知的错误/竞争译法） ─────────────────────── */
 const VARIANTS = new Map();
 for (const [term, t] of Object.entries(G.terms)) {
   for (const v of t.variants || []) VARIANTS.set(v.toLowerCase(), { term, want: t.es });
 }
+/* 复数形自动登记（手写的复数条目仍在表里且先到先得，这里只补没有的） */
+for (const [term, t] of Object.entries(G.terms)) {
+  for (const v of t.variants || []) {
+    if (/\s/.test(v)) continue;                                   // 短语走 MULTIWORD
+    const p = esPlural(v.toLowerCase());
+    if (p && !VARIANTS.has(p)) VARIANTS.set(p, { term, want: t.es });
+  }
+}
 /* ⚠️ 上面这张表按【单词】查(WORD_RE 切词后逐个查表),所以**多词 variant 它永远匹配不到** ——
  *   `Type C`(缺连字符的错写)被切成 `type`+`c`,两个都不在表里,于是静默放过。
  *   这跟规则④漏掉的那一整类是同一个形状:**照的粒度和要照的东西对不上**。
  *   → 多词 variant 走短语查,单独一条。 */
 const MULTIWORD_VARIANTS = [];
+const seenPhrase = new Set();
 for (const [term, t] of Object.entries(G.terms)) {
-  for (const v of t.variants || []) if (/\s/.test(v)) MULTIWORD_VARIANTS.push({ v, term, want: t.es });
+  for (const v of t.variants || []) {
+    if (!/\s/.test(v)) continue;
+    if (!seenPhrase.has(v.toLowerCase())) { seenPhrase.add(v.toLowerCase()); MULTIWORD_VARIANTS.push({ v, term, want: t.es }); }
+    const p = esPluralPhrase(v.toLowerCase());                    // 中心词复数形同报
+    if (p && !seenPhrase.has(p)) { seenPhrase.add(p); MULTIWORD_VARIANTS.push({ v: p, term, want: t.es }); }
+  }
 }
 
 /* ── 规则 ④：**术语根本没翻** —— 英文原词原样留在 es 译文里 ────────────────
@@ -131,9 +195,33 @@ export function checkOne(text) {
   const t = strip(text);
   const out = [];
   const words = t.toLowerCase().match(WORD_RE) || [];
+  /* 同形异义:形容词用法要看【紧邻前一个词】,所以不能只在去重后的词集合上判 ——
+   * 词集合丢掉了位置。西语形容词后置(instalaciones móviles),故查 words[i-1]。
+   * ⚠️ 一个词在同一段里既作形容词又作名词时,只要有【任何一处】是名词用法就该报 ——
+   * 所以是"每个出现位置都判",不是"整段有一处合法就整段放过"。 */
+  const adjectiveOk = (w) => {
+    // ⚠️ 同一个词可能【同时】在 forbidden 和 terms.variants 里(móvil 就是:禁用词 + cell phone
+    //    的竞争译法)。豁免必须对【两条规则都生效】,否则从 forbidden 放行、又被 variants 报红 ——
+    //    我第一版就是只在 forbidden 分支加,自测立刻抓到"形容词该放行却仍是红"。
+    const allow = ADJ_ALLOW.get(w);
+    if (!allow) return false;
+    let everyOccurrenceIsAdjective = false;
+    for (let i = 0; i < words.length; i++) {
+      if (words[i] !== w) continue;
+      // 并列形容词:「instalaciones exteriores o móviles」的紧邻前词是 "o" 不是名词 ——
+      // 西语里并列的形容词共用同一个中心名词。所以向前找【4 个词的窗口】,窗口内出现被修饰的
+      // 名词即判形容词用法。⚠️ 这是近似:窗口内恰好出现那个名词、而 móvil 又确实是名词义时会
+      // 误放行。接受这个代价,因为本文件的契约是「红硬、绿不硬」,而把正确的西语报成红会逼人
+      // 去改对的内容 —— 那个方向的错更贵。窗口大小写死在这里,不是可调参数。
+      const WINDOW = 4;
+      if (words.slice(Math.max(0, i - WINDOW), i).some((p) => allow.includes(p))) { everyOccurrenceIsAdjective = true; continue; }
+      return false;                                  // 有一处不是形容词用法 -> 照报
+    }
+    return everyOccurrenceIsAdjective;
+  };
   for (const w of new Set(words)) {
-    if (FORBIDDEN.has(w)) { const f = FORBIDDEN.get(w); out.push({ kind: '禁用词', hit: w, want: f.use, why: f.why, ev: f.evidence }); }
-    if (VARIANTS.has(w)) { const v = VARIANTS.get(w); out.push({ kind: '术语不一致', hit: w, want: v.want, why: `术语「${v.term}」全站唯一译法是「${v.want}」`, ev: G.terms[v.term].evidence }); }
+    if (FORBIDDEN.has(w) && !adjectiveOk(w)) { const f = FORBIDDEN.get(w); out.push({ kind: '禁用词', hit: w, want: f.use, why: f.why, ev: f.evidence }); }
+    if (VARIANTS.has(w) && !adjectiveOk(w)) { const v = VARIANTS.get(w); out.push({ kind: '术语不一致', hit: w, want: v.want, why: `术语「${v.term}」全站唯一译法是「${v.want}」`, ev: G.terms[v.term].evidence }); }
   }
   for (const m of t.match(DECIMAL_COMMA_RE) || []) out.push({ kind: '数字格式', hit: m, want: m.replace(',', '.'), why: '小数逗号 = 西班牙格式。墨西哥用小数点（coppel 实测：小数点 40 次 / 小数逗号 0 次）', ev: 'coppel' });
 

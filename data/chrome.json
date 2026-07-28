@@ -594,9 +594,9 @@
   "body.videos.title": {
     "en": "Product Videos",
     "pt-BR": "Vídeos do produto",
-    "es-MX": "Vídeos del producto",
+    "es-MX": "Videos del producto",
     "reason": "P5 详情页视频区标题(Admin 加视频后官网渲染);产品域通用词",
-    "reason.es-MX": "判断:语法确定(vídeos del producto 为通用产品页用语)",
+    "reason.es-MX": "判断:墨西哥写 video 不带重音(vídeo 是 es-ES);原值 Vídeos 被复数闸抓出——我当初标\"语法确定\"是断错了，留此更正。pt-BR 的 Vídeos 带重音是葡语正确写法，不动。",
     "zh": "产品视频"
   },
   "header.solutions": {

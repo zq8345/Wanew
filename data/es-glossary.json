@@ -17,7 +17,6 @@
     "  『配件』这个品类【没有官方西语标尺】：亚马逊 MX 被否（它是我们数据的来源本身，且是中国卖家机翻），",
     "  Starlink MX 自己的配件 PDF 是英文。→ estuche / laptop 等配件术语是【已知无证据区】。"
   ],
-
   "_forbidden_doc": [
     "⭐⭐ 禁用词 —— 这张表是整个术语表里【唯一能自动抓到我们漂走】的部分。",
     "每条都是一个【可测的断言】，不是一句口号：译文里出现 = 检查器红。",
@@ -27,84 +26,419 @@
     "                      那是【它的缺点，不是榜样】。我们必须全站一致。",
     "",
     "⚠️ 这张表【穷举不了】，和标记词表一样。它抓的是【我们已知会漂的那些】，不是『所有欧西语』。",
-    "   它绿 ≠ 译文是墨西哥西语。它红 = 一定有问题。**只有一个方向是硬的。**"
+    "   它绿 ≠ 译文是墨西哥西语。它红 = 一定有问题。**只有一个方向是硬的。**",
+    "",
+    "⭐ 同形异义(homograph)—— 2026-07-27 补复数规则时暴露的一类:",
+    "  `móvil` 被禁的是【名词=手机】义；但 `instalaciones móviles`(移动安装)/`oficinas móviles`",
+    "  (移动办公)里它是【形容词=移动的】，是完全正确的墨西哥西语。复数规则一上，这 4 处正确译文",
+    "  立刻被报成红。**当时的正确处理不是删掉复数规则(把尺子掰弯)，也不是去改正确的西语(把内容",
+    "  改坏来迁就尺子)，而是把「这个词有两个义项」这件事记进【词表本身】** —— 因为那是这个词的",
+    "  属性，不是检查器的特例。→ `allow_adjective_after` 列出它合法修饰的名词；命中时若紧邻",
+    "  前一个词在表内，判为形容词用法，放行。新出现的搭配会照红，由人判断后决定加不加 —— 这正是",
+    "  本文件说的「只有它红这个方向是硬的」。"
   ],
   "forbidden": [
-    { "word": "carro", "use": "vehículo", "why": "es-ES/泛拉美。⭐ 这条推翻了我自己的规范初稿：我原来写 carro(墨西哥常用)，真语料一查 —— Starlink MX 全站 carro✗ auto✗ coche✗，只用 vehículo", "evidence": "starlink-mx", "quote": "siempre tenía miedo de quedarme varado si mi vehículo se rompía" },
-    { "word": "auto", "use": "vehículo", "why": "同上", "evidence": "starlink-mx", "quote": "siempre tenía miedo de quedarme varado si mi vehículo se rompía" },
-    { "word": "coche", "use": "vehículo", "why": "es-ES，墨西哥不用", "evidence": "starlink-mx", "quote": "（全站 0 次）" },
-    { "word": "ordenador", "use": "computadora", "why": "es-ES。墨西哥说 computadora", "evidence": "judgement", "quote": "" },
-    { "word": "móvil", "use": "celular", "why": "es-ES。墨西哥说 celular", "evidence": "judgement", "quote": "" },
-    { "word": "vídeo", "use": "video", "why": "⭐ es-ES 带重音，墨西哥【不带】。es-MX/es-ES 的可见分叉点", "evidence": "judgement", "quote": "" },
-    { "word": "autocaravana", "use": "casa rodante", "why": "⚠️ Starlink MX 自己写 autocaravanas —— 但那是【西班牙】用语。**这条我判墨西哥用法而不抄 Starlink**，理由同 tú/usted：它自己混欧西语", "evidence": "judgement", "quote": "Esencial para viajar en autocaravanas ← Starlink MX 的原文，我们【不】跟" },
-    { "word": "conducir", "use": "manejar", "why": "es-ES。墨西哥说 manejar", "evidence": "judgement", "quote": "" },
-    { "word": "zumo", "use": "jugo", "why": "es-ES（防御性：本站大概率用不到，但漂了就红）", "evidence": "judgement", "quote": "" },
-    { "word": "usted", "use": "tú", "why": "⭐全站人称必须一致。coppel su/sus 0 次、gob.mx（最正式语域）su 0 次 —— 连政府站都用 tú", "evidence": "coppel", "quote": "tu vida / tu crédito / tu Beca（gob.mx）" },
-    { "word": "ustedes", "use": "tú（单数第二人称）", "why": "同上，且本站是对单个访客说话", "evidence": "coppel", "quote": "" }
+    {
+      "word": "carro",
+      "use": "vehículo",
+      "why": "es-ES/泛拉美。⭐ 这条推翻了我自己的规范初稿：我原来写 carro(墨西哥常用)，真语料一查 —— Starlink MX 全站 carro✗ auto✗ coche✗，只用 vehículo",
+      "evidence": "starlink-mx",
+      "quote": "siempre tenía miedo de quedarme varado si mi vehículo se rompía"
+    },
+    {
+      "word": "auto",
+      "use": "vehículo",
+      "why": "同上",
+      "evidence": "starlink-mx",
+      "quote": "siempre tenía miedo de quedarme varado si mi vehículo se rompía"
+    },
+    {
+      "word": "coche",
+      "use": "vehículo",
+      "why": "es-ES，墨西哥不用",
+      "evidence": "starlink-mx",
+      "quote": "（全站 0 次）"
+    },
+    {
+      "word": "ordenador",
+      "use": "computadora",
+      "why": "es-ES。墨西哥说 computadora",
+      "evidence": "judgement",
+      "quote": ""
+    },
+    {
+      "word": "móvil",
+      "use": "celular",
+      "why": "es-ES。墨西哥说 celular ——【仅名词义】；作形容词(instalaciones móviles=移动安装)不禁",
+      "evidence": "judgement",
+      "quote": "",
+      "sense": "名词=手机(es-ES)。形容词「móvil/móviles=移动的」是完全正确的墨西哥西语。",
+      "allow_adjective_after": [
+        "instalaciones",
+        "oficinas",
+        "unidades",
+        "estaciones",
+        "antenas",
+        "torres"
+      ]
+    },
+    {
+      "word": "vídeo",
+      "use": "video",
+      "why": "⭐ es-ES 带重音，墨西哥【不带】。es-MX/es-ES 的可见分叉点",
+      "evidence": "judgement",
+      "quote": ""
+    },
+    {
+      "word": "autocaravana",
+      "use": "casa rodante",
+      "why": "⚠️ Starlink MX 自己写 autocaravanas —— 但那是【西班牙】用语。**这条我判墨西哥用法而不抄 Starlink**，理由同 tú/usted：它自己混欧西语",
+      "evidence": "judgement",
+      "quote": "Esencial para viajar en autocaravanas ← Starlink MX 的原文，我们【不】跟"
+    },
+    {
+      "word": "conducir",
+      "use": "manejar",
+      "why": "es-ES。墨西哥说 manejar",
+      "evidence": "judgement",
+      "quote": ""
+    },
+    {
+      "word": "zumo",
+      "use": "jugo",
+      "why": "es-ES（防御性：本站大概率用不到，但漂了就红）",
+      "evidence": "judgement",
+      "quote": ""
+    },
+    {
+      "word": "usted",
+      "use": "tú",
+      "why": "⭐全站人称必须一致。coppel su/sus 0 次、gob.mx（最正式语域）su 0 次 —— 连政府站都用 tú",
+      "evidence": "coppel",
+      "quote": "tu vida / tu crédito / tu Beca（gob.mx）"
+    },
+    {
+      "word": "ustedes",
+      "use": "tú（单数第二人称）",
+      "why": "同上，且本站是对单个访客说话",
+      "evidence": "coppel",
+      "quote": ""
+    }
   ],
-
   "_terms_doc": [
     "术语 → 全站唯一译法。检查器不强制『必须出现』（那会逼出硬凑的句子），",
     "它强制的是【一致性】：同一个英文术语在 es 里不能有两种译法。",
     "'variants' = 已知的错误/竞争译法，出现即红。"
   ],
   "terms": {
-    "marine": { "es": "Marítimo", "evidence": "starlink-mx", "quote": "explore Starlink Marítimo", "note": "⭐⭐ Starlink 自己的品类名，逐字采用。这是本表证据最硬的一条" },
-    "accessories": { "es": "accesorios", "evidence": "starlink-mx", "quote": "Guía de accesorios" },
-    "guide": { "es": "guía", "evidence": "starlink-mx", "quote": "Guía de accesorios" },
-    "router": { "es": "router", "evidence": "starlink-mx", "quote": "un router wifi integrado / Incluye Router 3", "note": "西语借词，保持英文形。⚠️ 因此它必须从 es 标记词表里删掉" },
-    "kit": { "es": "kit", "evidence": "starlink-mx", "quote": "un kit compacto y portátil / Contenido del kit" },
-    "email": { "es": "correo electrónico", "evidence": "starlink-mx", "quote": "Reciba novedades de Starlink por correo electrónico", "variants": ["email", "e-mail", "mail"], "note": "⭐ 逐字命中。**不是 Email**" },
-    "boat": { "es": "bote", "evidence": "starlink-mx", "quote": "Manténgase conectado con internet de alta velocidad en su bote", "variants": ["lancha", "barco", "embarcación"], "note": "⭐ 这条推翻了我：我原写 lancha，理由是「lancha vs embarcação 是巴西人真实的区分」—— **那是【葡语】的理由，我拿它推了西语**。而我自己在规范里写过「两种语言借的英语词不是同一批，『pt 保留了英文所以 es 也保留』是错的推理」。**我立了这条规矩，然后自己违反了它。** 审计拿出 en su bote 这个证据，我只有一个从葡语搬来的推理。" },
-    "vehicle": { "es": "vehículo", "evidence": "starlink-mx", "quote": "si mi vehículo se rompía", "variants": ["carro", "auto", "coche"] },
-    "road trip": { "es": "viaje por carretera", "evidence": "starlink-mx", "quote": "recorridos por carretera / viaje por carretera" },
-    "power (电力输入)": { "es": "alimentación", "evidence": "starlink-mx", "quote": "entrada de alimentación de CC" },
-    "power (分类名)": { "es": "Energía", "evidence": "judgement", "quote": "", "note": "分类名选 Energía 是判断；alimentación 用于技术语境（电力输入）" },
-    "power adapter": { "es": "adaptador de energía", "variants": ["adaptador de corriente", "adaptadores de corriente", "adaptador de alimentación", "adaptadores de alimentación"], "evidence": "chrome 已签目录 + 全站频次", "quote": "chrome header.power = Energía", "note": "⭐【查,不是判】2026-07-19 实测:全站 `adaptadores de energía` 30 次、`de alimentación` 5 次、`de corriente` 5 次,而我签的 chrome `header.power`=`Energía`。⚠️ 只管【产品名 power adapter】这个复合词;裸 `alimentación` 用于【电力输入】仍然正确(见 power (电力输入),有 starlink-mx 证据),两者不冲突。" },
-    "bulk": { "es": "mayoreo", "variants": ["pedidos por volumen"], "evidence": "judgement", "quote": "", "note": "⚠️【判断,无语料背书】墨西哥商务标准说法 venta/compra al mayoreo;`por volumen` 是中性泛西语。依据是【es-MX 定位】—— 术语表既有先例:vehículo(否掉泛拉美)、casa rodante(否掉 Starlink MX 自己的 autocaravana)。⚠️ 注意 en `large-scale orders` → `gran volumen` 是【另一个词】,不归本条管(faq.span.8)。" },
-    "camping": { "es": "camping", "evidence": "judgement", "quote": "", "note": "⭐【我先写错过一版,留档】我原本定 `camping → acampar`,闸当场报了 13 处 —— 一查全是【名词】用法(`Casa Rodante y Camping`、`para excursiones, camping y viajes`),换成动词 `acampar` 会出语法错。**一条不能被机械套用的规则,就不该写成术语。** 正解:`camping` 是借词名词(es===en);而 `para acampar`(动词)只是「for RV camping」这类标题里的措辞选择,已在 es-survivor-decisions 逐条裁定,不归术语表管。⚠️ 教训:定术语前先看它在站上的【语法角色】,不是只看词义。" },
-    "DC": { "es": "CC", "evidence": "starlink-mx", "quote": "entrada de alimentación de CC", "note": "⭐ corriente continua。**不是 DC** —— 我不查语料就会直接留 DC。⚠️2026-07-19 实测:站上 DC 63 处 / CC 63 处【各半并存】,而检查器报 0 —— 规则写在这里,闸却没装(见 es-glossary-check 规则④)。含 `DC 5521` 接口代号也统一收 CC,与站上已有的 `CC macho`/`Type-C a CC` 一致,不留特例。" },
-    "AC": { "es": "CA", "evidence": "judgement", "quote": "", "note": "corriente alterna,DC→CC 的对称项。⚠️ `AC Cable` 是 Starlink MX 的硬件部件名,已在 untranslated 里豁免,不受此条影响。" },
-    "power bank": { "es": "power bank", "evidence": "judgement", "quote": "", "note": "⚠️【判断,无墨西哥语料背书】墨西哥电商普遍直接用 power bank,但我没有 coppel/gob.mx 语料实证;备选 batería portátil。es===en 所以规则④不照它 —— 这是【借词】不是【漏翻】,两者必须在数据上分清。" },
-    "Type-C": { "es": "Type-C", "variants": ["Type C"], "evidence": "judgement", "quote": "", "note": "USB-IF 标准名,保留英文并保留连字符。无连字符的 `Type C` 是错写(站上 7:1 并存),由规则②的 variants 照。" },
-    "R&D": { "es": "I+D", "evidence": "judgement", "quote": "", "note": "investigación y desarrollo,西语固定写法是 I+D(不是 I&D)。⚠️ 这是【术语】,归术语表管;而散文里的 `&` 归下面的 ampersand 规则管 —— 两者分开,才不用为 `&` 开特例。" },
-    "plug and play": { "es": "plug and play", "evidence": "judgement", "quote": "", "note": "⚠️【判断,无墨西哥语料背书】西语技术文案普遍直接用 plug and play;备选 conectar y usar。es===en → 它是【借词】不是【漏翻】,所以规则④跳过它、两把尺子都不再报它的 `and`。站上 13 处。" },
-    "specifications": { "es": "especificaciones", "evidence": "starlink-mx", "quote": "Especificaciones del producto" },
-    "product": { "es": "producto", "evidence": "starlink-mx", "quote": "Especificaciones del producto" },
-    "speed": { "es": "velocidad", "evidence": "starlink-mx", "quote": "velocidades de hasta 400+ Mbps" },
-    "mount / mounts": { "es": "soporte / soportes", "evidence": "judgement", "quote": "", "note": "配件领域无官方西语标尺" },
-    "bracket": { "es": "base", "evidence": "judgement", "quote": "", "note": "配件领域无官方西语标尺" },
-    "support (客服)": { "es": "Ayuda", "evidence": "judgement", "quote": "", "note": "⭐ 避撞：support 和 mount 在西语里【同词 soporte】。导航会同时出现「Soportes」(支架) 和「Soporte」(客服)，只差一个 s。pt 也撞了(Suportes/Suporte)但已上线；es 现在就能躲开" },
-    "RV": { "es": "casa rodante", "evidence": "judgement", "quote": "", "variants": ["autocaravana", "autocaravanas", "caravana"], "note": "⚠️ 与 Starlink MX 原文冲突，见 forbidden.autocaravana" },
-    "off-grid": { "es": "sin red eléctrica", "evidence": "judgement", "quote": "", "note": "pt 直接留了 off-grid；**不拿 pt 推 es**，es 展开" },
-    "waterproof": { "es": "impermeable", "evidence": "judgement", "quote": "" },
-    "weatherproof": { "es": "resistente a la intemperie", "evidence": "judgement", "quote": "" },
-    "satellite": { "es": "satélite", "evidence": "judgement", "quote": "", "note": "带重音 → 与英文 satellite 不同形 → 标记词表保留 satellite 是安全的" },
-    "computer": { "es": "computadora", "evidence": "judgement", "quote": "", "variants": ["ordenador"] },
-    "cell phone": { "es": "celular", "evidence": "judgement", "quote": "", "variants": ["móvil"] },
-    "case (收纳)": { "es": "estuche", "evidence": "RED-no-evidence", "quote": "", "note": "🔴 **标红上线**。亚马逊 MX 被否（它【是】我们数据的来源本身：STARGEAR 的文案在我们 702 号正文里出现 4 次），Starlink MX 配件 PDF 是英文 → **该词无官方西语标尺**。不因为翻译做完了就顺手绿掉。" },
-    "laptop": { "es": "laptop", "evidence": "RED-no-evidence", "quote": "", "note": "🔴 **标红上线**。同上：我们【假设】它是墨西哥借词，这是一个假设不是证据。" }
+    "marine": {
+      "es": "Marítimo",
+      "evidence": "starlink-mx",
+      "quote": "explore Starlink Marítimo",
+      "note": "⭐⭐ Starlink 自己的品类名，逐字采用。这是本表证据最硬的一条"
+    },
+    "accessories": {
+      "es": "accesorios",
+      "evidence": "starlink-mx",
+      "quote": "Guía de accesorios"
+    },
+    "guide": {
+      "es": "guía",
+      "evidence": "starlink-mx",
+      "quote": "Guía de accesorios"
+    },
+    "router": {
+      "es": "router",
+      "evidence": "starlink-mx",
+      "quote": "un router wifi integrado / Incluye Router 3",
+      "note": "西语借词，保持英文形。⚠️ 因此它必须从 es 标记词表里删掉"
+    },
+    "kit": {
+      "es": "kit",
+      "evidence": "starlink-mx",
+      "quote": "un kit compacto y portátil / Contenido del kit"
+    },
+    "email": {
+      "es": "correo electrónico",
+      "evidence": "starlink-mx",
+      "quote": "Reciba novedades de Starlink por correo electrónico",
+      "variants": [
+        "email",
+        "e-mail",
+        "mail"
+      ],
+      "note": "⭐ 逐字命中。**不是 Email**"
+    },
+    "boat": {
+      "es": "bote",
+      "evidence": "starlink-mx",
+      "quote": "Manténgase conectado con internet de alta velocidad en su bote",
+      "variants": [
+        "lancha",
+        "barco",
+        "embarcación"
+      ],
+      "note": "⭐ 这条推翻了我：我原写 lancha，理由是「lancha vs embarcação 是巴西人真实的区分」—— **那是【葡语】的理由，我拿它推了西语**。而我自己在规范里写过「两种语言借的英语词不是同一批，『pt 保留了英文所以 es 也保留』是错的推理」。**我立了这条规矩，然后自己违反了它。** 审计拿出 en su bote 这个证据，我只有一个从葡语搬来的推理。"
+    },
+    "vehicle": {
+      "es": "vehículo",
+      "evidence": "starlink-mx",
+      "quote": "si mi vehículo se rompía",
+      "variants": [
+        "carro",
+        "auto",
+        "coche"
+      ]
+    },
+    "road trip": {
+      "es": "viaje por carretera",
+      "evidence": "starlink-mx",
+      "quote": "recorridos por carretera / viaje por carretera"
+    },
+    "power (电力输入)": {
+      "es": "alimentación",
+      "evidence": "starlink-mx",
+      "quote": "entrada de alimentación de CC"
+    },
+    "power (分类名)": {
+      "es": "Energía",
+      "evidence": "judgement",
+      "quote": "",
+      "note": "分类名选 Energía 是判断；alimentación 用于技术语境（电力输入）"
+    },
+    "power adapter": {
+      "es": "adaptador de energía",
+      "variants": [
+        "adaptador de corriente",
+        "adaptadores de corriente",
+        "adaptador de alimentación",
+        "adaptadores de alimentación"
+      ],
+      "evidence": "chrome 已签目录 + 全站频次",
+      "quote": "chrome header.power = Energía",
+      "note": "⭐【查,不是判】2026-07-19 实测:全站 `adaptadores de energía` 30 次、`de alimentación` 5 次、`de corriente` 5 次,而我签的 chrome `header.power`=`Energía`。⚠️ 只管【产品名 power adapter】这个复合词;裸 `alimentación` 用于【电力输入】仍然正确(见 power (电力输入),有 starlink-mx 证据),两者不冲突。"
+    },
+    "bulk": {
+      "es": "mayoreo",
+      "variants": [
+        "pedidos por volumen"
+      ],
+      "evidence": "judgement",
+      "quote": "",
+      "note": "⚠️【判断,无语料背书】墨西哥商务标准说法 venta/compra al mayoreo;`por volumen` 是中性泛西语。依据是【es-MX 定位】—— 术语表既有先例:vehículo(否掉泛拉美)、casa rodante(否掉 Starlink MX 自己的 autocaravana)。⚠️ 注意 en `large-scale orders` → `gran volumen` 是【另一个词】,不归本条管(faq.span.8)。"
+    },
+    "camping": {
+      "es": "camping",
+      "evidence": "judgement",
+      "quote": "",
+      "note": "⭐【我先写错过一版,留档】我原本定 `camping → acampar`,闸当场报了 13 处 —— 一查全是【名词】用法(`Casa Rodante y Camping`、`para excursiones, camping y viajes`),换成动词 `acampar` 会出语法错。**一条不能被机械套用的规则,就不该写成术语。** 正解:`camping` 是借词名词(es===en);而 `para acampar`(动词)只是「for RV camping」这类标题里的措辞选择,已在 es-survivor-decisions 逐条裁定,不归术语表管。⚠️ 教训:定术语前先看它在站上的【语法角色】,不是只看词义。"
+    },
+    "DC": {
+      "es": "CC",
+      "evidence": "starlink-mx",
+      "quote": "entrada de alimentación de CC",
+      "note": "⭐ corriente continua。**不是 DC** —— 我不查语料就会直接留 DC。⚠️2026-07-19 实测:站上 DC 63 处 / CC 63 处【各半并存】,而检查器报 0 —— 规则写在这里,闸却没装(见 es-glossary-check 规则④)。含 `DC 5521` 接口代号也统一收 CC,与站上已有的 `CC macho`/`Type-C a CC` 一致,不留特例。"
+    },
+    "AC": {
+      "es": "CA",
+      "evidence": "judgement",
+      "quote": "",
+      "note": "corriente alterna,DC→CC 的对称项。⚠️ `AC Cable` 是 Starlink MX 的硬件部件名,已在 untranslated 里豁免,不受此条影响。"
+    },
+    "power bank": {
+      "es": "power bank",
+      "evidence": "judgement",
+      "quote": "",
+      "note": "⚠️【判断,无墨西哥语料背书】墨西哥电商普遍直接用 power bank,但我没有 coppel/gob.mx 语料实证;备选 batería portátil。es===en 所以规则④不照它 —— 这是【借词】不是【漏翻】,两者必须在数据上分清。"
+    },
+    "Type-C": {
+      "es": "Type-C",
+      "variants": [
+        "Type C"
+      ],
+      "evidence": "judgement",
+      "quote": "",
+      "note": "USB-IF 标准名,保留英文并保留连字符。无连字符的 `Type C` 是错写(站上 7:1 并存),由规则②的 variants 照。"
+    },
+    "R&D": {
+      "es": "I+D",
+      "evidence": "judgement",
+      "quote": "",
+      "note": "investigación y desarrollo,西语固定写法是 I+D(不是 I&D)。⚠️ 这是【术语】,归术语表管;而散文里的 `&` 归下面的 ampersand 规则管 —— 两者分开,才不用为 `&` 开特例。"
+    },
+    "plug and play": {
+      "es": "plug and play",
+      "evidence": "judgement",
+      "quote": "",
+      "note": "⚠️【判断,无墨西哥语料背书】西语技术文案普遍直接用 plug and play;备选 conectar y usar。es===en → 它是【借词】不是【漏翻】,所以规则④跳过它、两把尺子都不再报它的 `and`。站上 13 处。"
+    },
+    "specifications": {
+      "es": "especificaciones",
+      "evidence": "starlink-mx",
+      "quote": "Especificaciones del producto"
+    },
+    "product": {
+      "es": "producto",
+      "evidence": "starlink-mx",
+      "quote": "Especificaciones del producto"
+    },
+    "speed": {
+      "es": "velocidad",
+      "evidence": "starlink-mx",
+      "quote": "velocidades de hasta 400+ Mbps"
+    },
+    "mount / mounts": {
+      "es": "soporte / soportes",
+      "evidence": "judgement",
+      "quote": "",
+      "note": "配件领域无官方西语标尺"
+    },
+    "bracket": {
+      "es": "base",
+      "evidence": "judgement",
+      "quote": "",
+      "note": "配件领域无官方西语标尺"
+    },
+    "support (客服)": {
+      "es": "Ayuda",
+      "evidence": "judgement",
+      "quote": "",
+      "note": "⭐ 避撞：support 和 mount 在西语里【同词 soporte】。导航会同时出现「Soportes」(支架) 和「Soporte」(客服)，只差一个 s。pt 也撞了(Suportes/Suporte)但已上线；es 现在就能躲开"
+    },
+    "RV": {
+      "es": "casa rodante",
+      "evidence": "judgement",
+      "quote": "",
+      "variants": [
+        "autocaravana",
+        "autocaravanas",
+        "caravana"
+      ],
+      "note": "⚠️ 与 Starlink MX 原文冲突，见 forbidden.autocaravana"
+    },
+    "off-grid": {
+      "es": "sin red eléctrica",
+      "evidence": "judgement",
+      "quote": "",
+      "note": "pt 直接留了 off-grid；**不拿 pt 推 es**，es 展开"
+    },
+    "waterproof": {
+      "es": "impermeable",
+      "evidence": "judgement",
+      "quote": ""
+    },
+    "weatherproof": {
+      "es": "resistente a la intemperie",
+      "evidence": "judgement",
+      "quote": ""
+    },
+    "satellite": {
+      "es": "satélite",
+      "evidence": "judgement",
+      "quote": "",
+      "note": "带重音 → 与英文 satellite 不同形 → 标记词表保留 satellite 是安全的"
+    },
+    "computer": {
+      "es": "computadora",
+      "evidence": "judgement",
+      "quote": "",
+      "variants": [
+        "ordenador"
+      ]
+    },
+    "cell phone": {
+      "es": "celular",
+      "evidence": "judgement",
+      "quote": "",
+      "variants": [
+        "móvil"
+      ]
+    },
+    "case (收纳)": {
+      "es": "estuche",
+      "evidence": "RED-no-evidence",
+      "quote": "",
+      "note": "🔴 **标红上线**。亚马逊 MX 被否（它【是】我们数据的来源本身：STARGEAR 的文案在我们 702 号正文里出现 4 次），Starlink MX 配件 PDF 是英文 → **该词无官方西语标尺**。不因为翻译做完了就顺手绿掉。"
+    },
+    "laptop": {
+      "es": "laptop",
+      "evidence": "RED-no-evidence",
+      "quote": "",
+      "note": "🔴 **标红上线**。同上：我们【假设】它是墨西哥借词，这是一个假设不是证据。"
+    }
   },
-
   "_untranslated_doc": [
     "保持英文 —— 与 scripts/es-leak-scan.mjs 的 WHITELIST_PHRASES / WHITELIST_WORDS 同源。",
     "⚠️ 这里放的是【本来就不该是西语】的东西，不是【翻不动所以放过】—— 后者属于 GAP，必须红。"
   ],
   "untranslated": [
-    { "value": "Power Supply", "why": "⭐ 硬件部件名。**这条规则是真语料教我的**：我自编语料时永远写不出这句（我会写 fuente de alimentación），所以我永远发现不了这条规则。换成真语料，它当场红了。", "evidence": "starlink-mx", "quote": "Power Supply 1.5 m (4.92 ft)" },
-    { "value": "Starlink Cable", "why": "硬件部件名", "evidence": "starlink-mx", "quote": "Starlink Cable 15 m (49.2 ft)" },
-    { "value": "AC Cable", "why": "硬件部件名", "evidence": "starlink-mx", "quote": "AC Cable 1.5 m (4.92 ft)" },
-    { "value": "Starlink / SpaceX / Wanew", "why": "品牌", "evidence": "locales.json fallback", "quote": "" },
-    { "value": "Mini / Standard / Standard Circular / Standard Actuated / Performance (Gen 1-3) / Enterprise", "why": "型号名，单一真源 = locales.json model_display", "evidence": "locales.json fallback", "quote": "" },
-    { "value": "Wanew Starlink Accessories", "why": "注册法律实体名。⚠️ 必须靠【多词短语】白名单，**绝不能**把 accessories 塞进单词白名单 —— 那是我们最核心的残留标记词，白名单化 = 全站放过它", "evidence": "locales.json fallback", "quote": "" },
-
-    { "value": "Rectangular Satellite", "why": "⭐ Starlink 官方型号名（Rectangular Satellite V2 / Gen2 / Flat High Performance）。译成 satélite 会把型号名拆坏，买家按型号找货就对不上。实测全站 satellite 12 处【全部】落在型号名里，散文用法 0 处。", "evidence": "产品数据实测", "quote": "Starlink Rectangular Satellite V2 · Cable Starlink Rectangular Satellite Gen2" },
-    { "value": "Internet Kit Satellite", "why": "同上，Starlink Mini Internet Kit Satellite 是官方套件名", "evidence": "产品数据实测", "quote": "especialmente para el Starlink Mini Internet Kit Satellite" },
-    { "value": "Power over Ethernet", "why": "IEEE 协议专名（缩写 POE），协议名不译", "evidence": "行业标准名", "quote": "Se puede usar con sistemas Power over Ethernet (POE)" },
-    { "value": "Power Delivery", "why": "USB-IF 协议专名（缩写 PD），协议名不译", "evidence": "行业标准名", "quote": "una fuente USB Power Delivery (PD) de 100W" },
-    { "value": "High Performance", "why": "⭐ Starlink 官方型号名（High Performance / Flat High Performance）。**这正是 pt 时代那 2 条已知误报的同一个洞**：`high` 是英文标记词，而型号名里恰好有它。写进这里，两把尺子一起认。", "evidence": "产品数据实测", "quote": "Cable para Starlink Flat High Performance" }
+    {
+      "value": "Power Supply",
+      "why": "⭐ 硬件部件名。**这条规则是真语料教我的**：我自编语料时永远写不出这句（我会写 fuente de alimentación），所以我永远发现不了这条规则。换成真语料，它当场红了。",
+      "evidence": "starlink-mx",
+      "quote": "Power Supply 1.5 m (4.92 ft)"
+    },
+    {
+      "value": "Starlink Cable",
+      "why": "硬件部件名",
+      "evidence": "starlink-mx",
+      "quote": "Starlink Cable 15 m (49.2 ft)"
+    },
+    {
+      "value": "AC Cable",
+      "why": "硬件部件名",
+      "evidence": "starlink-mx",
+      "quote": "AC Cable 1.5 m (4.92 ft)"
+    },
+    {
+      "value": "Starlink / SpaceX / Wanew",
+      "why": "品牌",
+      "evidence": "locales.json fallback",
+      "quote": ""
+    },
+    {
+      "value": "Mini / Standard / Standard Circular / Standard Actuated / Performance (Gen 1-3) / Enterprise",
+      "why": "型号名，单一真源 = locales.json model_display",
+      "evidence": "locales.json fallback",
+      "quote": ""
+    },
+    {
+      "value": "Wanew Starlink Accessories",
+      "why": "注册法律实体名。⚠️ 必须靠【多词短语】白名单，**绝不能**把 accessories 塞进单词白名单 —— 那是我们最核心的残留标记词，白名单化 = 全站放过它",
+      "evidence": "locales.json fallback",
+      "quote": ""
+    },
+    {
+      "value": "Rectangular Satellite",
+      "why": "⭐ Starlink 官方型号名（Rectangular Satellite V2 / Gen2 / Flat High Performance）。译成 satélite 会把型号名拆坏，买家按型号找货就对不上。实测全站 satellite 12 处【全部】落在型号名里，散文用法 0 处。",
+      "evidence": "产品数据实测",
+      "quote": "Starlink Rectangular Satellite V2 · Cable Starlink Rectangular Satellite Gen2"
+    },
+    {
+      "value": "Internet Kit Satellite",
+      "why": "同上，Starlink Mini Internet Kit Satellite 是官方套件名",
+      "evidence": "产品数据实测",
+      "quote": "especialmente para el Starlink Mini Internet Kit Satellite"
+    },
+    {
+      "value": "Power over Ethernet",
+      "why": "IEEE 协议专名（缩写 POE），协议名不译",
+      "evidence": "行业标准名",
+      "quote": "Se puede usar con sistemas Power over Ethernet (POE)"
+    },
+    {
+      "value": "Power Delivery",
+      "why": "USB-IF 协议专名（缩写 PD），协议名不译",
+      "evidence": "行业标准名",
+      "quote": "una fuente USB Power Delivery (PD) de 100W"
+    },
+    {
+      "value": "High Performance",
+      "why": "⭐ Starlink 官方型号名（High Performance / Flat High Performance）。**这正是 pt 时代那 2 条已知误报的同一个洞**：`high` 是英文标记词，而型号名里恰好有它。写进这里，两把尺子一起认。",
+      "evidence": "产品数据实测",
+      "quote": "Cable para Starlink Flat High Performance"
+    }
   ],
-
   "_ampersand_doc": [
     "⭐ `&`(数据里写作 &amp;)在 es 可见文案里 → 一律写成 `y`。",
     "",
@@ -120,8 +454,11 @@
     "   出现在【可见文案】里就是 `y`。分成两处管,才不需要给 `&` 开豁免口。",
     "由 es-glossary-check 规则⑤ 强制。"
   ],
-  "ampersand": { "es": "y", "evidence": "chrome 已签目录", "quote": "Mounts &amp; Brackets → Soportes y Bases" },
-
+  "ampersand": {
+    "es": "y",
+    "evidence": "chrome 已签目录",
+    "quote": "Mounts &amp; Brackets → Soportes y Bases"
+  },
   "_format_doc": [
     "⭐ 数字格式 —— 【坐实的事实，不是判断】。es-MX 与 es-ES 在这里是相反的。",
     "coppel.com 实测：小数点 `6.85` 出现 40 次、小数逗号 0 次；逗号千分位 `1,400` 28 次。",
@@ -135,7 +472,6 @@
     "evidence": "coppel",
     "quote": "6.85 ×40 / 1,400 ×28（小数逗号 0 次）"
   },
-
   "_person_doc": [
     "⭐ 人称 = tú —— 【坐实的事实，不是判断】。",
     "coppel.com：tu/tus 5 次、su/sus 【0 次】",
