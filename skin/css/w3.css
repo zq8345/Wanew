@@ -1241,9 +1241,13 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 
 /* About 7-section rebuild: consolidated 6-stat band + inline patent note + merged Mfg/Quality + one-line Global + closing CTA */
 .xlc-stats--6 { grid-template-columns: repeat(6, 1fr); }
-.xlc-stats--6 .xlc-stat-number { font-size: clamp(26px, 2.4vw, 38px); }
+/* 字号上下限一起收:上限 38→30 让 1440 装得下,下限 26→22 让最窄的 6 列档也装得下。
+   数字仍然是这一段的视觉重点,但它不能撑破自己的卡。 */
+.xlc-stats--6 .xlc-stat-number { font-size: clamp(22px, 1.9vw, 30px); }
 /* v6:内距不再各卡自定,见 .ab-card */
-@media (max-width: 1024px) { .xlc-stats--6 { grid-template-columns: repeat(3, 1fr); } }
+/* 6 列的下限抬到 1280:1025-1279 这一整段过去仍是 6 列,每列扣掉统一内距后只剩 ~100px,
+   而 "600,000+" 在最小字号下也要 ~111px —— 那一段【无论字号怎么调都装不下】,必须减列。 */
+@media (max-width: 1279px) { .xlc-stats--6 { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 560px) { .xlc-stats--6 { grid-template-columns: repeat(2, 1fr); } }
 .xlc-stats__note { text-align: center; margin: 18px 0 0; font-size: 13px; color: var(--w3-text3); letter-spacing: 0.01em; }
 /* v6:视觉字号与同段的 h2 一致(Joe)。⚠️ 标签仍是 h3 —— 只改视觉不改文档层级。 */
@@ -1637,9 +1641,14 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   .about-qp__c, .about-qp__c:nth-child(4), .about-qp__c:nth-child(5) { grid-column: auto; } }
 
 /* OEM / ODM:并排两卡。两边内容不等长(4 行 vs 3 步),靠 grid 默认 stretch 等高。 */
-.about-oemgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0 0; align-items: stretch; }
+/* ⚠️ 刻意【不】用 align-items:stretch 强制等高。OEM 有 4 行带说明、ODM 只有 3 句短句,
+   撑到等高之后 ODM 卡下方是一大块空白 —— 比自然的高度差更难看。
+   "两卡是一对"由【顶部对齐 + 同宽 + 同一套 .ab-card 规格】维持,不由等高维持。 */
+.about-oemgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0 0; align-items: start; }
 .about-oemcard { display: flex; flex-direction: column; }
-@media (max-width: 900px) { .about-oemgrid { grid-template-columns: 1fr; gap: 14px; } }
+/* 堆叠断点 900→1279:与数字卡转 3 列同一条线 —— 整段【中等宽度】用一个定义,不是一个组件一条线。
+   实测:901/es 并排时高度差 419px、1025/es 257px,那已经不成对了;≥1280 并排时差 124-168px,自然。 */
+@media (max-width: 1279px) { .about-oemgrid { grid-template-columns: 1fr; gap: 14px; } }
 
 /* PDP 适配徽章〔#52 契约〕:买家的第一个决定是"这个配不配我的终端"。数据是机型 slug,
    显示名 model_display > categories.display。**产品没填 compatible_with 就整块不出现**——
