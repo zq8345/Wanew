@@ -557,6 +557,7 @@ for (const locale of RENDER_SET) {
   // ⚠️ 换图只改这一行:两处分开写时,改一处漏一处 → preload 预载 A、实际显示 B,静默多下一张图。
   // 现值是那张越野图【占位】(Joe 的新图未到);图一到只换这一行。
   const h1 = renderHome(homeTpl.split("{{HERO_HOME_IMG}}").join(HERO_HOME_IMG), { locale, catalog: { ...catalog, ...shared, ...homeCat },
+    formOrder: FORMS,   // data/forms.json 的数组序 = 形态次序(/type 页与 chip 同源);见 pickHomeProducts
     tiles: homeTiles, modelDisplay: MODEL, urlOf, exists: pageExists, dirOf, enabled: LOCALES, sizes: MEDIA_SIZES,
     products: entries, featured: homeFeatured, internal_noindex: INTERNAL });
   if (h1 !== h0) { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, h1); homes++; }
