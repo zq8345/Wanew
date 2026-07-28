@@ -7,6 +7,13 @@
     "es-MX": "Accesorios para Starlink {model}",
     "zh": "Starlink {model} 配件"
   },
+  "list.banner.form": {
+    "en": "Starlink {form}",
+    "pt-BR": "Starlink {form}",
+    "es-MX": "Starlink {form}",
+    "zh": "Starlink {form}"
+  },
+  "reason.list.banner.form": "形态页(/type/X)的 banner 是与机型页【不同的模式】:机型页是「Starlink {model} Accessories」,形态页是「Starlink {形态}」,没有 Accessories —— 复用 list.banner.model 会给形态页凭空加上 Accessories,改变现有 en 文案。四语模式本身相同(品牌名在前、类目在后,四语都通),真正本地化的是 {form},它取自 header.* 的现成译文(header.cables/mounts_brackets/power_charging/networking/cases_protection),不新造任何类目名。en 输出逐字零变化。",
   "list.filter.model": {
     "en": "Model",
     "pt-BR": "Modelo",

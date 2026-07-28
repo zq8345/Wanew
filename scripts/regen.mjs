@@ -344,7 +344,11 @@ for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
   h1 = setListTitle(h1, name, locale, catalog);
   // setListLabels 现在也本地化形态 chip 类目名(header.* 键在 chrome.json=catalog)+ All(list.* 键在 listCat)
   // —— 两个 catalog 合并传入(键空间不重叠:header.* vs list.*)。
-  h1 = setListLabels(h1, { locale, catalog: { ...catalog, ...listCat }, model: bannerModel });
+  // 形态页的 banner 走另一条模式(见 setListLabels 的 formKey 分支)。取哪个 key 由 rel 反查
+  // TYPE_TITLE_KEY —— 它已经是 <title> 用的那一份,H1 和 <title> 从此同源,不会各翻各的。
+  const formSlug = /^type\/([^/]+)\//.exec(rel)?.[1];
+  h1 = setListLabels(h1, { locale, catalog: { ...catalog, ...listCat }, model: bannerModel,
+    formKey: formSlug ? TYPE_TITLE_KEY[formSlug] : undefined });
   if (isExtra(locale)) h1 = localizeInternalHead(h1, rel, locale);   // zh list 页:head 本地化+noindex+零 hreflang
   else h1 = localizeSeoListHead(h1, rel, locale);                     // en/es/pt list 页:派生+注入互惠 hreflang 簇
   if (h1 !== h0) { fs.writeFileSync(p, h1); lists++; }
