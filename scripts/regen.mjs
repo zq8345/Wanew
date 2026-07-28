@@ -663,7 +663,11 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
     const all = `<a class="guides-chip${current === "all" ? " is-active" : ""}" href="${urlOf("/guides/", loc)}">${pick(gCat["guides.filter.all"], loc)}</a>`;
     const tops = navTopics.map((t) =>
       `<a class="guides-chip${current === t ? " is-active" : ""}" href="${urlOf(`/guides/${t}/`, loc)}">${pick(catalog[TKEY[t]], loc)}</a>`).join("");
-    return `      <nav class="guides-nav" aria-label="${esc(pick(gCat["guides.nav.aria"], loc))}">${all}${tops}</nav>`;
+    // FAQ 与 5 轴在这条上平级(Joe 2026-07-28 第二次用实际使用推翻我们的分组判断)。
+    // 它【不】进 navTopics:那是"有文章的任务轴"集合,混进去 builder 会去建它的列表页,
+    // 而 /guides/faq/ 归 page-* loop 所有。所以单独挂一条,current==="faq" 时 active。
+    const faq = `<a class="guides-chip${current === "faq" ? " is-active" : ""}" href="${urlOf("/guides/faq/", loc)}">${pick(catalog["header.faq"], loc)}</a>`;
+    return `      <nav class="guides-nav" aria-label="${esc(pick(gCat["guides.nav.aria"], loc))}">${all}${tops}${faq}</nav>`;
   };
   /* ── 场景横切带(总工 #85):按【任务】的 5 轴是唯一浏览逻辑(Joe §3.2e 铁令,不动);
    *    但有一类读者是从"我的设备装在哪"进来的。给他们一条【横切】入口。
