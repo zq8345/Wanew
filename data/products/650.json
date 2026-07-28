@@ -2,12 +2,14 @@
   "id": 650,
   "category": "enterprise",
   "form": "Cables",
+  "status": "published",
   "robots": null,
   "i18n": {
     "en": {
       "title": "(2 Pack) For Starlink Ethernet Adapter Cable Enterprise Extension to RJ45 Cable, Starlink Cable 23AWG Waterproof SPX-RJ45 Coupler with End Caps",
       "summary_html": "",
       "description_html": "<ul><li><p>Seamless Ethernet Conversion: Easily convert Starlink Enterprise’s connector to a standard RJ45 port, allowing you to use high-quality 23AWG or better cables for extended connections.</p></li><li><p>Extended Cable Compatibility: Supports up to 50 meters of 23AWG CAT6 cable for high-speed data transmission, ensuring a stable and reliable Starlink connection without the need for crimping or cutting.</p></li><li><p>Enhanced Durability: Crafted with 23AWG wire and shielded with premium anti-aging materials, this adapter is designed for long-term outdoor use and withstands harsh conditions like moisture and dirt.</p></li><li><p>Waterproof & Outdoor-Ready: IP67 waterproof protection ensures a secure connection for both indoor and outdoor Starlink installations, preventing environmental damage to your network.</p></li><li><p>Effortless Setup & Reliable Performance: Easy to install with no need for cutting or crimping, providing a stable and reliable connection for your Starlink Enterprise setup.</p></li></ul>",
+      "card_title": "Starlink Ethernet Adapter Cable Enterprise Extension to RJ45 Cable",
       "meta_description": "Seamless Ethernet Conversion: Easily convert Starlink Enterprise’s connector to a standard RJ45 port, allowing you to use high-quality 23AWG or better cables for extended connections."
     },
     "pt-BR": {
