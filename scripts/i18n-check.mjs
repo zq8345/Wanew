@@ -215,7 +215,13 @@ const DYN_PREFIXES = [...allCode.matchAll(/`([a-z0-9_.]*)\$\{/gi)].map((m) => m[
 const used = (key) => {
   const p = key.match(/^product\.\d+\.(\w+)$/);
   if (p) return PRODUCT_FIELDS.has(p[1]);
-  if (allTpl.includes(`{{t.${key}}}`) || allCode.includes(`"${key}"`) || allCode.includes(`'${key}'`)) return true;
+  // ⚠️ 第三种消费方式:键以 `{{t.KEY}}` 的形式写在【代码的模板字符串里】(render.js 拼 HTML 片段时
+  //    就是这么干的,例如 VIDEOS_BLOCK 里的 {{t.body.videos.title}})。前两条只认"模板文件里的
+  //    {{t.}}"和"代码里带引号的裸键",这一类两边都不匹配 → 被误报成"无人使用"。
+  //    实测:body.videos.title 就是这么被误报的,照那份清单删会删掉【活着的】视频区标题。
+  //    这正是本文件 189 行那句"消费者搬了家、清单没跟上"的同一个形状,只是这次搬进了模板字符串。
+  if (allTpl.includes(`{{t.${key}}}`) || allCode.includes(`{{t.${key}}}`)
+      || allCode.includes(`"${key}"`) || allCode.includes(`'${key}'`)) return true;
   return DYN_PREFIXES.some((pre) => key.startsWith(pre)) ? "dyn" : false;
 };
 // Unused keys: in the catalog but referenced by neither a template nor code (rot).
