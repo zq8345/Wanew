@@ -180,5 +180,48 @@ test("/products/ 路由层", (t) => {
   ok(!EXPORTS_ONREQUEST.test('export function handleProductRoute(c){}'),
     "⑧ 正对照:不叫 onRequest 的正常导出不误伤");
 
+  // ── ⑩ 🔴 反向:products/ 下每个详情页文件,必须命中当前 manifest 的某个 path ────
+  /* 前面的 ⑦⑨ 都是「清单 → 实物」方向。这一条是反的:**实物 → 清单**。
+     为什么必须有:改产品标题会让 path 变(派生自 `card_title || title`),
+     regen 于是产出 `products/{新slug}-{id}.html` —— 而 **`{旧slug}-{id}.html` 不会被删,
+     regen 只产不删**。访客侧无害(Function 优先于静态,旧 slug 一律先 301,孤儿永不被服务),
+     但 **sitemap 是 chrome-sync 扫全文件系统得来的** ——
+     > **孤儿会进 sitemap,而它们每一条都是 301。等于我们主动向 Google 提交一批重定向 URL。**
+     它还顺带守住 5a 的地基:映射表由 manifest 的 path 派生,孤儿一出现这条就红。
+
+     ⚠️ **建这条闸的时机就是它的价值**:今天孤儿是 0 —— 不是因为机制健全,
+     是因为 path 还没真变过(每个 key 恰好是 title 首词,那个"恰好"还没被打破)。
+     Joe 填的第一个「前 6 词与 title 不同」的短名就会造出第一个孤儿。
+     > **闸建在事故之后,基线里就已经含着那个事故** —— 那时你还得先判断
+     > 「这几个孤儿是历史遗留还是新 bug」。现在建,基线是 0,不需要判断。 */
+  const canonPaths = new Set(MANIFEST.filter((p) => p.path).map((p) => p.path));
+  ok(canonPaths.size > 0, `⑩ manifest 里有 ${canonPaths.size} 个规范 path`);
+  const perLocale = {};
+  for (const d of ["", "es", "pt", "zh"]) {
+    const base = `${d ? d + "/" : ""}products`;
+    if (!fs.existsSync(base)) continue;
+    const files = fs.readdirSync(base, { withFileTypes: true })
+      .filter((e) => e.isFile() && e.name.endsWith(".html") && e.name !== "index.html")
+      .map((e) => e.name.slice(0, -5));
+    const orphans = files.filter((s) => !canonPaths.has(s));
+    ok(orphans.length === 0,
+      `⑩ ${d || "en"}/products/ 详情页 ${files.length} 个,孤儿 ${orphans.length}` +
+      (orphans.length ? ` —— ${orphans.slice(0, 3).join(", ")}(manifest 里没有这些 path;` +
+        `多半是改标题后旧文件没删,它会进 sitemap 且永远 301)` : ""));
+    perLocale[d] = files.length;
+  }
+  /* ⚠️ 分母必须【按语种】钉,不能用总数。
+     我第一版写的是 `scanned >= canonPaths.size`(所有语种加起来 ≥ 68)——
+     正对照当场戳穿:把整个 en 的 products/ 移走,es+pt 的 122 个文件把总数补满,**闸没红**。
+     > **漏掉的是某一个语种,而总数看不见它。** 与那次「旧址对账拿全部用例当分母」同一个病。
+     en 是唯一必须齐全的(每个产品都有 en 详情页);es/pt 缺是既定事实(译文未齐);
+     zh 没有详情页(DESIGN.md §9.1)。所以只对 en 钉死,其余只要"目录在就得扫得到东西"。 */
+  ok(perLocale[""] === canonPaths.size,
+    `⑩ en/products/ 必须齐全:扫到 ${perLocale[""] ?? 0} 个,manifest 有 ${canonPaths.size} 个`);
+  for (const d of ["es", "pt"]) {
+    if (!fs.existsSync(`${d}/products`)) continue;
+    ok((perLocale[d] || 0) > 0, `⑩ ${d}/products/ 目录在就必须扫到详情页(扫到 ${perLocale[d] || 0} 个)`);
+  }
+
   console.log(`\n✅ ${pass} 条断言通过`);
 });
