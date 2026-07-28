@@ -5,6 +5,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { render, genRelated, resolveImg, regenListPage, setListTitle, setListLabels, renderHome, renderPage, excerptOf, catmapOf } from "../functions/_lib/render.js";
+import { productPath } from "./product-slug.mjs";
 import { localeDirs } from "./locale-dirs.mjs";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -161,6 +162,11 @@ const urlOf = (p, loc) => {
 // reads to render one pt list page. title/excerpt stay English so the admin UI is untouched.
 const entries = Object.values(prods).map((p) => {
   const e = { id: p.id, category: p.category, form: p.form, title: p.i18n.en.title,
+    // 🔴 规范 URL 段。算一次存下来 —— 跳转层(Function)读它判断"来的 slug 规不规范",
+    //    而不是自己再实现一遍派生规则。两处各算一遍 = 两套会分头漂的规则,
+    //    症状是"规范 URL 自己 301 到自己"(重定向循环),极难查。
+    //    ⚠️ 有 card_title 时用它(短名更适合做 URL),没有则从 en 标题派生 —— 当前 68 个全走派生。
+    path: productPath(p.i18n.en.card_title || p.i18n.en.title, p.id),
     // 短名跟语言走,只在有值时才写进 manifest —— 没填的产品条目字节不变(68 个当前全没填)。
     ...(p.i18n.en.card_title ? { card_title: p.i18n.en.card_title } : {}),
     thumb: p.images[0] ? resolveImg(p.images[0], cfg.img_base) : "", excerpt: excerptOf(p) };
