@@ -1292,7 +1292,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-panel { background: var(--w3-panel); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); padding: clamp(22px, 2.6vw, 34px); }
 /* 面板内的"行":同一容器里的兄弟行 + 下边框,**不是各自带背景/圆角的盒子**。
    (卡片 = 可点击的对象;不可点击的内容用面板 + 分隔行 —— 总工 2026-07-28 立的规则。) */
-.w3-panel__row { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--w3-line); }
+.w3-panel__row { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--w3-line); }
 .w3-panel__row:last-child { border-bottom: none; }
 /* Contact 沿用旧类名消费同一套值 —— 改类名会动它的产出,而这一步不许动。 */
 .w3-contact__card { background: var(--w3-panel); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); padding: clamp(22px, 2.6vw, 34px); }   /* no align-self so the grid's align-items:stretch gives equal-height cards */
@@ -1550,14 +1550,22 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
    于是每个单词占一行。block + 绝对定位序号,内联内容有几个都不影响。 */
 .about-steps li { position: relative; display: block; padding-left: 36px;
   font-size: 14.5px; line-height: 1.65; color: var(--w3-text2); }
-.about-steps__n { position: absolute; left: 0; top: 1px;
+/* ⚠️ 底层直接给单色,不再依赖 .w3-whitecards 之类的【上下文覆盖】——
+   上下文一旦消失(v8 把白卡换成深色面板),覆盖静默失效、底层的 accent 蓝就露出来。
+   今天已经栽过同一根:白底来自 .w3-iconcard 的上下文,换类后只搬了墨没搬底。
+   **别把"最终值"寄存在上下文里。** */
+.about-steps__n { position: absolute; left: 0; top: 1px; background: var(--w3-surface-2);
+  border: 1px solid var(--w3-line2); color: var(--w3-text);
   display: inline-flex; width: 24px; height: 24px; align-items: center; justify-content: center;
-  border-radius: 50%; font-size: 12px; font-weight: 700; background: var(--w3-accent); color: #fff; }
+  /* ⚠️ 这里原本还有一次 `background: var(--w3-accent); color:#fff` —— 同一条规则里的【后置声明】,
+     它赢的不是选择器优先级,是【源码顺序】。今天第一次修根只在块首加了单色,验收仍读出蓝。
+     教训:改一个属性前先看【整块】,不只是看有没有别的选择器也在管它。 */
+  border-radius: 50%; font-size: 12px; font-weight: 700; }
 .about-steps b { font-weight: 700; margin-right: 6px; color: var(--w3-text); }
 .w3-whitecards .about-steps li { color: var(--w3-invert-ink2); }
 .w3-whitecards .about-steps b { color: var(--w3-invert-ink); }
 /* v6:零彩色 —— 序号圆点跟随墨色,不用 accent(原 invert-accent 是蓝) */
-.w3-whitecards .about-steps__n { background: var(--w3-invert-ink); }
+/* .w3-whitecards 上下文在 About 已不存在(v8),这条留着只会误导 —— 底层已是单色。 */
 
 /* Partner 的"三合一成一行"版(含 max-width:860 与项目符号)已随 v5 三卡退役,见下方 v5 段。 */
 
@@ -1574,7 +1582,15 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 
 
 /* ⑤ Partner:三条路径 → 三张卡(i18n 本来就是 .t/.d 的卡片形状,没新建键) */
-.about-partner__ways { list-style: none; margin: 16px 0 0; display: grid; }
+/* 三个并列选项 → 三栏并列(它们是"选一个",不是"依次读") */
+.about-partner__ways { list-style: none; margin: 16px 0 0; padding: clamp(22px, 2.6vw, 34px);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 2.2vw, 32px); }
+.about-partner__ways > .w3-panel__row { flex-direction: column; align-items: flex-start; gap: 6px;
+  padding: 0; border-bottom: 0; min-width: 0; }
+@media (max-width: 860px) { .about-partner__ways { grid-template-columns: 1fr; gap: 0; }
+  .about-partner__ways > .w3-panel__row { flex-direction: row; padding: 12px 0;
+    border-bottom: 1px solid var(--w3-line); }
+  .about-partner__ways > .w3-panel__row:last-child { border-bottom: 0; } }
 /* v6:见 .ab-card */
 /* 退役旧 .faq-flat 容器时它的外边距一并没了,链接会贴着卡底边。补回呼吸位。 */
 .about-faq-more { margin-top: 16px; }
@@ -1606,13 +1622,29 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-panel__body p { font-size: 14.5px; line-height: 1.65; color: var(--w3-text2); margin: 0; }
 
 /* 数据:6 项细线分行,不是 6 张卡 */
-.about-stats { list-style: none; margin: 18px 0 0; padding: clamp(22px, 2.6vw, 34px); display: grid; }
-.about-stats .about-stat { align-items: baseline; gap: 16px; }
-.about-stat__n { font-size: clamp(22px, 1.9vw, 30px); font-weight: 800; color: var(--w3-text); letter-spacing: -0.03em; min-width: 5.5ch; }
-.about-stat__l { font-size: 14.5px; color: var(--w3-text2); }
+/* 并列数据 → 横排 6 列。竖排时每条都是"数字+标签"一行,六条读起来是六句话;
+   横排之后它们才读成【一组指标】。 */
+.about-stats { list-style: none; margin: 18px 0 0; padding: clamp(22px, 2.6vw, 34px);
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(14px, 1.6vw, 24px); }
+.about-stats .about-stat { display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
+  padding: 0; border-bottom: 0; min-width: 0; }
+.about-stat__n { font-size: clamp(24px, 2.1vw, 34px); font-weight: 800; color: var(--w3-text); letter-spacing: -0.03em; line-height: 1.05; }
+/* 标签左缘对齐 = 每格自身左对齐(竖排时标签跟在数字后面,六条参差不齐) */
+.about-stat__l { font-size: 13.5px; line-height: 1.4; color: var(--w3-text2); }
+@media (max-width: 1100px) { .about-stats { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .about-stats { grid-template-columns: repeat(2, 1fr); } }
 
 /* Quality Process:5 行,行首序号承担顺序(连接线 v6 已判掉) */
-.about-qp { list-style: none; margin: 18px 0 0; padding: clamp(22px, 2.6vw, 34px); display: grid; }
+/* 有顺序的流程 → 横向 5 步。竖排时它和上面那六条数据长得一模一样,读不出"这是个流程"。 */
+.about-qp { list-style: none; margin: 18px 0 0; padding: clamp(22px, 2.6vw, 34px);
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(14px, 1.6vw, 22px); }
+.about-qp .about-qprow { flex-direction: column; align-items: flex-start; gap: 8px;
+  padding: 0; border-bottom: 0; min-width: 0; }
+@media (max-width: 1100px) { .about-qp { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 700px) { .about-qp { grid-template-columns: 1fr; }
+  .about-qp .about-qprow { flex-direction: row; align-items: flex-start; gap: 14px; padding: 12px 0;
+    border-bottom: 1px solid var(--w3-line); }
+  .about-qp .about-qprow:last-child { border-bottom: 0; } }
 .about-qprow__n { flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--w3-surface-2);
   border: 1px solid var(--w3-line2); color: var(--w3-text); display: inline-flex; align-items: center;
   justify-content: center; font-size: 11.5px; font-weight: 700; }
