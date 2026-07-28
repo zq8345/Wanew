@@ -1378,14 +1378,18 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 
 /* ── Solutions · Marine deep blocks (#77 sample). §2.6 分层：bg-0 段 → surface-2 卡浮起 + edge-top。
    全部走令牌，零硬编码色。其余 5 场景不加载这些类（HTML 里根本不出现）。 */
-.sol-mar-lead { max-width: 720px; margin: 14px 0 0; font-size: 15px; line-height: 1.7; color: var(--w3-text2); }
-.sol-mar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin-top: 30px; }
+.sol-mar-pain, .sol-mar-sys, .sol-mar-kit, .sol-mar-trust, .sol-mar-install, .sol-mar-cta { padding-top: 96px; padding-bottom: 96px; }
+.sol-mar-pain .tj-sechead, .sol-mar-sys .tj-sechead, .sol-mar-kit .tj-sechead, .sol-mar-trust .tj-sechead, .sol-mar-install .tj-sechead { margin-bottom: 8px; }
+/* 少字要看起来是【有意的克制】：标题更大、正文更少、留白更多 */
+.sol-mar-pain .tj-h2, .sol-mar-sys .tj-h2, .sol-mar-kit .tj-h2, .sol-mar-trust .tj-h2, .sol-mar-install .tj-h2 { font-size: clamp(2rem, 3.4vw, 3.1rem); line-height: 1.08; letter-spacing: -0.03em; }
+.sol-mar-lead { max-width: 620px; margin: 18px 0 0; font-size: 16px; line-height: 1.6; color: var(--w3-text2); }
+.sol-mar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 28px; margin-top: 52px; }
 
 /* ① 难在哪：编号 + 标题 + 说明（DESIGN.md 禁装饰图标卡，这里用编号索引） */
 .sol-mar-pain__i { position: relative; padding: 24px 24px 24px 26px; border-left: 2px solid var(--w3-line); }
 .sol-mar-pain__n { display: block; font-size: 12px; font-weight: 700; letter-spacing: .14em; color: var(--w3-accent); margin-bottom: 10px; }
-.sol-mar-pain__i h3 { font-size: 17px; font-weight: 700; color: var(--w3-text); margin: 0 0 8px; letter-spacing: -0.01em; }
-.sol-mar-pain__i p { font-size: 14.5px; line-height: 1.7; color: var(--w3-text2); margin: 0; }
+.sol-mar-pain__i h3 { font-size: 19px; font-weight: 700; color: var(--w3-text); margin: 0 0 8px; letter-spacing: -0.015em; line-height: 1.3; }
+.sol-mar-pain__i p { font-size: 14.5px; line-height: 1.6; color: var(--w3-text3); margin: 0; }
 
 /* ② 需要什么：白卡（§2.6 招2 = 深底留深、容器翻白） */
 .sol-mar-sys__c { padding: 26px 24px; border-radius: var(--w3-radius); background: var(--w3-surface-2); border: 1px solid var(--w3-line); box-shadow: var(--w3-elev-card); border-top: 1px solid var(--w3-edge-top); }
@@ -1399,23 +1403,23 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-whitecards .sol-mar-sys__ic { background: rgba(11,13,16,.05); color: var(--w3-invert-accent); }
 
 /* ③ 推荐配置：可点卡（图标+名+为什么+规格），刻意不用产品图（旧品牌像素风险） */
-.sol-mar-kit__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; margin-top: 30px; }
+.sol-mar-kit__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin-top: 52px; }
 .sol-mar-kit__c { position: relative; display: block; padding: 24px 22px 44px; border-radius: var(--w3-radius); background: var(--w3-surface-2); border: 1px solid var(--w3-line); border-top: 1px solid var(--w3-edge-top); box-shadow: var(--w3-elev-card); text-decoration: none; transition: transform .3s var(--w3-ease), border-color .3s, box-shadow .3s; }
 .sol-mar-kit__c:hover { transform: translateY(-3px); border-color: rgba(125,177,255,.35); box-shadow: 0 16px 32px rgba(0,0,0,.38); }
 .sol-mar-kit__ic { display: inline-flex; width: 38px; height: 38px; align-items: center; justify-content: center; border-radius: 10px; background: var(--w3-well); color: var(--w3-accent); margin-bottom: 14px; }
 .sol-mar-kit__ic svg { width: 20px; height: 20px; }
-.sol-mar-kit__t { font-size: 16.5px; font-weight: 700; color: var(--w3-text); margin: 0 0 8px; letter-spacing: -0.01em; }
+.sol-mar-kit__t { font-size: 17px; font-weight: 700; color: var(--w3-text); margin: 0 0 6px; letter-spacing: -0.015em; line-height: 1.3; }
 .sol-mar-kit__w { font-size: 14.5px; line-height: 1.65; color: var(--w3-text2); margin: 0 0 10px; }
-.sol-mar-kit__s { font-size: 13px; line-height: 1.6; color: var(--w3-text3); margin: 0; padding-top: 10px; border-top: 1px solid var(--w3-line); }
+.sol-mar-kit__s { font-size: 12.5px; line-height: 1.6; color: var(--w3-text3); margin: 0; letter-spacing: .01em; }
 .sol-mar-kit__arw { position: absolute; right: 20px; bottom: 18px; color: var(--w3-text3); transition: color .3s, transform .3s; }
 .sol-mar-kit__c:hover .sol-mar-kit__arw { color: var(--w3-accent); transform: translateX(3px); }
-.sol-mar-note { margin: 22px 0 0; font-size: 13px; line-height: 1.7; color: var(--w3-text3); max-width: 760px; }
+.sol-mar-note { margin: 30px 0 0; font-size: 12.5px; line-height: 1.6; color: var(--w3-text3); max-width: 640px; opacity: .85; }
 
 /* ④ 凭什么信：复用 About 认证条 */
-.sol-mar-certs { margin-top: 26px; }
+.sol-mar-certs { margin-top: 34px; }
 
 /* ⑤ 怎么装：指南链接行 */
-.sol-mar-guides { display: grid; gap: 10px; margin-top: 28px; }
+.sol-mar-guides { display: grid; gap: 10px; margin-top: 46px; }
 .sol-mar-guides__l { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; border-radius: var(--w3-radius); background: var(--w3-surface-2); border: 1px solid var(--w3-line); border-top: 1px solid var(--w3-edge-top); color: var(--w3-text); font-size: 15px; font-weight: 600; text-decoration: none; transition: transform .3s var(--w3-ease), border-color .3s; }
 .sol-mar-guides__l:hover { transform: translateX(3px); border-color: rgba(125,177,255,.35); color: var(--w3-text); }
 .sol-mar-guides__b { font-size: 12px; font-weight: 500; color: var(--w3-text3); margin-left: 6px; }
@@ -1425,4 +1429,5 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 @media (max-width: 767px) {
   .sol-mar-grid, .sol-mar-kit__grid { grid-template-columns: 1fr; }
   .sol-mar-pain__i { padding: 18px 0 18px 20px; }
+  .sol-mar-pain, .sol-mar-sys, .sol-mar-kit, .sol-mar-trust, .sol-mar-install, .sol-mar-cta { padding-top: 60px; padding-bottom: 60px; }
 }

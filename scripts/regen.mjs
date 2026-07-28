@@ -326,12 +326,10 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
       if (sc === "marine") {
         const kit = MARINE_KIT.map(([n, cat, id, ic]) => {
           const nm = pick(solCat[`solutions.marine.rec.${n}.n`], locale);
-          const why = pick(solCat[`solutions.marine.rec.${n}.w`], locale);
           const spec = pick(solCat[`solutions.marine.rec.${n}.s`], locale);
           return `        <a class="sol-mar-kit__c" href="${urlOf(`/${cat}/${id}`, locale)}">\n`
             + `          <span class="sol-mar-kit__ic" aria-hidden="true">${ICON[ic]}</span>\n`
             + `          <h3 class="sol-mar-kit__t">${esc(nm)}</h3>\n`
-            + `          <p class="sol-mar-kit__w">${esc(why)}</p>\n`
             + `          <p class="sol-mar-kit__s">${esc(spec)}</p>\n`
             + `          <span class="sol-mar-kit__arw" aria-hidden="true">→</span>\n        </a>`;
         }).join("\n");
