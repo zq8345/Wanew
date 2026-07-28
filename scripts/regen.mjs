@@ -216,6 +216,9 @@ const AGGREGATES = [["performance-gen-2/index.html", ["performance-gen-1", "perf
 // Slugs live under /type/ because `mounts/` and `power/` are already guide hubs. [slug, form-name]
 // pairs come straight from the forms.json single source (order = /type page + chip order).
 const TYPES = FORMS.map((f) => [f.key, f.name]);
+// 形态页标题用的 catalog 键(与 nav 标签同一份,不另存一份英文字面量)。
+const TYPE_TITLE_KEY = { cables: "header.cables", mounts: "header.mounts_brackets",
+  power: "header.power_charging", networking: "header.networking", cases: "header.cases_protection" };
 // One table: [page, which products it scopes, what its <title> is named after]. Every list page
 // goes through it — no page gets to be the exception that keeps a hand-written title.
 // 第 4 格 = banner 用哪个机型名派生标题(setListLabels)。只有机型页有:
@@ -226,7 +229,9 @@ const LIST_PAGES = [
   ["products/index.html", null, { t: "body.banner.title" }],       // common noun -> catalog
   ...CATS.map((c) => [`${c}/index.html`, c, MODEL[c], MODEL[c]]),   // model names are brand terms
   ...AGGREGATES.map(([rel, cat]) => [rel, cat, MODEL["performance-gen-2"], MODEL["performance-gen-2"]]),
-  ...TYPES.map(([s, f]) => [`type/${s}/index.html`, { form: f }, f.replace(/&/g, "&amp;")]),
+  // <title> 走 catalog key 而不是英文字面量:否则新建的 es/pt 形态页会顶着英文标题。
+  // 已逐条核对 header.* 的 en 值与原字面量【逐字相同】,所以 en 输出零变化,只是 es/pt 拿到真译文。
+  ...TYPES.map(([s]) => [`type/${s}/index.html`, { form: FORMS.find((x) => x.key === s).name }, { t: TYPE_TITLE_KEY[s] }]),
 ];
 // 列表页的 banner/筛选栏标签 catalog(data/pages/list.json)—— 和 shared 一样并进来
 const listCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "list.json"), "utf8"));
@@ -279,11 +284,20 @@ let lists = 0;
 //   新模型无产品时卡片网格为空(正常:产品由 Admin 后续按 category 归入,grid 自动填充)。
 //   ⚠️ 只对【模型】create-if-missing;products/type/aggregate 等固定列表页保持"缺页不自动建"原契约。
 const isModelEntry = (c) => typeof c === "string";
+const isFormEntry = (c) => !!(c && typeof c === "object" && !Array.isArray(c) && c.form);
 const modelSeedRel = (loc, targetCat) => {
   const s = CATS.find((c) => c !== targetCat && fs.existsSync(pageOf(loc, `${c}/index.html`)));
   return s ? `${s}/index.html` : null;   // 该 locale 里第一个【非目标】现存模型页做种;无则该 locale 建不了(回落跳过)
 };
+// ⚠️ 两阶段,顺序不能反 —— 建页与【按存在性派生 hreflang】必须分开:
+// localizeSeoListHead 是靠"该语种的页在不在"决定发不发那条 alternate 的。如果建页和派生在同一遍里
+// 交错进行,先被处理的语种(en)派生时,后面的语种(es/pt)页还没建出来 → 它就少发几条 alternate,
+// 要再跑一遍 regen 才补齐。实测过:第一遍 en 只拿到 en+x-default,第二遍才补上 es-MX/pt-BR。
+// 与其留一条"记得跑两遍"的规矩(总有人不记得),不如让顺序不再重要:
+//   阶段①把这个 rel 的各语种缺页【全部】建出来 → 阶段②再统一 regen + 派生 head。
+// hreflang 只依赖【同一个 rel 的其它语种】,所以按 rel 分两阶段就足够,不需要全站两遍。
 for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
+ // ── 阶段①:只建缺页,不产出任何 head ──
  for (const locale of RENDER_SET) {
   const p = pageOf(locale, rel);
   if (!fs.existsSync(p)) {
@@ -301,10 +315,27 @@ for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
       if (!seedRel) continue;               // 该 locale 无可做种的现存模型页 → 跳过(不硬造)
       fs.mkdirSync(path.dirname(p), { recursive: true });
       fs.copyFileSync(pageOf(locale, seedRel), p);
+    } else if (isFormEntry(cat)) {
+      // 🔴 #69 审计挖出来的:/type/ 5 页在 en 有、连内部 zh 都有(zh 走上面 isExtra 分支从 en 播种),
+      //    **唯独 es/pt 没有** —— 因为形态页的 cat 是 {form:…} 对象,既不是 isExtra 也不是模型 entry,
+      //    一路掉到这个 else 里 continue 掉了。生产实测 /es/type/cables/ 与 /pt/type/cables/ 都是 404。
+      //    结果是:两个【真正做 SEO 的语种】反而是唯一没有"按形态浏览"这条轴的。
+      //    这不是翻译工程 —— 卡片网格由 regenListPage 重建、标题/筛选栏标签 catalog 里早有 es/pt 值。
+      //    所以和 zh 一样从默认语种播种即可,下面三步本地化 + localizeSeoListHead 注入自指 canonical
+      //    与互惠 hreflang 簇(SEO 语种走这条,不是 zh 那条 noindex 分支)。
+      const seed = pageOf(DEFAULT, rel);
+      if (!fs.existsSync(seed)) continue;   // en 自己都还没建 → 本轮跳过,下轮补
+      fs.mkdirSync(path.dirname(p), { recursive: true });
+      fs.copyFileSync(seed, p);
     } else {
-      continue;   // 非模型固定列表页(products/type/aggregate):缺页不自动建(站点地图是另一个决定,原契约)
+      continue;   // 其余固定列表页(products/aggregate):缺页不自动建(站点地图是另一个决定,原契约)
     }
   }
+ }
+ // ── 阶段②:此时该 rel 的各语种页都已存在,派生出来的 hreflang 才是完整互惠的 ──
+ for (const locale of RENDER_SET) {
+  const p = pageOf(locale, rel);
+  if (!fs.existsSync(p)) continue;          // 阶段①决定不建的(如 products/aggregate 缺页)
   const h0 = fs.readFileSync(p, "utf8");
   let h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf, formKey: FORM_KEY, sizes: MEDIA_SIZES });
   h1 = setListTitle(h1, name, locale, catalog);
