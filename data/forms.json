@@ -1,0 +1,10 @@
+{
+  "_note": "Single source for the product FORM-FACTOR axis — the /type/{key}/ pages, each card's data-form, and the model/nav chip counts. Order = /type page order = chip order. Consumed by: scripts/regen.mjs (TYPES + FORM_KEY), functions/_lib/render.js (formKey threaded as a param — Worker-safe, no fs), functions/_lib/chrome.js (nav counts via makeChrome({forms})), functions/api/admin/[[path]].js (validation + list regen). ADD a form: append {key,name}. REORDER: reorder the array. DELETE a form: run `node scripts/forms-integrity-check.mjs` first — a form still referenced by a product (count>0) is rejected. RENAME a key changes the /type/{key}/ URL — out of scope this phase (add/reorder/rename-display-name/guarded-delete only). `name` = the bucket display string stored on each product's `form` field; `key` = the URL/data-form slug.",
+  "forms": [
+    { "key": "cables", "name": "Cables" },
+    { "key": "mounts", "name": "Mounts & Brackets" },
+    { "key": "power", "name": "Power & Charging" },
+    { "key": "networking", "name": "Networking" },
+    { "key": "cases", "name": "Cases & Protection" }
+  ]
+}

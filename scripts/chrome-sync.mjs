@@ -25,6 +25,7 @@ const catalog = JSON.parse(fs.readFileSync("data/chrome.json", "utf8"));
 const locales = JSON.parse(fs.readFileSync("data/locales.json", "utf8"));
 const partial = fs.readFileSync("data/templates/_chrome.html", "utf8");
 const manifest = JSON.parse(fs.readFileSync("data/products-index.json", "utf8"));
+const forms = JSON.parse(fs.readFileSync("data/forms.json", "utf8")).forms;  // 形态单源 → nav 计数 FORM_KEY
 
 const existsCache = new Map();
 const pageExists = (rel) => {
@@ -33,7 +34,7 @@ const pageExists = (rel) => {
 };
 
 const { applyChrome } = makeChrome({
-  catalog, locales, partial, manifest, pageExists, locDir: localeDirs(locales),
+  catalog, locales, partial, manifest, pageExists, locDir: localeDirs(locales), forms,
 });
 
 // ---- page walk ----

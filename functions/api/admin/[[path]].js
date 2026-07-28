@@ -7,15 +7,28 @@ import { ghConfig, commitFiles, readFile } from "../../_lib/github.js";
 
 const LIST_CAT = null; // /products/ uses no category filter
 
-// Read the render inputs (template + config + manifest) straight from the repo.
+// Read the render inputs (template + config + manifest + the axis single sources) straight from
+// the repo. render.js is a pure module (no fs) — the Worker reads forms.json/categories.json here
+// via the GitHub API and threads them in, so the form-factor slug map has ONE source, not a copy
+// baked into this file. Both single sources are required: a missing one is a hard 500, not a
+// silent fallback that would let the list-page regen emit empty data-form / wrong chip counts.
 async function loadCtx(env, cfg) {
-  const [template, siteRaw, manRaw] = await Promise.all([
+  const [template, siteRaw, manRaw, formsRaw, catsRaw] = await Promise.all([
     readFile(env, cfg, "data/templates/product.html"),
     readFile(env, cfg, "data/site.json"),
     readFile(env, cfg, "data/products-index.json"),
+    readFile(env, cfg, "data/forms.json"),
+    readFile(env, cfg, "data/categories.json"),
   ]);
-  if (!template || !siteRaw) return null;
-  return { template, site: JSON.parse(siteRaw), manifest: manRaw ? JSON.parse(manRaw) : [] };
+  if (!template || !siteRaw || !formsRaw || !catsRaw) return null;
+  const forms = JSON.parse(formsRaw).forms;
+  const categories = JSON.parse(catsRaw).categories;
+  return {
+    template, site: JSON.parse(siteRaw), manifest: manRaw ? JSON.parse(manRaw) : [],
+    formNames: forms.map((f) => f.name),                                   // validation whitelist
+    catSlugs: categories.map((c) => c.slug),                               // validation whitelist
+    formKey: Object.fromEntries(forms.map((f) => [f.name, f.key])),        // bucket name -> data-form slug
+  };
 }
 
 // Persist a product: update manifest, regenerate its detail page + the affected list pages
@@ -37,7 +50,7 @@ async function publishProduct(env, cfg, ctx, prod, { isNew, oldCategory, email }
   for (const cat of cats) {
     const rel = cat ? `${cat}/index.html` : "products/index.html";
     const h = await readFile(env, cfg, rel);
-    if (h) files.push({ path: rel, content: regenListPage(h, manifest, cat) });
+    if (h) files.push({ path: rel, content: regenListPage(h, manifest, cat, { formKey: ctx.formKey }) });
   }
   return commitFiles(env, cfg, files, `admin: ${isNew ? "create" : "update"} product ${prod.id} (${email})`);
 }
@@ -57,22 +70,21 @@ async function unpublishProduct(env, cfg, ctx, id, { email }) {
   for (const cat of new Set([LIST_CAT, category])) {
     const rel = cat ? `${cat}/index.html` : "products/index.html";
     const h = await readFile(env, cfg, rel);
-    if (h) files.push({ path: rel, content: regenListPage(h, manifest, cat) });
+    if (h) files.push({ path: rel, content: regenListPage(h, manifest, cat, { formKey: ctx.formKey }) });
   }
   return commitFiles(env, cfg, files, `admin: delete product ${id} (${email})`);
 }
 
-const CATEGORIES = ["mini", "standard", "standard-actuated", "standard-circular", "performance-gen-1", "performance-gen-3", "enterprise"];
-const FORMS = ["Cables", "Mounts & Brackets", "Power & Charging", "Networking", "Cases & Protection"];
-
 // Validate + normalize an admin-submitted product. Returns {prod} or {error}.
-function validateProduct(body, id) {
+// catSlugs/formNames are the whitelists derived per-request from the categories.json/forms.json
+// single sources (see loadCtx) — this function no longer keeps its own hardcoded copy.
+function validateProduct(body, id, { catSlugs, formNames }) {
   if (!body || typeof body !== "object") return { error: "body must be an object" };
   // id is authoritative from the caller (URL id for edit, assigned id for create) — not body.
-  if (!CATEGORIES.includes(body.category)) return { error: "invalid category" };
+  if (!catSlugs.includes(body.category)) return { error: "invalid category" };
   // form-factor is optional (null/empty = unset); if present it must be a known enum.
   const form = body.form ? String(body.form) : null;
-  if (form !== null && !FORMS.includes(form)) return { error: "invalid form" };
+  if (form !== null && !formNames.includes(form)) return { error: "invalid form" };
   const en = body.i18n && body.i18n.en;
   if (!en || typeof en.title !== "string" || !en.title.trim()) return { error: "title required" };
   if (typeof en.description_html !== "string") return { error: "description_html required" };
@@ -152,7 +164,7 @@ export async function onRequest(context) {
     const ctx = await loadCtx(env, cfg);
     if (!ctx) return json({ error: "template/config missing" }, 500);
     const newId = ctx.manifest.reduce((m, e) => Math.max(m, e.id), 0) + 1;
-    const v = validateProduct(body, newId);
+    const v = validateProduct(body, newId, ctx);
     if (v.error) return json({ error: v.error }, 400);
     try {
       const r = await publishProduct(env, cfg, ctx, v.prod, { isNew: true, email: auth.email });
@@ -170,10 +182,11 @@ export async function onRequest(context) {
     if (!cfg) return json({ error: "GitHub not configured" }, 503);
     let body;
     try { body = await request.json(); } catch { return json({ error: "bad json body" }, 400); }
-    const v = validateProduct(body, id);
-    if (v.error) return json({ error: v.error }, 400);
+    // loadCtx first: validateProduct needs the categories/forms whitelists it carries.
     const ctx = await loadCtx(env, cfg);
     if (!ctx) return json({ error: "template/config missing" }, 500);
+    const v = validateProduct(body, id, ctx);
+    if (v.error) return json({ error: v.error }, 400);
     const oldCategory = (ctx.manifest.find((e) => e.id === id) || {}).category;
     try {
       const r = await publishProduct(env, cfg, ctx, v.prod, { isNew: false, oldCategory, email: auth.email });

@@ -23,6 +23,9 @@ const locales = JSON.parse(fs.readFileSync(path.join(REPO, "data", "locales.json
 const catalog = JSON.parse(fs.readFileSync(path.join(REPO, "data", "chrome.json"), "utf8"));
 // #52 批1：类目唯一真源 = data/categories.json（原 render.js CATMAP + 本文件 CATS 双硬编码迁入）
 const categoriesJson = JSON.parse(fs.readFileSync(path.join(REPO, "data", "categories.json"), "utf8"));
+// #52 批2：形态唯一真源 = data/forms.json（原 render.js FORM_KEY + chrome.js FORM_KEY + 本文件 TYPES 三处硬编码迁入）
+const FORMS = JSON.parse(fs.readFileSync(path.join(REPO, "data", "forms.json"), "utf8")).forms;
+const FORM_KEY = Object.fromEntries(FORMS.map((f) => [f.name, f.key]));   // bucket name -> data-form slug
 const CATMAP_DATA = catmapOf(categoriesJson);
 const MODEL = locales.model_display;
 const LOCALES = locales.enabled;                               // SEO 语种:驱产品详情页 + manifest + hreflang
@@ -101,10 +104,9 @@ const CATS = categoriesJson.categories.map((c) => c.slug);
 // shell. Not a hardcoded product list — a category predicate, so it tracks the data forever.
 const AGGREGATES = [["performance-gen-2/index.html", ["performance-gen-1", "performance-gen-3"]]];
 // The other axis: a category page fixes the model and chips by form; a /type/ page is its mirror.
-// Slugs live under /type/ because `mounts/` and `power/` are already guide hubs. The form strings
-// must match FORM_KEY in render.js — that is the slug's source of truth, these just name it.
-const TYPES = [["cables", "Cables"], ["mounts", "Mounts & Brackets"], ["power", "Power & Charging"],
-  ["networking", "Networking"], ["cases", "Cases & Protection"]];
+// Slugs live under /type/ because `mounts/` and `power/` are already guide hubs. [slug, form-name]
+// pairs come straight from the forms.json single source (order = /type page + chip order).
+const TYPES = FORMS.map((f) => [f.key, f.name]);
 // One table: [page, which products it scopes, what its <title> is named after]. Every list page
 // goes through it — no page gets to be the exception that keeps a hand-written title.
 // 第 4 格 = banner 用哪个机型名派生标题(setListLabels)。只有机型页有:
@@ -195,7 +197,7 @@ for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
     }
   }
   const h0 = fs.readFileSync(p, "utf8");
-  let h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf });
+  let h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf, formKey: FORM_KEY });
   h1 = setListTitle(h1, name, locale, catalog);
   // setListLabels 现在也本地化形态 chip 类目名(header.* 键在 chrome.json=catalog)+ All(list.* 键在 listCat)
   // —— 两个 catalog 合并传入(键空间不重叠:header.* vs list.*)。
