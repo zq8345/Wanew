@@ -59,7 +59,7 @@ const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) =>
 const LINK_RE = /<a\s+href="([^"]*)"[^>]*class="lang-switch__link"[^>]*hreflang="([^"]*)"/g;
 
 const fails = [];
-let checked = 0, none = 0;
+let checked = 0, none = 0, stale = 0;
 for (const p of walk(".").map((f) => f.replace("./", ""))) {
   const h = fs.readFileSync(p, "utf8");
   if (h.indexOf('<div class="lang-switch"') < 0) { none++; continue; }
@@ -88,8 +88,28 @@ for (const p of walk(".").map((f) => f.replace("./", ""))) {
   }
   checked++;
   if (issues.length) fails.push(`${p}\n     ${issues.join("\n     ")}`);
+
+  // 根因指纹:模板自带的那份【死 chrome】—— 切换器里只有 pt-BR 一条、且恒指向 /pt/products/,
+  // 与本页是什么页无关。这只可能来自 data/templates/*.html 的占位 header,
+  // 也就是说 regen 跑了、chrome-sync 没跑。用【结构】判而不是判那句硬编码葡语文案:
+  // 文案哪天被人改掉,这个探针不该跟着失灵。
+  if (got.size === 1 && got.get("pt-BR") === "/pt/products/" && route !== "products") stale++;
 }
 console.log(`switcher-verify  语种 ${SWITCHER.join(",")}(含 render_extra) | 有切换器的页 ${checked} | 无切换器 ${none}(W2d 后菜单恒在——无切换器=无 chrome 的独立页才合法)`);
 console.log(`  ① 其他每一门语种恒在菜单(对应页,缺页→该语种首页兜底) · ② 当前语种非链接且 hreflang 合法:  ${checked - fails.length} / ${checked}  ${fails.length ? "🔴" : "✅"}`);
+// 先说根因,再列现象。一个根因摊成几百条抱怨会把人推向错误的排查方向 ——
+// 告警的价值不只在于响,还在于指对方向。
+if (stale) {
+  console.log(`\n━━ 先看这里:${stale} 个页的切换器是【模板占位那份】(只有 pt-BR、恒指向 /pt/products/)。`);
+  console.log(`   这不是切换器数据错,是 chrome 没同步 —— regen 只发出模板自带的 chrome,`);
+  console.log(`   真 chrome 由 _chrome.html 覆盖上去。下面那一大串多半是同一个根因。`);
+  // 爆炸半径比这 N 个页大:regen 有一批模板压根不发 header(等 chrome-sync 注入),
+  // 而本闸把「无切换器」当合法(见上面那句)——那些页会静默地连导航都没有,本闸不会为它们报红。
+  // 提示如果只说自己看得见的那部分,就等于让人以为损失就这么多。
+  console.log(`   ⚠️ 同时还有 ${none} 个页连 header 都没有(本闸视「无切换器」为合法,不会为它们报红;`);
+  console.log(`      正常同步后这个数是个位数)。所以真实影响面比上面那 ${stale} 个大。`);
+  console.log(`\n   → 先跑:  node scripts/chrome-sync.mjs --write   然后重跑本闸。`);
+  console.log(`   跑完仍红的才是真问题。`);
+}
 if (fails.length) { console.log(`\n🔴 ${fails.length} 个页:`); fails.slice(0, 10).forEach((f) => console.log(`   ${f}`)); }
 process.exit(fails.length ? 1 : 0);

@@ -141,6 +141,13 @@ console.log("\n【⑥ 语言切换器】 —— 逐页变量,零回归门天生�
   catch (e) { out = e.stdout || ""; code = 1; }
   const m = out.match(/(\d+) \/ (\d+)/);
   ok(`切换器 ①指向对侧 ②hreflang 一致 ③目标页存在:${m ? `${m[1]}/${m[2]}` : "?"}`, code === 0);
+  // 本节是【转调】switcher-verify 再截一个 N/M —— 它那边刚加的根因提示会被这一截吞掉。
+  // 转调的门必须把被转调者的根因原样带出来,否则等于把最有用的一句话过滤掉了。
+  const root = out.match(/^━━ 先看这里:.*$/m);
+  if (root) {
+    console.log(`     ${root[0]}`);
+    console.log(`     → 先跑:  node scripts/chrome-sync.mjs --write   然后重跑;跑完仍红的才是真问题。`);
+  }
 }
 
 // ⑦ 仓库卫生 —— 两条「靠人记得」的规矩,而两条都已经证明记不住(gitignore 静默吞文件撞过
