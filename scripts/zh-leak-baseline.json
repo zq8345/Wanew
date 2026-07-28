@@ -1,0 +1,33 @@
+{
+  "version": "1.1.0",
+  "total": 876,
+  "byFile": {
+    "zh/contact/index.html": 4,
+    "zh/enterprise/index.html": 15,
+    "zh/guides/cabling/index.html": 20,
+    "zh/guides/compatibility/index.html": 32,
+    "zh/guides/faq/index.html": 2,
+    "zh/guides/index.html": 102,
+    "zh/guides/mounts/index.html": 20,
+    "zh/guides/oem/index.html": 14,
+    "zh/guides/power/index.html": 16,
+    "zh/guides/protection/index.html": 14,
+    "zh/index.html": 16,
+    "zh/mini/index.html": 108,
+    "zh/mounts/index.html": 1,
+    "zh/performance-gen-1/index.html": 3,
+    "zh/performance-gen-2/index.html": 18,
+    "zh/performance-gen-3/index.html": 15,
+    "zh/products/index.html": 204,
+    "zh/rv-off-grid/index.html": 1,
+    "zh/standard/index.html": 39,
+    "zh/standard-actuated/index.html": 18,
+    "zh/standard-circular/index.html": 6,
+    "zh/starlink-compatible-accessories/index.html": 1,
+    "zh/type/cables/index.html": 99,
+    "zh/type/cases/index.html": 10,
+    "zh/type/mounts/index.html": 64,
+    "zh/type/networking/index.html": 12,
+    "zh/type/power/index.html": 22
+  }
+}
