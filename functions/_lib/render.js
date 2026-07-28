@@ -414,7 +414,12 @@ export function renderPage(tpl, { locale, catalog, urlOf, path = "/", dirOf, ena
     // ⚠️ 存在性是规则:某语种没有这个页(比如 es-hold 扣留的产品),就【不发】它的 alternate,
     //   否则是在声明一个 404。这和切换器、body 内链用的是同一条规则,不是这里新发明的。
     HREFLANG: isInternal
-      ? `<meta name="robots" content="noindex, follow" />`   // zh: 内部页,不收录、零 hreflang
+      // zh: 内部页,不收录、零 hreflang。
+      // ⚠️ 幂等:模板里若已自带 robots(page-video.html 就有一条 —— 那是 en/es/pt 的 video 页
+      //    noindex 的【唯一】来源,不能删),这里再发一条就成了重复标签。实测 zh/video 曾有 2 条。
+      //    重复的 noindex 不改变行为,但**它是"两个机制管同一件事"的可见症状** —— 下一次
+      //    只要有人改其中一个,两条就会互相矛盾,而那时才发现有两条。
+      ? (/<meta\s+name="robots"/i.test(tpl) ? "" : `<meta name="robots" content="noindex, follow" />`)
       : `<!-- hreflang alternates (derived from locales.json + page existence) -->\n` +
       enabled
         // urlOf 把 p 原样还回来 = "该语种没有这个页" —— 复用它,不另造一个 exists 参数。
