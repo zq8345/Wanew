@@ -11,11 +11,35 @@ const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const cfg = JSON.parse(fs.readFileSync(path.join(REPO, "data", "site.json"), "utf8"));
 const tpl = fs.readFileSync(path.join(REPO, "data", "templates", "product.html"), "utf8");
 
+// ── #81 step3：.webp 在【读入源数据时】就收进图片路径 ─────────────────────────
+//
+// 每个模板里都有一段 "WebP 自动替换" 脚本，它在【浏览器里】给每张 /static/upload/*.jpg|png
+// 造一个 Image() 去试探同名 .webp 在不在。可"在不在"是【构建期完全可知】的 —— 磁盘就在这。
+// 用一次网络往返问一个本地就能答的问题，每页每图一次。实测 371 个去重引用【371 个都有孪生】。
+//
+// ⭐ 为什么在【读入时】换、而不是渲染完再扫一遍页面：写盘后补救会让 regen 每次先写出 .jpg
+//    再改成 .webp，于是"N pages regenerated"永远非零 —— 又一个会说假话的仪器。在源头换，
+//    渲染出来就是最终形态，变更检测和计数器都还是真的。（我先写了写盘后那版，跑第二遍
+//    发现计数器不归零，才换成这版。）
+// ⭐ 只换【内存里的字符串】，不动 data/products/*.json 本身 —— 那是 Admin 的域。
+// ⚠️ 那段运行时脚本【不删】：产品详情页还有第二条渲染路径（Admin 的 CF Worker 发布），
+//    Worker 读不到磁盘、判断不了孪生。删了它，Admin 发布的页面会退回 .jpg 且失去兜底。
+//    它留作 Worker 路径的安全网；本地构建的静态页上它找不到 .jpg|png，一次探测都不发。
+//    真要退役，得让 Admin 发布路径也做同样替换（需把孪生清单穿进 render.js）。
+const _twinCache = new Map();
+const webpInline = (text) => String(text).replace(
+  /(\/static\/upload\/[^"'\s)\\]+?)\.(jpg|jpeg|png)\b/gi,
+  (m, base) => {
+    const webp = `${base}.webp`;
+    if (!_twinCache.has(webp)) _twinCache.set(webp, fs.existsSync(path.join(REPO, webp.replace(/^\//, ""))));
+    return _twinCache.get(webp) ? webp : m;          // 没孪生就原样留着（那时运行时脚本仍是唯一正确行为）
+  });
+
 const prods = {};
 const pdir = path.join(REPO, "data", "products");
 for (const f of fs.readdirSync(pdir)) {
   if (!f.endsWith(".json")) continue;
-  const d = JSON.parse(fs.readFileSync(path.join(pdir, f), "utf8"));
+  const d = JSON.parse(webpInline(fs.readFileSync(path.join(pdir, f), "utf8")));
   prods[d.id] = d;
 }
 
@@ -223,7 +247,7 @@ const shared = fs.existsSync(path.join(REPO, "data", "pages", "shared.json"))
 const homeCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "home.json"), "utf8"));
 const homeTpl = fs.readFileSync(path.join(REPO, "data", "templates", "home.html"), "utf8");
 const HERO_HOME_IMG = "/static/upload/image/20260725/hero-home-v3b.webp";   // ⬅ 换首页 hero 只改这一行
-const homeTiles = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "home-tiles.json"), "utf8"));
+const homeTiles = JSON.parse(webpInline(fs.readFileSync(path.join(REPO, "data", "pages", "home-tiles.json"), "utf8")));
 // 首页产品策展条 id 列表(可缺省:无文件=回落多样性挑选)。总工:6–8 精选好图,非目录堆砌。
 const homeFeaturedPath = path.join(REPO, "data", "pages", "home-featured.json");
 const homeFeatured = fs.existsSync(homeFeaturedPath) ? (JSON.parse(fs.readFileSync(homeFeaturedPath, "utf8")).ids || null) : null;
@@ -459,7 +483,7 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
   const bodyDir = path.join(REPO, "data", "guides-body");
   function extractBody(a) {
     const cache = path.join(bodyDir, a.slug + ".html");
-    if (fs.existsSync(cache)) return fs.readFileSync(cache, "utf8");
+    if (fs.existsSync(cache)) return webpInline(fs.readFileSync(cache, "utf8"));   // #81: 正文里的图同样收 .webp
     let h; try { h = fs.readFileSync(path.join(REPO, a.old.replace(/^\//, "") + ".html"), "utf8"); } catch { return null; }
     const m = h.match(/<div class="blog-details__text-1[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>\s*)?<\/div>\s*<\/div>\s*<\/section>/);
     if (!m) return null;
