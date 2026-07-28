@@ -233,7 +233,10 @@ body.w3-nav-locked { overflow: hidden; }
 .main-menu__list > li > ul li a:hover { background: rgba(255, 255, 255, 0.07); color: #fff; }
 .nav-dd__n { font-size: 11.5px; color: var(--w3-text3); font-variant-numeric: tabular-nums; }
 .nav-dd__sep { border-top: 1px solid var(--w3-line); margin-top: 6px; padding-top: 6px; }
-/* Guides 下拉:5 任务轴与 FAQ 间的"参考"分组小标(Joe 定:FAQ 非可筛选轴,显性分组不孤儿)。非链接。 */
+/* Guides 下拉:5 任务轴与 FAQ 间的"参考"分组小标(Joe 定:FAQ 非可筛选轴,显性分组不孤儿)。非链接。
+   ⛔ 当前全站 0 消费者。2026-07-28 Joe 的实际使用否掉了 REFERENCE 这个分组(他并不把 FAQ 当"另一类"),
+   `_chrome.html` 里那个 <li> 已删。规则保留、不清理:删掉它等于把"REFERENCE 分组要不要彻底废除"
+   这个该由 Joe 定的问题一起埋掉 —— 沉默的技术债和显性的待办,处理方式完全不同。 */
 .nav-dd__reflabel { border-top: 1px solid var(--w3-line); margin-top: 6px; padding: 10px 18px 4px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--w3-text3); pointer-events: none; }
 
 /* language switcher (chrome block) */
