@@ -1,1101 +1,1627 @@
 {
+  "_known_inflation": "⚠️ e_links / linkLeaks 这个数【虚高】,不是真实债务规模:分类器还不认识 zh,把合法的 zh 语言切换器链接误判成「pt 页该指 pt 却指了英文」。**既有盲区,不是 1.1.0 引入的。** 待分类器认识 zh 后重签,届时这个数会显著下降。⚠️ 写在这里是因为:不写下来,下一个人会拿它当真实待办去排期 —— 而一个虚高的数字比没有数字更贵,它会真的消耗别人的时间。",
   "frozenAt": "BASELINE — do not hand-edit. Regenerate only when SCANNER_VERSION bumps, and tell the orchestrator (changing the whitelist = changing the exam).",
-  "scannerVersion": "1.0.0",
-  "commit": "69966153d7ecbbacbc8e6980b98b31272d3805c3",
-  "commitShort": "69966153",
-  "ptPagesScanned": 90,
-  "total": 547,
-  "translationLeaks": 501,
+  "scannerVersion": "1.1.0",
+  "commit": "fee011123de27acf3334e39dac36774b89c77ca0",
+  "commitShort": "fee01112",
+  "ptPagesScanned": 97,
+  "total": 387,
+  "translationLeaks": 387,
   "byClass": {
-    "a_cardTitles — 列表/分类页产品卡英文标题 → R2 生成器域": 199,
-    "b_altSuffix — \"- wanew Products\" 模板串 → chrome catalog key": 256,
-    "c_galleryAltFilename — 图库alt=图片文件名 ⚠️既有数据问题, 非翻译泄漏, 不计入\"应逼近0\"": 46,
-    "d_otherText — 其余可见文本 (已逐个核实为真型号名)": 11,
-    "e_links — 该指pt却指英文 → R1 localizeUrl 域": 35
+    "a_cardTitles — 列表/分类页产品卡英文标题 → R2 生成器域": 233,
+    "b_altSuffix — \"- wanew Products\" 模板串 → chrome catalog key": 0,
+    "c_galleryAltFilename — 图库alt=图片文件名 ⚠️既有数据问题, 非翻译泄漏, 不计入\"应逼近0\"": 0,
+    "d_otherText — 其余可见文本 (已逐个核实为真型号名)": 17,
+    "e_links — 该指pt却指英文 → R1 localizeUrl 域": 137
   },
   "acceptanceTarget": {
     "验收口径": "R1+R2 落完后重跑同版本 scanner, translationLeaks (a+b+d+e) 应逼近 0",
-    "translationLeaks 基线": 501,
-    "不计入的 c_galleryAltFilename": 46,
+    "translationLeaks 基线": 387,
+    "不计入的 c_galleryAltFilename": 0,
     "理由": "c 类是 alt 直接写了图片文件名 (英文站同样如此) = 既有数据质量问题, 与翻译无关, R2 不会自动修; 计入会让\"逼近0\"永远达不到"
   },
   "byPage": {
-    "pt/products/index.html": {
-      "a_cardTitles": 130,
+    "pt/guides/index.html": {
+      "a_cardTitles": 89,
       "b_altSuffix": 0,
       "c_galleryAltFilename": 0,
       "d_otherText": 0,
-      "e_links": 0,
-      "total": 130
+      "e_links": 1,
+      "total": 90
     },
-    "pt/performance-gen-3/42.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 16,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 20
-    },
-    "pt/performance-gen-3/43.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 16,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 20
-    },
-    "pt/standard-actuated/index.html": {
-      "a_cardTitles": 19,
+    "pt/guides/compatibility/index.html": {
+      "a_cardTitles": 26,
       "b_altSuffix": 0,
       "c_galleryAltFilename": 0,
       "d_otherText": 0,
-      "e_links": 0,
-      "total": 19
+      "e_links": 1,
+      "total": 27
     },
-    "pt/mini/44.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 14,
+    "pt/guides/mounts/index.html": {
+      "a_cardTitles": 20,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
       "d_otherText": 0,
-      "e_links": 0,
-      "total": 18
+      "e_links": 1,
+      "total": 21
     },
-    "pt/enterprise/index.html": {
+    "pt/guides/cabling/index.html": {
       "a_cardTitles": 16,
       "b_altSuffix": 0,
       "c_galleryAltFilename": 0,
       "d_otherText": 0,
-      "e_links": 0,
-      "total": 16
+      "e_links": 1,
+      "total": 17
     },
-    "pt/performance-gen-3/index.html": {
+    "pt/guides/power/index.html": {
       "a_cardTitles": 16,
       "b_altSuffix": 0,
       "c_galleryAltFilename": 0,
       "d_otherText": 0,
-      "e_links": 0,
-      "total": 16
+      "e_links": 1,
+      "total": 17
     },
-    "pt/standard/672.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 5,
-      "e_links": 0,
-      "total": 9
-    },
-    "pt/standard-circular/index.html": {
+    "pt/type/mounts/index.html": {
       "a_cardTitles": 7,
       "b_altSuffix": 0,
       "c_galleryAltFilename": 0,
       "d_otherText": 0,
-      "e_links": 0,
-      "total": 7
+      "e_links": 9,
+      "total": 16
     },
-    "pt/mini/4205.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 3,
-      "e_links": 0,
-      "total": 7
-    },
-    "pt/index.html": {
-      "a_cardTitles": 6,
+    "pt/type/power/index.html": {
+      "a_cardTitles": 7,
       "b_altSuffix": 0,
       "c_galleryAltFilename": 0,
       "d_otherText": 0,
-      "e_links": 0,
-      "total": 6
+      "e_links": 9,
+      "total": 16
+    },
+    "pt/standard/661.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 14,
+      "e_links": 1,
+      "total": 15
+    },
+    "pt/products/index.html": {
+      "a_cardTitles": 13,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 14
+    },
+    "pt/mini/index.html": {
+      "a_cardTitles": 12,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 13
+    },
+    "pt/guides/oem/index.html": {
+      "a_cardTitles": 11,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 12
+    },
+    "pt/guides/protection/index.html": {
+      "a_cardTitles": 11,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 12
+    },
+    "pt/type/cables/index.html": {
+      "a_cardTitles": 2,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 9,
+      "total": 11
+    },
+    "pt/type/networking/index.html": {
+      "a_cardTitles": 1,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 9,
+      "total": 10
+    },
+    "pt/type/cases/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 9,
+      "total": 9
+    },
+    "pt/enterprise/index.html": {
+      "a_cardTitles": 1,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 2
+    },
+    "pt/solutions/off-grid/index.html": {
+      "a_cardTitles": 1,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 2
     },
     "pt/enterprise/657.html": {
       "a_cardTitles": 0,
-      "b_altSuffix": 4,
+      "b_altSuffix": 0,
       "c_galleryAltFilename": 0,
       "d_otherText": 1,
-      "e_links": 0,
-      "total": 5
+      "e_links": 1,
+      "total": 2
     },
     "pt/mini/680.html": {
       "a_cardTitles": 0,
-      "b_altSuffix": 4,
+      "b_altSuffix": 0,
       "c_galleryAltFilename": 0,
       "d_otherText": 1,
-      "e_links": 0,
-      "total": 5
+      "e_links": 1,
+      "total": 2
     },
     "pt/mini/702.html": {
       "a_cardTitles": 0,
-      "b_altSuffix": 4,
+      "b_altSuffix": 0,
       "c_galleryAltFilename": 0,
       "d_otherText": 1,
-      "e_links": 0,
-      "total": 5
+      "e_links": 1,
+      "total": 2
     },
     "pt/about/index.html": {
       "a_cardTitles": 0,
       "b_altSuffix": 0,
       "c_galleryAltFilename": 0,
       "d_otherText": 0,
-      "e_links": 5,
-      "total": 5
-    },
-    "pt/compatibility/index.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 0,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 5,
-      "total": 5
+      "e_links": 1,
+      "total": 1
     },
     "pt/contact/index.html": {
       "a_cardTitles": 0,
       "b_altSuffix": 0,
       "c_galleryAltFilename": 0,
       "d_otherText": 0,
-      "e_links": 5,
-      "total": 5
-    },
-    "pt/marine/index.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 0,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 5,
-      "total": 5
-    },
-    "pt/mounts/index.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 0,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 5,
-      "total": 5
-    },
-    "pt/power/index.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 0,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 5,
-      "total": 5
-    },
-    "pt/rv-off-grid/index.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 0,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 5,
-      "total": 5
-    },
-    "pt/performance-gen-1/index.html": {
-      "a_cardTitles": 4,
-      "b_altSuffix": 0,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
+      "e_links": 1,
+      "total": 1
     },
     "pt/enterprise/650.html": {
       "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/enterprise/658.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/enterprise/669.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/enterprise/675.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/4199.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/4200.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/4201.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/4203.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/4204.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/4206.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/4207.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/656.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/663.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/676.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/678.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/679.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/681.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/682.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/683.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/684.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/685.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/686.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/687.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/688.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/689.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/690.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/691.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/692.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/693.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/694.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/695.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/703.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/performance-gen-1/654.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/performance-gen-3/4202.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/performance-gen-3/697.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/performance-gen-3/700.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard/651.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard/652.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard/660.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard/661.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard/662.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard/671.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard/673.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard/674.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard/677.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard/696.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard/701.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard/704.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard-actuated/659.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard-actuated/665.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard-actuated/666.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard-actuated/667.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard-actuated/668.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard-actuated/670.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard-circular/655.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/standard-circular/664.html": {
-      "a_cardTitles": 0,
-      "b_altSuffix": 4,
-      "c_galleryAltFilename": 0,
-      "d_otherText": 0,
-      "e_links": 0,
-      "total": 4
-    },
-    "pt/mini/index.html": {
-      "a_cardTitles": 1,
       "b_altSuffix": 0,
       "c_galleryAltFilename": 0,
       "d_otherText": 0,
-      "e_links": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/enterprise/658.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/enterprise/669.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/enterprise/675.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/guides/faq/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/4199.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/4200.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/4201.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/4203.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/4204.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/4205.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/4206.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/4207.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/44.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/656.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/663.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/676.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/678.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/679.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/681.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/682.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/683.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/684.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/685.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/686.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/687.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/688.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/689.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/690.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/691.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/692.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/693.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/694.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/695.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/mini/703.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/performance-gen-1/654.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/performance-gen-1/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/performance-gen-3/42.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/performance-gen-3/4202.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/performance-gen-3/43.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/performance-gen-3/697.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/performance-gen-3/700.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/performance-gen-3/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/solutions/business/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/solutions/home/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/solutions/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/solutions/marine/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/solutions/portable/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/solutions/rv/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard/651.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard/652.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard/660.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard/662.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard/671.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard/672.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard/673.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard/674.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard/677.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard/696.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard/701.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard/704.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard-actuated/659.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard-actuated/665.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard-actuated/666.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard-actuated/667.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard-actuated/668.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard-actuated/670.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard-actuated/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard-circular/655.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard-circular/664.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/standard-circular/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/starlink-compatible-accessories/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
+      "total": 1
+    },
+    "pt/video/index.html": {
+      "a_cardTitles": 0,
+      "b_altSuffix": 0,
+      "c_galleryAltFilename": 0,
+      "d_otherText": 0,
+      "e_links": 1,
       "total": 1
     }
   },
   "ledger": {
-    "c_galleryAltFilename": [
-      {
-        "file": "pt/mini/44.html",
-        "line": 343,
-        "alt": "2 in 1 Starlink Mini Cable (1).jpg - wanew"
-      },
-      {
-        "file": "pt/mini/44.html",
-        "line": 344,
-        "alt": "2 in 1 Starlink Mini Cable (2).jpg - wanew"
-      },
-      {
-        "file": "pt/mini/44.html",
-        "line": 345,
-        "alt": "2 in 1 Starlink Mini Cable (3).jpg - wanew"
-      },
-      {
-        "file": "pt/mini/44.html",
-        "line": 346,
-        "alt": "2 in 1 Starlink Mini Cable (7).jpg - wanew"
-      },
-      {
-        "file": "pt/mini/44.html",
-        "line": 347,
-        "alt": "2 in 1 Starlink Mini Cable (6).jpg - wanew"
-      },
-      {
-        "file": "pt/mini/44.html",
-        "line": 348,
-        "alt": "2 in 1 Starlink Mini Cable (5).jpg - wanew"
-      },
-      {
-        "file": "pt/mini/44.html",
-        "line": 349,
-        "alt": "2 in 1 Starlink Mini Cable (4).jpg - wanew"
-      },
-      {
-        "file": "pt/mini/44.html",
-        "line": 356,
-        "alt": "2 in 1 Starlink Mini Cable (1).jpg - wanew"
-      },
-      {
-        "file": "pt/mini/44.html",
-        "line": 357,
-        "alt": "2 in 1 Starlink Mini Cable (2).jpg - wanew"
-      },
-      {
-        "file": "pt/mini/44.html",
-        "line": 358,
-        "alt": "2 in 1 Starlink Mini Cable (3).jpg - wanew"
-      },
-      {
-        "file": "pt/mini/44.html",
-        "line": 359,
-        "alt": "2 in 1 Starlink Mini Cable (7).jpg - wanew"
-      },
-      {
-        "file": "pt/mini/44.html",
-        "line": 360,
-        "alt": "2 in 1 Starlink Mini Cable (6).jpg - wanew"
-      },
-      {
-        "file": "pt/mini/44.html",
-        "line": 361,
-        "alt": "2 in 1 Starlink Mini Cable (5).jpg - wanew"
-      },
-      {
-        "file": "pt/mini/44.html",
-        "line": 362,
-        "alt": "2 in 1 Starlink Mini Cable (4).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 342,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (1).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 343,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 344,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 345,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 346,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 347,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 348,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 349,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 356,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (1).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 357,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 358,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 359,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 360,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 361,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 362,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/42.html",
-        "line": 363,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 342,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images001.jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 343,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 344,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 345,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 346,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 347,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 348,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 349,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 356,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images001.jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 357,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (3).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 358,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (2).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 359,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (8).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 360,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (5).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 361,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (7).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 362,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (6).jpg - wanew"
-      },
-      {
-        "file": "pt/performance-gen-3/43.html",
-        "line": 363,
-        "alt": "Starlink Performance Adapter Gen 3 cable-images (4).jpg - wanew"
-      }
-    ],
+    "c_galleryAltFilename": [],
     "e_links": [
       {
         "file": "pt/about/index.html",
-        "line": 440,
-        "href": "/standard-circular/",
-        "should": "/pt/standard-circular/"
-      },
-      {
-        "file": "pt/about/index.html",
-        "line": 441,
-        "href": "/standard-actuated/",
-        "should": "/pt/standard-actuated/"
-      },
-      {
-        "file": "pt/about/index.html",
-        "line": 444,
-        "href": "/performance-gen-1/",
-        "should": "/pt/performance-gen-1/"
-      },
-      {
-        "file": "pt/about/index.html",
-        "line": 445,
-        "href": "/performance-gen-3/",
-        "should": "/pt/performance-gen-3/"
-      },
-      {
-        "file": "pt/about/index.html",
-        "line": 446,
-        "href": "/enterprise/",
-        "should": "/pt/enterprise/"
-      },
-      {
-        "file": "pt/compatibility/index.html",
-        "line": 295,
-        "href": "/standard-circular/",
-        "should": "/pt/standard-circular/"
-      },
-      {
-        "file": "pt/compatibility/index.html",
-        "line": 296,
-        "href": "/standard-actuated/",
-        "should": "/pt/standard-actuated/"
-      },
-      {
-        "file": "pt/compatibility/index.html",
-        "line": 299,
-        "href": "/performance-gen-1/",
-        "should": "/pt/performance-gen-1/"
-      },
-      {
-        "file": "pt/compatibility/index.html",
-        "line": 300,
-        "href": "/performance-gen-3/",
-        "should": "/pt/performance-gen-3/"
-      },
-      {
-        "file": "pt/compatibility/index.html",
-        "line": 301,
-        "href": "/enterprise/",
-        "should": "/pt/enterprise/"
+        "line": 204,
+        "href": "/zh/about/",
+        "should": "hreflang 只该是 en 或 es-MX"
       },
       {
         "file": "pt/contact/index.html",
-        "line": 342,
-        "href": "/standard-circular/",
-        "should": "/pt/standard-circular/"
+        "line": 204,
+        "href": "/zh/contact/",
+        "should": "hreflang 只该是 en 或 es-MX"
       },
       {
-        "file": "pt/contact/index.html",
-        "line": 343,
+        "file": "pt/enterprise/650.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/enterprise/657.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/enterprise/658.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/enterprise/669.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/enterprise/675.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/enterprise/index.html",
+        "line": 201,
+        "href": "/zh/enterprise/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/guides/cabling/index.html",
+        "line": 140,
+        "href": "/zh/guides/cabling/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/guides/compatibility/index.html",
+        "line": 204,
+        "href": "/zh/guides/compatibility/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/guides/faq/index.html",
+        "line": 204,
+        "href": "/zh/guides/faq/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/guides/index.html",
+        "line": 140,
+        "href": "/zh/guides/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/guides/mounts/index.html",
+        "line": 140,
+        "href": "/zh/guides/mounts/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/guides/oem/index.html",
+        "line": 140,
+        "href": "/zh/guides/oem/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/guides/power/index.html",
+        "line": 140,
+        "href": "/zh/guides/power/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/guides/protection/index.html",
+        "line": 140,
+        "href": "/zh/guides/protection/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/index.html",
+        "line": 205,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/4199.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/4200.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/4201.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/4203.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/4204.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/4205.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/4206.html",
+        "line": 201,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/4207.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/44.html",
+        "line": 203,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/656.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/663.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/676.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/678.html",
+        "line": 201,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/679.html",
+        "line": 201,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/680.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/681.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/682.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/683.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/684.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/685.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/686.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/687.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/688.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/689.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/690.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/691.html",
+        "line": 201,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/692.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/693.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/694.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/695.html",
+        "line": 201,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/702.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/703.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/mini/index.html",
+        "line": 203,
+        "href": "/zh/mini/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/performance-gen-1/654.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/performance-gen-1/index.html",
+        "line": 201,
+        "href": "/zh/performance-gen-1/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/performance-gen-3/42.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/performance-gen-3/4202.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/performance-gen-3/43.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/performance-gen-3/697.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/performance-gen-3/700.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/performance-gen-3/index.html",
+        "line": 201,
+        "href": "/zh/performance-gen-3/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/products/index.html",
+        "line": 203,
+        "href": "/zh/products/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/solutions/business/index.html",
+        "line": 191,
+        "href": "/zh/solutions/business/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/solutions/home/index.html",
+        "line": 191,
+        "href": "/zh/solutions/home/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/solutions/index.html",
+        "line": 185,
+        "href": "/zh/solutions/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/solutions/marine/index.html",
+        "line": 191,
+        "href": "/zh/solutions/marine/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/solutions/off-grid/index.html",
+        "line": 191,
+        "href": "/zh/solutions/off-grid/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/solutions/portable/index.html",
+        "line": 191,
+        "href": "/zh/solutions/portable/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/solutions/rv/index.html",
+        "line": 191,
+        "href": "/zh/solutions/rv/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard/651.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard/652.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard/660.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard/661.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard/662.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard/671.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard/672.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard/673.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard/674.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard/677.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard/696.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard/701.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard/704.html",
+        "line": 201,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard/index.html",
+        "line": 203,
+        "href": "/zh/standard/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard-actuated/659.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard-actuated/665.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard-actuated/666.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard-actuated/667.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard-actuated/668.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard-actuated/670.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard-actuated/index.html",
+        "line": 201,
+        "href": "/zh/standard-actuated/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard-circular/655.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard-circular/664.html",
+        "line": 202,
+        "href": "/zh/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/standard-circular/index.html",
+        "line": 201,
+        "href": "/zh/standard-circular/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/starlink-compatible-accessories/index.html",
+        "line": 203,
+        "href": "/zh/starlink-compatible-accessories/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/type/cables/index.html",
+        "line": 229,
+        "href": "/products/",
+        "should": "/pt/products/"
+      },
+      {
+        "file": "pt/type/cables/index.html",
+        "line": 230,
+        "href": "/mini/",
+        "should": "/pt/mini/"
+      },
+      {
+        "file": "pt/type/cables/index.html",
+        "line": 231,
+        "href": "/standard/",
+        "should": "/pt/standard/"
+      },
+      {
+        "file": "pt/type/cables/index.html",
+        "line": 232,
         "href": "/standard-actuated/",
         "should": "/pt/standard-actuated/"
       },
       {
-        "file": "pt/contact/index.html",
-        "line": 346,
-        "href": "/performance-gen-1/",
-        "should": "/pt/performance-gen-1/"
-      },
-      {
-        "file": "pt/contact/index.html",
-        "line": 347,
-        "href": "/performance-gen-3/",
-        "should": "/pt/performance-gen-3/"
-      },
-      {
-        "file": "pt/contact/index.html",
-        "line": 348,
-        "href": "/enterprise/",
-        "should": "/pt/enterprise/"
-      },
-      {
-        "file": "pt/marine/index.html",
-        "line": 463,
+        "file": "pt/type/cables/index.html",
+        "line": 233,
         "href": "/standard-circular/",
         "should": "/pt/standard-circular/"
       },
       {
-        "file": "pt/marine/index.html",
-        "line": 464,
-        "href": "/standard-actuated/",
-        "should": "/pt/standard-actuated/"
-      },
-      {
-        "file": "pt/marine/index.html",
-        "line": 467,
+        "file": "pt/type/cables/index.html",
+        "line": 234,
         "href": "/performance-gen-1/",
         "should": "/pt/performance-gen-1/"
       },
       {
-        "file": "pt/marine/index.html",
-        "line": 468,
+        "file": "pt/type/cables/index.html",
+        "line": 235,
         "href": "/performance-gen-3/",
         "should": "/pt/performance-gen-3/"
       },
       {
-        "file": "pt/marine/index.html",
-        "line": 469,
+        "file": "pt/type/cables/index.html",
+        "line": 236,
         "href": "/enterprise/",
         "should": "/pt/enterprise/"
       },
       {
-        "file": "pt/mounts/index.html",
-        "line": 454,
+        "file": "pt/type/cables/index.html",
+        "line": 201,
+        "href": "/zh/type/cables/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/type/cases/index.html",
+        "line": 229,
+        "href": "/products/",
+        "should": "/pt/products/"
+      },
+      {
+        "file": "pt/type/cases/index.html",
+        "line": 230,
+        "href": "/mini/",
+        "should": "/pt/mini/"
+      },
+      {
+        "file": "pt/type/cases/index.html",
+        "line": 231,
+        "href": "/standard/",
+        "should": "/pt/standard/"
+      },
+      {
+        "file": "pt/type/cases/index.html",
+        "line": 232,
+        "href": "/standard-actuated/",
+        "should": "/pt/standard-actuated/"
+      },
+      {
+        "file": "pt/type/cases/index.html",
+        "line": 233,
         "href": "/standard-circular/",
         "should": "/pt/standard-circular/"
       },
       {
-        "file": "pt/mounts/index.html",
-        "line": 455,
-        "href": "/standard-actuated/",
-        "should": "/pt/standard-actuated/"
-      },
-      {
-        "file": "pt/mounts/index.html",
-        "line": 458,
+        "file": "pt/type/cases/index.html",
+        "line": 234,
         "href": "/performance-gen-1/",
         "should": "/pt/performance-gen-1/"
       },
       {
-        "file": "pt/mounts/index.html",
-        "line": 459,
+        "file": "pt/type/cases/index.html",
+        "line": 235,
         "href": "/performance-gen-3/",
         "should": "/pt/performance-gen-3/"
       },
       {
-        "file": "pt/mounts/index.html",
-        "line": 460,
+        "file": "pt/type/cases/index.html",
+        "line": 236,
         "href": "/enterprise/",
         "should": "/pt/enterprise/"
       },
       {
-        "file": "pt/power/index.html",
-        "line": 408,
+        "file": "pt/type/cases/index.html",
+        "line": 201,
+        "href": "/zh/type/cases/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/type/mounts/index.html",
+        "line": 229,
+        "href": "/products/",
+        "should": "/pt/products/"
+      },
+      {
+        "file": "pt/type/mounts/index.html",
+        "line": 230,
+        "href": "/mini/",
+        "should": "/pt/mini/"
+      },
+      {
+        "file": "pt/type/mounts/index.html",
+        "line": 231,
+        "href": "/standard/",
+        "should": "/pt/standard/"
+      },
+      {
+        "file": "pt/type/mounts/index.html",
+        "line": 232,
+        "href": "/standard-actuated/",
+        "should": "/pt/standard-actuated/"
+      },
+      {
+        "file": "pt/type/mounts/index.html",
+        "line": 233,
         "href": "/standard-circular/",
         "should": "/pt/standard-circular/"
       },
       {
-        "file": "pt/power/index.html",
-        "line": 409,
-        "href": "/standard-actuated/",
-        "should": "/pt/standard-actuated/"
-      },
-      {
-        "file": "pt/power/index.html",
-        "line": 412,
+        "file": "pt/type/mounts/index.html",
+        "line": 234,
         "href": "/performance-gen-1/",
         "should": "/pt/performance-gen-1/"
       },
       {
-        "file": "pt/power/index.html",
-        "line": 413,
+        "file": "pt/type/mounts/index.html",
+        "line": 235,
         "href": "/performance-gen-3/",
         "should": "/pt/performance-gen-3/"
       },
       {
-        "file": "pt/power/index.html",
-        "line": 414,
+        "file": "pt/type/mounts/index.html",
+        "line": 236,
         "href": "/enterprise/",
         "should": "/pt/enterprise/"
       },
       {
-        "file": "pt/rv-off-grid/index.html",
-        "line": 464,
+        "file": "pt/type/mounts/index.html",
+        "line": 201,
+        "href": "/zh/type/mounts/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/type/networking/index.html",
+        "line": 229,
+        "href": "/products/",
+        "should": "/pt/products/"
+      },
+      {
+        "file": "pt/type/networking/index.html",
+        "line": 230,
+        "href": "/mini/",
+        "should": "/pt/mini/"
+      },
+      {
+        "file": "pt/type/networking/index.html",
+        "line": 231,
+        "href": "/standard/",
+        "should": "/pt/standard/"
+      },
+      {
+        "file": "pt/type/networking/index.html",
+        "line": 232,
+        "href": "/standard-actuated/",
+        "should": "/pt/standard-actuated/"
+      },
+      {
+        "file": "pt/type/networking/index.html",
+        "line": 233,
         "href": "/standard-circular/",
         "should": "/pt/standard-circular/"
       },
       {
-        "file": "pt/rv-off-grid/index.html",
-        "line": 465,
-        "href": "/standard-actuated/",
-        "should": "/pt/standard-actuated/"
-      },
-      {
-        "file": "pt/rv-off-grid/index.html",
-        "line": 468,
+        "file": "pt/type/networking/index.html",
+        "line": 234,
         "href": "/performance-gen-1/",
         "should": "/pt/performance-gen-1/"
       },
       {
-        "file": "pt/rv-off-grid/index.html",
-        "line": 469,
+        "file": "pt/type/networking/index.html",
+        "line": 235,
         "href": "/performance-gen-3/",
         "should": "/pt/performance-gen-3/"
       },
       {
-        "file": "pt/rv-off-grid/index.html",
-        "line": 470,
+        "file": "pt/type/networking/index.html",
+        "line": 236,
         "href": "/enterprise/",
         "should": "/pt/enterprise/"
+      },
+      {
+        "file": "pt/type/networking/index.html",
+        "line": 201,
+        "href": "/zh/type/networking/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/type/power/index.html",
+        "line": 229,
+        "href": "/products/",
+        "should": "/pt/products/"
+      },
+      {
+        "file": "pt/type/power/index.html",
+        "line": 230,
+        "href": "/mini/",
+        "should": "/pt/mini/"
+      },
+      {
+        "file": "pt/type/power/index.html",
+        "line": 231,
+        "href": "/standard/",
+        "should": "/pt/standard/"
+      },
+      {
+        "file": "pt/type/power/index.html",
+        "line": 232,
+        "href": "/standard-actuated/",
+        "should": "/pt/standard-actuated/"
+      },
+      {
+        "file": "pt/type/power/index.html",
+        "line": 233,
+        "href": "/standard-circular/",
+        "should": "/pt/standard-circular/"
+      },
+      {
+        "file": "pt/type/power/index.html",
+        "line": 234,
+        "href": "/performance-gen-1/",
+        "should": "/pt/performance-gen-1/"
+      },
+      {
+        "file": "pt/type/power/index.html",
+        "line": 235,
+        "href": "/performance-gen-3/",
+        "should": "/pt/performance-gen-3/"
+      },
+      {
+        "file": "pt/type/power/index.html",
+        "line": 236,
+        "href": "/enterprise/",
+        "should": "/pt/enterprise/"
+      },
+      {
+        "file": "pt/type/power/index.html",
+        "line": 201,
+        "href": "/zh/type/power/",
+        "should": "hreflang 只该是 en 或 es-MX"
+      },
+      {
+        "file": "pt/video/index.html",
+        "line": 206,
+        "href": "/zh/video/",
+        "should": "hreflang 只该是 en 或 es-MX"
       }
     ]
   },

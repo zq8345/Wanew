@@ -317,6 +317,13 @@ if (AS_JSON) {
     scanned: files.length,
     leaks: findings.length, findings: findings.slice(0, MAX),
     linkLeaks: linkFindings.length, linkFindings: linkFindings.slice(0, MAX),
+    // 🔴 格式判据必须出现在【机读】接口里,不能只在人读的 CLI 里有一行。
+    //    多语言窗复测时抓到的:类①-b 在 CLI 上有独立一行,而 --json 完全看不到它 ——
+    //    而 pt-leak-baseline.mjs / pt-leak-vs-baseline.mjs 吃的正是这个接口。
+    //    后果:**格式判据将来抓到真泄漏,基线比对工具不会报**,只有人肉跑 CLI 才看得见。
+    //    ⚠️ 判据存在、判据正确、判据在人工路径上工作 —— 但它没接进那个会被自动跑的东西,
+    //    而自动跑的那条路恰恰是它唯一有长期价值的地方。
+    formatLeaks: formatFindings.length, formatFindings: formatFindings.slice(0, MAX),
   }, null, 2));
 } else {
   console.log(`pt-leak-scan: 扫描 ${files.length} 个 pt 页`);

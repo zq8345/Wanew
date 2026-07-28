@@ -106,11 +106,13 @@ function loadPtMarkers() {
   return [...m[1].matchAll(/'([a-z-]+)'/g)].map((x) => x[1]);
 }
 
-// 🔴 版本依赖显式化(多语言窗 2026-07-28 要求):本文件【没有】独立的 SCANNER_VERSION,
-//    它的判据完全跟随 pt-leak-scan —— 词表靠上面的正则从那份源码里抓,格式判据靠下面这行 import。
-//    **pt 的 SCANNER_VERSION 变了,这个闸的口径就变了**,前后两次的数字同样不可比。
-//    此前这个依赖只存在于代码里、没有一句话说明,读的人看不出"改 pt 会动 es"。
-import { formatHits } from './pt-leak-scan.mjs';
+// 🔴 版本依赖【由 import 保证,不靠注释】(多语言窗 2026-07-28):本文件没有独立的判据 ——
+//    词表靠上面的正则从 pt 源码里抓、格式判据靠这行 import。**pt 的版本一变,这个闸的口径就变了。**
+//    ⚠️ 原来这里只写了一段注释说明依赖。**注释会手动漂移,import 是机器保证的连带** ——
+//    今天已经数过两次"依赖只活在代码里 / 只活在注释里"出事。
+import { formatHits, SCANNER_VERSION as PT_SCANNER_VERSION } from './pt-leak-scan.mjs';
+// re-export:任何人读这个闸的版本,拿到的必然是 pt 的那一个,不可能各说各的。
+export const SCANNER_VERSION = PT_SCANNER_VERSION;
 
 const PT_MARKERS = loadPtMarkers();
 export const EN_MARKERS = new Set(PT_MARKERS.filter((w) => !PT_REMOVED.has(w)));
