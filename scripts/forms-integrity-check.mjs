@@ -25,6 +25,7 @@ const manifest = read("data/products-index.json");
    ⚠️ 顺序不可颠倒:这一步没上线就迁移,线上按显示名匹配全部落空,产品从 /type/ 页整批消失。
    ⚠️ 这里认两种【不是】放松校验 —— 第三种(既不是 name 也不是 key)照样报孤儿。 */
 const formNames = new Set(forms.flatMap((f) => [f.name, f.key]));
+const FORM_KEY = Object.fromEntries(forms.flatMap((f) => [[f.name, f.key], [f.key, f.key]]));
 const catSlugs = new Set(cats.map((c) => c.slug));
 
 // Count live products per form / per category (the "count>0 ⇒ can't delete" measure).
@@ -39,7 +40,15 @@ for (const e of manifest) {
   }
   // form is optional on a product (null/unset is allowed); only validate when present.
   if (e.form) {
-    formCount[e.form] = (formCount[e.form] || 0) + 1;
+    /* 🔴 累加时就归一成 key,而不是把原始值当桶名。
+       原来这里按 `e.form` 原样累加、下面按 `f.name` 取 —— 迁移后数据里只有 key,
+       于是**每个品类都取到 undefined,打印 0**。而它印出来的正好是
+       "这个品类可以删"的那个数字:**闸是绿的,同时输出一个反过来的事实。**
+       ⚠️ 修在累加处而不是取值处,是因为取值处修只能得到"迁移后对";
+       归一化让它**迁移前后都对**,而兼容期里写成显示名的产品也不会从计数里消失
+       ——那种产品既不进任何桶、又因为孤儿判定收两种而不报警,会落进两条检查中间的缝。 */
+    const fk = FORM_KEY[e.form] || e.form;
+    formCount[fk] = (formCount[fk] || 0) + 1;
     if (!formNames.has(e.form)) push(orphanForms, e.form, e.id);
   }
 }
@@ -61,7 +70,7 @@ if (problems.length) {
 }
 
 // Passing summary: every form's live count (this is the number a delete endpoint must refuse on).
-const formLines = forms.map((f) => `  ${f.key} (${f.name}): ${formCount[f.name] || 0}`);
+const formLines = forms.map((f) => `  ${f.key} (${f.name}): ${formCount[f.key] || 0}`);
 const catLines = cats.map((c) => `  ${c.slug}: ${catCount[c.slug] || 0}`);
 console.log(`forms-integrity-check PASS — ${manifest.length} products, all forms ∈ forms.json, all categories ∈ categories.json.`);
 console.log("form-factor live counts (delete blocked while >0):\n" + formLines.join("\n"));
