@@ -1,12 +1,33 @@
 {
   "_note": "类目唯一真源（#52 批1：从 render.js CATMAP + regen.mjs CATS 迁入）。顺序=列表页/首页瓦片顺序。display 是兜底显示名——locales.json model_display 有值时优先（品牌机型词）。管理页（admin.wanew.com）编辑本文件走 GitHub commit 通道。AGGREGATES（gen-2 聚合页）是类目谓词逻辑不是数据，留在 regen.mjs。",
   "categories": [
-    { "slug": "mini", "display": "Mini" },
-    { "slug": "standard", "display": "Standard" },
-    { "slug": "standard-actuated", "display": "Standard-Actuated" },
-    { "slug": "standard-circular", "display": "Standard-Circular" },
-    { "slug": "performance-gen-1", "display": "Performance-Gen-1" },
-    { "slug": "performance-gen-3", "display": "Performance-Gen-3" },
-    { "slug": "enterprise", "display": "Enterprise" }
+    {
+      "slug": "mini",
+      "display": "Mini"
+    },
+    {
+      "slug": "standard",
+      "display": "Standard"
+    },
+    {
+      "slug": "standard-actuated",
+      "display": "Standard Actuated"
+    },
+    {
+      "slug": "standard-circular",
+      "display": "Standard Circular"
+    },
+    {
+      "slug": "performance-gen-1",
+      "display": "Performance"
+    },
+    {
+      "slug": "performance-gen-3",
+      "display": "Performance (Gen 3)"
+    },
+    {
+      "slug": "enterprise",
+      "display": "Enterprise"
+    }
   ]
 }
