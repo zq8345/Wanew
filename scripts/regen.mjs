@@ -367,7 +367,7 @@ const AGGREGATES = [["performance-gen-2/index.html", ["performance-gen-1", "perf
 // pairs come straight from the forms.json single source (order = /type page + chip order).
 const TYPES = FORMS.map((f) => [f.key, f.name]);
 // 形态页标题用的 catalog 键(与 nav 标签同一份,不另存一份英文字面量)。
-const TYPE_TITLE_KEY = { cables: "header.cables", mounts: "header.mounts_brackets",
+const TYPE_TITLE_KEY = { cables: "header.cables", mounts: "header.mounts",
   power: "header.power_charging", networking: "header.networking", cases: "header.cases_protection" };
 // One table: [page, which products it scopes, what its <title> is named after]. Every list page
 // goes through it — no page gets to be the exception that keeps a hand-written title.
@@ -733,9 +733,9 @@ console.log(`homepage: ${homes} locales regenerated (template + data/pages/home.
   // so this is the fallback path for a future scene, kept working rather than deleted.
   // [labelKey | null, url, icon, literalLabel?] — literal for proper-noun models (Mini/Enterprise)
   const SOL_RECS = {
-    home: [["header.mounts_brackets", "/products/#mounts", "mount"], ["header.cables", "/products/#cables", "cable"]],
-    rv: [["header.mounts_brackets", "/products/#mounts", "mount"], ["header.power_charging", "/products/#power", "power"], [null, "/mini/", "mini", "Starlink Mini"]],
-    marine: [["header.mounts_brackets", "/products/#mounts", "mount"], ["header.cables", "/products/#cables", "cable"]],
+    home: [["header.mounts", "/products/#mounts", "mount"], ["header.cables", "/products/#cables", "cable"]],
+    rv: [["header.mounts", "/products/#mounts", "mount"], ["header.power_charging", "/products/#power", "power"], [null, "/mini/", "mini", "Starlink Mini"]],
+    marine: [["header.mounts", "/products/#mounts", "mount"], ["header.cables", "/products/#cables", "cable"]],
     "off-grid": [["header.power_charging", "/products/#power", "power"], ["header.cables", "/products/#cables", "cable"]],
     portable: [[null, "/mini/", "mini", "Starlink Mini"], ["header.cases_protection", "/products/#cases", "case"], ["header.cables", "/products/#cables", "cable"]],
     business: [[null, "/enterprise/", "enterprise", "Enterprise"], ["header.networking", "/products/#networking", "net"], ["header.all_products", "/products/", "all"]],

@@ -600,7 +600,10 @@ export function setListLabels(html, { locale, catalog, model, formKey }) {
   // chip 有两种载体:<button>(就地筛选,data-filter) 与 <a>(机型导航跳转,href,无 data-filter)。
   const ALL = t("list.chip.all");
   const FORM_LABEL_KEY = {
-    mounts: "header.mounts_brackets", power: "header.power_charging", cables: "header.cables",
+    // ⚠️ mounts 指 header.mounts(不是 header.mounts_brackets):Joe 把品类显示名改成了 "Mounts",
+    //    而这张表决定 chip 上印哪个词。**这是权宜之计** —— 键仍然是从英文名派生的,下一次改名
+    //    还得再来一遍。根治在"模板直接读 forms.json 的 name"那一刀。
+    mounts: "header.mounts", power: "header.power_charging", cables: "header.cables",
     networking: "header.networking", cases: "header.cases_protection",
   };
   // (1) <button> 筛选 chip:两轴 All → 本地化;形态类目 → 本地化;机型名(不在表)原样。
