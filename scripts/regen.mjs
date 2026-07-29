@@ -517,8 +517,33 @@ for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
  // ── 阶段②:此时该 rel 的各语种页都已存在,派生出来的 hreflang 才是完整互惠的 ──
  for (const locale of RENDER_SET) {
   const p = pageOf(locale, rel);
-  if (!fs.existsSync(p)) continue;          // 阶段①决定不建的(如 products/aggregate 缺页)
-  const h0 = fs.readFileSync(p, "utf8");
+  /* ── 第 5b 步 ③c-2:把【渲染源】从旧址换成新址 ─────────────────────────────
+     此前这里读旧址页、渲染、写回旧址,再把结果复制一份改三处头当新址页 ——
+     **旧址是原件、新址是副本**。而收尾那一刀会删掉旧址,副本的原件没了,
+     生成器就没有源可读(实测:分类页新址产出 37 → 0,而 regen 仍 rc=0、零报错)。
+     ⇒ 有新址就以新址为源。旧址页【继续产】(它仍是访客和 Google 在看的那一套),
+       只是它变成了派生出来的那一份。**停写旧址是收尾那一刀的开关,不在这里。**
+
+     🔴 正对照:双活期两套内容本就是同一份,翻转"谁是原件"**不应该**改变任何一份的字节 ——
+        新址列表页逐字节不变 ∧ 旧址列表页逐字节不变。
+        若变了,那不是代价,是发现:**产出泄漏了"哪个文件是原件"这个本不该可见的事实。**
+
+     🔴 用正斜杠拼,**不要 path.join** —— 它在 Windows 上产出 `products\mounts\index.html`,
+        而 localizeSeoListHead 直接拿 rel 去拼 URL,canonical/hreflang 会变成
+        `https://wanew.com/products\mounts\`。第一次跑就是这么红的:28 条 alternate 全带反斜杠。
+        ⚠️ 旧的 1c 块对此免疫(它是 `/products/${catSlug}/` 字符串拼出来的)——
+           把 rel 交给同一个 head 函数之后,rel 的分隔符第一次变成了 URL 的一部分。
+           **这个 bug 在非 Windows 机器上不出现,靠"跑一遍看着正常"永远发现不了。**
+
+     ⚠️ zh 没有新址页(1c 那半的闸是 `!isExtra(locale)`,且 zh 第 5b 步不迁移不删)——
+        它的源仍然是、也永远是旧址。这里复用同一条 isExtra 声明,不另写判断。 */
+  const catSlugSrc = /^type\/([^/]+)\//.exec(rel)?.[1] || rel.replace(/\/index\.html$/, "");
+  const newRelSrc = (!isExtra(locale) && catSlugSrc && KNOWN_ROUTES.has(catSlugSrc))
+    ? `products/${catSlugSrc}/index.html` : null;
+  const pNew = newRelSrc ? pageOf(locale, newRelSrc) : null;
+  const src = (pNew && fs.existsSync(pNew)) ? pNew : p;
+  if (!fs.existsSync(src)) continue;         // 阶段①决定不建的(如 products/aggregate 缺页)
+  const h0 = fs.readFileSync(src, "utf8");
   let h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf, formKey: FORM_KEY, sizes: MEDIA_SIZES });
   h1 = setListTitle(h1, name, locale, catalog);
   // setListLabels 现在也本地化形态 chip 类目名(header.* 键在 chrome.json=catalog)+ All(list.* 键在 listCat)
@@ -528,9 +553,31 @@ for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
   const formSlug = /^type\/([^/]+)\//.exec(rel)?.[1];
   h1 = setListLabels(h1, { locale, catalog: { ...catalog, ...listCat }, model: bannerModel,
     formKey: formSlug ? TYPE_TITLE_KEY[formSlug] : undefined });
-  if (isExtra(locale)) h1 = localizeInternalHead(h1, rel, locale);   // zh list 页:head 本地化+noindex+零 hreflang
-  else h1 = localizeSeoListHead(h1, rel, locale);                     // en/es/pt list 页:派生+注入互惠 hreflang 簇
-  if (h1 !== h0) { fs.writeFileSync(p, h1); lists++; }
+  /* head 特化:两份产出【各自从同一个中性基底派生】,不再"一份复制另一份再改三处头"。
+     ⚠️ 源现在可能是新址页,而新址页带着 noindex —— 原样写回旧址会把 noindex 带到
+        一个仍在被收录的页面上。所以先剥掉它,得到中性基底。
+        剥的是【这两份产出唯一不同的那一处】,不是笼统清理 head。 */
+  const hBase = h1.replace(/\s*<meta name="robots" content="noindex, follow"\s*\/?>/g, "");
+
+  // ① 旧址列表页:收尾那一刀之前它仍在服务、仍被收录,继续产。现在它是【派生】出来的那一份。
+  const hOld = isExtra(locale)
+    ? localizeInternalHead(hBase, rel, locale)    // zh:head 本地化 + noindex + 零 hreflang
+    : localizeSeoListHead(hBase, rel, locale);    // en/es/pt:自指 canonical + 互惠 hreflang 簇
+  if (!fs.existsSync(p) || fs.readFileSync(p, "utf8") !== hOld) {
+    fs.mkdirSync(path.dirname(p), { recursive: true });
+    fs.writeFileSync(p, hOld); lists++;
+  }
+
+  /* ② 新址列表页:它是【主】—— 这一轮的渲染源,也是收尾那一刀之后唯一剩下的一份。
+     ⚠️ 仍带 noindex,到那一刀才摘。canonical 保持自指新址:那一刀只需摘 noindex,
+        不必翻转任何已有声明 —— **翻转是最容易漏一半的操作。** */
+  if (newRelSrc && pNew) {
+    let hNew = localizeSeoListHead(hBase, newRelSrc, locale);
+    hNew = hNew.replace(/(<link rel="canonical")/, `<meta name="robots" content="noindex, follow" />\n$1`);
+    fs.mkdirSync(path.dirname(pNew), { recursive: true });
+    fs.writeFileSync(pNew, hNew);
+    dualLists++;
+  }
 
   /* ── 第 1c:分类页的新址并存产出 ────────────────────────────────────────
      第 1b 只产了【详情页】新址 —— 我当时把"新址产出"当成一件事,实际它有两半。
@@ -539,32 +586,11 @@ for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
      ⚠️ 与详情页同样的三处改写:canonical 自指新址 · noindex · hreflang 自成新址簇;
         其余一个字节不动 —— "差异恰好三类"那条对账同样适用于这一半。
      ⚠️ zh 不产:它是内部语种、本来就不进 sitemap,多一份副本只是多一份要维护的东西。 */
-  if (!isExtra(locale)) {
-    const catSlug = /^type\/([^/]+)\//.exec(rel)?.[1] || rel.replace(/\/index\.html$/, "");
-    if (catSlug && KNOWN_ROUTES.has(catSlug)) {
-      const nOut = pageOf(locale, path.join("products", catSlug, "index.html"));
-      const d = dirOf(locale) ? `/${dirOf(locale)}` : "";
-      let dual = h1.replace(/<link rel="canonical" href="[^"]*"/,
-        `<link rel="canonical" href="https://wanew.com${d}/products/${catSlug}/"`);
-      dual = /<meta\s+name="robots"/i.test(dual) ? dual
-        : dual.replace(/(<link rel="canonical")/, `<meta name="robots" content="noindex, follow" />\n$1`);
-      dual = dual.replace(/<link rel="alternate"[^>]*>/g, (tag) => {
-        const mm = /hreflang="([^"]+)"/.exec(tag);
-        if (!mm) return tag;
-        if (mm[1] === "x-default")
-          return tag.replace(/href="[^"]*"/, `href="https://wanew.com/products/${catSlug}/"`);
-        if (!LOCALES.includes(mm[1])) return tag;
-        // 存在性规则:没有就不发 alternate。🔴 锚【新址】,理由同详情页那处 ——
-        // 旧址一删,这句若还问 rel(旧址),分类新页的 alternate 会静默消失。
-        if (!fs.existsSync(pageOf(mm[1], path.join("products", catSlug, "index.html")))) return tag;
-        const dd = dirOf(mm[1]) ? `/${dirOf(mm[1])}` : "";
-        return tag.replace(/href="[^"]*"/, `href="https://wanew.com${dd}/products/${catSlug}/"`);
-      });
-      fs.mkdirSync(path.dirname(nOut), { recursive: true });
-      fs.writeFileSync(nOut, dual);
-      dualLists++;
-    }
-  }
+  /* ⚠️ 原「第 1c:分类页新址并存产出」已并入上面的 ②。
+     它的做法是拿旧址页的成品、正则改三处头当新址页 —— 前提是**旧址页永远存在**,
+     而收尾那一刀一删它就没有输入了。现在两份各自从同一个中性基底派生,谁都不是谁的副本。
+     副作用是那三处"改写"变成了"生成":存在性规则统一由 localizeSeoListHead 负责,
+     不再有一份专属于新址页的 alternate 改写逻辑 —— 那正是第五处 urlOf 当初藏身的地方。 */
  }
 }
 console.log(`list pages regenerated: ${lists} changed`);
