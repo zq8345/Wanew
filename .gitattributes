@@ -1,0 +1,50 @@
+# 行尾归一 —— 仓里存 LF,检出成什么由各人的 core.autocrlf 决定。
+#
+# 🔴 为什么需要这份声明,而不是靠"现在恰好全是 LF":
+#    实测仓里 690 个 html + 104 个 json 全是 LF,一个 CRLF 都没有 —— 但那是**既成事实,不是保证**。
+#    Admin 每保存一次产品要多读 15 个页面的旧版本,唯一目的是看它是不是 CRLF、好让新内容跟着变。
+#    钉死之后那个问题的答案永远是"否",那些读就能砍掉。**一份声明换掉一批运行时探测。**
+#
+# ⚠️ 而"钉死"本身要有判据:加完这份文件后 `git add --renormalize .` 的 diff **必须为空**。
+#    不为空 = 仓里真有 CRLF 内容 = 这不是一次声明,是一次内容改动 —— 那时要停下来查,不能顺手提交。
+
+* text=auto eol=lf
+
+# ── 显式文本(避免 text=auto 的启发式在边界情况下猜错)────────────────────────
+*.html   text eol=lf
+*.json   text eol=lf
+*.mjs    text eol=lf
+*.js     text eol=lf
+*.css    text eol=lf
+*.md     text eol=lf
+*.xml    text eol=lf
+*.txt    text eol=lf
+_redirects text eol=lf
+_headers   text eol=lf
+
+# ── 🔴 两个【含 NUL 字节的脚本】,必须按二进制对待 ─────────────────────────────
+#    `brand-swap.mjs` 与 `es-term-fix.mjs` 里的 \0 是**有意的**:它们拿 NUL 当占位符/掩码分隔,
+#    防止低优先级正则把已替换过的片段重复计数。git 因此把它们判成二进制 —— **那个分类是对的**。
+#    ⚠️ 如果让上面的 `*.mjs text` 管到它们,归一化会按文本处理这两个文件,
+#    而**文本处理一个含 NUL 的文件,损坏在 diff 里只显示"Binary files differ"**。
+#    ⚠️ 这两条必须排在 `*.mjs` 之后 —— .gitattributes 是**后面的规则覆盖前面的**。
+scripts/brand-swap.mjs   -text
+scripts/es-term-fix.mjs  -text
+
+# ── 二进制:显式声明,不让任何启发式碰它们 ────────────────────────────────────
+#    实测 932 个:webp 498 · jpg 388 · png 40 · woff2/woff/mp4/ico 各 1
+#    「含 CRLF 字节」和「行尾是 CRLF」不是一回事 —— 图片里的 0D 0A 是数据。
+*.webp   binary
+*.jpg    binary
+*.jpeg   binary
+*.png    binary
+*.gif    binary
+*.ico    binary
+*.woff   binary
+*.woff2  binary
+*.ttf    binary
+*.eot    binary
+*.mp4    binary
+*.webm   binary
+*.pdf    binary
+*.zip    binary
