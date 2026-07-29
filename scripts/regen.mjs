@@ -4,7 +4,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { render, genRelated, resolveImg, regenListPage, setListTitle, setListLabels, renderHome, renderPage, excerptOf, catmapOf } from "../functions/_lib/render.js";
+import { render, genRelated, resolveImg, regenListPage, setListTitle, setListLabels, switchChipHrefs, renderHome, renderPage, excerptOf, catmapOf } from "../functions/_lib/render.js";
 import { productPath } from "./product-slug.mjs";
 import { localeDirs } from "./locale-dirs.mjs";
 
@@ -553,6 +553,7 @@ for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
   const formSlug = /^type\/([^/]+)\//.exec(rel)?.[1];
   h1 = setListLabels(h1, { locale, catalog: { ...catalog, ...listCat }, model: bannerModel,
     formKey: formSlug ? TYPE_TITLE_KEY[formSlug] : undefined });
+  h1 = switchChipHrefs(h1, manifest);   // 机型导航 chip 的 href → 新址(幂等,见函数注释)
   /* head 特化:两份产出【各自从同一个中性基底派生】,不再"一份复制另一份再改三处头"。
      ⚠️ 源现在可能是新址页,而新址页带着 noindex —— 原样写回旧址会把 noindex 带到
         一个仍在被收录的页面上。所以先剥掉它,得到中性基底。
