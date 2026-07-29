@@ -173,10 +173,34 @@ const dirOf = (loc) => LOC_DIR[loc] ?? "";
 const pageOf = (loc, rel) => path.join(REPO, dirOf(loc), rel);
 // Same rule chrome-sync uses: prefix IF the localized page exists. Existence is the rule; there
 // is no list to keep in sync, so it cannot go stale (r1-report.md §5).
+/* 🔴 旧址 → 新址:【存在性该问哪一份文件】的改写表。**只改问哪份,不改答什么。**
+   urlOf 回的仍然是旧址 URL —— 双活期里页面自己还挂在旧址上,新址那份由 1b 的复制块改写。
+
+   为什么需要它:urlOf 拿【页面自己的路径】问"那个语种有没有这一页",而渲染旧址页时问的
+   就是旧址。第 5b 步旧址一停产,这个问题的答案永远变成"没有" ⇒ 新址页上的 hreflang
+   alternate 会**静默消失**(实测 312 → 190 条,regen rc=0、零报错)。alternate 少了不会 404,
+   只会让互惠簇断掉 —— **没有任何东西会报错,而 Google 会整簇忽略。**
+
+   ⚠️ 这一处是【第五处】。总工给的清单上只有四处存在性判据,我把那四处迁完、产出逐字节不变
+   之后,在复刻树上真删一次旧址 —— 详情页从 68 救回 190,**而 alternate 仍是 190 不是 312**。
+   > **是那个不变量把它揪出来的,不是我数得全。** 一份必须完整的清单,和一个必须成立的
+   > 不变量,后者永远更强:它不依赖任何人枚举得干净。 */
+const MOVED_ADDR = new Map();
 const urlOf = (p, loc) => {
   const d = dirOf(loc);
   if (!d) return p;
-  const file = p.endsWith("/") ? `${d}${p}index.html` : `${d}${p}.html`;
+  /* 🔴 迁移是【分语种】的。新址产出那一半的闸是 `if (!isExtra(locale))` —— zh 从来没有
+     新址页,DESIGN.md §9.1 也定了 zh 不做产品详情页、第 5b 步不迁移不删。
+     所以对 zh 必须仍然问旧址:**问一个永远不存在的文件,得到的"没有"是假的。**
+     ⚠️ 我第一版没分语种,zh 首页当场坏给我看 —— 13 行:五张品类卡降级成 `/zh/products/#锚点`,
+        机型链接掉了 `/zh` 前缀变成指向英文页。**逐字节对照就是为了抓这个。**
+     这里刻意复用 isExtra 而不是另写判断:另写一条 = 两条会各自漂的规则。 */
+  const moved = isExtra(loc) ? null : MOVED_ADDR.get(p);
+  /* 🔴 产品形状的路径(/{分类}/{数字})在表填好【之前】被问,答案会是"没搬过" —— 那是一句
+     谎话,而且它长得和真话一样。宁可当场炸:**面对未知,默认值要选那个会让你被打断的方向。** */
+  if (!moved && MOVED_ADDR.size === 0 && /^\/[a-z0-9-]+\/\d+$/.test(p))
+    throw new Error(`urlOf(${p}) 在旧址→新址表填好之前被调用 —— 存在性会问到旧址,而旧址第 5b 步就没了`);
+  const file = moved ? `${d}/${moved}` : (p.endsWith("/") ? `${d}${p}index.html` : `${d}${p}.html`);
   return fs.existsSync(path.join(REPO, file)) ? `/${d}${p}` : p;
 };
 
@@ -233,6 +257,13 @@ const entries = Object.values(prods).map((p) => {
   }
   return e;
 });
+
+/* 详情页的旧址 → 新址。**必须在任何 urlOf 调用之前填**(第一个调用点在下面的详情循环里)。
+   ⚠️ 对账写成断言而不是注释:漏一条的表现是"某个产品的 hreflang 簇少一门语种",
+      而那既不报错也不 404 —— 只有这行会说话。 */
+for (const e of entries) if (e.path) MOVED_ADDR.set(`/${e.category}/${e.id}`, `products/${e.path}.html`);
+if (MOVED_ADDR.size !== entries.length)
+  throw new Error(`旧址→新址表 ${MOVED_ADDR.size} 条 ≠ 产品 ${entries.length} 个 —— 有产品没有规范 path,存在性会问回旧址`);
 
 const only = process.argv.slice(2).map(Number);
 const targets = only.length ? only : Object.keys(prods).map(Number);
@@ -424,6 +455,18 @@ const KNOWN_ROUTES = new Set([
   ...FORMS.map((f) => f.key),
   ...AGGREGATES.map(([r]) => r.replace(/\/index\.html$/, "")),
 ]);
+/* 列表页的旧址 → 新址,补进同一张表(详情页那半在上面,产品循环之前就填好了)。
+   品类走 /type/{key}/,机型与聚合页走 /{slug}/ —— 与 LIST_PAGES 用的是同一条规则,
+   ⚠️ 但这里是【反着写一遍】。所以下面用 KNOWN_ROUTES 的大小对账:两边条数必须相等,
+      不然就是有一类路由没被登记,而它的表现同样是"hreflang 静默少一门语种"。 */
+const FORM_KEYS = new Set(FORMS.map((f) => f.key));
+let listMoved = 0;
+for (const slug of KNOWN_ROUTES) {
+  MOVED_ADDR.set(`/${FORM_KEYS.has(slug) ? "type/" : ""}${slug}/`, `products/${slug}/index.html`);
+  listMoved++;
+}
+if (listMoved !== KNOWN_ROUTES.size)
+  throw new Error(`列表页旧址→新址 ${listMoved} 条 ≠ 已知路由 ${KNOWN_ROUTES.size} 个`);
 let dualLists = 0;
 for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
  // ── 阶段①:只建缺页,不产出任何 head ──
