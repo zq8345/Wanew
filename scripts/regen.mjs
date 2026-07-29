@@ -244,9 +244,22 @@ for (const id of targets) {
   const entry = entries.find((e) => e.id === id);
   for (const locale of LOCALES) {
     const out = pageOf(locale, path.join(prod.category, `${id}.html`));
-    // Only emit a locale's page where one already exists — regen renders content, it does not
-    // decide the site map. Creating pt pages that nothing links to is a different decision.
-    if (locale !== DEFAULT && !fs.existsSync(out)) continue;
+    const newRel = path.join("products", `${entry.path}.html`);
+    const newOut = pageOf(locale, newRel);
+    /* Only emit a locale's page where one already exists — regen renders content, it does not
+       decide the site map. Creating pt pages that nothing links to is a different decision.
+
+       🔴 这个"已经存在"过去问的是【旧址】。第 5b 步要删掉那 227 个旧址页,而删掉的那一刻
+       这句话的答案就变了 —— regen 不会报错,它会**改变主意**:认为 es/pt 这些页本来就不该有,
+       于是静默停产。实测(两棵复刻树,各跑一次 regen,都 rc=0、都完整收尾):
+           /products/ 详情新址   190 页 → 68 页
+           /products/{分类}/ 新址  37 页 → 0 页
+           新址页上的 alternate   312 条 → 190 条
+       > **闸全绿,而某个数字变成了 0。**
+       所以判据必须锚在【新址】—— 它是这些页此后唯一的家。
+       ⚠️ 双活期两套都在,锚哪边结果都一样 ⇒ 这次改动的正对照是【产出逐字节不变】。
+          那个正对照的好处是:它不需要任何人描述"正确的产出应该长什么样"。 */
+    if (locale !== DEFAULT && !fs.existsSync(newOut)) continue;
     const related = genRelated(entry, entries, locale, catalog, urlOf);
     const html = render(prod, { template: tpl, imgBase: cfg.img_base, related, locale, modelDisplay: MODEL, catalog, urlOf, enabled: LOCALES, catmap: CATMAP_DATA, sizes: MEDIA_SIZES });
     const opens = (html.match(/<div\b/g) || []).length;
@@ -267,8 +280,7 @@ for (const id of targets) {
           所以 sitemap 生成侧必须跳过新址,见 chrome-sync。
        ⚠️ canonical 保持【自指新址】:第 5 步只需摘 noindex,**不必翻转任何已有声明**。
           翻转是最容易漏一半的操作。 */
-    const newRel = path.join("products", `${entry.path}.html`);
-    const newOut = pageOf(locale, newRel);
+    // newRel / newOut 已在循环顶部算好(那里的存在性判据要用它)—— 不再各算一次。
     let dual = html.replace(/<link rel="canonical" href="[^"]*"/,
       `<link rel="canonical" href="https://wanew.com${dirOf(locale) ? "/" + dirOf(locale) : ""}/products/${entry.path}"`);
     dual = /<meta\s+name="robots"/i.test(dual) ? dual
@@ -289,7 +301,9 @@ for (const id of targets) {
       if (alt === "x-default")
         return tag.replace(/href="[^"]*"/, `href="https://wanew.com/products/${entry.path}"`);
       if (!LOCALES.includes(alt)) return tag;
-      if (!fs.existsSync(pageOf(alt, path.join(prod.category, `${id}.html`)))) return tag;
+      // 🔴 存在性同样锚【新址】:旧址删掉后,这句若还问旧址,新页会静默少发 alternate ——
+      //    实测 312 → 190 条,而 regen rc=0、零报错。alternate 少了不会 404,只会让互惠断掉。
+      if (!fs.existsSync(pageOf(alt, newRel))) return tag;
       const d = dirOf(alt) ? `/${dirOf(alt)}` : "";
       return tag.replace(/href="[^"]*"/, `href="https://wanew.com${d}/products/${entry.path}"`);
     });
@@ -487,7 +501,9 @@ for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
         if (mm[1] === "x-default")
           return tag.replace(/href="[^"]*"/, `href="https://wanew.com/products/${catSlug}/"`);
         if (!LOCALES.includes(mm[1])) return tag;
-        if (!fs.existsSync(pageOf(mm[1], rel))) return tag;    // 存在性规则:没有就不发 alternate
+        // 存在性规则:没有就不发 alternate。🔴 锚【新址】,理由同详情页那处 ——
+        // 旧址一删,这句若还问 rel(旧址),分类新页的 alternate 会静默消失。
+        if (!fs.existsSync(pageOf(mm[1], path.join("products", catSlug, "index.html")))) return tag;
         const dd = dirOf(mm[1]) ? `/${dirOf(mm[1])}` : "";
         return tag.replace(/href="[^"]*"/, `href="https://wanew.com${dd}/products/${catSlug}/"`);
       });
