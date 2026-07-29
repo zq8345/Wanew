@@ -620,10 +620,27 @@ export function setListLabels(html, { locale, catalog, model, formKey }) {
   return out;
 }
 
+/* 列表页的标题。**三处同一个值**:`<title>` 是给搜索结果看的,`og:title` / `twitter:title`
+   是给社媒卡片、聊天软件预览、以及 AI 抓取看的那一份。
+
+   🔴 此前只写 `<title>`,另外两处从【页面被建出来那一刻】起就没人碰过。后果不是"少改一处":
+      24 个列表页里 18 个 og:title ≠ title,**而且西语页和葡语页对外露出的是整个英文**:
+          es/type/power/       <title> Energía y carga…    og:title Power &amp; Charging…
+          es/type/networking/  <title> Redes…              og:title Networking…
+      拉美和巴西是主力市场,分享到 WhatsApp、贴进聊天、被 AI 抓 —— 拿到的都是英文标题。
+   > **对外露出的那一份和站内看到的不是一个语言,比两边都旧更糟:那不是没更新,是自相矛盾。**
+
+   ⚠️ 刻意放在这个函数里,不另写一处:标题只有一个来源,三个出口。**另写一处 = 两条会各自漂的规则**,
+      而它们漂开的表现恰恰是最难发现的那种 —— 站内一切正常,只有分享出去的卡片是错的。
+   ⚠️ 不碰 JSON-LD 面包屑:它要的是【裸品类名】而不是完整标题,是另一个值;而且那个块的
+      `"item"` 还错着(指向站根而非本页)。半修一个结构化数据块比不修更难查 —— 单独一刀。 */
 export function setListTitle(html, name, locale, catalog) {
   const t = listTitleOf(name, locale, catalog);
   if (!t) return html;
-  return html.replace(/<title>[^<]*<\/title>/, `<title>${t}</title>`);
+  let out = html.replace(/<title>[^<]*<\/title>/, `<title>${t}</title>`);
+  out = out.replace(/(<meta\s+property="og:title"\s+content=")[^"]*(")/, `$1${t}$2`);
+  out = out.replace(/(<meta\s+name="twitter:title"\s+content=")[^"]*(")/, `$1${t}$2`);
+  return out;
 }
 
 // Rebuild #productGrid cards + the model/form chip counts. catFilter=null for /products/,
