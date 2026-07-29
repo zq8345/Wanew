@@ -19,7 +19,12 @@ const forms = read("data/forms.json").forms;
 const cats = read("data/categories.json").categories;
 const manifest = read("data/products-index.json");
 
-const formNames = new Set(forms.map((f) => f.name));
+/* 🔴 C 步 1:读取侧【显示名与 key 两者都认】。
+   产品数据里 `form` 存的是显示名当外键 —— 改一个显示名就要重写上百个文件。
+   根治是改成存 key,而这一步是"读取侧先能同时认",admin 才敢动数据。
+   ⚠️ 顺序不可颠倒:这一步没上线就迁移,线上按显示名匹配全部落空,产品从 /type/ 页整批消失。
+   ⚠️ 这里认两种【不是】放松校验 —— 第三种(既不是 name 也不是 key)照样报孤儿。 */
+const formNames = new Set(forms.flatMap((f) => [f.name, f.key]));
 const catSlugs = new Set(cats.map((c) => c.slug));
 
 // Count live products per form / per category (the "count>0 ⇒ can't delete" measure).

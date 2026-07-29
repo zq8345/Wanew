@@ -154,7 +154,12 @@ const catalog = JSON.parse(fs.readFileSync(path.join(REPO, "data", "chrome.json"
 const categoriesJson = JSON.parse(fs.readFileSync(path.join(REPO, "data", "categories.json"), "utf8"));
 // #52 批2：形态唯一真源 = data/forms.json（原 render.js FORM_KEY + chrome.js FORM_KEY + 本文件 TYPES 三处硬编码迁入）
 const FORMS = JSON.parse(fs.readFileSync(path.join(REPO, "data", "forms.json"), "utf8")).forms;
-const FORM_KEY = Object.fromEntries(FORMS.map((f) => [f.name, f.key]));   // bucket name -> data-form slug
+/* 🔴 name 与 key 【都】映射到 key —— C 步 1:读取侧两者都认。
+   产品数据里 `form` 存的是【显示名】当外键,所以改一个显示名要重写上百个文件。
+   根治是把它改成存 key,而这是第一步:**读取侧先能同时认两种**,admin 才敢动数据。
+   ⚠️ 顺序不可颠倒 —— 这一步没上线就迁移,线上按显示名匹配会全部落空,
+   产品会从 /type/ 页整批消失。 */
+const FORM_KEY = Object.fromEntries(FORMS.flatMap((f) => [[f.name, f.key], [f.key, f.key]]));   // bucket name -> data-form slug
 const CATMAP_DATA = catmapOf(categoriesJson);
 const MODEL = locales.model_display;
 const LOCALES = locales.enabled;                               // SEO 语种:驱产品详情页 + manifest + hreflang
