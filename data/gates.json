@@ -20,6 +20,11 @@
       "what": "各页 chrome 与模板一致(regen 后没跑 chrome-sync 会红)"
     },
     {
+      "id": "pages-list-sync",
+      "cmd": "node scripts/chrome-sync.mjs",
+      "what": "pages-list.json 与磁盘双向一致。⚠️ 脚本名里没有 check/verify/scan,glob 永远发现不了它——只能靠这条声明。它是 admin-worker 里 pageExists 的唯一数据源(Worker 无 fs);5b 删 227 页时清单没跟上,后台保存会对已删页下墓碑而整批失败"
+    },
+    {
       "id": "design-drift-check",
       "cmd": "node scripts/design-drift-check.mjs",
       "what": "产出与 DESIGN.md 的可测推论一致"

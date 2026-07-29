@@ -103,10 +103,50 @@ if (WRITE) {
   console.log(`sitemap.xml 重生成: ${emitted} 条（pages-list ${list.length} − 排除 ${list.length - expected}：404 + internal/${INTERNAL_DIRS.join(",") || "无"} + noindex ${NOINDEX.size}）`);
 }
 
+// ── 🔴 pages-list 双向核对(非写模式)────────────────────────────────────────
+/* 为什么在【删页之前】就要有这道闸:`data/pages-list.json` 是 admin-worker 里 `pageExists`
+   的唯一数据源(Worker 无 fs)。5b 要删 227 个静态页 —— 清单若没同步更新,守卫就会说谎,
+   于是 admin 会对已经不存在的路径下 `sha: null` 墓碑。症状是"保存报错",
+   **而没有人会想到是几天前删页时漏更新了一份清单。**
+
+   ⚠️ 闸必须建在删之前:**删完再建,基线里已经含着那个错** —— 那时还得先判断
+   "这几条不一致是历史遗留还是新 bug"。现在建,基线是 0,不需要判断。
+
+   🔴 它复用上面那个 `walk(".")` 的结果,**不另写一个扫描器**。另写就是复刻,
+   而复刻出来的第二份实现会和真源各自漂移 —— 那种闸红不了,只会说谎。
+   代价明说:它照的是"清单是不是陈旧",照不出"walk 的规则本身对不对"。
+
+   ⚠️ 双向缺一不可:只查一向漏"清单多出来的"(指向已删页 → admin 下墓碑),
+   只查另一向漏"清单缺的"(新页 admin 看不见 → 保存时误判不存在)。 */
+let pagesListDrift = 0;
+if (!WRITE) {
+  if (ONLY) {
+    console.log(`\n⏭️  pages-list 双向核对【跳过】:--only ${ONLY} 下 pages 是子集,比了会假红。**跳过是声明出来的,不是静默的。**`);
+  } else if (!fs.existsSync("data/pages-list.json")) {
+    console.error("\n🔴 pages-list 双向核对:data/pages-list.json 不存在 —— **这是缺席,不是一致。**");
+    pagesListDrift = 1;
+  } else {
+    const fresh = pages.slice().sort();
+    const onDisk = JSON.parse(fs.readFileSync("data/pages-list.json", "utf8"));
+    const setDisk = new Set(onDisk), setFresh = new Set(fresh);
+    const missing = fresh.filter((p) => !setDisk.has(p));   // 磁盘上有、清单里没有
+    const extra = onDisk.filter((p) => !setFresh.has(p));   // 清单里有、磁盘上没有
+    console.log(`\npages-list 双向核对:磁盘 ${fresh.length} · 清单 ${onDisk.length} · 清单缺 ${missing.length} · 清单多 ${extra.length}`);
+    for (const p of missing.slice(0, 6)) console.log(`   ❌ 清单缺(admin 会误判此页不存在):${p}`);
+    for (const p of extra.slice(0, 6)) console.log(`   ❌ 清单多(admin 会对已删页下墓碑):${p}`);
+    if (missing.length || extra.length) {
+      console.error("🔴 pages-list 与磁盘不一致 —— 跑 `node scripts/chrome-sync.mjs --write` 让它跟上,别手改。");
+      pagesListDrift = 1;
+    }
+  }
+}
+
 console.log(`chrome-sync [${WRITE ? "WRITE" : "dry"}]  页面 ${pages.length}  |  字节不变 ${identical}  |  变更 ${changed}(其中纯空白 ${wsOnly})`);
 if (errors.length) { console.log(`\n🔴 错误 ${errors.length}:`); for (const e of errors.slice(0, 10)) console.log("   " + e); }
 const contentChanged = report.filter((r) => r.kind === "content");
 console.log(`\n内容有变更的页 ${contentChanged.length}(预期:删 FOOTER_LANGS 14KB + footer 烘焙 + 括号(N))`);
 for (const r of contentChanged.slice(0, 6)) console.log(`   ${r.p}  Δ${r.d}`);
 if (wsOnly) { console.log(`\n仅空白归一的页 ${wsOnly}:`); for (const r of report.filter((r) => r.kind === "ws-only").slice(0, 8)) console.log("   " + r.p); }
-if (errors.length) process.exit(1);
+// ⚠️ 合并退出:不在核对处直接 exit —— 那会把下面的 errors/变更报告吞掉,
+//    让人只看见一条红而看不到同一次运行里的其它诊断。
+if (errors.length || pagesListDrift) process.exit(1);
