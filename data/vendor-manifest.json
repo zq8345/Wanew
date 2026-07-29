@@ -5,11 +5,6 @@
   "_gate": "scripts/vendor-manifest-check.mjs",
   "files": [
     {
-      "path": "functions/_lib/render.js",
-      "mirror": true,
-      "why": "产品页/列表页/首页的渲染。Admin 保存产品时要产出与官网构建逐字节相同的页面。"
-    },
-    {
       "path": "functions/_lib/chrome.js",
       "mirror": true,
       "why": "站点 chrome(头尾/导航/切换器)与形态计数。Admin 产出的页面要带同一套 chrome。"
@@ -20,14 +15,19 @@
       "why": "commitFiles:提交流程本身,含 SHA 自证闸与体积自适应分流。两侧必须是同一份,否则保护只在一边。"
     },
     {
+      "path": "functions/_lib/manifest-entry.js",
+      "mirror": true,
+      "why": "manifest 条目的形状 + 缩略图派生规则 + 三态存在性语义。Admin 保存产品时构造条目必须用这一份 —— 它缺 path 就是 650 那个 404,它把 null 当 false 就是 thumb 的批量退化。"
+    },
+    {
       "path": "functions/_lib/page-paths.js",
       "mirror": true,
       "why": "产品页面路径与 slug 派生。Admin 保存时要算出 path 写进 manifest —— 丢了它就是 650 那个 404。"
     },
     {
-      "path": "functions/_lib/manifest-entry.js",
+      "path": "functions/_lib/render.js",
       "mirror": true,
-      "why": "manifest 条目的形状 + 缩略图派生规则 + 三态存在性语义。Admin 保存产品时构造条目必须用这一份 —— 它缺 path 就是 650 那个 404,它把 null 当 false 就是 thumb 的批量退化。"
+      "why": "产品页/列表页/首页的渲染。Admin 保存产品时要产出与官网构建逐字节相同的页面。"
     },
     {
       "path": "scripts/locale-dirs.mjs",
@@ -35,10 +35,16 @@
       "why": "locale → 目录名(pt-BR→pt / es-MX→es)的唯一真源。两侧算错一处,产出就落到错的语种目录。"
     },
     {
+      "path": "skin/css/w3.css",
+      "mirror": true,
+      "why": "W3 皮肤的设计令牌与组件样式。Admin 镜像成 public/w3-tokens.css,用于后台预览与产出页样式对齐 —— 官网改了令牌而它没跟,预览就和线上长得不一样。"
+    },
+    {
       "path": "functions/_lib/product-route.js",
       "mirror": false,
       "why": "路由判据,只在 CF Pages 的 Function 挂载点上跑。Admin 不做路由,镜像它只会多一份要同步的东西。"
     }
   ],
-  "_realtime": "⚠️ 这份清单【不进镜像列表】。Admin 每次 vendor check 实时从官网 main 取它 —— 镜像下来会把'官网新增了一个该镜像的文件'这个信号延迟一轮,而那正是它要解决的问题。它不是被消费的代码,是'该消费哪些代码'的元数据。"
+  "_realtime": "⚠️ 这份清单【不进镜像列表】。Admin 每次 vendor check 实时从官网 main 取它 —— 镜像下来会把'官网新增了一个该镜像的文件'这个信号延迟一轮,而那正是它要解决的问题。它不是被消费的代码,是'该消费哪些代码'的元数据。",
+  "_scope": "🔴 **必须全员表态的范围 = `functions/_lib/**` + 清单已列出的其它路径。**⚠️ 而【实际被镜像的东西已经超出那个目录】(`scripts/locale-dirs.mjs`、`skin/css/w3.css`)——官网**无法枚举 admin 镜像了什么**,所以这个缝由 Admin 侧的黄灯补:它镜像了而清单没表态 → 它报⚠️黄(不拦,最坏是白同步一份);清单要求而它没有 → 🔴红(它在消费一份该同步却没同步的东西)。**判黄不判红的理由:红会让闸在官网补一行之前一直红,而红久了就会被绕过。**"
 }
