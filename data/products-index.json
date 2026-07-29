@@ -2,7 +2,7 @@
   {
     "id": 650,
     "category": "enterprise",
-    "form": "Cables",
+    "form": "cables",
     "title": "(2 Pack) For Starlink Ethernet Adapter Cable Enterprise Extension to RJ45 Cable, Starlink Cable 23AWG Waterproof SPX-RJ45 Coupler with End Caps",
     "path": "starlink-ethernet-adapter-cable-enterprise-650",
     "card_title": "Starlink Ethernet Adapter Cable Enterprise Extension to RJ45 Cable",
@@ -22,7 +22,7 @@
   {
     "id": 657,
     "category": "enterprise",
-    "form": "Cables",
+    "form": "cables",
     "title": "High Performance 2M Router Cable for Starlink",
     "path": "high-performance-2m-router-cable-657",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/f393ae6bea.thumb.webp",
@@ -41,7 +41,7 @@
   {
     "id": 658,
     "category": "enterprise",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Flat High Performance Extension to RJ45 Cable, Ethernet Adapter for Starlink Flat High Performance 22AWG, Waterproof SPX RJ45 Coupler with End Caps (2 Pack)",
     "path": "starlink-flat-high-performance-extension-658",
     "thumb": "/static/upload/down/e0c9cca3f7.thumb.webp",
@@ -60,7 +60,7 @@
   {
     "id": 669,
     "category": "enterprise",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Flat High Performance Cable 75FT/23M, Replacement FHP Power Cord Cable for Starlink Waterproof Extension Flat High Performance Gen 2 Accessories",
     "path": "starlink-flat-high-performance-cable-75ft-669",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/8469d9aae8.thumb.webp",
@@ -79,7 +79,7 @@
   {
     "id": 675,
     "category": "enterprise",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Ethernet Cable CMX CMR Rated 24AWG 1200Mbps for Power Supply Connect to The RJ45 Connector,Starlink Rectangular Satellite V2 Replacement Cable for RJ45 routers or Devices",
     "path": "starlink-ethernet-cable-cmx-cmr-rated-675",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/0959d22481.thumb.webp",
@@ -98,7 +98,7 @@
   {
     "id": 44,
     "category": "mini",
-    "form": "Cables",
+    "form": "cables",
     "title": "2 in 1 For Starlink Mini Cable 16.4FT/5M, DC/USB C Charging + Ethernet Cable, Replacement Starlink Mini Power Accessories (18AWG)",
     "path": "in-1-for-starlink-mini-cable-44",
     "thumb": "/static/upload/image/20260428/1777337750969009.thumb.webp",
@@ -117,7 +117,7 @@
   {
     "id": 656,
     "category": "mini",
-    "form": "Cables",
+    "form": "cables",
     "title": "Car Charger to DC Female Adapter Cable for Starlink Mini, 12~48V Cigarette Lighter to DC Power Cable, 36W Output Stable Power Supply for Car, Truck, RV, Boat - 19AWG Durable Construction",
     "path": "car-charger-to-dc-female-adapter-656",
     "thumb": "/static/upload/down/49ddb18b64.thumb.webp",
@@ -136,7 +136,7 @@
   {
     "id": 663,
     "category": "mini",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink 2M/3M/5M/10M/15M Multiple Lengths of USB Type-C to DC Power Adapter Cable for Starlink Mini",
     "path": "starlink-2m-3m-5m-10m-15m-663",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/2797aed546.thumb.webp",
@@ -155,7 +155,7 @@
   {
     "id": 676,
     "category": "mini",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Mini Cable, Starlink Mini USB C to DC Power Cable, Compatible with 100W+ Power Bank and PD Charger",
     "path": "starlink-mini-cable-starlink-mini-usb-676",
     "thumb": "/static/upload/down/64328bb2bb.thumb.webp",
@@ -174,7 +174,7 @@
   {
     "id": 678,
     "category": "mini",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Mini Cable Starlink Ethernet Cable to D 5.5*2.1 Male Connector Starlink Compatible Mini Cable",
     "path": "starlink-mini-cable-starlink-ethernet-cable-678",
     "thumb": "/static/upload/down/bcdb1e570e.thumb.webp",
@@ -189,7 +189,7 @@
   {
     "id": 679,
     "category": "mini",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Mini Cable, 3 in 1 Starlink Mini Car Charger DC Power Cable+ Cigarette Lighter Adapter with Digital Display USB C PD & USB A Ports for Trucks Cars 10FT",
     "path": "starlink-mini-cable-3-in-1-679",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/fa1c3904bb.thumb.webp",
@@ -204,7 +204,7 @@
   {
     "id": 680,
     "category": "mini",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "For Starlink Mini Car Mount for Dashboard, Starlink Mini Suction Cup Mount for Dashboard & Windshield, Secure Mounting Kit for Most Vehicles and Ensures Stable Driving and Satellite Signal",
     "path": "starlink-mini-car-mount-for-dashboard-680",
     "thumb": "/static/upload/down/6239529072.thumb.webp",
@@ -223,7 +223,7 @@
   {
     "id": 681,
     "category": "mini",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "For Starlink Mini Car Roof Mount,Starlink Mini Magnetic Mount,Starlink Mini Accessories,Starlink Mini Mounting Kit for RVs, Vans, Boat, Yachts, Trucks",
     "path": "starlink-mini-car-roof-mount-starlink-681",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/2bb4ccae90.thumb.webp",
@@ -242,7 +242,7 @@
   {
     "id": 682,
     "category": "mini",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "For Starlink Mini Mount, Car Roof Mount with 4 Strong Suction Cups, Adjustable and Durable Mounting Bracket for Starlink Mini - Ensure Stable Satellite Signal for RV, Roof, Wall, Boat, and Outdoor Use",
     "path": "starlink-mini-mount-car-roof-mount-682",
     "thumb": "/static/upload/down/d06387f3a5.thumb.webp",
@@ -261,7 +261,7 @@
   {
     "id": 683,
     "category": "mini",
-    "form": "Power & Charging",
+    "form": "power",
     "title": "For Starlink Mini Charger 60W Replacement Power Supply AC Adapter 30V 2A Output Wall Charger Plug for Starlink Mini Dish",
     "path": "starlink-mini-charger-60w-replacement-power-683",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/54e2b31d29.thumb.webp",
@@ -280,7 +280,7 @@
   {
     "id": 684,
     "category": "mini",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "Starlink Mini Pivot Mount Adjust Tilt Angle Dish Mount",
     "path": "starlink-mini-pivot-mount-adjust-tilt-684",
     "thumb": "/static/upload/down/1632b03ab7.thumb.webp",
@@ -299,7 +299,7 @@
   {
     "id": 685,
     "category": "mini",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Mini Extension Cable 23.5CM, Waterproof DC Male to DC Female Extender Cord, Power Converter Adapter, Compatible with Starlink Mini Pipe Adapter & Original Power Cable",
     "path": "starlink-mini-extension-cable-23-5cm-685",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/471fc16a30.thumb.webp",
@@ -318,7 +318,7 @@
   {
     "id": 686,
     "category": "mini",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Mini Extension Cable Waterproof Starlink Standard Gen3 DC Cable Connector Female to Female Adapter, 0.98FT, Portable, for Camp Travel Car RV",
     "path": "starlink-mini-extension-cable-waterproof-starlink-686",
     "thumb": "/static/upload/down/f7e0ae7d2f.thumb.webp",
@@ -337,7 +337,7 @@
   {
     "id": 687,
     "category": "mini",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "For Starlink mini Magnetic Mount, for Starlink Mini Dish",
     "path": "starlink-mini-magnetic-mount-for-starlink-687",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/16e4e4ebb5.thumb.webp",
@@ -356,7 +356,7 @@
   {
     "id": 688,
     "category": "mini",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "For Starlink Mini Mount Car Mount fit 1.1-1.7",
     "path": "starlink-mini-mount-car-mount-fit-688",
     "thumb": "/static/upload/down/169450f984.thumb.webp",
@@ -375,7 +375,7 @@
   {
     "id": 689,
     "category": "mini",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "For Starlink Mini Mount for RV/ Pole/ Yacht/ Camper, Starlink RV Ladder Mount Pole Range 0.8-1.18 inch, Starlink Mounting Kit",
     "path": "starlink-mini-mount-for-rv-pole-689",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/6bb0763c24.thumb.webp",
@@ -394,7 +394,7 @@
   {
     "id": 690,
     "category": "mini",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "For Starlink Mini Pole Mount Dish Adapter up to D1 1/2",
     "path": "starlink-mini-pole-mount-dish-adapter-690",
     "thumb": "/static/upload/down/24a706af4a.thumb.webp",
@@ -413,7 +413,7 @@
   {
     "id": 691,
     "category": "mini",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "For Starlink Mini Roof Mount Adjustable Starink Mini Home Mount Heavy Duty Pole Mounting with Adjustable Tilt 90 for Better Signal",
     "path": "starlink-mini-roof-mount-adjustable-starink-691",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/08/products/b3597dc054.thumb.webp",
@@ -428,7 +428,7 @@
   {
     "id": 692,
     "category": "mini",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Mini Type C to DC Adapter Waterproof Compatible with Original Starlink Mini USB C Power Cable 65W+ PD Source DC Power Adapter",
     "path": "starlink-mini-type-c-to-dc-692",
     "thumb": "/static/upload/down/StarlinkMiniUSBCtoDCAdapter5.thumb.webp",
@@ -447,7 +447,7 @@
   {
     "id": 693,
     "category": "mini",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Mini USB C to DC Power Cable 16.4 FT/5 M Starlink Mini Cable 100W USB Type-C Input to DC Barrel Jack Charging Cord Waterproof Work with 100W+ PD Source 18AWG",
     "path": "starlink-mini-usb-c-to-dc-693",
     "thumb": "https://img.wanew.com/u_file/uploads/ms1zjc1gfzjpci.thumb.webp",
@@ -466,7 +466,7 @@
   {
     "id": 694,
     "category": "mini",
-    "form": "Cases & Protection",
+    "form": "cases",
     "title": "For Starlink Mini Carry Bag, Travel Shoulder Bag with Shoulder Strap for Starlink Mini Dish Kit, 600D Heavy Duty Oxford Cloth, Shockproof Portable Storage Briefcase Handbag for Outdoor, Camping, Sailing",
     "path": "starlink-mini-carry-bag-travel-shoulder-694",
     "thumb": "/static/upload/down/a20257a41f.thumb.webp",
@@ -485,7 +485,7 @@
   {
     "id": 695,
     "category": "mini",
-    "form": "Cases & Protection",
+    "form": "cases",
     "title": "For Starlink Mini Hard Case for Dish Kit",
     "path": "starlink-mini-hard-case-for-dish-695",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/d649cf2f17.thumb.webp",
@@ -500,7 +500,7 @@
   {
     "id": 702,
     "category": "mini",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Router Mini Cable 2 Pack (1FT 6.5FT) USB C to DC Power Cable Compatible with Mini Router, Plug and Play PD 9V Compatible Replacement for Starlink Internet Kit",
     "path": "starlink-router-mini-cable-2-702",
     "thumb": "/static/upload/down/1e6b9f2824.thumb.webp",
@@ -519,7 +519,7 @@
   {
     "id": 703,
     "category": "mini",
-    "form": "Power & Charging",
+    "form": "power",
     "title": "Starlink Mini car adapter, 12V to 24V step-up converter, cigarette lighter adapter, Starlink Mini power supply, 60W DC booster",
     "path": "starlink-mini-car-adapter-12v-703",
     "thumb": "/static/upload/down/StarlinkMiniCarAdapter-22.thumb.webp",
@@ -538,7 +538,7 @@
   {
     "id": 4199,
     "category": "mini",
-    "form": "Networking",
+    "form": "networking",
     "title": "Suitable for Starlink Mini Router 4-Port Ethernet Adapter Network-specific Adapter Expansion Dock POE network box",
     "path": "suitable-for-starlink-mini-router-4-port-4199",
     "thumb": "/static/upload/image/20260521/1779350844699054.thumb.webp",
@@ -557,7 +557,7 @@
   {
     "id": 4200,
     "category": "mini",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Mini Flat Power Charging Cable [Type-C to DC / DC to DC Optional] 60W 20V 3A  High Speed PD Supply Wire for Laptop Router LED Strip",
     "path": "starlink-mini-flat-power-charging-cable-4200",
     "thumb": "/static/upload/image/20260521/1779352319694762.thumb.webp",
@@ -576,7 +576,7 @@
   {
     "id": 4201,
     "category": "mini",
-    "form": "Power & Charging",
+    "form": "power",
     "title": "Starlink Mini Portable Power Bank 27500mAh/99Wh with Digital Display, Fast Charging External Battery Pack & Foldable Stand for Travel & Outdoor Use",
     "path": "starlink-mini-portable-power-bank-27500mah-4201",
     "thumb": "/static/upload/image/20260522/1779412510179383.thumb.webp",
@@ -595,7 +595,7 @@
   {
     "id": 4203,
     "category": "mini",
-    "form": "Cables",
+    "form": "cables",
     "title": "2-in-1 12-24V Car Adapter Power Cable for Starlink - Waterproof Cigarette Lighter Accessory",
     "path": "2-in-1-12-24v-car-adapter-power-cable-4203",
     "thumb": "/static/upload/image/20260522/1779413282561312.thumb.webp",
@@ -614,7 +614,7 @@
   {
     "id": 4204,
     "category": "mini",
-    "form": "Power & Charging",
+    "form": "power",
     "title": "For Starlink Mini 60W Power Supply Kit - 30V/2A AC/DC Adapter with 12V Car Charger, Waterproof DC Cable for RV/Outdoor Use",
     "path": "starlink-mini-60w-power-supply-kit-4204",
     "thumb": "/static/upload/image/20260522/1779414654778711.thumb.webp",
@@ -633,7 +633,7 @@
   {
     "id": 4205,
     "category": "mini",
-    "form": "Power & Charging",
+    "form": "power",
     "title": "Starlink Mini Car Charger 12V/24V to 30V 2A 60W DC Power Adapter for Truck/RV/Boat",
     "path": "starlink-mini-car-charger-12v-24v-4205",
     "thumb": "/static/upload/image/20260522/1779414966204424.thumb.webp",
@@ -652,7 +652,7 @@
   {
     "id": 4206,
     "category": "mini",
-    "form": "Cables",
+    "form": "cables",
     "title": "Starlink Mini DC Power Extension Cable — 12V/24V Cigarette Lighter to DC Adapter for RV, Truck, Boat & Car",
     "path": "starlink-mini-dc-power-extension-cable-4206",
     "thumb": "/static/upload/image/20260522/1779415510147664.thumb.webp",
@@ -667,7 +667,7 @@
   {
     "id": 4207,
     "category": "mini",
-    "form": "Cables",
+    "form": "cables",
     "title": "Starlink Mini 12V Power Adapter: 100W charger DC to DC Conversion Cable for RV, Vanlife & Off-Grid Camping camping internet power solution",
     "path": "starlink-mini-12v-power-adapter-100w-4207",
     "thumb": "/static/upload/image/20260522/1779416243147050.thumb.webp",
@@ -686,7 +686,7 @@
   {
     "id": 4208,
     "category": "mini",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "Starlink Mini Wall Mount, 360 Adjustable Starlink Mini Bracket, Gray",
     "path": "starlink-mini-wall-mount-360-adjustable-4208",
     "thumb": "https://img.wanew.com/u_file/uploads/ms1wwrua6add8l.thumb.webp",
@@ -695,7 +695,7 @@
   {
     "id": 4209,
     "category": "mini",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "Starlink Mini Car Mount for Dashboard for Starlink Mini Dash Mount for Starlink Mini Suction Cup Mount for Dashboard & Windshield Suitable Most Vehicles and Ensures Stable Satellite Signal",
     "path": "starlink-mini-car-mount-for-dashboard-4209",
     "thumb": "https://img.wanew.com/u_file/uploads/ms1xiyq2dt0c6s.thumb.webp",
@@ -704,7 +704,7 @@
   {
     "id": 4210,
     "category": "mini",
-    "form": "Power & Charging",
+    "form": "power",
     "title": "Starlink Mini Battery Mount,30,000 mAh with Battery Pack 20V 5A Output,Starlink Mini Power Bank Adjustable Tripod Stand，LED Power Indicator, Type-C Charging Port，for Outdoor & RV Camping",
     "path": "starlink-mini-battery-mount-30-000-4210",
     "thumb": "https://img.wanew.com/u_file/uploads/ms1ystoed0kyix.thumb.webp",
@@ -713,7 +713,7 @@
   {
     "id": 4211,
     "category": "mini",
-    "form": "Power & Charging",
+    "form": "power",
     "title": "for Starlink Mini Car Adapter Supports 105W Power, Features Boost Module, for Starlink Mini Cable Continuous and Stable Output, 12/24V Step Up to 30V 3.5A Conversion Kit, with 9.8FT DC Cable IP68",
     "path": "starlink-mini-car-adapter-supports-105w-4211",
     "thumb": "https://img.wanew.com/u_file/uploads/ms1z8rtf4rm5ck.thumb.webp",
@@ -722,7 +722,7 @@
   {
     "id": 654,
     "category": "performance-gen-1",
-    "form": "Cables",
+    "form": "cables",
     "title": "Cable for Starlink High Performance, Waterproof Connectors, Compatible with Starlink High Performance Antenna and Power Supply, Durable & Reliable for Commercial & Industrial Use",
     "path": "cable-for-starlink-high-performance-waterproof-654",
     "thumb": "/static/upload/down/c65049683b.thumb.webp",
@@ -741,7 +741,7 @@
   {
     "id": 42,
     "category": "performance-gen-3",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Performance Adapter Gen 3, For Starlink Performance Gen 3 Cable Extension to RJ45 Coupler Waterproof Compatible with Starlink Performance Gen 3 Dish",
     "path": "starlink-performance-adapter-gen-3-42",
     "thumb": "/static/upload/image/20260428/1777341673585824.thumb.webp",
@@ -760,7 +760,7 @@
   {
     "id": 43,
     "category": "performance-gen-3",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Performance Gen 3 Ethernet Adapter, For Starlink Performance Gen 3 Cable Extension to RJ45 Coupler Waterproof Compatible with Starlink Performance Gen 3 Dish (1 Pack) 23AWG",
     "path": "starlink-performance-gen-3-ethernet-adapter-43",
     "thumb": "/static/upload/image/20260428/1777338223949419.thumb.webp",
@@ -779,7 +779,7 @@
   {
     "id": 697,
     "category": "performance-gen-3",
-    "form": "Cables",
+    "form": "cables",
     "title": "(23AWG) For Starlink Performance (Gen 3) Adapter, 2000Mbps 23AWG Cable, IP68 Waterproof Protection SPX to RJ45 Couple ( 1pack)",
     "path": "starlink-performance-adapter-2000mbps-23awg-cable-697",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/5650253a55.thumb.webp",
@@ -798,7 +798,7 @@
   {
     "id": 700,
     "category": "performance-gen-3",
-    "form": "Cables",
+    "form": "cables",
     "title": "Starlink Performance Gen3 Waterproof Extension Cable – High-Speed Cat6 Network Cable for Starlink Gen3 Rectangular Satellite, Plug-and-Play, Weatherproof & Durable for Indoor/Outdoor Use (10M/33FT)",
     "path": "starlink-performance-gen3-waterproof-extension-700",
     "thumb": "/static/upload/down/7f00996ac6.thumb.webp",
@@ -817,7 +817,7 @@
   {
     "id": 4202,
     "category": "performance-gen-3",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "Pipe Mount Adapter for Starlink Gen 3, Heavy Duty Aluminum Alloy Pole Mount Kit for V3 Dish, Roof & Wall Installation",
     "path": "pipe-mount-adapter-for-starlink-gen-4202",
     "thumb": "/static/upload/image/20260522/1779412638932645.thumb.webp",
@@ -836,7 +836,7 @@
   {
     "id": 651,
     "category": "standard",
-    "form": "Cables",
+    "form": "cables",
     "title": "(1 Pack) For Starlink Gen 3 & Mini Ethernet Adapter, 2000Mbps 24AWG Cable, IP68 Waterproof Protection SPX to RJ45 Coupler for Standard/Mini Dish (Starlink V3 Accessories)",
     "path": "starlink-gen-3-mini-ethernet-adapter-651",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/1e0268e594.thumb.webp",
@@ -855,7 +855,7 @@
   {
     "id": 652,
     "category": "standard",
-    "form": "Cables",
+    "form": "cables",
     "title": "(2 Pack) For Starlink Mini/Gen 3 Ethernet Adapter, Waterproof Starlink Cable Extension for Mini Starlink, Star Link Standard to RJ45 Coupler for Starlink Gen3 Standard V3 Dish and Router",
     "path": "starlink-mini-gen-3-ethernet-adapter-652",
     "thumb": "/static/upload/down/413c1389e2.thumb.webp",
@@ -874,7 +874,7 @@
   {
     "id": 660,
     "category": "standard",
-    "form": "Cables",
+    "form": "cables",
     "title": "For StarLink GEN3 Cable, For Starlink Ethernet Extension Cable Waterproof High Speed Cat 6 Ethernet Standard Replacement Long Cord for Satellite V3 Sata Internet Starlink Routing Network Kit",
     "path": "starlink-gen3-cable-for-starlink-ethernet-660",
     "thumb": "/static/upload/down/starlinkgen3RJ45image4-0321545254.thumb.webp",
@@ -893,7 +893,7 @@
   {
     "id": 661,
     "category": "standard",
-    "form": "Networking",
+    "form": "networking",
     "title": "Multi Ports Ethernet Adapter for Starlink Standard 4X/ Gen 3/ Starlink Mini | For Starlink Wired External Network 4 Ports Ethernet Adapter 1 to 4 [4 Devices Networked Simultaneously] - Up to 1 Gbps",
     "path": "multi-ports-ethernet-adapter-for-starlink-661",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/8b4bace44a.thumb.webp",
@@ -912,7 +912,7 @@
   {
     "id": 662,
     "category": "standard",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "Pipe Adapter Mount For Starlink Gen 3, Compatible with 1.25-2.5' Pipe, For Starlink V3 Dish Heavy Duty Roof Pole Mounting Kit Connectors, Thickened Pole Mount Adapter Kit Accessories, Easy Installation",
     "path": "pipe-adapter-mount-for-starlink-gen-662",
     "thumb": "/static/upload/down/24ed4ad3d4.thumb.webp",
@@ -931,7 +931,7 @@
   {
     "id": 671,
     "category": "standard",
-    "form": "Cases & Protection",
+    "form": "cases",
     "title": "For Starlink Gen 3 Case, Multi-pocket Design, Handbag/Shoulder Travel Bag for Starlink V3 Dish & Accessories, RV Camping",
     "path": "starlink-gen-3-case-multi-pocket-design-671",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/0ca2e2a7c8.thumb.webp",
@@ -950,7 +950,7 @@
   {
     "id": 672,
     "category": "standard",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "Starlink Gen 3 Mount, Starlink Pivot Mount with Pipe Adapter and Mast, Swiveling Mechanism Design, Standard Gen 3 Mount for Slanted, shingled Roofs, Easy to Install and Adjust.",
     "path": "starlink-gen-3-mount-starlink-pivot-672",
     "thumb": "/static/upload/down/9fbc410503.thumb.webp",
@@ -969,7 +969,7 @@
   {
     "id": 673,
     "category": "standard",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "For Starlink Gen 3 Mount, Starlink Pivot Mount with Pipe Adapter and Mast, Swiveling Mechanism Design, Standard Gen 3 Mount for Slanted, shingled Roofs, Easy to Install and Adjust.",
     "path": "starlink-gen-3-mount-starlink-pivot-673",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/08/products/StarlinkGen3PivotMountimage4.thumb.webp",
@@ -988,7 +988,7 @@
   {
     "id": 674,
     "category": "standard",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "For Starlink Gen 3 Router & Power Supply Mounting Kit",
     "path": "starlink-gen-3-router-power-supply-674",
     "thumb": "/static/upload/down/bf26b45c66.thumb.webp",
@@ -1007,7 +1007,7 @@
   {
     "id": 677,
     "category": "standard",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Mini Cable -  Waterproof DC Power Replacement Cable for Starlink Mini  Gray",
     "path": "starlink-mini-cable-waterproof-dc-677",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/065cc72e8f.thumb.webp",
@@ -1026,7 +1026,7 @@
   {
     "id": 696,
     "category": "standard",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "For Starlink Mount for Mini Dish to Poles, RV Ladders, Railings, Racks",
     "path": "starlink-mount-for-mini-dish-696",
     "thumb": "/static/upload/down/a0f77f1374.thumb.webp",
@@ -1045,7 +1045,7 @@
   {
     "id": 701,
     "category": "standard",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "For Starlink Pole Mount Gen 3 Standard Kit V3 Dish Adapter",
     "path": "starlink-pole-mount-gen-3-standard-701",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/4d257d30f3.thumb.webp",
@@ -1064,7 +1064,7 @@
   {
     "id": 704,
     "category": "standard",
-    "form": "Cables",
+    "form": "cables",
     "title": "3 in 1 for Starlink Mini Cable 10FT/3M OR 16FT/5M, 18AWG Starlink Mini 100W High-Speed USB C/Car Charger/DC to DC Power Cable Starlink Mini Car Cigarette Lighter Replacement Waterproof Extension Cable Accessories",
     "path": "in-1-for-starlink-mini-cable-704",
     "thumb": "/static/upload/down/3in1StarlinkMiniCable2.thumb.webp",
@@ -1079,7 +1079,7 @@
   {
     "id": 659,
     "category": "standard-actuated",
-    "form": "Networking",
+    "form": "networking",
     "title": "For Starlink Gen 2 Ethernet Adapter, For Starlink Ethernet Adapter for Standard Actuated Gen 2, RJ45 Gigabit Wired External Network with Fast & Stable Internet Connection",
     "path": "starlink-gen-2-ethernet-adapter-659",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/8345d6f0f9.thumb.webp",
@@ -1098,7 +1098,7 @@
   {
     "id": 665,
     "category": "standard-actuated",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Cable Gen 2 30FT 75FT 100FT 150FT, CMX CMR Rated 24AWG Starlink Replacement Cable 1200Mbps, Starlink Extension Ethernet Cable",
     "path": "starlink-cable-gen-2-30ft-75ft-665",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/929a2aa6dd.thumb.webp",
@@ -1117,7 +1117,7 @@
   {
     "id": 666,
     "category": "standard-actuated",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Cable SPX to RJ45 Adapters, Starlink Ethernet Adapter for Star Link Gen 2 Dishy & Router with Waterproof Kits (Pair)",
     "path": "starlink-cable-spx-to-rj45-adapters-666",
     "thumb": "/static/upload/down/3794a12fbc.thumb.webp",
@@ -1136,7 +1136,7 @@
   {
     "id": 667,
     "category": "standard-actuated",
-    "form": "Networking",
+    "form": "networking",
     "title": "For Starlink Ethernet Adapter for Starlink Gen2 Wired External Network,Dual Ports Starlink Gen2 Ethernet Adapter Up to 1 Gbps High-Speed Ntworking",
     "path": "starlink-ethernet-adapter-for-starlink-gen2-667",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/105b33dab5.thumb.webp",
@@ -1155,7 +1155,7 @@
   {
     "id": 668,
     "category": "standard-actuated",
-    "form": "Cables",
+    "form": "cables",
     "title": "For Starlink Ethernet Adapter V2 (2 Pack) Waterproof Star Link Cable SPX to RJ45 Adapters Female Connectors for Starlink Actuated Gen 2 Dishy and Router Repair Kit Accessories",
     "path": "starlink-ethernet-adapter-v2-waterproof-star-668",
     "thumb": "/static/upload/down/54bebe4174.thumb.webp",
@@ -1174,7 +1174,7 @@
   {
     "id": 670,
     "category": "standard-actuated",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "For Starlink Gen 2 Mount, Pivot Mount",
     "path": "starlink-gen-2-mount-pivot-mount-670",
     "thumb": "/static/upload/down/320616680a.thumb.webp",
@@ -1193,7 +1193,7 @@
   {
     "id": 655,
     "category": "standard-circular",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "Cable Routing Kit for Starlink, Cable Mounting Kit, Starlink Accessories, Wall Grommets for Cables, Cable Wall Pass Through for 1 Inch Wall Hole and Furniture Wire Hole -  - 2 Pack",
     "path": "cable-routing-kit-for-starlink-cable-655",
     "thumb": "https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/ddbec41296.thumb.webp",
@@ -1212,7 +1212,7 @@
   {
     "id": 664,
     "category": "standard-circular",
-    "form": "Mounts & Brackets",
+    "form": "mounts",
     "title": "For Starlink Cable Routing Kit Screws+ Clamps for Starlink Series Wire Clip 20 Packs",
     "path": "starlink-cable-routing-kit-screws-clamps-664",
     "thumb": "/static/upload/down/08cc07cfde.thumb.webp",
