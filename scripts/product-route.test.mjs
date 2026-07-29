@@ -16,6 +16,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "fs";
+import os from "os";
 
 const SRC = fs.readFileSync("functions/_lib/product-route.js", "utf8");
 const ROUTES = JSON.parse(fs.readFileSync("data/product-routes.json", "utf8"));
@@ -179,6 +180,76 @@ test("/products/ 路由层", (t) => {
     "⑧ 正对照:别名形式 `X as onRequest` 在 _lib 里同样必须被抓到(它一样会造出路由)");
   ok(!EXPORTS_ONREQUEST.test('export function handleProductRoute(c){}'),
     "⑧ 正对照:不叫 onRequest 的正常导出不误伤");
+
+  // ── ⑨ 🔴 301 映射表 ↔ 挂载桩:两者【同生同死】 ──────────────────────────
+  /* 桩由 regen 生成,所以正常流程下不会缺。这条闸防的是【没跑 regen 就推】——
+     表改了、桩没跟上,那个前缀的旧址直接 404,而所有产出文件都在,闸看不出来。
+     ⚠️ 与 ⑦ 同构:⑦ 管 /products/ 的语种挂载,⑨ 管旧址前缀的挂载。**同一种失败模式。**
+
+     🔴🔴 这一条最初写成 `if (fs.existsSync("data/product-redirects.json")) { …全部断言… }`,
+     而那张表是第 5a 步才产生的 —— **在它落地之前,整块一条都不跑,屏幕上却是绿的**。
+     "⑨ 号闸先落 main"按那个写法做,落上去的是一道**什么都不照的闸**。
+     > **"文件在不在"不该决定"检查跑不跑" —— 那让"还没做"和"做坏了"长得一模一样。**
+     改法不是加豁免,是把它收敛成一条【无分支】的规则:
+        {表推出的前缀集合} ≡ {磁盘上带 @generated-legacy-mount 标记的桩集合}
+     表不存在 = 左边是空集,于是断言变成"桩也必须是 0" —— **照样是一条能红的真断言**,
+     而且它真的在照东西:functions/ 下现有 5 个 `[[path]].js` —— admin-worker、scripts、
+     以及 products 的 en/es/pt —— **一个都不带标记**。枚举器只要按文件名认而不看标记,
+     左边空、右边 5,当场红。(实测:注入 1 个带标记的桩,rc=1,断言原话
+     「⑨ 桩 1 个 = 表推出的前缀 0 个(表还不存在 ⇒ 桩必须为 0)」。) */
+  const MAP_FILE = "data/product-redirects.json";
+  const MAP_PRESENT = fs.existsSync(MAP_FILE);
+  const REDIRECTS = MAP_PRESENT
+    ? (JSON.parse(fs.readFileSync(MAP_FILE, "utf8")).redirects || {}) : {};
+  // 从每条旧址反推它需要哪个挂载前缀 —— 与 regen 用同一条规则,但从【表】反推,不是重跑生成
+  const needed = new Set();
+  for (const from of Object.keys(REDIRECTS)) {
+    const seg = from.replace(/^\//, "").split("/");
+    const loc = ["es", "pt", "zh"].includes(seg[0]) ? seg.shift() : "";
+    const head = seg[0] === "type" ? "type" : seg[0];
+    needed.add(`${loc ? loc + "/" : ""}${head}`);
+  }
+  // ⚠️ 枚举器收一个 root 参数,**只为了正对照能在真文件系统上跑而不碰 functions/**。
+  //    在 functions/ 里造一个临时桩去证明它能红,万一中途崩了会**留下一个真的对外路由**。
+  const walkStubs = (root) => {
+    const found = [];
+    const rec = (d, base = "") => {
+      for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+        if (e.isDirectory()) { rec(`${d}/${e.name}`, base ? `${base}/${e.name}` : e.name); continue; }
+        if (e.name === "[[path]].js" && fs.readFileSync(`${d}/${e.name}`, "utf8").includes("@generated-legacy-mount"))
+          found.push(base);
+      }
+    };
+    rec(root);
+    return found;
+  };
+  const stubs = walkStubs("functions");
+  console.log(`   ⑨ 映射表${MAP_PRESENT ? "在" : "【不存在】"}:${Object.keys(REDIRECTS).length} 条 → 推出 ${needed.size} 个前缀 · 磁盘桩 ${stubs.length} 个`);
+  // 双向逐元素相等 —— 单向任一边都会漏:只查前者漏"桩多出来"(没人要的前缀被 Function 接管),
+  // 只查后者漏"表列了但没桩"(那个前缀的旧址直接 404)。
+  ok(stubs.length === needed.size,
+    `⑨ 桩 ${stubs.length} 个 = 表推出的前缀 ${needed.size} 个` +
+    (MAP_PRESENT ? "" : "(表还不存在 ⇒ 桩必须为 0)"));
+  for (const m of [...needed].sort())
+    ok(fs.existsSync(`functions/${m}/[[path]].js`), `⑨ 正向:前缀 ${m} 必须有挂载桩`);
+  for (const s of [...stubs].sort())
+    ok(needed.has(s), `⑨ 反向:桩 functions/${s}/ 必须被映射表需要`);
+  // 🔴 正对照:作用在【真实文件系统】上,不在断言层构造字符串。
+  //    造一棵临时目录树:一个带标记的桩 + 一个不带标记的同名文件,枚举器必须只认前者。
+  //    ⚠️ 后者是关键 —— functions/products/[[path]].js 这类真实文件正是"同名但不该算"的,
+  //    枚举器若只按文件名认,主断言在今天(空集 vs 3)就会红,而它现在是绿的。
+  const probe = fs.mkdtempSync(`${os.tmpdir()}/gate9-`);
+  try {
+    fs.mkdirSync(`${probe}/marked`, { recursive: true });
+    fs.mkdirSync(`${probe}/plain`, { recursive: true });
+    fs.writeFileSync(`${probe}/marked/[[path]].js`, "// @generated-legacy-mount\nexport {};\n");
+    fs.writeFileSync(`${probe}/plain/[[path]].js`, "export {};\n");
+    const got = walkStubs(probe).sort();
+    ok(got.join() === "marked",
+      `⑨ 正对照:枚举器在真目录上只认带标记的桩(读到 [${got.join(",")}],期望 [marked])`);
+  } finally {
+    fs.rmSync(probe, { recursive: true, force: true });
+  }
 
   // ── ⑩ 🔴 反向:products/ 下每个详情页文件,必须命中当前 manifest 的某个 path ────
   /* 前面的 ⑦⑨ 都是「清单 → 实物」方向。这一条是反的:**实物 → 清单**。
