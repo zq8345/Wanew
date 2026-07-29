@@ -296,8 +296,18 @@ for (const id of targets) {
     const opens = (html.match(/<div\b/g) || []).length;
     const closes = (html.match(/<\/div>/g) || []).length;
     if (opens !== closes) { imbalanced++; console.error(`  ⚠️ div imbalance ${locale} ${prod.category}/${id}: ${opens}/${closes}`); }
-    fs.mkdirSync(path.dirname(out), { recursive: true });
-    fs.writeFileSync(out, html);
+    /* ── 第 5b 步 ③c:【停产旧址详情页】 ────────────────────────────────────
+       这里原本是 `mkdirSync(dirname(out)); writeFileSync(out, html); written++`。
+       ⚠️ **只是不再写,文件一个都没删** —— 那 190 个旧址详情页仍在磁盘上、仍在被服务、
+          仍被 Google 收录。删除是收尾那一刀的事,且必须与「新址可收录」同一时刻发生:
+            现在就删 → 301 还没上线 → 已收录地址当场 404
+            先上 301 再删 → 旧址跳到仍挂着 noindex 的新址 → Google 读到的是"这批页没了"
+       ⚠️ 所以从这一刻起,旧址页【冻结】在最后一次写入的样子:内容不再更新,但照常 200。
+          ⇒ 这一步到收尾那一刀之间越短越好,中间别插任何"要跑全量 rebuild 才生效"的活。
+       🔴 `html` 是从产品数据【现渲染】的,旧文件从来不是它的源 —— 所以停写它对新址产出
+          没有任何影响。本次改动的正对照就是这个:产出逐字节不变。 */
+    void out;   // 旧址路径仍算出来:上面的存在性判据与下面的 hreflang 都不用它了,但留着它
+                // 让"这里曾经写过旧址"在 diff 里看得见,而不是凭空消失一个变量。
     written++;
 
     /* ── /products/ 迁移 · 第 1b 步:新址【并存】产出,旧址一个字节不动 ──────────
