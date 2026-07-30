@@ -1,5 +1,7 @@
-_*.mjs
-_*.json
-
-# wrangler dev cache (admin-worker local dev artifact)
-.wrangler/
+# 仓根 = 部署根 —— 落在这里的文件会被 https://wanew.com/<文件名> 公开提供。
+# 审计/交接类文档一律不许提交进仓根：它们会直接告诉读者哪些路径没堵、哪里有洞。
+# （2026-07-30：仓根出现过一份未跟踪的 audit-report-2026-07-30.md，差一次 `git add -A` 就上线了。）
+# 需要留档的放 wanew-internal-docs/（实测生产 404），或放到仓外。
+/audit-report*.md
+/*-audit*.md
+/security-*.md
