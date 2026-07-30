@@ -213,6 +213,22 @@
       if (formChips.length) count(formChips, "data-form", "data-cat");
       empty.style.display = vis ? "none" : "";
     }
+    /* 🔴 地址必须描述当前画面。改之前:点 chip 只改 DOM,地址栏不动 ⇒
+       筛选后的视图【发不出去】(复制地址给客户,对方看到全部 68 个),而地址栏在说谎。
+       Joe 2026-07-29 两张截图是同一个 bug 的两面:
+         URL /products/       画面只有 7 个   ← 点了 Charging
+         URL /products/#power 画面 68 个全在  ← 点了 All
+       ⚠️ 用 replaceState 不用 pushState:连点 5 个 chip 不该塞 5 条历史、让人按 5 次后退
+          才离开这一页。代价是后退不撤销筛选,换来「复制地址 = 当前视图」。
+       ⚠️ replaceState **不触发** hashchange ⇒ 不会和下面的 deepLink 形成回环。 */
+    function syncUrl() {
+      if (!window.history || !history.replaceState) return;
+      var qs = [];
+      if (state.cat !== "all") qs.push("model=" + encodeURIComponent(state.cat));
+      if (state.form !== "all") qs.push("type=" + encodeURIComponent(state.form));
+      // 一并清掉 hash：`#power` 与 `?type=all` 同时出现会自相矛盾
+      history.replaceState(null, "", location.pathname + (qs.length ? "?" + qs.join("&") : ""));
+    }
     function bind(chips, axis) {
       chips.forEach(function (chip) {
         if (!chip.hasAttribute("data-filter")) return;   // skip model-nav anchors
@@ -222,20 +238,36 @@
           state[axis] = chip.getAttribute("data-filter");
           chips.forEach(function (o) { o.classList.toggle("is-active", o === chip); });
           apply();
+          syncUrl();
         });
       });
     }
     bind(modelChips, "cat");
     bind(formChips, "form");
     apply();
-    function deepLink() {
-      var hsh = (location.hash || "").replace("#", "").toLowerCase();
-      if (!/^[a-z0-9-]+$/.test(hsh)) return;
-      var chip = d.querySelector('#formChips .product-chip[data-filter="' + hsh + '"]')
-              || d.querySelector('#modelChips .product-chip[data-filter="' + hsh + '"]');
-      if (!chip || chip.tagName === "A") return;
+    function clickChip(container, val) {
+      if (!val || !/^[a-z0-9-]+$/.test(val)) return false;
+      var chip = d.querySelector(container + ' .product-chip[data-filter="' + val + '"]');
+      if (!chip || chip.tagName === "A") return false;
       chip.click();
-      var bar = d.querySelector(".product-filters"); if (bar) bar.scrollIntoView({ block: "start" });
+      return true;
+    }
+    /* 进入时把地址里的筛选还原到画面上。**两种输入都认**:
+         ?type=power&model=mini   新形态 —— 两轴都能表达，这是 syncUrl 写出去的那一份
+         #power                   旧形态 —— 导航下拉与老书签在用，只能表达一轴
+       ⚠️ 旧形态不许删:线上已有链接和书签指着它。命中后 syncUrl 会把地址归一到新形态。 */
+    function deepLink() {
+      var sp = new URLSearchParams(location.search);
+      var t = (sp.get("type") || "").toLowerCase();
+      var m = (sp.get("model") || "").toLowerCase();
+      var hit = false;
+      if (m) hit = clickChip("#modelChips", m) || hit;
+      if (t) hit = clickChip("#formChips", t) || hit;
+      if (!t && !m) {
+        var h = (location.hash || "").replace("#", "").toLowerCase();
+        hit = clickChip("#formChips", h) || clickChip("#modelChips", h) || hit;
+      }
+      if (hit) { var bar = d.querySelector(".product-filters"); if (bar) bar.scrollIntoView({ block: "start" }); }
     }
     deepLink();
     window.addEventListener("hashchange", deepLink);
