@@ -16,16 +16,19 @@
 import fs from "fs";
 import path from "path";
 import { localeDirs } from "./locale-dirs.mjs";
-import { makeChrome, wsNorm } from "../functions/_lib/chrome.js";
+import { makeChrome, wsNorm, applyFormNames } from "../functions/_lib/chrome.js";
 
 const WRITE = process.argv.includes("--write");
 const ONLY = process.argv.includes("--only") ? process.argv[process.argv.indexOf("--only") + 1] : null;
 
-const catalog = JSON.parse(fs.readFileSync("data/chrome.json", "utf8"));
+const catalogRaw = JSON.parse(fs.readFileSync("data/chrome.json", "utf8"));
 const locales = JSON.parse(fs.readFileSync("data/locales.json", "utf8"));
 const partial = fs.readFileSync("data/templates/_chrome.html", "utf8");
 const manifest = JSON.parse(fs.readFileSync("data/products-index.json", "utf8"));
 const forms = JSON.parse(fs.readFileSync("data/forms.json", "utf8")).forms;  // 形态单源 → nav 计数 FORM_KEY
+// 🔴 品类显示名的真源是 forms.json，不是 chrome.json —— 读入后立刻覆盖 en，否则后台改完名
+//    这里读到的仍是旧名，而 nav 被烘进每一页 ⇒ 「跑构建也不变」。见 chrome.js:applyFormNames。
+const catalog = applyFormNames(catalogRaw, forms);
 
 const existsCache = new Map();
 const pageExists = (rel) => {

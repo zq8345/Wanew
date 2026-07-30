@@ -7,6 +7,7 @@ import { fileURLToPath } from "url";
 import { render, genRelated, resolveImg, regenListPage, setListTitle, setListLabels, switchChipHrefs, renderHome, renderPage, excerptOf, catmapOf } from "../functions/_lib/render.js";
 import { productPath } from "./product-slug.mjs";
 import { localeDirs } from "./locale-dirs.mjs";
+import { applyFormNames, FORM_LABEL_KEY } from "../functions/_lib/chrome.js";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const cfg = JSON.parse(fs.readFileSync(path.join(REPO, "data", "site.json"), "utf8"));
@@ -149,11 +150,15 @@ for (const f of fs.readdirSync(pdir)) {
 }
 
 const locales = JSON.parse(fs.readFileSync(path.join(REPO, "data", "locales.json"), "utf8"));
-const catalog = JSON.parse(fs.readFileSync(path.join(REPO, "data", "chrome.json"), "utf8"));
+const catalogRaw = JSON.parse(fs.readFileSync(path.join(REPO, "data", "chrome.json"), "utf8"));
 // #52 批1：类目唯一真源 = data/categories.json（原 render.js CATMAP + 本文件 CATS 双硬编码迁入）
 const categoriesJson = JSON.parse(fs.readFileSync(path.join(REPO, "data", "categories.json"), "utf8"));
 // #52 批2：形态唯一真源 = data/forms.json（原 render.js FORM_KEY + chrome.js FORM_KEY + 本文件 TYPES 三处硬编码迁入）
 const FORMS = JSON.parse(fs.readFileSync(path.join(REPO, "data", "forms.json"), "utf8")).forms;
+// 🔴 品类显示名的真源是 forms.json，不是 chrome.json。这一行之前：后台改完名，这里读到的仍是
+//    旧名 ⇒ /type/ 页标题、chip 标签、H1 全部停在旧名，**跑多少次构建都不变**。
+//    覆盖只动 en；es/pt/zh 保持 chrome.json 现值（见 chrome.js:applyFormNames 的说明）。
+const catalog = applyFormNames(catalogRaw, FORMS);
 /* 🔴 name 与 key 【都】映射到 key —— C 步 1:读取侧两者都认。
    产品数据里 `form` 存的是【显示名】当外键,所以改一个显示名要重写上百个文件。
    根治是把它改成存 key,而这是第一步:**读取侧先能同时认两种**,admin 才敢动数据。
@@ -376,9 +381,10 @@ const AGGREGATES = [["performance-gen-2/index.html", ["performance-gen-1", "perf
 // Slugs live under /type/ because `mounts/` and `power/` are already guide hubs. [slug, form-name]
 // pairs come straight from the forms.json single source (order = /type page + chip order).
 const TYPES = FORMS.map((f) => [f.key, f.name]);
-// 形态页标题用的 catalog 键(与 nav 标签同一份,不另存一份英文字面量)。
-const TYPE_TITLE_KEY = { cables: "header.cables", mounts: "header.mounts",
-  power: "header.power_charging", networking: "header.networking", cases: "header.cases_protection" };
+// 形态页标题用的 catalog 键 = nav 标签那一份，**从 chrome.js 导入,不在这里再存一份**。
+// (2026-07-29:原来这里有一份同样的表,和 render.js 里那份是两份会各自漂的拷贝。删掉这份，
+//  真源移到 functions/_lib/chrome.js 的 FORM_LABEL_KEY —— 那里也是 applyFormNames 的所在。)
+const TYPE_TITLE_KEY = FORM_LABEL_KEY;
 // One table: [page, which products it scopes, what its <title> is named after]. Every list page
 // goes through it — no page gets to be the exception that keeps a hand-written title.
 // 第 4 格 = banner 用哪个机型名派生标题(setListLabels)。只有机型页有:
