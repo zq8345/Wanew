@@ -7,6 +7,7 @@
 ## 1. 顺序(总工写死,别重推)
 
 ```
+0. 🔴 安全审计 P0 四条（总工逐条验过才派，见 §0）—— 插在最前，其中 P0-b 是 ⑥ 的阻塞项
 1. ④ 收尾  把【剩下两套组件】接进 productHref —— 🔴 不许写第五条重写规则
 2. 【Joe 看得见的三件】导航指真实品类页 · /products/ 不预设筛选 · 筛选状态写进 URL（§1e）
 3. ①「第二刀」品类显示名直达页面（§1c，设计已定见 §1c-设计）
@@ -16,6 +17,53 @@
 
 > 🔴 **硬规则(总工定,不是建议):④ 收尾遇到任何卡点 —— 又冒出第五套组件、或要动风险大的正则 ——
 > 立刻停下,先做第 2 项。** 理由:**看得见的坏优先于看不见的效率。** Joe 已第四次看到同一个问题。
+
+### 🔴 §0 安全审计 P0(源 `C:\开发\audit-report-claude.md`)—— **只做总工验过的这四条**
+
+> ⚠️ **报告其余条目未经复验,不许照抄开工。** 报告已被证实至少两处夸大/失真,见下面 P0-c / P0-d。
+
+**P0-a 渲染链无输出转义(线上正在坏,且随 Joe 加产品持续扩大)**
+```
+/pt/products/…-662  meta description 里一个裸引号把属性提前闭合
+                    ld+json 第 4 块 JSON.parse 失败
+病根 functions/_lib/render.js：reps 全部原样插值；:117 的 JSON-LD 用 split().join() 做字符串替换
+```
+修法四条(③④ 是总工加的约束):
+```
+① 按【上下文】分：属性(alt/title/value/content) 转 & < > " · 文本(<h1>/<title>) 转 & < > · URL encodeURIComponent
+② JSON-LD 不许再字符串替换 ⇒ JSON.parse → 改字段 → JSON.stringify
+🔴 ③ 复用 chrome.js 里已有的 htmlReady()，**别写第四份转义函数**
+     （它已处理"不许二次转义已有实体"：负向前查 &(?!entity;)）
+🔴 ④ 转义之后【已正确的页面必须逐字节不变】—— 只有含裸引号的该变。变多了 = 转义过度
+```
+**验收**:全站 ld+json 100% `JSON.parse` 通过;未受影响页面逐字节零变化。
+
+**P0-b `og:url` 指旧址 —— 🔴 ⑥ 的阻塞项**
+```
+canonical /products/starlink-…-681   ← 正式地址
+og:url    /mini/681                  ← 旧地址（抽 3 页 3 中）
+⇒ ⑥ 删旧址后这 190 页的 og:url 全变死链，必须在 ⑥ 之前修
+修：regen.mjs:330-357 双份产出只重写了 canonical/hreflang，把 og:url 一并重写
+验收：全站 og:url == canonical，不一致 0
+```
+
+**P0-c 堵口 —— ⚠️ 报告清单夸大,按总工实测的来**
+```
+实测 200（要堵）: 根级 *.md（5b-handoff/DESIGN/i18n-baseline）· phase2-convert.js · admin/
+实测 404（已堵）: /wanew-internal-docs/ · /.claude/settings.local.json · /functions/_lib/render.js
+保留不堵:        /data/*.json —— 那是【公开的产品目录数据】，不是秘密
+```
+⚠️ 报告称 `functions/es|pt|_lib` 无堵口,**总工实测 `/functions/_lib/render.js` 是 404** ⇒ **先自己复验再动,别照抄。**
+写法照 `functions/admin-worker/[[path]].js` 那个 5 行堵口。
+
+**P0-d 删死目录 `admin-worker/`(10 个文件;后台早已是独立仓 `zq8345/Wanew-Admin`)**
+> 🔴 **它让审计得出了一个关于生产的错误结论**:报告 H10 称"每次保存抹掉 manifest 的 path",
+> 总工实测**缺 path 的是 0** —— 因为报告读的是这个死目录里的旧代码。H10/M6 都建在它上面。
+> **死代码不只是没用,它会让审计对生产下错判断。** 而且它公开可下载。
+
+⚠️ **删前确认官网是否仍引用它**(当初与 `functions/_lib` 有过耦合),确认无引用再删,删完跑全量闸。
+
+⚠️ 报告 H11(`metaTitleOf` 印 undefined)**线上实测 0 处** ⇒ 潜伏风险不是现症,**别当 P0**,改转义时顺手加兜底。
 
 ### 🔴 §1e-0 先读这条:那 20 个落地页【现在不值得被落地】(总工查出的真问题)
 
