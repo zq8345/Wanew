@@ -227,18 +227,13 @@
         </div>
       </div>
     </div>
-    <!-- ⑫ Trust bar riding the hero image bottom (signed site copy; no divider) -->
-    <div class="w3-trust">
-      <div class="w3-container">
-        <div class="w3-trust__grid">
-          <div class="w3-trust__item"><span class="w3-trust__v">15 年</span><span class="w3-trust__k">制造经验</span></div>
-          <div class="w3-trust__item"><span class="w3-trust__v">200+ 项专利</span><span class="w3-trust__k">发明与实用新型专利</span></div>
-          <div class="w3-trust__item"><span class="w3-trust__v">600,000+</span><span class="w3-trust__k">件/月</span></div>
-          <div class="w3-trust__item"><span class="w3-trust__v">美国仓</span><span class="w3-trust__k">本地库存 & DDP</span></div>
-          <div class="w3-trust__item"><span class="w3-trust__v">FCC · CE · RoHS</span><span class="w3-trust__k">测试认证</span></div>
-        </div>
-      </div>
-    </div>
+    <!-- ⑫ Trust bar removed 2026-07-30 (Joe). It rode the bottom of the hero image and carried
+         15 Years / 200+ Patents / 600,000+ / US warehouse / FCC·CE·RoHS.
+         ⚠️ 它的四语文案键仍留在 data/pages/home.json（home.stat.* / shared.* / home.trust.cert.*）——
+            没删，因为 home.stat.num.1/3/4 还被下面那块 w3-stats 用着（:269-273）。
+            **删模板不删数据**是有意的：数据还有别的消费方，删了那块也会坏。
+         ⚠️ 移动端上这条 bar 压住了 hero 的两个 CTA 按钮（Request a quote / Browse products），
+            那是它被拿掉之前就存在的布局问题；一并消失，但根因没修——若将来把它加回来要先修这个。 -->
   </section>
 
   <!-- Product showcase (real product photography) -->
@@ -665,6 +660,6 @@ Wanew 生产第三方 Starlink 兼容配件，与 SpaceX 及 Starlink 无隶属�
   <!-- /.mobile-nav__content --> 
 </div>
 <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
-<script src="/skin/js/w3.21496fa286.js" defer></script>
+<script src="/skin/js/w3.9f7ba5b4e8.js" defer></script>
 </body>
 </html>
