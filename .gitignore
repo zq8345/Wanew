@@ -5,3 +5,7 @@
 /audit-report*.md
 /*-audit*.md
 /security-*.md
+
+# wrangler dev 的临时产物：跑 route-live-check 那道慢闸就会生成，
+# 不加这条，一次 `git add -A` 会把 ~9200 行 bundle 垃圾提交进来（已发生过一次）。
+.wrangler/

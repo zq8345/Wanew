@@ -190,6 +190,20 @@ const pageOf = (loc, rel) => path.join(REPO, dirOf(loc), rel);
    之后,在复刻树上真删一次旧址 —— 详情页从 68 救回 190,**而 alternate 仍是 190 不是 312**。
    > **是那个不变量把它揪出来的,不是我数得全。** 一份必须完整的清单,和一个必须成立的
    > 不变量,后者永远更强:它不依赖任何人枚举得干净。 */
+/* 🔴 canonical 与 og:url 是【同一个事实的两种说法】:"这一页的正式地址是什么"。
+   所以它们必须在同一处产出 —— 分开写就是两条会各自漂的规则,而漂开之后:
+     canonical /products/starlink-…-681   ← 声明正式地址
+     og:url    /mini/681                  ← 还指旧址
+   **全站 256 页就是这么漂开的**(190 详情 + 66 分类/其它新址页),而页面照样 200。
+   ⚠️ 更要紧的是时间维度:收尾那一刀删掉旧址之后,**这 256 条 og:url 全部变成死链** ——
+      而死链不会自己报错,社媒/AI 抓到的就是一个 404。**这是 ⑥ 的阻塞项。**
+   ⚠️ 生产管线里【原本没有任何东西写 og:url】—— 它来自模板占位和播种时的复制,
+      所以它一直停在被复制过来的那个值上。修法不是"再加一条改写 og:url 的规则",
+      是让写 canonical 的那一处顺手把它一起写了:**一个事实,一个写入点。** */
+const setCanonical = (html, url) =>
+  html.replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${url}$2`)
+      .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${url}$2`);
+
 const MOVED_ADDR = new Map();
 const urlOf = (p, loc) => {
   const d = dirOf(loc);
@@ -327,8 +341,9 @@ for (const id of targets) {
        ⚠️ canonical 保持【自指新址】:第 5 步只需摘 noindex,**不必翻转任何已有声明**。
           翻转是最容易漏一半的操作。 */
     // newRel / newOut 已在循环顶部算好(那里的存在性判据要用它)—— 不再各算一次。
-    let dual = html.replace(/<link rel="canonical" href="[^"]*"/,
-      `<link rel="canonical" href="https://wanew.com${dirOf(locale) ? "/" + dirOf(locale) : ""}/products/${entry.path}"`);
+    // canonical 与 og:url 一起写(setCanonical)——此前只写了 canonical,og:url 留在旧址上。
+    let dual = setCanonical(html,
+      `https://wanew.com${dirOf(locale) ? "/" + dirOf(locale) : ""}/products/${entry.path}`);
     dual = /<meta\s+name="robots"/i.test(dual) ? dual
       : dual.replace(/(<link rel="canonical")/, `<meta name="robots" content="noindex, follow" />\n$1`);
     // ⚠️ hreflang 也必须改写成新址簇 —— hreflang-verify 当场抓到了这一条。
@@ -411,7 +426,7 @@ function localizeInternalHead(html, rel, locale) {
   const dir = dirOf(locale);
   const route = "/" + rel.replace(/index\.html$/, "").replace(/\.html$/, "");   // "/standard-actuated/" | "/products/"
   html = html.replace(/(<html lang=")[^"]*(")/, `$1${locale}$2`);
-  html = html.replace(/(<link rel="canonical" href=")[^"]*(")/, `$1https://wanew.com/${dir}${route}$2`);
+  html = setCanonical(html, `https://wanew.com/${dir}${route}`);   // 含 og:url
   html = html.replace(/\s*<!-- hreflang alternates[^>]*-->/g, "");
   html = html.replace(/\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*"\s*\/?>/g, "");
   if (!/name="robots"\s+content="noindex/.test(html))
@@ -428,7 +443,7 @@ function localizeSeoListHead(html, rel, locale) {
   const route = "/" + rel.replace(/index\.html$/, "").replace(/\.html$/, "");   // "/mini/" | "/type/cables/"
   const self = `https://wanew.com${urlOf(route, locale)}`;
   html = html.replace(/(<html lang=")[^"]*(")/, `$1${locale}$2`);
-  html = html.replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${self}$2`);
+  html = setCanonical(html, self);   // 含 og:url
   html = html.replace(/\s*<!-- hreflang alternates[^>]*-->/g, "");
   html = html.replace(/\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*"\s*\/?>/g, "");
   const links = LOCALES
