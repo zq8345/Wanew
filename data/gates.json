@@ -15,6 +15,11 @@
       "what": "🐢 真 HTTP:开发文档/仓根脚本/后台壳必须 404,而首页与真实资产必须 200。⚠️ 阳性样本【必须是仓里确实存在且已提交的文件】——用不存在的路径测拦截永远会通过,2026-07-30 就这么得出过一次假『已堵』。⚠️ 阴性对照同样必需:只测『该 404 的都 404 了』,挡不住『把整站也 404 了』"
     },
     {
+      "id": "ldjson-check",
+      "cmd": "node scripts/ldjson-check.mjs",
+      "what": "ld+json 块内不许有 HTML 实体。⚠️ <script> 是 raw text,实体【不解码】⇒ 结构化数据里的值字面就是 『Mounts &amp; Power』,Google 读到的就是这串。🔴 而这种块 JSON.parse 完全合法 —— 只验『能不能解析』会全绿(实测 227 块含实体、解析失败 0)。**解析通过 ≠ 语义正确。** 冻结旧址页不计入分母"
+    },
+    {
       "id": "catalog-dupe-check",
       "cmd": "node scripts/catalog-dupe-check.mjs",
       "what": "catalog 键重复/冲突"
