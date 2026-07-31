@@ -10,6 +10,11 @@
       "what": "旧品牌残留字样"
     },
     {
+      "id": "block-check",
+      "cmd": "node scripts/block-check.mjs",
+      "what": "🐢 真 HTTP:开发文档/仓根脚本/后台壳必须 404,而首页与真实资产必须 200。⚠️ 阳性样本【必须是仓里确实存在且已提交的文件】——用不存在的路径测拦截永远会通过,2026-07-30 就这么得出过一次假『已堵』。⚠️ 阴性对照同样必需:只测『该 404 的都 404 了』,挡不住『把整站也 404 了』"
+    },
+    {
       "id": "catalog-dupe-check",
       "cmd": "node scripts/catalog-dupe-check.mjs",
       "what": "catalog 键重复/冲突"
