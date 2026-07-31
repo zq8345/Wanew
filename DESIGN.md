@@ -225,6 +225,21 @@
 - **回顶钮** `.scroll-to-target`:44px 圆钮,滚动后现身。
 
 ### 3.7 About / Solutions / Guides 区组件（W3 About v2/v3 + Solutions + Guides 迁移新增,§7.4 登记）
+
+#### About Showcase v8（2026-07-30 · 叙事型品牌页）
+
+About v8 不再消费“全暗 + 等权卡片”的旧版式，而采用**品牌主张 → 制造现场 → 质量证据 → 工程合作**的编辑化叙事。此节对本页覆盖下方旧 About v4-v6 的卡片数量、全暗背景与短信息页 hero 约定；旧规则保留为历史记录，不得据此把 v8 回退成卡片墙。
+
+- **Hero `.ab8-hero`**：About 专属沉浸式工程照片，最高 `900px/100svh`，人物和检测台位于右半，左侧暗部承载标题。标题、按钮、数据全部是 HTML，禁止把品牌文字烘进图片。桌面三项证据贴底，移动端保留三列紧凑数据。
+- **明暗章节**：Hero 深 → Story 矿物浅灰 → Manufacturing 深 → Quality 浅灰 → OEM 深 → Partner 深。浅色只用于长文阅读和证据章节，不新增彩色表面；交互仍只用 `--w3-accent`。
+- **工厂画廊 `.ab8-factory`**：12 列非对称影像墙，一张主图领起、四张图完成研发/机加工/仓储/发运叙事；≤700px 改两列并让主图、宽图跨满。它取代旧 `.about-facwall` 的六张等尺寸网格。
+- **数据 `.ab8-stats`**：取消圆角面板，使用顶部分隔线 + 大数字排版。证据不是卡片，不加阴影、图标或彩色底。
+- **质量 `.ab8-process`**：浅底纵向五步，编号/标题/证据说明三段式；测试实拍与流程同章。认证为描边文字章，不伪造证书图。
+- **OEM/ODM `.ab8-oem__grid`**：深底上的两张矿物白工程单，允许大号低对比编号作为章节索引；内部能力行用发丝线，不使用小图标卡。
+- **FAQ**：降级为 `.ab8-independent` 的辅助信息带，不再作为主叙事章节；`#brand` 锚点与三条真实 Q&A 保留。
+- **Partner**：三条合作方式回归编号路径，不用装饰图标；唯一白色主按钮为 Request a quote。
+- **摄影纪律**：About 的制造证据区必须使用真实工厂照片。Hero 可使用经过明确留档的概念摄影作为设计原型，但生产发布前优先替换为同构图高清实拍；禁止虚构认证、设备能力或客户现场。
+
 > 令牌全取自 §2:色 bg2/panel/line/line2/accent、radius 16、ease、字阶。零魔法值。图标=内联 SVG 线性(stroke 1.6/accent),服务流程/含义(流程节点、认证盾),**非装饰卡**(review#1 边界:流程图/语义图标允许,一排三词装饰图标卡禁用)。
 - **流程图** `.w3-flow`/`.w3-flow__node`/`.w3-flow__ic`/`.w3-flow__n`(Quality Process 5 步 + OEM/ODM ODM 3 步,共用一套):横向 grid(`grid-auto-flow:column`),节点=accent 描边环圆 64px(径向井底 `rgba(125,177,255,.14)`→panel + halo `::after` + 景深)+ 渐变进度连接线(`::before`,accent→透明,非灰细线)+ 步骤号 accent 药丸 `.w3-flow__n`;≤760px 转竖排(连接线保留)。hover 节点上浮+环加亮。
 - **流程带容器** `.w3-flowband`〔审计 §7.4 补登 · ③/About v4 §2.6 升级〕:给流程图视觉分量的 surface 容器 —— `background:--w3-surface-2` + `--w3-edge-top`+`--w3-elev-card` 浮起 + `1px --w3-line` 边 + `--w3-radius` 圆角 + `34px 30px 30px` 内距(≤760px `26px 20px 6px`)。用途:包裹 `.w3-flow`,避免"图标+线飘在深底上"。

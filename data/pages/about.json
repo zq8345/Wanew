@@ -395,5 +395,107 @@
     "pt-BR": "Três formas de trabalhar conosco.",
     "es-MX": "Tres formas de trabajar con nosotros.",
     "zh": "三种合作方式。"
+  },
+  "about.hero.title": {
+    "en": "Engineered for the real world.",
+    "pt-BR": "Projetado para o mundo real.",
+    "es-MX": "Diseñado para el mundo real.",
+    "zh": "为真实世界，打造可靠连接。"
+  },
+  "about.hero.subtitle": {
+    "en": "We design and manufacture the hardware that keeps Starlink connected across vehicles, vessels, remote sites, and demanding outdoor environments.",
+    "pt-BR": "Projetamos e fabricamos o hardware que mantém a Starlink conectada em veículos, embarcações, locais remotos e ambientes externos exigentes.",
+    "es-MX": "Diseñamos y fabricamos el hardware que mantiene Starlink conectado en vehículos, botes, sitios remotos y entornos exteriores exigentes.",
+    "zh": "从支架、线缆到供电系统，我们为房车、船舶、离网与工业现场设计并制造可靠的 Starlink 兼容配件。"
+  },
+  "about.hero.explore": {
+    "en": "Explore our capabilities",
+    "pt-BR": "Conheça nossas capacidades",
+    "es-MX": "Conoce nuestras capacidades",
+    "zh": "了解制造能力"
+  },
+  "about.hero.proof": {
+    "en": "Manufacturing proof points",
+    "pt-BR": "Indicadores de capacidade de fabricação",
+    "es-MX": "Indicadores de capacidad de fabricación",
+    "zh": "制造能力数据"
+  },
+  "about.story.eyebrow": {
+    "en": "BUILT WITH INTENT",
+    "pt-BR": "CONSTRUÍDO COM PROPÓSITO",
+    "es-MX": "CREADO CON PROPÓSITO",
+    "zh": "工程，从真实需求出发"
+  },
+  "about.story.title": {
+    "en": "We do not simply make accessories. We engineer the parts that keep people connected.",
+    "pt-BR": "Não fabricamos apenas acessórios. Projetamos as peças que mantêm as pessoas conectadas.",
+    "es-MX": "No solo fabricamos accesorios. Diseñamos las piezas que mantienen a las personas conectadas.",
+    "zh": "我们不只是制造配件，更在解决连接发生的真实问题。"
+  },
+  "about.story.location": {
+    "en": "ENGINEERING & MANUFACTURING",
+    "pt-BR": "ENGENHARIA E FABRICAÇÃO",
+    "es-MX": "INGENIERÍA Y FABRICACIÓN",
+    "zh": "研发与制造"
+  },
+  "about.story.location_value": {
+    "en": "Shenzhen · Greater Bay Area",
+    "pt-BR": "Shenzhen · Grande Baía",
+    "es-MX": "Shenzhen · Gran Área de la Bahía",
+    "zh": "深圳 · 粤港澳大湾区"
+  },
+  "about.story.caption": {
+    "en": "One team from product engineering to global delivery.",
+    "pt-BR": "Uma só equipe, da engenharia do produto à entrega global.",
+    "es-MX": "Un solo equipo, desde la ingeniería del producto hasta la entrega global.",
+    "zh": "从产品工程到全球交付，由同一支团队负责。"
+  },
+  "about.manufacturing.eyebrow": {
+    "en": "FROM IDEA TO OUTPUT",
+    "pt-BR": "DA IDEIA À PRODUÇÃO",
+    "es-MX": "DE LA IDEA A LA PRODUCCIÓN",
+    "zh": "从设计到量产"
+  },
+  "about.manufacturing.lead": {
+    "en": "R&D, tooling, assembly, quality control, and shipping operate as one connected system.",
+    "pt-BR": "P&D, ferramental, montagem, controle de qualidade e expedição operam como um sistema integrado.",
+    "es-MX": "I+D, herramental, ensamblaje, control de calidad y envío funcionan como un sistema integrado.",
+    "zh": "研发、开模、装配、质检与发运形成一套完整、可追溯的制造系统。"
+  },
+  "about.quality.eyebrow": {
+    "en": "PROOF, NOT PROMISES",
+    "pt-BR": "PROVAS, NÃO PROMESSAS",
+    "es-MX": "PRUEBAS, NO PROMESAS",
+    "zh": "用测试证明可靠"
+  },
+  "about.quality.lead": {
+    "en": "Every critical part is checked against specification and validated for the environments where it will actually work.",
+    "pt-BR": "Cada peça crítica é verificada conforme a especificação e validada para os ambientes em que realmente funcionará.",
+    "es-MX": "Cada pieza crítica se verifica según la especificación y se valida para los entornos donde realmente funcionará.",
+    "zh": "每一个关键部件都按规格核验，并在它将要面对的真实环境中完成验证。"
+  },
+  "about.quality.certified": {
+    "en": "COMPLIANCE & TESTING",
+    "pt-BR": "CONFORMIDADE E TESTES",
+    "es-MX": "CUMPLIMIENTO Y PRUEBAS",
+    "zh": "认证与测试"
+  },
+  "about.oem.eyebrow": {
+    "en": "ENGINEERING PARTNERSHIP",
+    "pt-BR": "PARCERIA DE ENGENHARIA",
+    "es-MX": "ASOCIACIÓN DE INGENIERÍA",
+    "zh": "工程合作"
+  },
+  "about.independent.eyebrow": {
+    "en": "INDEPENDENT BY DESIGN",
+    "pt-BR": "INDEPENDENTE POR PRINCÍPIO",
+    "es-MX": "INDEPENDIENTE POR DISEÑO",
+    "zh": "独立设计与制造"
+  },
+  "about.partner.eyebrow": {
+    "en": "BUILD WITH WANEW",
+    "pt-BR": "CRIE COM A WANEW",
+    "es-MX": "CREA CON WANEW",
+    "zh": "与 WANEW 共创"
   }
 }
