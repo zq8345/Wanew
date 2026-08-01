@@ -5,6 +5,13 @@
     "es-MX": "Solución integral en accesorios para Starlink",
     "zh": "Starlink 配件一站式解决方案"
   },
+  "home.hero.img": {
+    "en": "/static/upload/image/20260725/hero-home-v4.webp",
+    "pt-BR": "/static/upload/image/20260725/hero-home-v4.webp",
+    "es-MX": "/static/upload/image/20260725/hero-home-v4.webp",
+    "zh": "/static/upload/image/20260725/hero-home-v4.webp",
+    "reason": "同一张图,不随语言变化 —— 四语同值是【正确】的,不是漏翻。首页 hero 图曾是 scripts/regen.mjs 里的一个常量,只有官网构建认识它;产品后台(同一份 render.js,跑在 CF Worker 上)渲染首页时那个 token 原样留在输出里,被『未解析 token = 泄漏』守卫拦下 ⇒ Joe 改不了首页精选产品。搬到 catalog 是因为 catalog 是两条渲染路径【已经】共吃的那一份数据,所以不必改 vendor、不必改 admin。四语写满而不是只写 en:i18n-check 把缺 locale 一律判成漏翻(它该这样),而 fallback 清单实测豁免不了任何 gap。换图仍然只改一个地方 —— 这一个条目。"
+  },
   "home.hero.cta": {
     "en": "Browse products",
     "pt-BR": "Ver produtos",

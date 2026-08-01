@@ -716,7 +716,6 @@ const homeCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "hom
       已逐键核对:about.json 的 84 个键与那三份【零冲突】,所以并入可证明不改变现有输出。 */
 const aboutCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "about.json"), "utf8"));
 const homeTpl = fs.readFileSync(path.join(REPO, "data", "templates", "home.html"), "utf8");
-const HERO_HOME_IMG = "/static/upload/image/20260725/hero-home-v4.webp";   // ⬅ 换首页 hero 只改这一行
 const homeTiles = JSON.parse(webpInline(fs.readFileSync(path.join(REPO, "data", "pages", "home-tiles.json"), "utf8")));
 // 首页产品策展条 id 列表(可缺省:无文件=回落多样性挑选)。总工:6–8 精选好图,非目录堆砌。
 const homeFeaturedPath = path.join(REPO, "data", "pages", "home-featured.json");
@@ -731,10 +730,12 @@ for (const locale of RENDER_SET) {
   // 去重才能把它存的 chrome 副本(meta.title / More / …)重定向到真源。card.alt.category 本就在 chrome。
   // enabled: LOCALES(hreflang 只三语);internal_noindex: INTERNAL(zh 首页出 noindex、零 hreflang)。
   // 机型格子按存在性过滤——list 循环已先播种 /zh/{model}/,故 zh 首页格子显示并链到 /zh/。
-  // 首页 hero 图 = 一个常量,模板里 preload 与 background 共用同一个 token。
-  // ⚠️ 换图只改这一行:两处分开写时,改一处漏一处 → preload 预载 A、实际显示 B,静默多下一张图。
-  // 现值是那张越野图【占位】(Joe 的新图未到);图一到只换这一行。
-  const h1 = renderHome(homeTpl.split("{{HERO_HOME_IMG}}").join(HERO_HOME_IMG), { locale, catalog: { ...aboutCat, ...catalog, ...shared, ...homeCat },
+  // 首页 hero 图:模板里 preload 与 background 共用同一个 token(两处分开写 → 预载 A 显示 B)。
+  // ⬅ 换图改 data/pages/home.json 的 "home.hero.img"。
+  //    它【不再】是这里的常量:常量只有官网构建读得到,而产品后台跑的是同一份 render.js、
+  //    读不到这个文件,于是它渲染首页时 token 原样留在输出里,被 assertNoTokens 拦下 ——
+  //    症状是 Joe 在后台按保存就报 commit failed。catalog 是两条渲染路径都已经吃着的那份数据。
+  const h1 = renderHome(homeTpl, { locale, catalog: { ...aboutCat, ...catalog, ...shared, ...homeCat },
     formOrder: FORMS,   // data/forms.json 的数组序 = 形态次序(/type 页与 chip 同源);见 pickHomeProducts
     tiles: homeTiles, modelDisplay: MODEL, urlOf, exists: pageExists, dirOf, enabled: LOCALES, sizes: MEDIA_SIZES,
     products: entries, featured: homeFeatured, internal_noindex: INTERNAL });
