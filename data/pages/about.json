@@ -32,41 +32,11 @@
     "es-MX": "Planta de fabricación de Wanew",
     "zh": "Wanew 生产工厂"
   },
-  "about.xlc-stat-label.1": {
-    "en": "Years Experience",
-    "pt-BR": "Anos de experiência",
-    "es-MX": "Años de experiencia",
-    "zh": "年经验"
-  },
-  "about.xlc-stat-label.3": {
-    "en": "Skilled Staff",
-    "pt-BR": "Técnicos qualificados",
-    "es-MX": "Personal calificado",
-    "zh": "熟练员工"
-  },
-  "about.xlc-stat-label.4": {
-    "en": "Patents",
-    "pt-BR": "Patentes",
-    "es-MX": "Patentes",
-    "zh": "专利"
-  },
   "about.tj-h2.2": {
     "en": "Manufacturing Capability",
     "pt-BR": "Capacidade de fabricação",
     "es-MX": "Capacidad de fabricación",
     "zh": "制造能力"
-  },
-  "about.about-caps-k.1": {
-    "en": "5,000 m²",
-    "pt-BR": "5.000 m²",
-    "es-MX": "5,000 m²",
-    "zh": "5,000 m²"
-  },
-  "about.about-caps-v.1": {
-    "en": "Factory area",
-    "pt-BR": "Área da fábrica",
-    "es-MX": "Área de fábrica",
-    "zh": "厂房面积"
   },
   "about.h3.1": {
     "en": "Partner With Wanew",
@@ -93,8 +63,18 @@
     "reason.dupe": "页面标题/面包屑/eyebrow 三处「About Us」,pt 各自不同(Sobre Nós/Sobre/Sobre a Wanew)对应不同位置。同词不同位,显式共存不合并。",
     "zh": "关于我们"
   },
-  "oem-odm-manufacturing.page-header-title.1": { "en": "OEM/ODM", "pt-BR": "OEM/ODM", "es-MX": "OEM/ODM", "zh": "OEM/ODM" },
-  "about.oem.subtitle": { "en": "Starlink-Compatible Accessories Manufacturing", "pt-BR": "Fabricação de acessórios compatíveis com Starlink", "es-MX": "Fabricación de accesorios compatibles con Starlink", "zh": "Starlink 兼容配件代工制造" },
+  "oem-odm-manufacturing.page-header-title.1": {
+    "en": "OEM/ODM",
+    "pt-BR": "OEM/ODM",
+    "es-MX": "OEM/ODM",
+    "zh": "OEM/ODM"
+  },
+  "about.oem.subtitle": {
+    "en": "Starlink-Compatible Accessories Manufacturing",
+    "pt-BR": "Fabricação de acessórios compatíveis com Starlink",
+    "es-MX": "Fabricación de accesorios compatibles con Starlink",
+    "zh": "Starlink 兼容配件代工制造"
+  },
   "oem-odm-manufacturing.h2.2": {
     "en": "OEM Services",
     "pt-BR": "Serviços OEM",

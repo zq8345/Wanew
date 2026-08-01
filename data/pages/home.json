@@ -115,12 +115,6 @@
     "es-MX": "15+",
     "zh": "15+"
   },
-  "home.stat.text.1": {
-    "en": "Years Experience",
-    "pt-BR": "Anos de experiência",
-    "es-MX": "Años de experiencia",
-    "zh": "年经验"
-  },
   "home.stat.num.2": {
     "en": "150+",
     "pt-BR": "150+",
@@ -132,24 +126,6 @@
     "pt-BR": "200+",
     "es-MX": "200+",
     "zh": "200+"
-  },
-  "home.stat.text.3": {
-    "en": "Patents",
-    "pt-BR": "Patentes",
-    "es-MX": "Patentes",
-    "zh": "专利"
-  },
-  "home.stat.num.4": {
-    "en": "5,000 m²",
-    "pt-BR": "5.000 m²",
-    "es-MX": "5,000 m²",
-    "zh": "5,000 m²"
-  },
-  "home.stat.text.4": {
-    "en": "Factory area",
-    "pt-BR": "Área da fábrica",
-    "es-MX": "Área de fábrica",
-    "zh": "厂房面积"
   },
   "home.about.cta": {
     "en": "Learn More",
@@ -330,11 +306,5 @@
     "pt-BR": "Fabricação orientada à engenharia",
     "es-MX": "Fabricación guiada por ingeniería",
     "zh": "以工程驱动的制造"
-  },
-  "home.stat.text.2": {
-    "en": "Skilled Staff",
-    "pt-BR": "Técnicos qualificados",
-    "es-MX": "Personal calificado",
-    "zh": "熟练员工"
   }
 }

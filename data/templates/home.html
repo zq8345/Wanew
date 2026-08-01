@@ -138,7 +138,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.f02c9177e8.css" />
+<link rel="stylesheet" href="/skin/css/w3.8350dd0dc5.css" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -183,16 +183,19 @@
         <a class="w3-link-arrow" href="{{url./products/}}">{{t.header.all_products}}</a>
       </div>
       <!-- ① 合并:「按机型选」并入「热门产品」。原来两块都是 4 列 8 卡,滚下来像同一块重复。
-           机型行放在商品卡【上方】—— 先选机型再看货,和 Products 页顶部 MODEL 筛选同一条动线。
+           商品卡【先出现】,机型行在它下面 —— Joe:先看货,机型是【另一条路】,不是进门必答题。
+           (上一版把机型行放在上面,读起来变成"先选机型再看货",顺序一反,它就从入口变成了前置条件。)
            ⚠️ 碟图必须留:买家靠看图认自己那台是哪一代,换纯文字就废了这个功能。
-           ⚠️ 形状必须与商品卡不同(一行 vs 网格)——那是合并的全部意义。 -->
-      <div class="w3-modelrail" data-w3-reveal="2">
-        {{TILES}}
-      </div>
-      <div class="w3-pstrip" data-w3-reveal="3">
+           ⚠️ 形状必须与商品卡不同(一行 vs 网格)——那是合并的全部意义,调顺序时一个字都别动。
+           ⚠️ 次级标题用 h3/.w3-h3(28px),比区块大标题 .w3-h2(48px)低两档:整块仍叫
+              Popular products,机型行是它【里面】的一部分,不是又分裂回两个区块。 -->
+      <div class="w3-pstrip" data-w3-reveal="2">
         {{PRODUCT_STRIP}}
       </div>
-      <div class="w3-viewall" data-w3-reveal><a class="w3-link-arrow" href="{{url./guides/compatibility/}}">{{t.home.entry.compat}}{{badge./guides/compatibility/}}</a></div>
+      <h3 class="w3-h3 w3-modelrail__title" data-w3-reveal="3">{{t.header.shop_by_starlink_model}}</h3>
+      <div class="w3-modelrail" data-w3-reveal="4">
+        {{TILES}}
+      </div>
     </div>
   </section>
 
@@ -245,14 +248,14 @@
           <span class="w3-eyebrow">{{t.home.about.eyebrow}}</span>
           <h2 class="w3-h2">{{t.home.about.h2}}</h2>
           <p class="w3-sub">{{t.home.p.5}}</p>
-          <!-- 四格全部走 home.json 自己的键：数和标签都可在后台改。
+          <!-- 四格：数在 home.json，标签与 5,000 m² 在 shared.json（About 页同一份，不留第二个真源）。
                【铁规】首页模板只准引用 chrome.json / shared.json / home.json 三个来源 ——
                后台那条链只加载这三个，引用别页的 json 会让保存直接失败。 -->
           <div class="w3-stats">
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.1}}</span><span class="w3-stat__k">{{t.home.stat.text.1}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.2}}</span><span class="w3-stat__k">{{t.home.stat.text.2}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.3}}</span><span class="w3-stat__k">{{t.home.stat.text.3}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.4}}</span><span class="w3-stat__k">{{t.home.stat.text.4}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.1}}</span><span class="w3-stat__k">{{t.shared.xlc-stat-label.1}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.2}}</span><span class="w3-stat__k">{{t.shared.xlc-stat-label.3}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.3}}</span><span class="w3-stat__k">{{t.shared.xlc-stat-label.4}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">{{t.shared.about-caps-k.1}}</span><span class="w3-stat__k">{{t.shared.about-caps-v.1}}</span></div>
           </div>
           <a href="{{url./about/}}" class="w3-link-arrow">{{t.home.about.cta}}</a>
         </div>

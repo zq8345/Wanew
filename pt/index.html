@@ -143,7 +143,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.f02c9177e8.css" />
+<link rel="stylesheet" href="/skin/css/w3.8350dd0dc5.css" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -251,10 +251,48 @@
         <a class="w3-link-arrow" href="/pt/products/">Todos os produtos</a>
       </div>
       <!-- ① 合并:「按机型选」并入「热门产品」。原来两块都是 4 列 8 卡,滚下来像同一块重复。
-           机型行放在商品卡【上方】—— 先选机型再看货,和 Products 页顶部 MODEL 筛选同一条动线。
+           商品卡【先出现】,机型行在它下面 —— Joe:先看货,机型是【另一条路】,不是进门必答题。
+           (上一版把机型行放在上面,读起来变成"先选机型再看货",顺序一反,它就从入口变成了前置条件。)
            ⚠️ 碟图必须留:买家靠看图认自己那台是哪一代,换纯文字就废了这个功能。
-           ⚠️ 形状必须与商品卡不同(一行 vs 网格)——那是合并的全部意义。 -->
-      <div class="w3-modelrail" data-w3-reveal="2">
+           ⚠️ 形状必须与商品卡不同(一行 vs 网格)——那是合并的全部意义,调顺序时一个字都别动。
+           ⚠️ 次级标题用 h3/.w3-h3(28px),比区块大标题 .w3-h2(48px)低两档:整块仍叫
+              Popular products,机型行是它【里面】的一部分,不是又分裂回两个区块。 -->
+      <div class="w3-pstrip" data-w3-reveal="2">
+        <a class="w3-pstrip__card" href="/pt/products/starlink-gen-3-mount-starlink-pivot-672">
+            <div class="w3-pstrip__img"><img src="/static/upload/down/9fbc410503.thumb.webp" width="960" height="960" alt="Suporte Starlink Gen 3, Suporte Pivotante Starlink com Adaptador de Tubo e Mastro, Design com Mecanismo Giratório, Suporte Standard Gen 3 para Telhados Inclinados e com Telhas, Fácil de Instalar e Ajustar. - Produtos Wanew" loading="lazy"></div>
+            <div class="w3-pstrip__title">Suporte Starlink Gen 3, Suporte Pivotante Starlink com Adaptador de Tubo e Mastro, Design com Mecanismo Giratório, Suporte Standard Gen 3 para Telhados Inclinados e com Telhas, Fácil de Instalar e Ajustar.</div>
+          </a>
+          <a class="w3-pstrip__card" href="/pt/products/starlink-performance-adapter-gen-3-42">
+            <div class="w3-pstrip__img"><img src="/static/upload/image/20260428/1777341673585824.thumb.webp" width="960" height="960" alt="Adaptador para Starlink Performance Gen 3, Extensão de Cabo para Acoplador RJ45 para Starlink Performance Gen 3, À prova d'água, Compatível com Antena Starlink Performance Gen 3 - Produtos Wanew" loading="lazy"></div>
+            <div class="w3-pstrip__title">Adaptador para Starlink Performance Gen 3, Extensão de Cabo para Acoplador RJ45 para Starlink Performance Gen 3, À prova d'água, Compatível com Antena Starlink Performance Gen 3</div>
+          </a>
+          <a class="w3-pstrip__card" href="/pt/products/starlink-mini-carry-bag-travel-shoulder-694">
+            <div class="w3-pstrip__img"><img src="/static/upload/down/a20257a41f.thumb.webp" width="960" height="960" alt="Bolsa de Transporte para Starlink Mini, Bolsa de Ombro de Viagem com Alça de Ombro para Kit de Antena Starlink Mini, Tecido Oxford 600D Resistente, Maleta de Armazenamento Portátil À prova de choque para Ambientes Externos, Camping e Navegação - Produtos Wanew" loading="lazy"></div>
+            <div class="w3-pstrip__title">Bolsa de Transporte para Starlink Mini, Bolsa de Ombro de Viagem com Alça de Ombro para Kit de Antena Starlink Mini, Tecido Oxford 600D Resistente, Maleta de Armazenamento Portátil À prova de choque para Ambientes Externos, Camping e Navegação</div>
+          </a>
+          <a class="w3-pstrip__card" href="/pt/products/pipe-mount-adapter-for-starlink-gen-4202">
+            <div class="w3-pstrip__img"><img src="/static/upload/image/20260522/1779412638932645.thumb.webp" width="960" height="960" alt="Adaptador de Suporte para Tubo para Starlink Gen 3, Kit de Suporte de Poste em Liga de Alumínio de Alta Resistência para Antena V3, Instalação em Telhado e Parede - Produtos Wanew" loading="lazy"></div>
+            <div class="w3-pstrip__title">Adaptador de Suporte para Tubo para Starlink Gen 3, Kit de Suporte de Poste em Liga de Alumínio de Alta Resistência para Antena V3, Instalação em Telhado e Parede</div>
+          </a>
+          <a class="w3-pstrip__card" href="/pt/products/starlink-mini-pivot-mount-adjust-tilt-684">
+            <div class="w3-pstrip__img"><img src="/static/upload/down/1632b03ab7.thumb.webp" width="960" height="960" alt="Suporte Pivotante para Starlink Mini Ajusta o Ângulo de Inclinação Suporte de Antena - Produtos Wanew" loading="lazy"></div>
+            <div class="w3-pstrip__title">Suporte Pivotante para Starlink Mini Ajusta o Ângulo de Inclinação Suporte de Antena</div>
+          </a>
+          <a class="w3-pstrip__card" href="/pt/products/starlink-gen-3-router-power-supply-674">
+            <div class="w3-pstrip__img"><img src="/static/upload/down/bf26b45c66.thumb.webp" width="960" height="960" alt="Kit de Montagem para Roteador e Fonte de Alimentação Starlink Gen 3 - Produtos Wanew" loading="lazy"></div>
+            <div class="w3-pstrip__title">Kit de Montagem para Roteador e Fonte de Alimentação Starlink Gen 3</div>
+          </a>
+          <a class="w3-pstrip__card" href="/pt/products/starlink-mount-for-mini-dish-696">
+            <div class="w3-pstrip__img"><img src="/static/upload/down/a0f77f1374.thumb.webp" width="960" height="960" alt="Suporte para Antena Starlink Mini para Postes, Escadas de Trailer, Corrimãos e Racks - Produtos Wanew" loading="lazy"></div>
+            <div class="w3-pstrip__title">Suporte para Antena Starlink Mini para Postes, Escadas de Trailer, Corrimãos e Racks</div>
+          </a>
+          <a class="w3-pstrip__card" href="/pt/products/starlink-mini-pole-mount-dish-adapter-690">
+            <div class="w3-pstrip__img"><img src="/static/upload/down/24a706af4a.thumb.webp" width="960" height="960" alt="Adaptador de Antena para Suporte de Poste para Starlink Mini até D1 1/2 - Produtos Wanew" loading="lazy"></div>
+            <div class="w3-pstrip__title">Adaptador de Antena para Suporte de Poste para Starlink Mini até D1 1/2</div>
+          </a>
+      </div>
+      <h3 class="w3-h3 w3-modelrail__title" data-w3-reveal="3">Comprar por modelo Starlink</h3>
+      <div class="w3-modelrail" data-w3-reveal="4">
         <div class="product-grid-item">
             <a href="/pt/standard-circular/" class="product-grid-link">
               <div class="product-grid-img">
@@ -318,41 +356,6 @@
             </a>
           </div>
       </div>
-      <div class="w3-pstrip" data-w3-reveal="3">
-        <a class="w3-pstrip__card" href="/pt/products/starlink-gen-3-mount-starlink-pivot-672">
-            <div class="w3-pstrip__img"><img src="/static/upload/down/9fbc410503.thumb.webp" width="960" height="960" alt="Suporte Starlink Gen 3, Suporte Pivotante Starlink com Adaptador de Tubo e Mastro, Design com Mecanismo Giratório, Suporte Standard Gen 3 para Telhados Inclinados e com Telhas, Fácil de Instalar e Ajustar. - Produtos Wanew" loading="lazy"></div>
-            <div class="w3-pstrip__title">Suporte Starlink Gen 3, Suporte Pivotante Starlink com Adaptador de Tubo e Mastro, Design com Mecanismo Giratório, Suporte Standard Gen 3 para Telhados Inclinados e com Telhas, Fácil de Instalar e Ajustar.</div>
-          </a>
-          <a class="w3-pstrip__card" href="/pt/products/starlink-performance-adapter-gen-3-42">
-            <div class="w3-pstrip__img"><img src="/static/upload/image/20260428/1777341673585824.thumb.webp" width="960" height="960" alt="Adaptador para Starlink Performance Gen 3, Extensão de Cabo para Acoplador RJ45 para Starlink Performance Gen 3, À prova d'água, Compatível com Antena Starlink Performance Gen 3 - Produtos Wanew" loading="lazy"></div>
-            <div class="w3-pstrip__title">Adaptador para Starlink Performance Gen 3, Extensão de Cabo para Acoplador RJ45 para Starlink Performance Gen 3, À prova d'água, Compatível com Antena Starlink Performance Gen 3</div>
-          </a>
-          <a class="w3-pstrip__card" href="/pt/products/starlink-mini-carry-bag-travel-shoulder-694">
-            <div class="w3-pstrip__img"><img src="/static/upload/down/a20257a41f.thumb.webp" width="960" height="960" alt="Bolsa de Transporte para Starlink Mini, Bolsa de Ombro de Viagem com Alça de Ombro para Kit de Antena Starlink Mini, Tecido Oxford 600D Resistente, Maleta de Armazenamento Portátil À prova de choque para Ambientes Externos, Camping e Navegação - Produtos Wanew" loading="lazy"></div>
-            <div class="w3-pstrip__title">Bolsa de Transporte para Starlink Mini, Bolsa de Ombro de Viagem com Alça de Ombro para Kit de Antena Starlink Mini, Tecido Oxford 600D Resistente, Maleta de Armazenamento Portátil À prova de choque para Ambientes Externos, Camping e Navegação</div>
-          </a>
-          <a class="w3-pstrip__card" href="/pt/products/pipe-mount-adapter-for-starlink-gen-4202">
-            <div class="w3-pstrip__img"><img src="/static/upload/image/20260522/1779412638932645.thumb.webp" width="960" height="960" alt="Adaptador de Suporte para Tubo para Starlink Gen 3, Kit de Suporte de Poste em Liga de Alumínio de Alta Resistência para Antena V3, Instalação em Telhado e Parede - Produtos Wanew" loading="lazy"></div>
-            <div class="w3-pstrip__title">Adaptador de Suporte para Tubo para Starlink Gen 3, Kit de Suporte de Poste em Liga de Alumínio de Alta Resistência para Antena V3, Instalação em Telhado e Parede</div>
-          </a>
-          <a class="w3-pstrip__card" href="/pt/products/starlink-mini-pivot-mount-adjust-tilt-684">
-            <div class="w3-pstrip__img"><img src="/static/upload/down/1632b03ab7.thumb.webp" width="960" height="960" alt="Suporte Pivotante para Starlink Mini Ajusta o Ângulo de Inclinação Suporte de Antena - Produtos Wanew" loading="lazy"></div>
-            <div class="w3-pstrip__title">Suporte Pivotante para Starlink Mini Ajusta o Ângulo de Inclinação Suporte de Antena</div>
-          </a>
-          <a class="w3-pstrip__card" href="/pt/products/starlink-gen-3-router-power-supply-674">
-            <div class="w3-pstrip__img"><img src="/static/upload/down/bf26b45c66.thumb.webp" width="960" height="960" alt="Kit de Montagem para Roteador e Fonte de Alimentação Starlink Gen 3 - Produtos Wanew" loading="lazy"></div>
-            <div class="w3-pstrip__title">Kit de Montagem para Roteador e Fonte de Alimentação Starlink Gen 3</div>
-          </a>
-          <a class="w3-pstrip__card" href="/pt/products/starlink-mount-for-mini-dish-696">
-            <div class="w3-pstrip__img"><img src="/static/upload/down/a0f77f1374.thumb.webp" width="960" height="960" alt="Suporte para Antena Starlink Mini para Postes, Escadas de Trailer, Corrimãos e Racks - Produtos Wanew" loading="lazy"></div>
-            <div class="w3-pstrip__title">Suporte para Antena Starlink Mini para Postes, Escadas de Trailer, Corrimãos e Racks</div>
-          </a>
-          <a class="w3-pstrip__card" href="/pt/products/starlink-mini-pole-mount-dish-adapter-690">
-            <div class="w3-pstrip__img"><img src="/static/upload/down/24a706af4a.thumb.webp" width="960" height="960" alt="Adaptador de Antena para Suporte de Poste para Starlink Mini até D1 1/2 - Produtos Wanew" loading="lazy"></div>
-            <div class="w3-pstrip__title">Adaptador de Antena para Suporte de Poste para Starlink Mini até D1 1/2</div>
-          </a>
-      </div>
-      <div class="w3-viewall" data-w3-reveal><a class="w3-link-arrow" href="/pt/guides/compatibility/">Não sabe qual Starlink você tem? Veja o guia de compatibilidade</a></div>
     </div>
   </section>
 
@@ -405,14 +408,14 @@
           <span class="w3-eyebrow">Sobre a Wanew</span>
           <h2 class="w3-h2">Fabricação orientada à engenharia</h2>
           <p class="w3-sub">A Wanew projeta e fabrica suportes, fontes de energia, cabos e cases de proteção compatíveis com Starlink — com capacidade OEM/ODM própria para todas as gerações de terminal.</p>
-          <!-- 四格全部走 home.json 自己的键：数和标签都可在后台改。
+          <!-- 四格：数在 home.json，标签与 5,000 m² 在 shared.json（About 页同一份，不留第二个真源）。
                【铁规】首页模板只准引用 chrome.json / shared.json / home.json 三个来源 ——
                后台那条链只加载这三个，引用别页的 json 会让保存直接失败。 -->
           <div class="w3-stats">
             <div class="w3-stat"><span class="w3-stat__n">15+</span><span class="w3-stat__k">Anos de experiência</span></div>
             <div class="w3-stat"><span class="w3-stat__n">150+</span><span class="w3-stat__k">Técnicos qualificados</span></div>
             <div class="w3-stat"><span class="w3-stat__n">200+</span><span class="w3-stat__k">Patentes</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">5.000 m²</span><span class="w3-stat__k">Área da fábrica</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">5.000 m²</span><span class="w3-stat__k">Área da fábrica</span></div>
           </div>
           <a href="/pt/about/" class="w3-link-arrow">Saiba mais</a>
         </div>
