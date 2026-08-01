@@ -142,7 +142,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.8350dd0dc5.css" />
+<link rel="stylesheet" href="/skin/css/w3.0f0ac9e6b8.css" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -411,10 +411,17 @@
   <!-- About / manufacturing -->
   <section class="w3-section w3-hairline-top w3-band--alt" id="ind4">
     <div class="w3-container">
+      <!-- Joe 定的排布：标题独占一行、横跨整块、【在图片之上】；下面 图片在左、文案+数字在右。
+           标题从左栏提到通栏 = 它拿到整个容器宽度，四语都排得成一行（窄栏里 en 会断成两行）。 -->
       <div class="w3-about">
-        <div class="w3-about__body" data-w3-reveal>
+        <div class="w3-about__head" data-w3-reveal>
           <span class="w3-eyebrow">About Us</span>
           <h2 class="w3-h2">Engineering-led manufacturing</h2>
+        </div>
+        <div class="w3-about__media" data-w3-reveal="2">
+          <img src="/static/upload/image/wanew-company-wall.webp" alt="" width="1586" height="992" loading="lazy"/>
+        </div>
+        <div class="w3-about__body" data-w3-reveal="3">
           <p class="w3-sub">Wanew designs and manufactures Starlink-compatible mounts, power, cables and protective cases — with in-house OEM/ODM capability for every terminal generation.</p>
           <!-- 四格：数在 home.json，标签与 5,000 m² 在 shared.json（About 页同一份，不留第二个真源）。
                【铁规】首页模板只准引用 chrome.json / shared.json / home.json 三个来源 ——
@@ -426,9 +433,6 @@
             <div class="w3-stat"><span class="w3-stat__n">5,000 m²</span><span class="w3-stat__k">Factory area</span></div>
           </div>
           <a href="/about/" class="w3-link-arrow">Learn More</a>
-        </div>
-        <div class="w3-about__media" data-w3-reveal="2">
-          <img src="/static/upload/image/wanew-company-wall.webp" alt="" width="1586" height="992" loading="lazy"/>
         </div>
       </div>
     </div>
