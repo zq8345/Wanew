@@ -12,6 +12,17 @@
  * ⚠️ 这半只做 `/static/`(在本仓,regen 能直接查磁盘存在性),**不写清单** ——
  *    清单只为 R2 那 28 张存在(regen 查不到 R2 的存在性)。别把不需要的东西也塞进去。
  *
+ * 依赖:**sharp@0.35.2**。一次性工具,不进 CI、也不进本仓依赖树(本仓不是 npm 项目)。
+ *   npm i sharp@0.35.2 && node scripts/make-thumbs.mjs
+ *
+ * 🔴 这一行是删掉 `admin-worker/` 时抢救下来的信息。此前它写的是
+ *      require("../admin-worker/node_modules/sharp")   ← 跨目录借另一个项目的依赖树
+ *    那个目录是死代码(后台早已独立成仓 zq8345/Wanew-Admin),要删;
+ *    而删掉它的 package-lock.json 就等于**永远不知道该装哪个版本**。
+ *    > **「不可复现」和「要多打一条 npm i」是天差地别的两件事,而它们之间只隔着这一行注释。**
+ *    ⚠️ 顺带记一条判据教训:这是"构建期脚本跨目录借依赖",
+ *       **只查『谁 import 这个目录』会漏掉它** —— 删目录前的引用检查差点就这么漏过去。
+ *
  * 用法:
  *   node scripts/make-thumbs.mjs --limit 5   # 先试跑 5 张
  *   node scripts/make-thumbs.mjs             # 全量
@@ -23,8 +34,8 @@ import crypto from "crypto";
 import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
-// sharp 装在 admin-worker 的 node_modules 里 —— 本仓不是 npm 项目,不为一个构建期脚本引入一套依赖树。
-const sharp = require("../admin-worker/node_modules/sharp");
+// sharp 由跑的人临时装(见文件头的确切版本),不进本仓依赖树。
+const sharp = require("sharp");
 
 const LONG_EDGE = 960;
 const CHECK = process.argv.includes("--check");
