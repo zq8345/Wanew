@@ -517,7 +517,12 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   content: ""; position: absolute; inset: 0;
   background:
     linear-gradient(to top right, rgba(10, 12, 15, 0.93) 0%, rgba(10, 12, 15, 0.62) 27%, rgba(10, 12, 15, 0.22) 54%, rgba(10, 12, 15, 0) 73%),
-    linear-gradient(180deg, rgba(10, 12, 15, 0) 58%, rgba(10, 12, 15, 0.52) 83%, rgba(10, 12, 15, 0.74) 100%);
+    /* 🔴 2026-08-01:这一层原本从 58% 就开始压暗,注释写着「just enough for the white trust bar to read」——
+       那条白色 trust bar Joe 已于 2026-07-30 删除,压暗的理由跟着没了,但没人回头拆。
+       它正好盖在碟所在的 y≈69%(实测该处叠加不透明度 49%,把碟 66 级的局部对比压到 34 级)。
+       改为【只做贴底融合】:80% 之前完全不压,末端仍到 0.66 —— 实测底边亮度 21.1,
+       0.66 黑叠上去 ≈15.1,与页面底色 12 差 3 级(旧值 0.74 是 14.4,肉眼等同)。 */
+    linear-gradient(180deg, rgba(10, 12, 15, 0) 80%, rgba(10, 12, 15, 0.22) 92%, rgba(10, 12, 15, 0.66) 100%);
 }
 .w3-hero__inner { position: relative; width: 100%; padding: 88px 0 220px; }  /* Joe: lift the title block up toward the truck roofline (more bottom padding raises the centered block) */
 /* 文案安全列:宽屏下限制在左侧 ~46%,主体从 48% 才开始 → 文字永远不叠在车上。
@@ -872,7 +877,12 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
    about 工人 x62 y40(头22,左三分暗留标题)/ guides 碟+帐篷 x70 y70(在下右!旧 50% 把它裁掉→只剩星空)/
    solutions 碟 x60 y55 / products(=compat) 碟 x78 y22(右上,窄屏裁右→往右钉)/ contact 越野车 x55 y55。
    手机竖屏裁左右→X 对准主体最关键,off-center-X 的页(products/guides/about)单设 --hero-focus-mobile。 */
-.page-header-bg--about { --hero-focus: 55% 38%; --hero-focus-mobile: 60% 38%; }
+/* 🔴 2026-08-01 Joe「about 的 hero 底部与背景分界明显」——查证:不是亮度不融合
+   (实测可见底边亮度 about 30.7 < solutions 45.7 < contact 93.1,底部渐变全站同一条)。
+   真因是【裁切位置】:38% 时可见窗口只到原图 71.6%,岩石被拦腰切断 —— 那是"内容被切断"的边。
+   对照 guides 89.1% / solutions 81.3% / contact 98.9%。改 78% ⇒ 下沿 ~90%,与它们同档。
+   房子(两扇亮窗实测 y 58.5–59.1%,房体约 48–66%)在新窗口 35.8–90% 内仍完整,且落在画面上中部。 */
+.page-header-bg--about { --hero-focus: 55% 78%; --hero-focus-mobile: 60% 38%; }
 .page-header-bg--guides { --hero-focus: 68% 66%; --hero-focus-mobile: 72% 64%; }
 .page-header-bg--solutions { --hero-focus: 58% 50%; }
 .page-header-bg--products { --hero-focus: 74% 26%; --hero-focus-mobile: 82% 30%; }
@@ -1151,7 +1161,11 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
     background-position: var(--hero-focus-mobile, 62% 52%); transform: none; }
   .w3-hero__bg::after { background: linear-gradient(to top, rgba(10,12,15,.82) 0%, rgba(10,12,15,.35) 55%, rgba(10,12,15,.15) 100%); }
   .w3-hero__content { max-width: none; }
-  .w3-hero__inner { padding: 28px 0 56px; }
+  /* 🔴 2026-08-01 Joe「iPhone 端文字过于密集,都挤在上面」。不删 eyebrow(它是定位那句),
+     治两处病因:① eyebrow 被 0.22em 字距撑成两行 → 手机收到 0.10em + micro 档,38 字符回一行;
+     ② 上少下多(28/56)把整块顶到了上面 → 换成上多下少,整块下移。 */
+  .w3-hero__content .w3-eyebrow { font-size: var(--w3-fs-micro); letter-spacing: 0.10em; }
+  .w3-hero__inner { padding: 88px 0 44px; }
 }
 
 @media (max-width: 1439px) and (min-width: 861px) {
