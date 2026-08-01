@@ -138,7 +138,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.34bd151619.css" />
+<link rel="stylesheet" href="/skin/css/w3.bc7133b07c.css" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -260,12 +260,15 @@
       <div class="w3-about">
         <div class="w3-about__body" data-w3-reveal>
           <span class="w3-eyebrow">{{t.home.about.eyebrow}}</span>
+          <h2 class="w3-h2">{{t.about.story.title}}</h2>
           <p class="w3-sub">{{t.home.p.5}}</p>
+          <!-- Joe 定的四格。数与标签【分开】—— 旧结构是 "15 Years" 一整串,
+               新的四对在 About 页那条 6 格带里已经存在且四语齐全,直接复用键,一个字不新编。 -->
           <div class="w3-stats">
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.1}}</span><span class="w3-stat__k">{{t.home.stat.text.1}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.2}}</span><span class="w3-stat__k">{{t.shared.professional_equipment}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.3}}</span><span class="w3-stat__k">{{t.home.stat.text.3}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.4}}</span><span class="w3-stat__k">{{t.home.stat.text.4}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">15+</span><span class="w3-stat__k">{{t.about.xlc-stat-label.1}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">150+</span><span class="w3-stat__k">{{t.about.xlc-stat-label.3}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">200+</span><span class="w3-stat__k">{{t.about.xlc-stat-label.4}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">{{t.about.about-caps-k.1}}</span><span class="w3-stat__k">{{t.about.about-caps-v.1}}</span></div>
           </div>
           <a href="{{url./about/}}" class="w3-link-arrow">{{t.home.about.cta}}</a>
         </div>
@@ -286,22 +289,18 @@
       </div>
       <div class="w3-why">
         <div class="w3-whycard" data-w3-reveal>
-          <span class="w3-whycard__idx">01</span>
           <h3>{{t.home.h3.1}}</h3>
           <p>{{t.home.p.1}}</p>
         </div>
         <div class="w3-whycard" data-w3-reveal="2">
-          <span class="w3-whycard__idx">02</span>
           <h3>{{t.home.h3.2}}</h3>
           <p>{{t.home.p.2}}</p>
         </div>
         <div class="w3-whycard" data-w3-reveal="3">
-          <span class="w3-whycard__idx">03</span>
           <h3>{{t.home.h3.3}}</h3>
           <p>{{t.home.p.3}}</p>
         </div>
         <div class="w3-whycard" data-w3-reveal="4">
-          <span class="w3-whycard__idx">04</span>
           <h3>{{t.home.h3.4}}</h3>
           <p>{{t.home.p.4}}</p>
         </div>
