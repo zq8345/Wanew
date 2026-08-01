@@ -189,7 +189,11 @@ body.w3-nav-locked { overflow: hidden; }
   font-size: var(--w3-fs-d2); line-height: 1.08; letter-spacing: -0.03em; font-weight: 700;
 }
 .w3-sub { color: var(--w3-text2); font-size: var(--w3-fs-body); max-width: 64ch; }
-.w3-sechead { display: grid; gap: 14px; max-width: 720px; margin-bottom: 44px; }
+/* 720px 卡住的只有一个标题(Field-proven)——其余四个区块标题的自然宽是 186–635px,
+   远在 720 以下,放开对它们【可证明零影响】(已逐个量过)。
+   副标题 .w3-sub 自带 max-width: 64ch,不会跟着变宽 —— 标题与正文本来就该是两种行宽。
+   ⚠️ 用 none 而不是换一个更大的数字:.w3-sechead--row 已经在用 none,这是本规则自己的词汇。 */
+.w3-sechead { display: grid; gap: 14px; max-width: none; margin-bottom: 44px; }
 .w3-sechead--row { max-width: none; grid-template-columns: 1fr auto; align-items: end; gap: 20px; }
 .w3-sechead--row > div { display: grid; gap: 14px; }
 @media (max-width: 640px) { .w3-sechead--row { grid-template-columns: 1fr; align-items: start; } }
