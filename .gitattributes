@@ -22,14 +22,14 @@
 _redirects text eol=lf
 _headers   text eol=lf
 
-# ── 🔴 两个【含 NUL 字节的脚本】,必须按二进制对待 ─────────────────────────────
-#    `brand-swap.mjs` 与 `es-term-fix.mjs` 里的 \0 是**有意的**:它们拿 NUL 当占位符/掩码分隔,
-#    防止低优先级正则把已替换过的片段重复计数。git 因此把它们判成二进制 —— **那个分类是对的**。
-#    ⚠️ 如果让上面的 `*.mjs text` 管到它们,归一化会按文本处理这两个文件,
+# ── 🔴 【含 NUL 字节的脚本】,必须按二进制对待 ─────────────────────────────────
+#    `brand-swap.mjs` 里的 \0 是**有意的**:它拿 NUL 当占位符/掩码分隔,
+#    防止低优先级正则把已替换过的片段重复计数。git 因此把它判成二进制 —— **那个分类是对的**。
+#    ⚠️ 如果让上面的 `*.mjs text` 管到它,归一化会按文本处理这个文件,
 #    而**文本处理一个含 NUL 的文件,损坏在 diff 里只显示"Binary files differ"**。
-#    ⚠️ 这两条必须排在 `*.mjs` 之后 —— .gitattributes 是**后面的规则覆盖前面的**。
+#    ⚠️ 这条必须排在 `*.mjs` 之后 —— .gitattributes 是**后面的规则覆盖前面的**。
+#    (原先此处还有 `scripts/es-term-fix.mjs`,该脚本已在 cleanup 2-B 删除,规则随之移除。)
 scripts/brand-swap.mjs   -text
-scripts/es-term-fix.mjs  -text
 
 # ── 二进制:显式声明,不让任何启发式碰它们 ────────────────────────────────────
 #    实测 932 个:webp 498 · jpg 388 · png 40 · woff2/woff/mp4/ico 各 1
