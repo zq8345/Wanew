@@ -143,7 +143,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.0f0ac9e6b8.css" />
+<link rel="stylesheet" href="/skin/css/w3.80b3cf55bc.css" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -469,41 +469,26 @@
   </section>
 
   <!-- Guides -->
-  <section class="w3-section w3-hairline-top w3-band--alt w3-whitecards">
+  <!-- Joe 2026-08-01:这一块换成 /guides/ 页自己那套 .guides-card,理由两条 ——
+       ① 全站主风格是 Contact 页那种【深色浮起面板】(surface-2 + 顶边高光 + 双层投影)。
+          原来的 .tj-gcard 白卡是 §2.6「选择性提亮」,但 DESIGN.md 同一条写着
+          **「每屏 ≤1 个提亮段」** —— 首页原本有两个白卡段【紧挨着】(Our Advantages + 本块),
+          两个都白 = 都不白。提亮留给 Our Advantages(§2.6 定的用途是「信任/证据类」);
+          Guides 是内容索引,不是证据。
+       ② 原卡片有个装饰图标区,底衬令牌 --w3-well 的原注释就是「图标空 void 垫底(补白)」——
+          它存在的理由是填空,不是表意;三张卡的日期还全是同一个批量值。这套卡没有图标位。
+       ⇒ 顺带它和自己指向的 /guides/ 页长得一样,和「首页板块=目标页」那条规矩同源。 -->
+  <section class="w3-section w3-hairline-top w3-band--alt">
     <div class="w3-container">
       <div class="w3-sechead" data-w3-reveal>
         <span class="w3-eyebrow">Guias</span>
         <h2 class="w3-h2">Guias de acessórios Starlink</h2>
         <p class="w3-sub">Guias de instalação, dicas de compra e conhecimento para aproveitar ao máximo a sua Starlink.</p>
       </div>
-      <div class="w3-guides">
-        <a class="tj-gcard" href="/guides/starlink-compatible-power-adapters-buyer-guide-12v-dc/" data-w3-reveal>
-          <div class="tj-cover"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7Z"/></svg></div>
-          <div class="tj-gbody">
-            <div class="tj-gmeta"><span class="tj-cat">Energia</span><span class="tj-date">4 de jul. de 2026</span></div>
-            <h3>Guia de compra de adaptadores de energia compatíveis com Starlink: 12V DC vs AC vs USB-C</h3>
-            <p>Guia de compra de adaptadores de energia para Starlink — compare as opções 12V DC, AC original e USB-C PD, com recomendações por caso de uso: motorhome, off-grid e residência.</p>
-            <span class="tj-more">Leia mais <span class="tj-arw">→</span></span>
-          </div>
-        </a>
-        <a class="tj-gcard" href="/guides/set-up-starlink-mini-rv-camping-complete-guide/" data-w3-reveal="2">
-          <div class="tj-cover"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16V9a1 1 0 0 1 1-1h10l5 5v3M2 16h16M6 16a2 2 0 1 0 4 0M15 16a2 2 0 1 0 4 0M13 8v5h5"/></svg></div>
-          <div class="tj-gbody">
-            <div class="tj-gmeta"><span class="tj-cat">Motorhome &amp; Off-Grid</span><span class="tj-date">4 de jul. de 2026</span></div>
-            <h3>Como instalar a Starlink Mini para camping em motorhome: guia completo</h3>
-            <p>Passo a passo completo para instalar a Starlink Mini na estrada — checklist de equipamentos, fixação, energia e passagem de cabos.</p>
-            <span class="tj-more">Leia mais <span class="tj-arw">→</span></span>
-          </div>
-        </a>
-        <a class="tj-gcard" href="/guides/wanew-pipe-mount-wall-mount-flat-roof-mount/" data-w3-reveal="3">
-          <div class="tj-cover"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M12 9a3 3 0 0 0-3 3v9M12 9a3 3 0 0 1 3 3v9M7 21h10M9 6h6"/></svg></div>
-          <div class="tj-gbody">
-            <div class="tj-gmeta"><span class="tj-cat">Suportes</span><span class="tj-date">4 de jul. de 2026</span></div>
-            <h3>Suporte de tubo vs suporte de parede vs suporte para telhado plano da Wanew: qual é o ideal para você?</h3>
-            <p>Uma comparação entre os suportes de tubo, de parede e para telhado plano da Wanew para Starlink — uma matriz de decisão com cenários reais e recomendações claras.</p>
-            <span class="tj-more">Leia mais <span class="tj-arw">→</span></span>
-          </div>
-        </a>
+      <div class="guides-grid">
+        <a class="guides-card" href="/guides/starlink-compatible-power-adapters-buyer-guide-12v-dc/" data-w3-reveal><span class="guides-card__topic">Energia</span><span class="guides-card__t">Guia de compra de adaptadores de energia compatíveis com Starlink: 12V DC vs AC vs USB-C</span><span class="guides-card__sum">Guia de compra de adaptadores de energia para Starlink — compare as opções 12V DC, AC original e USB-C PD, com recomendações por caso de uso: motorhome, off-grid e residência.</span><span class="guides-card__arw" aria-hidden="true">→</span></a>
+        <a class="guides-card" href="/guides/set-up-starlink-mini-rv-camping-complete-guide/" data-w3-reveal="2"><span class="guides-card__topic">Motorhome &amp; Off-Grid</span><span class="guides-card__t">Como instalar a Starlink Mini para camping em motorhome: guia completo</span><span class="guides-card__sum">Passo a passo completo para instalar a Starlink Mini na estrada — checklist de equipamentos, fixação, energia e passagem de cabos.</span><span class="guides-card__arw" aria-hidden="true">→</span></a>
+        <a class="guides-card" href="/guides/wanew-pipe-mount-wall-mount-flat-roof-mount/" data-w3-reveal="3"><span class="guides-card__topic">Suportes</span><span class="guides-card__t">Suporte de tubo vs suporte de parede vs suporte para telhado plano da Wanew: qual é o ideal para você?</span><span class="guides-card__sum">Uma comparação entre os suportes de tubo, de parede e para telhado plano da Wanew para Starlink — uma matriz de decisão com cenários reais e recomendações claras.</span><span class="guides-card__arw" aria-hidden="true">→</span></a>
       </div>
       <div class="w3-viewall" data-w3-reveal><a class="w3-link-arrow" href="/pt/guides/">Ver todos os guias →</a></div>
     </div>

@@ -768,13 +768,11 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
    深色板块 + 白卡 = 白卡在深底上强对比跳出,替代 .w3-invert 成为提亮首选。用于 Our Advantages / Guides&Resources。
    ⚠️只翻【卡片容器】,不翻 section 背景、不翻 section header(eyebrow/h2/sub 仍浅字在深底)。
    ⚠️必须 section 作用域:.w3-whycard 被 About 复用(全暗做对),禁全局翻白。 */
-.w3-whitecards .w3-whycard,
-.w3-whitecards .tj-gcard {
+.w3-whitecards .w3-whycard {
   background: #fff; border-color: rgba(15,25,45,.08);
   box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 2px 10px -3px rgba(0,0,0,.45), 0 28px 54px -22px rgba(0,0,0,.7);
 }
-.w3-whitecards .w3-whycard:hover,
-.w3-whitecards .tj-gcard:hover {
+.w3-whitecards .w3-whycard:hover {
   border-color: rgba(15,25,45,.16);
   box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 4px 14px -3px rgba(0,0,0,.5), 0 34px 64px -24px rgba(0,0,0,.78);
 }
@@ -782,17 +780,12 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-whitecards .w3-whycard__idx { color: var(--w3-invert-accent); border-bottom-color: rgba(15,25,45,.12); }
 .w3-whitecards .w3-whycard h3 { color: var(--w3-invert-ink); }
 .w3-whitecards .w3-whycard p { color: var(--w3-invert-ink2); }
-/* guide 白卡:cover 翻浅底(深蓝图标)+ 内文深字 */
-.w3-whitecards .tj-cover { background: linear-gradient(135deg, #f4f6f9 0%, #e7ecf2 100%); border-bottom-color: rgba(15,25,45,.08); color: var(--w3-invert-accent); }
-.w3-whitecards .tj-gbody h3 { color: var(--w3-invert-ink); }
-.w3-whitecards .tj-gbody p { color: var(--w3-invert-ink2); }
+/* guide 白卡:cover 翻浅底(深蓝图标)+ 内文深字 *
+
 /* 2026-07-28:#8a94a0 在白卡上只有 **3.08**(11px 正文级,门槛 4.5)—— 那是个深色模式的灰
    被硬编码进了白底上下文。改用已有的白底墨色令牌(实测 7.35)。
    ⚠️ 没有为"它是次要信息"去发明第三档更浅的墨 —— **要新档就先进 DESIGN.md**,
-      在 CSS 里就地调一个"看着差不多"的值,正是字阶那 37 个落点的来历。 */
-.w3-whitecards .tj-gmeta { color: var(--w3-invert-ink2); }
-.w3-whitecards .tj-cat { color: var(--w3-invert-accent); }
-.w3-whitecards .tj-more { color: var(--w3-invert-ink); }
+      在 CSS 里就地调一个"看着差不多"的值,正是字阶那 37 个落点的来历。 *
 
 /* ---- CJK 字距 ---------------------------------------------------------
    2026-08-01 Joe 指出:中文大标题「配件一站式解决方案」字与字挤在一起,而 eyebrow
@@ -827,33 +820,10 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
 .w3-about__media img { width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 980px) { .w3-about { grid-template-columns: 1fr; gap: 36px; } }
 
-/* guide cards */
-.w3-guides { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-/* §2.6:首页 Guides&Resources 卡与 ③ Guides 卡同款浮起(surface-2+edge+elev);cover 用径向井补"暗 void" */
-.tj-gcard {
-  display: flex; flex-direction: column;
-  background: var(--w3-surface-2); border: 1px solid var(--w3-line); border-radius: var(--w3-radius);
-  box-shadow: var(--w3-edge-top), var(--w3-elev-card);
-  overflow: hidden; transition: transform 0.3s var(--w3-ease), border-color 0.3s, box-shadow 0.3s;
-}
-.tj-gcard:hover { transform: translateY(-4px); border-color: var(--w3-line2); box-shadow: var(--w3-edge-top), 0 6px 16px -4px rgba(0,0,0,.55), 0 22px 48px -16px rgba(0,0,0,.7); }
-.tj-cover {
-  aspect-ratio: 21 / 9; display: flex; align-items: center; justify-content: center;
-  background: var(--w3-well), linear-gradient(135deg, #10151b 0%, #182029 100%);
-  border-bottom: 1px solid var(--w3-line); color: var(--w3-accent);
-}
-.tj-cover svg { width: 52px; height: 52px; opacity: 1; transition: transform 0.35s var(--w3-ease); }
-.tj-gcard:hover .tj-cover svg { transform: scale(1.1); }
-.tj-gbody { padding: 20px 22px 24px; display: grid; gap: 10px; align-content: start; }
-.tj-gmeta { display: flex; gap: 10px; font-size: var(--w3-fs-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--w3-text3); }
-.tj-cat { color: var(--w3-accent); font-weight: 600; }
-.tj-gbody h3 { font-size: var(--w3-fs-body); font-weight: 650; line-height: 1.4; letter-spacing: -0.01em; }
-.tj-gbody p { font-size: var(--w3-fs-compact); color: var(--w3-text2); line-height: 1.65; }
-.tj-more { font-size: var(--w3-fs-compact); font-weight: 600; color: var(--w3-text); margin-top: 4px; }
-.tj-arw { display: inline-block; transition: transform 0.25s var(--w3-ease); }
-.tj-gcard:hover .tj-arw { transform: translateX(4px); }
+/* guide cards *
+/* §2.6:首页 Guides&Resources 卡与 ③ Guides 卡同款浮起(surface-2+edge+elev);cover 用径向井补"暗 void" *
+
 .w3-viewall { margin-top: 28px; }
-@media (max-width: 980px) { .w3-guides { grid-template-columns: 1fr; } }
 
 /* CTA band */
 .w3-ctaband { position: relative; overflow: hidden; }
@@ -1763,7 +1733,6 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
 .faq-flat { list-style: none; margin: 18px 0 0; display: grid; }
 /* v6:见 .ab-card */
 
-
 /* ⑤ Partner:三条路径 → 三张卡(i18n 本来就是 .t/.d 的卡片形状,没新建键) */
 /* 三个并列选项 → 三栏并列(它们是"选一个",不是"依次读") */
 .about-partner__ways { list-style: none; margin: 16px 0 0; padding: clamp(22px, 2.6vw, 34px);
@@ -1779,7 +1748,6 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
 .about-faq-more { margin-top: 16px; }
 .about-pcard h3 { font-size: var(--w3-fs-lead); font-weight: 700; margin: 0 0 6px; letter-spacing: -0.01em; }
 .about-pcard p { font-size: var(--w3-fs-compact); line-height: 1.6; margin: 0; }
-
 
 /* ⑦ OEM/ODM 标题拆大小字。副标题是【独立键】不是切出来的:
    es/pt 的 OEM/ODM 夹在句中,切字符串会得到病句。 */

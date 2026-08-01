@@ -139,7 +139,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.0f0ac9e6b8.css" />
+<link rel="stylesheet" href="/skin/css/w3.80b3cf55bc.css" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -474,41 +474,26 @@
   </section>
 
   <!-- Guides -->
-  <section class="w3-section w3-hairline-top w3-band--alt w3-whitecards">
+  <!-- Joe 2026-08-01:这一块换成 /guides/ 页自己那套 .guides-card,理由两条 ——
+       ① 全站主风格是 Contact 页那种【深色浮起面板】(surface-2 + 顶边高光 + 双层投影)。
+          原来的 .tj-gcard 白卡是 §2.6「选择性提亮」,但 DESIGN.md 同一条写着
+          **「每屏 ≤1 个提亮段」** —— 首页原本有两个白卡段【紧挨着】(Our Advantages + 本块),
+          两个都白 = 都不白。提亮留给 Our Advantages(§2.6 定的用途是「信任/证据类」);
+          Guides 是内容索引,不是证据。
+       ② 原卡片有个装饰图标区,底衬令牌 --w3-well 的原注释就是「图标空 void 垫底(补白)」——
+          它存在的理由是填空,不是表意;三张卡的日期还全是同一个批量值。这套卡没有图标位。
+       ⇒ 顺带它和自己指向的 /guides/ 页长得一样,和「首页板块=目标页」那条规矩同源。 -->
+  <section class="w3-section w3-hairline-top w3-band--alt">
     <div class="w3-container">
       <div class="w3-sechead" data-w3-reveal>
         <span class="w3-eyebrow">指南</span>
         <h2 class="w3-h2">Starlink 配件指南</h2>
         <p class="w3-sub">安装指南、选购建议与实用知识，助您充分发挥 Starlink 的价值。</p>
       </div>
-      <div class="w3-guides">
-        <a class="tj-gcard" href="/guides/starlink-compatible-power-adapters-buyer-guide-12v-dc/" data-w3-reveal>
-          <div class="tj-cover"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7Z"/></svg></div>
-          <div class="tj-gbody">
-            <div class="tj-gmeta"><span class="tj-cat">电源</span><span class="tj-date">2026 年 7 月 4 日</span></div>
-            <h3>Starlink 兼容电源适配器选购指南：12V DC、AC 与 USB-C 对比</h3>
-            <p>Starlink 电源适配器选购指南——对比 12V DC、原装 AC 与 USB-C PD 方案，并按使用场景（房车、离网、家用）给出推荐。</p>
-            <span class="tj-more">阅读更多 <span class="tj-arw">→</span></span>
-          </div>
-        </a>
-        <a class="tj-gcard" href="/guides/set-up-starlink-mini-rv-camping-complete-guide/" data-w3-reveal="2">
-          <div class="tj-cover"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16V9a1 1 0 0 1 1-1h10l5 5v3M2 16h16M6 16a2 2 0 1 0 4 0M15 16a2 2 0 1 0 4 0M13 8v5h5"/></svg></div>
-          <div class="tj-gbody">
-            <div class="tj-gmeta"><span class="tj-cat">房车与离网</span><span class="tj-date">2026 年 7 月 4 日</span></div>
-            <h3>如何为房车露营设置 Starlink Mini：完整指南</h3>
-            <p>Starlink Mini 户外场景完整分步安装教程——设备清单、支架安装、供电与走线。</p>
-            <span class="tj-more">阅读更多 <span class="tj-arw">→</span></span>
-          </div>
-        </a>
-        <a class="tj-gcard" href="/guides/wanew-pipe-mount-wall-mount-flat-roof-mount/" data-w3-reveal="3">
-          <div class="tj-cover"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M12 9a3 3 0 0 0-3 3v9M12 9a3 3 0 0 1 3 3v9M7 21h10M9 6h6"/></svg></div>
-          <div class="tj-gbody">
-            <div class="tj-gmeta"><span class="tj-cat">支架</span><span class="tj-date">2026 年 7 月 4 日</span></div>
-            <h3>Wanew 管式支架、壁挂支架与平屋顶支架对比：哪一款适合您？</h3>
-            <p>Wanew 适配 Starlink 的管式、壁挂式与平屋顶支架对比——含实际场景的决策矩阵与明确推荐。</p>
-            <span class="tj-more">阅读更多 <span class="tj-arw">→</span></span>
-          </div>
-        </a>
+      <div class="guides-grid">
+        <a class="guides-card" href="/guides/starlink-compatible-power-adapters-buyer-guide-12v-dc/" data-w3-reveal><span class="guides-card__topic">电源</span><span class="guides-card__t">Starlink 兼容电源适配器选购指南：12V DC、AC 与 USB-C 对比</span><span class="guides-card__sum">Starlink 电源适配器选购指南——对比 12V DC、原装 AC 与 USB-C PD 方案，并按使用场景（房车、离网、家用）给出推荐。</span><span class="guides-card__arw" aria-hidden="true">→</span></a>
+        <a class="guides-card" href="/guides/set-up-starlink-mini-rv-camping-complete-guide/" data-w3-reveal="2"><span class="guides-card__topic">房车与离网</span><span class="guides-card__t">如何为房车露营设置 Starlink Mini：完整指南</span><span class="guides-card__sum">Starlink Mini 户外场景完整分步安装教程——设备清单、支架安装、供电与走线。</span><span class="guides-card__arw" aria-hidden="true">→</span></a>
+        <a class="guides-card" href="/guides/wanew-pipe-mount-wall-mount-flat-roof-mount/" data-w3-reveal="3"><span class="guides-card__topic">支架</span><span class="guides-card__t">Wanew 管式支架、壁挂支架与平屋顶支架对比：哪一款适合您？</span><span class="guides-card__sum">Wanew 适配 Starlink 的管式、壁挂式与平屋顶支架对比——含实际场景的决策矩阵与明确推荐。</span><span class="guides-card__arw" aria-hidden="true">→</span></a>
       </div>
       <div class="w3-viewall" data-w3-reveal><a class="w3-link-arrow" href="/zh/guides/">查看全部指南 →</a></div>
     </div>
