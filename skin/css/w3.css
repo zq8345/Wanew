@@ -1872,7 +1872,10 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .ab8-sectionhead { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: end; }
 .ab8-sectionhead .ab8-kicker { grid-column: 1 / -1; margin-bottom: 0; }
 .ab8-sectionhead h2 {
-  margin: 0; max-width: 12ch; color: var(--w3-text); font-size: var(--w3-fs-d2);
+  /* 12ch 是左右分栏时代的遗留：标题只占半幅，才需要收窄。
+     堆叠之后它成了强制折行的唯一原因（Manufacturing Capability 24 字符 > 12ch）。
+     🔴 字号不动（48px 是全站统一值），放开宽度即可。 */
+  margin: 0; max-width: none; color: var(--w3-text); font-size: var(--w3-fs-d2);
   font-weight: 700; line-height: 1.03; letter-spacing: -.04em;
 }
 .ab8-sectionhead > p {
@@ -1887,6 +1890,8 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .ab8-factory figure { position: relative; grid-column: span 5; margin: 0; overflow: hidden; background: var(--w3-panel); }
 .ab8-factory__feature { grid-column: span 7 !important; grid-row: span 2; }
 .ab8-factory__wide { grid-column: span 7 !important; }
+/* 第三行三张等宽：4+4+4 = 12 列，正好铺满，行数不变（网格仍是 3 行）。 */
+.ab8-factory__third { grid-column: span 4 !important; }
 .ab8-factory img {
   display: block; width: 100%; height: 100%; object-fit: cover;
   filter: saturate(.86) contrast(1.04); transition: transform .55s var(--w3-ease), filter .3s;
@@ -1979,7 +1984,8 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   border-top: 1px solid var(--w3-line2);
 }
 .ab8-independent h2 {
-  margin: 22px 0 0; max-width: 9ch; color: var(--w3-text);
+  /* 同上：9ch 是分栏遗留。移动端本来就写着 max-width: none，这里与它对齐。 */
+  margin: 22px 0 0; max-width: none; color: var(--w3-text);
   font-size: var(--w3-fs-h1); font-weight: 700; letter-spacing: -.035em; line-height: 1.06;
 }
 .ab8-independent .faq-flat { margin: 0; padding: 0; }
