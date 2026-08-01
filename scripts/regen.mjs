@@ -712,7 +712,7 @@ const shared = fs.existsSync(path.join(REPO, "data", "pages", "shared.json"))
   ? JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "shared.json"), "utf8")) : {};
 const homeCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "home.json"), "utf8"));
 const homeTpl = fs.readFileSync(path.join(REPO, "data", "templates", "home.html"), "utf8");
-const HERO_HOME_IMG = "/static/upload/image/20260725/hero-home-v3b.webp";   // ⬅ 换首页 hero 只改这一行
+const HERO_HOME_IMG = "/static/upload/image/20260725/hero-home-v4.webp";   // ⬅ 换首页 hero 只改这一行
 const homeTiles = JSON.parse(webpInline(fs.readFileSync(path.join(REPO, "data", "pages", "home-tiles.json"), "utf8")));
 // 首页产品策展条 id 列表(可缺省:无文件=回落多样性挑选)。总工:6–8 精选好图,非目录堆砌。
 const homeFeaturedPath = path.join(REPO, "data", "pages", "home-featured.json");
