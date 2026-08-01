@@ -138,7 +138,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="/skin/css/w3.0254a5b061.css" />
+<link rel="stylesheet" href="/skin/css/w3.f02c9177e8.css" />
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 </head>
@@ -182,32 +182,15 @@
         </div>
         <a class="w3-link-arrow" href="{{url./products/}}">{{t.header.all_products}}</a>
       </div>
-      <div class="w3-pstrip" data-w3-reveal="2">
-        {{PRODUCT_STRIP}}
-      </div>
-      <div class="w3-bycat" data-w3-reveal="3">
-        <span class="w3-eyebrow">{{t.home.products.bycat}}</span>
-        <div class="w3-typerail">
-          <a class="w3-typecard" href="{{url./products/mounts/}}"><span>{{t.header.mounts}}{{badge./products/mounts/}}</span></a>
-          <a class="w3-typecard" href="{{url./products/power/}}"><span>{{t.header.power_charging}}{{badge./products/power/}}</span></a>
-          <a class="w3-typecard" href="{{url./products/cables/}}"><span>{{t.header.cables}}{{badge./products/cables/}}</span></a>
-          <a class="w3-typecard" href="{{url./products/networking/}}"><span>{{t.header.networking}}{{badge./products/networking/}}</span></a>
-          <a class="w3-typecard" href="{{url./products/cases/}}"><span>{{t.header.cases_protection}}{{badge./products/cases/}}</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Shop by Starlink model -->
-  <section class="w3-section w3-hairline-top w3-band--alt">
-    <div class="w3-container">
-      <div class="w3-sechead" data-w3-reveal>
-        <span class="w3-eyebrow">{{t.home.kick.1}}</span>
-        <h2 class="w3-h2">{{t.header.shop_by_starlink_model}}</h2>
-        <p class="w3-sub">{{t.home.sub.1}}</p>
-      </div>
-      <div class="product-grid-full" data-w3-reveal="2">
+      <!-- ① 合并:「按机型选」并入「热门产品」。原来两块都是 4 列 8 卡,滚下来像同一块重复。
+           机型行放在商品卡【上方】—— 先选机型再看货,和 Products 页顶部 MODEL 筛选同一条动线。
+           ⚠️ 碟图必须留:买家靠看图认自己那台是哪一代,换纯文字就废了这个功能。
+           ⚠️ 形状必须与商品卡不同(一行 vs 网格)——那是合并的全部意义。 -->
+      <div class="w3-modelrail" data-w3-reveal="2">
         {{TILES}}
+      </div>
+      <div class="w3-pstrip" data-w3-reveal="3">
+        {{PRODUCT_STRIP}}
       </div>
       <div class="w3-viewall" data-w3-reveal><a class="w3-link-arrow" href="{{url./guides/compatibility/}}">{{t.home.entry.compat}}{{badge./guides/compatibility/}}</a></div>
     </div>
@@ -260,12 +243,15 @@
       <div class="w3-about">
         <div class="w3-about__body" data-w3-reveal>
           <span class="w3-eyebrow">{{t.home.about.eyebrow}}</span>
+          <h2 class="w3-h2">{{t.about.story.title}}</h2>
           <p class="w3-sub">{{t.home.p.5}}</p>
+          <!-- Joe 定的四格。数与标签【分开】—— 旧结构是 "15 Years" 一整串,
+               新的四对在 About 页那条 6 格带里已经存在且四语齐全,直接复用键,一个字不新编。 -->
           <div class="w3-stats">
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.1}}</span><span class="w3-stat__k">{{t.home.stat.text.1}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.2}}</span><span class="w3-stat__k">{{t.shared.professional_equipment}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.3}}</span><span class="w3-stat__k">{{t.home.stat.text.3}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.4}}</span><span class="w3-stat__k">{{t.home.stat.text.4}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">15+</span><span class="w3-stat__k">{{t.about.xlc-stat-label.1}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">150+</span><span class="w3-stat__k">{{t.about.xlc-stat-label.3}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">200+</span><span class="w3-stat__k">{{t.about.xlc-stat-label.4}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">{{t.about.about-caps-k.1}}</span><span class="w3-stat__k">{{t.about.about-caps-v.1}}</span></div>
           </div>
           <a href="{{url./about/}}" class="w3-link-arrow">{{t.home.about.cta}}</a>
         </div>
@@ -286,22 +272,18 @@
       </div>
       <div class="w3-why">
         <div class="w3-whycard" data-w3-reveal>
-          <span class="w3-whycard__idx">01</span>
           <h3>{{t.home.h3.1}}</h3>
           <p>{{t.home.p.1}}</p>
         </div>
         <div class="w3-whycard" data-w3-reveal="2">
-          <span class="w3-whycard__idx">02</span>
           <h3>{{t.home.h3.2}}</h3>
           <p>{{t.home.p.2}}</p>
         </div>
         <div class="w3-whycard" data-w3-reveal="3">
-          <span class="w3-whycard__idx">03</span>
           <h3>{{t.home.h3.3}}</h3>
           <p>{{t.home.p.3}}</p>
         </div>
         <div class="w3-whycard" data-w3-reveal="4">
-          <span class="w3-whycard__idx">04</span>
           <h3>{{t.home.h3.4}}</h3>
           <p>{{t.home.p.4}}</p>
         </div>

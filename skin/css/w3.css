@@ -524,7 +524,12 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
    取 52%:1440 下文案右缘 51%,距碟(58–63%)还有 7% 画面宽。
    ⚠️ 窄屏(≤1024)容器变窄,52% 不够 620 ⇒ 用 min() 让窄屏交给 760px 那一支,
       由容器自身宽度兜底,而不是继续按比例压。 */
-.w3-hero__content { max-width: min(760px, max(620px, 52%)); display: grid; gap: 22px; }
+/* ⑥ Joe:「文字适当加大、上下间距加大,让板块饱满一点」。
+   ⚠️ 不用统一倍数 —— kicker 与间距各自定;h1 保持 64px。
+   🔴 副标题【不动 18px】:试过 20px,它超出 620px 列宽 ⇒ 从 1 行变 2 行,
+      而"副标题一行"是 Joe 早前明确要过的。**新指令不能静默撤掉旧指令。** */
+.w3-hero__content { max-width: min(760px, max(620px, 52%)); display: grid; gap: 34px; }
+.w3-hero__content .w3-eyebrow { font-size: var(--w3-fs-small); }   /* micro 11 → small 12.5;13px 不在刻度上，字阶闸拦过 */
 /* ⚠️ 这里【曾经】让 hero 用比全站更宽的容器(min(1760px,92vw)),理由是旧图(越野车)主体横跨
    48–85%,宽屏下站点容器会把文案推到 26.6% 而右缘顶到 48.1% 正好压上车。
    🔴 新图(hero-home-v4)重测:逐列边缘能量显示左半 0–45% 是静区(72–84),
@@ -554,7 +559,19 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 }
 
 /* model tiles — markup emitted by renderHome(): .product-grid-* (do not rename) */
+/* ⚠️ .product-grid-full 现在没有消费者了(首页那块已并入热门产品,改用 .w3-modelrail)。
+   没删:删它属于清理,不属于这批;若将来别处要用整幅网格,它还在。 */
 .product-grid-full { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+/* ① 机型选择行:与商品卡【形状不同】才是合并的意义 —— 一行 vs 网格,~139px vs ~286px。
+   形状取自 Products 页顶部的 MODEL 筛选(也是一行),不新造组件;窄屏横向滚动而不是换行,
+   换行就又变成网格、和商品卡糊在一起了。 */
+.w3-modelrail {
+  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(132px, 1fr);
+  gap: 10px; margin-bottom: 30px; overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity; padding-bottom: 6px;
+}
+.w3-modelrail > * { scroll-snap-align: start; min-width: 0; }
 .product-grid-item { min-width: 0; }
 .product-grid-link {
   display: flex; flex-direction: column; height: 100%;
@@ -828,10 +845,11 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-ctaband__bg::after { content: ""; position: absolute; inset: 0; background:
   linear-gradient(180deg, var(--w3-bg) 0%, rgba(10, 12, 15, 0.56) 32%, rgba(10, 12, 15, 0.60) 68%, rgba(10, 12, 15, 0.80) 100%),
   radial-gradient(115% 85% at 50% 52%, rgba(10, 12, 15, 0.58) 0%, rgba(10, 12, 15, 0.16) 68%); }
-.w3-ctaband__inner { position: relative; padding: 140px 0; display: grid; gap: 18px; justify-items: center; text-align: center; }
+/* ② 全站唯一居中的一块,改左对齐与其余区块一致。 */
+.w3-ctaband__inner { position: relative; padding: 140px 0; display: grid; gap: 18px; justify-items: start; text-align: left; }
 .w3-ctaband__inner .w3-h2 { max-width: 22ch; text-wrap: balance; }
-.w3-ctaband__inner .w3-sub { text-align: center; }
-.w3-ctaband__cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 10px; }
+.w3-ctaband__inner .w3-sub { text-align: left; }
+.w3-ctaband__cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-start; margin-top: 10px; }
 
 /* ============================================================================
    LIST PAGE (/products/ shells) — chips + grid markup are machinery, keep names

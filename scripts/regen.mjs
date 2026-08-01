@@ -711,6 +711,10 @@ console.log(`  /products/{分类}/ 新址并存(noindex,不进 sitemap): ${dualL
 const shared = fs.existsSync(path.join(REPO, "data", "pages", "shared.json"))
   ? JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "shared.json"), "utf8")) : {};
 const homeCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "home.json"), "utf8"));
+/* 首页要复用 About 页那几条统计标签与品牌主张 —— **复用键,不把字串抄第二份**。
+   ⚠️ 放在合并链【最前】:它只填空,不覆盖 chrome/shared/home 任何一个值。
+      已逐键核对:about.json 的 84 个键与那三份【零冲突】,所以并入可证明不改变现有输出。 */
+const aboutCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "about.json"), "utf8"));
 const homeTpl = fs.readFileSync(path.join(REPO, "data", "templates", "home.html"), "utf8");
 const HERO_HOME_IMG = "/static/upload/image/20260725/hero-home-v4.webp";   // ⬅ 换首页 hero 只改这一行
 const homeTiles = JSON.parse(webpInline(fs.readFileSync(path.join(REPO, "data", "pages", "home-tiles.json"), "utf8")));
@@ -730,7 +734,7 @@ for (const locale of RENDER_SET) {
   // 首页 hero 图 = 一个常量,模板里 preload 与 background 共用同一个 token。
   // ⚠️ 换图只改这一行:两处分开写时,改一处漏一处 → preload 预载 A、实际显示 B,静默多下一张图。
   // 现值是那张越野图【占位】(Joe 的新图未到);图一到只换这一行。
-  const h1 = renderHome(homeTpl.split("{{HERO_HOME_IMG}}").join(HERO_HOME_IMG), { locale, catalog: { ...catalog, ...shared, ...homeCat },
+  const h1 = renderHome(homeTpl.split("{{HERO_HOME_IMG}}").join(HERO_HOME_IMG), { locale, catalog: { ...aboutCat, ...catalog, ...shared, ...homeCat },
     formOrder: FORMS,   // data/forms.json 的数组序 = 形态次序(/type 页与 chip 同源);见 pickHomeProducts
     tiles: homeTiles, modelDisplay: MODEL, urlOf, exists: pageExists, dirOf, enabled: LOCALES, sizes: MEDIA_SIZES,
     products: entries, featured: homeFeatured, internal_noindex: INTERNAL });
