@@ -519,11 +519,18 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-hero__inner { position: relative; width: 100%; padding: 88px 0 220px; }  /* Joe: lift the title block up toward the truck roofline (more bottom padding raises the centered block) */
 /* 文案安全列:宽屏下限制在左侧 ~46%,主体从 48% 才开始 → 文字永远不叠在车上。
    用 min() 而不是写死 px:窄屏时让位给可读宽度,宽屏时守住比例。 */
-.w3-hero__content { max-width: min(760px, 46%); display: grid; gap: 22px; }
-/* 超宽屏:标准 .container 是居中定宽的,视口越宽它的左边缘越往右 —— 实测 1440 时文案左缘在
-   8.2%,到 2560 变成 26.6%,右缘顶到 48.1% 正好压上主体。安全列必须相对【hero】成立,
-   而不是相对容器,所以 hero 自己的容器在宽屏跟着视口走。*/
-.w3-hero__inner > .w3-container { max-width: min(1760px, 92vw); }
+/* 安全列上限:旧图取 46%(主体自 48% 起)。新图主体自 ~50% 起爬、峰值 60–65%,
+   且副标题一行需要 620px —— 站点容器内宽 1192 下 620/1192 = 52%。
+   取 52%:1440 下文案右缘 51%,距碟(58–63%)还有 7% 画面宽。
+   ⚠️ 窄屏(≤1024)容器变窄,52% 不够 620 ⇒ 用 min() 让窄屏交给 760px 那一支,
+      由容器自身宽度兜底,而不是继续按比例压。 */
+.w3-hero__content { max-width: min(760px, max(620px, 52%)); display: grid; gap: 22px; }
+/* ⚠️ 这里【曾经】让 hero 用比全站更宽的容器(min(1760px,92vw)),理由是旧图(越野车)主体横跨
+   48–85%,宽屏下站点容器会把文案推到 26.6% 而右缘顶到 48.1% 正好压上车。
+   🔴 新图(hero-home-v4)重测:逐列边缘能量显示左半 0–45% 是静区(72–84),
+      能量自 50% 起爬升、峰值 60–65% —— 主体比旧图【更靠右也更集中】。
+   ⇒ 那条特例的前提没了。Joe 要求 hero 文案与下方区块左对齐,现在可以满足而不压主体。
+   **删掉的是数字的依据已变,不是这条没用过** —— 若将来换回宽主体的图,要连这段一起复算。 */
 /* ⚠️ 站内容器类名是 .w3-container 不是 .container —— 我第一版写成 .container,规则从未匹配,
    CSS 文件里看着"改了"、量出来纹丝不动。只读代码会骗人,几何要真量。 */
 .w3-hero__title { text-wrap: balance; }
@@ -1104,14 +1111,17 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .tj-lang-badge { font-size: 0.78em; color: var(--w3-text3); font-weight: 500; }
 @media (max-width: 640px) {
   .w3-section { padding: 68px 0; }
-  /* 手机:不再是"文字压在图上"——改成【上下堆叠】。超宽图(2.7:1)在竖屏用 cover 会把主体裁没,
-     所以图独占一条固定高度的带,文案在它下面的实底上。总工:「手机上下堆叠不叠压」。 */
-  .w3-hero { display: block; min-height: 0; }
-  .w3-hero__bg { position: relative; inset: auto; height: 38vh; min-height: 220px;
+  /* 手机:文案【压回背景图上】(Joe 2026-08-01)。
+     ⚠️ 这里【曾经】是上下堆叠,理由是:「超宽图(2.7:1)在竖屏用 cover 会把主体裁没」。
+        🔴 那条理由的前提是【旧图 2.7:1】。新图 hero-home-v4 是 2.00:1,竖屏裁切没那么狠 ——
+        实测(见交付报告):手机窗口仍然包含主体,文字区亮度与对比度也都达标。
+        **前提变了,结论才跟着变;不是把旧结论删掉。** 若将来换回更扁的图,要连这段一起复算。 */
+  .w3-hero { display: flex; min-height: 78svh; }
+  .w3-hero__bg { position: absolute; inset: 0;
     background-position: var(--hero-focus-mobile, 62% 52%); transform: none; }
-  .w3-hero__bg::after { background: linear-gradient(to top, rgba(10,12,15,.55) 0%, rgba(10,12,15,0) 45%); }
+  .w3-hero__bg::after { background: linear-gradient(to top, rgba(10,12,15,.82) 0%, rgba(10,12,15,.35) 55%, rgba(10,12,15,.15) 100%); }
   .w3-hero__content { max-width: none; }
-  .w3-hero__inner { padding: 28px 0 40px; background: var(--w3-bg); }
+  .w3-hero__inner { padding: 28px 0 56px; }
   .w3-field__inner, .w3-ctaband__inner { padding: 96px 0; }
 }
 /* ⚠️ 这里原本还有第二条 `.w3-hero__bg { background-position: center 42% }` —— 它排在骨架规则
