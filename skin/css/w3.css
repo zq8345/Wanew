@@ -2153,12 +2153,9 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
   .ab8-story__location { grid-template-columns: 1fr; gap: 6px; }
   .ab8-story__media img { height: 360px; }
   .ab8-story__media figcaption { left: 18px; right: 18px; bottom: 16px; align-items: flex-end; }
-  .ab8-factory {
-    grid-template-columns: 1fr 1fr; grid-template-rows: 250px 170px 170px 180px; gap: 8px; margin-top: 44px;
-  }
-  .ab8-factory figure, .ab8-factory__feature, .ab8-factory__wide { grid-column: span 1 !important; grid-row: span 1; }
-  .ab8-factory__feature { grid-column: 1 / -1 !important; }
-  .ab8-factory__wide { grid-column: 1 / -1 !important; }
+  /* 窄屏 2 列。原本这里还有三条对 __feature/__wide 的跨列覆盖和一组固定行高 ——
+     2026-08-01 六张图改等宽之后那些类已从模板删除,规则跟着退役(留着就是指向不存在的类)。 */
+  .ab8-factory { grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 44px; }
   .ab8-factory figcaption { left: 12px; right: 12px; bottom: 10px; font-size: var(--w3-fs-micro); }
   .ab8-stats { grid-template-columns: 1fr 1fr; margin-top: 48px; }
   .ab8-stats dt { font-size: var(--w3-fs-h3); }
