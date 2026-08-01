@@ -15,16 +15,16 @@
     "reason": "刻意与首页 H1(home.hero.title)逐字一致 —— Joe:「我是想和首页的文案保持一致」。刻意【不】合并成共享键:两者语义不同(首页主标题 vs About 副标题),只是此刻取值相同;合并会让将来改一个连带改掉另一个。改这句时两处一起改。"
   },
   "about.p.1": {
-    "en": "Wanew Starlink Accessories is an engineering-led manufacturer based in the Guangdong–Hong Kong–Macao Greater Bay Area, running R&D, production and sales under one roof.",
-    "pt-BR": "A Wanew Starlink Accessories é uma fabricante guiada pela engenharia, sediada na Grande Baía Guangdong–Hong Kong–Macau, com P&D, produção e vendas sob o mesmo teto.",
-    "es-MX": "Wanew Starlink Accessories es un fabricante con enfoque en ingeniería, ubicado en la Gran Área de la Bahía Guangdong–Hong Kong–Macao, con I+D, producción y ventas bajo un mismo techo.",
-    "zh": "Wanew Starlink Accessories 是一家以工程驱动的制造商,坐落于粤港澳大湾区,研发、生产、销售一体化。"
+    "en": "Wanew is a manufacturer running R&D, production and sales under one roof.",
+    "pt-BR": "A Wanew é uma fabricante com P&D, produção e vendas sob o mesmo teto.",
+    "es-MX": "Wanew es un fabricante con I+D, producción y ventas bajo un mismo techo.",
+    "zh": "Wanew 是一家制造商,研发、生产、销售一体化。"
   },
   "about.p.2": {
-    "en": "Every product is engineered to meet the weather-resistance and outdoor demands of Starlink Mini, Standard, and Performance (Gen 1/2/3) terminals.",
-    "pt-BR": "Cada produto é projetado para atender às exigências de resistência às intempéries e de uso ao ar livre dos terminais Starlink Mini, Standard e Performance (Gen 1/2/3).",
-    "es-MX": "Cada producto está diseñado para cumplir con las exigencias de resistencia a la intemperie y de uso en exteriores de los terminales Starlink Mini, Standard y Performance (Gen 1/2/3).",
-    "zh": "每件产品均针对 Starlink Mini、Standard 及 Performance (Gen 1/2/3) 终端的耐候性与户外需求进行工程设计。"
+    "en": "Every product is engineered to meet the weather-resistance and outdoor demands of Starlink terminals.",
+    "pt-BR": "Cada produto é projetado para atender às exigências de resistência às intempéries e de uso ao ar livre dos terminais Starlink.",
+    "es-MX": "Cada producto está diseñado para cumplir con las exigencias de resistencia a la intemperie y de uso en exteriores de los terminales Starlink.",
+    "zh": "每件产品均针对 Starlink 终端的耐候性与户外需求进行工程设计。"
   },
   "about.alt.1": {
     "en": "Wanew manufacturing facility",
@@ -427,10 +427,10 @@
     "zh": "工程，从真实需求出发"
   },
   "about.story.title": {
-    "en": "We do not simply make accessories. We engineer the parts that keep people connected.",
-    "pt-BR": "Não fabricamos apenas acessórios. Projetamos as peças que mantêm as pessoas conectadas.",
-    "es-MX": "No solo fabricamos accesorios. Diseñamos las piezas que mantienen a las personas conectadas.",
-    "zh": "我们不只是制造配件，更在解决连接发生的真实问题。"
+    "en": "We engineer the parts that keep people connected.",
+    "pt-BR": "Projetamos as peças que mantêm as pessoas conectadas.",
+    "es-MX": "Diseñamos las piezas que mantienen a las personas conectadas.",
+    "zh": "解决连接发生的真实问题。"
   },
   "about.story.location": {
     "en": "ENGINEERING & MANUFACTURING",
