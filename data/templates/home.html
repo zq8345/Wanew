@@ -243,15 +243,16 @@
       <div class="w3-about">
         <div class="w3-about__body" data-w3-reveal>
           <span class="w3-eyebrow">{{t.home.about.eyebrow}}</span>
-          <h2 class="w3-h2">{{t.about.story.title}}</h2>
+          <h2 class="w3-h2">{{t.home.about.h2}}</h2>
           <p class="w3-sub">{{t.home.p.5}}</p>
-          <!-- Joe 定的四格。数与标签【分开】—— 旧结构是 "15 Years" 一整串,
-               新的四对在 About 页那条 6 格带里已经存在且四语齐全,直接复用键,一个字不新编。 -->
+          <!-- 四格全部走 home.json 自己的键：数和标签都可在后台改。
+               【铁规】首页模板只准引用 chrome.json / shared.json / home.json 三个来源 ——
+               后台那条链只加载这三个，引用别页的 json 会让保存直接失败。 -->
           <div class="w3-stats">
-            <div class="w3-stat"><span class="w3-stat__n">15+</span><span class="w3-stat__k">{{t.about.xlc-stat-label.1}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">150+</span><span class="w3-stat__k">{{t.about.xlc-stat-label.3}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">200+</span><span class="w3-stat__k">{{t.about.xlc-stat-label.4}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">{{t.about.about-caps-k.1}}</span><span class="w3-stat__k">{{t.about.about-caps-v.1}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.1}}</span><span class="w3-stat__k">{{t.home.stat.text.1}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.2}}</span><span class="w3-stat__k">{{t.home.stat.text.2}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.3}}</span><span class="w3-stat__k">{{t.home.stat.text.3}}</span></div>
+            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.4}}</span><span class="w3-stat__k">{{t.home.stat.text.4}}</span></div>
           </div>
           <a href="{{url./about/}}" class="w3-link-arrow">{{t.home.about.cta}}</a>
         </div>

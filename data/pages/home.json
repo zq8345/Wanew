@@ -104,52 +104,52 @@
     "zh": "关于我们"
   },
   "home.p.5": {
-    "en": "Wanew Starlink Accessories designs and manufactures Starlink-compatible mounts, power adapters, cables, protective cases, and deployment accessories for RV, marine, enterprise, and off-grid users. Built around engineering-led manufacturing and quality control, Wanew supports global buyers with stable production, OEM/ODM capability, and practical accessories for every Starlink terminal generation.",
-    "pt-BR": "A Wanew Starlink Accessories projeta e fabrica suportes, adaptadores de energia, cabos, cases de proteção e acessórios de instalação compatíveis com Starlink para usuários de motorhome, náutica, empresas e off-grid. Com uma fabricação e um controle de qualidade guiados pela engenharia, a Wanew atende compradores no mundo todo com produção estável, capacidade OEM/ODM e acessórios práticos para todas as gerações de terminal Starlink.",
-    "es-MX": "Wanew Starlink Accessories diseña y fabrica soportes, adaptadores de energía, cables, estuches de protección y accesorios de instalación compatibles con Starlink para usuarios de casa rodante, marítimos, empresariales y sin conexión a la red eléctrica. Con una fabricación y un control de calidad guiados por la ingeniería, Wanew atiende a compradores de todo el mundo con producción estable, capacidad OEM/ODM y accesorios prácticos para todas las generaciones de terminal Starlink.",
-    "zh": "Wanew Starlink Accessories 设计并制造与 Starlink 兼容的支架、电源适配器、线缆、防护外壳及部署配件，服务房车、船舶、企业和离网用户。Wanew 以工程驱动的制造与质量管控为核心，凭借稳定的产能、OEM/ODM 能力，以及适配每一代 Starlink 终端的实用配件，为全球采购商提供支持。"
+    "en": "Wanew designs and manufactures Starlink-compatible mounts, power, cables and protective cases — with in-house OEM/ODM capability for every terminal generation.",
+    "pt-BR": "A Wanew projeta e fabrica suportes, fontes de energia, cabos e cases de proteção compatíveis com Starlink — com capacidade OEM/ODM própria para todas as gerações de terminal.",
+    "es-MX": "Wanew diseña y fabrica soportes, fuentes de energía, cables y estuches de protección compatibles con Starlink, con capacidad OEM/ODM propia para todas las generaciones de terminal.",
+    "zh": "Wanew 设计并制造与 Starlink 兼容的支架、电源、线缆与防护外壳，具备覆盖每一代终端的 OEM/ODM 能力。"
   },
   "home.stat.num.1": {
-    "en": "15 Years",
-    "pt-BR": "15 anos",
-    "es-MX": "15 años",
-    "zh": "15 年"
+    "en": "15+",
+    "pt-BR": "15+",
+    "es-MX": "15+",
+    "zh": "15+"
   },
   "home.stat.text.1": {
-    "en": "Manufacturing Experience",
-    "pt-BR": "de experiência em fabricação",
-    "es-MX": "de experiencia en fabricación",
-    "zh": "制造经验"
+    "en": "Years Experience",
+    "pt-BR": "Anos de experiência",
+    "es-MX": "Años de experiencia",
+    "zh": "年经验"
   },
   "home.stat.num.2": {
-    "en": "100+",
-    "pt-BR": "100+",
-    "es-MX": "100+",
-    "zh": "100+ 台"
+    "en": "150+",
+    "pt-BR": "150+",
+    "es-MX": "150+",
+    "zh": "150+"
   },
   "home.stat.num.3": {
-    "en": "150+ Staff",
-    "pt-BR": "150+ colaboradores",
-    "es-MX": "150+ colaboradores",
-    "zh": "150+ 名员工"
+    "en": "200+",
+    "pt-BR": "200+",
+    "es-MX": "200+",
+    "zh": "200+"
   },
   "home.stat.text.3": {
-    "en": "Skilled Technicians",
-    "pt-BR": "Técnicos qualificados",
-    "es-MX": "Técnicos calificados",
-    "zh": "熟练技术人员"
+    "en": "Patents",
+    "pt-BR": "Patentes",
+    "es-MX": "Patentes",
+    "zh": "专利"
   },
   "home.stat.num.4": {
-    "en": "200+ Patents",
-    "pt-BR": "200+ patentes",
-    "es-MX": "200+ patentes",
-    "zh": "200+ 项专利"
+    "en": "5,000 m²",
+    "pt-BR": "5.000 m²",
+    "es-MX": "5,000 m²",
+    "zh": "5,000 m²"
   },
   "home.stat.text.4": {
-    "en": "Invention & Utility Patents",
-    "pt-BR": "Patentes de invenção e de modelo de utilidade",
-    "es-MX": "Patentes de invención y de modelo de utilidad",
-    "zh": "发明与实用新型专利"
+    "en": "Factory area",
+    "pt-BR": "Área da fábrica",
+    "es-MX": "Área de fábrica",
+    "zh": "厂房面积"
   },
   "home.about.cta": {
     "en": "Learn More",
@@ -324,5 +324,17 @@
     "pt-BR": "Conectividade para levar — Starlink Mini, com energia em qualquer lugar.",
     "es-MX": "Conectividad para llevar — Starlink Mini, con energía donde sea.",
     "zh": "随身即走的连接——Starlink Mini,随处供电。"
+  },
+  "home.about.h2": {
+    "en": "Engineering-led manufacturing",
+    "pt-BR": "Fabricação orientada à engenharia",
+    "es-MX": "Fabricación guiada por ingeniería",
+    "zh": "以工程驱动的制造"
+  },
+  "home.stat.text.2": {
+    "en": "Skilled Staff",
+    "pt-BR": "Técnicos qualificados",
+    "es-MX": "Personal calificado",
+    "zh": "熟练员工"
   }
 }
