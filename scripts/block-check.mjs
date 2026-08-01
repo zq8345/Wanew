@@ -17,6 +17,11 @@ const CASES = [
   ["/admin/", 404, "后台空壳(存在于仓)", "admin/index.html"],
   ["/scripts/regen.mjs", 404, "scripts/(已有堵口)", "scripts/regen.mjs"],
   ["/wanew-internal-docs/", 404, "内部文档(已有堵口)", null],
+  /* 🔴 点开头【目录】——最后一段不以 . 开头,第一版规则会放行。
+     它线上曾经返回 404,但那是 Cloudflare 不上传点开头目录,**不是我们挡的**;
+     所以这一条必须靠下面的 `x-blocked-by` 头来断言"是本站规则挡的"。 */
+  ["/.wrangler/tmp/anything/functionsWorker-x.js", 404, "点目录深层路径(第一版规则会放行)", null],
+  ["/.gitignore", 404, "点文件(存在于仓)", ".gitignore"],
   // ── 阴性对照:这些【必须】仍然 200,否则就是把站堵死了 ──
   ["/", 200, "首页 ← 阴性对照", "index.html"],
   ["/products/", 200, "产品列表 ← 阴性对照", "products/index.html"],
@@ -53,10 +58,22 @@ const bench = await fetch(BASE + "/", { redirect: "manual" });
 if (bench.status !== 200) { console.error(`❌ 仪器无效:基准 / = ${bench.status},期望 200 —— 服务起来了但服务的不是这个站。`); down(); process.exit(9); }
 console.log(`【堵口验证】${BASE} 基准 / = 200,仪器有效。共 ${CASES.length} 条真请求。\n`);
 
+/* 🔴 404 不够 —— 必须证明是【本站规则】挡的,不是平台恰好没这个文件。
+   `_middleware` 命中时带 x-blocked-by;别的堵口(scripts/ 等各自的 [[path]].js)不带,
+   所以只对 middleware 负责的那几类断言这个头。
+   > **拿平台的 404 当自己的 404,正是这次要避免的那个错。** */
+const MARK = "wanew-edge-block";
+const NEEDS_MARK = new Set(["/5b-handoff.md", "/DESIGN.md", "/i18n-baseline.md",
+  "/phase2-convert.js", "/admin/", "/.wrangler/tmp/anything/functionsWorker-x.js", "/.gitignore"]);
+
 let fail = 0;
 for (const [p, want, why] of CASES) {
   const r = await fetch(BASE + p, { redirect: "manual" });
-  const ok = r.status === want;
+  let ok = r.status === want;
+  if (ok && NEEDS_MARK.has(p) && r.headers.get("x-blocked-by") !== MARK) {
+    ok = false;
+    console.log(`  ⚠️ ${p} 返回了 ${r.status},但【没有】x-blocked-by:${MARK} —— 这是平台在挡,不是我们`);
+  }
   if (!ok) fail++;
   console.log(`${ok ? "✅" : "🔴"} ${String(r.status).padEnd(4)} 期望 ${String(want).padEnd(4)} ${p.padEnd(28)} ${why}`);
 }

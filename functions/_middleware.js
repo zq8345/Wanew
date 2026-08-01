@@ -26,16 +26,30 @@ const BLOCKED = [
   // ② 仓根的脚本与配置。/skin/js/*.js 这类真实资产在子目录里,不受影响。
   /^\/[^/]+\.(mjs|cjs|ts|sh|ps1)$/i,
   /^\/phase2-convert\.js$/i,
-  // ③ 点开头的配置文件(.gitignore/.gitattributes/.claude 之类),任何层级。
-  /(^|\/)\.[^/]+$/,
+  /* ③ 路径里【任何一段】以 . 开头 —— 不只是最后一段。
+     🔴 第一版是 /(^|\/)\.[^/]+$/,只匹配最后一段,于是 `/.wrangler/tmp/x.js` 直接放行
+        (它的最后一段是 `x.js`)。那批文件当时有 130 个被提交进仓,28 个是含整套
+        Functions 源码的 bundle。
+     ⚠️ 而它线上确实返回 404 —— **但那是 Cloudflare Pages 不上传点开头目录,不是这条规则挡的。**
+        > **「现在没暴露」和「我挡住了」是两件事。**
+        > 一个靠平台行为成立的安全结论,**平台改一次它就没了,而没有人会收到通知。** */
+  /(^|\/)\.[^/]*(\/|$)/,
   // ④ 后台外壳:后台早已是独立仓,这里只剩一个空壳,不该对外可达。
   /^\/admin(\/|$)/i,
 ];
 
+/* 🔴 拦截响应必须【可识别】。
+   平台的 404 和这里的 404 长得一模一样 ⇒ 只看状态码,永远分不清"我挡住了"还是
+   "这个文件恰好不在"。上一版就是这么差点把平台行为记成自己的功劳。
+   ⇒ 带一个固定响应头,判据据此断言【是本 Function 返回的】。
+   ⚠️ 它只说明"这条路径被本站规则拦下",不泄露任何存在性以外的信息 ——
+      而这些路径本来就是按公开模式拦的。 */
+export const BLOCK_MARK = "wanew-edge-block";
+
 export async function onRequest(context) {
   const { pathname } = new URL(context.request.url);
   if (BLOCKED.some((re) => re.test(pathname))) {
-    return new Response("Not found", { status: 404 });
+    return new Response("Not found", { status: 404, headers: { "x-blocked-by": BLOCK_MARK } });
   }
   return context.next();
 }
