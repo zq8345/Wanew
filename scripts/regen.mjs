@@ -406,8 +406,21 @@ const TYPE_TITLE_KEY = FORM_LABEL_KEY;
 //   /products/ 的 banner 是 chrome 的 body.banner.title(普通名词,已经有主);
 //   /type/X 的 banner 是另一个模式("Starlink {形态}",没有 Accessories),不套这个模式。
 // 写成显式的一格,不是从 name 反推 —— 反推要靠"哪些 name 恰好是机型名",那是个会漂的猜测。
+// 第 5 格 = 列表页页头的按页覆盖 {eyebrow, h1, subtitle:[keys]}。没有这一格的页面一个字节不变。
+// 🔴 为什么是表里的一格,不是 `if (rel === "products/index.html")`:
+//    特例 if 会在第二个页面需要覆盖时长出第二个 if。一格数据 = 任何页要覆盖都走同一条路。
+// ⚠️ hub 的 h1 此前【烘死在产出里、没有活真源】—— setListLabels 只在有 model/formKey 时改 h1,
+//    hub 两者都没有,于是那行字自 2026-05 的一次性迁移之后就冻住了。
+//    **zh 至今显示英文 "Products"(es/pt 却是对的)正是这么来的** —— 不是漏翻译,是那行字没有源。
+//    这一格不是"改一个键的值",是给它接上真源。
+// ⚠️ 副标题用现成品类键【组装】而不是新写一句:品类改名时这行会自己跟着变。
 const LIST_PAGES = [
-  ["products/index.html", null, { t: "body.banner.title" }],       // common noun -> catalog
+  ["products/index.html", null, { t: "body.banner.title" }, null, {
+    eyebrow: "header.products",
+    h1: "body.banner.subtitle",       // Joe:把现有副标题提上来当大标题(四语值已在,含 zh)
+    subtitle: ["header.mounts", "header.power_charging", "header.cables",
+               "header.networking", "header.cases_protection"],
+  }],                                                              // common noun -> catalog
   ...CATS.map((c) => [`${c}/index.html`, c, MODEL[c], MODEL[c]]),   // model names are brand terms
   ...AGGREGATES.map(([rel, cat]) => [rel, cat, MODEL["performance-gen-2"], MODEL["performance-gen-2"]]),
   // <title> 走 catalog key 而不是英文字面量:否则新建的 es/pt 形态页会顶着英文标题。
@@ -499,7 +512,31 @@ for (const slug of KNOWN_ROUTES) {
 if (listMoved !== KNOWN_ROUTES.size)
   throw new Error(`列表页旧址→新址 ${listMoved} 条 ≠ 已知路由 ${KNOWN_ROUTES.size} 个`);
 let dualLists = 0;
-for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
+/* 列表页页头的按页覆盖。spec 缺省 = 什么都不做 ⇒ 没被点名的页面一个字节不变。
+   ⚠️ 幂等:eyebrow 已存在就替换内容,不存在才插入 —— 重复跑不会插出第二个。 */
+function setListHeader(html, spec, locale, catalog) {
+  if (!spec) return html;
+  const val = (k) => { const o = catalog[k]; return (o && (o[locale] ?? o.en)) || ""; };
+  let out = html;
+  if (spec.h1) {
+    const v = val(spec.h1);
+    if (v) out = out.replace(/(<h1 class="page-header__title">)[^<]*(<\/h1>)/, `$1${v}$2`);
+  }
+  if (spec.subtitle) {
+    const v = spec.subtitle.map(val).filter(Boolean).join(" · ");
+    if (v) out = out.replace(/(<p class="page-header__subtitle">)[^<]*(<\/p>)/, `$1${v}$2`);
+  }
+  if (spec.eyebrow) {
+    const v = val(spec.eyebrow);
+    const tag = `<span class="page-header__eyebrow">${v}</span>`;
+    if (v) out = /<span class="page-header__eyebrow">/.test(out)
+      ? out.replace(/<span class="page-header__eyebrow">[^<]*<\/span>/, tag)
+      : out.replace(/(\s*)(<h1 class="page-header__title">)/, `$1${tag}$1$2`);
+  }
+  return out;
+}
+
+for (const [rel, cat, name, bannerModel, headerSpec] of LIST_PAGES) {
  // ── 阶段①:只建缺页,不产出任何 head ──
  for (const locale of RENDER_SET) {
   const p = pageOf(locale, rel);
@@ -574,6 +611,9 @@ for (const [rel, cat, name, bannerModel] of LIST_PAGES) {
   const formSlug = /^type\/([^/]+)\//.exec(rel)?.[1];
   h1 = setListLabels(h1, { locale, catalog: { ...catalog, ...listCat }, model: bannerModel,
     formKey: formSlug ? TYPE_TITLE_KEY[formSlug] : undefined });
+  // 🔴 必须在 setListLabels【之后】:它会无条件把副标题重填成 body.banner.subtitle。
+  //    在它之前改,等于没改 —— 这正是"改了真源却不生效"的那一类。
+  h1 = setListHeader(h1, headerSpec, locale, catalog);
   h1 = switchChipHrefs(h1, manifest);   // 机型导航 chip 的 href → 新址(幂等,见函数注释)
   /* head 特化:两份产出【各自从同一个中性基底派生】,不再"一份复制另一份再改三处头"。
      ⚠️ 源现在可能是新址页,而新址页带着 noindex —— 原样写回旧址会把 noindex 带到
