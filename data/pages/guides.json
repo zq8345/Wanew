@@ -18,10 +18,10 @@
     "zh": "指南"
   },
   "guides.hero.intro": {
-    "en": "Hands-on guides for mounting, powering, cabling and protecting your Starlink — by environment and by task.",
-    "pt-BR": "Guias práticos para instalar, alimentar, cabear e proteger seu Starlink — por ambiente e por tarefa.",
-    "es-MX": "Guías prácticas para montar, alimentar, cablear y proteger tu Starlink — por entorno y por tarea.",
-    "zh": "关于 Starlink 安装、供电、走线与防护的实操指南——按场景、按任务。"
+    "en": "Hands-on guides for mounting, powering, cabling and protecting your Starlink",
+    "pt-BR": "Guias práticos para instalar, alimentar, cabear e proteger seu Starlink",
+    "es-MX": "Guías prácticas para montar, alimentar, cablear y proteger tu Starlink",
+    "zh": "关于 Starlink 安装、供电、走线与防护的实操指南"
   },
   "guides.filter.all": {
     "en": "All guides",

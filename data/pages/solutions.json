@@ -18,10 +18,10 @@
     "zh": "解决方案"
   },
   "solutions.hub.intro": {
-    "en": "Pick your use case and get a matched set of Starlink-compatible accessories — mounts, power, cables and networking chosen to work together.",
-    "pt-BR": "Escolha seu caso de uso e receba um conjunto de acessórios compatíveis com Starlink — suportes, energia, cabos e rede escolhidos para funcionar juntos.",
-    "es-MX": "Elige tu caso de uso y obtén un conjunto de accesorios compatibles con Starlink — soportes, energía, cables y red pensados para trabajar juntos.",
-    "zh": "选择你的应用场景,获得一套配套的 Starlink 兼容配件——支架、供电、线缆与组网,协同设计。"
+    "en": "Pick your use case and get a matched set of Starlink-compatible accessories",
+    "pt-BR": "Escolha seu caso de uso e receba um conjunto de acessórios compatíveis com Starlink",
+    "es-MX": "Elige tu caso de uso y obtén un conjunto de accesorios compatibles con Starlink",
+    "zh": "选择你的应用场景，获得一套配套的 Starlink 兼容配件"
   },
   "solutions.hub.browse": {
     "en": "Browse all products",
