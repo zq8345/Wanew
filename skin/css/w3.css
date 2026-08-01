@@ -1869,8 +1869,13 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 }
 /* 图右下角:ENGINEERING & MANUFACTURING + 地名。figcaption 本来就是 space-between,
    所以左边角标不动、这一组自然落右下。 */
-.ab8-story__where { display: inline-flex; align-items: baseline; gap: 10px; white-space: nowrap; }
-.ab8-story__where b { font-weight: 650; color: #fff; }
+/* 已移出图片:左对齐容器左边缘,颜色回到正文那套(图上的白字在页面背景上会过亮)。 */
+.ab8-story__where {
+  display: flex; align-items: baseline; gap: 10px; margin: 20px 0 0;
+  color: var(--w3-text3); font-size: var(--w3-fs-micro);
+  font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+}
+.ab8-story__where b { font-weight: 650; color: var(--w3-text); letter-spacing: 0; text-transform: none; font-size: var(--w3-fs-compact); }
 .ab8-story__media figcaption span {
   font-size: var(--w3-fs-micro); font-weight: 600; letter-spacing: .16em;
 }
@@ -1928,9 +1933,12 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 }
 .ab8-stats dd { margin: 8px 0 0; color: var(--w3-text3); font-size: var(--w3-fs-small); line-height: 1.45; }
 
-.ab8-quality > .container, .ab8-independent > .container {
+/* 卡片皮只裹数据(问答条目 / 流程表);标题、按钮、徽章行站在页面背景上。
+   ⚠️ 皮从 .container 挪到这里而不是复制一份 —— 值必须只有一个出处,否则两处会各自漂。 */
+.ab8-independent__card, .ab8-quality__card {
   background: var(--w3-surface-2); border: 1px solid var(--w3-line); padding: 56px;
 }
+.ab8-independent__card { grid-column: 1 / -1; }
 .ab8-quality { padding: 136px 0 142px; background: var(--w3-surface-1); color: var(--w3-text); }
 .ab8-quality__intro { display: grid; grid-template-columns: 1fr; gap: 44px; align-items: center; }
 .ab8-sectionhead--dark { display: block; }
@@ -1943,7 +1951,9 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   background: rgba(9,11,14,.78); color: #fff; font-size: var(--w3-fs-micro);
   font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
 }
-.ab8-process { list-style: none; margin: 40px 0 0; padding: 0; border-top: 1px solid var(--w3-line); }
+.ab8-quality__card { margin-top: 36px; }
+.ab8-certs { margin-top: 36px; }
+.ab8-process { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--w3-line); }
 .ab8-process li {
   display: grid; grid-template-columns: 100px 1fr; gap: 20px; padding: 26px 0;
   border-bottom: 1px solid var(--w3-line);
