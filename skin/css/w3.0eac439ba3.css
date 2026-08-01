@@ -1774,11 +1774,11 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
    ================================================================ */
 .ab8-kicker {
   display: inline-flex; align-items: center; gap: 12px;
-  color: rgba(238,241,244,.68); font-size: var(--w3-fs-micro);
+  color: var(--w3-accent); font-size: var(--w3-fs-micro);
   font-weight: 600; letter-spacing: .2em; line-height: 1.4; text-transform: uppercase;
 }
 .ab8-kicker::before { content: ""; width: 28px; height: 1px; background: currentColor; opacity: .55; }
-.ab8-kicker--dark { color: var(--w3-text2); } /* 底已转暗，此变体保留类名以免动模板 */
+.ab8-kicker--dark { color: var(--w3-accent); } /* 三种颜色统一到蓝：其余四页只有这一种 */
 
 .ab8-hero {
   position: relative; min-height: min(900px, 100svh); overflow: hidden;
@@ -1845,7 +1845,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   font-size: var(--w3-fs-body); line-height: 1.8;
 }
 .ab8-story__location {
-  display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px;
+  display: grid; grid-template-columns: auto auto; justify-content: start; align-items: baseline; gap: 14px;
   margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--w3-line);
 }
 .ab8-story__location span {
@@ -1887,11 +1887,12 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 }
 .ab8-anchor { position: relative; top: calc(-1 * var(--w3-header-h)); }
 .ab8-factory {
-  display: grid; grid-template-columns: repeat(12,1fr); grid-template-rows: 240px 240px 230px;
+  display: grid; grid-template-columns: repeat(10,1fr);
   gap: 12px; margin-top: 64px;
 }
-.ab8-factory figure { position: relative; grid-column: span 5; margin: 0; overflow: hidden; background: var(--w3-panel); }
-.ab8-factory__feature { grid-column: span 7 !important; grid-row: span 2; }
+.ab8-factory figure { position: relative; grid-column: span 2; aspect-ratio: 1.45; margin: 0; overflow: hidden; background: var(--w3-panel); }
+/* ⚠️ 选择器要比 .ab8-factory figure(0,1,1) 更具体，否则 01 会被那条的 1.45 压回去 —— 实测过。*/
+.ab8-factory .ab8-factory__feature { grid-column: 1 / -1 !important; aspect-ratio: 8 / 3; }
 .ab8-factory__wide { grid-column: span 7 !important; }
 /* 第三行三张等宽：4+4+4 = 12 列，正好铺满，行数不变（网格仍是 3 行）。 */
 .ab8-factory__third { grid-column: span 4 !important; }
@@ -1922,6 +1923,9 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 }
 .ab8-stats dd { margin: 8px 0 0; color: var(--w3-text3); font-size: var(--w3-fs-small); line-height: 1.45; }
 
+.ab8-quality > .container, .ab8-independent > .container {
+  background: var(--w3-surface-2); border: 1px solid var(--w3-line); padding: 56px;
+}
 .ab8-quality { padding: 136px 0 142px; background: var(--w3-surface-1); color: var(--w3-text); }
 .ab8-quality__intro { display: grid; grid-template-columns: 1fr; gap: 44px; align-items: center; }
 .ab8-sectionhead--dark { display: block; }
@@ -1960,7 +1964,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .ab8-oem { padding: 136px 0 142px; background: #0c0f13; }
 .ab8-oem__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 64px; }
 .ab8-oem__grid article {
-  position: relative; min-height: 500px; padding: clamp(34px,4vw,56px);
+  position: relative; min-height: 0; padding: clamp(34px,4vw,56px);
   background: var(--w3-surface-2); color: var(--w3-text); border: 1px solid var(--w3-line); overflow: hidden;
 }
 .ab8-oem__number {
@@ -1969,7 +1973,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   transform: scale(1.75); transform-origin: top right;
 }
 .ab8-oem__grid h3 {
-  position: relative; margin: 64px 0 56px; color: var(--w3-text);
+  position: relative; margin: 0 0 40px; color: var(--w3-text);
   font-size: var(--w3-fs-h1); font-weight: 700; letter-spacing: -.035em;
 }
 .ab8-oem__grid ol { position: relative; list-style: none; margin: 0; padding: 0; }
@@ -2027,7 +2031,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   .ab8-story__statement h2 { max-width: 17ch; }
   .ab8-sectionhead { grid-template-columns: 1fr; gap: 24px; }
   .ab8-sectionhead .ab8-kicker { margin-bottom: 0; }
-  .ab8-factory { grid-template-rows: 210px 210px 210px; }
+  .ab8-factory { grid-auto-rows: auto; }
   .ab8-stats { grid-template-columns: repeat(3,1fr); row-gap: 28px; }
   .ab8-oem__grid { grid-template-columns: 1fr; }
   .ab8-oem__grid article { min-height: 0; }

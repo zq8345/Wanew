@@ -457,10 +457,10 @@
     "zh": "从设计到量产"
   },
   "about.manufacturing.lead": {
-    "en": "R&D, tooling, assembly, quality control, and shipping operate as one connected system.",
-    "pt-BR": "P&D, ferramental, montagem, controle de qualidade e expedição operam como um sistema integrado.",
-    "es-MX": "I+D, herramental, ensamblaje, control de calidad y envío funcionan como un sistema integrado.",
-    "zh": "研发、开模、装配、质检与发运形成一套完整、可追溯的制造系统。"
+    "en": "R&D, tooling, assembly, quality control, and shipping.",
+    "pt-BR": "P&D, ferramental, montagem, controle de qualidade e expedição.",
+    "es-MX": "I+D, herramental, ensamblaje, control de calidad y envío.",
+    "zh": "研发、开模、装配、质检与发运。"
   },
   "about.quality.eyebrow": {
     "en": "PROOF, NOT PROMISES",
@@ -469,10 +469,10 @@
     "zh": "用测试证明可靠"
   },
   "about.quality.lead": {
-    "en": "Every critical part is checked against specification and validated for the environments where it will actually work.",
-    "pt-BR": "Cada peça crítica é verificada conforme a especificação e validada para os ambientes em que realmente funcionará.",
-    "es-MX": "Cada pieza crítica se verifica según la especificación y se valida para los entornos donde realmente funcionará.",
-    "zh": "每一个关键部件都按规格核验，并在它将要面对的真实环境中完成验证。"
+    "en": "Every critical part is checked against specification.",
+    "pt-BR": "Cada peça crítica é verificada conforme a especificação.",
+    "es-MX": "Cada pieza crítica se verifica según la especificación.",
+    "zh": "每一个关键部件都按规格核验。"
   },
   "about.quality.certified": {
     "en": "COMPLIANCE & TESTING",
