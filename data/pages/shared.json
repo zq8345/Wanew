@@ -192,10 +192,10 @@
     "zh": "适配 Mini、Standard、Performance 与 Enterprise Starlink 终端的完整 Wanew 配件系列。支架、电源、线缆与外壳。"
   },
   "shared.wanew_is_a_leading_manufacturer_of_starl": {
-    "en": "Wanew is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. 15+ years experience, 200+ patents. OEM/ODM available. Not affiliated with SpaceX.",
-    "pt-BR": "A Wanew é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. Mais de 15 anos de experiência e 200+ patentes. OEM/ODM disponível. Não é afiliada à SpaceX.",
-    "es-MX": "Wanew es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches protectores. Más de 15 años de experiencia, más de 200 patentes. OEM/ODM disponible. No afiliada a SpaceX.",
-    "zh": "Wanew 是领先的 Starlink 兼容配件制造商，产品包括支架、电源适配器、线缆及防护外壳。15+ 年经验，200+ 项专利。可提供 OEM/ODM。与 SpaceX 无隶属关系。"
+    "en": "Wanew is a leading manufacturer of Starlink-compatible accessories including mounts, power adapters, cables and protective cases. OEM/ODM available. Not affiliated with SpaceX.",
+    "pt-BR": "A Wanew é uma fabricante líder de acessórios compatíveis com Starlink: suportes, adaptadores de energia, cabos e cases de proteção. OEM/ODM disponível. Não é afiliada à SpaceX.",
+    "es-MX": "Wanew es un fabricante líder de accesorios compatibles con Starlink: soportes, adaptadores de energía, cables y estuches protectores. OEM/ODM disponible. No afiliada a SpaceX.",
+    "zh": "Wanew 是领先的 Starlink 兼容配件制造商，产品包括支架、电源适配器、线缆及防护外壳。可提供 OEM/ODM。与 SpaceX 无隶属关系。"
   },
   "shared.how_to_set_up_starlink_mini_for_rv_campi": {
     "en": "How to Set Up Starlink Mini for RV Camping: Complete Guide",
@@ -222,10 +222,10 @@
     "zh": "Starlink 配件定制制造：从样品到量产"
   },
   "shared.oem_odm_manufacturing_guide_for_starlink": {
-    "en": "OEM/ODM manufacturing guide for Starlink-compatible accessories. Customization options, development process, tooling costs, quality assurance, and case studies from a 15-year manufacturer.",
-    "pt-BR": "Guia de fabricação OEM/ODM para acessórios compatíveis com Starlink. Opções de personalização, processo de desenvolvimento, custos de ferramental, garantia de qualidade e estudos de caso de uma fabricante com 15 anos de experiência.",
-    "es-MX": "Guía de fabricación OEM/ODM para accesorios compatibles con Starlink. Opciones de personalización, proceso de desarrollo, costos de herramentales, aseguramiento de calidad y casos de estudio de un fabricante con 15 años de experiencia.",
-    "zh": "Starlink 兼容配件的 OEM/ODM 制造指南。来自一家 15 年制造商的定制选项、开发流程、模具成本、质量保证与案例研究。"
+    "en": "OEM/ODM manufacturing guide for Starlink-compatible accessories. Customization options, development process, tooling costs, quality assurance, and case studies.",
+    "pt-BR": "Guia de fabricação OEM/ODM para acessórios compatíveis com Starlink. Opções de personalização, processo de desenvolvimento, custos de ferramental, garantia de qualidade e estudos de caso.",
+    "es-MX": "Guía de fabricación OEM/ODM para accesorios compatibles con Starlink. Opciones de personalización, proceso de desarrollo, costos de herramentales, aseguramiento de calidad y casos de estudio.",
+    "zh": "Starlink 兼容配件的 OEM/ODM 制造指南。定制选项、开发流程、模具成本、质量保证与案例研究。"
   },
   "shared.bulk_ordering_guide_moq_lead_time_and_pr": {
     "en": "Bulk Ordering Guide: MOQ, Lead Time, and Pricing for Starlink Mounts",

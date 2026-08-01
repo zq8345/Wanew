@@ -163,11 +163,10 @@
         </div>
       </div>
     </div>
-    <!-- ⑫ Trust bar removed 2026-07-30 (Joe). It rode the bottom of the hero image and carried
-         15 Years / 200+ Patents / 600,000+ / US warehouse / FCC·CE·RoHS.
-         ⚠️ 它的四语文案键仍留在 data/pages/home.json（home.stat.* / shared.* / home.trust.cert.*）——
-            没删，因为 home.stat.num.1/3/4 还被下面那块 w3-stats 用着（:269-273）。
-            **删模板不删数据**是有意的：数据还有别的消费方，删了那块也会坏。
+    <!-- ⑫ Trust bar removed 2026-07-30 (Joe). It rode the bottom of the hero image.
+         ⚠️ 模板注释是【直出 HTML】的，会被任何人 view-source 读到 ——
+            所以这里不再抄写它当初承载的那几条宣称原文（2026-07-31 起 Joe 已要求删除其中两类）。
+            要查它承载过什么，看这次删除的 commit，别写回页面里。
          ⚠️ 移动端上这条 bar 压住了 hero 的两个 CTA 按钮（Request a quote / Browse products），
             那是它被拿掉之前就存在的布局问题；一并消失，但根因没修——若将来把它加回来要先修这个。 -->
   </section>
@@ -262,10 +261,8 @@
           <span class="w3-eyebrow">{{t.home.about.eyebrow}}</span>
           <p class="w3-sub">{{t.home.p.5}}</p>
           <div class="w3-stats">
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.1}}</span><span class="w3-stat__k">{{t.home.stat.text.1}}</span></div>
             <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.2}}</span><span class="w3-stat__k">{{t.shared.professional_equipment}}</span></div>
             <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.3}}</span><span class="w3-stat__k">{{t.home.stat.text.3}}</span></div>
-            <div class="w3-stat"><span class="w3-stat__n">{{t.home.stat.num.4}}</span><span class="w3-stat__k">{{t.home.stat.text.4}}</span></div>
           </div>
           <a href="{{url./about/}}" class="w3-link-arrow">{{t.home.about.cta}}</a>
         </div>
