@@ -792,22 +792,6 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
    ⚠️ 没有为"它是次要信息"去发明第三档更浅的墨 —— **要新档就先进 DESIGN.md**,
       在 CSS 里就地调一个"看着差不多"的值,正是字阶那 37 个落点的来历。 *
 
-/* ---- CJK 字距 ---------------------------------------------------------
-   2026-08-01 Joe 指出:中文大标题「配件一站式解决方案」字与字挤在一起,而 eyebrow
-   「独立制造商 · OEM/ODM」间隔正常。
-   病因不是中文字体,是【负字距】:全站标题用 letter-spacing -0.02 ~ -0.03em。
-   那是给拉丁字母收紧字怀的手法 —— 拉丁字形两侧本来就有空白,收紧才紧凑;
-   汉字是等宽方块字,字面已经顶到字身框,再收就是让笔画互相贴上去。
-   (eyebrow 之所以正常,是因为它用的是 +0.22em 正字距。)
-   ⇒ zh 下把【展示级标题】的负字距归零。混排的拉丁词(Starlink)在 0 上也是正常值,
-     不需要也不应该为它保留负值 —— 一个标题只能有一个字距。
-   ⚠️ 只治 h1/h2/h3 这一档。卡片小标题那批 -0.01em 在 14~16px 上肉眼无感,不动。 */
-html[lang="zh"] h1, html[lang="zh"] h2, html[lang="zh"] h3,
-html[lang="zh"] .w3-h1, html[lang="zh"] .w3-h2, html[lang="zh"] .w3-h3,
-html[lang="zh"] .page-header__title,
-html[lang="zh"] .w3-scene-panel__line,
-html[lang="zh"] .title-product,
-html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
 
 /* about band */
 /* Joe 定的排布(2026-08-01):标题通栏在【图片之上】,下面 图片左 / 文案+数字右。
@@ -2104,3 +2088,25 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
 
 /* Compatibility & FAQ:暗卡原本缩在左侧、右边一大片空 → 撑满 */
 #brand .about-disclaimer { max-width: none; }
+
+/* ══ 语种覆盖(必须排在文件最末)═════════════════════════════════════════
+   2026-08-01 多语言窗口指出:下面这条与若干 `.xxx h2` 同特异性,而那些排在它后面,
+   理论上能赢(真机实测当前没赢,computed letterSpacing 全 normal)。
+   修法不是把选择器写得更长去打特异性升级战 —— **语种覆盖天然属于层叠的最后一层**,
+   挪到文件末尾,同特异性时靠顺序取胜,以后新增任何组件规则都不会再压过它。 */
+/* ---- CJK 字距 ---------------------------------------------------------
+   2026-08-01 Joe 指出:中文大标题「配件一站式解决方案」字与字挤在一起,而 eyebrow
+   「独立制造商 · OEM/ODM」间隔正常。
+   病因不是中文字体,是【负字距】:全站标题用 letter-spacing -0.02 ~ -0.03em。
+   那是给拉丁字母收紧字怀的手法 —— 拉丁字形两侧本来就有空白,收紧才紧凑;
+   汉字是等宽方块字,字面已经顶到字身框,再收就是让笔画互相贴上去。
+   (eyebrow 之所以正常,是因为它用的是 +0.22em 正字距。)
+   ⇒ zh 下把【展示级标题】的负字距归零。混排的拉丁词(Starlink)在 0 上也是正常值,
+     不需要也不应该为它保留负值 —— 一个标题只能有一个字距。
+   ⚠️ 只治 h1/h2/h3 这一档。卡片小标题那批 -0.01em 在 14~16px 上肉眼无感,不动。 */
+html[lang="zh"] h1, html[lang="zh"] h2, html[lang="zh"] h3,
+html[lang="zh"] .w3-h1, html[lang="zh"] .w3-h2, html[lang="zh"] .w3-h3,
+html[lang="zh"] .page-header__title,
+html[lang="zh"] .w3-scene-panel__line,
+html[lang="zh"] .title-product,
+html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
