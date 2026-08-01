@@ -528,7 +528,10 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
    ⚠️ 不用统一倍数缩放 —— kicker 与副标题各自定,间距单独定;h1 保持 64px(全站最大,不再加)。
       22px → 34px:三处间距一起放松,文案块变高但仍在 hero 内(已四视口实测)。 */
 .w3-hero__content { max-width: min(760px, max(620px, 52%)); display: grid; gap: 34px; }
-.w3-hero__content .w3-eyebrow { font-size: 13px; }        /* 11 → 13 */
+/* 🔴 我第一版写了 13px —— 字阶闸当场拦下:那个数不在刻度上,是我在 CSS 里【就地发明了一个档】。
+   DESIGN.md §2.2 的刻度是宪法,优先于口头 brief。改用现成的下一档 --w3-fs-small(12.5px)。
+   ⚠️ 若 Joe 要比 12.5 更大,那是【往 DESIGN.md 加档】的决定,不是在这里写个数字。 */
+.w3-hero__content .w3-eyebrow { font-size: var(--w3-fs-small); }   /* micro 11 → small 12.5 */
 /* ⚠️ 这里【曾经】让 hero 用比全站更宽的容器(min(1760px,92vw)),理由是旧图(越野车)主体横跨
    48–85%,宽屏下站点容器会把文案推到 26.6% 而右缘顶到 48.1% 正好压上车。
    🔴 新图(hero-home-v4)重测:逐列边缘能量显示左半 0–45% 是静区(72–84),
