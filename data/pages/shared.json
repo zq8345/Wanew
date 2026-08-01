@@ -341,5 +341,11 @@
     "pt-BR": "Área da fábrica",
     "es-MX": "Área de fábrica",
     "zh": "厂房面积"
+  },
+  "shared.we_make_what_we_sell": {
+    "en": "We make what we sell",
+    "pt-BR": "Fabricamos o que vendemos",
+    "es-MX": "Fabricamos lo que vendemos",
+    "zh": "我们卖的，都是自己造的"
   }
 }
