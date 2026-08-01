@@ -1851,53 +1851,11 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
 .ab8-kicker::before { content: ""; width: 28px; height: 1px; background: currentColor; opacity: .55; }
 .ab8-kicker--dark { color: var(--w3-accent); } /* 三种颜色统一到蓝：其余四页只有这一种 */
 
-.ab8-hero {
-  position: relative; min-height: min(900px, 100svh); overflow: hidden;
-  display: flex; align-items: stretch; background: #080a0d; color: #fff;
-}
-.ab8-hero__bg {
-  position: absolute; inset: 0; background-size: cover; background-position: center center;
-  transform: scale(1.01);
-}
-.ab8-hero__bg::after {
-  content: ""; position: absolute; inset: 0;
-  background:
-    linear-gradient(90deg, rgba(5,7,9,.9) 0%, rgba(5,7,9,.7) 35%, rgba(5,7,9,.16) 67%, rgba(5,7,9,.28) 100%),
-    linear-gradient(180deg, rgba(5,7,9,.12) 0%, transparent 48%, rgba(5,7,9,.82) 100%);
-}
-.ab8-hero__inner {
-  position: relative; z-index: 2; display: flex; flex-direction: column;
-  justify-content: center; min-height: inherit; padding-top: calc(var(--w3-header-h) + 72px);
-  padding-bottom: 52px;
-}
-.ab8-hero__copy { width: min(690px, 58%); margin: auto 0; padding: 70px 0 96px; }
-.ab8-hero__copy h1 {
-  margin: 24px 0 22px; max-width: 10ch; color: #fff;
-  font-size: var(--w3-fs-d1); font-weight: 700; line-height: .98;
-  letter-spacing: -.045em; text-wrap: balance;
-}
-.ab8-hero__copy p {
-  margin: 0; max-width: 56ch; color: rgba(238,241,244,.76);
-  font-size: var(--w3-fs-lead); line-height: 1.65;
-}
-.ab8-hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
-.ab8-hero__proof {
-  display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
-  width: min(760px, 70%); margin: 0; padding: 0; border-top: 1px solid rgba(255,255,255,.22);
-}
-.ab8-hero__proof div { padding: 22px 28px 0 0; }
-.ab8-hero__proof dt {
-  color: #fff; font-size: var(--w3-fs-h2); font-weight: 700; line-height: 1;
-  letter-spacing: -.035em; font-variant-numeric: tabular-nums;
-}
-.ab8-hero__proof dd {
-  margin: 7px 0 0; color: rgba(238,241,244,.6);
-  font-size: var(--w3-fs-small); line-height: 1.4;
-}
-
 .ab8-story {
   padding: 132px 0 148px; color: var(--w3-text);
-  background: var(--w3-surface-1);
+  /* 🔴 必须与 hero 底部渐变的末端同色(--w3-bg),否则 hero 一结束就是一条硬边。
+     其它页 hero 之后那块根本不写 background、继承 body,天然无缝——About 对齐它们。 */
+  background: var(--w3-bg);
 }
 .ab8-story__grid {
   display: grid; grid-template-columns: 1fr; gap: 44px;
@@ -1951,7 +1909,7 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
   font-size: var(--w3-fs-micro); font-weight: 600; letter-spacing: .16em;
 }
 
-.ab8-capabilities { padding: 136px 0 128px; background: #090b0e; color: var(--w3-text); }
+.ab8-capabilities { padding: 136px 0 128px; background: var(--w3-bg2); color: var(--w3-text); }
 .ab8-sectionhead { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: end; }
 .ab8-sectionhead .ab8-kicker { grid-column: 1 / -1; margin-bottom: 0; }
 .ab8-sectionhead h2 {
@@ -2011,7 +1969,7 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
   display: grid; padding: 0; gap: 1px; background: var(--w3-line); border: 1px solid var(--w3-line); border-radius: 14px; overflow: hidden;
 }
 .ab8-independent__card { grid-column: 1 / -1; }
-.ab8-quality { padding: 136px 0 142px; background: var(--w3-surface-1); color: var(--w3-text); }
+.ab8-quality { padding: 136px 0 142px; background: var(--w3-bg); color: var(--w3-text); }
 .ab8-quality__intro { display: grid; grid-template-columns: 1fr; gap: 44px; align-items: center; }
 .ab8-sectionhead--dark { display: block; }
 .ab8-sectionhead--dark h2 { margin-top: 24px; color: var(--w3-text); }
@@ -2050,7 +2008,7 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
   color: var(--w3-text); text-align: center; font-size: var(--w3-fs-small); font-weight: 700;
 }
 
-.ab8-oem { padding: 136px 0 142px; background: #0c0f13; }
+.ab8-oem { padding: 136px 0 142px; background: var(--w3-bg2); }
 .ab8-oem__grid { display: grid; grid-template-columns: 1fr 1fr; margin-top: 64px; gap: 1px; background: var(--w3-line); border: 1px solid var(--w3-line); border-radius: 14px; overflow: hidden; }
 .ab8-oem__grid article {
   position: relative; min-height: 0; padding: clamp(34px,4vw,56px);
@@ -2073,7 +2031,10 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
 .ab8-oem__grid li b { color: var(--w3-text); font-size: var(--w3-fs-compact); line-height: 1.45; }
 .ab8-oem__grid li span { color: var(--w3-text3); font-size: var(--w3-fs-small); line-height: 1.55; }
 
-.ab8-independent { padding: 88px 0; background: #080a0d; color: var(--w3-text); }
+/* About 板块底色 = 全站两值交替 --w3-bg ↔ --w3-bg2(见 DESIGN.md §板块分隔)。
+   2026-08-01 之前这里是 5 个各不相同的写死值(#090b0e/#0c0f13/#080a0d/#10141a + surface-1),
+   跨度只有 8 个灰阶 —— 看不出差别,却又都不一样,既不一致也不成节奏。 */
+.ab8-independent { padding: 88px 0; background: var(--w3-bg); color: var(--w3-text); }
 .ab8-independent__inner {
   display: grid; grid-template-columns: 1fr auto;
   gap: 30px 24px; align-items: start; padding-top: 0;
@@ -2093,32 +2054,8 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
    里面(卡壳自己已有 grid-column: 1/-1),那半条对孙元素无效,已删。 */
 .ab8-independent .about-partner__actions { grid-column: 1 / -1; }
 
-.ab8-partner { padding: 126px 0 136px; background: #10141a; color: var(--w3-text); }
-.ab8-partner__top {
-  display: grid; grid-template-columns: 1fr; gap: 24px; align-items: end;
-}
-.ab8-partner__top h2 {
-  margin: 24px 0 0; color: #fff; font-size: var(--w3-fs-d2);
-  font-weight: 700; letter-spacing: -.04em; line-height: 1.02;
-}
-.ab8-partner__top > p { margin: 0; color: var(--w3-text2); font-size: var(--w3-fs-body); line-height: 1.7; }
-.ab8-partner__ways {
-  list-style: none; display: grid; grid-template-columns: repeat(3,1fr);
-  margin: 62px 0 0; padding: 0; border-top: 1px solid var(--w3-line2);
-}
-.ab8-partner__ways li { min-height: 220px; padding: 26px 34px 26px 0; border-right: 1px solid var(--w3-line); }
-.ab8-partner__ways li + li { padding-left: 34px; }
-.ab8-partner__ways li:last-child { border-right: 0; }
-.ab8-partner__ways span { color: var(--w3-accent); font-size: var(--w3-fs-small); font-weight: 650; }
-.ab8-partner__ways h3 { margin: 44px 0 10px; color: #fff; font-size: var(--w3-fs-h3); font-weight: 700; }
-.ab8-partner__ways p { margin: 0; color: var(--w3-text3); font-size: var(--w3-fs-compact); line-height: 1.65; }
-.ab8-partner .about-partner__actions { margin-top: 50px; }
-
 @media (max-width: 980px) {
-  .ab8-hero { min-height: 780px; }
-  .ab8-hero__copy { width: min(650px,76%); }
-  .ab8-hero__proof { width: 100%; }
-  .ab8-story, .ab8-capabilities, .ab8-quality, .ab8-oem, .ab8-partner { padding-top: 96px; padding-bottom: 100px; }
+  .ab8-story, .ab8-capabilities, .ab8-quality, .ab8-oem { padding-top: 96px; padding-bottom: 100px; }
   .ab8-story__grid, .ab8-quality__intro { grid-template-columns: 1fr; gap: 44px; }
   .ab8-story__statement h2 { max-width: 17ch; }
   .ab8-sectionhead { grid-template-columns: 1fr; gap: 24px; }
@@ -2133,21 +2070,7 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
 }
 
 @media (max-width: 700px) {
-  .ab8-hero { min-height: 760px; }
-  .ab8-hero__bg { background-position: 59% center; }
-  .ab8-hero__bg::after {
-    background:
-      linear-gradient(90deg, rgba(5,7,9,.82), rgba(5,7,9,.34)),
-      linear-gradient(180deg, rgba(5,7,9,.3) 0%, rgba(5,7,9,.32) 45%, rgba(5,7,9,.94) 100%);
-  }
-  .ab8-hero__inner { padding-top: calc(var(--w3-header-h) + 46px); padding-bottom: 28px; }
-  .ab8-hero__copy { width: 100%; margin-top: auto; padding: 140px 0 54px; }
-  .ab8-hero__copy h1 { max-width: 12ch; margin-top: 18px; }
-  .ab8-hero__copy p { max-width: 38ch; font-size: var(--w3-fs-body); }
-  .ab8-hero__proof div { padding: 18px 10px 0 0; }
-  .ab8-hero__proof dt { font-size: var(--w3-fs-h3); }
-  .ab8-hero__proof dd { font-size: var(--w3-fs-micro); }
-  .ab8-story, .ab8-capabilities, .ab8-quality, .ab8-oem, .ab8-partner { padding-top: 74px; padding-bottom: 78px; }
+  .ab8-story, .ab8-capabilities, .ab8-quality, .ab8-oem { padding-top: 74px; padding-bottom: 78px; }
   .ab8-story__grid { margin-bottom: 48px; }
   .ab8-story__location { grid-template-columns: 1fr; gap: 6px; }
   .ab8-story__media img { height: 360px; }
@@ -2170,12 +2093,6 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
   .ab8-oem__grid h3 { margin: 50px 0 34px; }
   .ab8-oem__grid li { grid-template-columns: 1fr; gap: 5px; }
   .ab8-independent { padding: 64px 0; }
-  .ab8-partner__top { grid-template-columns: 1fr; gap: 24px; }
-  .ab8-partner__ways { grid-template-columns: 1fr; }
-  .ab8-partner__ways li, .ab8-partner__ways li + li {
-    min-height: 0; padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--w3-line);
-  }
-  .ab8-partner__ways h3 { margin-top: 22px; }
 }
 
 /* PDP 适配徽章〔#52 契约〕:买家的第一个决定是"这个配不配我的终端"。数据是机型 slug,
