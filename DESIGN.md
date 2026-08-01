@@ -310,6 +310,31 @@ About v8 不再消费“全暗 + 等权卡片”的旧版式，而采用**品牌
 - **Guides 主题导航条** `.guides-nav`/`.guides-chip`〔见 §3.2e 约定〕:药丸行(flex wrap);`.guides-chip`=**导航链接 `<a href="/guides/{topic}/">`**(胶囊 line2 边 + hover accent),`.guides-chip.is-active`=**白底(#fff)+ 近黑字(`--w3-surface-0`)**(当前所在页)。builder 仅在【≥2 个有内容主题】时渲染整条(单主题隐藏,见 regen `activeTopics`/`navChips`)。**已废除** `.guides-filter`/`data-guides-filter` 客户端过滤(§3.2e:Guides 单一浏览逻辑,禁 2 套)。
 - **Guides CTA** `.guides-cta`:文章尾转化块,tj-h2 标题 + primary(Request a quote)+ ghost(返回该主题库);令牌全取 §2/§3.1。
 - **Guides 空主题占位** `.guides-soon`:未迁移主题(rv-off-grid/mounts/power,G2-4 前)库页 coming-soon 提示条(panel 底 + --w3-text2 居中一句);该页同时注入 `noindex,follow`,避免空壳被索引。
+- ⭐⭐ **格子组(cell grid)** —— 容器语言的两极之一〔Joe 2026-08-01 直裁 canonical〕
+  **配方(全站唯一写法,已有 6 处在用:`.w3-stats` `.about-caps` `.ab8-stats` `.ab8-factory` `.ab8-quality__card`/`.ab8-independent__card` `.ab8-oem__grid`)**:
+  ```css
+  display: grid; gap: 1px; background: var(--w3-line);
+  border: 1px solid var(--w3-line); border-radius: 14px; overflow: hidden;
+  /* 格: */ background: var(--w3-bg2);
+  ```
+  **判据 —— 用哪一极,看内容是什么,不看手感:**
+  | | 格子组 | 卡片 |
+  |---|---|---|
+  | 内容 | **一个东西被切成几格** | **几个独立对象** |
+  | 间隙 | 无(1px 发丝线即格线) | 有 gap |
+  | 边框圆角 | **一个共享外框** | 各自一套 |
+  | 可点 | **否** | 是,各自去不同地方 |
+  | hover | **必须没有** | 抬起 `translateY(-4px)` + 更强投影 |
+
+  **🔴 可测的三条(审计按这三条判,不靠描述)**:
+  1. 格子组内部 **hover 规则数必须 = 0**。2026-08-01 实测抓到反例:`.ab8-factory figure:hover img { transform: scale(1.025) }` —— 容器是 `<div>`、0 个 `<a>`,**不可点却会缩放,等于骗用户去点**。已删。
+  2. 格子组的 `gap` **在所有断点都必须是 1px**。同日反例:桌面 1px、窄屏还留着 8px(带间隙时代的残留),**同一个组件自己跟自己不一致**。已修。
+  3. 格子组**只有最外层有 border-radius**。反例:六图曾是「外面板圆角 + 每格各自圆角 + 12px 间隙」= 三层边界叠在一起,那正是它显得碎的原因。
+
+  **反例(不该用格子组)**:首页三张 `.guides-card` —— 它们是**三个链接**,间隙和 hover 抬起是"这是三个能点的东西"的视觉承诺;而且它们要和 `/guides/` 页保持同一套。
+
+  ⚠️ **2026-08-01 记一笔失败**:总工在派单里声称"判据已写进 DESIGN.md",实际 grep = 0 —— 判据只活在对话里,审计就无从自动核对,反例(上面第 1 条)因此漏到了生产。**规则不落盘 = 没有规则。**
+
 - **提亮:深底白容器** `.w3-whitecards`〔⭐Joe 2026-07-27 直裁 · §2.6 招2 canonical〕:section 修饰类,**背景留深、header 留浅字**,只把内部卡片容器翻白——`.w3-whycard` → 白底 + 深字(`--w3-invert-ink`/`ink2`)+ 深蓝 accent(`--w3-invert-accent`)+ 深底落影。落点=**首页 Our Advantages(唯一)**,见 §2.6 招2 的 2026-08-01 收窄。**⚠️ section 作用域**:`.w3-whycard` 被 About 复用(全暗做对),禁全局翻白。
 - **选择性提亮反转带** `.w3-invert`〔#82 · §2.6 招2 旧实现,**已被 `.w3-whitecards` 取代**〕:整 band 浅底(`--w3-invert-bg`+`--w3-invert-ink`/`ink2`+`--w3-invert-accent`)。Joe 直裁「翻容器不翻背景」后**首页停用**;CSS 保留供未来纯浅底段,默认别用。
 - **首页 Guides 卡**〔#82 → **2026-08-01 退役**〕:`.tj-gcard`/`.tj-cover`/`.tj-gbody`/`.tj-gmeta`/`.tj-cat`/`.tj-date`/`.tj-more`/`.tj-arw` 与 `.w3-guides` 网格**已整族删除**(20 条规则),孤儿键 `shared.jul_4_2026` 一并删。

@@ -1765,8 +1765,7 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
 
 /* ⑦ OEM/ODM 标题拆大小字。副标题是【独立键】不是切出来的:
    es/pt 的 OEM/ODM 夹在句中,切字符串会得到病句。 */
-.tj-sechead__sub { margin: 8px 0 0; font-size: var(--w3-fs-body); line-height: 1.5; color: var(--w3-text2); }
-.w3-whitecards .tj-sechead__sub { color: var(--w3-text2); }   /* 段标题区仍在深底上,墨不翻 */
+   /* 段标题区仍在深底上,墨不翻 */
 
 /* ⑥ 白名单新增三类卡。底与墨【成对】,顺序写在一起,便于人眼与闸同时核。 */
 /* ══ About v8:白卡待遇已退役 ═══════════════════════════════════════════════
@@ -1936,7 +1935,6 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
   display: block; width: 100%; height: 100%; object-fit: cover;
   filter: saturate(.86) contrast(1.04); transition: transform .55s var(--w3-ease), filter .3s;
 }
-.ab8-factory figure:hover img { transform: scale(1.025); filter: saturate(1) contrast(1.02); }
 .ab8-factory figure::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, transparent 55%, rgba(4,5,7,.72));
@@ -2077,7 +2075,7 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
   .ab8-story__media figcaption { left: 18px; right: 18px; bottom: 16px; align-items: flex-end; }
   /* 窄屏 2 列。原本这里还有三条对 __feature/__wide 的跨列覆盖和一组固定行高 ——
      2026-08-01 六张图改等宽之后那些类已从模板删除,规则跟着退役(留着就是指向不存在的类)。 */
-  .ab8-factory { grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 44px; }
+  .ab8-factory { grid-template-columns: 1fr 1fr; margin-top: 44px; }   /* gap 由桌面那条的 1px 继承 —— 窄屏原本留着 8px,是带间隙时代的残留 */
   .ab8-factory figcaption { left: 12px; right: 12px; bottom: 10px; font-size: var(--w3-fs-micro); }
   .ab8-stats { grid-template-columns: 1fr 1fr; margin-top: 48px; }
   .ab8-stats dt { font-size: var(--w3-fs-h3); }
