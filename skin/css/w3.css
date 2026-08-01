@@ -1158,45 +1158,13 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 
 /* --- article-hub: list of guide cards (blog-sidebar__content-single) --- */
 .blog-sidebar__content { display: grid; gap: 14px; }
-.blog-sidebar__content-single {
-  background: var(--w3-panel); border: 1px solid var(--w3-line); border-radius: var(--w3-radius);
-  transition: transform 0.3s var(--w3-ease), border-color 0.3s, background 0.3s;
-}
-.blog-sidebar__content-single:hover { transform: translateY(-3px); border-color: var(--w3-line2); background: var(--w3-panel2); }
-.blog-sidebar__content-box { padding: 22px 24px; display: grid; gap: 10px; }
 .blog-sidebar__title { font-size: var(--w3-fs-lead); font-weight: 650; line-height: 1.4; letter-spacing: -0.01em; margin: 0; }
 .blog-sidebar__title a { color: var(--w3-text); transition: color 0.15s; }
 .blog-sidebar__title a:hover { color: var(--w3-accent); }
-.blog-sidebar__text { font-size: var(--w3-fs-compact); color: var(--w3-text2); line-height: 1.65; margin: 0;
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.blog-sidebar__read-more-btn a {
-  display: inline-flex; align-items: center; gap: 7px; font-size: var(--w3-fs-compact); font-weight: 600; color: var(--w3-text);
-}
-.blog-sidebar__read-more-btn a::after { content: "\2192"; color: var(--w3-text3); transition: transform 0.25s var(--w3-ease); }
-.blog-sidebar__read-more-btn a:hover::after { transform: translateX(4px); color: var(--w3-text); }
 
 /* --- sidebar rail (search / categories / recent posts) --- */
 .sidebar { display: grid; gap: 16px; align-content: start; position: sticky; top: calc(var(--w3-header-h) + 20px); }
 @media (max-width: 900px) { .sidebar { position: static; } }
-.sidebar__single { background: var(--w3-panel); border: 1px solid var(--w3-line); border-radius: var(--w3-radius); padding: 20px 20px 22px; }
-.sidebar__title { font-size: var(--w3-fs-compact); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--w3-text); margin: 0 0 14px; }
-.sidebar__search form, .sidebar__search { display: flex; gap: 8px; }
-.sidebar__search input[type="text"], .sidebar__search input[type="search"] {
-  flex: 1 1 auto; min-width: 0; background: var(--w3-bg2); border: 1px solid var(--w3-line); border-radius: var(--w3-radius-s);
-  padding: 10px 12px; font-size: var(--w3-fs-compact); color: var(--w3-text);
-}
-.sidebar__search button { background: #fff; color: #0b0d10; border: 0; border-radius: var(--w3-radius-s); padding: 0 14px; font-weight: 600; cursor: pointer; }
-.sidebar__category-list li { border-bottom: 1px solid var(--w3-line); }
-.sidebar__category-list li:last-child { border-bottom: 0; }
-.sidebar__category-list a, .sidebar__category-list li { display: block; padding: 9px 0; font-size: var(--w3-fs-compact); color: var(--w3-text2); transition: color 0.15s; }
-.sidebar__category-list a:hover, .sidebar__category-list li:hover { color: var(--w3-text); }
-.sidebar__category-list li.active-cat, .sidebar__category-list li.active-cat a { color: var(--w3-accent); font-weight: 600; }
-.sidebar__post-list li { padding: 11px 0; border-bottom: 1px solid var(--w3-line); }
-.sidebar__post-list li:last-child { border-bottom: 0; }
-.sidebar__post-content h3 { font-size: var(--w3-fs-compact); font-weight: 550; line-height: 1.45; margin: 0; }
-.sidebar__post-content h3 a { color: var(--w3-text2); transition: color 0.15s; }
-.sidebar__post-content h3 a:hover { color: var(--w3-text); }
-.sidebar__post-content-meta { display: block; font-size: var(--w3-fs-micro); color: var(--w3-text3); margin-top: 5px; }
 
 /* --- pagination (overrides template inline .pagination styles) --- */
 .pagination { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 32px; padding: 0; list-style: none; }
@@ -1216,13 +1184,9 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 /* #3 use-case photo cards: dark placeholder (was near-white --w3-tile, which flashed
    a white box while the lazy below-fold images loaded on the dark page — Joe's
    "white frame"). These are photos, not white-bg products, so a dark tile is correct. */
-.sport-thumb { margin: 0; overflow: hidden; aspect-ratio: 16/10; background: var(--w3-panel2); }
-.sport-thumb img { width: 100%; height: 100%; object-fit: cover; }
-.sport-info { padding: 20px 22px !important; }
 .sport-info .title { font-size: var(--w3-fs-body); font-weight: 650; line-height: 1.35; margin: 0 0 8px; }
 .sport-info .title a { color: var(--w3-text) !important; }
 .sport-info .title a:hover { color: var(--w3-accent) !important; }
-.sport-info p { font-size: var(--w3-fs-compact); color: var(--w3-text2) !important; line-height: 1.65; margin: 0; }
 
 /* Factory image wall — full-width 2×3 grid of real production photos (trust proof), editorial stage captions */
 .about-facwall { list-style: none; margin: 34px 0 8px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
