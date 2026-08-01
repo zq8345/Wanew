@@ -10,6 +10,8 @@ import { localeDirs } from "./locale-dirs.mjs";
 import { applyFormNames, FORM_LABEL_KEY } from "../functions/_lib/chrome.js";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const shared = fs.existsSync(path.join(REPO, "data", "pages", "shared.json"))
+  ? JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "shared.json"), "utf8")) : {};
 const cfg = JSON.parse(fs.readFileSync(path.join(REPO, "data", "site.json"), "utf8"));
 const tpl = fs.readFileSync(path.join(REPO, "data", "templates", "product.html"), "utf8");
 
@@ -429,7 +431,9 @@ const TYPE_TITLE_KEY = FORM_LABEL_KEY;
 const LIST_PAGES = [
   ["products/index.html", null, { t: "body.banner.title" }, null, {
     eyebrow: "header.products",
-    h1: "body.banner.subtitle",       // Joe:把现有副标题提上来当大标题(四语值已在,含 zh)
+    h1: "shared.design_by_wanew",     // Joe(2026-08-01):首页板块标题=目标页 hero 标题，同一份真源。
+                                  // ⚠️ 曾指向 body.banner.subtitle —— 那句在另外 26 个机型/类型页是【副标题】，
+                                  //    改它会连带改掉那 26 页，所以只换这一处的来源，那个键原样保留。
     subtitle: ["header.mounts", "header.power_charging", "header.cables",
                "header.networking", "header.cases_protection"],
   }],                                                              // common noun -> catalog
@@ -625,7 +629,7 @@ for (const [rel, cat, name, bannerModel, headerSpec] of LIST_PAGES) {
     formKey: formSlug ? TYPE_TITLE_KEY[formSlug] : undefined });
   // 🔴 必须在 setListLabels【之后】:它会无条件把副标题重填成 body.banner.subtitle。
   //    在它之前改,等于没改 —— 这正是"改了真源却不生效"的那一类。
-  h1 = setListHeader(h1, headerSpec, locale, catalog);
+  h1 = setListHeader(h1, headerSpec, locale, { ...catalog, ...shared });   // 覆盖表也要能取 shared.* 键
   h1 = switchChipHrefs(h1, manifest);   // 机型导航 chip 的 href → 新址(幂等,见函数注释)
   /* head 特化:两份产出【各自从同一个中性基底派生】,不再"一份复制另一份再改三处头"。
      ⚠️ 源现在可能是新址页,而新址页带着 noindex —— 原样写回旧址会把 noindex 带到
@@ -708,8 +712,8 @@ console.log(`  /products/{分类}/ 新址并存(noindex,不进 sitemap): ${dualL
 // pages 去重后:共享 key 住在 data/pages/shared.json(⚠️ 不用 _shared:.gitignore 忽略 _*.json,会漏提交)(common.more、JSON-LD 样板…)。
 // 每个页面的 catalog 都要能看见它 —— 顺序 chrome < shared < 本页,本页 key 优先级最高。
 // 从文件读、可缺省:没去重时它不存在,{} 兜底,不影响任何东西。
-const shared = fs.existsSync(path.join(REPO, "data", "pages", "shared.json"))
-  ? JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "shared.json"), "utf8")) : {};
+// ⚠️ `shared` 的加载已上移到文件顶部(REPO 之后)——列表页那段在这一行【之前】就执行了,
+//    定义留在这里会 TDZ 报错 "Cannot access 'shared' before initialization"。
 const homeCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "home.json"), "utf8"));
 /* 首页要复用 About 页那几条统计标签与品牌主张 —— **复用键,不把字串抄第二份**。
    ⚠️ 放在合并链【最前】:它只填空,不覆盖 chrome/shared/home 任何一个值。
@@ -1077,8 +1081,8 @@ ${items.join("\n")}
       const cards = built.filter((a) => a.topic !== "oem").map((a) => cardOf(a, locale)).join("\n");
       const tpl2 = listTpl
         .split("{{GL_TITLE}}").join(pick(gCat["guides.meta.title"], locale)).split("{{GL_DESC}}").join(pick(gCat["guides.meta.desc"], locale))
-        .split("{{GL_H1}}").join(pick(gCat["guides.hero.h1"], locale)).split("{{GL_INTRO}}").join(pick(gCat["guides.hero.intro"], locale))
-        .split("{{GL_CRUMB}}").join(pick(gCat["guides.hero.h1"], locale))
+        .split("{{GL_H1}}").join(pick(baseCat["shared.starlink_accessory_guides"], locale)).split("{{GL_INTRO}}").join(pick(gCat["guides.hero.intro"], locale))
+        .split("{{GL_CRUMB}}").join(pick(baseCat["shared.starlink_accessory_guides"], locale))
         .split("{{GL_FILTER}}").join(navChips(locale, "all")).split("{{GL_SCENES}}").join(scenesBand(locale)).split("{{GL_CARDS}}").join(cards);
       const p = pageOf(locale, path.join("guides", "index.html"));
       const html = renderPage(tpl2, { locale, catalog: baseCat, urlOf, path: "/guides/", dirOf, enabled: LOCALES, internal_noindex: INTERNAL });

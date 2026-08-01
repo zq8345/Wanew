@@ -17,12 +17,6 @@
     "es-MX": "GUÍAS",
     "zh": "指南"
   },
-  "guides.hero.h1": {
-    "en": "Starlink accessory guides",
-    "pt-BR": "Guias de acessórios Starlink",
-    "es-MX": "Guías de accesorios Starlink",
-    "zh": "Starlink 配件指南"
-  },
   "guides.hero.intro": {
     "en": "Hands-on guides for mounting, powering, cabling and protecting your Starlink — by environment and by task.",
     "pt-BR": "Guias práticos para instalar, alimentar, cabear e proteger seu Starlink — por ambiente e por tarefa.",
@@ -35,7 +29,12 @@
     "es-MX": "Todas las guías",
     "zh": "全部指南"
   },
-  "guides.nav.aria": { "en": "Guides topics", "pt-BR": "Tópicos dos guias", "es-MX": "Temas de las guías", "zh": "指南主题" },
+  "guides.nav.aria": {
+    "en": "Guides topics",
+    "pt-BR": "Tópicos dos guias",
+    "es-MX": "Temas de las guías",
+    "zh": "指南主题"
+  },
   "guides.more": {
     "en": "More guides",
     "pt-BR": "Mais guias",

@@ -133,18 +133,6 @@
     "es-MX": "Conoce más",
     "zh": "了解更多"
   },
-  "home.kick.3": {
-    "en": "Learn",
-    "pt-BR": "Aprenda",
-    "es-MX": "Aprende",
-    "zh": "学习"
-  },
-  "home.h2.3": {
-    "en": "Guides &amp; Resources",
-    "pt-BR": "Guias e recursos",
-    "es-MX": "Guías y recursos",
-    "zh": "指南与资源"
-  },
   "home.sub.3": {
     "en": "Setup guides, buyer advice, and knowledge for getting the most out of your Starlink.",
     "pt-BR": "Guias de instalação, dicas de compra e conhecimento para aproveitar ao máximo a sua Starlink.",
@@ -199,23 +187,11 @@
     "es-MX": "Probado y certificado",
     "zh": "测试认证"
   },
-  "home.field.h2": {
-    "en": "Field-proven, wherever you run Starlink",
-    "pt-BR": "Comprovado em campo, onde quer que você use Starlink",
-    "es-MX": "Probado en campo, dondequiera que uses Starlink",
-    "zh": "无论你在哪里使用 Starlink,都经实地验证"
-  },
   "home.field.sub": {
     "en": "From boats and RVs to farms and job sites — accessories built for real-world installs.",
     "pt-BR": "De barcos e motorhomes a fazendas e canteiros de obra — acessórios feitos para instalações reais.",
     "es-MX": "De botes y casas rodantes a granjas y obras — accesorios hechos para instalaciones reales.",
     "zh": "从船舶、房车到农场与工地——专为真实场景安装打造的配件。"
-  },
-  "home.cta.h2": {
-    "en": "Sourcing Starlink accessories at scale?",
-    "pt-BR": "Procurando acessórios para Starlink no atacado?",
-    "es-MX": "¿Buscas accesorios para Starlink al por mayor?",
-    "zh": "需要批量采购 Starlink 配件?"
   },
   "home.cta.sub": {
     "en": "Tell us your Starlink models and volumes — our team replies within one business day.",
@@ -240,18 +216,6 @@
     "pt-BR": "Não sabe qual Starlink você tem? Veja o guia de compatibilidade",
     "es-MX": "¿No sabes cuál Starlink tienes? Consulta la guía de compatibilidad",
     "zh": "不确定你用的是哪款 Starlink?查看兼容性指南"
-  },
-  "home.products.kick": {
-    "en": "Featured",
-    "pt-BR": "Em destaque",
-    "es-MX": "Destacados",
-    "zh": "精选"
-  },
-  "home.products.h2": {
-    "en": "Popular products",
-    "pt-BR": "Produtos populares",
-    "es-MX": "Productos populares",
-    "zh": "热门产品"
   },
   "home.scene.rv.line": {
     "en": "Reliable internet on every road trip.",

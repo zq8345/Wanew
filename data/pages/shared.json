@@ -347,5 +347,31 @@
     "pt-BR": "Fabricamos o que vendemos",
     "es-MX": "Fabricamos lo que vendemos",
     "zh": "我们卖的，都是自己造的"
+  },
+  "shared.design_by_wanew": {
+    "en": "Design by Wanew",
+    "pt-BR": "Design da Wanew",
+    "es-MX": "Diseño de Wanew",
+    "zh": "由 Wanew 设计"
+  },
+  "shared.for_every_environment": {
+    "en": "For every environment",
+    "pt-BR": "Para todos os ambientes",
+    "es-MX": "Para todos los entornos",
+    "zh": "适配每一种使用环境"
+  },
+  "shared.starlink_accessory_guides": {
+    "en": "Starlink accessory guides",
+    "pt-BR": "Guias de acessórios Starlink",
+    "es-MX": "Guías de accesorios Starlink",
+    "zh": "Starlink 配件指南"
+  },
+  "shared.tell_us_what_youre_building": {
+    "en": "Tell us what you're building",
+    "pt-BR": "Conte-nos o que você está construindo",
+    "es-MX": "Cuéntanos qué estás construyendo",
+    "zh": "说说你的项目",
+    "reason": "页头 h1。en 由 Joe 选定;另三语由总工给出并同时报 Joe 复核 —— 不是本窗自行翻译。此前 h1 是板块名「Contact Us」,与新增的 kicker 重复",
+    "reason.dupe": "与 contact.page-header-title.1 并存是刻意的:那个键现在没有消费者,但 Contact 页仍在改,先留着,连同 about.partner.* 与 ab8-* 死 CSS 一起交审计窗统一清"
   }
 }
