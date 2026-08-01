@@ -1,4 +1,12 @@
 {
-  "_doc": "W3 首页产品策展条(总工定:6-8 精选爆款+好图,绝不目录堆砌;图差不上首页)。此处列 id=首页 module 显示顺序;renderHome/pickHomeProducts 优先读本列表,取现有 manifest 缩略图+本地化标题。⚠️ 当前产品首图多为带烤英文字的营销拼图/打码马赛克,不可上首页——本列表仅收人工逐张核过的【干净纯产品图 or 无烤字实景图】。机型跨度已覆盖 mini/performance-gen-3/standard 三系;类目上【干净图只存在于 Mounts/Cables/Cases 三类】——Power & Charging / Networking / enterprise 的所有 SKU 首图都是带烤字营销拼图(waterproof&Dustproof、Plug-and-Play、60W 等)或打码,没有一张能上,故本轮无法纳入这两类。待这些 SKU 补干净摄影后由 design/admin 扩充。空列表=module 隐藏。选图记录:672=屋顶实景带真锅(showpiece)/42·4202=perf 白底纯图/694=收纳包/684·696=白底带尺寸标注/674=白色扁装/690=特写。已剔除 692(烤字'Ultra-Durable Cable 30,000 Bends')。",
-  "ids": [672, 42, 694, 4202, 684, 674, 696, 690]
+  "ids": [
+    44,
+    675,
+    4203,
+    4211,
+    687,
+    681,
+    4208,
+    4210
+  ]
 }
