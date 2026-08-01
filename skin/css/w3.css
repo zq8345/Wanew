@@ -2025,8 +2025,10 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
 }
 .ab8-quality__card { margin-top: 36px; }
 .ab8-certs { margin-top: 36px; }
-.ab8-process { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: var(--w3-line); }
+.ab8-process { list-style: none; margin: 0; padding: 0; display: grid; background: var(--w3-bg2); }
+.ab8-process li + li::before { content: ""; position: absolute; top: 0; left: 40px; right: 40px; height: 1px; background: var(--w3-line); }
 .ab8-process li {
+  position: relative;
   display: grid; grid-template-columns: 100px 1fr; gap: 20px; padding: 26px 40px;
   background: var(--w3-bg2);
 }
@@ -2081,8 +2083,9 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
   margin: 22px 0 0; max-width: none; color: var(--w3-text);
   font-size: var(--w3-fs-h1); font-weight: 700; letter-spacing: -.035em; line-height: 1.06;
 }
-.ab8-independent .faq-flat { margin: 0; padding: 0; display: grid; gap: 1px; background: var(--w3-line); }
-.ab8-independent .faq-flat li { padding: 26px 40px; margin: 0; background: var(--w3-bg2); }
+.ab8-independent .faq-flat { margin: 0; padding: 0; display: grid; background: var(--w3-bg2); }
+.ab8-independent .faq-flat li + li::before { content: ""; position: absolute; top: 0; left: 40px; right: 40px; height: 1px; background: var(--w3-line); }
+.ab8-independent .faq-flat li { position: relative; padding: 26px 40px; margin: 0; background: var(--w3-bg2); }
 .ab8-independent .faq-flat h3 { margin: 0 0 8px; color: var(--w3-text); font-size: var(--w3-fs-compact); font-weight: 650; }
 .ab8-independent .faq-flat p { margin: 0; color: var(--w3-text3); font-size: var(--w3-fs-small); line-height: 1.6; }
 .ab8-independent .w3-link-arrow { grid-column: 2; grid-row: 1; justify-self: end; align-self: start; margin-top: 8px; }
@@ -2157,7 +2160,9 @@ html[lang="zh"] .w3-pvideo__title { letter-spacing: 0; }
   .ab8-stats dt { font-size: var(--w3-fs-h3); }
   .ab8-quality__media img { min-height: 300px; }
   .ab8-process { margin-top: 54px; }
-  .ab8-process li { grid-template-columns: 44px 1fr; padding: 22px 0; }
+  .ab8-process li { grid-template-columns: 44px 1fr; padding: 22px 22px; }
+  .ab8-process li + li::before, .ab8-independent .faq-flat li + li::before { left: 22px; right: 22px; }
+  .ab8-independent .faq-flat li { padding: 22px 22px; }
   .ab8-process li > div { grid-template-columns: 1fr; gap: 8px; }
   .ab8-certs { align-items: flex-start; flex-direction: column; }
   .ab8-oem__grid article { padding: 30px 22px; }
