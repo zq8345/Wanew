@@ -711,10 +711,13 @@ console.log(`  /products/{分类}/ 新址并存(noindex,不进 sitemap): ${dualL
 const shared = fs.existsSync(path.join(REPO, "data", "pages", "shared.json"))
   ? JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "shared.json"), "utf8")) : {};
 const homeCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "home.json"), "utf8"));
-/* 首页要复用 About 页那几条统计标签与品牌主张 —— **复用键,不把字串抄第二份**。
-   ⚠️ 放在合并链【最前】:它只填空,不覆盖 chrome/shared/home 任何一个值。
-      已逐键核对:about.json 的 84 个键与那三份【零冲突】,所以并入可证明不改变现有输出。 */
-const aboutCat = JSON.parse(fs.readFileSync(path.join(REPO, "data", "pages", "about.json"), "utf8"));
+/* ⛔ 这里【曾经】把 about.json 并进首页 catalog,好让首页复用 About 页那几条统计标签。
+   官网这条链跑得通,后台那条跑不通:首页模板是两个仓共用的,而后台的 catalog 是
+   { ...chrome, ...shared, ...home }(wanew-admin/src/publish.ts),没有 about.json ——
+   于是 Joe 一按保存就报「模板引用了不存在的 key: about.story.title」。
+   ⭐ 判据不是"官网渲染得出来",是"两条链都渲染得出来"。
+   那 6 个键已归位到 data/pages/shared.json(两条链本来就都加载它),About 页与首页
+   指向同一个键、只有一份值。所以这里不需要任何额外合并。 */
 const homeTpl = fs.readFileSync(path.join(REPO, "data", "templates", "home.html"), "utf8");
 const homeTiles = JSON.parse(webpInline(fs.readFileSync(path.join(REPO, "data", "pages", "home-tiles.json"), "utf8")));
 // 首页产品策展条 id 列表(可缺省:无文件=回落多样性挑选)。总工:6–8 精选好图,非目录堆砌。
@@ -735,7 +738,7 @@ for (const locale of RENDER_SET) {
   //    它【不再】是这里的常量:常量只有官网构建读得到,而产品后台跑的是同一份 render.js、
   //    读不到这个文件,于是它渲染首页时 token 原样留在输出里,被 assertNoTokens 拦下 ——
   //    症状是 Joe 在后台按保存就报 commit failed。catalog 是两条渲染路径都已经吃着的那份数据。
-  const h1 = renderHome(homeTpl, { locale, catalog: { ...aboutCat, ...catalog, ...shared, ...homeCat },
+  const h1 = renderHome(homeTpl, { locale, catalog: { ...catalog, ...shared, ...homeCat },
     formOrder: FORMS,   // data/forms.json 的数组序 = 形态次序(/type 页与 chip 同源);见 pickHomeProducts
     tiles: homeTiles, modelDisplay: MODEL, urlOf, exists: pageExists, dirOf, enabled: LOCALES, sizes: MEDIA_SIZES,
     products: entries, featured: homeFeatured, internal_noindex: INTERNAL });

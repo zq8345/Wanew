@@ -32,41 +32,11 @@
     "es-MX": "Planta de fabricación de Wanew",
     "zh": "Wanew 生产工厂"
   },
-  "about.xlc-stat-label.1": {
-    "en": "Years Experience",
-    "pt-BR": "Anos de experiência",
-    "es-MX": "Años de experiencia",
-    "zh": "年经验"
-  },
-  "about.xlc-stat-label.3": {
-    "en": "Skilled Staff",
-    "pt-BR": "Técnicos qualificados",
-    "es-MX": "Personal calificado",
-    "zh": "熟练员工"
-  },
-  "about.xlc-stat-label.4": {
-    "en": "Patents",
-    "pt-BR": "Patentes",
-    "es-MX": "Patentes",
-    "zh": "专利"
-  },
   "about.tj-h2.2": {
     "en": "Manufacturing Capability",
     "pt-BR": "Capacidade de fabricação",
     "es-MX": "Capacidad de fabricación",
     "zh": "制造能力"
-  },
-  "about.about-caps-k.1": {
-    "en": "5,000 m²",
-    "pt-BR": "5.000 m²",
-    "es-MX": "5,000 m²",
-    "zh": "5,000 m²"
-  },
-  "about.about-caps-v.1": {
-    "en": "Factory area",
-    "pt-BR": "Área da fábrica",
-    "es-MX": "Área de fábrica",
-    "zh": "厂房面积"
   },
   "about.h3.1": {
     "en": "Partner With Wanew",
@@ -425,12 +395,6 @@
     "pt-BR": "CONSTRUÍDO COM PROPÓSITO",
     "es-MX": "CREADO CON PROPÓSITO",
     "zh": "工程，从真实需求出发"
-  },
-  "about.story.title": {
-    "en": "We engineer the parts that keep people connected.",
-    "pt-BR": "Projetamos as peças que mantêm as pessoas conectadas.",
-    "es-MX": "Diseñamos las piezas que mantienen a las personas conectadas.",
-    "zh": "解决连接发生的真实问题。"
   },
   "about.story.location": {
     "en": "ENGINEERING & MANUFACTURING",

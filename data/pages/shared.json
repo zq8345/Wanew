@@ -1,4 +1,40 @@
 {
+  "shared.story.title": {
+    "en": "We engineer the parts that keep people connected.",
+    "pt-BR": "Projetamos as peças que mantêm as pessoas conectadas.",
+    "es-MX": "Diseñamos las piezas que mantienen a las personas conectadas.",
+    "zh": "解决连接发生的真实问题。"
+  },
+  "shared.xlc-stat-label.1": {
+    "en": "Years Experience",
+    "pt-BR": "Anos de experiência",
+    "es-MX": "Años de experiencia",
+    "zh": "年经验"
+  },
+  "shared.xlc-stat-label.3": {
+    "en": "Skilled Staff",
+    "pt-BR": "Técnicos qualificados",
+    "es-MX": "Personal calificado",
+    "zh": "熟练员工"
+  },
+  "shared.xlc-stat-label.4": {
+    "en": "Patents",
+    "pt-BR": "Patentes",
+    "es-MX": "Patentes",
+    "zh": "专利"
+  },
+  "shared.about-caps-k.1": {
+    "en": "5,000 m²",
+    "pt-BR": "5.000 m²",
+    "es-MX": "5,000 m²",
+    "zh": "5,000 m²"
+  },
+  "shared.about-caps-v.1": {
+    "en": "Factory area",
+    "pt-BR": "Área da fábrica",
+    "es-MX": "Área de fábrica",
+    "zh": "厂房面积"
+  },
   "shared.professional_equipment": {
     "en": "Professional Equipment",
     "pt-BR": "Equipamentos profissionais",
