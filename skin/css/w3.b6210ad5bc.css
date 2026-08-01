@@ -1841,7 +1841,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   text-wrap: balance;
 }
 .ab8-story__body > p {
-  margin: 0; max-width: 55ch; color: var(--w3-text2);
+  margin: 0; max-width: none; color: var(--w3-text2);
   font-size: var(--w3-fs-body); line-height: 1.8;
 }
 .ab8-story__location {
@@ -1867,6 +1867,10 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   display: flex; justify-content: space-between; align-items: center; gap: 28px;
   color: rgba(255,255,255,.88); font-size: var(--w3-fs-small); line-height: 1.4;
 }
+/* 图右下角:ENGINEERING & MANUFACTURING + 地名。figcaption 本来就是 space-between,
+   所以左边角标不动、这一组自然落右下。 */
+.ab8-story__where { display: inline-flex; align-items: baseline; gap: 10px; white-space: nowrap; }
+.ab8-story__where b { font-weight: 650; color: #fff; }
 .ab8-story__media figcaption span {
   font-size: var(--w3-fs-micro); font-weight: 600; letter-spacing: .16em;
 }
@@ -1888,7 +1892,8 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .ab8-anchor { position: relative; top: calc(-1 * var(--w3-header-h)); }
 .ab8-factory {
   display: grid; grid-template-columns: repeat(10,1fr);
-  gap: 12px; margin-top: 64px;
+  gap: 12px; margin-top: 48px;
+  background: var(--w3-surface-2); border: 1px solid var(--w3-line); padding: 20px;
 }
 .ab8-factory figure { position: relative; grid-column: span 2; aspect-ratio: 1.45; margin: 0; overflow: hidden; background: var(--w3-panel); }
 /* ⚠️ 选择器要比 .ab8-factory figure(0,1,1) 更具体，否则 01 会被那条的 1.45 压回去 —— 实测过。*/
@@ -1938,7 +1943,7 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   background: rgba(9,11,14,.78); color: #fff; font-size: var(--w3-fs-micro);
   font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
 }
-.ab8-process { list-style: none; margin: 88px 0 0; padding: 0; border-top: 1px solid var(--w3-line); }
+.ab8-process { list-style: none; margin: 40px 0 0; padding: 0; border-top: 1px solid var(--w3-line); }
 .ab8-process li {
   display: grid; grid-template-columns: 100px 1fr; gap: 20px; padding: 26px 0;
   border-bottom: 1px solid var(--w3-line);
@@ -1986,9 +1991,8 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 
 .ab8-independent { padding: 88px 0; background: #080a0d; color: var(--w3-text); }
 .ab8-independent__inner {
-  display: grid; grid-template-columns: 1fr;
-  gap: 46px; align-items: start; padding-top: 34px;
-  border-top: 1px solid var(--w3-line2);
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 30px 24px; align-items: start; padding-top: 0;
 }
 .ab8-independent h2 {
   /* 同上：9ch 是分栏遗留。移动端本来就写着 max-width: none，这里与它对齐。 */
@@ -1999,7 +2003,10 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .ab8-independent .faq-flat li { padding: 0 0 22px; margin-bottom: 22px; border-bottom: 1px solid var(--w3-line); }
 .ab8-independent .faq-flat h3 { margin: 0 0 8px; color: var(--w3-text); font-size: var(--w3-fs-compact); font-weight: 650; }
 .ab8-independent .faq-flat p { margin: 0; color: var(--w3-text3); font-size: var(--w3-fs-small); line-height: 1.6; }
-.ab8-independent .w3-link-arrow { grid-column: 1; justify-self: start; margin-top: 8px; }
+.ab8-independent .w3-link-arrow { grid-column: 2; grid-row: 1; justify-self: end; align-self: start; margin-top: 8px; }
+/* 列表与按钮各自占满整行:顶行是「标题 | 链接」两列,其余是整幅。 */
+.ab8-independent .faq-flat,
+.ab8-independent .about-partner__actions { grid-column: 1 / -1; }
 
 .ab8-partner { padding: 126px 0 136px; background: #10141a; color: var(--w3-text); }
 .ab8-partner__top {
