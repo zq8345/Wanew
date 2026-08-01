@@ -1833,7 +1833,10 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   align-items: end; margin-bottom: 78px;
 }
 .ab8-story__statement h2 {
-  margin: 24px 0 0; max-width: 14ch; color: var(--w3-text);
+  /* 14ch 与 .ab8-sectionhead 的 12ch、.ab8-independent 的 9ch 是同一类遗留：
+     两栏时标题只占半幅才需要收窄。堆叠后它是唯一还在强制折行的东西。
+     🔴 字号不动（48px 全站统一），放开宽度。 */
+  margin: 24px 0 0; max-width: none; color: var(--w3-text);
   font-size: var(--w3-fs-d2); font-weight: 700; letter-spacing: -.04em; line-height: 1.03;
   text-wrap: balance;
 }
