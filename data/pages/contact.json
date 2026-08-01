@@ -1,4 +1,12 @@
 {
+  "contact.hero.title": {
+    "en": "Tell us what you're building.",
+    "pt-BR": "Conte-nos o que você está construindo.",
+    "es-MX": "Cuéntanos qué estás construyendo.",
+    "zh": "说说你的项目。",
+    "reason": "页头 h1。en 由 Joe 选定;另三语由总工给出并同时报 Joe 复核 —— 不是本窗自行翻译。此前 h1 是板块名「Contact Us」,与新增的 kicker 重复。",
+    "reason.dupe": "与 contact.page-header-title.1 并存是刻意的:那个键现在没有消费者,但 Contact 页仍在改,先留着,连同 about.partner.* 与 ab8-* 死 CSS 一起交审计窗统一清。"
+  },
   "contact.page-header-title.1": {
     "en": "Contact Us",
     "pt-BR": "Contato",
