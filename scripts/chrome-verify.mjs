@@ -44,6 +44,10 @@ const killCounts = (s) => (s || "").replace(/<span class="nav-dd__n">\(?\d+\)?<\
 const emptyLists = (s) => (s || "")
   .replace(/(id="footer-products-list">)[\s\S]*?(<\/ul>)/, "$1$2")
   .replace(/(id="footer-service-list">)[\s\S]*?(<\/ul>)/, "$1$2");
+// 跳过导航链接(K1,WCAG 2.4.1)= 有意加进 chrome 的常驻一行,和 switcher 同理:两侧都摘掉。
+// 🔴 摘掉 = 这道门【不再看守它】。所以下面 ⑤ 立刻补上对它的正面断言 ——
+//    中和一个东西而不接管对它的看守,就是在门上开一个没人知道的洞。
+const killSkip = (s) => (s || "").replace(/<a class="w3-skip"[\s\S]*?<\/a>\s*/g, "");
 // the switcher is injected/normalised on purpose; compare with it removed
 const killSwitcher = (s) => (s || "").replace(/<div class="lang-switch" data-lang-switch>[\s\S]*?<\/div>/g, "");
 // inline gap = whitespace BETWEEN two tags on the same "line" of markup, i.e. `> <`
@@ -70,15 +74,15 @@ for (const p of pages) {
   const B = blocks(b), A = blocks(a);
   const issues = [];
   // ① header
-  if (wsNorm(killSwitcher(killCounts(B.header))) !== wsNorm(killSwitcher(killCounts(A.header)))) issues.push("header 内容变了");
+  if (wsNorm(killSkip(killSwitcher(killCounts(B.header)))) !== wsNorm(killSkip(killSwitcher(killCounts(A.header))))) issues.push("header 内容变了");
   // ② footer (lists emptied on both sides)
   if (wsNorm(emptyLists(B.footer)) !== wsNorm(emptyLists(A.footer))) issues.push("footer 非列表部分内容变了");
   // ③ mobilenav
   if (wsNorm(B.mobilenav) !== wsNorm(A.mobilenav)) issues.push("mobilenav 内容变了");
   // ④ inline gaps must not be added/removed inside the chrome
   for (const k of ["header", "footer", "mobilenav"]) {
-    const gb = inlineGaps(k === "footer" ? emptyLists(B[k]) : killSwitcher(B[k]));
-    const ga = inlineGaps(k === "footer" ? emptyLists(A[k]) : killSwitcher(A[k]));
+    const gb = inlineGaps(k === "footer" ? emptyLists(B[k]) : killSkip(killSwitcher(B[k])));
+    const ga = inlineGaps(k === "footer" ? emptyLists(A[k]) : killSkip(killSwitcher(A[k])));
     if (gb !== ga) inlineDrift.push(`${p} ${k}: 行内间距 ${gb} -> ${ga}`);
   }
   if (issues.length) fails.push(`${p}: ${issues.join(" | ")}`);
@@ -89,7 +93,21 @@ for (const p of pages) {
     if (!same) wsOnlyPages.push(p);
   }
 }
+// ⑤ 跳过链接与落点的【正面】看守 —— 上面把它从对比里摘掉了,这里必须盯住它本身。
+//    判据不是"存在",是"恰好一个、且顺序对":重复注入(每跑一次多一个)正是这类改动的典型故障,
+//    而它在"存在与否"的检查下完全隐形。
+const a11y = [];
+for (const p of pages) {
+  const s = fs.readFileSync(p, "utf8");
+  if (!s.includes('<header class="main-header clearfix">')) continue;   // 无 chrome 的页(admin 壳)不适用
+  const skip = (s.match(/class="w3-skip"/g) || []).length;
+  const land = (s.match(/id="main-content"/g) || []).length;
+  const order = s.indexOf('class="w3-skip"') < s.indexOf('id="main-content"');
+  if (skip !== 1 || land !== 1 || !order) a11y.push(`${p}: 跳过链接 ${skip} 个 · 落点 ${land} 个 · 顺序 ${order ? "对" : "🔴反了"}`);
+}
 console.log(`chrome-verify  页面 ${pages.length}`);
+console.log(`  ⑤ 跳过链接/落点各恰好 1 个且顺序正确:${pages.length - a11y.length} / ${pages.length}  ${a11y.length ? "🔴" : "✅"}`);
+if (a11y.length) { console.log("\n🔴 跳过链接或落点异常:"); a11y.slice(0, 12).forEach((x) => console.log("   " + x)); }
 // 对账:被检的 + 无基线的 = 总数。让分子分母永远合得上,而不是让读者盯着分母的变化自己推断。
 if (noBaseline.length) {
   console.log(`  ⓪ 新页(HEAD 里没有 → 无"之前",不存在回归,不计入分子)${noBaseline.length}:`);
@@ -101,4 +119,7 @@ if (fails.length) { console.log("\n🔴 内容回归:"); fails.slice(0, 12).forE
 console.log(`  ④ 行内间距(> <)被增删的块:${inlineDrift.length}  ${inlineDrift.length ? "🔴 必须逐条列给总工" : "✅ 一处都没动"}`);
 if (inlineDrift.length) inlineDrift.slice(0, 12).forEach((d) => console.log("   " + d));
 console.log(`\n  chrome 字节有变化的页:${wsOnlyPages.length}(内容相同 → 差异只在缩进/有意改动)`);
-process.exit(fails.length || inlineDrift.length ? 1 : 0);
+// ⚠️ a11y 必须进【这一行】。我先前写的是 process.exitCode = 2 —— 它被这句 process.exit()
+//    直接覆盖,于是闸打印了 🔴、退出码却是 0:跑闸的循环按退出码计,会把它算成绿。
+//    **一道会喊红但不拦人的闸,比没有闸更坏。**(对照组当场抓到)
+process.exit(fails.length || inlineDrift.length || a11y.length ? 1 : 0);

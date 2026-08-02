@@ -163,6 +163,21 @@ h1, h2, h3, h4, p { margin: 0; }
 button, input, textarea, select { font: inherit; color: inherit; }
 ::selection { background: rgba(125, 177, 255, 0.28); }
 :focus-visible { outline: 2px solid var(--w3-accent); outline-offset: 3px; border-radius: 4px; }
+/* 跳过导航链接 —— 审计实测首页 101 个可聚焦元素、导航全在最前,键盘用户每进一页都要穿过整个
+   导航才够得到正文(WCAG 2.4.1,A 级)。
+   ⚠️ 不能用 display:none / visibility:hidden 藏它 —— 那样【键盘也聚焦不到】,这条链接等于不存在。
+      只把它移出视口,聚焦时滑回来。 */
+.w3-skip {
+  position: absolute; top: -80px; left: 24px; z-index: 2000;
+  padding: 12px 20px; border-radius: var(--w3-radius);
+  background: var(--w3-accent); color: #0b0d10;
+  font-size: var(--w3-fs-compact); font-weight: 600; text-decoration: none;
+  transition: top 0.18s var(--w3-ease);
+}
+.w3-skip:focus { top: 16px; }
+/* 落点靠 tabindex="-1" 才接得住焦点。那是【程序化】聚焦,不该画焦点框 ——
+   :focus-visible 本就不会对它生效,这条把 :focus 那一侧也说死。 */
+#main-content:focus { outline: none; }
 body.w3-nav-locked { overflow: hidden; }
 
 .w3-container, .container { width: 100%; max-width: var(--w3-maxw); margin: 0 auto; padding: 0 24px; }
