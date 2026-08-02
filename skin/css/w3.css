@@ -484,8 +484,11 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .footer-widget__logo { display: inline-block; margin-bottom: 18px; }
 .footer-widget__logo img { height: 30px; width: auto; display: block; }
 .footer-widget__newsletter .text { color: var(--w3-text3); font-size: var(--w3-fs-compact); line-height: 1.8; }
-.footer-widget__links-list li { margin: 0 0 9px; }
-.footer-widget__links-list a { color: var(--w3-text3); font-size: var(--w3-fs-compact); transition: color 0.15s; }
+/* 命中区靠 padding 撑,不靠 li 的 margin —— margin 是死区,点不中。
+   行内 <a> 的命中区就是字高 17px;改 inline-block 后 17+14=31,且相邻链接命中区连续无缝。
+   桌面 31px 已越过 WCAG 2.2 AA 的 24px;移动端才是手指真正落点,单独提到 43px。 */
+.footer-widget__links-list li { margin: 0; }
+.footer-widget__links-list a { display: inline-block; padding: 7px 0; color: var(--w3-text3); font-size: var(--w3-fs-compact); transition: color 0.15s; }
 .footer-widget__links-list a:hover { color: var(--w3-text); }
 .site-footer__bottom { border-top: 1px solid var(--w3-line); padding: 22px 0; }
 .site-footer__bottom-text { color: var(--w3-text3); font-size: var(--w3-fs-small); line-height: 1.7; }
@@ -493,6 +496,10 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 @media (max-width: 900px) {
   .site-footer__middle-inner > .row { grid-template-columns: 1fr; gap: 36px; }
   .site-footer .pcblock > .row { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  /* 手指落点在这一档 —— 命中区提到 43px(17 字高 + 13×2) */
+  .footer-widget__links-list a { padding: 13px 0; }
 }
 
 /* ============================================================================
