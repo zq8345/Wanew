@@ -402,4 +402,24 @@ if (AS_JSON) {
   console.log('⚠️ 判达标只看【真漏译】那个数。总数含已接受的债,它不会归零,拿它当 KPI 会让这道门永远红。');
   console.log('(类③=图片里烧死的英文像素, 扫不到, 需重做图)');
 }
-if (IS_CLI) process.exit(findings.length || linkFindings.length || formatFindings.length ? 1 : 0);
+/* 🔴 退出码改成【按它自己声明的判据】(总工 2026-08-02)。
+   原来是 findings.length || linkFindings.length || formatFindings.length —— 用的是【总数】,
+   而它上面第 402 行刚打印过:
+     「判达标只看【真漏译】那个数。总数含已接受的债,它不会归零,拿它当 KPI 会让这道门永远红。」
+   ⇒ **它警告了一件事,然后自己做了那件事。**真漏译已经归零,门却永远绿不了。
+   🔴 永远红的闸,比"会喊红却不拦人"的更坏:后者是没人拦,前者是【大家学会了红是常态】——
+      真回归就藏在一片本来就红的红里。(这是今晚 chrome-verify 那个"打印🔴退出码 0"的镜像。)
+
+   现在:真漏译(类①未声明) + 类①-b 格式化短语 → 拦人。已接受的债不拦人(它本就是"知道、现在不修"的登记)。
+
+   ⚠️ 类②(指向英文页的链接)【继续打印、暂不计入退出码】——
+      · 这是【权宜】,不是判定它无害。归属:任务 #94。
+      · 理由:分类器不认识语言切换器那种链接,把它们混在里面。
+      · 🔴 "大部分是误判"这个说法【从未被数过】。今晚多语言窗引"站内 69 处 precedent"
+        就是栽在这个词上 —— 查实独立来源只有 1 个,还是它自己写的。**没数过的形容词不是证据。**
+      · 裁定完之后类② 必须【重新进入】退出码。**别让权宜变成终态。** */
+const realLeaks = findings.filter((f) => f.badged !== true);
+if (IS_CLI) {
+  if (linkFindings.length) console.log(`⚠️ 类② ${linkFindings.length} 处【不计入退出码】—— 权宜,归属任务 #94;"大部分是误判"未经计数,裁定后须重新纳入。`);
+  process.exit(realLeaks.length || formatFindings.length ? 1 : 0);
+}
