@@ -7,6 +7,13 @@
     "A homograph (correct translation happens to equal the English) gets an EXPLICIT value + reason here — NOT a locales.json whitelist entry.",
     "Whitelisting would auto-pass every future language and silently inherit English; an explicit value makes the guard go red for the next language, forcing a real verdict."
   ],
+  "header.skip_to_content": {
+    "en": "Skip to content",
+    "pt-BR": "Ir para o conteúdo",
+    "es-MX": "Saltar al contenido",
+    "reason.es-MX": "判断:西语无障碍跳转链接的事实标准措辞。不用「Ir al contenido」——「Ir」只说『去』,而「Saltar」说的是『跳过(前面那堆导航)』,那正是这条链接存在的全部理由;葡语侧同族站点用 Ir 更常见,故两语不强行同构",
+    "zh": "跳到主要内容"
+  },
   "header.home": {
     "en": "Home",
     "pt-BR": "Início",

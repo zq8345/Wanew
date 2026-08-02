@@ -17,6 +17,7 @@ import fs from "fs";
 import path from "path";
 import { localeDirs } from "./locale-dirs.mjs";
 import { makeChrome, wsNorm, applyFormNames } from "../functions/_lib/chrome.js";
+import { ensureLandmark } from "./main-landmark.mjs";
 
 const WRITE = process.argv.includes("--write");
 const ONLY = process.argv.includes("--only") ? process.argv[process.argv.indexOf("--only") + 1] : null;
@@ -57,7 +58,10 @@ for (const p of pages) {
   const raw = fs.readFileSync(p, "utf8");
   const crlf = raw.includes("\r\n");
   const html0 = raw.replace(/\r/g, "");
-  const { html, errors: pageErrors } = applyChrome(html0, p);
+  const { html: chromed, errors: pageErrors } = applyChrome(html0, p);
+  // 落点兜底:regen 只写 682 个 HTML 里的 365 个,其余老页面只有这条路能拿到 <main>。
+  // 已有就原样返回(模板已给的那批),所以这里对它们是零操作。
+  const html = ensureLandmark(chromed).html;
   errors.push(...pageErrors);
 
   if (html === html0) { identical++; continue; }
