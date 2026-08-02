@@ -25,7 +25,8 @@ const ENTITY = /&(amp|lt|gt|quot|apos|#\d+);/g;
 const pages = walk(".");
 if (!pages.length) { console.error("❌ 仪器无效:一个 html 都没扫到。"); process.exit(9); }
 
-let blocks = 0, dirty = 0, frozenBlocks = 0, frozenDirty = 0, parseFail = 0;
+// frozenDirty 随豁免一起退役:冻结族的实体现在和在产页一样计进 dirty,不再单独存一份。
+let blocks = 0, dirty = 0, frozenBlocks = 0, parseFail = 0;
 const files = new Set(); const ex = [];
 let empty = 0, broke = 0; const badFiles = new Set();
 for (const f of pages) {
@@ -43,7 +44,16 @@ for (const f of pages) {
     const t = body.trim();
     if (!t) { empty++; badFiles.add(f); }
     else { try { JSON.parse(t); } catch { broke++; badFiles.add(f); } }
-    if (frozen) { frozenBlocks++; if (ENTITY.test(body)) frozenDirty++; ENTITY.lastIndex = 0; continue; }
+    /* 🔴 2026-08-01:实体污染那条的【冻结族豁免】撤销 —— 它保护的是空气,而它有真盲区。
+       撤销前先量:冻结族 792 个块、含实体 **0** ⇒ 收进射程零成本、当场仍绿。
+       盲区是实证的:**同一晚我(总工)亲手编辑过 `mini/*.html`**(给 4208-4211 补空的
+       meta description)。冻结页 regen 写不到,所以修它只能手改 —— 而手改恰恰是最容易
+       写进 `&amp;` 的路径,却正好落在这条豁免的背面。**"regen 修不到"是不设防的理由,
+       不是不检查的理由:检查照样告诉你哪里坏了,只是修法换成手改。**
+       ⚠️ 原豁免理由写的是"收尾那一刀会删掉它们" —— 但那一刀还没落,在此之前它们
+       被索引、在 sitemap 里。**按将来会消失来给今天的东西免检,是把时间当成了断言。**
+       统计仍分开打印(在产 / 冻结),只是判据不再放过冻结族。 */
+    if (frozen) frozenBlocks++;
     blocks++;
     if (body.trim() !== "") { try { JSON.parse(body); } catch { parseFail++; } }
     ENTITY.lastIndex = 0;
@@ -56,7 +66,10 @@ for (const f of pages) {
 }
 console.log(`【ld+json 实体污染】页面 ${pages.length}`);
 console.log(`  在产页面:块 ${blocks} · 🔴 含实体 ${dirty} · 解析失败 ${parseFail} · 涉及文件 ${files.size}`);
-console.log(`  冻结旧址页(实体污染那条不计入判据):块 ${frozenBlocks} · 含实体 ${frozenDirty}`);
+// ⚠️ 这行标签曾写着「不计入判据」——撤销豁免后那句就成了假话。**标签是断言,不是装饰。**
+//    今晚同一族栽了三次(注释说 About 复用 .w3-whycard、文档说用 .w3-whycard__idx 编号、
+//    这道闸自己标着「含冻结族」而代码在 continue 之后)。改判据必须连它的自述一起改。
+console.log(`  其中冻结旧址页(与在产页同一判据,已计入):块 ${frozenBlocks}`);
 console.log(`  ⭐ 块非空且可解析(全站,含冻结族):🔴 空块 ${empty} · 解析失败 ${broke} · 涉及文件 ${badFiles.size}  ${empty || broke ? "🔴" : "✅"}`);
 [...badFiles].sort().slice(0, 20).forEach((x) => console.log(`     ${x}`));
 ex.forEach((x) => console.log(`     ${x}`));
