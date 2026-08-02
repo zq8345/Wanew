@@ -370,6 +370,23 @@ for (const id of targets) {
       const d = dirOf(alt) ? `/${dirOf(alt)}` : "";
       return tag.replace(/href="[^"]*"/, `href="https://wanew.com${d}/products/${entry.path}"`);
     });
+    /* ⭐ 面包屑末级也要跟着改成新址(总工 2026-08-01 选 A)。
+       理由不是偏好:这一页的 canonical 已经【自指新址】,面包屑末级若还指旧址,
+       **同一张页面用两个声明说自己是两个不同的东西**。
+       而且 render.js 里那段注释定的就是这条策略:「canonical 保持自指新址:第 5 步只需摘
+       noindex,不必翻转任何已有声明。翻转是最容易漏一半的操作。」面包屑照同一条走
+       ⇒ 现在指新址,第 5 步什么都不用动。
+       ⚠️ 反方(指旧址=把权重指向被索引那个)的理由是空的:新址页挂着 noindex,
+          它本来就不传递任何面包屑信号。
+       ⚠️ 找那一块【按解析结果判 @type】,不拿正则猜 JSON 边界(惰性 `}` 会停在内层括号上)。 */
+    for (const b of dual.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+      let bj; try { bj = JSON.parse(b[1].trim()); } catch { continue; }
+      if (!bj || bj["@type"] !== "BreadcrumbList" || !Array.isArray(bj.itemListElement) || !bj.itemListElement.length) continue;
+      bj.itemListElement[bj.itemListElement.length - 1].item =
+        `https://wanew.com${dirOf(locale) ? "/" + dirOf(locale) : ""}/products/${entry.path}`;
+      dual = dual.split(b[0]).join(`<script type="application/ld+json">${JSON.stringify(bj)}</script>`);
+      break;
+    }
     fs.mkdirSync(path.dirname(newOut), { recursive: true });
     fs.writeFileSync(newOut, dual);
     dualWritten++;
@@ -618,7 +635,13 @@ for (const [rel, cat, name, bannerModel, headerSpec] of LIST_PAGES) {
   const src = (pNew && fs.existsSync(pNew)) ? pNew : p;
   if (!fs.existsSync(src)) continue;         // 阶段①决定不建的(如 products/aggregate 缺页)
   const h0 = fs.readFileSync(src, "utf8");
-  let h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf, formKey: FORM_KEY, sizes: MEDIA_SIZES });
+  /* ⭐ 本页 URL 显式传进去,面包屑末级要用它。
+     🔴 不能让 regenListPage 去读 html 里的 canonical:这一页是从 `src` 读的,而 src 可能是
+        【新址】文件(上面那句 `src = pNew 存在 ? pNew : p`),但要写出的是 `rel` 这个地址 ——
+        canonical 在那一刻不是本页的最终身份。我第一版就是栽在这:/enterprise/ 的面包屑
+        末级指到了 /products/enterprise/。**把一个不稳定的值当成了稳定判据。** */
+  const selfUrl = `https://wanew.com${urlOf(`/${rel.replace(/index\.html$/, "")}`, locale)}`;
+  let h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf, formKey: FORM_KEY, sizes: MEDIA_SIZES, selfUrl });
   h1 = setListTitle(h1, name, locale, catalog);
   // setListLabels 现在也本地化形态 chip 类目名(header.* 键在 chrome.json=catalog)+ All(list.* 键在 listCat)
   // —— 两个 catalog 合并传入(键空间不重叠:header.* vs list.*)。
@@ -652,6 +675,18 @@ for (const [rel, cat, name, bannerModel, headerSpec] of LIST_PAGES) {
   if (newRelSrc && pNew) {
     let hNew = localizeSeoListHead(hBase, newRelSrc, locale);
     hNew = hNew.replace(/(<link rel="canonical")/, `<meta name="robots" content="noindex, follow" />\n$1`);
+    /* ⭐ 面包屑末级跟着改成新址 —— 与详情页新址同一条(总工 2026-08-01 选 A)。
+       这一页的 canonical 已经自指新址;末级若还指旧址,同一张页面用两个声明说自己是两个东西。
+       ⚠️ hBase 是从旧址那一路算出来的(selfUrl 传的是旧址),所以这里必须【显式改写】,
+          不能指望它自己是对的 —— 这正是上一轮我栽的那个"值不稳定"的另一半。 */
+    const newListUrl = `https://wanew.com${urlOf(`/${newRelSrc.replace(/index\.html$/, "")}`, locale)}`;
+    for (const b of hNew.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+      let bj; try { bj = JSON.parse(b[1].trim()); } catch { continue; }
+      if (!bj || bj["@type"] !== "BreadcrumbList" || !Array.isArray(bj.itemListElement) || !bj.itemListElement.length) continue;
+      bj.itemListElement[bj.itemListElement.length - 1].item = newListUrl;
+      hNew = hNew.split(b[0]).join(`<script type="application/ld+json">${JSON.stringify(bj)}</script>`);
+      break;
+    }
     fs.mkdirSync(path.dirname(pNew), { recursive: true });
     fs.writeFileSync(pNew, hNew);
     dualLists++;

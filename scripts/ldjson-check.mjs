@@ -29,6 +29,17 @@ if (!pages.length) { console.error("❌ 仪器无效:一个 html 都没扫到。
 let blocks = 0, dirty = 0, frozenBlocks = 0, parseFail = 0;
 const files = new Set(); const ex = [];
 let empty = 0, broke = 0; const badFiles = new Set();
+const bcBad = [];   // 面包屑:指首页 / 末级不等于本页 canonical
+/* ⚠️ 【点名豁免,不是静默跳过】——这两个文件的面包屑同样坏(第 2 级指首页),但它们既不是
+   列表页也不是产品页,不在本批那两个生产者的射程里。总工 2026-08-01 明确:404 那条另排、
+   本批别顺手做;video/39 是我这次新发现的同一族,一并交他排。
+   🔴 豁免必须【可见】:下面单独打印条数,而不是让分母悄悄缩水。
+      清单里每一项都得写明"归谁、为什么现在不修" —— 否则它迟早变成一张免罪符。 */
+const BC_KNOWN = new Map([
+  ["404.html", "第 2 级「Service」指首页;非列表/产品页 → 总工另排"],
+  ["video/39.html", "同上;本次新发现 → 总工另排"],
+]);
+const bcKnown = [];
 for (const f of pages) {
   const frozen = FROZEN.test(f);
   const s = fs.readFileSync(f, "utf8");
@@ -53,6 +64,34 @@ for (const f of pages) {
        ⚠️ 原豁免理由写的是"收尾那一刀会删掉它们" —— 但那一刀还没落,在此之前它们
        被索引、在 sitemap 里。**按将来会消失来给今天的东西免检,是把时间当成了断言。**
        统计仍分开打印(在产 / 冻结),只是判据不再放过冻结族。 */
+    /* ⭐ 面包屑的两条正面断言(2026-08-01 补射程)。
+       缘起:上一批的 ldjson-image-check 照的是【图片】,而列表页坏在 breadcrumb 的 item ——
+       **不是漏判,是覆盖边界。**实测六条只有 /pt/products/ 对,其余五条第 2 级 item 指首页、
+       es 页整页挂英文名。一道闸看不见的地方,就是缺陷长期活着的地方。
+       判据:① 第 1 级之后的任何一级都【不许】指向站点根/语种首页(那是"我在首页"的意思)
+             ② 最后一级必须指向【本页自己的 canonical】(面包屑要描述本页的位置,不是别人的) */
+    {
+      let bj = null; try { bj = JSON.parse(body.trim()); } catch { bj = null; }
+      if (bj && bj["@type"] === "BreadcrumbList" && Array.isArray(bj.itemListElement)) {
+        const canon = (/<link rel="canonical" href="([^"]+)"/.exec(s) || [])[1];
+        const roots = new Set(["https://wanew.com", "https://wanew.com/", "https://wanew.com/pt/", "https://wanew.com/es/", "https://wanew.com/zh/"]);
+        const els = bj.itemListElement;
+        /* ⚠️ 例外:首页。它的第 2 级就是它自己,所以"第 1 级之后不许指首页"对它不成立。
+           🔴 口径写清楚:【既有行为，本批不改，非背书】——
+              一张首页要不要有 BreadcrumbList、第 2 级该不该等于自己，我不认为现在这样一定对；
+              但那是另一个问题，不该由这批顺手定。**"给它开了例外" ≠ "这样是对的"。** */
+        const isHome = /^(?:(?:pt|es|zh)\/)?index\.html$/.test(f);
+        const known = BC_KNOWN.has(f);
+        for (let i = 1; !isHome && !known && i < els.length; i++) {
+          if (roots.has(String(els[i].item))) bcBad.push(`${f}  第 ${i + 1} 级「${els[i].name}」item 指向首页 ${els[i].item}`);
+        }
+        const last = els[els.length - 1];
+        if (known && !bcKnown.includes(f)) bcKnown.push(f);
+        if (!isHome && !known && canon && last && String(last.item).replace(/\/$/, "") !== String(canon).replace(/\/$/, "")) {
+          bcBad.push(`${f}  末级 item ${last.item} ≠ 本页 canonical ${canon}`);
+        }
+      }
+    }
     if (frozen) frozenBlocks++;
     blocks++;
     if (body.trim() !== "") { try { JSON.parse(body); } catch { parseFail++; } }
@@ -76,4 +115,9 @@ ex.forEach((x) => console.log(`     ${x}`));
 // ⚠️ 退出码必须在【这一行】把新断言算进去。原来是 `dirty ? 1 : 0` —— parseFail 一直在数、
 //    却从不影响退出码,于是 12 个空块页在这道闸下常年绿灯。
 //    **一道会喊红但不拦人的闸,比没有闸更坏。**
-process.exit(dirty || empty || broke || parseFail ? 1 : 0);
+if (bcKnown.length) console.log(`  ⚠️ 面包屑【点名豁免】${bcKnown.length} 个文件(不计入判据,归属已写在 BC_KNOWN):${bcKnown.map((x) => `${x} — ${BC_KNOWN.get(x)}`).join(" · ")}`);
+console.log(`  ⭐ 面包屑：第 1 级之后不指首页 + 末级 == 本页 canonical：🔴 异常 ${bcBad.length}  ${bcBad.length ? "🔴" : "✅"}`);
+bcBad.slice(0, 12).forEach((x) => console.log(`     ${x}`));
+if (bcBad.length > 12) console.log(`     … 还有 ${bcBad.length - 12} 处`);
+// ⚠️ bcBad 必须进【这一行】—— 打印红而不拦人的闸，比没有闸更坏。
+process.exit(dirty || empty || broke || parseFail || bcBad.length ? 1 : 0);
