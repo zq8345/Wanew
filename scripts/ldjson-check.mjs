@@ -30,16 +30,9 @@ let blocks = 0, dirty = 0, frozenBlocks = 0, parseFail = 0;
 const files = new Set(); const ex = [];
 let empty = 0, broke = 0; const badFiles = new Set();
 const bcBad = [];   // 面包屑:指首页 / 末级不等于本页 canonical
-/* ⚠️ 【点名豁免,不是静默跳过】——这两个文件的面包屑同样坏(第 2 级指首页),但它们既不是
-   列表页也不是产品页,不在本批那两个生产者的射程里。总工 2026-08-01 明确:404 那条另排、
-   本批别顺手做;video/39 是我这次新发现的同一族,一并交他排。
-   🔴 豁免必须【可见】:下面单独打印条数,而不是让分母悄悄缩水。
-      清单里每一项都得写明"归谁、为什么现在不修" —— 否则它迟早变成一张免罪符。 */
-const BC_KNOWN = new Map([
-  ["404.html", "第 2 级「Service」指首页;非列表/产品页 → 总工另排"],
-  ["video/39.html", "同上;本次新发现 → 总工另排"],
-]);
-const bcKnown = [];
+/* ⚠️ 这里【曾经】有一张 BC_KNOWN 点名豁免(404.html / video/39.html)。
+   两页已修,名单【整个删掉】而不是留成空 Map ——
+   **一张留着的豁免名单,下一个人会当成"这些不用管"。** 空壳名单比没有名单更坏。 */
 for (const f of pages) {
   const frozen = FROZEN.test(f);
   const s = fs.readFileSync(f, "utf8");
@@ -81,13 +74,11 @@ for (const f of pages) {
               一张首页要不要有 BreadcrumbList、第 2 级该不该等于自己，我不认为现在这样一定对；
               但那是另一个问题，不该由这批顺手定。**"给它开了例外" ≠ "这样是对的"。** */
         const isHome = /^(?:(?:pt|es|zh)\/)?index\.html$/.test(f);
-        const known = BC_KNOWN.has(f);
-        for (let i = 1; !isHome && !known && i < els.length; i++) {
+        for (let i = 1; !isHome && i < els.length; i++) {
           if (roots.has(String(els[i].item))) bcBad.push(`${f}  第 ${i + 1} 级「${els[i].name}」item 指向首页 ${els[i].item}`);
         }
         const last = els[els.length - 1];
-        if (known && !bcKnown.includes(f)) bcKnown.push(f);
-        if (!isHome && !known && canon && last && String(last.item).replace(/\/$/, "") !== String(canon).replace(/\/$/, "")) {
+        if (!isHome && canon && last && String(last.item).replace(/\/$/, "") !== String(canon).replace(/\/$/, "")) {
           bcBad.push(`${f}  末级 item ${last.item} ≠ 本页 canonical ${canon}`);
         }
       }
@@ -115,7 +106,6 @@ ex.forEach((x) => console.log(`     ${x}`));
 // ⚠️ 退出码必须在【这一行】把新断言算进去。原来是 `dirty ? 1 : 0` —— parseFail 一直在数、
 //    却从不影响退出码,于是 12 个空块页在这道闸下常年绿灯。
 //    **一道会喊红但不拦人的闸,比没有闸更坏。**
-if (bcKnown.length) console.log(`  ⚠️ 面包屑【点名豁免】${bcKnown.length} 个文件(不计入判据,归属已写在 BC_KNOWN):${bcKnown.map((x) => `${x} — ${BC_KNOWN.get(x)}`).join(" · ")}`);
 console.log(`  ⭐ 面包屑：第 1 级之后不指首页 + 末级 == 本页 canonical：🔴 异常 ${bcBad.length}  ${bcBad.length ? "🔴" : "✅"}`);
 bcBad.slice(0, 12).forEach((x) => console.log(`     ${x}`));
 if (bcBad.length > 12) console.log(`     … 还有 ${bcBad.length - 12} 处`);
