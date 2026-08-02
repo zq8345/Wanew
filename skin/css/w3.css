@@ -691,18 +691,19 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
   .w3-scene-panel__cap { padding-bottom: 40px; }
 }
 
-/* why-wanew cards */
-.w3-why { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.w3-whycard {
-  background: var(--w3-panel); border: 1px solid var(--w3-line); border-radius: var(--w3-radius);
-  padding: 26px 24px; display: grid; gap: 12px; align-content: start;
-  transition: transform 0.3s var(--w3-ease), border-color 0.3s;
+/* why-wanew —— 格子组,与 About 的 OEM/ODM(.ab8-oem__grid)同一种写法。Joe 2026-08-01 直接点名对齐。
+   四条优势是【一个承诺被切成四份】,不是四个各自独立、可点击的对象 ⇒ 共用一个外框、
+   gap 1px 露出 --w3-line 当发丝分隔、圆角只在外框上、格内零 hover(不可点的东西不该给点击暗示)、
+   格底与板块同色(OEM/ODM 也是 section 与格子同为 --w3-bg2,靠发丝线而非色差分格)。
+   见 DESIGN.md §格子组的三条判据。此前是白卡:各自圆角+阴影+translateY hover —— 那是卡片语言。 */
+.w3-why {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--w3-line);
+  border: 1px solid var(--w3-line); border-radius: 14px; overflow: hidden;
 }
-.w3-whycard:hover { transform: translateY(-4px); border-color: var(--w3-line2); }
-.w3-whycard__idx {
-  font-size: var(--w3-fs-compact); font-weight: 700; letter-spacing: 0.08em; color: var(--w3-accent);
-  font-variant-numeric: tabular-nums; padding-bottom: 6px; border-bottom: 1px solid var(--w3-line);
-  width: fit-content; margin-bottom: 4px;
+.w3-whycard {
+  background: var(--w3-bg); padding: clamp(26px, 2.4vw, 36px);
+  display: grid; gap: 12px; align-content: start;
 }
 .w3-whycard h3 { font-size: var(--w3-fs-body); font-weight: 650; letter-spacing: -0.01em; line-height: 1.35; }
 .w3-whycard p { font-size: var(--w3-fs-compact); color: var(--w3-text2); line-height: 1.65; }
@@ -777,21 +778,13 @@ li.w3-open > a .w3-subnav-btn::after { transform: scaleY(0); }
 .w3-invert .w3-certbadge { background: #fff; border-color: rgba(15,25,45,.14); color: var(--w3-invert-ink); }
 
 /* ⭐ Joe 2026-07-27 直裁:治沉闷 canonical = 【深底保留 + 容器翻白】,不是把整段背景翻白(.w3-invert)。
-   深色板块 + 白卡 = 白卡在深底上强对比跳出,替代 .w3-invert 成为提亮首选。用于 Our Advantages / Guides&Resources。
+   深色板块 + 白卡 = 白卡在深底上强对比跳出,替代 .w3-invert 成为提亮首选。用于 Guides&Resources。
    ⚠️只翻【卡片容器】,不翻 section 背景、不翻 section header(eyebrow/h2/sub 仍浅字在深底)。
-   ⚠️必须 section 作用域:.w3-whycard 被 About 复用(全暗做对),禁全局翻白。 */
-.w3-whitecards .w3-whycard {
-  background: #fff; border-color: rgba(15,25,45,.08);
-  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 2px 10px -3px rgba(0,0,0,.45), 0 28px 54px -22px rgba(0,0,0,.7);
-}
-.w3-whitecards .w3-whycard:hover {
-  border-color: rgba(15,25,45,.16);
-  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 4px 14px -3px rgba(0,0,0,.5), 0 34px 64px -24px rgba(0,0,0,.78);
-}
-/* whycard 白卡内文(深字 + 深蓝 accent,与反转带同源) */
-.w3-whitecards .w3-whycard__idx { color: var(--w3-invert-accent); border-bottom-color: rgba(15,25,45,.12); }
-.w3-whitecards .w3-whycard h3 { color: var(--w3-invert-ink); }
-.w3-whitecards .w3-whycard p { color: var(--w3-invert-ink2); }
+   ⚠️ 2026-08-01:Our Advantages 已按 Joe 要求改成格子组(见上面 .w3-why),退出白卡方案,
+      所以这里原有的 5 条 `.w3-whitecards .w3-whycard*` 一并删除 —— 留着就是没有消费者的规则。
+   ⚠️ 同日订正一条【假注释】:原文写"必须 section 作用域,.w3-whycard 被 About 复用,禁全局翻白"。
+      实测 `.w3-whycard` 全站只有 home.html 一处、About 零命中 —— **那句复用是假的**。
+      假注释比没有注释更贵:它会让下一个人为了一个不存在的消费者而不敢动。 */
 /* guide 白卡:cover 翻浅底(深蓝图标)+ 内文深字 *
 
 /* 2026-07-28:#8a94a0 在白卡上只有 **3.08**(11px 正文级,门槛 4.5)—— 那是个深色模式的灰
