@@ -27,6 +27,7 @@ if (!pages.length) { console.error("❌ 仪器无效:一个 html 都没扫到。
 
 let blocks = 0, dirty = 0, frozenBlocks = 0, frozenDirty = 0, parseFail = 0;
 const files = new Set(); const ex = [];
+let empty = 0, broke = 0; const badFiles = new Set();
 for (const f of pages) {
   const frozen = FROZEN.test(f);
   const s = fs.readFileSync(f, "utf8");
@@ -34,6 +35,14 @@ for (const f of pages) {
   let m;
   while ((m = re.exec(s))) {
     const body = m[1];
+    /* ⭐ 正面断言(必须在下面那句 frozen continue 【之前】——
+       我第一版写在它后面,于是断言根本看不到冻结族,而标签还写着「含冻结族」。
+       是独立盘点的数字对不上把它揪出来的。):块非空 + 可解析。空的 <script type="ld+json"></script> 不是"没有标注",
+       是"标注坏了"——搜索引擎拿到一个无法解析的块。判据【不区分冻结与否】:
+       被索引、在 sitemap 里的恰恰是冻结旧址页,把它们排除等于把闸架在没有缺陷的地方。 */
+    const t = body.trim();
+    if (!t) { empty++; badFiles.add(f); }
+    else { try { JSON.parse(t); } catch { broke++; badFiles.add(f); } }
     if (frozen) { frozenBlocks++; if (ENTITY.test(body)) frozenDirty++; ENTITY.lastIndex = 0; continue; }
     blocks++;
     if (body.trim() !== "") { try { JSON.parse(body); } catch { parseFail++; } }
@@ -47,6 +56,11 @@ for (const f of pages) {
 }
 console.log(`【ld+json 实体污染】页面 ${pages.length}`);
 console.log(`  在产页面:块 ${blocks} · 🔴 含实体 ${dirty} · 解析失败 ${parseFail} · 涉及文件 ${files.size}`);
-console.log(`  冻结旧址页(不计入判据):块 ${frozenBlocks} · 含实体 ${frozenDirty}`);
+console.log(`  冻结旧址页(实体污染那条不计入判据):块 ${frozenBlocks} · 含实体 ${frozenDirty}`);
+console.log(`  ⭐ 块非空且可解析(全站,含冻结族):🔴 空块 ${empty} · 解析失败 ${broke} · 涉及文件 ${badFiles.size}  ${empty || broke ? "🔴" : "✅"}`);
+[...badFiles].sort().slice(0, 20).forEach((x) => console.log(`     ${x}`));
 ex.forEach((x) => console.log(`     ${x}`));
-process.exit(dirty ? 1 : 0);
+// ⚠️ 退出码必须在【这一行】把新断言算进去。原来是 `dirty ? 1 : 0` —— parseFail 一直在数、
+//    却从不影响退出码,于是 12 个空块页在这道闸下常年绿灯。
+//    **一道会喊红但不拦人的闸,比没有闸更坏。**
+process.exit(dirty || empty || broke || parseFail ? 1 : 0);
