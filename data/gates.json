@@ -25,6 +25,11 @@
       "what": "Product JSON-LD 的 image 必须出现在该产品自己的图册里(2026-08-01:64/68 曾经不是,无人知晓)"
     },
     {
+      "id": "chip-axis-check",
+      "cmd": "node scripts/chip-axis-check.mjs",
+      "what": "筛选 chip 必须来自它那一维的真源(2026-08-01:35 页的类型轴装的是机型 chip)"
+    },
+    {
       "id": "catalog-dupe-check",
       "cmd": "node scripts/catalog-dupe-check.mjs",
       "what": "catalog 键重复/冲突"

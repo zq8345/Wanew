@@ -675,7 +675,12 @@ export function setListLabels(html, { locale, catalog, model, formKey }) {
   };
   // (1) <button> 筛选 chip:两轴 All → 本地化;形态类目 → 本地化;机型名(不在表)原样。
   out = out.replace(
-    /(<button\b[^>]*\bdata-filter="([a-z-]+)"[^>]*>)([^<]*?)( <span class="product-chip__n">)/g,
+    /* 🔴 原来是 [a-z-]+ —— **匹配不到带数字的 key**:performance-gen-1/-2/-3 三个机型 chip
+       从来走不进本地化。今天无害(机型名本就不译),但形态 key 哪天带上数字就会静默留英文 ——
+       一颗"今天无害、将来静默"的哑弹。
+       ⚠️ 扩正则必须【行为中性且可证】:机型名不译 ⇒ 那三个 chip 的产出字节应当一个都不变。
+          这一点用产出对照证明,不是"应该不会变"。 */
+    /(<button\b[^>]*\bdata-filter="([a-z0-9-]+)"[^>]*>)([^<]*?)( <span class="product-chip__n">)/g,
     (m, open, filter, label, tail) => {
       if (filter === "all") return open + ALL + tail;
       const key = FORM_LABEL_KEY[filter];
@@ -744,7 +749,7 @@ export function setListTitle(html, name, locale, catalog) {
    文件读、往旧址写,那一刻 html 里的 canonical 不是本页的最终身份)。admin 的三处调用不传,
    回落成"读 html 里的 canonical",行为与本次改动前一致 ⇒ 镜像不破。
    🔴 但"镜像不破"只证明文件对得上,证明不了行为对 —— 回落那条链的产出必须单独验(已验,见交付报告)。 */
-export function regenListPage(html, entries, catFilter, { locale = "en", catalog, urlOf, formKey = {}, sizes, selfUrl } = {}) {
+export function regenListPage(html, entries, catFilter, { locale = "en", catalog, urlOf, formKey = {}, sizes, selfUrl, forms } = {}) {
   const inScope = (e) => {
     if (!catFilter) return true;
     if (Array.isArray(catFilter)) return catFilter.includes(e.category);
@@ -816,6 +821,42 @@ export function regenListPage(html, entries, catFilter, { locale = "en", catalog
       ],
     });
     html = html.split(bcRaw).join(`<script type="application/ld+json">${derivedBc}</script>`);
+  }
+  /* ⭐ 类型轴那一行 —— 给它一个生产者(总工 2026-08-01 拍板)。
+     实测 91 个带 chip 的列表页:56 个两轴都对,**35 个第 2 行装的是【机型】chip**
+     (连容器 id 都是 modelChips)。计数其实是对的 —— updateChips 老老实实按机型在本页
+     scope 内数,/type/power/ 的 7 件恰好全是 mini ⇒ Mini 7、其余 0。**维度错,不是计数错。**
+     根因和今晚另外两处一样:**chip 行的结构与文案烘死在产出里,没有生产者**;
+     updateChips 只改数字,不改容器、不改 filter 集合。
+
+     ⚠️ 只在【该行维度确实不对】时才重建 —— 范围锁死在那 35 页:
+        · 那 56 个正确页保持逐字节不变(总工把范围锁在 35,我不顺手扩)
+        · ⚠️ 顺带发现但【不动】:正确页的 chip 次序是 mounts/power/cables…,
+          而 forms.json 的数组序是 cables/mounts/power…。按真源顺序生成会连带改那 56 页。
+          次序要不要统一 = 另一件事,已报总工,不在本批。
+     ⚠️ 第 1 行(机型轴)不碰:实测 91 页全对,而且它有两种载体(<a> 导航 / <button> 筛选),
+        重建它会有弄坏导航的风险,收益是零。它的正确性由新闸看守。
+     ⚠️ forms 缺省 undefined ⇒ admin 的三处调用不传就完全不进这段,行为与改动前一致。 */
+  if (Array.isArray(forms) && forms.length) {
+    const FORMKEYS = new Set(forms.map((x) => x.key));
+    const blocks = [...html.matchAll(/<div class="product-chiprow">[\s\S]*?<\/div>\s*<\/div>/g)];
+    const row = blocks[1];
+    if (row) {
+      const keys = [...row[0].matchAll(/data-filter="([^"]*)"/g)].map((m) => m[1]).filter((k) => k !== "all");
+      const wrong = keys.length && !keys.every((k) => FORMKEYS.has(k));
+      if (wrong) {
+        const chip = (k, label, n, active) =>
+          `<button type="button" class="product-chip${active ? " is-active" : ""}" data-filter="${k}">${label} <span class="product-chip__n">${n}</span></button>`;
+        const body = [chip("all", "All", scope.length, true)]
+          .concat(forms.map((x) => chip(x.key, x.name, countForm(x.key), false)))
+          .join("\n              ");
+        const rebuilt = row[0].replace(
+          /<div class="product-chips" id="[^"]*">[\s\S]*?<\/div>/,
+          `<div class="product-chips" id="formChips">\n              ${body}\n            </div>`,
+        );
+        html = html.split(row[0]).join(rebuilt);
+      }
+    }
   }
   html = updateChips(html, "modelChips", countModel);
   html = updateChips(html, "formChips", countForm);

@@ -641,7 +641,7 @@ for (const [rel, cat, name, bannerModel, headerSpec] of LIST_PAGES) {
         canonical 在那一刻不是本页的最终身份。我第一版就是栽在这:/enterprise/ 的面包屑
         末级指到了 /products/enterprise/。**把一个不稳定的值当成了稳定判据。** */
   const selfUrl = `https://wanew.com${urlOf(`/${rel.replace(/index\.html$/, "")}`, locale)}`;
-  let h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf, formKey: FORM_KEY, sizes: MEDIA_SIZES, selfUrl });
+  let h1 = regenListPage(h0, manifest, cat, { locale, catalog, urlOf, formKey: FORM_KEY, sizes: MEDIA_SIZES, selfUrl, forms: FORMS });
   h1 = setListTitle(h1, name, locale, catalog);
   // setListLabels 现在也本地化形态 chip 类目名(header.* 键在 chrome.json=catalog)+ All(list.* 键在 listCat)
   // —— 两个 catalog 合并传入(键空间不重叠:header.* vs list.*)。
