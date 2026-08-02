@@ -11,10 +11,12 @@
     "i18n": {
       "pt-BR": {
         "title": "(Pacote com 2) Cabo Adaptador Ethernet para Starlink Enterprise, Extensão para Cabo RJ45, Cabo Starlink 23AWG À prova d'água, Acoplador SPX-RJ45 com Tampas de Proteção",
+        "card_title": "Cabo Adaptador Ethernet para Starlink Enterprise, Extensão para Cabo RJ45",
         "excerpt": "Conversão Ethernet sem interrupções: converta facilmente o conector do Starlink Enterprise e ···"
       },
       "es-MX": {
         "title": "(Paquete de 2) Cable Adaptador Ethernet para Starlink Enterprise, Extensión a Cable RJ45, Cable Starlink 23AWG Impermeable, Acoplador SPX-RJ45 con Tapas Protectoras",
+        "card_title": "Cable Adaptador Ethernet para Starlink Enterprise, Extensión a Cable RJ45",
         "excerpt": "Conversión Ethernet sin complicaciones: convierte fácilmente el conector del Starlink Enterp ···"
       }
     }
@@ -750,12 +752,12 @@
     "excerpt": "About this item Built-in Boost Module: This starlink mini 12V adapter converts 10V-28V step ···",
     "i18n": {
       "pt-BR": {
-        "title": "Adaptador Veicular para Starlink Mini com Suporte a 105W de Potência, com Módulo Boost, Cabo Starlink Mini de Saída Contínua e Estável, Kit de Conversão 12/24V para 30V 3,5A, com Cabo DC de 9,8FT IP68",
-        "excerpt": "Sobre este item Módulo Boost Integrado: Este adaptador de 12V para Starlink Mini converte a ···"
+        "title": "Adaptador Veicular para Starlink Mini com Suporte a 105W de Potência, com Módulo Elevador de Tensão, Cabo Starlink Mini de Saída Contínua e Estável, Kit de Conversão 12/24V para 30V 3,5A, com Cabo DC de 9,8FT IP68",
+        "excerpt": "Sobre este item Módulo Elevador de Tensão Integrado: Este adaptador de 12V para Starlink Min ···"
       },
       "es-MX": {
-        "title": "Adaptador para Vehículo Starlink Mini con Soporte de 105W de Potencia, con Módulo Boost, Cable Starlink Mini de Salida Continua y Estable, Kit de Conversión 12/24V a 30V 3.5A, con Cable CC de 9.8FT IP68",
-        "excerpt": "Acerca de este artículo Módulo Boost Integrado: Este adaptador de 12V para Starlink Mini con ···"
+        "title": "Adaptador para Vehículo Starlink Mini con Soporte de 105W de Potencia, con Módulo Elevador de Voltaje, Cable Starlink Mini de Salida Continua y Estable, Kit de Conversión 12/24V a 30V 3.5A, con Cable CC de 9.8FT IP68",
+        "excerpt": "Acerca de este artículo Módulo Elevador de Voltaje Integrado: Este adaptador de 12V para Sta ···"
       }
     }
   },
