@@ -245,12 +245,6 @@
       "quote": "",
       "note": "corriente alterna,DC→CC 的对称项。⚠️ `AC Cable` 是 Starlink MX 的硬件部件名,已在 untranslated 里豁免,不受此条影响。"
     },
-    "power bank": {
-      "es": "power bank",
-      "evidence": "judgement",
-      "quote": "",
-      "note": "⚠️【判断,无墨西哥语料背书】墨西哥电商普遍直接用 power bank,但我没有 coppel/gob.mx 语料实证;备选 batería portátil。es===en 所以规则④不照它 —— 这是【借词】不是【漏翻】,两者必须在数据上分清。"
-    },
     "Type-C": {
       "es": "Type-C",
       "variants": [
@@ -372,6 +366,12 @@
     "⚠️ 这里放的是【本来就不该是西语】的东西，不是【翻不动所以放过】—— 后者属于 GAP，必须红。"
   ],
   "untranslated": [
+    {
+      "value": "power bank / power banks",
+      "why": "⚠️【判断,无墨西哥语料背书】墨西哥电商普遍直接用 power bank,但我没有 coppel/gob.mx 语料实证;备选 batería portátil。⚠️2026-08-01(总工签字):这条原来登记在 terms 里(管一致性,不是本来就不该翻)——terms 会让检查器永远学不会它是有意的,搬到这里才是正确的表。es===en 是【借词】不是【漏翻】,两者必须在数据上分清。证据:pt 正文 280+ 处 Power Bank vs 仅 2 处 bateria portátil,site precedent 压倒性。",
+      "evidence": "judgement",
+      "quote": ""
+    },
     {
       "value": "Power Supply",
       "why": "⭐ 硬件部件名。**这条规则是真语料教我的**：我自编语料时永远写不出这句（我会写 fuente de alimentación），所以我永远发现不了这条规则。换成真语料，它当场红了。",

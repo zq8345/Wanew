@@ -18,7 +18,7 @@ import path from 'path';
 
 /* ⚠️ 白名单/标记表 = 「考卷」. 改动必须 bump 版本并知会总调度 —— 否则基线不可比,
    等于自己给自己打分. 基线快照见 scripts/pt-leak-baseline.json */
-export const SCANNER_VERSION = '1.1.0';   // 1.1.0:加 FORMAT_LEAKS 格式判据(多语言窗规格 2026-07-28)
+export const SCANNER_VERSION = '1.2.0';   // 1.2.0:power bank(s) 复数缺口 + 661 alt 已接受债登记(总工签字 2026-08-01)
 
 const ROOT = process.cwd();
 const PT_DIR = path.join(ROOT, 'pt');
@@ -56,7 +56,12 @@ const WHITELIST = [
   /\b\d+(?:[.,]\d+)?\s*(?:W|V|A|mA|mAh|Wh|Hz|K|Mbps|Gbps|MB|GB|FT|ft|M|m|mm|cm|in|inch|polegadas|AWG|Lbs|lbs|kg|g|°C|%)\b/gi,
   /\b\d+\s*[x×*]\s*\d+(?:[.,]\d+)?\s*(?:mm|cm|m)?\b/gi, /\b\d+\/\d+\b/g, /\b\d+(?:[.,]\d+)?\b/g,
   // pt-BR 通用外来词 / 已入乡随俗 (多词在前)
-  /\bpower\s?bank\b/gi, /\bplug[-\s]and[-\s]play\b/gi, /\bplug[-\s]?&[-\s]?play\b/gi,
+  // ⚠️ 2026-08-01(总工签字):原来只有单数 \bpower\s?bank\b —— \b 在 bank 后面立刻收口,
+  //    "power banks"(复数)前缀能匹配但整词匹配不上,规则形同虚设。改 banks? 补上复数,
+  //    仅此一步——绝不收窄成 \bpower\b(那会让 power adapter/power supply 这类真漏译隐形)。
+  //    证据:pt 正文 280+ 处 "Power Bank"/"power bank" vs 仅 2 处 "bateria portátil",
+  //    site precedent 压倒性;这是【借词】不是【漏翻】,和 es-glossary.json 的判断口径一致。
+  /\bpower\s?banks?\b/gi, /\bplug[-\s]and[-\s]play\b/gi, /\bplug[-\s]?&[-\s]?play\b/gi,
   /\boff[-\s]grid\b/gi, /\boff[-\s]road\b/gi, /\bnotebook\b/gi, /\bdesign\b/gi, /\bkit\b/gi,
   /\bcamping\b/gi, /\bmotorhome\b/gi, /\bvan(s)?\b/gi, /\bbooster\b/gi, /\bboost\b/gi,
   /\bupgrade\b/gi, /\bdock\b/gi,
@@ -67,6 +72,23 @@ const WHITELIST = [
   // HTML 实体 / 符号
   /&[a-z]+;/gi, /&#\d+;/g,
 ];
+
+/* ─────────── 已接受的属性级英文债(2026-08-01,总工签字)───────────────────────────
+   ⚠️ 这份表和上面的 WHITELIST 不是一回事,别混:
+     WHITELIST = "这不是缺陷"(型号名/规格token/借词——本来就该是英文,不算漏译)
+     下面这份  = "这是缺陷,我们知道,现在修不了,不许消失"
+   缘起:images[].alt 是【全站 453 个、纯字符串、零分语种】的字段(2026-08-01 实测核对) ——
+   pt/es 用户的读屏软件念的是这段英文,Google 图片搜索读的也是它,是真缺陷。但 schema 没有
+   槽位放译文:把它翻成葡语,EN 页面会跟着变,因为三个语种共用同一个 alt 值。
+   根治是 admin 给 alt 加分语种槽位 + render 按 locale 取 + 存量迁移(跨 admin/render 两个仓的活,
+   另案排期)。**在那件事落地前**,这几条只能挂在"已接受"档里继续红、继续被数,而不是假装
+   没发生(=白名单)或者为了消数字硬翻译（=改坏 EN,见 commit 610e400f3 的说明)。
+   ⚠️ 判据取【精确字符串】不取词根 —— 只免这条已知的 alt,不免"以后随便一个英文 alt"。 */
+const ACCEPTED_ATTR_TEXT = [
+  // 产品 661(Multi Ports Ethernet Adapter):7 张图共用同一句英文 alt,根治待 alt 分语种槽位落地
+  "Multi Ports For Starlink Gen 3/ For Starlink Mini Ethernet Adapter for Wired External Network, 4 Ports Starlink Ethernet Adapter 1 to 4 [4 Devices Networked Simultaneously] - Up to 1 Gbps - wanew",
+];
+const isAcceptedAttr = (text) => ACCEPTED_ATTR_TEXT.includes(text);
 
 /* ─────────── 无歧义英文标记词 (确定不是葡语) ─────────── */
 /* 刻意排除与 pt 同形/近形: a, o, e, as, os, do, da, no, na, em, de, com, por, se, ou,
@@ -299,7 +321,10 @@ for (const file of files) {
     const attr = m[1].toLowerCase(), text = m[2].replace(/\s+/g, ' ').trim();
     if (!text || text.length < 3) continue;
     const hits = englishHits(text);
-    if (hits.length) findings.push({ file: rel, line: lineOf(raw, m.index), kind: attr, hits, text: text.slice(0, 120) });
+    // 属性级"已接受"判据:精确字符串命中 ACCEPTED_ATTR_TEXT ——
+    // 复用 findings 同一个 badged 字段(不是新开一档),这样"已接受/真漏译"那两行统计
+    // 自动把它算进已接受,不用改下面的分类/输出逻辑。
+    if (hits.length) findings.push({ file: rel, line: lineOf(raw, m.index), kind: attr, hits, text: text.slice(0, 120), badged: isAcceptedAttr(text) });
     const fmt = formatHits(text);
     if (fmt.length) formatFindings.push({ file: rel, line: lineOf(raw, m.index), kind: attr, rules: fmt, text: text.slice(0, 120) });
   }
