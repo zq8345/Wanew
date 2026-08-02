@@ -20,6 +20,11 @@
       "what": "ld+json 块内不许有 HTML 实体。⚠️ <script> 是 raw text,实体【不解码】⇒ 结构化数据里的值字面就是 『Mounts &amp; Power』,Google 读到的就是这串。🔴 而这种块 JSON.parse 完全合法 —— 只验『能不能解析』会全绿(实测 227 块含实体、解析失败 0)。**解析通过 ≠ 语义正确。** 冻结旧址页不计入分母"
     },
     {
+      "id": "ldjson-image-check",
+      "cmd": "node scripts/ldjson-image-check.mjs",
+      "what": "Product JSON-LD 的 image 必须出现在该产品自己的图册里(2026-08-01:64/68 曾经不是,无人知晓)"
+    },
+    {
       "id": "catalog-dupe-check",
       "cmd": "node scripts/catalog-dupe-check.mjs",
       "what": "catalog 键重复/冲突"
