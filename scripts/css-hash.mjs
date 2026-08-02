@@ -41,9 +41,18 @@ const ASSETS = [
   { src: JS_SRC, dir: JS_DIR, url: "/skin/js", ext: "js",
     ref: /\/skin\/js\/w3\.(?:js\?v=\d+|[0-9a-f]{10}\.js)/g, stale: /^w3\.[0-9a-f]{10}\.js$/ },
 ];
+/* 🔴 指纹必须是【内容】的函数,不能是【环境】的函数(2026-08-01 官网窗实测,总工独立复核)。
+   原本这里直接对磁盘原始字节做 sha256 —— 而换行风格也在那些字节里:
+       同一份 w3.css,CRLF 形态 -> 70b0442721 · LF 形态 -> c40125224b
+   总工的树是 CRLF(实测 2112 个 CR 字节)、官网窗的树是 LF ⇒ **一个字都不改,交替构建
+   也会让指纹来回翻,全站 623 页跟着翻一次。** 那不只是噪声:它让「这次构建跑对了吗」
+   变得无法回答 —— 差异永远非空,而你分不清是真改动还是换行风格。
+   ⇒ 算 hash 前先把换行归一成 LF。**只影响用来命名的那个摘要,写盘内容一个字节不动**
+     (CRLF 仓照旧存 CRLF)。代价明说:改这一次会全站翻一次指纹,之后才稳。 */
+const forHash = (buf) => Buffer.from(buf.toString("utf8").replace(/\r\n/g, "\n"), "utf8");
 for (const a of ASSETS) {
   a.buf = fs.readFileSync(a.src);
-  a.hash = crypto.createHash("sha256").update(a.buf).digest("hex").slice(0, 10);
+  a.hash = crypto.createHash("sha256").update(forHash(a.buf)).digest("hex").slice(0, 10);
   a.name = `w3.${a.hash}.${a.ext}`;
 }
 const hash = ASSETS[0].hash, NAME = ASSETS[0].name;
