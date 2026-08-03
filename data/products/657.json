@@ -1,7 +1,8 @@
 {
   "id": 657,
   "category": "enterprise",
-  "form": "cables",
+  "form": null,
+  "status": "published",
   "robots": null,
   "i18n": {
     "en": {
@@ -25,11 +26,11 @@
   },
   "images": [
     {
-      "key": "u_file/UPBH/UPBH843/2603/02/products/f393ae6bea.jpg",
+      "key": "u_file/UPBH/UPBH843/2603/02/products/28eb8d747a.jpg",
       "alt": "High Performance 2M Router Cable for Starlink - wanew"
     },
     {
-      "key": "u_file/UPBH/UPBH843/2603/02/products/28eb8d747a.jpg",
+      "key": "u_file/UPBH/UPBH843/2603/02/products/f393ae6bea.jpg",
       "alt": "High Performance 2M Router Cable for Starlink - wanew"
     },
     {
@@ -40,7 +41,5 @@
       "key": "u_file/UPBH/UPBH843/2603/02/products/95f72eb10d.jpg",
       "alt": "High Performance 2M Router Cable for Starlink - wanew"
     }
-  ],
-  "jsonld_product": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"High Performance 2M Router Cable for Starlink\",\n  \"description\": \"CABLE FOR STARLINK High Performance: This cable is compatible with Starlink High Performance and is built for exceptional performance. With welding connectors on both ends, conductivity is enhanced for lightning-fast transfer speeds.HIGH SPEED TRANSMISSION: With the latest RJ45 connectors, starlink\",\n  \"image\": \"https://img.wanew.com/u_file/UPBH/UPBH843/2603/02/products/07099ddde5.jpg\",\n  \"category\": \"Enterprise\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"Wanew\"\n  }\n}\n",
-  "jsonld_breadcrumb": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://wanew.com\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Enterprise\",\n      \"item\": \"https://wanew.com\"\n    }\n  ]\n}\n"
+  ]
 }
